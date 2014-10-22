@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupImageAdExtension">
+    <Position X="15.75" Y="6.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkAdGroupImageAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupSiteLinkAdExtension">
+    <Position X="15.75" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkAdGroupSiteLinkAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCallAdExtension">
+    <Position X="0.75" Y="0.5" Width="3.25" />
+    <Members>
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAACAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkCallAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignCallAdExtension">
+    <Position X="11.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkCampaignCallAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignImageAdExtension">
+    <Position X="11.75" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkCampaignImageAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignLocationAdExtension">
+    <Position X="11.75" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkCampaignLocationAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignProductAdExtension">
+    <Position X="11.75" Y="6.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkCampaignProductAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignSiteLinkAdExtension">
+    <Position X="11.75" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkCampaignSiteLinkAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkImageAdExtension">
+    <Position X="4.25" Y="0.5" Width="3.5" />
+    <Members>
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAEAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkImageAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkLocationAdExtension">
+    <Position X="8" Y="0.5" Width="3.75" />
+    <Members>
+      <Method Name="GetAddressPart" Hidden="true" />
+      <Method Name="GetGeoPointPart" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+      <Method Name="SetAddressPart" Hidden="true" />
+      <Method Name="SetGeoPointPart" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAAAAAAAAAEQAAAAAAAAACCAIgAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkLocationAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkProductAdExtension">
+    <Position X="0.75" Y="2" Width="5.5" />
+    <Members>
+      <Field Name="_hasDeleteAllRow" Hidden="true" />
+      <Field Name="_identifier" Hidden="true" />
+      <Field Name="_productConditionCollections" Hidden="true" />
+      <Method Name="AddProductCollection" Hidden="true" />
+      <Property Name="AllChildrenArePresent" Hidden="true" />
+      <Method Name="BulkProductAdExtension" Hidden="true" />
+      <Property Name="ChildEntities" Hidden="true" />
+      <Method Name="ConvertRawToBulkProductConditionCollections" Hidden="true" />
+      <Method Name="ReadRelatedDataFromStream" Hidden="true" />
+      <Method Name="WriteToStream" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAQAAAAEAwAkAAgAAAAAAQAIACAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkProductAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkProductConditionCollection">
+    <Position X="0.75" Y="4" Width="4" />
+    <Members>
+      <Method Name="BulkProductConditionCollection" Hidden="true" />
+      <Property Name="CanEncloseInMultilineEntity" Hidden="true" />
+      <Method Name="ConditionsToRowValues" Hidden="true" />
+      <Method Name="EncloseInMultilineEntity" Hidden="true" />
+      <Property Name="Identifier" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+      <Method Name="RowValuesToConditions" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IAgAQABEAAAAgEAAAkAAEAQAAAACAQAAAAACQAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkProductConditionCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkSiteLink">
+    <Position X="6.75" Y="4" Width="3.25" />
+    <Members>
+      <Method Name="BulkSiteLink" Hidden="true" />
+      <Property Name="CanEncloseInMultilineEntity" Hidden="true" />
+      <Method Name="EncloseInMultilineEntity" Hidden="true" />
+      <Property Name="Identifier" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IAkAAABEAAAAgEAAAgAAAAAAEAACAAAAAAACQAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkSiteLink.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkSiteLinkAdExtension">
+    <Position X="6.75" Y="2" Width="3.75" />
+    <Members>
+      <Field Name="_bulkSiteLinkResults" Hidden="true" />
+      <Field Name="_hasDeleteAllRow" Hidden="true" />
+      <Field Name="_identifier" Hidden="true" />
+      <Property Name="AllChildrenArePresent" Hidden="true" />
+      <Method Name="BulkSiteLinkAdExtension" Hidden="true" />
+      <Property Name="ChildEntities" Hidden="true" />
+      <Method Name="ConvertRawToBulkSiteLinks" Hidden="true" />
+      <Method Name="ReadRelatedDataFromStream" Hidden="true" />
+      <Method Name="WriteToStream" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAEAAAkAAgQABEAAQAAACAAAAIAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\AdExtensions\BulkSiteLinkAdExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkAdExtensionAssociation">
+    <Position X="12.5" Y="0.5" Width="5.5" />
+    <Members>
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAEIAAAgAAAAAAAAAAAAAAAAAAAAAACAAEAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\AdExtensions\BulkAdExtensionAssociation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

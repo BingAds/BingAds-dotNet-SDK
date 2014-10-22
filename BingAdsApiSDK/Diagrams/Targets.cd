@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupAgeTarget">
+    <Position X="0.5" Y="13.5" Width="2.75" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Age\BulkAdGroupAgeTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupAgeTargetBid">
+    <Position X="0.5" Y="21" Width="2.5" />
+    <Members>
+      <Method Name="BulkAdGroupAgeTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Age\BulkAdGroupAgeTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignAgeTarget">
+    <Position X="0.5" Y="11.75" Width="2.75" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Age\BulkCampaignAgeTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignAgeTargetBid">
+    <Position X="0.5" Y="19.25" Width="2.5" />
+    <Members>
+      <Method Name="BulkCampaignAgeTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Age\BulkCampaignAgeTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkAgeTarget&lt;TBid&gt;">
+    <Position X="2.25" Y="10" Width="2.5" />
+    <Members>
+      <Method Name="ConvertApiToBulkBids" Hidden="true" />
+      <Method Name="ReconstructSubTargets" Hidden="true" />
+      <Method Name="ValidatePropertiesNotNull" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAIAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\Age\BulkAgeTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkAgeTargetBid">
+    <Position X="1.75" Y="17.5" Width="3" />
+    <Members>
+      <Method Name="BulkAgeTargetBid" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\Age\BulkAgeTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkTargetBid">
+    <Position X="6" Y="15.5" Width="1.5" />
+    <Members>
+      <Method Name="BulkTargetBid" Hidden="true" />
+      <Property Name="CanEncloseInMultilineEntity" Hidden="true" />
+      <Method Name="EncloseInMultilineEntity" Hidden="true" />
+      <Property Name="EntityId" Hidden="true" />
+      <Property Name="EntityName" Hidden="true" />
+      <Property Name="Identifier" Hidden="true" />
+      <Property Name="ParentEntityName" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAABEAAIAgEAAAAAQAAAAAAAAAAABAAACQAABAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\BulkTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkSubTarget&lt;TBid&gt;">
+    <Position X="13.5" Y="6.5" Width="2.5" />
+    <Members>
+      <Field Name="_bids" Hidden="true" />
+      <Field Name="_hasDeleteAllRow" Hidden="true" />
+      <Field Name="_identifier" Hidden="true" />
+      <Property Name="AllChildrenArePresent" Hidden="true" />
+      <Property Name="ChildEntities" Hidden="true" />
+      <Method Name="ConvertApiToBulkBids" Hidden="true" />
+      <Method Name="CreateAndPopulateBid" Hidden="true" />
+      <Method Name="CreateBid" Hidden="true" />
+      <Property Name="EntityId" Hidden="true" />
+      <Property Name="EntityName" Hidden="true" />
+      <Field Name="IsBeingWrittenAsPartOfParentTarget" Hidden="true" />
+      <Property Name="ParentEntityName" Hidden="true" />
+      <Method Name="ReconstructSubTargets" Hidden="true" />
+      <Method Name="SetBids" Hidden="true" />
+      <Method Name="SetIdentifier" Hidden="true" />
+      <Method Name="ValidatePropertiesNotNull" Hidden="true" />
+      <Method Name="WriteToStream" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAEAEQQIAEkAABAAQgAAAAIAQAAADAABAAAABIEA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\BulkSubTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupDayTimeTarget">
+    <Position X="3.75" Y="13.5" Width="3.25" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\DayTime\BulkAdGroupDayTimeTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupDayTimeTargetBid">
+    <Position X="4" Y="21" Width="2.5" />
+    <Members>
+      <Method Name="BulkAdGroupDayTimeTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\DayTime\BulkAdGroupDayTimeTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignDayTimeTarget">
+    <Position X="3.75" Y="11.75" Width="3.25" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\DayTime\BulkCampaignDayTimeTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignDayTimeTargetBid">
+    <Position X="4" Y="19.25" Width="2.5" />
+    <Members>
+      <Method Name="BulkCampaignDayTimeTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\DayTime\BulkCampaignDayTimeTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkDayTimeTarget&lt;TBid&gt;">
+    <Position X="5.75" Y="10" Width="3" />
+    <Members>
+      <Method Name="ConvertApiToBulkBids" Hidden="true" />
+      <Method Name="ReconstructSubTargets" Hidden="true" />
+      <Method Name="ValidatePropertiesNotNull" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAEAAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\DayTime\BulkDayTimeTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkDayTimeTargetBid">
+    <Position X="5" Y="17.5" Width="3.5" />
+    <Members>
+      <Method Name="BulkDayTimeTargetBid" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAEAAgAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\DayTime\BulkDayTimeTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupDeviceOsTarget">
+    <Position X="7.5" Y="13.5" Width="3.25" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\DeviceOs\BulkAdGroupDeviceOsTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupDeviceOsTargetBid">
+    <Position X="7.75" Y="21" Width="2.5" />
+    <Members>
+      <Method Name="BulkAdGroupDeviceOsTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\DeviceOs\BulkAdGroupDeviceOsTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignDeviceOsTarget">
+    <Position X="7.5" Y="11.75" Width="3.25" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\DeviceOs\BulkCampaignDeviceOsTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignDeviceOsTargetBid">
+    <Position X="7.75" Y="19.25" Width="2.5" />
+    <Members>
+      <Method Name="BulkCampaignDeviceOsTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\DeviceOs\BulkCampaignDeviceOsTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkDeviceOsTarget&lt;TBid&gt;">
+    <Position X="9.5" Y="10" Width="3.25" />
+    <Members>
+      <Method Name="ConvertApiToBulkBids" Hidden="true" />
+      <Method Name="ReconstructSubTargets" Hidden="true" />
+      <Method Name="ValidatePropertiesNotNull" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAoAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\DeviceOs\BulkDeviceOsTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkDeviceOsTargetBid">
+    <Position X="8.75" Y="17.5" Width="3.5" />
+    <Members>
+      <Method Name="BulkDeviceOsTargetBid" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAAAAAAAAAAABAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\DeviceOs\BulkDeviceOsTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupGenderTarget">
+    <Position X="11.25" Y="13.5" Width="3" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Gender\BulkAdGroupGenderTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupGenderTargetBid">
+    <Position X="11.25" Y="21" Width="2.5" />
+    <Members>
+      <Method Name="BulkAdGroupGenderTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Gender\BulkAdGroupGenderTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignGenderTarget">
+    <Position X="11.25" Y="11.75" Width="3.25" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Gender\BulkCampaignGenderTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignGenderTargetBid">
+    <Position X="11.25" Y="19.25" Width="2.5" />
+    <Members>
+      <Method Name="BulkCampaignGenderTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Gender\BulkCampaignGenderTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkGenderTarget&lt;TBid&gt;">
+    <Position X="13.25" Y="10" Width="3" />
+    <Members>
+      <Method Name="ConvertApiToBulkBids" Hidden="true" />
+      <Method Name="ReconstructSubTargets" Hidden="true" />
+      <Method Name="ValidatePropertiesNotNull" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAABEAAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\Gender\BulkGenderTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkGenderTargetBid">
+    <Position X="12.5" Y="17.5" Width="3.25" />
+    <Members>
+      <Method Name="BulkGenderTargetBid" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAAAAAAgAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\Gender\BulkGenderTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupLocationTarget">
+    <Position X="18.5" Y="13.5" Width="3.25" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Location\BulkAdGroupLocationTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupLocationTargetBid">
+    <Position X="14.5" Y="21.5" Width="2.5" />
+    <Members>
+      <Method Name="BulkAdGroupLocationTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Location\BulkAdGroupLocationTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignLocationTarget">
+    <Position X="18.5" Y="11.75" Width="3.25" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Location\BulkCampaignLocationTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignLocationTargetBid">
+    <Position X="14.5" Y="19.75" Width="2.5" />
+    <Members>
+      <Method Name="BulkCampaignLocationTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Location\BulkCampaignLocationTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkLocationTarget&lt;TBid&gt;">
+    <Position X="20.5" Y="9" Width="3.25" />
+    <Members>
+      <Method Name="ConvertApiToBulkBids" Hidden="true" />
+      <Method Name="ConvertBidsFromApi" Hidden="true" />
+      <Method Name="ConvertBidsToRaw" Hidden="true" />
+      <Method Name="GetLocationProperty" Hidden="true" />
+      <Property Name="Location" Hidden="true" />
+      <Method Name="ReconstructSubTargets" Hidden="true" />
+      <Method Name="SetLocationProperty" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ARAAAECAEAAEAAAAAgIAAAABAAAAAQAAABRAAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\Location\BulkLocationTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkLocationTargetBid">
+    <Position X="16" Y="17.5" Width="3.25" />
+    <Members>
+      <Method Name="BulkLocationTargetBid" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAACAAAAAgAAAAAIAAAAAAAABAAAABAACAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\Location\BulkLocationTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupNegativeLocationTarget">
+    <Position X="22.25" Y="13.5" Width="4" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\NegativeLocation\BulkAdGroupNegativeLocationTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupNegativeLocationTargetBid">
+    <Position X="17.75" Y="21.5" Width="3" />
+    <Members>
+      <Method Name="BulkAdGroupNegativeLocationTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\NegativeLocation\BulkAdGroupNegativeLocationTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignNegativeLocationTarget">
+    <Position X="22.25" Y="11.75" Width="4" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\NegativeLocation\BulkCampaignNegativeLocationTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignNegativeLocationTargetBid">
+    <Position X="17.75" Y="19.75" Width="3" />
+    <Members>
+      <Method Name="BulkCampaignNegativeLocationTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\NegativeLocation\BulkCampaignNegativeLocationTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkNegativeLocationTarget&lt;TBid&gt;">
+    <Position X="25" Y="9" Width="3.25" />
+    <Members>
+      <Method Name="AddBids" Hidden="true" />
+      <Method Name="ConvertApiToBulkBids" Hidden="true" />
+      <Method Name="GetLocationProperty" Hidden="true" />
+      <Property Name="Location" Hidden="true" />
+      <Method Name="ReconstructBids" Hidden="true" />
+      <Method Name="ReconstructSubTargets" Hidden="true" />
+      <Method Name="SetLocationProperty" Hidden="true" />
+    </Members>
+    <InheritanceLine Type="Microsoft.BingAds.Internal.Bulk.Entities.BulkSubTarget&lt;TBid&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="8.117" />
+        <Point X="14.75" Y="8.625" />
+        <Point X="24.625" Y="8.625" />
+        <Point X="24.625" Y="9.438" />
+        <Point X="25" Y="9.438" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAECAEAAEAABAAgIAAAAAAAAAAQAACBRAAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\NegativeLocation\BulkNegativeLocationTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkNegativeLocationTargetBid">
+    <Position X="19.5" Y="17.5" Width="3.25" />
+    <Members>
+      <Method Name="BulkNegativeLocationTargetBid" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAAAAIAAAAAAAAAAAAABAACAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\NegativeLocation\BulkNegativeLocationTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupRadiusTarget">
+    <Position X="15" Y="13.75" Width="3" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Radius\BulkAdGroupRadiusTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupRadiusTargetBid">
+    <Position X="21.75" Y="21" Width="2.5" />
+    <Members>
+      <Method Name="BulkAdGroupRadiusTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Radius\BulkAdGroupRadiusTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignRadiusTarget">
+    <Position X="15" Y="12" Width="3" />
+    <Members>
+      <Method Name="CreateBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Radius\BulkCampaignRadiusTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignRadiusTargetBid">
+    <Position X="21.75" Y="19.25" Width="2.5" />
+    <Members>
+      <Method Name="BulkCampaignRadiusTargetBid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\Radius\BulkCampaignRadiusTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkRadiusTarget&lt;TBid&gt;">
+    <Position X="16.75" Y="10" Width="3" />
+    <Members>
+      <Method Name="ConvertApiToBulkBids" Hidden="true" />
+      <Method Name="GetLocationProperty" Hidden="true" />
+      <Property Name="Location" Hidden="true" />
+      <Method Name="ReconstructSubTargets" Hidden="true" />
+      <Method Name="ReconstructV9Bids" Hidden="true" />
+      <Method Name="SetLocationProperty" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAECAAAAEAAAAAAIAAAAAQAAAAAAAAARAAACAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\Radius\BulkRadiusTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkRadiusTargetBid">
+    <Position X="23" Y="17.5" Width="3.25" />
+    <Members>
+      <Method Name="BulkRadiusTargetBid" Hidden="true" />
+      <Field Name="Mappings" Hidden="true" />
+      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
+      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAAAAAAACAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\Radius\BulkRadiusTargetBid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkAdGroupTarget">
+    <Position X="10" Y="4.5" Width="2.75" />
+    <Members>
+      <Method Name="BulkAdGroupTarget" Hidden="true" />
+      <Method Name="CreateIdentifier" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAABAEAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\BulkAdGroupTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Bulk.Entities.BulkCampaignTarget">
+    <Position X="16.5" Y="4.5" Width="2.5" />
+    <Members>
+      <Method Name="BulkCampaignTarget" Hidden="true" />
+      <Method Name="CreateIdentifier" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Bulk\Entities\Targets\BulkCampaignTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkTarget&lt;TIdentifier, TAgeBid, TAge, TGenderBid, TGender, TDayTimeBid, TDayTime, TLocationBid, TLocation, TNegativeLocationBid, TNegativeLocation, TRadiusTargetBid, TRadius, TDeviceOsBid, TDeviceOs&gt;">
+    <Position X="12.75" Y="0.5" Width="3.75" />
+    <Members>
+      <Field Name="_bids" Hidden="true" />
+      <Field Name="_deleteAllRows" Hidden="true" />
+      <Property Name="AllChildrenArePresent" Hidden="true" />
+      <Method Name="BulkTarget" Hidden="true" />
+      <Property Name="ChildEntities" Hidden="true" />
+      <Method Name="CreateIdentifier" Hidden="true" />
+      <Property Name="EntityId" Hidden="true" />
+      <Property Name="EntityName" Hidden="true" />
+      <Property Name="ParentEntityName" Hidden="true" />
+      <Method Name="PopulateChildTargetBids" Hidden="true" />
+      <Method Name="PopulateChildTargetIdentities" Hidden="true" />
+      <Method Name="ReadRelatedDataFromStream" Hidden="true" />
+      <Method Name="SetDefaultIdentifier" Hidden="true" />
+      <Method Name="WriteToStream" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>CAAQBACEQAIAAAAAQEAQACAAQgAQAAADAAAgEAQGAEA=</HashCode>
+      <FileName>Internal\Bulk\Entities\Targets\BulkTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Microsoft.BingAds.Bulk.Entities.LocationTargetType">
+    <Position X="20.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIIAAAAAAAAAIAAAAAAAAABAAAAAQ=</HashCode>
+      <FileName>Bulk\Entities\Targets\Location\LocationTargetType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

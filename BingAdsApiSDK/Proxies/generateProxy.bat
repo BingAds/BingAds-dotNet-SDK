@@ -1,0 +1,1 @@
+svcutil /directory:%1 /namespace:*,Microsoft.BingAds.%2 /out:%1ServiceProxy.cs /noconfig /serializable /messageContract /enableDataBinding /useSerializerForFaults /collectionType:System.Collections.Generic.IList`1 %3
