@@ -1,18 +1,4 @@
-﻿// Copyright 2014 Microsoft Corporation 
-
-// Licensed under the Apache License, Version 2.0 (the "License"); 
-// you may not use this file except in compliance with the License. 
-// You may obtain a copy of the License at 
-
-//    http://www.apache.org/licenses/LICENSE-2.0 
-
-// Unless required by applicable law or agreed to in writing, software 
-// distributed under the License is distributed on an "AS IS" BASIS, 
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-// See the License for the specific language governing permissions and 
-// limitations under the License. 
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.BingAds.Bulk;
 using Microsoft.BingAds.Bulk.Entities;
 using Microsoft.BingAds.CampaignManagement;
@@ -217,8 +203,8 @@ namespace BingAdsExamples
                         OutputStatusMessage(string.Format("Day : {0}", bid.Day));
                         OutputStatusMessage(string.Format("From Hour : {0}", bid.FromHour));
                         OutputStatusMessage(string.Format("From Minute: {0}", bid.FromMinute));
-                        OutputStatusMessage(string.Format("To Hour : {0}", bid.FromHour));
-                        OutputStatusMessage(string.Format("To Minute: {0}\n", bid.FromMinute));
+                        OutputStatusMessage(string.Format("To Hour : {0}", bid.ToHour));
+                        OutputStatusMessage(string.Format("To Minute: {0}\n", bid.ToMinute));
                     }
                 }
                 else
