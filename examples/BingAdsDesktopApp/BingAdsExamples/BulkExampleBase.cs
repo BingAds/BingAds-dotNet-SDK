@@ -227,8 +227,8 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Day : {0}", entity.DayTimeTargetBid.Day));
                 OutputStatusMessage(string.Format("From Hour : {0}", entity.DayTimeTargetBid.FromHour));
                 OutputStatusMessage(string.Format("From Minute: {0}", entity.DayTimeTargetBid.FromMinute));
-                OutputStatusMessage(string.Format("To Hour : {0}", entity.DayTimeTargetBid.FromHour));
-                OutputStatusMessage(string.Format("To Minute: {0}\n", entity.DayTimeTargetBid.FromMinute));
+                OutputStatusMessage(string.Format("To Hour : {0}", entity.DayTimeTargetBid.ToHour));
+                OutputStatusMessage(string.Format("To Minute: {0}\n", entity.DayTimeTargetBid.ToMinute));
                 
                 if (entity.HasErrors)
                 {
