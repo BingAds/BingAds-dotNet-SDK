@@ -194,7 +194,7 @@ namespace BingAdsExamples
                     OutputStatusMessage("BulkCampaignDayTimeTarget: \n");
                     OutputStatusMessage(string.Format("Campaign Name: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("Campaign Id: {0}", entity.CampaignId));
-                    OutputStatusMessage(string.Format("Target Id: \n{0}", entity.TargetId));
+                    OutputStatusMessage(string.Format("Target Id: {0}\n", entity.TargetId));
 
                     foreach (var bid in entity.DayTimeTarget.Bids)
                     {
@@ -249,7 +249,7 @@ namespace BingAdsExamples
                     OutputStatusMessage("BulkCampaignRadiusTarget: \n");
                     OutputStatusMessage(string.Format("Campaign Name: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("Campaign Id: {0}", entity.CampaignId));
-                    OutputStatusMessage(string.Format("Target Id: \n{0}", entity.TargetId));
+                    OutputStatusMessage(string.Format("Target Id: {0}\n", entity.TargetId));
 
                     foreach (var bid in entity.RadiusTarget.Bids)
                     {
