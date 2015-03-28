@@ -217,10 +217,6 @@ namespace BingAdsExamples
                                     {
                                         BidAdjustment = 20,
                                         DeviceName = "Tablets",
-                                        OSNames = new[]
-                                            {
-                                                "Other"
-                                            }
                                     }
                             },
                     },
@@ -605,14 +601,6 @@ namespace BingAdsExamples
                 {
                     OutputStatusMessage(String.Format("\tBidAdjustment: {0}", bid.BidAdjustment));
                     OutputStatusMessage(String.Format("\tDeviceName: {0}", bid.DeviceName));
-                    if (bid.OSNames != null)
-                    {
-                        OutputStatusMessage("\tOSNames:");
-                        foreach (var osname in bid.OSNames)
-                        {
-                            OutputStatusMessage(String.Format("\t\t{0}", osname));
-                        }
-                    }
                 }
             }
             if (target.Gender != null)
@@ -730,14 +718,6 @@ namespace BingAdsExamples
                 {
                     OutputStatusMessage(String.Format("\tBidAdjustment: {0}", bid.BidAdjustment));
                     OutputStatusMessage(String.Format("\tDeviceName: {0}", bid.DeviceName));
-                    if (bid.OSNames != null)
-                    {
-                        OutputStatusMessage("\tOSNames:");
-                        foreach (var osname in bid.OSNames)
-                        {
-                            OutputStatusMessage(String.Format("\t\t{0}", osname));
-                        }
-                    }
                 }
             }
             if (target.Gender != null)
