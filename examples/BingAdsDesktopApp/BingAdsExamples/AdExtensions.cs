@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -16,12 +18,12 @@ namespace BingAdsExamples
     public class AdExtensions : ExampleBase
     {
         public static ServiceClient<ICampaignManagementService> Service;
-                
+
         public override string Description
         {
             get { return "Campaign Management | Ad Extensions"; }
         }
-        
+
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
@@ -30,21 +32,20 @@ namespace BingAdsExamples
 
                 // Add a campaign that will later be associated with ad extensions. 
 
-                var campaign = new Campaign
-                {
-                    Name = "Women's Shoes " + DateTime.UtcNow,
-                    Description = "Red shoes line.",
-                    BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                    MonthlyBudget = 1000.00,
-                    TimeZone = "PacificTimeUSCanadaTijuana",
-                    DaylightSaving = true
-                };
+                var campaign = GetExampleCampaign();
 
                 var campaignIds = await AddCampaignsAsync(authorizationData.AccountId, new[] { campaign });
 
                 // Specify the extensions.
 
                 var adExtensions = new AdExtension[] {
+                    new AppAdExtension
+                    {
+                        AppPlatform="Windows",
+                        AppStoreId="AppStoreIdGoesHere",
+                        DestinationUrl="DestinationUrlGoesHere",
+                        DisplayText="Contoso",
+                    },
                     new CallAdExtension {
                         CountryCode = "US",
                         PhoneNumber = "2065550100",
@@ -113,26 +114,27 @@ namespace BingAdsExamples
                 OutputStatusMessage("Set ad extension associations.\n\n");
 
                 // Get editorial rejection reasons for the respective ad extension and entity associations.
-                var adExtensionEditorialReasonCollection = 
-                    (AdExtensionEditorialReasonCollection[]) await GetAdExtensionsEditorialReasons(
+                var adExtensionEditorialReasonCollection =
+                    (AdExtensionEditorialReasonCollection[])await GetAdExtensionsEditorialReasons(
                         authorizationData.AccountId,
                         adExtensionIdToEntityIdAssociations,
                         AssociationType.Campaign
                         );
 
-                const AdExtensionsTypeFilter adExtensionsTypeFilter = AdExtensionsTypeFilter.CallAdExtension |
+                const AdExtensionsTypeFilter adExtensionsTypeFilter = AdExtensionsTypeFilter.AppAdExtension |
+                                                                      AdExtensionsTypeFilter.CallAdExtension |
                                                                       AdExtensionsTypeFilter.LocationAdExtension |
                                                                       AdExtensionsTypeFilter.SiteLinksAdExtension;
 
                 // Get the specified ad extensions from the account’s ad extension library.
-                adExtensions = (AdExtension[]) await GetAdExtensionsByIdsAsync(
+                adExtensions = (AdExtension[])await GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     adExtensionIds,
                     adExtensionsTypeFilter
                     );
 
                 PrintAdExtensions(adExtensions, adExtensionEditorialReasonCollection);
-                
+
                 // Remove the specified associations from the respective campaigns or ad groups. 
                 // The extesions are still available in the account's extensions library. 
                 DeleteAdExtensionsAssociationsAsync(
@@ -293,47 +295,63 @@ namespace BingAdsExamples
                     OutputStatusMessage("Ad extension ID: " + extension.Id);
                     OutputStatusMessage("Ad extension Type: " + extension.Type);
 
-                    var adExtension = extension as CallAdExtension;
-                    if (adExtension != null)
+                    var appAdExtension = extension as AppAdExtension;
+                    if (appAdExtension != null)
                     {
-                        OutputStatusMessage("Phone number: " + adExtension.PhoneNumber);
-                        OutputStatusMessage("Country: " + adExtension.CountryCode);
-                        OutputStatusMessage("Is only clickable item: " + adExtension.IsCallOnly);
+                        OutputStatusMessage(string.Format("AppPlatform: {0}", appAdExtension.AppPlatform));
+                        OutputStatusMessage(string.Format("AppStoreId: {0}", appAdExtension.AppStoreId));
+                        OutputStatusMessage(string.Format("DestinationUrl: {0}", appAdExtension.DestinationUrl));
+                        OutputStatusMessage(string.Format("DevicePreference: {0}", appAdExtension.DevicePreference));
+                        OutputStatusMessage(string.Format("DisplayText: {0}", appAdExtension.DisplayText));
+                        OutputStatusMessage(string.Format("Id: {0}", appAdExtension.Id));
+                        OutputStatusMessage(string.Format("Status: {0}", appAdExtension.Status));
+                        OutputStatusMessage(string.Format("Version: {0}", appAdExtension.Version));
                         OutputStatusMessage("\n");
                     }
                     else
                     {
-                        var locationAdExtension = extension as LocationAdExtension;
-                        if (locationAdExtension != null)
+                        var callAdExtension = extension as CallAdExtension;
+                        if (callAdExtension != null)
                         {
-                            OutputStatusMessage("Company name: " + locationAdExtension.CompanyName);
-                            OutputStatusMessage("Phone number: " + locationAdExtension.PhoneNumber);
-                            OutputStatusMessage("Street: " + locationAdExtension.Address.StreetAddress);
-                            OutputStatusMessage("City: " + locationAdExtension.Address.CityName);
-                            OutputStatusMessage("State: " + locationAdExtension.Address.ProvinceName);
-                            OutputStatusMessage("Country: " + locationAdExtension.Address.CountryCode);
-                            OutputStatusMessage("Zip code: " + locationAdExtension.Address.PostalCode);
-                            OutputStatusMessage("Business coordinates determined?: " +
-                                         locationAdExtension.GeoCodeStatus);
-                            OutputStatusMessage("Map icon ID: " + locationAdExtension.IconMediaId);
-                            OutputStatusMessage("Business image ID: " + locationAdExtension.ImageMediaId);
+                            OutputStatusMessage("Phone number: " + callAdExtension.PhoneNumber);
+                            OutputStatusMessage("Country: " + callAdExtension.CountryCode);
+                            OutputStatusMessage("Is only clickable item: " + callAdExtension.IsCallOnly);
                             OutputStatusMessage("\n");
                         }
                         else
                         {
-                            var linksAdExtension = extension as SiteLinksAdExtension;
-                            if (linksAdExtension != null)
+                            var locationAdExtension = extension as LocationAdExtension;
+                            if (locationAdExtension != null)
                             {
-                                foreach (SiteLink siteLink in linksAdExtension.SiteLinks)
-                                {
-                                    OutputStatusMessage("Display URL: " + siteLink.DisplayText);
-                                    OutputStatusMessage("Destination URL: " + siteLink.DestinationUrl);
-                                    OutputStatusMessage("\n");
-                                }
+                                OutputStatusMessage("Company name: " + locationAdExtension.CompanyName);
+                                OutputStatusMessage("Phone number: " + locationAdExtension.PhoneNumber);
+                                OutputStatusMessage("Street: " + locationAdExtension.Address.StreetAddress);
+                                OutputStatusMessage("City: " + locationAdExtension.Address.CityName);
+                                OutputStatusMessage("State: " + locationAdExtension.Address.ProvinceName);
+                                OutputStatusMessage("Country: " + locationAdExtension.Address.CountryCode);
+                                OutputStatusMessage("Zip code: " + locationAdExtension.Address.PostalCode);
+                                OutputStatusMessage("Business coordinates determined?: " +
+                                             locationAdExtension.GeoCodeStatus);
+                                OutputStatusMessage("Map icon ID: " + locationAdExtension.IconMediaId);
+                                OutputStatusMessage("Business image ID: " + locationAdExtension.ImageMediaId);
+                                OutputStatusMessage("\n");
                             }
                             else
                             {
-                                OutputStatusMessage("Unknown extension type");
+                                var linksAdExtension = extension as SiteLinksAdExtension;
+                                if (linksAdExtension != null)
+                                {
+                                    foreach (SiteLink siteLink in linksAdExtension.SiteLinks)
+                                    {
+                                        OutputStatusMessage("Display URL: " + siteLink.DisplayText);
+                                        OutputStatusMessage("Destination URL: " + siteLink.DestinationUrl);
+                                        OutputStatusMessage("\n");
+                                    }
+                                }
+                                else
+                                {
+                                    OutputStatusMessage("Unknown extension type");
+                                }
                             }
                         }
                     }

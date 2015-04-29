@@ -372,7 +372,7 @@ namespace BingAdsExamples
             foreach (BatchError error in partialErrors)
             {
                 // The index of the partial errors is equal to the index of the list
-                // specified in the call to AddKeywords.
+                // specified in the call to AddAds.
 
                 OutputStatusMessage(String.Format("\nAd[{0}] ({1}) not added due to the following error:", 
                     error.Index, attributeValues[error.Index]));

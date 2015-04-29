@@ -20,11 +20,11 @@ namespace BingAdsExamples
         private readonly ExampleBase[] _examples =
             {
                 new EstimatedBid(), 
-                new BulkServiceClientDownloadUpload(), 
-                new AdExtensionsBulk(),
-                new TargetsBulk(),
+                new BulkAdExtensions(),
+                new BulkTargets(),
                 new NegativeKeywords(), 
                 new AdExtensions(),
+                new ShoppingCampaigns(),
                 new CreateKeywordsAds(), 
                 new Targets(), 
                 new SearchUserAccounts(), 

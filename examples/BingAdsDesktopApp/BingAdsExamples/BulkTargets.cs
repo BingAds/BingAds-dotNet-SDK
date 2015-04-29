@@ -15,7 +15,7 @@ namespace BingAdsExamples
     /// <summary>
     /// This example demonstrates how to add and update targets using the BulkServiceManager class.
     /// </summary>
-    public class TargetsBulk : BulkExampleBase
+    public class BulkTargets : BulkExampleBase
     {
         public override string Description
         {

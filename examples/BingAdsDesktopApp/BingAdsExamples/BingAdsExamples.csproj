@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.BingAds">
+      <HintPath>..\packages\Microsoft.BingAds.SDK.9.3.7\lib\net45\Microsoft.BingAds.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -64,9 +67,10 @@
       <DependentUpon>BrowserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SearchUserAccounts.cs" />
+    <Compile Include="ShoppingCampaigns.cs" />
     <Compile Include="StringProtection.cs" />
     <Compile Include="Targets.cs" />
-    <Compile Include="TargetsBulk.cs" />
+    <Compile Include="BulkTargets.cs" />
     <Page Include="BrowserWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,13 +80,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="AdExtensions.cs" />
-    <Compile Include="AdExtensionsBulk.cs" />
+    <Compile Include="BulkAdExtensions.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BulkExampleBase.cs" />
-    <Compile Include="BulkServiceClientDownloadUpload.cs" />
     <Compile Include="CreateKeywordsAds.cs" />
     <Compile Include="EstimatedBid.cs" />
     <Compile Include="ExampleBase.cs" />
@@ -114,6 +117,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
