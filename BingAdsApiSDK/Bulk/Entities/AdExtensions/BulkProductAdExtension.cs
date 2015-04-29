@@ -155,7 +155,7 @@ namespace Microsoft.BingAds.Bulk.Entities
             ProductAdExtension.StoreName = productCollection.StoreName;
         }
 
-        internal override void WriteToStream(IBulkObjectWriter rowWriter)
+        internal override void WriteToStream(IBulkObjectWriter rowWriter, bool excludeReadonlyData)
         {
             ValidatePropertyNotNull(ProductAdExtension, "ProductAdExtension");
 
@@ -168,11 +168,11 @@ namespace Microsoft.BingAds.Bulk.Entities
                 AdExtensionId = ProductAdExtension.Id,
                 Name = ProductAdExtension.Name,
                 Version = ProductAdExtension.Version
-            });
+            }, excludeReadonlyData);
 
             foreach (var bulkSiteLink in ConvertRawToBulkProductConditionCollections())
             {
-                bulkSiteLink.WriteToStream(rowWriter);
+                bulkSiteLink.WriteToStream(rowWriter, excludeReadonlyData);
             }
         }
 
@@ -190,12 +190,9 @@ namespace Microsoft.BingAds.Bulk.Entities
                 {
                     AddProductCollection(nextProductCollection);
                 }
-                else if (reader.TryRead(x => x.Equals(_identifier), out identitifier))
+                else if (reader.TryRead(x => x.Equals(_identifier) && x.IsDeleteRow, out identitifier))
                 {
-                    if (identitifier.Status == AdExtensionStatus.Deleted)
-                    {
-                        _hasDeleteAllRow = true;
-                    }
+                    _hasDeleteAllRow = true;                    
                 }
                 else
                 {

@@ -75,7 +75,7 @@ namespace Microsoft.BingAds.Bulk
         }
 
         internal BulkUploadOperation(string requestId, AuthorizationData authorizationData, string trackingId)
-            : base(requestId, authorizationData, new UploadStatusProvider(requestId, authorizationData), trackingId)
+            : base(requestId, authorizationData, new UploadStatusProvider(requestId), trackingId)
         {
             
         }

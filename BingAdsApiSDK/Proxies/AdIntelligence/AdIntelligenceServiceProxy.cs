@@ -57,6 +57,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace Microsoft.BingAds.AdIntelligence
 {
 #pragma warning disable 1573
@@ -67,7 +69,7 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/gg670967(v=msads.90).aspx">TimeInterval Value Set</see> http://msdn.microsoft.com/en-us/library/gg670967(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see>and <see cref="AdIntelligenceServiceClient.GetPublisherKeywordPerformance">GetPublisherKeywordPerformance</see> service operations.</para>
+    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> and <see cref="AdIntelligenceServiceClient.GetPublisherKeywordPerformance">GetPublisherKeywordPerformance</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name = "TimeInterval", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
@@ -909,7 +911,7 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/gg986819(v=msads.90).aspx">TargetAdPosition Value Set</see> http://msdn.microsoft.com/en-us/library/gg986819(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywordIds">GetEstimatedBidByKeywordIds</see>and <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operations.</para>
+    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywordIds">GetEstimatedBidByKeywordIds</see> and <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name = "TargetAdPosition", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
@@ -1417,8 +1419,8 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/gg712238(v=msads.90).aspx">MatchType Value Set</see> http://msdn.microsoft.com/en-us/library/gg712238(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="EstimatedBidAndTraffic"/>, <see cref="EstimatedPositionAndTraffic"/>, <see cref="KeywordAndMatchType"/>and <see cref="KeywordKPI"/> data objects.</para>
-    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see>and <see cref="AdIntelligenceServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operations.</para>
+    /// <para>Used by <see cref="EstimatedBidAndTraffic"/>, <see cref="EstimatedPositionAndTraffic"/>, <see cref="KeywordAndMatchType"/> and <see cref="KeywordKPI"/> data objects.</para>
+    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> and <see cref="AdIntelligenceServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name = "MatchType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
@@ -1463,8 +1465,8 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/gg712234(v=msads.90).aspx">Currency Value Set</see> http://msdn.microsoft.com/en-us/library/gg712234(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdGroupEstimatedBid"/>, <see cref="BidLandscapePoint"/>, <see cref="EstimatedBidAndTraffic"/>and <see cref="EstimatedPositionAndTraffic"/> data objects.</para>
-    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see>and <see cref="AdIntelligenceServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> service operations.</para>
+    /// <para>Used by <see cref="AdGroupEstimatedBid"/>, <see cref="BidLandscapePoint"/>, <see cref="EstimatedBidAndTraffic"/> and <see cref="EstimatedPositionAndTraffic"/> data objects.</para>
+    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> and <see cref="AdIntelligenceServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name = "Currency", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
@@ -2590,7 +2592,7 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh921738(v=msads.90).aspx">DayMonthAndYear Data Object</see> http://msdn.microsoft.com/en-us/library/hh921738(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdGroupBidLandscape"/>, <see cref="HistoricalSearchCountPeriodic"/>and <see cref="KeywordBidLandscape"/> data objects.</para>
+    /// <para>Used by <see cref="AdGroupBidLandscape"/>, <see cref="HistoricalSearchCountPeriodic"/> and <see cref="KeywordBidLandscape"/> data objects.</para>
     /// <para>Used by <see cref="AdIntelligenceServiceClient.GetHistoricalSearchCount">GetHistoricalSearchCount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4309,7 +4311,7 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn631947(v=msads.90).aspx">BidLandscapePoint Data Object</see> http://msdn.microsoft.com/en-us/library/dn631947(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdGroupBidLandscape"/>and <see cref="KeywordBidLandscape"/> data objects.</para>
+    /// <para>Used by <see cref="AdGroupBidLandscape"/> and <see cref="KeywordBidLandscape"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4600,7 +4602,7 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743748(v=msads.90).aspx">AdGroupBidLandscapeType Value Set</see> http://msdn.microsoft.com/en-us/library/dn743748(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdGroupBidLandscape"/>and <see cref="AdGroupBidLandscapeInput"/> data objects.</para>
+    /// <para>Used by <see cref="AdGroupBidLandscape"/> and <see cref="AdGroupBidLandscapeInput"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name = "AdGroupBidLandscapeType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
@@ -5252,7 +5254,6 @@ namespace Microsoft.BingAds.AdIntelligence
         }
 
         [System.Runtime.Serialization.DataMemberAttribute()]
-        [System.CLSCompliant(false)]
         public Microsoft.BingAds.AdIntelligence.Operator Operator
         {
             get
@@ -5314,11 +5315,11 @@ namespace Microsoft.BingAds.AdIntelligence
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name = "Operator", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
-    [System.CLSCompliant(false)]
     public enum Operator : int
     {
 
         [System.Runtime.Serialization.EnumMemberAttribute()]
+        [CLSCompliant(false)]
         EQUALS = 0,
 
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -6754,10 +6755,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <returns>A list of KeywordIdEstimatedPosition objects. The array contains an item for each keyword specified in the request. If the keyword ID is not valid, the corresponding item in the array will be null.</returns>
         [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedPositionByKeywordIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edPositionByKeywordIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edPositionByKeywordIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edPositionByKeywordIdsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edPositionByKeywordIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordIdsResponse GetEstimatedPositionByKeywordIds(Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordIdsRequest request);
 
         /// <summary>
@@ -6788,10 +6789,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedBidByKeywords", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edBidByKeywordsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edBidByKeywordsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edBidByKeywordsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edBidByKeywordsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordsResponse GetEstimatedBidByKeywords(Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordsRequest request);
 
         /// <summary>
@@ -6919,10 +6920,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <returns>An array of KeywordSuggestion objects. The array contains an item for each keyword specified in the request. The object contains a list of suggested keywords that may perform better than the specified keyword.</returns>
         [System.ServiceModel.OperationContractAttribute(Action = "SuggestKeywordsFromExistingKeywords", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
             "wordsFromExistingKeywordsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
-            "wordsFromExistingKeywordsApiFaultDetailFault", Name = "ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
             "wordsFromExistingKeywordsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+            "wordsFromExistingKeywordsApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.SuggestKeywordsFromExistingKeywordsResponse SuggestKeywordsFromExistingKeywords(Microsoft.BingAds.AdIntelligence.SuggestKeywordsFromExistingKeywordsRequest request);
 
         /// <summary>
@@ -6951,10 +6952,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <returns>An array of KeywordLocationResult objects. Each object contains the keyword, geographical location, and percentage of time that users in the geographical location searched for the specified keyword.</returns>
         [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordLocations", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "LocationsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "LocationsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "LocationsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "LocationsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetKeywordLocationsResponse GetKeywordLocations(Microsoft.BingAds.AdIntelligence.GetKeywordLocationsRequest request);
 
         /// <summary>
@@ -6983,10 +6984,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <returns>An array of KeywordCategoryResult objects. Each object contains the keyword and a list of categories to which it belongs. For more information, see Remarks.</returns>
         [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordCategories", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "CategoriesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "CategoriesApiFaultDetailFault", Name = "ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "CategoriesAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "CategoriesApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetKeywordCategoriesResponse GetKeywordCategories(Microsoft.BingAds.AdIntelligence.GetKeywordCategoriesRequest request);
 
         /// <summary>
@@ -7015,10 +7016,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <returns>An array of KeywordDemographicResult objects. Each object contains the keyword and the percentage of time that users of a certain age and gender searched for the specified keyword.</returns>
         [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordDemographics", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "DemographicsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "DemographicsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "DemographicsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "DemographicsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetKeywordDemographicsResponse GetKeywordDemographics(Microsoft.BingAds.AdIntelligence.GetKeywordDemographicsRequest request);
 
         /// <summary>
@@ -7048,10 +7049,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <returns>An array of KeywordBidLandscape objects. The array contains a KeywordBidLandscape corresponding to each keyword specified in the request. Duplicate keyword identifiers are allowed in the same call and will return the same results.</returns>
         [System.ServiceModel.OperationContractAttribute(Action = "GetBidLandscapeByKeywordIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
             "scapeByKeywordIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
-            "scapeByKeywordIdsApiFaultDetailFault", Name = "ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
             "scapeByKeywordIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+            "scapeByKeywordIdsApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetBidLandscapeByKeywordIdsResponse GetBidLandscapeByKeywordIds(Microsoft.BingAds.AdIntelligence.GetBidLandscapeByKeywordIdsRequest request);
 
         /// <summary>
@@ -7083,10 +7084,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <returns>An array of AdGroupBidLandscape objects. The array contains a AdGroupBidLandscape corresponding to each ad group and bid landscape type input specified in the request. Duplicate input are allowed in the same call and will return the same results.</returns>
         [System.ServiceModel.OperationContractAttribute(Action = "GetBidLandscapeByAdGroupIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
             "scapeByAdGroupIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
-            "scapeByAdGroupIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
             "scapeByAdGroupIdsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+            "scapeByAdGroupIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsResponse GetBidLandscapeByAdGroupIds(Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsRequest request);
 
         /// <summary>
@@ -7107,10 +7108,10 @@ namespace Microsoft.BingAds.AdIntelligence
 
         [System.ServiceModel.OperationContractAttribute(Action = "GetAccountAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
             "AuctionInsightResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
-            "AuctionInsightApiFaultDetailFault", Name = "ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
             "AuctionInsightAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
+            "AuctionInsightApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightResponse GetAccountAuctionInsight(Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightRequest request);
 
         [System.ServiceModel.OperationContractAttribute(Action = "GetAccountAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
@@ -7143,10 +7144,10 @@ namespace Microsoft.BingAds.AdIntelligence
 
         [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "AuctionInsightResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "AuctionInsightApiFaultDetailFault", Name = "ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "AuctionInsightAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "AuctionInsightApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightResponse GetKeywordAuctionInsight(Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightRequest request);
 
         [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
@@ -7155,10 +7156,10 @@ namespace Microsoft.BingAds.AdIntelligence
 
         [System.ServiceModel.OperationContractAttribute(Action = "GetAuctionInsightData", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
             "InsightDataResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
-            "InsightDataApiFaultDetailFault", Name = "ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
             "InsightDataAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+            "InsightDataApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataResponse GetAuctionInsightData(Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataRequest request);
 
         [System.ServiceModel.OperationContractAttribute(Action = "GetAuctionInsightData", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
@@ -9036,6 +9037,12 @@ namespace Microsoft.BingAds.AdIntelligence
         public System.Collections.Generic.IList<long> KeywordIds;
 
         /// <summary>
+        /// When set to false, the suggested bid values might not include the keyword's current bid. The default value is false.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
+        public System.Nullable<bool> IncludeCurrentBid;
+
+        /// <summary>
         /// Constructor for the GetBidLandscapeByKeywordIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -9052,7 +9059,8 @@ namespace Microsoft.BingAds.AdIntelligence
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn631945(v=msads.90).aspx">GetBidLandscapeByKeywordIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn631945(v=msads.90).aspx for details.
         /// </remarks>
         /// <param name="KeywordIds">An array of identifiers of the keywords for which you want to get the list of suggested bid values with estimated performance statistics.</param>
-        public GetBidLandscapeByKeywordIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> KeywordIds)
+        /// <param name="IncludeCurrentBid">When set to false, the suggested bid values might not include the keyword's current bid. The default value is false.</param>
+        public GetBidLandscapeByKeywordIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> KeywordIds, System.Nullable<bool> IncludeCurrentBid)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -9062,6 +9070,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Password = Password;
             this.UserName = UserName;
             this.KeywordIds = KeywordIds;
+            this.IncludeCurrentBid = IncludeCurrentBid;
         }
     }
 

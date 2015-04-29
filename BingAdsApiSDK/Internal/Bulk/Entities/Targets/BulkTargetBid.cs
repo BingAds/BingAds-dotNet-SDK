@@ -113,9 +113,9 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             Identifier.ReadFromRowValues(values);            
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {            
-            Identifier.WriteToRowValues(values);            
+            Identifier.WriteToRowValues(values, excludeReadonlyData);            
         }
         
         internal override bool CanEncloseInMultilineEntity

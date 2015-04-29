@@ -91,7 +91,7 @@ namespace Microsoft.BingAds.Bulk
         public string TrackingId { get; private set; }
 
         /// <summary>
-        /// Gets the final status of the bulk operation (completed, failed etc.) or null if the operation hasn't completed yet.
+        /// Gets the final status of the bulk operation or null if the operation is still running.
         /// </summary>
         public BulkOperationStatus<TStatus> FinalStatus { get; private set; }
 

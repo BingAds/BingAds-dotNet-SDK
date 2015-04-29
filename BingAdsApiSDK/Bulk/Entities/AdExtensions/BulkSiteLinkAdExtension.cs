@@ -147,7 +147,7 @@ namespace Microsoft.BingAds.Bulk.Entities
             _bulkSiteLinkResults.Add(firstSiteLink);
         }
 
-        internal override void WriteToStream(IBulkObjectWriter rowWriter)
+        internal override void WriteToStream(IBulkObjectWriter rowWriter, bool excludeReadonlyData)
         {
             ValidatePropertyNotNull(SiteLinksAdExtension, "SiteLinksAdExtension");
 
@@ -166,7 +166,7 @@ namespace Microsoft.BingAds.Bulk.Entities
                 Status = AdExtensionStatus.Deleted,
                 AccountId = AccountId,
                 AdExtensionId = SiteLinksAdExtension.Id
-            });
+            }, excludeReadonlyData);
 
             if (SiteLinksAdExtension.Status == AdExtensionStatus.Deleted)
             {
@@ -175,7 +175,7 @@ namespace Microsoft.BingAds.Bulk.Entities
 
             foreach (var bulkSiteLink in ConvertRawToBulkSiteLinks())
             {
-                bulkSiteLink.WriteToStream(rowWriter);
+                bulkSiteLink.WriteToStream(rowWriter, excludeReadonlyData);
             }
         }
 
@@ -193,12 +193,9 @@ namespace Microsoft.BingAds.Bulk.Entities
                 {
                     _bulkSiteLinkResults.Add(nextSiteLink);
                 }
-                else if (reader.TryRead(x => x.Equals(_identifier), out identitifier))
+                else if (reader.TryRead(x => x.Equals(_identifier) && x.IsDeleteRow, out identitifier))
                 {
-                    if (identitifier.Status == AdExtensionStatus.Deleted)
-                    {
-                        _hasDeleteAllRow = true;
-                    }
+                    _hasDeleteAllRow = true;
                 }
                 else
                 {

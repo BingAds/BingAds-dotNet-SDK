@@ -66,6 +66,11 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         public RadiusTargetBid2 RadiusTargetBid { get; set; }
 
         /// <summary>
+        /// Defines the possible intent options for location targeting.
+        /// </summary>
+        public IntentOption? IntentOption { get; internal set; }
+
+        /// <summary>
         /// Reserved for internal use.
         /// </summary>
         protected BulkRadiusTargetBid(BulkTargetIdentifier identifier)
@@ -109,6 +114,11 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             new SimpleBulkMapping<BulkRadiusTargetBid>(StringTable.BidAdjustment,
                 c => c.RadiusTargetBid.BidAdjustment.ToString(CultureInfo.InvariantCulture),
                 (v, c) => c.RadiusTargetBid.BidAdjustment = v.Parse<int>()
+            ),
+
+            new SimpleBulkMapping<BulkRadiusTargetBid>(StringTable.PhysicalIntent,
+                c => c.IntentOption.ToBulkString(),
+                (v, c) => c.IntentOption = v.ParseOptional<IntentOption>()
             )
         };
 
@@ -121,11 +131,11 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             values.ConvertToEntity(this, Mappings);
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             ValidatePropertyNotNull(RadiusTargetBid, "RadiusTargetBid");
 
-            base.ProcessMappingsToRowValues(values);
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 
             this.ConvertToValues(values, Mappings);
         }

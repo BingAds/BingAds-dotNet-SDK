@@ -61,12 +61,12 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// <para>For more information, see Ad Group Location Target at http://go.microsoft.com/fwlink/?LinkID=511541. </para>
     /// </summary>
     /// <remarks>
-    /// <para>Each location sub type contains a list of bids. For example <see cref="BulkLocationTarget{TBid}.CityTarget"/> contains a list of <see cref="CityTargetBid"/>. 
+    /// <para>Each location sub type contains a list of bids. For example <see cref="BulkLocationTargetWithStringLocation{TBid}.CityTarget"/> contains a list of <see cref="CityTargetBid"/>. 
     /// Each <see cref="CityTargetBid"/> instance 
-    /// corresponds to one Ad Group Location Target record in the bulk file. If you upload a <see cref="BulkLocationTarget{TBid}.CityTarget"/>, 
+    /// corresponds to one Ad Group Location Target record in the bulk file. If you upload a <see cref="BulkLocationTargetWithStringLocation{TBid}.CityTarget"/>, 
     /// then you are effectively replacing any existing city bids for the corresponding location target.</para>
     /// <para>
-    /// The <see cref="BulkLocationTargetBid.LocationType"/> property determines the geographical location sub type.
+    /// The <see cref="BulkLocationTargetBidWithStringLocation.LocationType"/> property determines the geographical location sub type.
     /// </para>
     /// </remarks>
     /// <seealso cref="BulkServiceManager"/>

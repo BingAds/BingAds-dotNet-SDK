@@ -119,7 +119,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// </summary>
         protected abstract void ValidatePropertiesNotNull();
 
-        internal override void WriteToStream(IBulkObjectWriter streamWriter)
+        internal override void WriteToStream(IBulkObjectWriter streamWriter, bool excludeReadonlyData)
         {
             ValidatePropertiesNotNull();
 
@@ -127,7 +127,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
             deleteRow.Status = BingAds.Bulk.Entities.Status.Deleted;
 
-            streamWriter.WriteObjectRow(deleteRow);
+            streamWriter.WriteObjectRow(deleteRow, excludeReadonlyData);
 
             if (Status == BingAds.Bulk.Entities.Status.Deleted)
             {
@@ -136,7 +136,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
             foreach (var site in ConvertApiToBulkNegativeSites())
             {
-                site.WriteToStream(streamWriter);
+                site.WriteToStream(streamWriter, excludeReadonlyData);
             }
         }
 
@@ -164,12 +164,9 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
                 {
                     _bulkNegativeSites.Add(nextSite);
                 }
-                else if (reader.TryRead(x => x.Equals(_firstRowIdentifier), out identifier))
+                else if (reader.TryRead(x => x.Equals(_firstRowIdentifier) && x.IsDeleteRow, out identifier))
                 {
-                    if (identifier.IsDeleteRow)
-                    {
-                        _hasDeleteAllRow = true;
-                    }
+                    _hasDeleteAllRow = true;
                 }
                 else
                 {
@@ -179,8 +176,8 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
             ReconstructApiObjects();
 
-            Status = _bulkNegativeSites.Count > 0 
-                ? BingAds.Bulk.Entities.Status.Active 
+            Status = _bulkNegativeSites.Count > 0
+                ? BingAds.Bulk.Entities.Status.Active
                 : BingAds.Bulk.Entities.Status.Deleted;
         }
 

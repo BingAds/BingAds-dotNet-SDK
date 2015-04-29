@@ -171,7 +171,7 @@ namespace Microsoft.BingAds.Bulk.Entities
             ProductConditionHelper.AddRowValuesFromConditions(product.Conditions, values);
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             this.ConvertToValues(values, Mappings);
         }

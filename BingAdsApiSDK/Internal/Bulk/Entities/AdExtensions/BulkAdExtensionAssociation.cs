@@ -78,6 +78,11 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// </summary>
         public AdExtensionEditorialStatus? EditorialStatus { get; internal set; }
 
+        /// <summary>
+        /// The historical performance data for the ad extension association.
+        /// </summary>
+        public PerformanceData PerformanceData { get; private set; }
+
         private static readonly IBulkMapping<BulkAdExtensionAssociation>[] Mappings =
         {     
             new SimpleBulkMapping<BulkAdExtensionAssociation>(StringTable.Status,
@@ -101,11 +106,16 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             ),
         };
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             ValidatePropertyNotNull(AdExtensionIdToEntityIdAssociation, "AdExtensionIdToEntityIdAssociation");
 
             this.ConvertToValues(values, Mappings);
+
+            if (!excludeReadonlyData)
+            {
+                PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
+            }
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
@@ -113,6 +123,8 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation();            
 
             values.ConvertToEntity(this, Mappings);
+
+            PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);
         }
     }
 }

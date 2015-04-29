@@ -103,7 +103,21 @@ namespace Microsoft.BingAds.Bulk
         /// </remarks>
         public void WriteEntity(BulkEntity entity)
         {            
-            entity.WriteToStream(_bulkObjectWriter);            
+            entity.WriteToStream(_bulkObjectWriter, false);            
+        }
+
+        /// <summary>
+        /// Writes the specified <see cref="BulkEntity"/> to the file.
+        /// </summary>
+        /// <param name="entity">The bulk entity to write to the file.</param>
+        /// <param name="isForUpload">Whether read only fields should be ignored.</param>
+        /// <remarks>
+        /// Bulk entities that are derived from <see cref="SingleRecordBulkEntity"/> will be written to a single row in the file.
+        /// Bulk entities that are derived from <see cref="MultiRecordBulkEntity"/> will be written to multiple rows in the file.
+        /// </remarks>
+        public void WriteEntity(BulkEntity entity, bool isForUpload)
+        {
+            entity.WriteToStream(_bulkObjectWriter, isForUpload);
         }
 
         /// <summary>

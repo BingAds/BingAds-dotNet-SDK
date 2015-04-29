@@ -53,7 +53,7 @@ using System.Runtime.Serialization;
 namespace Microsoft.BingAds.Bulk
 {
     /// <summary>
-    /// This exception is thrown when attempting to write entities to a bulk file using <see cref="BulkFileWriter.WriteEntity"/>.
+    /// This exception is thrown when attempting to write entities to a bulk file using <see cref="BulkFileWriter.WriteEntity(Microsoft.BingAds.Bulk.Entities.BulkEntity)"/>.
     /// </summary>
     [Serializable]
     public class EntityWriteException : Exception

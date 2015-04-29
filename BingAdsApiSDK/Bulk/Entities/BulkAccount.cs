@@ -105,7 +105,7 @@ namespace Microsoft.BingAds.Bulk.Entities
             )
         };
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             this.ConvertToValues(values, Mappings);
         }

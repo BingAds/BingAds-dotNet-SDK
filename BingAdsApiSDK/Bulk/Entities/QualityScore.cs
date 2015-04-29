@@ -82,18 +82,22 @@ namespace Microsoft.BingAds.Bulk.Entities
         private static readonly IBulkMapping<QualityScoreData>[] Mappings =
         {
             new SimpleBulkMapping<QualityScoreData>(StringTable.QualityScore,                
+                c => c.QualityScore.ToBulkString(),
                 (v, c) => c.QualityScore = v.ParseOptional<int>()
             ),
 
             new SimpleBulkMapping<QualityScoreData>(StringTable.KeywordRelevance,                
+                c => c.KeywordRelevance.ToBulkString(),
                 (v, c) => c.KeywordRelevance = v.ParseOptional<int>()
             ),
 
             new SimpleBulkMapping<QualityScoreData>(StringTable.LandingPageRelevance,                
+                c => c.LandingPageRelevance.ToBulkString(),
                 (v, c) => c.LandingPageRelevance = v.ParseOptional<int>()
             ),
 
             new SimpleBulkMapping<QualityScoreData>(StringTable.LandingPageUserExperience,                
+                c => c.LandingPageUserExperience.ToBulkString(),
                 (v, c) => c.LandingPageUserExperience = v.ParseOptional<int>()
             )
         };
@@ -107,9 +111,22 @@ namespace Microsoft.BingAds.Bulk.Entities
             return qualityScoreData.HasAnyValues ? qualityScoreData : null;
         }
 
+        internal static void WriteToRowValuesIfNotNull(QualityScoreData qualityScoreData, RowValues values)
+        {
+            if (qualityScoreData != null)
+            {
+                qualityScoreData.WriteToRowValues(values);
+            }
+        }
+
         private void ReadFromRowValues(RowValues values)
         {
             values.ConvertToEntity(this, Mappings);
+        }
+
+        private void WriteToRowValues(RowValues values)
+        {
+            this.ConvertToValues(values, Mappings);
         }
 
         private bool HasAnyValues

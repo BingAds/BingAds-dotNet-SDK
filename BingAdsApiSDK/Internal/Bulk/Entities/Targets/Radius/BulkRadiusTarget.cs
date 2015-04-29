@@ -47,10 +47,8 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.BingAds.Bulk.Entities;
 using Microsoft.BingAds.CampaignManagement;
 
 // ReSharper disable once CheckNamespace
@@ -60,7 +58,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
     /// This abstract base class provides properties that are shared by all bulk radius target classes.
     /// </summary>
     /// <typeparam name="TBid"><see cref="BulkRadiusTargetBid"/></typeparam>
-    public abstract class BulkRadiusTarget<TBid> : BulkSubTarget<TBid>
+    public abstract class BulkRadiusTarget<TBid> : BulkTargetWithLocation<TBid>
         where TBid : BulkRadiusTargetBid
     {                
         /// <summary>
@@ -79,18 +77,21 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         {
             get { return GetLocationProperty(x => x.IntentOption); }
             set { SetLocationProperty(x => x.IntentOption = value); }
-        }
-
-        internal LocationTarget2 Location { get; set; }
+        }        
 
         /// <summary>
         /// Reserved for internal use.
         /// </summary>
         protected override void ReconstructSubTargets()
         {
-            ReconstructApiBids(x => x.RadiusTargetBid, () => Location.RadiusTarget, _ => Location.RadiusTarget = _, () => Location.RadiusTarget.Bids, _ => Location.RadiusTarget.Bids = _);
-        }
+            ReconstructApiBids(Bids, _ => _.RadiusTargetBid, () => Location.RadiusTarget, () => new RadiusTarget2(), _ => Location.RadiusTarget = _, () => Location.RadiusTarget.Bids, _ => Location.RadiusTarget.Bids = _);
 
+            if (Bids.Count > 0 && Bids[0].IntentOption != null)
+            {
+                Location.IntentOption = Bids[0].IntentOption;
+            }
+        }
+        
         /// <summary>
         /// Reserved for internal use.
         /// </summary>
@@ -101,7 +102,14 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
                 return new List<TBid>();
             }
 
-            return Location.RadiusTarget.Bids.Select(b => CreateAndPopulateBid(x => x.RadiusTargetBid = b)).ToList();
+            var bulkBids = Location.RadiusTarget.Bids.Select(b => CreateAndPopulateBid(x => x.RadiusTargetBid = b)).ToList();
+
+            foreach (var bulkBid in bulkBids)
+            {
+                bulkBid.IntentOption = Location.IntentOption;
+            }
+
+            return bulkBids;
         }
 
         /// <summary>
@@ -121,45 +129,6 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             {
                 ValidateListNotNullOrEmpty(RadiusTarget.Bids, "RadiusTarget.Bids");
             }
-        }
-
-        private void ReconstructApiBids<TApiBid, TTarget>(Func<TBid, TApiBid> createBid, Func<TTarget> getTarget, Action<TTarget> setTarget, Func<IList<TApiBid>> getBids, Action<IList<TApiBid>> setBids)
-            where TApiBid : new()
-            where TTarget : class, new()
-        {
-            var bidsFromFile = Bids.Select(createBid).ToList();
-
-            if (bidsFromFile.Count > 0)
-            {
-                if (getTarget() == null)
-                {
-                    setTarget(new TTarget());
-
-                    setBids(new List<TApiBid>());
-                }
-
-                getBids().AddRange(bidsFromFile);
-            }
-        }
-
-        private T GetLocationProperty<T>(Func<LocationTarget2, T> getFunc)
-        {
-            if (Location == null)
-            {
-                return default(T);
-            }
-
-            return getFunc(Location);
-        }
-
-        private void SetLocationProperty(Action<LocationTarget2> setAction)
-        {
-            if (Location == null)
-            {
-                Location = new LocationTarget2();
-            }
-
-            setAction(Location);
-        }
+        }        
     }
 }

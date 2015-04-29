@@ -86,6 +86,25 @@ namespace Microsoft.BingAds
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the OAuthDesktopMobileAuthCodeGrant class with the specified ClientId.
+        /// </summary>
+        /// <param name="clientId">
+        /// The client identifier corresponding to your registered application.  
+        /// </param>
+        /// <param name="refreshToken">
+        /// The refresh token that should be used to request an access token.
+        /// </param>
+        /// <remarks>
+        /// For more information about using a client identifier for authentication, see the 
+        /// Client Password Authentication section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1
+        /// </remarks>
+        public OAuthDesktopMobileAuthCodeGrant(string clientId, string refreshToken)
+            : base(clientId, null, LiveComOAuthService.DesktopRedirectUri, refreshToken)
+        {
+
+        }
+
         internal OAuthDesktopMobileAuthCodeGrant(string clientId, IOAuthService oauthService)
             : base(clientId, null, LiveComOAuthService.DesktopRedirectUri, oauthService)
         {

@@ -109,11 +109,11 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             values.ConvertToEntity(this, Mappings);
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             ValidatePropertyNotNull(DeviceOsTargetBid, "DeviceOsTargetBid");
 
-            base.ProcessMappingsToRowValues(values);
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 
             this.ConvertToValues(values, Mappings);
         }

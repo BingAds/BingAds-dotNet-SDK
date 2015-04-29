@@ -71,19 +71,8 @@ namespace Microsoft.BingAds.Internal.Bulk.Mappings
             _csvToField = csvToField;
         }
 
-        public SimpleBulkMapping(string csvHeader, Action<string, T> csvToField)
-            : this(csvHeader, null, csvToField)
-        {
-
-        }
-
         public void ConvertToCsv(T entity, RowValues values)
         {
-            if (_fieldToCsv == null)
-            {
-                return; //"This mapping is read only");
-            }
-
             values[_csvHeader] = _fieldToCsv(entity);
         }
 

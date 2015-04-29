@@ -72,7 +72,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         internal Type TargetBidType { get; set; }
 
         /// <summary>
-        /// Name of the column containing the entity name (Campaign or Ad Group)
+        /// Reserved for internal use.
         /// </summary>
         protected internal abstract string EntityColumnName { get; }
 
@@ -112,7 +112,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             TargetBidType = targetBidType;
         }
 
-        internal override void WriteToRowValues(RowValues values)
+        internal override void WriteToRowValues(RowValues values, bool excludeReadonlyData)
         {
             this.ConvertToValues(values, Mappings);
         }
@@ -127,9 +127,20 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// </summary>
         public override bool Equals(BulkEntityIdentifier other)
         {
+            var otherIdentifier = other as BulkTargetIdentifier;
+
+            if (otherIdentifier == null)
+            {
+                return false;
+            }
+            var isNameNotEmpty = !string.IsNullOrEmpty(EntityName) && !string.IsNullOrEmpty(ParentEntityName);
+
             return
                 GetType() == other.GetType() &&
-                EntityId == ((BulkTargetIdentifier)other).EntityId;
+                (EntityId == otherIdentifier.EntityId ||
+                 (isNameNotEmpty &&
+                  EntityName == otherIdentifier.EntityName &&
+                  ParentEntityName == otherIdentifier.ParentEntityName));
         }
 
         internal override bool IsDeleteRow

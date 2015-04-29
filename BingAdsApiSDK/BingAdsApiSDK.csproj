@@ -71,6 +71,9 @@
     <Compile Include="Bulk\Entities\AdExtensions\BulkProductConditionCollection.cs" />
     <Compile Include="Bulk\Entities\AdExtensions\BulkSiteLink.cs" />
     <Compile Include="Bulk\Entities\AdExtensions\BulkSiteLinkAdExtension.cs" />
+    <Compile Include="Bulk\Entities\AdExtensions\BulkAppAdExtension.cs" />
+    <Compile Include="Bulk\Entities\AdExtensions\BulkCampaignAppAdExtension.cs" />
+    <Compile Include="Bulk\Entities\AdExtensions\BulkAdGroupAppAdExtension.cs" />
     <Compile Include="Bulk\Entities\Ads\BulkMobileAd.cs" />
     <Compile Include="Bulk\Entities\Ads\BulkProductAd.cs" />
     <Compile Include="Bulk\Entities\Ads\BulkTextAd.cs" />
@@ -88,6 +91,8 @@
     <Compile Include="Bulk\Entities\NegativeKeywords\BulkCampaignNegativeKeywordList.cs" />
     <Compile Include="Internal\Bulk\BulkFileReaderIEnumerator.cs" />
     <Compile Include="Internal\Bulk\BulkFileReaderEnumerable.cs" />
+    <Compile Include="Internal\Bulk\Entities\AdExtensions\BulkAdGroupAdExtensionAssociation.cs" />
+    <Compile Include="Internal\Bulk\Entities\AdExtensions\BulkCampaignAdExtensionAssociation.cs" />
     <Compile Include="Internal\Bulk\Entities\NegativeKeywords\BulkEntityNegativeKeyword.cs" />
     <Compile Include="Internal\Bulk\Entities\NegativeKeywords\BulkNegativeKeyword.cs" />
     <Compile Include="Bulk\Entities\NegativeKeywords\BulkNegativeKeywordList.cs" />
@@ -170,10 +175,13 @@
     <Compile Include="Internal\Bulk\Entities\Targets\Age\BulkAgeTargetBid.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\BulkAdGroupTargetIdentifier.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\BulkCampaignTargetIdentitfier.cs" />
+    <Compile Include="Internal\Bulk\Entities\Targets\BulkLocationTargetWithStringLocation.cs" />
+    <Compile Include="Internal\Bulk\Entities\Targets\BulkLocationTargetBidWithStringLocation.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\BulkSubTarget.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\BulkTarget.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\BulkTargetBid.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\BulkTargetIdentifier.cs" />
+    <Compile Include="Internal\Bulk\Entities\Targets\BulkTargetWithLocation.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\DayTime\BulkDayTimeTarget.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\DayTime\BulkDayTimeTargetBid.cs" />
     <Compile Include="Internal\Bulk\Entities\Targets\DeviceOs\BulkDeviceOsTarget.cs" />

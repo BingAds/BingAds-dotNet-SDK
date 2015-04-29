@@ -821,7 +821,7 @@ namespace Microsoft.BingAds.CustomerBilling
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ee704172(v=msads.90).aspx">DataType Value Set</see> http://msdn.microsoft.com/en-us/library/ee704172(v=msads.90).aspx for details.
     /// <para>Used by <see cref="BillingDocument"/> data object.</para>
-    /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see>and <see cref="CustomerBillingServiceClient.GetDisplayInvoices">GetDisplayInvoices</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see> and <see cref="CustomerBillingServiceClient.GetDisplayInvoices">GetDisplayInvoices</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DataType", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
@@ -846,7 +846,7 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn469177(v=msads.90).aspx">BillingDocument Data Object</see> http://msdn.microsoft.com/en-us/library/dn469177(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see>, <see cref="CustomerBillingServiceClient.GetDisplayInvoices">GetDisplayInvoices</see>and <see cref="CustomerBillingServiceClient.GetKOHIOInvoices">GetKOHIOInvoices</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see>, <see cref="CustomerBillingServiceClient.GetDisplayInvoices">GetDisplayInvoices</see> and <see cref="CustomerBillingServiceClient.GetKOHIOInvoices">GetKOHIOInvoices</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -958,7 +958,7 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ff728378(v=msads.90).aspx">InsertionOrder Data Object</see> http://msdn.microsoft.com/en-us/library/ff728378(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerBillingServiceClient.AddInsertionOrder">AddInsertionOrder</see>, <see cref="CustomerBillingServiceClient.GetInsertionOrdersByAccount">GetInsertionOrdersByAccount</see>, <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see>and <see cref="CustomerBillingServiceClient.UpdateInsertionOrder">UpdateInsertionOrder</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerBillingServiceClient.AddInsertionOrder">AddInsertionOrder</see>, <see cref="CustomerBillingServiceClient.GetInsertionOrdersByAccount">GetInsertionOrdersByAccount</see>, <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> and <see cref="CustomerBillingServiceClient.UpdateInsertionOrder">UpdateInsertionOrder</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

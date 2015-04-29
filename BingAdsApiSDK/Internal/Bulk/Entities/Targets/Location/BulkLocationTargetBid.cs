@@ -58,14 +58,8 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
     /// <summary>
     /// This abstract base class provides properties that are shared by all bulk location target bid classes.
     /// </summary>
-    public abstract class BulkLocationTargetBid : BulkTargetBid
-    {        
-        /// <summary>
-        /// The geographical location code.
-        /// Corresponds to the 'Target' field in the bulk file.
-        /// </summary>
-        public string Location { get; set; }
-
+    public abstract class BulkLocationTargetBid : BulkLocationTargetBidWithStringLocation
+    {               
         /// <summary>
         /// The percentage adjustment to the base bid.
         /// Corresponds to the 'Bid Adjustment' field in the bulk file.
@@ -73,20 +67,14 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         public int BidAdjustment { get; set; }
 
         /// <summary>
-        /// The sub location target type.
-        /// Corresponds to the 'Sub Type' field in the bulk file.
-        /// </summary>
-        public LocationTargetType LocationType { get; set; }
-
-        /// <summary>
         /// Defines the possible intent options for location targeting.
         /// </summary>
-        public IntentOption? IntentOption { get; set; }
+        public IntentOption? IntentOption { get; internal set; }
 
         /// <summary>
-        /// Initializes a new instance of this class with the specified identifier.
+        /// Reserved for internal use.
         /// </summary>
-        /// <param name="identifier"></param>
+        /// <param name="identifier">Reserved for internal use.</param>
         protected internal BulkLocationTargetBid(BulkTargetIdentifier identifier)
             : base(identifier)
         {
@@ -95,11 +83,6 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
         private static readonly IBulkMapping<BulkLocationTargetBid>[] Mappings =
         {
-            new SimpleBulkMapping<BulkLocationTargetBid>(StringTable.Target,
-                c => c.Location,
-                (v, c) => c.Location = v
-            ),
-
             new SimpleBulkMapping<BulkLocationTargetBid>(StringTable.BidAdjustment,
                 c => c.BidAdjustment.ToString(CultureInfo.InvariantCulture),
                 (v, c) => c.BidAdjustment = int.Parse(v)
@@ -108,12 +91,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             new SimpleBulkMapping<BulkLocationTargetBid>(StringTable.PhysicalIntent,
                 c => c.IntentOption.ToBulkString(),
                 (v, c) => c.IntentOption = v.ParseOptional<IntentOption>()
-            ),
-            
-            new SimpleBulkMapping<BulkLocationTargetBid>(StringTable.SubType,
-                c => c.LocationType.ToLocationTargetTypeBulkString(),
-                (v, c) => c.LocationType = v.ParseLocationTargetType()
-            )
+            )                        
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
@@ -123,9 +101,9 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             values.ConvertToEntity(this, Mappings);
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            base.ProcessMappingsToRowValues(values);
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 
             this.ConvertToValues(values, Mappings);
         }

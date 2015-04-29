@@ -680,6 +680,24 @@ namespace Microsoft.BingAds.Optimizer
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SuggestedKeywordField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> AverageCPCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> AverageCTRField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> ClickShareField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> EstimatedIncreaseInClicksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> EstimatedIncreaseInCostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> EstimatedIncreaseInImpressionsField;
+        
         /// <summary>
         /// The identifier of the ad group to apply the suggested keyword to.
         /// </summary>
@@ -819,57 +837,12 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-    }
-    
-    /// <summary>
-    /// Defines an object that contains the marketplace impact statistics of including broad match type keyword bids.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn766186(v=msads.90).aspx">BroadMatchKeywordOpportunity Data Object</see> http://msdn.microsoft.com/en-us/library/dn766186(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchKeywordOpportunity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
-        "i.DataContracts.Entities")]
-    [System.SerializableAttribute()]
-    public partial class BroadMatchKeywordOpportunity : Microsoft.BingAds.Optimizer.KeywordOpportunity
-    {
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double AverageCPCField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double AverageCTRField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ClickShareField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double EstimatedIncreaseInClicksField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double EstimatedIncreaseInCostField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long EstimatedIncreaseInImpressionsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ImpressionShareField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ReferenceKeywordBidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long ReferenceKeywordIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ReferenceKeywordMatchTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchSearchQueryKPI> SearchQueryKPIsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double AverageCPC
+        /// <summary>
+        /// Broad match average CPC in the marketplace.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public System.Nullable<double> AverageCPC
         {
             get
             {
@@ -888,8 +861,8 @@ namespace Microsoft.BingAds.Optimizer
         /// <summary>
         /// Broad match average CTR in the marketplace.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double AverageCTR
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public System.Nullable<double> AverageCTR
         {
             get
             {
@@ -908,8 +881,8 @@ namespace Microsoft.BingAds.Optimizer
         /// <summary>
         /// Broad match click share in the marketplace.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double ClickShare
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public System.Nullable<double> ClickShare
         {
             get
             {
@@ -928,8 +901,8 @@ namespace Microsoft.BingAds.Optimizer
         /// <summary>
         /// Estimated increase in clicks if the opportunity is applied.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double EstimatedIncreaseInClicks
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public System.Nullable<double> EstimatedIncreaseInClicks
         {
             get
             {
@@ -948,8 +921,8 @@ namespace Microsoft.BingAds.Optimizer
         /// <summary>
         /// Estimated increase in cost if the opportunity is applied.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double EstimatedIncreaseInCost
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public System.Nullable<double> EstimatedIncreaseInCost
         {
             get
             {
@@ -968,8 +941,8 @@ namespace Microsoft.BingAds.Optimizer
         /// <summary>
         /// Estimated increase in impressions if the opportunity is applied.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long EstimatedIncreaseInImpressions
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        public System.Nullable<long> EstimatedIncreaseInImpressions
         {
             get
             {
@@ -984,6 +957,36 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
+    }
+    
+    /// <summary>
+    /// Defines an object that contains the marketplace impact statistics of including broad match type keyword bids.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn766186(v=msads.90).aspx">BroadMatchKeywordOpportunity Data Object</see> http://msdn.microsoft.com/en-us/library/dn766186(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchKeywordOpportunity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+        "i.DataContracts.Entities")]
+    [System.SerializableAttribute()]
+    public partial class BroadMatchKeywordOpportunity : Microsoft.BingAds.Optimizer.KeywordOpportunity
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ImpressionShareField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ReferenceKeywordBidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long ReferenceKeywordIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ReferenceKeywordMatchTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchSearchQueryKPI> SearchQueryKPIsField;
         
         /// <summary>
         /// Broad match impression share in the marketplace.
@@ -1909,7 +1912,7 @@ namespace Microsoft.BingAds.Optimizer
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn766187(v=msads.90).aspx">BroadMatchSearchQueryKPI Data Object</see> http://msdn.microsoft.com/en-us/library/dn766187(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="BroadMatchKeywordOpportunity"/>and <see cref="BroadMatchSearchQuery"/> data objects.</para>
+    /// <para>Used by <see cref="BroadMatchKeywordOpportunity"/> and <see cref="BroadMatchSearchQuery"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2844,17 +2847,17 @@ namespace Microsoft.BingAds.Optimizer
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn766182(v=msads.90).aspx">OpportunityModifier Data Object</see> http://msdn.microsoft.com/en-us/library/dn766182(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="OptimizerServiceClient.ApplyOpportunities">ApplyOpportunities</see>and <see cref="OptimizerServiceClient.ApplyOpportunityModifiers">ApplyOpportunityModifiers</see> service operations.</para>
+    /// <para>Used by <see cref="OptimizerServiceClient.ApplyOpportunities">ApplyOpportunities</see> and <see cref="OptimizerServiceClient.ApplyOpportunityModifiers">ApplyOpportunityModifiers</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BidOpportunityModifier))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BroadMatchOpportunityModifier))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.KeywordOpportunityModifier))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BudgetOpportunityModifier))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BroadMatchOpportunityModifier))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BidOpportunityModifier))]
     public partial class OpportunityModifier : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -2904,6 +2907,82 @@ namespace Microsoft.BingAds.Optimizer
             if ((propertyChanged != null))
             {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a bid opportunity modifier object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn766190(v=msads.90).aspx">BidOpportunityModifier Data Object</see> http://msdn.microsoft.com/en-us/library/dn766190(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BidOpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+        "i.DataContracts.Entities")]
+    [System.SerializableAttribute()]
+    public partial class BidOpportunityModifier : Microsoft.BingAds.Optimizer.OpportunityModifier
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> BidField;
+        
+        /// <summary>
+        /// The new bid amount that you want to apply instead of the suggested opportunity.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Bid
+        {
+            get
+            {
+                return this.BidField;
+            }
+            set
+            {
+                if ((this.BidField.Equals(value) != true))
+                {
+                    this.BidField = value;
+                    this.RaisePropertyChanged("Bid");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a broad match opportunity modifier object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn766192(v=msads.90).aspx">BroadMatchOpportunityModifier Data Object</see> http://msdn.microsoft.com/en-us/library/dn766192(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchOpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+        "i.DataContracts.Entities")]
+    [System.SerializableAttribute()]
+    public partial class BroadMatchOpportunityModifier : Microsoft.BingAds.Optimizer.OpportunityModifier
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> BidField;
+        
+        /// <summary>
+        /// The new bid amount that you want to apply instead of the suggested opportunity.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Bid
+        {
+            get
+            {
+                return this.BidField;
+            }
+            set
+            {
+                if ((this.BidField.Equals(value) != true))
+                {
+                    this.BidField = value;
+                    this.RaisePropertyChanged("Bid");
+                }
             }
         }
     }
@@ -2984,88 +3063,12 @@ namespace Microsoft.BingAds.Optimizer
         }
     }
     
-    /// <summary>
-    /// Defines a broad match opportunity modifier object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn766192(v=msads.90).aspx">BroadMatchOpportunityModifier Data Object</see> http://msdn.microsoft.com/en-us/library/dn766192(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchOpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
-        "i.DataContracts.Entities")]
-    [System.SerializableAttribute()]
-    public partial class BroadMatchOpportunityModifier : Microsoft.BingAds.Optimizer.OpportunityModifier
-    {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<double> BidField;
-        
-        /// <summary>
-        /// The new bid amount that you want to apply instead of the suggested opportunity.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Bid
-        {
-            get
-            {
-                return this.BidField;
-            }
-            set
-            {
-                if ((this.BidField.Equals(value) != true))
-                {
-                    this.BidField = value;
-                    this.RaisePropertyChanged("Bid");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines a bid opportunity modifier object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn766190(v=msads.90).aspx">BidOpportunityModifier Data Object</see> http://msdn.microsoft.com/en-us/library/dn766190(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BidOpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
-        "i.DataContracts.Entities")]
-    [System.SerializableAttribute()]
-    public partial class BidOpportunityModifier : Microsoft.BingAds.Optimizer.OpportunityModifier
-    {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<double> BidField;
-        
-        /// <summary>
-        /// The new bid amount that you want to apply instead of the suggested opportunity.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<double> Bid
-        {
-            get
-            {
-                return this.BidField;
-            }
-            set
-            {
-                if ((this.BidField.Equals(value) != true))
-                {
-                    this.BidField = value;
-                    this.RaisePropertyChanged("Bid");
-                }
-            }
-        }
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AppliedResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.KeywordAppliedResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BroadMatchAppliedResult))]
     public partial class AppliedResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -3158,10 +3161,10 @@ namespace Microsoft.BingAds.Optimizer
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordAppliedResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchAppliedResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
-    public partial class KeywordAppliedResult : Microsoft.BingAds.Optimizer.AppliedResult
+    public partial class BroadMatchAppliedResult : Microsoft.BingAds.Optimizer.AppliedResult
     {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3324,10 +3327,10 @@ namespace Microsoft.BingAds.Optimizer
         
         [System.ServiceModel.OperationContractAttribute(Action="GetBroadMatchOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
             "nitiesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
-            "nitiesApiFaultDetailFault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
             "nitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
+            "nitiesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesResponse GetBroadMatchOpportunities(Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="GetBroadMatchOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
@@ -3348,10 +3351,10 @@ namespace Microsoft.BingAds.Optimizer
         
         [System.ServiceModel.OperationContractAttribute(Action="ApplyOpportunityModifiers", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
             "fiersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
-            "fiersApiFaultDetailFault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
             "fiersAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
+            "fiersApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersResponse ApplyOpportunityModifiers(Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="ApplyOpportunityModifiers", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
@@ -3827,9 +3830,15 @@ namespace Microsoft.BingAds.Optimizer
         public System.Nullable<long> CampaignId;
         
         /// <summary>
-        /// Determines the type or types of keyword opportunities that you want.
+        /// When set to true, the estimated impact elements are included in the KeywordOpportunity object. These elements are:
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=3)]
+        public System.Nullable<bool> IncludeEstimations;
+        
+        /// <summary>
+        /// Determines the type or types of keyword opportunities that you want.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=4)]
         public System.Nullable<Microsoft.BingAds.Optimizer.KeywordOpportunityType> OpportunityType;
         
         /// <summary>
@@ -3851,8 +3860,9 @@ namespace Microsoft.BingAds.Optimizer
         /// <param name="AccountId">The identifier of the account that owns the specified campaign.</param>
         /// <param name="AdGroupId">The identifier of the ad group to get keyword suggestions for.</param>
         /// <param name="CampaignId">The identifier of the campaign that owns the specified ad group.</param>
+        /// <param name="IncludeEstimations">When set to true, the estimated impact elements are included in the KeywordOpportunity object. These elements are:</param>
         /// <param name="OpportunityType">Determines the type or types of keyword opportunities that you want.</param>
-        public GetKeywordOpportunitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<long> AdGroupId, System.Nullable<long> CampaignId, System.Nullable<Microsoft.BingAds.Optimizer.KeywordOpportunityType> OpportunityType)
+        public GetKeywordOpportunitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<long> AdGroupId, System.Nullable<long> CampaignId, System.Nullable<bool> IncludeEstimations, System.Nullable<Microsoft.BingAds.Optimizer.KeywordOpportunityType> OpportunityType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -3864,6 +3874,7 @@ namespace Microsoft.BingAds.Optimizer
             this.AccountId = AccountId;
             this.AdGroupId = AdGroupId;
             this.CampaignId = CampaignId;
+            this.IncludeEstimations = IncludeEstimations;
             this.OpportunityType = OpportunityType;
         }
     }

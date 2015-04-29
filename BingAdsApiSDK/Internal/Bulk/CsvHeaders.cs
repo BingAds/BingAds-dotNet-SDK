@@ -68,7 +68,7 @@ namespace Microsoft.BingAds.Internal.Bulk
             //StringTable.MediaId,
         };
 
-        public static readonly string[] Headers = new string[]
+        public static readonly string[] Headers = 
         {
             // common
             StringTable.Type,
@@ -81,6 +81,7 @@ namespace Microsoft.BingAds.Internal.Bulk
             StringTable.Website,
             StringTable.SyncTime,
             StringTable.ClientId,
+            StringTable.LastModifiedTime,
 
             // campaign
             StringTable.TimeZone,
@@ -212,10 +213,10 @@ namespace Microsoft.BingAds.Internal.Bulk
             StringTable.LandingPageRelevance,
             StringTable.LandingPageUserExperience,
 
-            // Social Network Ad Extension
-            //TODO-social: NOTE: Also comment/uncomment entry in headerToImportColumnMapping of ImportRowToMicrosoftRowTranslator.
-            //TODO-social: Headers and properties need to be in sync for Unknown type errors.
-            //StringTable.SocialNetworkType,
+            // App Ad Extension
+            StringTable.AppPlatform,
+            StringTable.AppStoreId,
+            StringTable.IsTrackingEnabled,
 
             StringTable.Error,
             StringTable.ErrorNumber,

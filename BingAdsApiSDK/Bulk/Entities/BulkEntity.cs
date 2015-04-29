@@ -70,6 +70,11 @@ namespace Microsoft.BingAds.Bulk.Entities
         public abstract bool HasErrors { get; }
 
         /// <summary>
+        /// Gets the last modified time for the entity.
+        /// </summary>
+        public abstract DateTime? LastModifiedTime { get; }
+
+        /// <summary>
         /// Reserved for internal use.
         /// </summary>
         protected void ValidatePropertyNotNull(object propertyValue, string propertyName)

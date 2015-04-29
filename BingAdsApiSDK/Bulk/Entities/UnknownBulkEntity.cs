@@ -68,7 +68,7 @@ namespace Microsoft.BingAds.Bulk.Entities
             Values = rowValues.ToDictionary();
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues rowValues)
+        internal override void ProcessMappingsToRowValues(RowValues rowValues, bool excludeReadonlyData)
         {
             foreach (var pair in Values)
             {

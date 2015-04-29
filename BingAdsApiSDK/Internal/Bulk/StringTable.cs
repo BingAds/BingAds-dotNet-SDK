@@ -140,6 +140,8 @@ namespace Microsoft.BingAds.Internal.Bulk
         public const string SyncTime = "Sync Time";
         public const string Name = "Name";
 
+        public const string LastModifiedTime = "Modified Time";
+
         // entity types
         public const string SemanticVersion = "Format Version";
         public const string LocationTarget = "Location Target";
@@ -161,15 +163,8 @@ namespace Microsoft.BingAds.Internal.Bulk
         public const string ProductAdExtension = "Product Ad Extension";
         public const string CallAdExtension = "Call Ad Extension";
         public const string ImageAdExtension = "Image Ad Extension";
-        public const string SocialNetworkAdExtension = "Social Network Ad Extension";
 
         public const string Version = "Version";
-
-        // Social network ad extension
-        // NOTE: The "Social Network" Bulk Upload/Download column maps to the SocialNetworkType attribute of SocialNetworkAdExtension in the MT
-        public const string SocialNetworkType = "Social Network";
-        public const string CampaignSocialNetworkAdExtension = "Campaign Social Network Ad Extension";
-        public const string AdGroupSocialNetworkAdExtension = "AdGroup Social Network Ad Extension";
 
         //Image ad extension
         public const string AltText = "Alternative Text";
@@ -238,6 +233,14 @@ namespace Microsoft.BingAds.Internal.Bulk
         public const string ProductValue8 = "Product Value 8";
         public const string BingMerchantCenterId = "Store Id";
         public const string BingMerchantCenterName = "Store Name";
+
+        // App Ad Extension        
+        public const string AppAdExtension = "App Ad Extension";
+        public const string AppPlatform = "App Platform";
+        public const string AppStoreId = "App Id";
+        public const string CampaignAppAdExtension = "Campaign App Ad Extension";
+        public const string AdGroupAppAdExtension = "Ad Group App Ad Extension";
+        public const string IsTrackingEnabled = "Tracking Enabled";
 
         // misc stuff
         public const string EntityActiveStatus = "Active";

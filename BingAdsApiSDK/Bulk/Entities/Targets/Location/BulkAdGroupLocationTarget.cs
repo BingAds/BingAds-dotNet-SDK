@@ -56,17 +56,17 @@ namespace Microsoft.BingAds.Bulk.Entities
 {
     /// <summary>    
     /// Represents a geographical location target that is associated with an ad group. 
-    /// This class exposes the <see cref="BulkLocationTarget{TBid}.CityTarget"/>, <see cref="BulkLocationTarget{TBid}.CountryTarget"/>, 
-    /// <see cref="BulkLocationTarget{TBid}.MetroAreaTarget"/>, <see cref="BulkLocationTarget{TBid}.PostalCodeTarget"/>, and <see cref="BulkLocationTarget{TBid}.StateTarget"/> properties 
+    /// This class exposes the <see cref="BulkLocationTargetWithStringLocation{TBid}.CityTarget"/>, <see cref="BulkLocationTargetWithStringLocation{TBid}.CountryTarget"/>, 
+    /// <see cref="BulkLocationTargetWithStringLocation{TBid}.MetroAreaTarget"/>, <see cref="BulkLocationTargetWithStringLocation{TBid}.PostalCodeTarget"/>, and <see cref="BulkLocationTargetWithStringLocation{TBid}.StateTarget"/> properties 
     /// that represent geographical location sub types. Each sub type can be read and written as fields of the Ad Group Location Target record in a bulk file.     
     /// </summary>
     /// <remarks>
-    /// <para>Each location sub type contains a list of bids. For example <see cref="BulkLocationTarget{TBid}.CityTarget"/> contains a list of <see cref="CityTargetBid"/>. 
+    /// <para>Each location sub type contains a list of bids. For example <see cref="BulkLocationTargetWithStringLocation{TBid}.CityTarget"/> contains a list of <see cref="CityTargetBid"/>. 
     /// Each <see cref="CityTargetBid"/> instance 
-    /// corresponds to one Ad Group Location Target record in the bulk file. If you upload a <see cref="BulkLocationTarget{TBid}.CityTarget"/>, 
+    /// corresponds to one Ad Group Location Target record in the bulk file. If you upload a <see cref="BulkLocationTargetWithStringLocation{TBid}.CityTarget"/>, 
     /// then you are effectively replacing any existing city bids for the corresponding location target.</para>
     /// <para>
-    /// The <see cref="BulkLocationTargetBid.LocationType"/> property determines the geographical location sub type.
+    /// The <see cref="BulkLocationTargetBidWithStringLocation.LocationType"/> property determines the geographical location sub type.
     /// </para>
     /// <para>For more information, see Ad Group Location Target at http://go.microsoft.com/fwlink/?LinkID=511541. </para>
     /// </remarks>
@@ -104,6 +104,15 @@ namespace Microsoft.BingAds.Bulk.Entities
         {
             get { return ParentEntityName; }
             set { ParentEntityName = value; }
+        }
+
+        /// <summary>
+        /// Defines the possible intent options for location targeting.
+        /// </summary>
+        public IntentOption? IntentOption
+        {
+            get { return GetLocationProperty(x => x.IntentOption); }
+            set { SetLocationProperty(x => x.IntentOption = value); }
         }
 
         /// <summary>

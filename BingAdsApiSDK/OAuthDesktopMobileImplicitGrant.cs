@@ -131,11 +131,7 @@ namespace Microsoft.BingAds
                 throw new InvalidOperationException(ErrorMessages.UriDoesntContainAccessToken);
             }
 
-            return OAuthTokens = new OAuthTokens
-            {
-                AccessToken = fragmentParts["access_token"],
-                AccessTokenExpiresInSeconds = int.Parse(fragmentParts["expires_in"])
-            };
+            return OAuthTokens = new OAuthTokens(fragmentParts["access_token"], int.Parse(fragmentParts["expires_in"]), null);            
         }
     }
 }

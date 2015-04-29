@@ -54,7 +54,7 @@ namespace Microsoft.BingAds.Bulk.Entities
 {
     /// <summary>    
     /// Represents a radius target that is associated with an ad group. 
-    /// This class exposes the <see cref="Microsoft.BingAds.Internal.Bulk.Entities.BulkRadiusTarget{TBid}.RadiusTarget"/> property that can be read and written as fields of the Ad Group Radius Target record in a bulk file.     
+    /// This class exposes the <see cref="BulkRadiusTarget{TBid}.RadiusTarget"/> property that can be read and written as fields of the Ad Group Radius Target record in a bulk file.     
     /// </summary>
     /// <remarks>
     /// One <see cref="BulkAdGroupRadiusTarget"/> exposes a read only list of <see cref="BulkAdGroupRadiusTargetBid"/>. Each <see cref="BulkAdGroupRadiusTargetBid"/> instance 

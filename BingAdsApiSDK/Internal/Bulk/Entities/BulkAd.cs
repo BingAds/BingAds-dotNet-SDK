@@ -129,16 +129,21 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             )
         };
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             this.ConvertToValues(values, Mappings);
 
-            PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);
+            if (!excludeReadonlyData)
+            {
+                PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
+            }
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
             values.ConvertToEntity(this, Mappings);
+
+            PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);
         }
     }
 }

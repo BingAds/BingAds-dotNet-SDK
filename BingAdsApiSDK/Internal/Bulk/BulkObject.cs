@@ -79,9 +79,10 @@ namespace Microsoft.BingAds.Internal.Bulk
         /// <example>
         /// SingleLineBulkEntity: writes entity fields.
         /// BulkEntityIdentifier: writes identifier fields (Id, status etc.)
-        /// </example>                
+        /// </example>
         /// <param name="values"></param>
-        internal virtual void WriteToRowValues(RowValues values)
+        /// <param name="excludeReadonlyData"></param>
+        internal virtual void WriteToRowValues(RowValues values, bool excludeReadonlyData)
         {
             throw new NotSupportedException();
         }
@@ -105,7 +106,8 @@ namespace Microsoft.BingAds.Internal.Bulk
         /// BulkEntityIdentifier: writes identifier information (Id, status etc.)
         /// </example>
         /// <param name="rowWriter"></param>
-        internal virtual void WriteToStream(IBulkObjectWriter rowWriter)
+        /// <param name="excludeReadonlyData"></param>
+        internal virtual void WriteToStream(IBulkObjectWriter rowWriter, bool excludeReadonlyData)
         {
             throw new NotSupportedException();
         }

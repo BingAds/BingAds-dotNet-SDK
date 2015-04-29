@@ -73,14 +73,7 @@ namespace Microsoft.BingAds.Reporting
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.SitePerformanceReportRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.ConversionPerformanceReportRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdExtensionDimensionReportRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdExtensionDetailReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdExtensionByAdReportRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AccountPerformanceReportRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.TacticChannelReportRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.GeoLocationPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdGroupPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.RichAdComponentPerformanceReportRequest))]
@@ -90,18 +83,28 @@ namespace Microsoft.BingAds.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AgeGenderDemographicReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.GeographicalLocationReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.PublisherUsagePerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.SitePerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.SearchQueryPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.ConversionPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.GoalsAndFunnelsReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.TrafficSourcesReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdDynamicTextPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.NegativeKeywordConflictReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.SearchCampaignChangeHistoryReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.ProductOfferPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdExtensionByKeywordReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.CampaignPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdExtensionDetailReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.ShareOfVoiceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.ProductTargetPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.ProductDimensionPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.ProductPartitionPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.CallDetailReportRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.ProductOfferPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AdExtensionDimensionReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.AccountPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.BrandZonePerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.TacticChannelReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Reporting.GeoLocationPerformanceReportRequest))]
     public partial class ReportRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -225,469 +228,6 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a site performance report request. If you bid on website placements, you can use this report to identify website placements that are performing well and those that you may want to exclude from your campaign. Use this information to determine whether any website placements should be excluded from your campaign or ad group target settings. You can request impressions, clicks, spend, and average cost per click for the websites you chose when setting up your ad groups. Once downloaded, this data can be sorted by ad group, placement name, website ID, account, and campaign.
-    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dd797220(v=msads.90).aspx">SitePerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dd797220(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SitePerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class SitePerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
-    {
-        
-        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
-        
-        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.SitePerformanceReportColumn> ColumnsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.Reporting.SitePerformanceReportFilter FilterField;
-        
-        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
-        
-        private Microsoft.BingAds.Reporting.ReportTime TimeField;
-        
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
-        {
-            get
-            {
-                return this.AggregationField;
-            }
-            set
-            {
-                if ((this.AggregationField.Equals(value) != true))
-                {
-                    this.AggregationField = value;
-                    this.RaisePropertyChanged("Aggregation");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.SitePerformanceReportColumn> Columns
-        {
-            get
-            {
-                return this.ColumnsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
-                {
-                    this.ColumnsField = value;
-                    this.RaisePropertyChanged("Columns");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.Reporting.SitePerformanceReportFilter Filter
-        {
-            get
-            {
-                return this.FilterField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FilterField, value) != true))
-                {
-                    this.FilterField = value;
-                    this.RaisePropertyChanged("Filter");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
-        {
-            get
-            {
-                return this.ScopeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ScopeField, value) != true))
-                {
-                    this.ScopeField = value;
-                    this.RaisePropertyChanged("Scope");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportTime Time
-        {
-            get
-            {
-                return this.TimeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TimeField, value) != true))
-                {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines a conversion performance report request. Use this report to understand which campaigns and keywords are leading an audience to complete a purchase or other conversion action. You can request conversions, assists, revenue, and revenue per conversion for your campaigns. Once downloaded, this data can be sorted by account, ad group, campaign, keyword, and device type.
-    /// <para>Available for accounts that are setup to use Bing Ads Campaign Analytics. For more information, see Managing Campaign Analytics Scripts.</para>
-    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262843(v=msads.90).aspx">ConversionPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262843(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class ConversionPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
-    {
-        
-        private Microsoft.BingAds.Reporting.NonHourlyReportAggregation AggregationField;
-        
-        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ConversionPerformanceReportColumn> ColumnsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.Reporting.ConversionPerformanceReportFilter FilterField;
-        
-        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
-        
-        private Microsoft.BingAds.Reporting.ReportTime TimeField;
-        
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
-        {
-            get
-            {
-                return this.AggregationField;
-            }
-            set
-            {
-                if ((this.AggregationField.Equals(value) != true))
-                {
-                    this.AggregationField = value;
-                    this.RaisePropertyChanged("Aggregation");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The list of columns to include in the report. The report includes the columns in the order that you specify them.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ConversionPerformanceReportColumn> Columns
-        {
-            get
-            {
-                return this.ColumnsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
-                {
-                    this.ColumnsField = value;
-                    this.RaisePropertyChanged("Columns");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.Reporting.ConversionPerformanceReportFilter Filter
-        {
-            get
-            {
-                return this.FilterField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FilterField, value) != true))
-                {
-                    this.FilterField = value;
-                    this.RaisePropertyChanged("Filter");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The scope of the report. For example, you can limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
-        {
-            get
-            {
-                return this.ScopeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ScopeField, value) != true))
-                {
-                    this.ScopeField = value;
-                    this.RaisePropertyChanged("Scope");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportTime Time
-        {
-            get
-            {
-                return this.TimeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TimeField, value) != true))
-                {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// This report request is deprecated and is not supported. Using this data object will throw an exception.
-    /// <para>This content is for archive purposes only.</para>
-    /// <para>Defines an ad extension dimension report request that lists all versions of an ad extension by account. You may use this information along with the performance data from the AdExtensionByAdReportRequest, AdExtensionByKeywordReportRequest, and AdExtensionDetailReportRequest reports to determine which version performed better.</para>
-    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj713607(v=msads.90).aspx">AdExtensionDimensionReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/jj713607(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDimensionReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class AdExtensionDimensionReportRequest : Microsoft.BingAds.Reporting.ReportRequest
-    {
-        
-        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDimensionReportColumn> ColumnsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.Reporting.AdExtensionDimensionReportFilter FilterField;
-        
-        private Microsoft.BingAds.Reporting.AccountReportScope ScopeField;
-        
-        /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDimensionReportColumn> Columns
-        {
-            get
-            {
-                return this.ColumnsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
-                {
-                    this.ColumnsField = value;
-                    this.RaisePropertyChanged("Columns");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.Reporting.AdExtensionDimensionReportFilter Filter
-        {
-            get
-            {
-                return this.FilterField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FilterField, value) != true))
-                {
-                    this.FilterField = value;
-                    this.RaisePropertyChanged("Filter");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for one or more accounts.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.AccountReportScope Scope
-        {
-            get
-            {
-                return this.ScopeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ScopeField, value) != true))
-                {
-                    this.ScopeField = value;
-                    this.RaisePropertyChanged("Scope");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines an ad extension detail report request. Use this report to discover the effectiveness of individual ad extension items, for example, each link of a sitelink extension. You can request impressions, clicks, spend, and average cost per click of individual extension items. This data can be sorted by the individual ad extension display name, ad extension ID, and ad extension type.
-    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610364(v=msads.90).aspx">AdExtensionDetailReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn610364(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class AdExtensionDetailReportRequest : Microsoft.BingAds.Reporting.ReportRequest
-    {
-        
-        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
-        
-        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDetailReportColumn> ColumnsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.Reporting.AdExtensionDetailReportFilter FilterField;
-        
-        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
-        
-        private Microsoft.BingAds.Reporting.ReportTime TimeField;
-        
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
-        {
-            get
-            {
-                return this.AggregationField;
-            }
-            set
-            {
-                if ((this.AggregationField.Equals(value) != true))
-                {
-                    this.AggregationField = value;
-                    this.RaisePropertyChanged("Aggregation");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDetailReportColumn> Columns
-        {
-            get
-            {
-                return this.ColumnsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
-                {
-                    this.ColumnsField = value;
-                    this.RaisePropertyChanged("Columns");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.Reporting.AdExtensionDetailReportFilter Filter
-        {
-            get
-            {
-                return this.FilterField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FilterField, value) != true))
-                {
-                    this.FilterField = value;
-                    this.RaisePropertyChanged("Filter");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
-        {
-            get
-            {
-                return this.ScopeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ScopeField, value) != true))
-                {
-                    this.ScopeField = value;
-                    this.RaisePropertyChanged("Scope");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportTime Time
-        {
-            get
-            {
-                return this.TimeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TimeField, value) != true))
-                {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
     /// Defines an ad extension by ad report request. Use this report to compare how well different versions of your ad extensions are performing with each ad. You can request impressions, clicks, spend, and average cost per click by ad. Once downloaded, this data can be sorted by ad ID, ad title, ad extension type, and ad extension version.
     /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
     /// </summary>
@@ -733,7 +273,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionByAdReportColumn> Columns
@@ -757,385 +297,6 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.AdExtensionByAdReportFilter Filter
-        {
-            get
-            {
-                return this.FilterField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FilterField, value) != true))
-                {
-                    this.FilterField = value;
-                    this.RaisePropertyChanged("Filter");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
-        {
-            get
-            {
-                return this.ScopeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ScopeField, value) != true))
-                {
-                    this.ScopeField = value;
-                    this.RaisePropertyChanged("Scope");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportTime Time
-        {
-            get
-            {
-                return this.TimeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TimeField, value) != true))
-                {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines an account performance report request. Use this report to observe long-term account performance and trends. You can request impressions, impression share (%), clicks, spend, and average cost per click for individual accounts. Once downloaded, this data can be sorted by individual accounts, currency, bid match type, and delivered match type.
-    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671927(v=msads.90).aspx">AccountPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671927(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class AccountPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
-    {
-        
-        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
-        
-        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AccountPerformanceReportColumn> ColumnsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.Reporting.AccountPerformanceReportFilter FilterField;
-        
-        private Microsoft.BingAds.Reporting.AccountReportScope ScopeField;
-        
-        private Microsoft.BingAds.Reporting.ReportTime TimeField;
-        
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
-        {
-            get
-            {
-                return this.AggregationField;
-            }
-            set
-            {
-                if ((this.AggregationField.Equals(value) != true))
-                {
-                    this.AggregationField = value;
-                    this.RaisePropertyChanged("Aggregation");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AccountPerformanceReportColumn> Columns
-        {
-            get
-            {
-                return this.ColumnsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
-                {
-                    this.ColumnsField = value;
-                    this.RaisePropertyChanged("Columns");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.Reporting.AccountPerformanceReportFilter Filter
-        {
-            get
-            {
-                return this.FilterField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FilterField, value) != true))
-                {
-                    this.FilterField = value;
-                    this.RaisePropertyChanged("Filter");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for one or more accounts.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.AccountReportScope Scope
-        {
-            get
-            {
-                return this.ScopeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ScopeField, value) != true))
-                {
-                    this.ScopeField = value;
-                    this.RaisePropertyChanged("Scope");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportTime Time
-        {
-            get
-            {
-                return this.TimeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TimeField, value) != true))
-                {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines a tactic and channel report request. Use this report to understand how people interact with your website through the conversion process. You can use this report to get information about which tactic and channel are generating the most revenue and return-on-ad spend. You can request number of times that users reach the different stages of a conversion funnel, broken out by advertising tactic and channel.
-    /// <para>Available for accounts that are setup to use Bing Ads Campaign Analytics. For more information, see Managing Campaign Analytics Scripts.</para>
-    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262842(v=msads.90).aspx">TacticChannelReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262842(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TacticChannelReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class TacticChannelReportRequest : Microsoft.BingAds.Reporting.ReportRequest
-    {
-        
-        private Microsoft.BingAds.Reporting.NonHourlyReportAggregation AggregationField;
-        
-        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.TacticChannelReportColumn> ColumnsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.Reporting.TacticChannelReportFilter FilterField;
-        
-        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
-        
-        private Microsoft.BingAds.Reporting.ReportTime TimeField;
-        
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
-        {
-            get
-            {
-                return this.AggregationField;
-            }
-            set
-            {
-                if ((this.AggregationField.Equals(value) != true))
-                {
-                    this.AggregationField = value;
-                    this.RaisePropertyChanged("Aggregation");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.TacticChannelReportColumn> Columns
-        {
-            get
-            {
-                return this.ColumnsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
-                {
-                    this.ColumnsField = value;
-                    this.RaisePropertyChanged("Columns");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.Reporting.TacticChannelReportFilter Filter
-        {
-            get
-            {
-                return this.FilterField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FilterField, value) != true))
-                {
-                    this.FilterField = value;
-                    this.RaisePropertyChanged("Filter");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The scope of the report. For example, you can limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
-        {
-            get
-            {
-                return this.ScopeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ScopeField, value) != true))
-                {
-                    this.ScopeField = value;
-                    this.RaisePropertyChanged("Scope");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.ReportTime Time
-        {
-            get
-            {
-                return this.TimeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TimeField, value) != true))
-                {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines a geo location performance report request. Use this report to see which locations your traffic is coming from. You can then validate whether your location targeting strategy is successful, and identify opportunities to improve. The report also identifies either the physical location of the search user or the geographical location interest based on the user's search query. You can request impressions, clicks, spend, and average cost per click for each ad group, organized by city, country, metro area, radius, state, and account.
-    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743772(v=msads.90).aspx">GeoLocationPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn743772(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GeoLocationPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class GeoLocationPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
-    {
-        
-        private Microsoft.BingAds.Reporting.NonHourlyReportAggregation AggregationField;
-        
-        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.GeoLocationPerformanceReportColumn> ColumnsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.Reporting.GeoLocationPerformanceReportFilter FilterField;
-        
-        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
-        
-        private Microsoft.BingAds.Reporting.ReportTime TimeField;
-        
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
-        {
-            get
-            {
-                return this.AggregationField;
-            }
-            set
-            {
-                if ((this.AggregationField.Equals(value) != true))
-                {
-                    this.AggregationField = value;
-                    this.RaisePropertyChanged("Aggregation");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.GeoLocationPerformanceReportColumn> Columns
-        {
-            get
-            {
-                return this.ColumnsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
-                {
-                    this.ColumnsField = value;
-                    this.RaisePropertyChanged("Columns");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.Reporting.GeoLocationPerformanceReportFilter Filter
         {
             get
             {
@@ -1238,7 +399,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdGroupPerformanceReportColumn> Columns
@@ -1364,7 +525,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdPerformanceReportColumn> Columns
@@ -1491,7 +652,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.RichAdComponentPerformanceReportColumn> Columns
@@ -1623,7 +784,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.KeywordPerformanceReportColumn> Columns
@@ -1789,7 +950,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.DestinationUrlPerformanceReportColumn> Columns
@@ -1890,7 +1051,7 @@ namespace Microsoft.BingAds.Reporting
         private Microsoft.BingAds.Reporting.BudgetSummaryReportTime TimeField;
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.BudgetSummaryReportColumn> Columns
@@ -2123,7 +1284,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.GeographicalLocationReportColumn> Columns
@@ -2249,7 +1410,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.PublisherUsagePerformanceReportColumn> Columns
@@ -2330,9 +1491,135 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
+    /// Defines a site performance report request. If you bid on website placements, you can use this report to identify website placements that are performing well and those that you may want to exclude from your campaign. Use this information to determine whether any website placements should be excluded from your campaign or ad group target settings. You can request impressions, clicks, spend, and average cost per click for the websites you chose when setting up your ad groups. Once downloaded, this data can be sorted by ad group, placement name, website ID, account, and campaign.
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dd797220(v=msads.90).aspx">SitePerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dd797220(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SitePerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class SitePerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.SitePerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.SitePerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.SitePerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.SitePerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a search query performance report request. Use this report to see what your audience is searching for when your ads are shown.
     /// <para>You can use this information to make informed additions, removals, or edits to both your keyword and negative keyword lists. You can request impressions, clicks, click-through rate, and average position for search terms that have triggered your ads. For example, if you are a mortgage lender who is running a campaign with the following keywords: mortgage, home mortgage, and home equity loans; and the report shows that the search query "mortgage rates" results in many impressions of your ad, you would probably add "rates" to your keyword list. However, if you do not provide reverse mortgages and the report shows that the search query "reverse mortgage" results in many impressions, you would probably add "reverse mortgage" to your negative keywords list.</para>
-    /// <para>The report will exclude data for search terms that had one or more ad impressions but resulted in zero clicks over the last 30 days.</para>
+    /// <para>The report will include only search terms that resulted in a significant number of clicks in the last 30 days.</para>
     /// <para>Since this data might change over time, please use the KeywordPerformanceReportRequest Data Object to get the performance metrics for your keywords.</para>
     /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
     /// </summary>
@@ -2378,7 +1665,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.SearchQueryPerformanceReportColumn> Columns
@@ -2459,8 +1746,135 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
+    /// Defines a conversion performance report request. Use this report to understand which campaigns and keywords are leading an audience to complete a purchase or other conversion action. You can request conversions, assists, revenue, and revenue per conversion for your campaigns. Once downloaded, this data can be sorted by account, ad group, campaign, keyword, and device type.
+    /// <para>Available for accounts that are setup to use Bing Ads Campaign Analytics. For more information, see Managing Analytics With Universal Event Tracking (UET).</para>
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262843(v=msads.90).aspx">ConversionPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262843(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class ConversionPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.NonHourlyReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ConversionPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.ConversionPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report includes the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ConversionPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.ConversionPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. For example, you can limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a goals and funnels report request. Use this report to discover whether your audience completes each step through the land, browse, prospect, and conversion pages of your website. For example, you can use this report to determine the step that users leave the conversion funnel, so that you can improve or remove that step to increase the chance that the user will continue to the next step. You can request spend, revenue, assists, conversions, and conversion steps of your websites. Once downloaded, this data can be sorted by account, ad group, campaign, keyword, and goal.
-    /// <para>Available for accounts that are setup to use Bing Ads Campaign Analytics. For more information, see Managing Campaign Analytics Scripts.</para>
+    /// <para>Available for accounts that are setup to use Bing Ads Campaign Analytics. For more information, see Managing Analytics With Universal Event Tracking (UET).</para>
     /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
     /// </summary>
     /// <remarks>
@@ -2505,7 +1919,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.GoalsAndFunnelsReportColumn> Columns
@@ -2587,7 +2001,7 @@ namespace Microsoft.BingAds.Reporting
     
     /// <summary>
     /// Defines a traffic sources report request. Use this report to see which advertising publisher sources bring the most traffic to your website. You can request revenue, assists, conversions, and conversion steps of your website traffic. Once downloaded, this data can be sorted by source of your traffic, account, and goal.
-    /// <para>Available for accounts that are setup to use Bing Ads Campaign Analytics. For more information, see Managing Campaign Analytics Scripts.</para>
+    /// <para>Available for accounts that are setup to use Bing Ads Campaign Analytics. For more information, see Managing Analytics With Universal Event Tracking (UET).</para>
     /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
     /// </summary>
     /// <remarks>
@@ -2632,7 +2046,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.TrafficSourcesReportColumn> Columns
@@ -2758,7 +2172,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdDynamicTextPerformanceReportColumn> Columns
@@ -2857,7 +2271,7 @@ namespace Microsoft.BingAds.Reporting
         private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.NegativeKeywordConflictReportColumn> Columns
@@ -2921,7 +2335,7 @@ namespace Microsoft.BingAds.Reporting
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.SearchCampaignChangeHistoryReportColumn> Columns
@@ -3002,6 +2416,133 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
+    /// Defines a product offer performance report request that aggregates the performance data by product offer for a specified time period. You can include details in the report such as impressions, clicks, and spend that you can use to identify product offers that are performing well, and those that are not.
+    /// <para>To get performance-based reporting for product offers, the corresponding ad group must contain at least one ProductAd object. For more information about creating product ads, see Creating a Product Ad.</para>
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743719(v=msads.90).aspx">ProductOfferPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn743719(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductOfferPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductOfferPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductOfferPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.ProductOfferPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductOfferPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.ProductOfferPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines an ad extension by keyword report request. Use this report to compare how well different versions of your ad extensions are performing for each keyword. You can request impressions, clicks, spend, and average cost per click of your extensions for each keyword. Once downloaded, this data can be sorted by keyword, keyword ID, ad extension type, and ad extension version.
     /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
     /// </summary>
@@ -3047,7 +2588,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionByKeywordReportColumn> Columns
@@ -3173,7 +2714,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.CampaignPerformanceReportColumn> Columns
@@ -3217,6 +2758,132 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughCampaignReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an ad extension detail report request. Use this report to discover the effectiveness of individual ad extension items, for example, each link of a sitelink extension. You can request impressions, clicks, spend, and average cost per click of individual extension items. This data can be sorted by the individual ad extension display name, ad extension ID, and ad extension type.
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610364(v=msads.90).aspx">AdExtensionDetailReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn610364(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class AdExtensionDetailReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDetailReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.AdExtensionDetailReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDetailReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The criteria to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.AdExtensionDetailReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
             get
             {
@@ -3299,7 +2966,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ShareOfVoiceReportColumn> Columns
@@ -3426,7 +3093,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductTargetPerformanceReportColumn> Columns
@@ -3450,6 +3117,260 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.ProductTargetPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines a product dimension performance report request that aggregates the performance data by product category, custom label, title, and type for a specified time period. You can include details in the report such as impressions, clicks, and spend that you can use to identify whether or not the Bing Shopping products are performing well.</para>
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913141(v=msads.90).aspx">ProductDimensionPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn913141(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductDimensionPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductDimensionPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductDimensionPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.ProductDimensionPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductDimensionPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.ProductDimensionPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines a product partition performance report request that aggregates the performance data by product group and product partition type for a specified time period. You can include details in the report such as impressions, clicks, and spend that you can use to identify whether or not the Bing Shopping products are performing well.</para>
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913138(v=msads.90).aspx">ProductPartitionPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn913138(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductPartitionPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductPartitionPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.ProductPartitionPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductPartitionPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.ProductPartitionPerformanceReportFilter Filter
         {
             get
             {
@@ -3549,7 +3470,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.CallDetailReportColumn> Columns
@@ -3610,28 +3531,111 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a product offer performance report request that aggregates the performance data by product offer for a specified time period. You can include details in the report such as impressions, clicks, and spend that you can use to identify product offers that are performing well, and those that are not.
-    /// <para>To get performance-based reporting for product offers, the corresponding ad group must contain at least one ProductAd object. For more information about creating product ads, see Creating a Product Ad.</para>
+    /// This report request is deprecated and is not supported. Using this data object will throw an exception.
+    /// <para>This content is for archive purposes only.</para>
+    /// <para>Defines an ad extension dimension report request that lists all versions of an ad extension by account. You may use this information along with the performance data from the AdExtensionByAdReportRequest, AdExtensionByKeywordReportRequest, and AdExtensionDetailReportRequest reports to determine which version performed better.</para>
     /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743719(v=msads.90).aspx">ProductOfferPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn743719(v=msads.90).aspx for details.
+    /// See <see href="http://msdn.microsoft.com/en-us/library/jj713607(v=msads.90).aspx">AdExtensionDimensionReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/jj713607(v=msads.90).aspx for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductOfferPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDimensionReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
     [System.SerializableAttribute()]
-    public partial class ProductOfferPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    public partial class AdExtensionDimensionReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDimensionReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.AdExtensionDimensionReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountReportScope ScopeField;
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDimensionReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The criteria to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.AdExtensionDimensionReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. Use this element to limit the report to include data for one or more accounts.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an account performance report request. Use this report to observe long-term account performance and trends. You can request impressions, impression share (%), clicks, spend, and average cost per click for individual accounts. Once downloaded, this data can be sorted by individual accounts, currency, bid match type, and delivered match type.
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671927(v=msads.90).aspx">AccountPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671927(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class AccountPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
     {
         
         private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
         
-        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductOfferPerformanceReportColumn> ColumnsField;
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AccountPerformanceReportColumn> ColumnsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.Reporting.ProductOfferPerformanceReportFilter FilterField;
+        private Microsoft.BingAds.Reporting.AccountPerformanceReportFilter FilterField;
         
-        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        private Microsoft.BingAds.Reporting.AccountReportScope ScopeField;
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
@@ -3656,10 +3660,10 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The list of columns to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductOfferPerformanceReportColumn> Columns
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AccountPerformanceReportColumn> Columns
         {
             get
             {
@@ -3679,7 +3683,364 @@ namespace Microsoft.BingAds.Reporting
         /// The filter information to use to filter the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.Reporting.ProductOfferPerformanceReportFilter Filter
+        public Microsoft.BingAds.Reporting.AccountPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. Use this element to limit the report to include data for one or more accounts.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BrandZonePerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class BrandZonePerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.BrandZonePerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.BrandZonePerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.BrandZonePerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.BrandZonePerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a tactic and channel report request. Use this report to understand how people interact with your website through the conversion process. You can use this report to get information about which tactic and channel are generating the most revenue and return-on-ad spend. You can request number of times that users reach the different stages of a conversion funnel, broken out by advertising tactic and channel.
+    /// <para>Available for accounts that are setup to use Bing Ads Campaign Analytics. For more information, see Managing Analytics With Universal Event Tracking (UET).</para>
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262842(v=msads.90).aspx">TacticChannelReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262842(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TacticChannelReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class TacticChannelReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.NonHourlyReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.TacticChannelReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.TacticChannelReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.TacticChannelReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.TacticChannelReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scope of the report. For example, you can limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a geo location performance report request. Use this report to see which locations your traffic is coming from. You can then validate whether your location targeting strategy is successful, and identify opportunities to improve. The report also identifies either the physical location of the search user or the geographical location interest based on the user's search query. You can request impressions, clicks, spend, and average cost per click for each ad group, organized by city, country, metro area, radius, state, and account.
+    /// <para>To request a report of this type, pass this object to the SubmitGenerateReport operation.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743772(v=msads.90).aspx">GeoLocationPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn743772(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GeoLocationPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class GeoLocationPerformanceReportRequest : Microsoft.BingAds.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.Reporting.NonHourlyReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.GeoLocationPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.GeoLocationPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.GeoLocationPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.GeoLocationPerformanceReportFilter Filter
         {
             get
             {
@@ -3793,39 +4154,27 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines the criteria to use to filter the website performance report data.
+    /// Defines the criteria to use to filter the ad extension by ad report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dd796955(v=msads.90).aspx">SitePerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dd796955(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="SitePerformanceReportRequest"/> data object.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn393942(v=msads.90).aspx">AdExtensionByAdReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn393942(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdExtensionByAdReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SitePerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionByAdReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
     [System.SerializableAttribute()]
-    public partial class SitePerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    public partial class AdExtensionByAdReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistributionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.AdTypeReportFilter> AdTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchTypeField;
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOSField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<string> LanguageCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<long> SiteIdsField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -3840,67 +4189,27 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistribution
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOS
         {
             get
             {
-                return this.AdDistributionField;
+                return this.DeviceOSField;
             }
             set
             {
-                if ((this.AdDistributionField.Equals(value) != true))
+                if ((this.DeviceOSField.Equals(value) != true))
                 {
-                    this.AdDistributionField = value;
-                    this.RaisePropertyChanged("AdDistribution");
+                    this.DeviceOSField = value;
+                    this.RaisePropertyChanged("DeviceOS");
                 }
             }
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad types. For example, the report can include data for mobile or text ads. You can specify one or more ad types.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.AdTypeReportFilter> AdType
-        {
-            get
-            {
-                return this.AdTypeField;
-            }
-            set
-            {
-                if ((this.AdTypeField.Equals(value) != true))
-                {
-                    this.AdTypeField = value;
-                    this.RaisePropertyChanged("AdType");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data for only the specified delivered match types (as opposed to the bid match type). For example, you can use the filter to include data for ads that were delivered using the exact or phrase match type.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
-        {
-            get
-            {
-                return this.DeliveredMatchTypeField;
-            }
-            set
-            {
-                if ((this.DeliveredMatchTypeField.Equals(value) != true))
-                {
-                    this.DeliveredMatchTypeField = value;
-                    this.RaisePropertyChanged("DeliveredMatchType");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only text ads displayed on smartphones.
+        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
@@ -3915,46 +4224,6 @@ namespace Microsoft.BingAds.Reporting
                 {
                     this.DeviceTypeField = value;
                     this.RaisePropertyChanged("DeviceType");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<string> LanguageCode
-        {
-            get
-            {
-                return this.LanguageCodeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
-                {
-                    this.LanguageCodeField = value;
-                    this.RaisePropertyChanged("LanguageCode");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data for only the specified websites. The list can contain a maximum of 300 identifiers.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<long> SiteIds
-        {
-            get
-            {
-                return this.SiteIdsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.SiteIdsField, value) != true))
-                {
-                    this.SiteIdsField = value;
-                    this.RaisePropertyChanged("SiteIds");
                 }
             }
         }
@@ -3976,7 +4245,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671547(v=msads.90).aspx">AccountThroughAdGroupReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671547(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="GeographicalLocationReportRequest"/>, <see cref="GeoLocationPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductOfferPerformanceReportRequest"/>, <see cref="ProductTargetPerformanceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="RichAdComponentPerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/>, <see cref="SitePerformanceReportRequest"/>and <see cref="TacticChannelReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="BrandZonePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="GeographicalLocationReportRequest"/>, <see cref="GeoLocationPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductOfferPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductTargetPerformanceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="RichAdComponentPerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/>, <see cref="SitePerformanceReportRequest"/> and <see cref="TacticChannelReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4086,7 +4355,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671895(v=msads.90).aspx">ReportTime Data Object</see> http://msdn.microsoft.com/en-us/library/bb671895(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="GeographicalLocationReportRequest"/>, <see cref="GeoLocationPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductOfferPerformanceReportRequest"/>, <see cref="ProductTargetPerformanceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="RichAdComponentPerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/>, <see cref="SitePerformanceReportRequest"/>, <see cref="TacticChannelReportRequest"/>and <see cref="TrafficSourcesReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="BrandZonePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="GeographicalLocationReportRequest"/>, <see cref="GeoLocationPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductOfferPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductTargetPerformanceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="RichAdComponentPerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/>, <see cref="SitePerformanceReportRequest"/>, <see cref="TacticChannelReportRequest"/> and <see cref="TrafficSourcesReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4196,7 +4465,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672067(v=msads.90).aspx">ReportAggregation Value Set</see> http://msdn.microsoft.com/en-us/library/bb672067(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductOfferPerformanceReportRequest"/>, <see cref="ProductTargetPerformanceReportRequest"/>and <see cref="SitePerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="BrandZonePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductOfferPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductTargetPerformanceReportRequest"/> and <see cref="SitePerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportAggregation", Namespace="https://bingads.microsoft.com/Reporting/v9")]
@@ -4250,1699 +4519,6 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DayOfWeek = 7,
-    }
-    
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the SitePerformanceReportRequest.
-    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
-    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dd797115(v=msads.90).aspx">SitePerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dd797115(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="SitePerformanceReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SitePerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum SitePerformanceReportColumn : int
-    {
-        
-        /// <summary>
-        /// The Name element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountName = 0,
-        
-        /// <summary>
-        /// The Number element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountNumber = 1,
-        
-        /// <summary>
-        /// The Id element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountId = 2,
-        
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TimePeriod = 3,
-        
-        /// <summary>
-        /// The Name element of a Campaign.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignName = 4,
-        
-        /// <summary>
-        /// The Id element of a Campaign.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignId = 5,
-        
-        /// <summary>
-        /// The Name element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupName = 6,
-        
-        /// <summary>
-        /// The Id element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupId = 7,
-        
-        /// <summary>
-        /// The URL of the website that displayed the ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Site = 8,
-        
-        /// <summary>
-        /// The Id element of a SitePlacement.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SiteId = 9,
-        
-        /// <summary>
-        /// The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdId = 10,
-        
-        /// <summary>
-        /// The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DestinationUrl = 11,
-        
-        /// <summary>
-        /// The maximum cost per click.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CurrentMaxCpc = 12,
-        
-        /// <summary>
-        /// The CurrencyType element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CurrencyCode = 13,
-        
-        /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeliveredMatchType = 14,
-        
-        /// <summary>
-        /// The AdDistribution element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdDistribution = 15,
-        
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Impressions = 16,
-        
-        /// <summary>
-        /// The number of times that the ads in the account were clicked.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Clicks = 17,
-        
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ctr = 18,
-        
-        /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpc = 19,
-        
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 20,
-        
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AveragePosition = 21,
-        
-        /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 22,
-        
-        /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ConversionRate = 23,
-        
-        /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerConversion = 24,
-        
-        /// <summary>
-        /// The Type element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdType = 25,
-        
-        /// <summary>
-        /// The average of the cost-per-thousand impressions of the ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpm = 26,
-        
-        /// <summary>
-        /// The PricingModel element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PricingModel = 27,
-        
-        /// <summary>
-        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceType = 28,
-        
-        /// <summary>
-        /// The Language element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Language = 29,
-    }
-    
-    /// <summary>
-    /// Defines the ad distribution medium values that you can use to filter the report data. These values are also used as column values in reports that include ad distribution, such as the account performance report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671722(v=msads.90).aspx">AdDistributionReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb671722(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeographicalLocationReportFilter"/>, <see cref="GeoLocationPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/>and <see cref="SitePerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdDistributionReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum AdDistributionReportFilter : int
-    {
-        
-        /// <summary>
-        /// The report will contain search ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Search = 1,
-        
-        /// <summary>
-        /// The report will contain content ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Content = 2,
-    }
-    
-    /// <summary>
-    /// Defines the ad type values that you can use to filter the report data. These values are also used as column values in reports that include the ad type, such as the ad performance report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/cc580687(v=msads.90).aspx">AdTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/cc580687(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>and <see cref="SitePerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum AdTypeReportFilter : int
-    {
-        
-        /// <summary>
-        /// The report will include text ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Text = 1,
-        
-        /// <summary>
-        /// The report will include mobile ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Mobile = 2,
-        
-        /// <summary>
-        /// Not supported.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Image = 4,
-        
-        /// <summary>
-        /// Not supported.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Local = 8,
-        
-        /// <summary>
-        /// Not supported.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RichMedia = 16,
-        
-        /// <summary>
-        /// The report will contain creative ads that are served by third parties.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThirdPartyCreative = 32,
-        
-        /// <summary>
-        /// The report will include rich ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RichAd = 64,
-        
-        /// <summary>
-        /// The report will include product ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Product = 128,
-    }
-    
-    /// <summary>
-    /// Defines the delivered match type values that you can use to filter the report data. These values are also used as column values in reports that include match type, such as the keyword performance report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671749(v=msads.90).aspx">DeliveredMatchTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb671749(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/>and <see cref="SitePerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DeliveredMatchTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum DeliveredMatchTypeReportFilter : int
-    {
-        
-        /// <summary>
-        /// The report will contain ads that were delivered by using an exact match comparison.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Exact = 1,
-        
-        /// <summary>
-        /// The report will contain ads that were delivered by using a phrase match comparison.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Phrase = 2,
-        
-        /// <summary>
-        /// The report will contain ads that were delivered using a broad match comparison.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Broad = 4,
-        
-        /// <summary>
-        /// The report will contain ads that were delivered by using a content match comparison.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Content = 8,
-    }
-    
-    /// <summary>
-    /// Defines the device type values that you can use to filter the report data. These values are also used as column values in reports that include device type information, such as the ad group performance report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262850(v=msads.90).aspx">DeviceTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/gg262850(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdExtensionDimensionReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductOfferPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>and <see cref="SitePerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum DeviceTypeReportFilter : int
-    {
-        
-        /// <summary>
-        /// The report will include text ads displayed on computers.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Computer = 1,
-        
-        /// <summary>
-        /// The report will include text ads displayed on smartphones (any high fidelity device capable of rendering full HTML).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SmartPhone = 2,
-        
-        /// <summary>
-        /// The report will include mobile ads displayed on a mobile device.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        NonSmartPhone = 4,
-        
-        /// <summary>
-        /// The report will include text ads displayed on a tablet device.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Tablet = 8,
-    }
-    
-    /// <summary>
-    /// Defines an ad group to include in the report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671622(v=msads.90).aspx">AdGroupReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671622(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> data object.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class AdGroupReportScope : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private long AccountIdField;
-        
-        private long CampaignIdField;
-        
-        private long AdGroupIdField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// The identifier of the account that the ad group belongs to.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public long AccountId
-        {
-            get
-            {
-                return this.AccountIdField;
-            }
-            set
-            {
-                if ((this.AccountIdField.Equals(value) != true))
-                {
-                    this.AccountIdField = value;
-                    this.RaisePropertyChanged("AccountId");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The identifier of the campaign that the ad group belongs to.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public long CampaignId
-        {
-            get
-            {
-                return this.CampaignIdField;
-            }
-            set
-            {
-                if ((this.CampaignIdField.Equals(value) != true))
-                {
-                    this.CampaignIdField = value;
-                    this.RaisePropertyChanged("CampaignId");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The identifier of the ad group to limit the scope to.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
-        public long AdGroupId
-        {
-            get
-            {
-                return this.AdGroupIdField;
-            }
-            set
-            {
-                if ((this.AdGroupIdField.Equals(value) != true))
-                {
-                    this.AdGroupIdField = value;
-                    this.RaisePropertyChanged("AdGroupId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines a campaign to include in the report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671721(v=msads.90).aspx">CampaignReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671721(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/>and <see cref="AccountThroughCampaignReportScope"/> data objects.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignReportScope", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class CampaignReportScope : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private long AccountIdField;
-        
-        private long CampaignIdField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// The identifier of the account that the campaign belongs to.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public long AccountId
-        {
-            get
-            {
-                return this.AccountIdField;
-            }
-            set
-            {
-                if ((this.AccountIdField.Equals(value) != true))
-                {
-                    this.AccountIdField = value;
-                    this.RaisePropertyChanged("AccountId");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The identifier of the campaign to limit the scope to.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public long CampaignId
-        {
-            get
-            {
-                return this.CampaignIdField;
-            }
-            set
-            {
-                if ((this.CampaignIdField.Equals(value) != true))
-                {
-                    this.CampaignIdField = value;
-                    this.RaisePropertyChanged("CampaignId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines a calendar date by month, day, and year.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn376514(v=msads.90).aspx">Date Data Object</see> http://msdn.microsoft.com/en-us/library/dn376514(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="BudgetSummaryReportTime"/>and <see cref="ReportTime"/> data objects.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Date", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class Date : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int DayField;
-        
-        private int MonthField;
-        
-        private int YearField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// Specifies the day of the month.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Day
-        {
-            get
-            {
-                return this.DayField;
-            }
-            set
-            {
-                if ((this.DayField.Equals(value) != true))
-                {
-                    this.DayField = value;
-                    this.RaisePropertyChanged("Day");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Specifies the month.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Month
-        {
-            get
-            {
-                return this.MonthField;
-            }
-            set
-            {
-                if ((this.MonthField.Equals(value) != true))
-                {
-                    this.MonthField = value;
-                    this.RaisePropertyChanged("Month");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Specifies the year.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Year
-        {
-            get
-            {
-                return this.YearField;
-            }
-            set
-            {
-                if ((this.YearField.Equals(value) != true))
-                {
-                    this.YearField = value;
-                    this.RaisePropertyChanged("Year");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines the predefined time and date range values for a report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671772(v=msads.90).aspx">ReportTimePeriod Value Set</see> http://msdn.microsoft.com/en-us/library/bb671772(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="ReportTime"/> data object.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ReportTimePeriod", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum ReportTimePeriod : int
-    {
-        
-        /// <summary>
-        /// A cumulative report for the current day.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Today = 0,
-        
-        /// <summary>
-        /// A cumulative report for the previous day.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Yesterday = 1,
-        
-        /// <summary>
-        /// A report for the previous seven days, one row for each day.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LastSevenDays = 2,
-        
-        /// <summary>
-        /// A cumulative report for the current calendar week.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThisWeek = 3,
-        
-        /// <summary>
-        /// A cumulative report for the previous calendar week.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LastWeek = 4,
-        
-        /// <summary>
-        /// A cumulative report for the four calendar weeks prior to today.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LastFourWeeks = 5,
-        
-        /// <summary>
-        /// A cumulative report for the current calendar month.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThisMonth = 6,
-        
-        /// <summary>
-        /// A cumulative report for the previous calendar month.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LastMonth = 7,
-        
-        /// <summary>
-        /// A cumulative report for the previous three calendar months.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LastThreeMonths = 8,
-        
-        /// <summary>
-        /// A cumulative report for the previous six calendar months.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LastSixMonths = 9,
-        
-        /// <summary>
-        /// A cumulative report for the current calendar year.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThisYear = 10,
-        
-        /// <summary>
-        /// A cumulative report for the previous calendar year.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LastYear = 11,
-    }
-    
-    /// <summary>
-    /// Defines the criteria to use to filter the conversion performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262849(v=msads.90).aspx">ConversionPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/gg262849(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class ConversionPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<string> KeywordsField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data only for text ads displayed on smartphones.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
-        {
-            get
-            {
-                return this.DeviceTypeField;
-            }
-            set
-            {
-                if ((this.DeviceTypeField.Equals(value) != true))
-                {
-                    this.DeviceTypeField = value;
-                    this.RaisePropertyChanged("DeviceType");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data for only the specified keywords. You can specify a maximum of 75 keywords. Each keyword can contain a maximum of 100 characters.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<string> Keywords
-        {
-            get
-            {
-                return this.KeywordsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.KeywordsField, value) != true))
-                {
-                    this.KeywordsField = value;
-                    this.RaisePropertyChanged("Keywords");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines the aggregation values for reports that cannot specify hourly aggregation.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672057(v=msads.90).aspx">NonHourlyReportAggregation Value Set</see> http://msdn.microsoft.com/en-us/library/bb672057(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="GeographicalLocationReportRequest"/>, <see cref="GeoLocationPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="RichAdComponentPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/>, <see cref="TacticChannelReportRequest"/>and <see cref="TrafficSourcesReportRequest"/> data objects.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="NonHourlyReportAggregation", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum NonHourlyReportAggregation : int
-    {
-        
-        /// <summary>
-        /// The report data will be aggregated for the entire specified report time.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Summary = 0,
-        
-        /// <summary>
-        /// The report data will be aggregated for each day.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Daily = 1,
-        
-        /// <summary>
-        /// The report data is aggregated for each week.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Weekly = 2,
-        
-        /// <summary>
-        /// The report data will be aggregated for each month.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Monthly = 3,
-        
-        /// <summary>
-        /// The report data is aggregated for each year.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Yearly = 4,
-    }
-    
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ConversionPerformanceReportRequest.
-    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
-    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262852(v=msads.90).aspx">ConversionPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/gg262852(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum ConversionPerformanceReportColumn : int
-    {
-        
-        /// <summary>
-        /// The Name element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountName = 0,
-        
-        /// <summary>
-        /// The Number element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountNumber = 1,
-        
-        /// <summary>
-        /// The Id element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountId = 2,
-        
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TimePeriod = 3,
-        
-        /// <summary>
-        /// The Name element of a Campaign.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignName = 4,
-        
-        /// <summary>
-        /// The Id element of a Campaign.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignId = 5,
-        
-        /// <summary>
-        /// The Name element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupName = 6,
-        
-        /// <summary>
-        /// The Id element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupId = 7,
-        
-        /// <summary>
-        /// The Text element of a Keyword.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Keyword = 8,
-        
-        /// <summary>
-        /// The Id element of a Keyword.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        KeywordId = 9,
-        
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Impressions = 10,
-        
-        /// <summary>
-        /// The number of times that the ads in the account were clicked.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Clicks = 11,
-        
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ctr = 12,
-        
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Assists = 13,
-        
-        /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 14,
-        
-        /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ConversionRate = 15,
-        
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 16,
-        
-        /// <summary>
-        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ExtendedCost = 17,
-        
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Revenue = 18,
-        
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ReturnOnAdSpend = 19,
-        
-        /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerConversion = 20,
-        
-        /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerAssist = 21,
-        
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerConversion = 22,
-        
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerAssist = 23,
-        
-        /// <summary>
-        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceType = 24,
-    }
-    
-    /// <summary>
-    /// This report filter is deprecated and is not supported. Using this data object will throw an exception.
-    /// <para>This content is for archive purposes only.</para>
-    /// <para>Defines the criteria to use to filter the ad extension dimension report data.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn393947(v=msads.90).aspx">AdExtensionDimensionReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn393947(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdExtensionDimensionReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDimensionReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class AdExtensionDimensionReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOSField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOS
-        {
-            get
-            {
-                return this.DeviceOSField;
-            }
-            set
-            {
-                if ((this.DeviceOSField.Equals(value) != true))
-                {
-                    this.DeviceOSField = value;
-                    this.RaisePropertyChanged("DeviceOS");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
-        {
-            get
-            {
-                return this.DeviceTypeField;
-            }
-            set
-            {
-                if ((this.DeviceTypeField.Equals(value) != true))
-                {
-                    this.DeviceTypeField = value;
-                    this.RaisePropertyChanged("DeviceType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines the set of accounts to include in the report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671563(v=msads.90).aspx">AccountReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671563(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdExtensionDimensionReportRequest"/>and <see cref="TrafficSourcesReportRequest"/> data objects.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AccountReportScope", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class AccountReportScope : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<long> AccountIdsField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// An array of a maximum of 1,000 account identifiers that identifies the account data to include in the report.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<long> AccountIds
-        {
-            get
-            {
-                return this.AccountIdsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.AccountIdsField, value) != true))
-                {
-                    this.AccountIdsField = value;
-                    this.RaisePropertyChanged("AccountIds");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
-    /// The AdExtensionDimensionReport is deprecated and is not supported. Using this value set will throw an exception.
-    /// <para>This content is for archive purposes only.</para>
-    /// <para>Defines the attributes and performance statistics columns that you can include in the AdExtensionDimensionReportRequest.</para>
-    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
-    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj713609(v=msads.90).aspx">AdExtensionDimensionReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/jj713609(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdExtensionDimensionReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDimensionReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum AdExtensionDimensionReportColumn : int
-    {
-        
-        /// <summary>
-        /// The Id element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountId = 0,
-        
-        /// <summary>
-        /// The type name that corresponds to the AdExtensionTypeId column.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionType = 1,
-        
-        /// <summary>
-        /// The Id element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionId = 2,
-        
-        /// <summary>
-        /// The Version element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionVersion = 3,
-        
-        /// <summary>
-        /// The current delivery status.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Status = 4,
-        
-        /// <summary>
-        /// Positive integer system identifiers ranging from 1 through 20, which map to properties of the CallAdExtension, LocationAdExtension, and SiteLink objects. See the AdExtensionPropertyValue column for the corresponding set of human readable values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionPropertyId = 5,
-        
-        /// <summary>
-        /// The human readable ad extension property value. The following are the possible property values corresponding to each AdExtensionPropertyId from 1 through 20.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionPropertyValue = 6,
-    }
-    
-    /// <summary>
-    /// Defines the device operating system values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn411633(v=msads.90).aspx">DeviceOSReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/dn411633(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdExtensionDimensionReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>and <see cref="CampaignPerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceOSReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum DeviceOSReportFilter : int
-    {
-        
-        /// <summary>
-        /// The report will include ads displayed on a device operating system other than Android, BlackBerry, iOS, and Windows.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Other = 1,
-        
-        /// <summary>
-        /// The report will include ads displayed on Windows device operating systems.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Windows = 2,
-        
-        /// <summary>
-        /// The report will include ads displayed on iOS device operating systems.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        iOS = 4,
-        
-        /// <summary>
-        /// The report will include ads displayed on Android device operating systems.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Android = 8,
-        
-        /// <summary>
-        /// The report will include ads displayed on BlackBerry device operating systems.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        BlackBerry = 16,
-    }
-    
-    /// <summary>
-    /// Defines the criteria to use to filter the ad extension detail report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610806(v=msads.90).aspx">AdExtensionDetailReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn610806(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class AdExtensionDetailReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOSField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOS
-        {
-            get
-            {
-                return this.DeviceOSField;
-            }
-            set
-            {
-                if ((this.DeviceOSField.Equals(value) != true))
-                {
-                    this.DeviceOSField = value;
-                    this.RaisePropertyChanged("DeviceOS");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
-        {
-            get
-            {
-                return this.DeviceTypeField;
-            }
-            set
-            {
-                if ((this.DeviceTypeField.Equals(value) != true))
-                {
-                    this.DeviceTypeField = value;
-                    this.RaisePropertyChanged("DeviceType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AdExtensionDetailReportRequest.
-    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
-    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610365(v=msads.90).aspx">AdExtensionDetailReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn610365(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum AdExtensionDetailReportColumn : int
-    {
-        
-        /// <summary>
-        /// The Name element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountName = 0,
-        
-        /// <summary>
-        /// The Id element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountId = 1,
-        
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TimePeriod = 2,
-        
-        /// <summary>
-        /// The Name element of a Campaign.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignName = 3,
-        
-        /// <summary>
-        /// The Id element of a Campaign.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignId = 4,
-        
-        /// <summary>
-        /// The Name element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupName = 5,
-        
-        /// <summary>
-        /// The Id element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupId = 6,
-        
-        /// <summary>
-        /// The Title element of a MobileAd or TextAd.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdTitle = 7,
-        
-        /// <summary>
-        /// The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdId = 8,
-        
-        /// <summary>
-        /// The type name that corresponds to the AdExtensionTypeId column.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionType = 9,
-        
-        /// <summary>
-        /// The system identifier that corresponds to the AdExtensionType column. The supported identifiers are 10, 11, and 12.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionTypeId = 10,
-        
-        /// <summary>
-        /// The Id element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionId = 11,
-        
-        /// <summary>
-        /// The Version element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionVersion = 12,
-        
-        /// <summary>
-        /// The human readable ad extension property value. For this report only one property is available for each type of ad extension. The following are the possible property values corresponding to each AdExtensionTypeId.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdExtensionPropertyValue = 13,
-        
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Impressions = 14,
-        
-        /// <summary>
-        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceType = 15,
-        
-        /// <summary>
-        /// The operating system of the device specified in the DeviceType column and corresponding to the OSNames element of a DeviceOSTargetBid.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceOS = 16,
-        
-        /// <summary>
-        /// The number of times that the ads in the account were clicked.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Clicks = 17,
-        
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ctr = 18,
-        
-        /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 19,
-        
-        /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerConversion = 20,
-        
-        /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ConversionRate = 21,
-        
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 22,
-        
-        /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpc = 23,
-        
-        /// <summary>
-        /// The MatchType element of a Keyword. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        BidMatchType = 24,
-        
-        /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeliveredMatchType = 25,
-        
-        /// <summary>
-        /// The Network element of an AdGroup. The following is a list of possible values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Network = 26,
-        
-        /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TopVsOther = 27,
-        
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Assists = 28,
-        
-        /// <summary>
-        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ExtendedCost = 29,
-        
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Revenue = 30,
-        
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ReturnOnAdSpend = 31,
-        
-        /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerAssist = 32,
-        
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerConversion = 33,
-        
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerAssist = 34,
-    }
-    
-    /// <summary>
-    /// Defines the criteria to use to filter the ad extension by ad report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn393942(v=msads.90).aspx">AdExtensionByAdReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn393942(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdExtensionByAdReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionByAdReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    [System.SerializableAttribute()]
-    public partial class AdExtensionByAdReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOSField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOS
-        {
-            get
-            {
-                return this.DeviceOSField;
-            }
-            set
-            {
-                if ((this.DeviceOSField.Equals(value) != true))
-                {
-                    this.DeviceOSField = value;
-                    this.RaisePropertyChanged("DeviceOS");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
-        {
-            get
-            {
-                return this.DeviceTypeField;
-            }
-            set
-            {
-                if ((this.DeviceTypeField.Equals(value) != true))
-                {
-                    this.DeviceTypeField = value;
-                    this.RaisePropertyChanged("DeviceType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     /// <summary>
@@ -6177,30 +4753,109 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines the criteria to use to filter the account performance report data.
+    /// Defines the device operating system values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671671(v=msads.90).aspx">AccountPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb671671(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn411633(v=msads.90).aspx">DeviceOSReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/dn411633(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdExtensionDimensionReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/> and <see cref="CampaignPerformanceReportFilter"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceOSReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum DeviceOSReportFilter : int
+    {
+        
+        /// <summary>
+        /// The report will include ads displayed on a device operating system other than Android, BlackBerry, iOS, and Windows.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 1,
+        
+        /// <summary>
+        /// The report will include ads displayed on Windows device operating systems.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Windows = 2,
+        
+        /// <summary>
+        /// The report will include ads displayed on iOS device operating systems.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        iOS = 4,
+        
+        /// <summary>
+        /// The report will include ads displayed on Android device operating systems.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Android = 8,
+        
+        /// <summary>
+        /// The report will include ads displayed on BlackBerry device operating systems.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BlackBerry = 16,
+    }
+    
+    /// <summary>
+    /// Defines the device type values that you can use to filter the report data. These values are also used as column values in reports that include device type information, such as the ad group performance report.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262850(v=msads.90).aspx">DeviceTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/gg262850(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdExtensionDimensionReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="BrandZonePerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductOfferPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/> and <see cref="SitePerformanceReportFilter"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum DeviceTypeReportFilter : int
+    {
+        
+        /// <summary>
+        /// The report will include text ads displayed on computers.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Computer = 1,
+        
+        /// <summary>
+        /// The report will include text ads displayed on smartphones (any high fidelity device capable of rendering full HTML).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SmartPhone = 2,
+        
+        /// <summary>
+        /// The report will include mobile ads displayed on a mobile device.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NonSmartPhone = 4,
+        
+        /// <summary>
+        /// The report will include text ads displayed on a tablet device.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Tablet = 8,
+    }
+    
+    /// <summary>
+    /// Defines an ad group to include in the report.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671622(v=msads.90).aspx">AdGroupReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671622(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v9")]
     [System.SerializableAttribute()]
-    public partial class AccountPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    public partial class AdGroupReportScope : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistributionField;
+        private long AccountIdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOSField;
+        private long CampaignIdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        private long AdGroupIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -6215,61 +4870,61 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The identifier of the account that the ad group belongs to.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistribution
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long AccountId
         {
             get
             {
-                return this.AdDistributionField;
+                return this.AccountIdField;
             }
             set
             {
-                if ((this.AdDistributionField.Equals(value) != true))
+                if ((this.AccountIdField.Equals(value) != true))
                 {
-                    this.AdDistributionField = value;
-                    this.RaisePropertyChanged("AdDistribution");
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
                 }
             }
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// The identifier of the campaign that the ad group belongs to.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOS
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long CampaignId
         {
             get
             {
-                return this.DeviceOSField;
+                return this.CampaignIdField;
             }
             set
             {
-                if ((this.DeviceOSField.Equals(value) != true))
+                if ((this.CampaignIdField.Equals(value) != true))
                 {
-                    this.DeviceOSField = value;
-                    this.RaisePropertyChanged("DeviceOS");
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
                 }
             }
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// The identifier of the ad group to limit the scope to.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public long AdGroupId
         {
             get
             {
-                return this.DeviceTypeField;
+                return this.AdGroupIdField;
             }
             set
             {
-                if ((this.DeviceTypeField.Equals(value) != true))
+                if ((this.AdGroupIdField.Equals(value) != true))
                 {
-                    this.DeviceTypeField = value;
-                    this.RaisePropertyChanged("DeviceType");
+                    this.AdGroupIdField = value;
+                    this.RaisePropertyChanged("AdGroupId");
                 }
             }
         }
@@ -6287,342 +4942,25 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AccountPerformanceReportRequest.
-    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
-    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// Defines a campaign to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671947(v=msads.90).aspx">AccountPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671947(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum AccountPerformanceReportColumn : int
-    {
-        
-        /// <summary>
-        /// The Name element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountName = 0,
-        
-        /// <summary>
-        /// The Number element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountNumber = 1,
-        
-        /// <summary>
-        /// The Id element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountId = 2,
-        
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TimePeriod = 3,
-        
-        /// <summary>
-        /// The CurrencyType element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CurrencyCode = 4,
-        
-        /// <summary>
-        /// The AdDistribution element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdDistribution = 5,
-        
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Impressions = 6,
-        
-        /// <summary>
-        /// The number of times that the ads in the account were clicked.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Clicks = 7,
-        
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ctr = 8,
-        
-        /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpc = 9,
-        
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 10,
-        
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AveragePosition = 11,
-        
-        /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 12,
-        
-        /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ConversionRate = 13,
-        
-        /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerConversion = 14,
-        
-        /// <summary>
-        /// The number of low-quality clicks. Low-quality clicks are clicks that exhibit a low likelihood of commercial intent and for which customers are not billed. The following are some of the reasons that a click can be considered of low quality:
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LowQualityClicks = 15,
-        
-        /// <summary>
-        /// The low-quality clicks as a percentage.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LowQualityClicksPercent = 16,
-        
-        /// <summary>
-        /// The number of impressions that result from low-quality keyword searches.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LowQualityImpressions = 17,
-        
-        /// <summary>
-        /// The low-quality impressions as a percentage.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LowQualityImpressionsPercent = 18,
-        
-        /// <summary>
-        /// The number of conversions that originate from low-quality clicks.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LowQualityConversions = 19,
-        
-        /// <summary>
-        /// The low-quality conversion rate as a percentage.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LowQualityConversionRate = 20,
-        
-        /// <summary>
-        /// The average of the cost-per-thousand impressions of the ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpm = 21,
-        
-        /// <summary>
-        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceType = 22,
-        
-        /// <summary>
-        /// The operating system of the device specified in the DeviceType column and corresponding to the OSNames element of a DeviceOSTargetBid.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceOS = 23,
-        
-        /// <summary>
-        /// The percentage of time your ads were displayed to users who searched by keywords that matched your keywords and targeting selections.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ImpressionSharePercent = 24,
-        
-        /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because of a budget shortfall.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ImpressionLostToBudgetPercent = 25,
-        
-        /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your ads ranked too low in the auction. You can improve your competitive position by increasing your bid, improving your quality score, or both.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ImpressionLostToRankPercent = 26,
-        
-        /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ImpressionLostToBidPercent = 27,
-        
-        /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not due to one or both of the following reasons.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ImpressionLostToLandingPageRelevancePercent = 28,
-        
-        /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your ad copy was not relevant to the user's search query.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ImpressionLostToKeywordRelevancePercent = 29,
-        
-        /// <summary>
-        /// The number of times your tracked number was shown on all devices.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PhoneImpressions = 30,
-        
-        /// <summary>
-        /// The number of total calls to the tracked phone number that showed with your ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PhoneCalls = 31,
-        
-        /// <summary>
-        /// The number of calls dialed manually from any device to the tracked phone number.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ManualCalls = 32,
-        
-        /// <summary>
-        /// The number of phone calls initiated by clicks.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ClickCalls = 33,
-        
-        /// <summary>
-        /// The phone-through rate (Ptr).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ptr = 34,
-        
-        /// <summary>
-        /// The total cost for completed calls to your tracked number.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PhoneSpend = 35,
-        
-        /// <summary>
-        /// The average cost per phone call (CPP).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpp = 36,
-        
-        /// <summary>
-        /// The total cost for cost for click spend and phone call spend combined.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TotalCostPhoneAndClicks = 37,
-        
-        /// <summary>
-        /// The Network element of an AdGroup. The following is a list of possible values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Network = 38,
-        
-        /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TopVsOther = 39,
-        
-        /// <summary>
-        /// The MatchType element of a Keyword. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        BidMatchType = 40,
-        
-        /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeliveredMatchType = 41,
-        
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Assists = 42,
-        
-        /// <summary>
-        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ExtendedCost = 43,
-        
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Revenue = 44,
-        
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ReturnOnAdSpend = 45,
-        
-        /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerAssist = 46,
-        
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerConversion = 47,
-        
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerAssist = 48,
-    }
-    
-    /// <summary>
-    /// Defines the criteria to use to filter the tactic and channel report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262855(v=msads.90).aspx">TacticChannelReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/gg262855(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="TacticChannelReportRequest"/> data object.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671721(v=msads.90).aspx">CampaignReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671721(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> and <see cref="AccountThroughCampaignReportScope"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TacticChannelReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignReportScope", Namespace="https://bingads.microsoft.com/Reporting/v9")]
     [System.SerializableAttribute()]
-    public partial class TacticChannelReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    public partial class CampaignReportScope : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<long> ChannelIdsField;
+        private long AccountIdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<long> TacticIdsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<long> ThirdPartyAdGroupIdsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<long> ThirdPartyCampaignIdsField;
+        private long CampaignIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -6637,81 +4975,41 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified channels. The list can contain a maximum of 300 identifiers.
+        /// The identifier of the account that the campaign belongs to.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<long> ChannelIds
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long AccountId
         {
             get
             {
-                return this.ChannelIdsField;
+                return this.AccountIdField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.ChannelIdsField, value) != true))
+                if ((this.AccountIdField.Equals(value) != true))
                 {
-                    this.ChannelIdsField = value;
-                    this.RaisePropertyChanged("ChannelIds");
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
                 }
             }
         }
         
         /// <summary>
-        /// The report will include data for only the specified tactics. The list can contain a maximum of 300 identifiers.
+        /// The identifier of the campaign to limit the scope to.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<long> TacticIds
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long CampaignId
         {
             get
             {
-                return this.TacticIdsField;
+                return this.CampaignIdField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.TacticIdsField, value) != true))
+                if ((this.CampaignIdField.Equals(value) != true))
                 {
-                    this.TacticIdsField = value;
-                    this.RaisePropertyChanged("TacticIds");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data for only the specified ad groups. The identifiers identify ad groups that you defined on a paid search provider other than Bing Ads. The list can contain a maximum of 300 identifiers.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<long> ThirdPartyAdGroupIds
-        {
-            get
-            {
-                return this.ThirdPartyAdGroupIdsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ThirdPartyAdGroupIdsField, value) != true))
-                {
-                    this.ThirdPartyAdGroupIdsField = value;
-                    this.RaisePropertyChanged("ThirdPartyAdGroupIds");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The report will include data for only the specified campaigns. The identifiers identify campaigns that you defined on a paid search provider other than Bing Ads. The list can contain a maximum of 300 campaigns.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<long> ThirdPartyCampaignIds
-        {
-            get
-            {
-                return this.ThirdPartyCampaignIdsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ThirdPartyCampaignIdsField, value) != true))
-                {
-                    this.ThirdPartyCampaignIdsField = value;
-                    this.RaisePropertyChanged("ThirdPartyCampaignIds");
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
                 }
             }
         }
@@ -6729,207 +5027,27 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the TacticChannelReportRequest.
-    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
-    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// Defines a calendar date by month, day, and year.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262851(v=msads.90).aspx">TacticChannelReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/gg262851(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="TacticChannelReportRequest"/> data object.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TacticChannelReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum TacticChannelReportColumn : int
-    {
-        
-        /// <summary>
-        /// The Name element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountName = 0,
-        
-        /// <summary>
-        /// The Number element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountNumber = 1,
-        
-        /// <summary>
-        /// The Id element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountId = 2,
-        
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TimePeriod = 3,
-        
-        /// <summary>
-        /// The name of the advertising tactic.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Tactic = 4,
-        
-        /// <summary>
-        /// The name of the channel provider that displayed the ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Channel = 5,
-        
-        /// <summary>
-        /// The name of the campaign that you defined on a paid search provider other than Bing Ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThirdPartyCampaign = 6,
-        
-        /// <summary>
-        /// The name of the ad group that you defined on a paid search provider other than Bing Ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThirdPartyAdGroup = 7,
-        
-        /// <summary>
-        /// The keyword to track that you defined on a paid search provider other than Bing Ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThirdPartyTerm = 8,
-        
-        /// <summary>
-        /// The Name element of a Campaign.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignName = 9,
-        
-        /// <summary>
-        /// The Id element of a Campaign.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignId = 10,
-        
-        /// <summary>
-        /// The Name element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupName = 11,
-        
-        /// <summary>
-        /// The Id element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupId = 12,
-        
-        /// <summary>
-        /// The Text element of a Keyword.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Keyword = 13,
-        
-        /// <summary>
-        /// The Id element of a Keyword.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        KeywordId = 14,
-        
-        /// <summary>
-        /// The name of the campaign analytics goal for tracking potential land, browse, prospect, and conversion steps.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Goal = 15,
-        
-        /// <summary>
-        /// The number of times that a user entered step 1 of the funnel.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Step1Count = 16,
-        
-        /// <summary>
-        /// The number of times that a user entered step 2 of the funnel.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Step2Count = 17,
-        
-        /// <summary>
-        /// The number of times that a user entered step 3 of the funnel.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Step3Count = 18,
-        
-        /// <summary>
-        /// The number of times that a user entered step 1 of the funnel.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Step4Count = 19,
-        
-        /// <summary>
-        /// The number of times that a user entered step 1 of the funnel.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Step5Count = 20,
-        
-        /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 21,
-        
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Assists = 22,
-        
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 23,
-        
-        /// <summary>
-        /// The funnel conversion rate is the percent of conversions completed by users who at minimum visited the webpage corresponding to step 1 of your goal.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        FunnelConversionRate = 24,
-        
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Revenue = 25,
-        
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ReturnOnAdSpend = 26,
-    }
-    
-    /// <summary>
-    /// Defines the criteria to use to filter the geographical location performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743754(v=msads.90).aspx">GeoLocationPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn743754(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="GeoLocationPerformanceReportRequest"/> data object.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn376514(v=msads.90).aspx">Date Data Object</see> http://msdn.microsoft.com/en-us/library/dn376514(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="BudgetSummaryReportTime"/> and <see cref="ReportTime"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GeoLocationPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Date", Namespace="https://bingads.microsoft.com/Reporting/v9")]
     [System.SerializableAttribute()]
-    public partial class GeoLocationPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    public partial class Date : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistributionField;
+        private int DayField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<string> CountryCodeField;
+        private int MonthField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<string> LanguageCodeField;
+        private int YearField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -6944,61 +5062,61 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// Specifies the day of the month.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistribution
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Day
         {
             get
             {
-                return this.AdDistributionField;
+                return this.DayField;
             }
             set
             {
-                if ((this.AdDistributionField.Equals(value) != true))
+                if ((this.DayField.Equals(value) != true))
                 {
-                    this.AdDistributionField = value;
-                    this.RaisePropertyChanged("AdDistribution");
+                    this.DayField = value;
+                    this.RaisePropertyChanged("Day");
                 }
             }
         }
         
         /// <summary>
-        /// The report will include data for only the specified countries/regions where the user that clicked the ad is located.
+        /// Specifies the month.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<string> CountryCode
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Month
         {
             get
             {
-                return this.CountryCodeField;
+                return this.MonthField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.CountryCodeField, value) != true))
+                if ((this.MonthField.Equals(value) != true))
                 {
-                    this.CountryCodeField = value;
-                    this.RaisePropertyChanged("CountryCode");
+                    this.MonthField = value;
+                    this.RaisePropertyChanged("Month");
                 }
             }
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// Specifies the year.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<string> LanguageCode
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Year
         {
             get
             {
-                return this.LanguageCodeField;
+                return this.YearField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
+                if ((this.YearField.Equals(value) != true))
                 {
-                    this.LanguageCodeField = value;
-                    this.RaisePropertyChanged("LanguageCode");
+                    this.YearField = value;
+                    this.RaisePropertyChanged("Year");
                 }
             }
         }
@@ -7016,270 +5134,88 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the GeoLocationPerformanceReportRequest.
-    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
-    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// Defines the predefined time and date range values for a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743762(v=msads.90).aspx">GeoLocationPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn743762(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="GeoLocationPerformanceReportRequest"/> data object.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671772(v=msads.90).aspx">ReportTimePeriod Value Set</see> http://msdn.microsoft.com/en-us/library/bb671772(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ReportTime"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GeoLocationPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum GeoLocationPerformanceReportColumn : int
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReportTimePeriod", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum ReportTimePeriod : int
     {
         
         /// <summary>
-        /// The Name element of an Account.
+        /// A cumulative report for the current day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountName = 0,
+        Today = 0,
         
         /// <summary>
-        /// The Number element of an Account.
+        /// A cumulative report for the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountNumber = 1,
+        Yesterday = 1,
         
         /// <summary>
-        /// The Id element of an Account.
+        /// A report for the previous seven days, one row for each day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountId = 2,
+        LastSevenDays = 2,
         
         /// <summary>
-        /// The time period of each report row.
+        /// A cumulative report for the current calendar week.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        TimePeriod = 3,
+        ThisWeek = 3,
         
         /// <summary>
-        /// The Name element of a Campaign.
+        /// A cumulative report for the previous calendar week.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignName = 4,
+        LastWeek = 4,
         
         /// <summary>
-        /// The Id element of a Campaign.
+        /// A cumulative report for the four calendar weeks prior to today.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignId = 5,
+        LastFourWeeks = 5,
         
         /// <summary>
-        /// The Name element of an AdGroup.
+        /// A cumulative report for the current calendar month.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupName = 6,
+        ThisMonth = 6,
         
         /// <summary>
-        /// The Id element of an AdGroup.
+        /// A cumulative report for the previous calendar month.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupId = 7,
+        LastMonth = 7,
         
         /// <summary>
-        /// The country used to deliver the ad.
+        /// A cumulative report for the previous three calendar months.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Country = 8,
+        LastThreeMonths = 8,
         
         /// <summary>
-        /// The state used to deliver the ad.
+        /// A cumulative report for the previous six calendar months.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        State = 9,
+        LastSixMonths = 9,
         
         /// <summary>
-        /// The metro area used to deliver the ad.
+        /// A cumulative report for the current calendar year.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        MetroArea = 10,
+        ThisYear = 10,
         
         /// <summary>
-        /// The city used to deliver the ad.
+        /// A cumulative report for the previous calendar year.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        City = 11,
-        
-        /// <summary>
-        /// The CurrencyType element of an Account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CurrencyCode = 12,
-        
-        /// <summary>
-        /// The AdDistribution element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdDistribution = 13,
-        
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Impressions = 14,
-        
-        /// <summary>
-        /// The number of times that the ads in the account were clicked.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Clicks = 15,
-        
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ctr = 16,
-        
-        /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpc = 17,
-        
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 18,
-        
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AveragePosition = 19,
-        
-        /// <summary>
-        /// The average of the cost-per-thousand impressions of the ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpm = 20,
-        
-        /// <summary>
-        /// The Name element of a RadiusTargetBid. The name of the geographic radius where the user was physically located when they clicked the ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ProximityTargetLocation = 21,
-        
-        /// <summary>
-        /// The Radius element of a RadiusTargetBid. The geographic radius where the user was physically located when they clicked the ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Radius = 22,
-        
-        /// <summary>
-        /// The Language element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Language = 23,
-        
-        /// <summary>
-        /// The MatchType element of a Keyword. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        BidMatchType = 24,
-        
-        /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeliveredMatchType = 25,
-        
-        /// <summary>
-        /// The Network element of an AdGroup. The following is a list of possible values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Network = 26,
-        
-        /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TopVsOther = 27,
-        
-        /// <summary>
-        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceType = 28,
-        
-        /// <summary>
-        /// The operating system of the device specified in the DeviceType column and corresponding to the OSNames element of a DeviceOSTargetBid.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceOS = 29,
-        
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Assists = 30,
-        
-        /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 31,
-        
-        /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ConversionRate = 32,
-        
-        /// <summary>
-        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ExtendedCost = 33,
-        
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Revenue = 34,
-        
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ReturnOnAdSpend = 35,
-        
-        /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerConversion = 36,
-        
-        /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerAssist = 37,
-        
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerConversion = 38,
-        
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerAssist = 39,
-        
-        /// <summary>
-        /// The location type used to deliver ads. For example to distinguish between people in versus searching for or viewing pages about the corresponding location of interest.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LocationType = 40,
-        
-        /// <summary>
-        /// The most specific location used to deliver ads. For example if the City and Country columns are both identified, this column will include the same value as the City column.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        MostSpecificLocation = 41,
+        LastYear = 11,
     }
     
     /// <summary>
@@ -7627,19 +5563,19 @@ namespace Microsoft.BingAds.Reporting
         QualityScore = 28,
         
         /// <summary>
-        /// The numeric score that indicates the relevance of your keyword to the search term. The score reflects the competitiveness of your keyword in the marketplace.
+        /// A numeric score that indicates how likely your ads will be clicked and how well your keyword competes against other keywords targeting the same traffic. This score predicts whether your keyword is likely to lead to a click on your ads, taking into account how well your keyword has performed in the past relative to your ad's position.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordRelevance = 29,
         
         /// <summary>
-        /// The numeric score that indicates the relevance of your ad and landing page to the search query. The score reflects the competitiveness of your ad and landing page in the marketplace.
+        /// A numeric score that indicates how relevant your ad and landing page are to the customer's search query or other input.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageRelevance = 30,
         
         /// <summary>
-        /// The numeric score that is an aggregate assessment of the quality of all landing pages on your site. The score reflects the degree to which your landing pages adhere to Editorial Guidelines.
+        /// A numeric score that indicates whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageUserExperience = 31,
@@ -7675,7 +5611,7 @@ namespace Microsoft.BingAds.Reporting
         ImpressionLostToBidPercent = 36,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not due to one or both of the following reasons.
+        /// The percentage of time your ads would have been displayed to users, but were not due to one or more of the following reasons.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToLandingPageRelevancePercent = 37,
@@ -7823,6 +5759,56 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 61,
+        
+        /// <summary>
+        /// The percentage of customers to your website that only view one page (the landing page) and then leave your website. In general, you want your bounce rate to be as low as possible.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BounceRate = 62,
+        
+        /// <summary>
+        /// The total number of times customers visited your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TotalVisits = 63,
+        
+        /// <summary>
+        /// The average number of pages each customer goes to while on your site. A low number of pages per visit might suggest your website is lacking in design or organization.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePagesPerVisit = 64,
+        
+        /// <summary>
+        /// The sum total of the time customers spent browsing your site divided by the number of customers that came to your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageDurationPerVisit = 65,
+    }
+    
+    /// <summary>
+    /// Defines the ad distribution medium values that you can use to filter the report data. These values are also used as column values in reports that include ad distribution, such as the account performance report.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671722(v=msads.90).aspx">AdDistributionReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb671722(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="BrandZonePerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeographicalLocationReportFilter"/>, <see cref="GeoLocationPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="SitePerformanceReportFilter"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdDistributionReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum AdDistributionReportFilter : int
+    {
+        
+        /// <summary>
+        /// The report will contain search ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Search = 1,
+        
+        /// <summary>
+        /// The report will contain content ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Content = 2,
     }
     
     /// <summary>
@@ -8006,6 +5992,49 @@ namespace Microsoft.BingAds.Reporting
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    /// <summary>
+    /// Defines the aggregation values for reports that cannot specify hourly aggregation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672057(v=msads.90).aspx">NonHourlyReportAggregation Value Set</see> http://msdn.microsoft.com/en-us/library/bb672057(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="GeographicalLocationReportRequest"/>, <see cref="GeoLocationPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="RichAdComponentPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/>, <see cref="TacticChannelReportRequest"/> and <see cref="TrafficSourcesReportRequest"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NonHourlyReportAggregation", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum NonHourlyReportAggregation : int
+    {
+        
+        /// <summary>
+        /// The report data will be aggregated for the entire specified report time.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Summary = 0,
+        
+        /// <summary>
+        /// The report data will be aggregated for each day.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Daily = 1,
+        
+        /// <summary>
+        /// The report data is aggregated for each week.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Weekly = 2,
+        
+        /// <summary>
+        /// The report data will be aggregated for each month.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Monthly = 3,
+        
+        /// <summary>
+        /// The report data is aggregated for each year.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Yearly = 4,
     }
     
     /// <summary>
@@ -8297,6 +6326,68 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 45,
+    }
+    
+    /// <summary>
+    /// Defines the ad type values that you can use to filter the report data. These values are also used as column values in reports that include the ad type, such as the ad performance report.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/cc580687(v=msads.90).aspx">AdTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/cc580687(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="SitePerformanceReportFilter"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum AdTypeReportFilter : int
+    {
+        
+        /// <summary>
+        /// The report will include text ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Text = 1,
+        
+        /// <summary>
+        /// The report will include mobile ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Mobile = 2,
+        
+        /// <summary>
+        /// Not supported.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Image = 4,
+        
+        /// <summary>
+        /// Not supported.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Local = 8,
+        
+        /// <summary>
+        /// Not supported.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RichMedia = 16,
+        
+        /// <summary>
+        /// The report will contain creative ads that are served by third parties.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ThirdPartyCreative = 32,
+        
+        /// <summary>
+        /// The report will include rich ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RichAd = 64,
+        
+        /// <summary>
+        /// The report will include product ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Product = 128,
     }
     
     /// <summary>
@@ -8787,7 +6878,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only keywords with the specified relevance. You can filter the report by one or more of the following relevance values.
+        /// A numeric score that indicates how likely your ads will be clicked and how well your keyword competes against other keywords targeting the same traffic. This score predicts whether your keyword is likely to lead to a click on your ads, taking into account how well your keyword has performed in the past relative to your ad's position. KeywordRelevance is equivalent to the Expected Click-Through Rate label used in the Bing Ads web application. A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note Data for this column is typically updated 14-18 hours after the UTC day ends.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> KeywordRelevance
@@ -8827,7 +6918,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified landing page relevance. You can filter the report by one or more of the following relevance values.
+        /// A numeric score that indicates whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.LandingPageUserExperience is equivalent to the Landing Page Experience label used in the Bing Ads web application. A score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note Data for this column is typically updated 14-18 hours after the UTC day ends.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> LandingPageRelevance
@@ -8847,7 +6938,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified landing page user experience. You can filter the report by one or more of the following user experience values.
+        /// A numeric score that indicates whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.LandingPageUserExperience is equivalent to the Landing Page Experience label used in the Bing Ads web application. A score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note Data for this column is typically updated 14-18 hours after the UTC day ends.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> LandingPageUserExperience
@@ -8925,7 +7016,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672087(v=msads.90).aspx">KeywordPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb672087(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportRequest"/>and <see cref="KeywordPerformanceReportSort"/> data objects.</para>
+    /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> and <see cref="KeywordPerformanceReportSort"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeywordPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
@@ -9119,19 +7210,19 @@ namespace Microsoft.BingAds.Reporting
         QualityScore = 30,
         
         /// <summary>
-        /// The numeric score that indicates the relevance of your keyword to the search term. The score reflects the competitiveness of your keyword in the marketplace.
+        /// A numeric score that indicates how likely your ads will be clicked and how well your keyword competes against other keywords targeting the same traffic. This score predicts whether your keyword is likely to lead to a click on your ads, taking into account how well your keyword has performed in the past relative to your ad's position.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordRelevance = 31,
         
         /// <summary>
-        /// The numeric score that indicates the relevance of your ad and landing page to the search query. The score reflects the competitiveness of your ad and landing page in the marketplace.
+        /// A numeric score that indicates how relevant your ad and landing page are to the customer's search query or other input.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageRelevance = 32,
         
         /// <summary>
-        /// The numeric score that is an aggregate assessment of the quality of all landing pages on your site. The score reflects the degree to which your landing pages adhere to Editorial Guidelines.
+        /// A numeric score that indicates whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageUserExperience = 33,
@@ -9285,6 +7376,30 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 58,
+        
+        /// <summary>
+        /// The percentage of customers to your website that only view one page (the landing page) and then leave your website. In general, you want your bounce rate to be as low as possible.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BounceRate = 59,
+        
+        /// <summary>
+        /// The total number of times customers visited your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TotalVisits = 60,
+        
+        /// <summary>
+        /// The average number of pages each customer goes to while on your site. A low number of pages per visit might suggest your website is lacking in design or organization.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePagesPerVisit = 61,
+        
+        /// <summary>
+        /// The sum total of the time customers spent browsing your site divided by the number of customers that came to your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageDurationPerVisit = 62,
     }
     
     /// <summary>
@@ -9378,7 +7493,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ff728812(v=msads.90).aspx">BidMatchTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/ff728812(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportFilter"/>and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="KeywordPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -9406,6 +7521,44 @@ namespace Microsoft.BingAds.Reporting
         
         /// <summary>
         /// The report will contain keywords that set a bid value for the content match type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Content = 8,
+    }
+    
+    /// <summary>
+    /// Defines the delivered match type values that you can use to filter the report data. These values are also used as column values in reports that include match type, such as the keyword performance report.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671749(v=msads.90).aspx">DeliveredMatchTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb671749(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="BrandZonePerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="SitePerformanceReportFilter"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeliveredMatchTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum DeliveredMatchTypeReportFilter : int
+    {
+        
+        /// <summary>
+        /// The report will contain ads that were delivered by using an exact match comparison.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Exact = 1,
+        
+        /// <summary>
+        /// The report will contain ads that were delivered by using a phrase match comparison.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Phrase = 2,
+        
+        /// <summary>
+        /// The report will contain ads that were delivered using a broad match comparison.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Broad = 4,
+        
+        /// <summary>
+        /// The report will contain ads that were delivered by using a content match comparison.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Content = 8,
@@ -9782,7 +7935,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671549(v=msads.90).aspx">AccountThroughCampaignReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671549(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="BudgetSummaryReportRequest"/>and <see cref="CampaignPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="BudgetSummaryReportRequest"/> and <see cref="CampaignPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10260,13 +8413,13 @@ namespace Microsoft.BingAds.Reporting
         Gender = 10,
         
         /// <summary>
-        /// The estimated number of times that an ad could be served to a particular age group or gender.
+        /// The estimated number of times that an ad could be served to a particular age group or gender, divided by the total number of estimated impressions for all demographics.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedImpressionPercent = 11,
         
         /// <summary>
-        /// The estimated number of times that an ad will be clicked by a particular age group or gender.
+        /// The estimated number of times that an ad will be clicked by a particular age group or gender, divided by the total number of estimated clicks for all demographics.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedClickPercent = 12,
@@ -11043,6 +9196,380 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
+    /// Defines the criteria to use to filter the website performance report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dd796955(v=msads.90).aspx">SitePerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dd796955(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="SitePerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SitePerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class SitePerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistributionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.AdTypeReportFilter> AdTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LanguageCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> SiteIdsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistribution
+        {
+            get
+            {
+                return this.AdDistributionField;
+            }
+            set
+            {
+                if ((this.AdDistributionField.Equals(value) != true))
+                {
+                    this.AdDistributionField = value;
+                    this.RaisePropertyChanged("AdDistribution");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified ad types. For example, the report can include data for mobile or text ads. You can specify one or more ad types.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.AdTypeReportFilter> AdType
+        {
+            get
+            {
+                return this.AdTypeField;
+            }
+            set
+            {
+                if ((this.AdTypeField.Equals(value) != true))
+                {
+                    this.AdTypeField = value;
+                    this.RaisePropertyChanged("AdType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified delivered match types (as opposed to the bid match type). For example, you can use the filter to include data for ads that were delivered using the exact or phrase match type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
+        {
+            get
+            {
+                return this.DeliveredMatchTypeField;
+            }
+            set
+            {
+                if ((this.DeliveredMatchTypeField.Equals(value) != true))
+                {
+                    this.DeliveredMatchTypeField = value;
+                    this.RaisePropertyChanged("DeliveredMatchType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only text ads displayed on smartphones.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> LanguageCode
+        {
+            get
+            {
+                return this.LanguageCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
+                {
+                    this.LanguageCodeField = value;
+                    this.RaisePropertyChanged("LanguageCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified websites. The list can contain a maximum of 300 identifiers.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> SiteIds
+        {
+            get
+            {
+                return this.SiteIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SiteIdsField, value) != true))
+                {
+                    this.SiteIdsField = value;
+                    this.RaisePropertyChanged("SiteIds");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the SitePerformanceReportRequest.
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dd797115(v=msads.90).aspx">SitePerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dd797115(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="SitePerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SitePerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum SitePerformanceReportColumn : int
+    {
+        
+        /// <summary>
+        /// The Name element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Number element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        /// <summary>
+        /// The Id element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 3,
+        
+        /// <summary>
+        /// The Name element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 4,
+        
+        /// <summary>
+        /// The Id element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        /// <summary>
+        /// The Name element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 6,
+        
+        /// <summary>
+        /// The Id element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 7,
+        
+        /// <summary>
+        /// The URL of the website that displayed the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Site = 8,
+        
+        /// <summary>
+        /// The Id element of a SitePlacement.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SiteId = 9,
+        
+        /// <summary>
+        /// The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 10,
+        
+        /// <summary>
+        /// The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DestinationUrl = 11,
+        
+        /// <summary>
+        /// The maximum cost per click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CurrentMaxCpc = 12,
+        
+        /// <summary>
+        /// The CurrencyType element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CurrencyCode = 13,
+        
+        /// <summary>
+        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeliveredMatchType = 14,
+        
+        /// <summary>
+        /// The AdDistribution element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDistribution = 15,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 16,
+        
+        /// <summary>
+        /// The number of times that the ads in the account were clicked.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 17,
+        
+        /// <summary>
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 18,
+        
+        /// <summary>
+        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 19,
+        
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 20,
+        
+        /// <summary>
+        /// The average position of the ad on a webpage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePosition = 21,
+        
+        /// <summary>
+        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 22,
+        
+        /// <summary>
+        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionRate = 23,
+        
+        /// <summary>
+        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 24,
+        
+        /// <summary>
+        /// The Type element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdType = 25,
+        
+        /// <summary>
+        /// The average of the cost-per-thousand impressions of the ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 26,
+        
+        /// <summary>
+        /// The PricingModel element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PricingModel = 27,
+        
+        /// <summary>
+        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 28,
+        
+        /// <summary>
+        /// The Language element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 29,
+    }
+    
+    /// <summary>
     /// Defines the criteria to use to filter the search query performance report data.
     /// </summary>
     /// <remarks>
@@ -11307,7 +9834,7 @@ namespace Microsoft.BingAds.Reporting
     
     /// <summary>
     /// Defines the attributes and performance statistics columns that you can include in the SearchQueryPerformanceReportRequest.
-    /// <para>The report will exclude data for search terms that had one or more ad impressions but resulted in zero clicks over the last 30 days.</para>
+    /// <para>The report will include data only for search terms that resulted in a significant number of clicks in the last 30 days.</para>
     /// <para>Since this data might change over time, please use the Keyword Performance Report to get the performance metrics for your keywords.</para>
     /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
     /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
@@ -11617,7 +10144,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672004(v=msads.90).aspx">CampaignStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb672004(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignPerformanceReportFilter"/>and <see cref="SearchQueryPerformanceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="CampaignPerformanceReportFilter"/> and <see cref="SearchQueryPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -11660,6 +10187,258 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
+    }
+    
+    /// <summary>
+    /// Defines the criteria to use to filter the conversion performance report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262849(v=msads.90).aspx">ConversionPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/gg262849(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class ConversionPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> KeywordsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data only for text ads displayed on smartphones.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified keywords. You can specify a maximum of 75 keywords. Each keyword can contain a maximum of 100 characters.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> Keywords
+        {
+            get
+            {
+                return this.KeywordsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeywordsField, value) != true))
+                {
+                    this.KeywordsField = value;
+                    this.RaisePropertyChanged("Keywords");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the ConversionPerformanceReportRequest.
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262852(v=msads.90).aspx">ConversionPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/gg262852(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum ConversionPerformanceReportColumn : int
+    {
+        
+        /// <summary>
+        /// The Name element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Number element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        /// <summary>
+        /// The Id element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 3,
+        
+        /// <summary>
+        /// The Name element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 4,
+        
+        /// <summary>
+        /// The Id element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        /// <summary>
+        /// The Name element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 6,
+        
+        /// <summary>
+        /// The Id element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 7,
+        
+        /// <summary>
+        /// The Text element of a Keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Keyword = 8,
+        
+        /// <summary>
+        /// The Id element of a Keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KeywordId = 9,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 10,
+        
+        /// <summary>
+        /// The number of times that the ads in the account were clicked.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 11,
+        
+        /// <summary>
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 12,
+        
+        /// <summary>
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 13,
+        
+        /// <summary>
+        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 14,
+        
+        /// <summary>
+        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionRate = 15,
+        
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 16,
+        
+        /// <summary>
+        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExtendedCost = 17,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 18,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 19,
+        
+        /// <summary>
+        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 20,
+        
+        /// <summary>
+        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerAssist = 21,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerConversion = 22,
+        
+        /// <summary>
+        /// The revenue per assist.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerAssist = 23,
+        
+        /// <summary>
+        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 24,
     }
     
     /// <summary>
@@ -11801,7 +10580,7 @@ namespace Microsoft.BingAds.Reporting
         KeywordId = 9,
         
         /// <summary>
-        /// The name of the campaign analytics goal for tracking potential land, browse, prospect, and conversion steps.
+        /// The name of your event tracking or campaign analytics goal.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 10,
@@ -11825,13 +10604,13 @@ namespace Microsoft.BingAds.Reporting
         Step3Count = 13,
         
         /// <summary>
-        /// The number of times that a user entered step 1 of the funnel.
+        /// The number of times that a user entered step 4 of the funnel.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Step4Count = 14,
         
         /// <summary>
-        /// The number of times that a user entered step 1 of the funnel.
+        /// The number of times that a user entered step 5 of the funnel.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Step5Count = 15,
@@ -11877,6 +10656,12 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExtendedCost = 22,
+        
+        /// <summary>
+        /// This is a unique ID that identifies the goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalId = 23,
     }
     
     /// <summary>
@@ -11944,6 +10729,70 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
+    /// Defines the set of accounts to include in the report.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671563(v=msads.90).aspx">AccountReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671563(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdExtensionDimensionReportRequest"/> and <see cref="TrafficSourcesReportRequest"/> data objects.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountReportScope", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class AccountReportScope : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> AccountIdsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// An array of a maximum of 1,000 account identifiers that identifies the account data to include in the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> AccountIds
+        {
+            get
+            {
+                return this.AccountIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountIdsField, value) != true))
+                {
+                    this.AccountIdsField = value;
+                    this.RaisePropertyChanged("AccountIds");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the attributes and performance statistics columns that you can include in the TrafficSourcesReportRequest.
     /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
     /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
@@ -11988,7 +10837,7 @@ namespace Microsoft.BingAds.Reporting
         Source = 4,
         
         /// <summary>
-        /// The name of the campaign analytics goal for tracking potential land, browse, prospect, and conversion steps.
+        /// The name of your event tracking or campaign analytics goal.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 5,
@@ -12012,13 +10861,13 @@ namespace Microsoft.BingAds.Reporting
         Step3Count = 8,
         
         /// <summary>
-        /// The number of times that a user entered step 1 of the funnel.
+        /// The number of times that a user entered step 4 of the funnel.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Step4Count = 9,
         
         /// <summary>
-        /// The number of times that a user entered step 1 of the funnel.
+        /// The number of times that a user entered step 5 of the funnel.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Step5Count = 10,
@@ -12739,6 +11588,222 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
+    /// Defines the criteria to use to filter the product offer performance report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743718(v=msads.90).aspx">ProductOfferPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn743718(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ProductOfferPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductOfferPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductOfferPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LanguageCodeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only ads displayed on computers.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> LanguageCode
+        {
+            get
+            {
+                return this.LanguageCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
+                {
+                    this.LanguageCodeField = value;
+                    this.RaisePropertyChanged("LanguageCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the ProductOfferPerformanceReportRequest.
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743720(v=msads.90).aspx">ProductOfferPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn743720(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ProductOfferPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductOfferPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum ProductOfferPerformanceReportColumn : int
+    {
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 0,
+        
+        /// <summary>
+        /// The Name element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 1,
+        
+        /// <summary>
+        /// The Number element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 2,
+        
+        /// <summary>
+        /// The Name element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 3,
+        
+        /// <summary>
+        /// The Id element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 4,
+        
+        /// <summary>
+        /// The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 5,
+        
+        /// <summary>
+        /// The Status element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdStatus = 6,
+        
+        /// <summary>
+        /// The Name element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 7,
+        
+        /// <summary>
+        /// The CurrencyType element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CurrencyCode = 8,
+        
+        /// <summary>
+        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 9,
+        
+        /// <summary>
+        /// The Language element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 10,
+        
+        /// <summary>
+        /// The report will include a column that contains the unique identifier provided by a merchant for each product offer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MerchantProductId = 11,
+        
+        /// <summary>
+        /// The report will include a column that contains the merchant or store name that offers the product.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SellerName = 12,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 13,
+        
+        /// <summary>
+        /// The number of times that the ads in the account were clicked.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 14,
+        
+        /// <summary>
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 15,
+        
+        /// <summary>
+        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 16,
+        
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 17,
+        
+        /// <summary>
+        /// The average of the cost-per-thousand impressions of the ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 18,
+    }
+    
+    /// <summary>
     /// Defines the criteria to use to filter the ad extension by keyword report data.
     /// </summary>
     /// <remarks>
@@ -13390,19 +12455,19 @@ namespace Microsoft.BingAds.Reporting
         QualityScore = 30,
         
         /// <summary>
-        /// The numeric score that indicates the relevance of your keyword to the search term. The score reflects the competitiveness of your keyword in the marketplace.
+        /// A numeric score that indicates how likely your ads will be clicked and how well your keyword competes against other keywords targeting the same traffic. This score predicts whether your keyword is likely to lead to a click on your ads, taking into account how well your keyword has performed in the past relative to your ad's position.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordRelevance = 31,
         
         /// <summary>
-        /// The numeric score that indicates the relevance of your ad and landing page to the search query. The score reflects the competitiveness of your ad and landing page in the marketplace.
+        /// A numeric score that indicates how relevant your ad and landing page are to the customer's search query or other input.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageRelevance = 32,
         
         /// <summary>
-        /// The numeric score that is an aggregate assessment of the quality of all landing pages on your site. The score reflects the degree to which your landing pages adhere to Editorial Guidelines.
+        /// A numeric score that indicates whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageUserExperience = 33,
@@ -13438,7 +12503,7 @@ namespace Microsoft.BingAds.Reporting
         ImpressionLostToBidPercent = 38,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not due to one or both of the following reasons.
+        /// The percentage of time your ads would have been displayed to users, but were not due to one or more of the following reasons.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToLandingPageRelevancePercent = 39,
@@ -13562,6 +12627,342 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 59,
+        
+        /// <summary>
+        /// The percentage of customers to your website that only view one page (the landing page) and then leave your website. In general, you want your bounce rate to be as low as possible.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BounceRate = 60,
+        
+        /// <summary>
+        /// The total number of times customers visited your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TotalVisits = 61,
+        
+        /// <summary>
+        /// The average number of pages each customer goes to while on your site. A low number of pages per visit might suggest your website is lacking in design or organization.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePagesPerVisit = 62,
+        
+        /// <summary>
+        /// The sum total of the time customers spent browsing your site divided by the number of customers that came to your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageDurationPerVisit = 63,
+    }
+    
+    /// <summary>
+    /// Defines the criteria to use to filter the ad extension detail report.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610806(v=msads.90).aspx">AdExtensionDetailReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn610806(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class AdExtensionDetailReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOS
+        {
+            get
+            {
+                return this.DeviceOSField;
+            }
+            set
+            {
+                if ((this.DeviceOSField.Equals(value) != true))
+                {
+                    this.DeviceOSField = value;
+                    this.RaisePropertyChanged("DeviceOS");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the AdExtensionDetailReportRequest.
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610365(v=msads.90).aspx">AdExtensionDetailReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn610365(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum AdExtensionDetailReportColumn : int
+    {
+        
+        /// <summary>
+        /// The Name element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Id element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 1,
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 2,
+        
+        /// <summary>
+        /// The Name element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 3,
+        
+        /// <summary>
+        /// The Id element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 4,
+        
+        /// <summary>
+        /// The Name element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 5,
+        
+        /// <summary>
+        /// The Id element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 6,
+        
+        /// <summary>
+        /// The Title element of a MobileAd or TextAd.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdTitle = 7,
+        
+        /// <summary>
+        /// The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 8,
+        
+        /// <summary>
+        /// The type name that corresponds to the AdExtensionTypeId column.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionType = 9,
+        
+        /// <summary>
+        /// The system identifier that corresponds to the AdExtensionType column. The supported identifiers are 10, 11, and 12.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionTypeId = 10,
+        
+        /// <summary>
+        /// The Id element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionId = 11,
+        
+        /// <summary>
+        /// The Version element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionVersion = 12,
+        
+        /// <summary>
+        /// The human readable ad extension property value. For this report only one property is available for each type of ad extension. The following are the possible property values corresponding to each AdExtensionTypeId.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionPropertyValue = 13,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 14,
+        
+        /// <summary>
+        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 15,
+        
+        /// <summary>
+        /// The operating system of the device specified in the DeviceType column and corresponding to the OSNames element of a DeviceOSTargetBid.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceOS = 16,
+        
+        /// <summary>
+        /// The number of times that the ads in the account were clicked.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 17,
+        
+        /// <summary>
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 18,
+        
+        /// <summary>
+        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 19,
+        
+        /// <summary>
+        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 20,
+        
+        /// <summary>
+        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionRate = 21,
+        
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 22,
+        
+        /// <summary>
+        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 23,
+        
+        /// <summary>
+        /// The MatchType element of a Keyword. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidMatchType = 24,
+        
+        /// <summary>
+        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeliveredMatchType = 25,
+        
+        /// <summary>
+        /// The Network element of an AdGroup. The following is a list of possible values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Network = 26,
+        
+        /// <summary>
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopVsOther = 27,
+        
+        /// <summary>
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 28,
+        
+        /// <summary>
+        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExtendedCost = 29,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 30,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 31,
+        
+        /// <summary>
+        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerAssist = 32,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerConversion = 33,
+        
+        /// <summary>
+        /// The revenue per assist.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerAssist = 34,
     }
     
     /// <summary>
@@ -13867,7 +13268,7 @@ namespace Microsoft.BingAds.Reporting
         ImpressionLostToRankPercent = 21,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not due to one or both of the following reasons.
+        /// The percentage of time your ads would have been displayed to users, but were not due to one or more of the following reasons.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToLandingPageRelevancePercent = 22,
@@ -13900,19 +13301,19 @@ namespace Microsoft.BingAds.Reporting
         QualityScore = 27,
         
         /// <summary>
-        /// The numeric score that indicates the relevance of your keyword to the search term. The score reflects the competitiveness of your keyword in the marketplace.
+        /// A numeric score that indicates how likely your ads will be clicked and how well your keyword competes against other keywords targeting the same traffic. This score predicts whether your keyword is likely to lead to a click on your ads, taking into account how well your keyword has performed in the past relative to your ad's position.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordRelevance = 28,
         
         /// <summary>
-        /// The numeric score that indicates the relevance of your ad and landing page to the search query. The score reflects the competitiveness of your ad and landing page in the marketplace.
+        /// A numeric score that indicates how relevant your ad and landing page are to the customer's search query or other input.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageRelevance = 29,
         
         /// <summary>
-        /// The numeric score that is an aggregate assessment of the quality of all landing pages on your site. The score reflects the degree to which your landing pages adhere to Editorial Guidelines.
+        /// A numeric score that indicates whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageUserExperience = 30,
@@ -14288,6 +13689,664 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the criteria to use to filter the product dimension performance report data.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913139(v=msads.90).aspx">ProductDimensionPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn913139(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ProductDimensionPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductDimensionPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductDimensionPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LanguageCodeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only ads displayed on computers.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> LanguageCode
+        {
+            get
+            {
+                return this.LanguageCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
+                {
+                    this.LanguageCodeField = value;
+                    this.RaisePropertyChanged("LanguageCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the attributes and performance statistics columns that you can include in the ProductDimensionPerformanceReportRequest.</para>
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913140(v=msads.90).aspx">ProductDimensionPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn913140(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ProductDimensionPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductDimensionPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum ProductDimensionPerformanceReportColumn : int
+    {
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 0,
+        
+        /// <summary>
+        /// The Name element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 1,
+        
+        /// <summary>
+        /// The Number element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 2,
+        
+        /// <summary>
+        /// The Name element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 3,
+        
+        /// <summary>
+        /// The Id element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 4,
+        
+        /// <summary>
+        /// The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 5,
+        
+        /// <summary>
+        /// The Status element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdStatus = 6,
+        
+        /// <summary>
+        /// The Name element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 7,
+        
+        /// <summary>
+        /// The CurrencyType element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CurrencyCode = 8,
+        
+        /// <summary>
+        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 9,
+        
+        /// <summary>
+        /// The Language element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 10,
+        
+        /// <summary>
+        /// The report will include a column that contains the unique identifier provided by a merchant for each product offer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MerchantProductId = 11,
+        
+        /// <summary>
+        /// The report will include a column that contains the merchant or store name that offers the product.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SellerName = 12,
+        
+        /// <summary>
+        /// The product item name. For example the title of a book, DVD, or game.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Title = 13,
+        
+        /// <summary>
+        /// The condition of a product item. Possible values include:
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Condition = 14,
+        
+        /// <summary>
+        /// The product item's manufacturer, brand, or publisher.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Brand = 15,
+        
+        /// <summary>
+        /// The value of the Custom_label_0 field in your Bing Merchant Center catalog.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomLabel0 = 16,
+        
+        /// <summary>
+        /// The value of the Custom_label_1 field in your Bing Merchant Center catalog.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomLabel1 = 17,
+        
+        /// <summary>
+        /// The value of the Custom_label_2 field in your Bing Merchant Center catalog.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomLabel2 = 18,
+        
+        /// <summary>
+        /// The value of the Custom_label_3 field in your Bing Merchant Center catalog.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomLabel3 = 19,
+        
+        /// <summary>
+        /// The value of the Custom_label_4 field in your Bing Merchant Center catalog.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomLabel4 = 20,
+        
+        /// <summary>
+        /// The first level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductType1 = 21,
+        
+        /// <summary>
+        /// The second level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductType2 = 22,
+        
+        /// <summary>
+        /// The third level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductType3 = 23,
+        
+        /// <summary>
+        /// The fourth level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductType4 = 24,
+        
+        /// <summary>
+        /// The fifth level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductType5 = 25,
+        
+        /// <summary>
+        /// The first level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductCategory1 = 26,
+        
+        /// <summary>
+        /// The second level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductCategory2 = 27,
+        
+        /// <summary>
+        /// The third level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductCategory3 = 28,
+        
+        /// <summary>
+        /// The fourth level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductCategory4 = 29,
+        
+        /// <summary>
+        /// The fifth level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog organized?
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductCategory5 = 30,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 31,
+        
+        /// <summary>
+        /// The number of times that the ads in the account were clicked.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 32,
+        
+        /// <summary>
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 33,
+        
+        /// <summary>
+        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 34,
+        
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 35,
+        
+        /// <summary>
+        /// The average of the cost-per-thousand impressions of the ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 36,
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the criteria to use to filter the product partition performance report data.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913143(v=msads.90).aspx">ProductPartitionPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn913143(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ProductPartitionPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductPartitionPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LanguageCodeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only ads displayed on computers.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> LanguageCode
+        {
+            get
+            {
+                return this.LanguageCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
+                {
+                    this.LanguageCodeField = value;
+                    this.RaisePropertyChanged("LanguageCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the attributes and performance statistics columns that you can include in the ProductPartitionPerformanceReportRequest.</para>
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913142(v=msads.90).aspx">ProductPartitionPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn913142(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ProductPartitionPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum ProductPartitionPerformanceReportColumn : int
+    {
+        
+        /// <summary>
+        /// The Name element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Number element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        /// <summary>
+        /// The Id element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 3,
+        
+        /// <summary>
+        /// The Name element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 4,
+        
+        /// <summary>
+        /// The Id element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        /// <summary>
+        /// The Name element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 6,
+        
+        /// <summary>
+        /// The Id element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 7,
+        
+        /// <summary>
+        /// The forward slash ('/') delimited list of ProductCondition, reported as Operand = Attribute. For example 'Product Type = Home / Product Type = Electronics / Product Type = DVD Player'
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductGroup = 8,
+        
+        /// <summary>
+        /// The Id element of the corresponding AdGroupCriterion, or product group in the context of a Bing Shopping campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupCriterionId = 9,
+        
+        /// <summary>
+        /// The PartitionType element of a ProductPartition.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PartitionType = 10,
+        
+        /// <summary>
+        /// The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 11,
+        
+        /// <summary>
+        /// The maximum cost per click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CurrentMaxCpc = 12,
+        
+        /// <summary>
+        /// The CurrencyType element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CurrencyCode = 13,
+        
+        /// <summary>
+        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeliveredMatchType = 14,
+        
+        /// <summary>
+        /// The MatchType element of a Keyword. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidMatchType = 15,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 16,
+        
+        /// <summary>
+        /// The number of times that the ads in the account were clicked.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 17,
+        
+        /// <summary>
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 18,
+        
+        /// <summary>
+        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 19,
+        
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 20,
+        
+        /// <summary>
+        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 21,
+        
+        /// <summary>
+        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionRate = 22,
+        
+        /// <summary>
+        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 23,
+        
+        /// <summary>
+        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 24,
+        
+        /// <summary>
+        /// The Language element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 25,
+        
+        /// <summary>
+        /// The Status element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStatus = 26,
+        
+        /// <summary>
+        /// The AccountLifeCycleStatus element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStatus = 27,
+        
+        /// <summary>
+        /// The Status element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupStatus = 28,
+        
+        /// <summary>
+        /// The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DestinationUrl = 29,
+        
+        /// <summary>
+        /// The Network element of an AdGroup. The following is a list of possible values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Network = 30,
+        
+        /// <summary>
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopVsOther = 31,
+        
+        /// <summary>
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 32,
+        
+        /// <summary>
+        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExtendedCost = 33,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 34,
+        
+        /// <summary>
+        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerAssist = 35,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerConversion = 36,
+        
+        /// <summary>
+        /// The revenue per assist.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerAssist = 37,
+    }
+    
+    /// <summary>
     /// Defines the attributes and performance statistics columns that you can include in the CallDetailReportRequest.
     /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
     /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
@@ -14393,24 +14452,1161 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines the criteria to use to filter the product offer performance report data.
+    /// This report filter is deprecated and is not supported. Using this data object will throw an exception.
+    /// <para>This content is for archive purposes only.</para>
+    /// <para>Defines the criteria to use to filter the ad extension dimension report data.</para>
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743718(v=msads.90).aspx">ProductOfferPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn743718(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="ProductOfferPerformanceReportRequest"/> data object.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn393947(v=msads.90).aspx">AdExtensionDimensionReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn393947(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdExtensionDimensionReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductOfferPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDimensionReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
     [System.SerializableAttribute()]
-    public partial class ProductOfferPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    public partial class AdExtensionDimensionReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOS
+        {
+            get
+            {
+                return this.DeviceOSField;
+            }
+            set
+            {
+                if ((this.DeviceOSField.Equals(value) != true))
+                {
+                    this.DeviceOSField = value;
+                    this.RaisePropertyChanged("DeviceOS");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The AdExtensionDimensionReport is deprecated and is not supported. Using this value set will throw an exception.
+    /// <para>This content is for archive purposes only.</para>
+    /// <para>Defines the attributes and performance statistics columns that you can include in the AdExtensionDimensionReportRequest.</para>
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/jj713609(v=msads.90).aspx">AdExtensionDimensionReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/jj713609(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdExtensionDimensionReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDimensionReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum AdExtensionDimensionReportColumn : int
+    {
+        
+        /// <summary>
+        /// The Id element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 0,
+        
+        /// <summary>
+        /// The type name that corresponds to the AdExtensionTypeId column.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionType = 1,
+        
+        /// <summary>
+        /// The Id element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionId = 2,
+        
+        /// <summary>
+        /// The Version element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionVersion = 3,
+        
+        /// <summary>
+        /// The current delivery status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Status = 4,
+        
+        /// <summary>
+        /// Positive integer system identifiers ranging from 1 through 20, which map to properties of the CallAdExtension, LocationAdExtension, and SiteLink objects. See the AdExtensionPropertyValue column for the corresponding set of human readable values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionPropertyId = 5,
+        
+        /// <summary>
+        /// The human readable ad extension property value. The following are the possible property values corresponding to each AdExtensionPropertyId from 1 through 20.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdExtensionPropertyValue = 6,
+    }
+    
+    /// <summary>
+    /// Defines the criteria to use to filter the account performance report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671671(v=msads.90).aspx">AccountPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb671671(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class AccountPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistributionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistribution
+        {
+            get
+            {
+                return this.AdDistributionField;
+            }
+            set
+            {
+                if ((this.AdDistributionField.Equals(value) != true))
+                {
+                    this.AdDistributionField = value;
+                    this.RaisePropertyChanged("AdDistribution");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceOSReportFilter> DeviceOS
+        {
+            get
+            {
+                return this.DeviceOSField;
+            }
+            set
+            {
+                if ((this.DeviceOSField.Equals(value) != true))
+                {
+                    this.DeviceOSField = value;
+                    this.RaisePropertyChanged("DeviceOS");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the AccountPerformanceReportRequest.
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671947(v=msads.90).aspx">AccountPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671947(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum AccountPerformanceReportColumn : int
+    {
+        
+        /// <summary>
+        /// The Name element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Number element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        /// <summary>
+        /// The Id element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 3,
+        
+        /// <summary>
+        /// The CurrencyType element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CurrencyCode = 4,
+        
+        /// <summary>
+        /// The AdDistribution element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDistribution = 5,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 6,
+        
+        /// <summary>
+        /// The number of times that the ads in the account were clicked.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 7,
+        
+        /// <summary>
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 8,
+        
+        /// <summary>
+        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 9,
+        
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 10,
+        
+        /// <summary>
+        /// The average position of the ad on a webpage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePosition = 11,
+        
+        /// <summary>
+        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 12,
+        
+        /// <summary>
+        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionRate = 13,
+        
+        /// <summary>
+        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 14,
+        
+        /// <summary>
+        /// The number of low-quality clicks. Low-quality clicks are clicks that exhibit a low likelihood of commercial intent and for which customers are not billed. The following are some of the reasons that a click can be considered of low quality:
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityClicks = 15,
+        
+        /// <summary>
+        /// The low-quality clicks as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityClicksPercent = 16,
+        
+        /// <summary>
+        /// The number of impressions that result from low-quality keyword searches.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityImpressions = 17,
+        
+        /// <summary>
+        /// The low-quality impressions as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityImpressionsPercent = 18,
+        
+        /// <summary>
+        /// The number of conversions that originate from low-quality clicks.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityConversions = 19,
+        
+        /// <summary>
+        /// The low-quality conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityConversionRate = 20,
+        
+        /// <summary>
+        /// The average of the cost-per-thousand impressions of the ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 21,
+        
+        /// <summary>
+        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 22,
+        
+        /// <summary>
+        /// The operating system of the device specified in the DeviceType column and corresponding to the OSNames element of a DeviceOSTargetBid.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceOS = 23,
+        
+        /// <summary>
+        /// The percentage of time your ads were displayed to users who searched by keywords that matched your keywords and targeting selections.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionSharePercent = 24,
+        
+        /// <summary>
+        /// The percentage of time your ads would have been displayed to users, but were not because of a budget shortfall.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToBudgetPercent = 25,
+        
+        /// <summary>
+        /// The percentage of time your ads would have been displayed to users, but were not because your ads ranked too low in the auction. You can improve your competitive position by increasing your bid, improving your quality score, or both.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToRankPercent = 26,
+        
+        /// <summary>
+        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToBidPercent = 27,
+        
+        /// <summary>
+        /// The percentage of time your ads would have been displayed to users, but were not due to one or more of the following reasons.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToLandingPageRelevancePercent = 28,
+        
+        /// <summary>
+        /// The percentage of time your ads would have been displayed to users, but were not because your ad copy was not relevant to the user's search query.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToKeywordRelevancePercent = 29,
+        
+        /// <summary>
+        /// The number of times your tracked number was shown on all devices.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PhoneImpressions = 30,
+        
+        /// <summary>
+        /// The number of total calls to the tracked phone number that showed with your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PhoneCalls = 31,
+        
+        /// <summary>
+        /// The number of calls dialed manually from any device to the tracked phone number.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ManualCalls = 32,
+        
+        /// <summary>
+        /// The number of phone calls initiated by clicks.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClickCalls = 33,
+        
+        /// <summary>
+        /// The phone-through rate (Ptr).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ptr = 34,
+        
+        /// <summary>
+        /// The total cost for completed calls to your tracked number.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PhoneSpend = 35,
+        
+        /// <summary>
+        /// The average cost per phone call (CPP).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpp = 36,
+        
+        /// <summary>
+        /// The total cost for cost for click spend and phone call spend combined.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TotalCostPhoneAndClicks = 37,
+        
+        /// <summary>
+        /// The Network element of an AdGroup. The following is a list of possible values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Network = 38,
+        
+        /// <summary>
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopVsOther = 39,
+        
+        /// <summary>
+        /// The MatchType element of a Keyword. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidMatchType = 40,
+        
+        /// <summary>
+        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeliveredMatchType = 41,
+        
+        /// <summary>
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 42,
+        
+        /// <summary>
+        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExtendedCost = 43,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 44,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 45,
+        
+        /// <summary>
+        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerAssist = 46,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerConversion = 47,
+        
+        /// <summary>
+        /// The revenue per assist.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerAssist = 48,
+        
+        /// <summary>
+        /// The percentage of customers to your website that only view one page (the landing page) and then leave your website. In general, you want your bounce rate to be as low as possible.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BounceRate = 49,
+        
+        /// <summary>
+        /// The total number of times customers visited your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TotalVisits = 50,
+        
+        /// <summary>
+        /// The average number of pages each customer goes to while on your site. A low number of pages per visit might suggest your website is lacking in design or organization.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePagesPerVisit = 51,
+        
+        /// <summary>
+        /// The sum total of the time customers spent browsing your site divided by the number of customers that came to your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageDurationPerVisit = 52,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BrandZonePerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class BrandZonePerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistributionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> KeywordsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LanguageCodeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistribution
+        {
+            get
+            {
+                return this.AdDistributionField;
+            }
+            set
+            {
+                if ((this.AdDistributionField.Equals(value) != true))
+                {
+                    this.AdDistributionField = value;
+                    this.RaisePropertyChanged("AdDistribution");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
+        {
+            get
+            {
+                return this.DeliveredMatchTypeField;
+            }
+            set
+            {
+                if ((this.DeliveredMatchTypeField.Equals(value) != true))
+                {
+                    this.DeliveredMatchTypeField = value;
+                    this.RaisePropertyChanged("DeliveredMatchType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        {
+            get
+            {
+                return this.DeviceTypeField;
+            }
+            set
+            {
+                if ((this.DeviceTypeField.Equals(value) != true))
+                {
+                    this.DeviceTypeField = value;
+                    this.RaisePropertyChanged("DeviceType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> Keywords
+        {
+            get
+            {
+                return this.KeywordsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeywordsField, value) != true))
+                {
+                    this.KeywordsField = value;
+                    this.RaisePropertyChanged("Keywords");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> LanguageCode
+        {
+            get
+            {
+                return this.LanguageCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
+                {
+                    this.LanguageCodeField = value;
+                    this.RaisePropertyChanged("LanguageCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BrandZonePerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum BrandZonePerformanceReportColumn : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Keyword = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KeywordId = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdTitle = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 12,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 13,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 14,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 17,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStatus = 18,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStatus = 19,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupStatus = 20,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KeywordStatus = 21,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DisplayPosition = 22,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Network = 23,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PricingModel = 24,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceOS = 25,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ComponentTitle = 26,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ComponentClicks = 27,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ComponentTotalClicks = 28,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ComponentCTR = 29,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ComponentNonBillableClicks = 30,
+    }
+    
+    /// <summary>
+    /// Defines the criteria to use to filter the tactic and channel report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262855(v=msads.90).aspx">TacticChannelReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/gg262855(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="TacticChannelReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TacticChannelReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class TacticChannelReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> ChannelIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> TacticIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> ThirdPartyAdGroupIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> ThirdPartyCampaignIdsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified channels. The list can contain a maximum of 300 identifiers.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> ChannelIds
+        {
+            get
+            {
+                return this.ChannelIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ChannelIdsField, value) != true))
+                {
+                    this.ChannelIdsField = value;
+                    this.RaisePropertyChanged("ChannelIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified tactics. The list can contain a maximum of 300 identifiers.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> TacticIds
+        {
+            get
+            {
+                return this.TacticIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TacticIdsField, value) != true))
+                {
+                    this.TacticIdsField = value;
+                    this.RaisePropertyChanged("TacticIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified ad groups. The identifiers identify ad groups that you defined on a paid search provider other than Bing Ads. The list can contain a maximum of 300 identifiers.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> ThirdPartyAdGroupIds
+        {
+            get
+            {
+                return this.ThirdPartyAdGroupIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ThirdPartyAdGroupIdsField, value) != true))
+                {
+                    this.ThirdPartyAdGroupIdsField = value;
+                    this.RaisePropertyChanged("ThirdPartyAdGroupIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified campaigns. The identifiers identify campaigns that you defined on a paid search provider other than Bing Ads. The list can contain a maximum of 300 campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> ThirdPartyCampaignIds
+        {
+            get
+            {
+                return this.ThirdPartyCampaignIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ThirdPartyCampaignIdsField, value) != true))
+                {
+                    this.ThirdPartyCampaignIdsField = value;
+                    this.RaisePropertyChanged("ThirdPartyCampaignIds");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the TacticChannelReportRequest.
+    /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
+    /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262851(v=msads.90).aspx">TacticChannelReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/gg262851(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="TacticChannelReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TacticChannelReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum TacticChannelReportColumn : int
+    {
+        
+        /// <summary>
+        /// The Name element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Number element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        /// <summary>
+        /// The Id element of an Account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 3,
+        
+        /// <summary>
+        /// The name of the advertising tactic.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Tactic = 4,
+        
+        /// <summary>
+        /// The name of the channel provider that displayed the ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Channel = 5,
+        
+        /// <summary>
+        /// The name of the campaign that you defined on a paid search provider other than Bing Ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ThirdPartyCampaign = 6,
+        
+        /// <summary>
+        /// The name of the ad group that you defined on a paid search provider other than Bing Ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ThirdPartyAdGroup = 7,
+        
+        /// <summary>
+        /// The keyword to track that you defined on a paid search provider other than Bing Ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ThirdPartyTerm = 8,
+        
+        /// <summary>
+        /// The Name element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 9,
+        
+        /// <summary>
+        /// The Id element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 10,
+        
+        /// <summary>
+        /// The Name element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 11,
+        
+        /// <summary>
+        /// The Id element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 12,
+        
+        /// <summary>
+        /// The Text element of a Keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Keyword = 13,
+        
+        /// <summary>
+        /// The Id element of a Keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KeywordId = 14,
+        
+        /// <summary>
+        /// The name of your event tracking or campaign analytics goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 15,
+        
+        /// <summary>
+        /// The number of times that a user entered step 1 of the funnel.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Step1Count = 16,
+        
+        /// <summary>
+        /// The number of times that a user entered step 2 of the funnel.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Step2Count = 17,
+        
+        /// <summary>
+        /// The number of times that a user entered step 3 of the funnel.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Step3Count = 18,
+        
+        /// <summary>
+        /// The number of times that a user entered step 4 of the funnel.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Step4Count = 19,
+        
+        /// <summary>
+        /// The number of times that a user entered step 5 of the funnel.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Step5Count = 20,
+        
+        /// <summary>
+        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 21,
+        
+        /// <summary>
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 22,
+        
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 23,
+        
+        /// <summary>
+        /// The funnel conversion rate is the percent of conversions completed by users who at minimum visited the webpage corresponding to step 1 of your goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FunnelConversionRate = 24,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 25,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 26,
+    }
+    
+    /// <summary>
+    /// Defines the criteria to use to filter the geographical location performance report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743754(v=msads.90).aspx">GeoLocationPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn743754(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="GeoLocationPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GeoLocationPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class GeoLocationPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistributionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> CountryCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> LanguageCodeField;
@@ -14428,21 +15624,41 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only ads displayed on computers.
+        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.Reporting.DeviceTypeReportFilter> DeviceType
+        public System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistribution
         {
             get
             {
-                return this.DeviceTypeField;
+                return this.AdDistributionField;
             }
             set
             {
-                if ((this.DeviceTypeField.Equals(value) != true))
+                if ((this.AdDistributionField.Equals(value) != true))
                 {
-                    this.DeviceTypeField = value;
-                    this.RaisePropertyChanged("DeviceType");
+                    this.AdDistributionField = value;
+                    this.RaisePropertyChanged("AdDistribution");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified countries/regions where the user that clicked the ad is located.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> CountryCode
+        {
+            get
+            {
+                return this.CountryCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CountryCodeField, value) != true))
+                {
+                    this.CountryCodeField = value;
+                    this.RaisePropertyChanged("CountryCode");
                 }
             }
         }
@@ -14480,132 +15696,270 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ProductOfferPerformanceReportRequest.
+    /// Defines the attributes and performance statistics columns that you can include in the GeoLocationPerformanceReportRequest.
     /// <para>The attribute columns that you include in a report affects the values within the statistics columns as well as the number or rows. For more information, see Columns that Group the Data.</para>
     /// <para>For a list of columns that you must include, please see the Required Columns section below.</para>
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743720(v=msads.90).aspx">ProductOfferPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn743720(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="ProductOfferPerformanceReportRequest"/> data object.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743762(v=msads.90).aspx">GeoLocationPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn743762(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="GeoLocationPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductOfferPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
-    public enum ProductOfferPerformanceReportColumn : int
+    [System.Runtime.Serialization.DataContractAttribute(Name="GeoLocationPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum GeoLocationPerformanceReportColumn : int
     {
-        
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TimePeriod = 0,
         
         /// <summary>
         /// The Name element of an Account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountName = 1,
+        AccountName = 0,
         
         /// <summary>
         /// The Number element of an Account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountNumber = 2,
+        AccountNumber = 1,
         
         /// <summary>
-        /// The Name element of an AdGroup.
+        /// The Id element of an Account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupName = 3,
+        AccountId = 2,
         
         /// <summary>
-        /// The Id element of an AdGroup.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupId = 4,
-        
-        /// <summary>
-        /// The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdId = 5,
-        
-        /// <summary>
-        /// The Status element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdStatus = 6,
+        TimePeriod = 3,
         
         /// <summary>
         /// The Name element of a Campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignName = 7,
+        CampaignName = 4,
+        
+        /// <summary>
+        /// The Id element of a Campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        /// <summary>
+        /// The Name element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 6,
+        
+        /// <summary>
+        /// The Id element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 7,
+        
+        /// <summary>
+        /// The country used to deliver the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Country = 8,
+        
+        /// <summary>
+        /// The state used to deliver the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        State = 9,
+        
+        /// <summary>
+        /// The metro area used to deliver the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MetroArea = 10,
+        
+        /// <summary>
+        /// The city used to deliver the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        City = 11,
         
         /// <summary>
         /// The CurrencyType element of an Account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CurrencyCode = 8,
+        CurrencyCode = 12,
         
         /// <summary>
-        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// The AdDistribution element of an AdGroup.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceType = 9,
-        
-        /// <summary>
-        /// The Language element of an AdGroup.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Language = 10,
-        
-        /// <summary>
-        /// The report will include a column that contains the unique identifier provided by a merchant for each product offer.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        MerchantProductId = 11,
-        
-        /// <summary>
-        /// The report will include a column that contains the merchant or store name that offers the product.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SellerName = 12,
+        AdDistribution = 13,
         
         /// <summary>
         /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Impressions = 13,
+        Impressions = 14,
         
         /// <summary>
         /// The number of times that the ads in the account were clicked.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Clicks = 14,
+        Clicks = 15,
         
         /// <summary>
         /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ctr = 15,
+        Ctr = 16,
         
         /// <summary>
         /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpc = 16,
+        AverageCpc = 17,
         
         /// <summary>
         /// The cost per click (CPC) summed for each click.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 17,
+        Spend = 18,
+        
+        /// <summary>
+        /// The average position of the ad on a webpage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePosition = 19,
         
         /// <summary>
         /// The average of the cost-per-thousand impressions of the ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpm = 18,
+        AverageCpm = 20,
+        
+        /// <summary>
+        /// The Name element of a RadiusTargetBid. The name of the geographic radius where the user was physically located when they clicked the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProximityTargetLocation = 21,
+        
+        /// <summary>
+        /// The Radius element of a RadiusTargetBid. The geographic radius where the user was physically located when they clicked the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Radius = 22,
+        
+        /// <summary>
+        /// The Language element of an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 23,
+        
+        /// <summary>
+        /// The MatchType element of a Keyword. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidMatchType = 24,
+        
+        /// <summary>
+        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeliveredMatchType = 25,
+        
+        /// <summary>
+        /// The Network element of an AdGroup. The following is a list of possible values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Network = 26,
+        
+        /// <summary>
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopVsOther = 27,
+        
+        /// <summary>
+        /// The DeviceName element of a DeviceOSTargetBid. The type of device which showed ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceType = 28,
+        
+        /// <summary>
+        /// The operating system of the device specified in the DeviceType column and corresponding to the OSNames element of a DeviceOSTargetBid.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DeviceOS = 29,
+        
+        /// <summary>
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 30,
+        
+        /// <summary>
+        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 31,
+        
+        /// <summary>
+        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionRate = 32,
+        
+        /// <summary>
+        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExtendedCost = 33,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 34,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 35,
+        
+        /// <summary>
+        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 36,
+        
+        /// <summary>
+        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerAssist = 37,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerConversion = 38,
+        
+        /// <summary>
+        /// The revenue per assist.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerAssist = 39,
+        
+        /// <summary>
+        /// The location type used to deliver ads. For example to distinguish between people in versus searching for or viewing pages about the corresponding location of interest.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LocationType = 40,
+        
+        /// <summary>
+        /// The most specific location used to deliver ads. For example if the City and Country columns are both identified, this column will include the same value as the City column.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MostSpecificLocation = 41,
     }
     
     /// <summary>

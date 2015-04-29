@@ -68,9 +68,9 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
         internal abstract MultiRecordBulkEntity CreateEntityWithThisIdentifier();
 
-        internal override void WriteToStream(IBulkObjectWriter rowWriter)
+        internal override void WriteToStream(IBulkObjectWriter rowWriter, bool excludeReadonlyData)
         {
-            rowWriter.WriteObjectRow(this);
+            rowWriter.WriteObjectRow(this, excludeReadonlyData);
         }
 
         internal override void ReadRelatedDataFromStream(IBulkStreamReader reader)

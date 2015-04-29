@@ -91,10 +91,12 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         private static readonly IBulkMapping<BulkKeywordBidSuggestion>[] Mappings =
         {
             new SimpleBulkMapping<BulkKeywordBidSuggestion>(StringTable.Keyword,
+                c => c.KeywordText,
                 (v, c) => c.KeywordText = v
             ),
 
             new SimpleBulkMapping<BulkKeywordBidSuggestion>(StringTable.Bid,
+                c => c.Bid.ToBulkString(),
                 (v, c) => c.Bid = v.ParseOptional<double>()
             )
         };
@@ -104,6 +106,13 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             values.ConvertToEntity(this, Mappings);
 
             PerformanceData.ReadFromRowValues(values);
+        }
+
+        internal override void WriteToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            this.ConvertToValues(values, Mappings);
+
+            PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
         }
     }
 }

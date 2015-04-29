@@ -49,6 +49,7 @@
 
 using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.Internal.Bulk;
+using Microsoft.BingAds.Internal.Bulk.Mappings;
 
 namespace Microsoft.BingAds.Bulk.Entities
 {
@@ -65,6 +66,8 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// </example>
     public class BulkError : BulkObject
     {
+        internal string Type { get; private set; }
+
         /// <summary>
         /// The error code, for example 'CampaignServiceEditorialValidationError'.
         /// Corresponds to the 'Error' field in the bulk file. 
@@ -105,17 +108,52 @@ namespace Microsoft.BingAds.Bulk.Entities
         /// <remarks>In a bulk file, the list of publisher countries are delimited with a semicolon (;).</remarks>
         public string PublisherCountries { get; private set; }
 
+        private static readonly IBulkMapping<BulkError>[] Mappings = 
+        {
+            new SimpleBulkMapping<BulkError>(StringTable.Type,
+                c => c.Type,
+                (v, c) => c.Type = v
+            ),
+
+            new SimpleBulkMapping<BulkError>(StringTable.Error,
+                c => c.Error,
+                (v, c) => c.Error = v
+            ),
+
+            new SimpleBulkMapping<BulkError>(StringTable.ErrorNumber,
+                c => c.Number.ToBulkString(),
+                (v, c) => c.Number = v.Parse<int>()
+            ),
+
+            new SimpleBulkMapping<BulkError>(StringTable.EditorialLocation,
+                c => c.EditorialLocation,
+                (v, c) => c.EditorialLocation = v
+            ),
+
+            new SimpleBulkMapping<BulkError>(StringTable.EditorialReasonCode,
+                c => c.EditorialReasonCode.ToBulkString(),
+                (v, c) => c.EditorialReasonCode = v.ParseOptional<int>()
+            ),
+
+            new SimpleBulkMapping<BulkError>(StringTable.EditorialTerm,
+                c => c.EditorialTerm,
+                (v, c) => c.EditorialTerm = v
+            ),
+
+            new SimpleBulkMapping<BulkError>(StringTable.PublisherCountries,
+                c => c.PublisherCountries,
+                (v, c) => c.PublisherCountries = v
+            )
+        };
+
         internal override void ReadFromRowValues(RowValues values)
         {
-            if (values[StringTable.Status] != "Deleted")
-            {
-                Error = values[StringTable.Error];
-                Number = int.Parse(values[StringTable.ErrorNumber]);
-                EditorialLocation = values[StringTable.EditorialLocation];
-                EditorialReasonCode = values[StringTable.EditorialReasonCode].ParseOptional<int>();
-                EditorialTerm = values[StringTable.EditorialTerm];
-                PublisherCountries = values[StringTable.PublisherCountries];
-            }            
+            values.ConvertToEntity(this, Mappings);         
+        }
+
+        internal override void WriteToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            this.ConvertToValues(values, Mappings);
         }
     }
 }

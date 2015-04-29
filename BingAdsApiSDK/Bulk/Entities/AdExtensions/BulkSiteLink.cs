@@ -170,6 +170,7 @@ namespace Microsoft.BingAds.Bulk.Entities
                 (v, c) => c.SiteLink.Description2 = v
             ), 
 
+            // TODO: figure out the exact implementation for SiteLink DevicePreference. Seems different from TextAd DevicePreference
             new SimpleBulkMapping<BulkSiteLink>(StringTable.DevicePreference,
                 c => c.SiteLink.DevicePreference.ToDevicePreferenceBulkString(),
                 (v, c) => c.SiteLink.DevicePreference = v.ParseDevicePreference()
@@ -185,11 +186,11 @@ namespace Microsoft.BingAds.Bulk.Entities
             values.ConvertToEntity(this, Mappings);
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             ValidatePropertyNotNull(SiteLink, "SiteLink");
             
-            Identifier.WriteToRowValues(values);
+            Identifier.WriteToRowValues(values, excludeReadonlyData);
 
             this.ConvertToValues(values, Mappings);
         }

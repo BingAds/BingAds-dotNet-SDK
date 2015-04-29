@@ -85,9 +85,9 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             values.ConvertToEntity(this, Mappings);
         }
 
-        internal override void WriteToRowValues(RowValues values)
+        internal override void WriteToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            base.WriteToRowValues(values);
+            base.WriteToRowValues(values, excludeReadonlyData);
 
             this.ConvertToValues(values, Mappings);
         }

@@ -91,20 +91,10 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             values.ConvertToEntity(this, Mappings);
         }
 
-        internal override void WriteToRowValues(RowValues values)
+        internal override void WriteToRowValues(RowValues values, bool excludeReadonlyData)
         {
             this.ConvertToValues(values, Mappings);
-        }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        public override bool Equals(BulkEntityIdentifier other)
-        {
-            return 
-                GetType() == other.GetType() &&
-                EntityId == ((BulkNegativeSiteIdentifier)other).EntityId;
-        }
+        }        
 
         internal override bool IsDeleteRow
         {

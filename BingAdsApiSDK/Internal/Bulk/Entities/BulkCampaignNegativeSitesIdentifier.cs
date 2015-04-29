@@ -82,6 +82,24 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// <summary>
         /// Reserved for internal use.
         /// </summary>
+        public override bool Equals(BulkEntityIdentifier other)
+        {
+            var otherIdentifier = other as BulkCampaignNegativeSitesIdentifier;
+
+            if (otherIdentifier == null)
+            {
+                return false;
+            }
+
+            var isNameNotEmpty = !string.IsNullOrEmpty(CampaignName);
+
+            return CampaignId == otherIdentifier.CampaignId || 
+                (isNameNotEmpty && CampaignName == otherIdentifier.CampaignName);
+        }
+
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         protected internal override string ParentColumnName
         {
             get { return StringTable.Campaign; }

@@ -84,6 +84,8 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         where TRadiusTargetBid: BulkRadiusTargetBid where TRadius: BulkRadiusTarget<TRadiusTargetBid>
         where TDeviceOsBid: BulkDeviceOsTargetBid where TDeviceOs: BulkDeviceOsTarget<TDeviceOsBid>
     {
+        private readonly TIdentifier _originalIdentifier;
+
         /// <summary>
         /// The status of the target.
         /// The value is Active if the target is available in the customer's shared library. 
@@ -206,6 +208,8 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             {
                 _deleteAllRows.Add(identifier);
             }
+
+            _originalIdentifier = identifier;
         }
 
         /// <summary>
@@ -234,7 +238,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             get { return SubTargets.Cast<MultiRecordBulkEntity>().All(x => x.AllChildrenArePresent); }
         }
 
-        internal override void WriteToStream(IBulkObjectWriter rowWriter)
+        internal override void WriteToStream(IBulkObjectWriter rowWriter, bool excludeReadonlyData)
         {
             if (Status != Microsoft.BingAds.Bulk.Entities.Status.Deleted)
             {
@@ -278,7 +282,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
             foreach (var childEntity in SubTargets)
             {                
-                childEntity.WriteToStream(rowWriter);
+                childEntity.WriteToStream(rowWriter, excludeReadonlyData);
             }
         }
 
@@ -296,11 +300,11 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
                 TIdentifier identifierRow;
 
-                if (reader.TryRead(x => x.Identifier.EntityId == EntityId, out bidRow))
+                if (reader.TryRead(x => x.Identifier.Equals(_originalIdentifier), out bidRow))
                 {
                     _bids.Add(bidRow);
                 }
-                else if (reader.TryRead(x => x.EntityId == EntityId && x.IsDeleteRow, out identifierRow))
+                else if (reader.TryRead(x => x.Equals(_originalIdentifier) && x.IsDeleteRow, out identifierRow))
                 {
                     _deleteAllRows.Add(identifierRow);
                 }
