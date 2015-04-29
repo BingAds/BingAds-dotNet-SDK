@@ -107,12 +107,7 @@ namespace Microsoft.BingAds.Internal.OAuth
 
                 var tokensContract = (OAuthTokensContract)serializer.ReadObject(stream);
 
-                return new OAuthTokens
-                {
-                    AccessToken = tokensContract.AccessToken,
-                    RefreshToken = tokensContract.RefreshToken,
-                    AccessTokenExpiresInSeconds = tokensContract.AccessTokenExpiresInSeconds
-                };
+                return new OAuthTokens(tokensContract.AccessToken, tokensContract.AccessTokenExpiresInSeconds, tokensContract.RefreshToken);                
             }
             else
             {

@@ -47,6 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using System.Collections.Generic;
 using Microsoft.BingAds.Bulk.Entities;
 using Microsoft.BingAds.Internal.Bulk.Mappings;
@@ -67,6 +68,16 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// Corresponds to the 'Client Id' field in the bulk file. 
         /// </summary>
         public string ClientId { get; set; }
+
+        private DateTime? _lastModifiedTime;
+
+        /// <summary>
+        /// Gets the last modified time for the entity.
+        /// </summary>
+        public override DateTime? LastModifiedTime
+        {
+            get { return _lastModifiedTime; }                        
+        }
 
         /// <summary>
         /// A read only list of <see cref="BulkError"/> details in a seperate bulk record that corresponds to the record of a <see cref="BulkEntity"/> derived instance. 
@@ -91,6 +102,11 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             new SimpleBulkMapping<SingleRecordBulkEntity>(StringTable.ClientId,
                 c => c.ClientId,
                 (v, c) => c.ClientId = v
+            ),
+
+            new SimpleBulkMapping<SingleRecordBulkEntity>(StringTable.LastModifiedTime,
+                c => c.LastModifiedTime.ToBulkString(),
+                (v, c) => c._lastModifiedTime = v.ParseOptional<DateTime>()
             )
         };
 
@@ -109,11 +125,12 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// Writes common mappings and calls abstract method to read entity-specific mappings. This is done through abstract method to avoid having to do base.WriteToRowValues in each child.
         /// </summary>
         /// <param name="values">CSV row values</param>
-        internal override void WriteToRowValues(RowValues values)
+        /// <param name="excludeReadonlyData"></param>
+        internal override void WriteToRowValues(RowValues values, bool excludeReadonlyData)
         {            
             this.ConvertToValues(values, Mappings);
 
-            ProcessMappingsToRowValues(values);
+            ProcessMappingsToRowValues(values, excludeReadonlyData);
         }
 
         /// <summary>
@@ -131,16 +148,25 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// Writes entity data to bulk file
         /// </summary>
         /// <param name="rowWriter">Writer object, allowing to write consecutive bulk rows</param>
-        internal override void WriteToStream(IBulkObjectWriter rowWriter)
+        /// <param name="excludeReadonlyData"></param>
+        internal override void WriteToStream(IBulkObjectWriter rowWriter, bool excludeReadonlyData)
         {
-            rowWriter.WriteObjectRow(this);
-        }
+            rowWriter.WriteObjectRow(this, excludeReadonlyData);
+
+            if (!excludeReadonlyData)
+            {
+                WriteAdditionalData(rowWriter);
+
+                WriteErrors(rowWriter);
+            }
+        } 
 
         /// <summary>
         /// Process specific entity mappings to CSV values. Must be implemented by each entity
         /// </summary>
         /// <param name="values">Row values</param>
-        internal abstract void ProcessMappingsToRowValues(RowValues values);
+        /// <param name="excludeReadonlyData"></param>
+        internal abstract void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData);
 
         /// <summary>
         /// Process specific entity mappings from CSV values. Must be implemented by each entity
@@ -153,6 +179,8 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// </summary>
         /// <param name="reader">Reader object, allowing to read consecutive bulk rows</param>
         internal virtual void ReadAdditionalData(IBulkStreamReader reader) { }
+
+        internal virtual void WriteAdditionalData(IBulkObjectWriter writer) { }
 
         /// <summary>
         /// Reads errors immediately after the current row
@@ -173,6 +201,17 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             }
 
             Errors = errors;
+        }
+
+        private void WriteErrors(IBulkObjectWriter writer)
+        {
+            if (HasErrors)
+            {
+                foreach (var bulkError in Errors)
+                {
+                    writer.WriteObjectRow(bulkError);                    
+                }
+            }
         }
     }
 }

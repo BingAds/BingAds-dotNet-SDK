@@ -73,7 +73,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         }
 
         /// <summary>
-        /// Name of the column containing the entity name
+        /// Reserved for internal use.
         /// </summary>
         protected internal override string EntityColumnName
         {

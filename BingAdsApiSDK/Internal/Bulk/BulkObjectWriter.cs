@@ -86,15 +86,20 @@ namespace Microsoft.BingAds.Internal.Bulk
             WriteFormatVersion();
         }
 
-        public void WriteObjectRow(BulkObject bulkObject)
+        public void WriteObjectRow(BulkObject bulkObject, bool excludeReadonlyData)
         {            
             var values = new RowValues();
 
-            bulkObject.WriteToRowValues(values);
+            bulkObject.WriteToRowValues(values, excludeReadonlyData);
 
             values[StringTable.Type] = _bulkObjectFactory.GetBulkRowType(bulkObject);
 
             _streamWriter.WriteLine(_formatter.FormatCsvRow(values.Columns));
+        }
+
+        public void WriteObjectRow(BulkObject bulkObject)
+        {
+            WriteObjectRow(bulkObject, false);
         }
 
         public void Dispose()

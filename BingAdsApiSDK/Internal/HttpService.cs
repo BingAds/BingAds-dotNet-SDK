@@ -86,7 +86,7 @@ namespace Microsoft.BingAds.Internal
 
                 var multiPart = new MultipartFormDataContent
                 {
-                    { new StreamContent(stream), "file", Path.GetFileName(uploadFilePath) }
+                    { new StreamContent(stream), "file", string.Format("\"{0}{1}\"", Guid.NewGuid(), Path.GetExtension(uploadFilePath)) }
                 };
 
                 var response = await client.PostAsync(uri, multiPart).ConfigureAwait(false);

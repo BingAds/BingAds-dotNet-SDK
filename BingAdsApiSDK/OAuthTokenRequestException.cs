@@ -123,5 +123,13 @@ namespace Microsoft.BingAds
 
             info.AddValue("Error", Details.Error);
         }
+
+        /// <summary>
+        /// Returns the message.
+        /// </summary>
+        public override string Message
+        {
+            get { return base.Message + " Details: " + Details.Error + " - " + Details.Description; }
+        }
     }
 }

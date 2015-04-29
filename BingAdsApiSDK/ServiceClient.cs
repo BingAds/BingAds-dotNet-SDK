@@ -167,6 +167,8 @@ namespace Microsoft.BingAds
         {
             ValidateObjectStateAndParameters(method, request);
 
+            await RequestAccessTokenIfNeeded().ConfigureAwait(false);
+
             _authorizationData.Authentication.SetAuthenticationFieldsOnApiRequestObject(request);
 
             SetCommonRequestFieldsFromUserData(request);
@@ -225,6 +227,16 @@ namespace Microsoft.BingAds
             } while (true);
         }
 
+        private async Task RequestAccessTokenIfNeeded()
+        {
+            var oAuthWithCode = _authorizationData.Authentication as OAuthWithAuthorizationCode;
+
+            if (oAuthWithCode != null && oAuthWithCode.OAuthTokens != null && oAuthWithCode.OAuthTokens.AccessToken == null)
+            {
+                await oAuthWithCode.RefreshAccessTokenAsync().ConfigureAwait(false);
+            }
+        }
+
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
@@ -238,7 +250,7 @@ namespace Microsoft.BingAds
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        /// <param name="disposing">Disposes of the stream reader if set to true.</param>
+        /// <param name="disposing">Disposes of the channel factory if set to true.</param>
         /// <remarks>You should use this method when finished with an instance of <see cref="ServiceClient{TService}"/>.</remarks>
         protected virtual void Dispose(bool disposing)
         {

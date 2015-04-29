@@ -107,40 +107,49 @@ namespace Microsoft.BingAds.Bulk.Entities
         private static readonly IBulkMapping<PerformanceData>[] Mappings =
         {
             new SimpleBulkMapping<PerformanceData>(StringTable.Spend,                
+                c => c.Spend.ToBulkString(),
                 (v, c) => c.Spend = v.ParseOptional<double>()
             ),
 
             new SimpleBulkMapping<PerformanceData>(StringTable.Impressions,                
+                c => c.Impressions.ToBulkString(),
                 (v, c) => c.Impressions = v.ParseOptional<int>()
             ),
 
             new SimpleBulkMapping<PerformanceData>(StringTable.Clicks,                
+                c => c.Clicks.ToBulkString(),
                 (v, c) => c.Clicks = v.ParseOptional<int>()
             ),
 
-            new SimpleBulkMapping<PerformanceData>(StringTable.CTR,                
+            new SimpleBulkMapping<PerformanceData>(StringTable.CTR,     
+                c => c.ClickThroughRate.ToBulkString(),
                 (v, c) => c.ClickThroughRate = v.ParseOptional<double>()
             ),
 
             new SimpleBulkMapping<PerformanceData>(StringTable.AvgCPC,                
+                c => c.AverageCostPerClick.ToBulkString(),
                 (v, c) => c.AverageCostPerClick = v.ParseOptional<double>()
             ),
 
             new SimpleBulkMapping<PerformanceData>(StringTable.AvgCPM,                
+                c => c.AverageCostPerThousandImpressions.ToBulkString(),
                 (v, c) => c.AverageCostPerThousandImpressions = v.ParseOptional<double>()
             ),
 
             new SimpleBulkMapping<PerformanceData>(StringTable.AvgPosition,                
+                c => c.AveragePosition.ToBulkString(),
                 (v, c) => c.AveragePosition = v.ParseOptional<double>()
             ),
 
             new SimpleBulkMapping<PerformanceData>(StringTable.Conversions,                
+                c => c.Conversions.ToBulkString(),
                 (v, c) => c.Conversions = v.ParseOptional<int>()
             ),
 
-            new SimpleBulkMapping<PerformanceData>(StringTable.CPA,                
+            new SimpleBulkMapping<PerformanceData>(StringTable.CPA,
+                c => c.CostPerConversion.ToBulkString(),
                 (v, c) => c.CostPerConversion = v.ParseOptional<double>()
-            ),
+            )
         };
 
         internal static PerformanceData ReadFromRowValuesOrNull(RowValues values)
@@ -152,9 +161,22 @@ namespace Microsoft.BingAds.Bulk.Entities
             return performanceData.HasAnyValues ? performanceData : null;            
         }
 
+        internal static void WriteToRowValuesIfNotNull(PerformanceData performanceData, RowValues values)
+        {
+            if (performanceData != null)
+            {
+                performanceData.WriteToRowValues(values);
+            }
+        }
+
         internal void ReadFromRowValues(RowValues values)
         {
             values.ConvertToEntity(this, Mappings);
+        }
+
+        private void WriteToRowValues(RowValues values)
+        {
+            this.ConvertToValues(values, Mappings);
         }
 
         private bool HasAnyValues

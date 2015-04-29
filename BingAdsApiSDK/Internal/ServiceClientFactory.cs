@@ -82,7 +82,7 @@ namespace Microsoft.BingAds.Internal
                 typeof (IBulkService), new ServiceInfo
                 {
                     ProductionUrl = "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/BulkService.svc",
-                    SandboxUrl = "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/BulkService.svc "
+                    SandboxUrl = "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/BulkService.svc"
                 }
             },
             { 

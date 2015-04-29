@@ -48,6 +48,7 @@
 //=====================================================================================================================================================
 
 using Microsoft.BingAds.Internal.Bulk.Entities;
+using Microsoft.BingAds.Internal.Bulk.Entities.AdExtensions;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.Bulk.Entities
@@ -64,7 +65,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupSiteLinkAdExtension : BulkAdExtensionAssociation
+    public class BulkAdGroupSiteLinkAdExtension : BulkAdGroupAdExtensionAssociation
     {
     }
 }

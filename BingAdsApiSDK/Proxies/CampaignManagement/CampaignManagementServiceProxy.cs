@@ -67,7 +67,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672054(v=msads.90).aspx">Campaign Data Object</see> http://msdn.microsoft.com/en-us/library/bb672054(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByAccountId">GetCampaignsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>and <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByAccountId">GetCampaignsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -112,6 +112,12 @@ namespace Microsoft.BingAds.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TimeZoneField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.CampaignManagement.CampaignType> CampaignTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.Setting> SettingsField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -125,7 +131,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// The budget type determines whether the campaign uses a daily budget or a monthly budget, and how the budget is spent. For possible values, see BudgetLimitType.
+        /// The budget type determines whether the campaign uses a daily budget or a monthly budget, and how the budget is spent.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.CampaignManagement.BudgetLimitType> BudgetType
@@ -344,6 +350,43 @@ namespace Microsoft.BingAds.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The campaign type determines whether the campaign is a Bing Shopping campaign or a Search &amp; Content campaign.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public System.Nullable<Microsoft.BingAds.CampaignManagement.CampaignType> CampaignType
+        {
+            get
+            {
+                return this.CampaignTypeField;
+            }
+            set
+            {
+                if ((this.CampaignTypeField.Equals(value) != true))
+                {
+                    this.CampaignTypeField = value;
+                    this.RaisePropertyChanged("CampaignType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.Setting> Settings
+        {
+            get
+            {
+                return this.SettingsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SettingsField, value) != true))
+                {
+                    this.SettingsField = value;
+                    this.RaisePropertyChanged("Settings");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -437,6 +480,183 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
+    /// Defines the possible campaign types.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913129(v=msads.90).aspx">CampaignType Value Set</see> http://msdn.microsoft.com/en-us/library/dn913129(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="Campaign"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetCampaignsByAccountId">GetCampaignsByAccountId</see> and <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignType", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    public enum CampaignType : int
+    {
+        
+        /// <summary>
+        /// The campaign is a search and content campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SearchAndContent = 1,
+        
+        /// <summary>
+        /// The campaign is a Bing Shopping campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Shopping = 2,
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the base class of a setting.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913122(v=msads.90).aspx">Setting Data Object</see> http://msdn.microsoft.com/en-us/library/dn913122(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="Campaign"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Setting", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ShoppingSetting))]
+    public partial class Setting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The type of setting. For more information, see Remarks.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type
+        {
+            get
+            {
+                return this.TypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TypeField, value) != true))
+                {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines a shopping setting for a Bing Shopping Campaign.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913132(v=msads.90).aspx">ShoppingSetting Data Object</see> http://msdn.microsoft.com/en-us/library/dn913132(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ShoppingSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class ShoppingSetting : Microsoft.BingAds.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SalesCountryCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> StoreIdField;
+        
+        /// <summary>
+        /// Helps determine which Bing Shopping campaign serves ads, in the event that two or more campaigns use the product catalog feed from the same Bing Merchant Center store.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Priority
+        {
+            get
+            {
+                return this.PriorityField;
+            }
+            set
+            {
+                if ((this.PriorityField.Equals(value) != true))
+                {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The country code for the Bing Merchant Center store.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SalesCountryCode
+        {
+            get
+            {
+                return this.SalesCountryCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SalesCountryCodeField, value) != true))
+                {
+                    this.SalesCountryCodeField = value;
+                    this.RaisePropertyChanged("SalesCountryCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The unique identifier for the Bing Merchant Center store that your product catalog feed belongs to.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> StoreId
+        {
+            get
+            {
+                return this.StoreIdField;
+            }
+            set
+            {
+                if ((this.StoreIdField.Equals(value) != true))
+                {
+                    this.StoreIdField = value;
+                    this.RaisePropertyChanged("StoreId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
@@ -446,9 +666,9 @@ namespace Microsoft.BingAds.CampaignManagement
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApplicationFault", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.EditorialApiFaultDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail))]
     public partial class ApplicationFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -498,6 +718,66 @@ namespace Microsoft.BingAds.CampaignManagement
             if ((propertyChanged != null))
             {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671467(v=msads.90).aspx">ApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/bb671467(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApiFaultDetail", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class ApiFaultDetail : Microsoft.BingAds.CampaignManagement.ApplicationFault
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> BatchErrorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.OperationError> OperationErrorsField;
+        
+        /// <summary>
+        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> BatchErrors
+        {
+            get
+            {
+                return this.BatchErrorsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.BatchErrorsField, value) != true))
+                {
+                    this.BatchErrorsField = value;
+                    this.RaisePropertyChanged("BatchErrors");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// An array of operation errors that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.OperationError> OperationErrors
+        {
+            get
+            {
+                return this.OperationErrorsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.OperationErrorsField, value) != true))
+                {
+                    this.OperationErrorsField = value;
+                    this.RaisePropertyChanged("OperationErrors");
+                }
             }
         }
     }
@@ -623,61 +903,134 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671467(v=msads.90).aspx">ApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/bb671467(v=msads.90).aspx for details.
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dd796873(v=msads.90).aspx">AdApiError Data Object</see> http://msdn.microsoft.com/en-us/library/dd796873(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ApiFaultDetail", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
-    public partial class ApiFaultDetail : Microsoft.BingAds.CampaignManagement.ApplicationFault
+    public partial class AdApiError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> BatchErrorsField;
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.OperationError> OperationErrorsField;
+        private int CodeField;
         
-        /// <summary>
-        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> BatchErrors
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DetailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
             {
-                return this.BatchErrorsField;
+                return this.extensionDataField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.BatchErrorsField, value) != true))
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// A numeric error code that identifies the error.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Code
+        {
+            get
+            {
+                return this.CodeField;
+            }
+            set
+            {
+                if ((this.CodeField.Equals(value) != true))
                 {
-                    this.BatchErrorsField = value;
-                    this.RaisePropertyChanged("BatchErrors");
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
                 }
             }
         }
         
         /// <summary>
-        /// An array of operation errors that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
+        /// A message that contains additional details about the error. This string can be empty.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.OperationError> OperationErrors
+        public string Detail
         {
             get
             {
-                return this.OperationErrorsField;
+                return this.DetailField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.OperationErrorsField, value) != true))
+                if ((object.ReferenceEquals(this.DetailField, value) != true))
                 {
-                    this.OperationErrorsField = value;
-                    this.RaisePropertyChanged("OperationErrors");
+                    this.DetailField = value;
+                    this.RaisePropertyChanged("Detail");
                 }
+            }
+        }
+        
+        /// <summary>
+        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorCode
+        {
+            get
+            {
+                return this.ErrorCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ErrorCodeField, value) != true))
+                {
+                    this.ErrorCodeField = value;
+                    this.RaisePropertyChanged("ErrorCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// A message that describes the error.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MessageField, value) != true))
+                {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -687,8 +1040,8 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671765(v=msads.90).aspx">BatchError Data Object</see> http://msdn.microsoft.com/en-us/library/bb671765(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/>and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>and <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> service operations.</para>
+    /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddCampaignCriterions">AddCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateCampaignCriterions">UpdateCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see> and <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -709,6 +1062,9 @@ namespace Microsoft.BingAds.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IndexField;
@@ -792,6 +1148,26 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
+        /// The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
+        {
+            get
+            {
+                return this.ForwardCompatibilityMapField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ForwardCompatibilityMapField, value) != true))
+                {
+                    this.ForwardCompatibilityMapField = value;
+                    this.RaisePropertyChanged("ForwardCompatibilityMap");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The zero-based index of the item in the batch of items in the request message that failed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -868,7 +1244,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671973(v=msads.90).aspx">OperationError Data Object</see> http://msdn.microsoft.com/en-us/library/bb671973(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="ApiFaultDetail"/>and <see cref="EditorialApiFaultDetail"/> data objects.</para>
+    /// <para>Used by <see cref="ApiFaultDetail"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1127,144 +1503,11 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dd796873(v=msads.90).aspx">AdApiError Data Object</see> http://msdn.microsoft.com/en-us/library/dd796873(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
-    [System.SerializableAttribute()]
-    public partial class AdApiError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DetailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ErrorCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// A numeric error code that identifies the error.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Code
-        {
-            get
-            {
-                return this.CodeField;
-            }
-            set
-            {
-                if ((this.CodeField.Equals(value) != true))
-                {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A message that contains additional details about the error. This string can be empty.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Detail
-        {
-            get
-            {
-                return this.DetailField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.DetailField, value) != true))
-                {
-                    this.DetailField = value;
-                    this.RaisePropertyChanged("Detail");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ErrorCode
-        {
-            get
-            {
-                return this.ErrorCodeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ErrorCodeField, value) != true))
-                {
-                    this.ErrorCodeField = value;
-                    this.RaisePropertyChanged("ErrorCode");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A message that describes the error.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message
-        {
-            get
-            {
-                return this.MessageField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.MessageField, value) != true))
-                {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
     /// Defines an object that contains the campaign's list of negative keywords.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ee703967(v=msads.90).aspx">CampaignNegativeKeywords Data Object</see> http://msdn.microsoft.com/en-us/library/ee703967(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByCampaignIds">GetNegativeKeywordsByCampaignIds</see>and <see cref="CampaignManagementServiceClient.SetNegativeKeywordsToCampaigns">SetNegativeKeywordsToCampaigns</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByCampaignIds">GetNegativeKeywordsByCampaignIds</see> and <see cref="CampaignManagementServiceClient.SetNegativeKeywordsToCampaigns">SetNegativeKeywordsToCampaigns</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1351,7 +1594,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh299890(v=msads.90).aspx">CampaignNegativeSites Data Object</see> http://msdn.microsoft.com/en-us/library/hh299890(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>and <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see> and <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1438,7 +1681,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671956(v=msads.90).aspx">AdGroup Data Object</see> http://msdn.microsoft.com/en-us/library/bb671956(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByCampaignId">GetAdGroupsByCampaignId</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>and <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByCampaignId">GetAdGroupsByCampaignId</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1691,7 +1934,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// The language of the ads and keywords in the ad group. For possible values, see the Language column within Ad Copy Languages.
+        /// The language of the ads and keywords in the ad group. For possible values, see the Language column within Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Language
@@ -1957,7 +2200,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dd797130(v=msads.90).aspx">Bid Data Object</see> http://msdn.microsoft.com/en-us/library/dd797130(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdGroup"/>, <see cref="FixedBid"/>, <see cref="Keyword"/>and <see cref="SitePlacement"/> data objects.</para>
+    /// <para>Used by <see cref="AdGroup"/>, <see cref="FixedBid"/>, <see cref="Keyword"/> and <see cref="SitePlacement"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2297,7 +2540,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ee703992(v=msads.90).aspx">AdGroupNegativeKeywords Data Object</see> http://msdn.microsoft.com/en-us/library/ee703992(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByAdGroupIds">GetNegativeKeywordsByAdGroupIds</see>and <see cref="CampaignManagementServiceClient.SetNegativeKeywordsToAdGroups">SetNegativeKeywordsToAdGroups</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByAdGroupIds">GetNegativeKeywordsByAdGroupIds</see> and <see cref="CampaignManagementServiceClient.SetNegativeKeywordsToAdGroups">SetNegativeKeywordsToAdGroups</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2384,7 +2627,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh300117(v=msads.90).aspx">AdGroupNegativeSites Data Object</see> http://msdn.microsoft.com/en-us/library/hh300117(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>and <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see> and <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2472,7 +2715,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671789(v=msads.90).aspx">Target Data Object</see> http://msdn.microsoft.com/en-us/library/bb671789(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddTargetsToLibrary">AddTargetsToLibrary</see>, <see cref="CampaignManagementServiceClient.GetTargetsByAdGroupIds">GetTargetsByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByCampaignIds">GetTargetsByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByIds">GetTargetsByIds</see>and <see cref="CampaignManagementServiceClient.UpdateTargetsInLibrary">UpdateTargetsInLibrary</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddTargetsToLibrary">AddTargetsToLibrary</see>, <see cref="CampaignManagementServiceClient.GetTargetsByAdGroupIds">GetTargetsByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByCampaignIds">GetTargetsByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByIds">GetTargetsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateTargetsInLibrary">UpdateTargetsInLibrary</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2743,7 +2986,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672084(v=msads.90).aspx">AgeTarget Data Object</see> http://msdn.microsoft.com/en-us/library/bb672084(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="Target"/>and <see cref="Target2"/> data objects.</para>
+    /// <para>Used by <see cref="Target"/> and <see cref="Target2"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2892,7 +3135,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh527704(v=msads.90).aspx">DeviceOSTarget Data Object</see> http://msdn.microsoft.com/en-us/library/hh527704(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="Target"/>and <see cref="Target2"/> data objects.</para>
+    /// <para>Used by <see cref="Target"/> and <see cref="Target2"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2955,7 +3198,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671655(v=msads.90).aspx">GenderTarget Data Object</see> http://msdn.microsoft.com/en-us/library/bb671655(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="Target"/>and <see cref="Target2"/> data objects.</para>
+    /// <para>Used by <see cref="Target"/> and <see cref="Target2"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3102,7 +3345,7 @@ namespace Microsoft.BingAds.CampaignManagement
     
     /// <summary>
     /// Defines an object that can contain different types of geographical targets, for example lists of city and state targets.
-    /// <para>To download an XML document that contains the DMA® location targeting codes, click here, and then right-click on DMAGeoLocations and select Download.</para>
+    /// <para>For information on location codes to use for each target bid value, see Geographical Location Codes.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671646(v=msads.90).aspx">LocationTarget Data Object</see> http://msdn.microsoft.com/en-us/library/bb671646(v=msads.90).aspx for details.
@@ -3498,7 +3741,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671717(v=msads.90).aspx">Day Value Set</see> http://msdn.microsoft.com/en-us/library/bb671717(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="DayTargetBid"/>and <see cref="DayTimeTargetBid"/> data objects.</para>
+    /// <para>Used by <see cref="DayTargetBid"/> and <see cref="DayTimeTargetBid"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Day", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
@@ -3603,7 +3846,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// The specific operating system (OS) of the device to target. To target all operating systems that the device supports, set to null. The following are the possible smartphone operating systems that you can target.
+        /// Starting with the Computers and Tablets Device Target Consolidation (Q3 2014), operating systems for Tablets are no longer supported.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<string> OSNames
@@ -3878,7 +4121,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dd796959(v=msads.90).aspx">CityTarget Data Object</see> http://msdn.microsoft.com/en-us/library/dd796959(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="LocationTarget"/>and <see cref="LocationTarget2"/> data objects.</para>
+    /// <para>Used by <see cref="LocationTarget"/> and <see cref="LocationTarget2"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3941,7 +4184,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671605(v=msads.90).aspx">CountryTarget Data Object</see> http://msdn.microsoft.com/en-us/library/bb671605(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="LocationTarget"/>and <see cref="LocationTarget2"/> data objects.</para>
+    /// <para>Used by <see cref="LocationTarget"/> and <see cref="LocationTarget2"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4004,7 +4247,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671815(v=msads.90).aspx">MetroAreaTarget Data Object</see> http://msdn.microsoft.com/en-us/library/bb671815(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="LocationTarget"/>and <see cref="LocationTarget2"/> data objects.</para>
+    /// <para>Used by <see cref="LocationTarget"/> and <see cref="LocationTarget2"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4130,7 +4373,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dd796793(v=msads.90).aspx">StateTarget Data Object</see> http://msdn.microsoft.com/en-us/library/dd796793(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="LocationTarget"/>and <see cref="LocationTarget2"/> data objects.</para>
+    /// <para>Used by <see cref="LocationTarget"/> and <see cref="LocationTarget2"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4909,7 +5152,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743781(v=msads.90).aspx">Target2 Data Object</see> http://msdn.microsoft.com/en-us/library/dn743781(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddTargetsToLibrary2">AddTargetsToLibrary2</see>, <see cref="CampaignManagementServiceClient.GetTargetsByAdGroupIds2">GetTargetsByAdGroupIds2</see>, <see cref="CampaignManagementServiceClient.GetTargetsByCampaignIds2">GetTargetsByCampaignIds2</see>, <see cref="CampaignManagementServiceClient.GetTargetsByIds2">GetTargetsByIds2</see>and <see cref="CampaignManagementServiceClient.UpdateTargetsInLibrary2">UpdateTargetsInLibrary2</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddTargetsToLibrary2">AddTargetsToLibrary2</see>, <see cref="CampaignManagementServiceClient.GetTargetsByAdGroupIds2">GetTargetsByAdGroupIds2</see>, <see cref="CampaignManagementServiceClient.GetTargetsByCampaignIds2">GetTargetsByCampaignIds2</see>, <see cref="CampaignManagementServiceClient.GetTargetsByIds2">GetTargetsByIds2</see> and <see cref="CampaignManagementServiceClient.UpdateTargetsInLibrary2">UpdateTargetsInLibrary2</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5241,7 +5484,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// <summary>
     /// Defines an object that can contain different types of geographical targets, for example lists of cities and state targets.
     /// <para>This object includes the PostalCodeTarget and RadiusTarget2 objects, which are not included in the original LocationTarget object.</para>
-    /// <para>To get the DMA® location targeting codes, you should specify the LocationTargetVersion element as 2 or Latest when calling GetTargetsByIds2. To download an XML document that contains the DMA® location targeting codes, click here, and then right-click on DMAGeoLocations and select Download.</para>
+    /// <para>For information on location codes to use for each target bid value, see Geographical Location Codes.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743770(v=msads.90).aspx">LocationTarget2 Data Object</see> http://msdn.microsoft.com/en-us/library/dn743770(v=msads.90).aspx for details.
@@ -6345,15 +6588,15 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671952(v=msads.90).aspx">Ad Data Object</see> http://msdn.microsoft.com/en-us/library/bb671952(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.GetAdsByAdGroupId">GetAdsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetAdsByEditorialStatus">GetAdsByEditorialStatus</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>and <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.GetAdsByAdGroupId">GetAdsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetAdsByEditorialStatus">GetAdsByEditorialStatus</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Ad", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.MobileAd))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ProductAd))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.TextAd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ProductAd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.MobileAd))]
     public partial class Ad : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -6523,6 +6766,147 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a text ad.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672081(v=msads.90).aspx">TextAd Data Object</see> http://msdn.microsoft.com/en-us/library/bb672081(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TextAd", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class TextAd : Microsoft.BingAds.CampaignManagement.Ad
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DestinationUrlField;
+        
+        private string DisplayUrlField;
+        
+        private string TextField;
+        
+        private string TitleField;
+        
+        /// <summary>
+        /// The URL of the webpage to take the user to when they click the ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DestinationUrl
+        {
+            get
+            {
+                return this.DestinationUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DestinationUrlField, value) != true))
+                {
+                    this.DestinationUrlField = value;
+                    this.RaisePropertyChanged("DestinationUrl");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The URL to display in the ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string DisplayUrl
+        {
+            get
+            {
+                return this.DisplayUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DisplayUrlField, value) != true))
+                {
+                    this.DisplayUrlField = value;
+                    this.RaisePropertyChanged("DisplayUrl");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The ad copy. The copy must contain at least one word. The ad's copy and title combined must total at least three words.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Text
+        {
+            get
+            {
+                return this.TextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TextField, value) != true))
+                {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The title of the ad. The title must contain at least one word. The ad's copy and title combined must total at least three words.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Title
+        {
+            get
+            {
+                return this.TitleField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TitleField, value) != true))
+                {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a product ad.
+    /// <para>Product ads are only available in the United States.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/jj738612(v=msads.90).aspx">ProductAd Data Object</see> http://msdn.microsoft.com/en-us/library/jj738612(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductAd", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductAd : Microsoft.BingAds.CampaignManagement.Ad
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PromotionalTextField;
+        
+        /// <summary>
+        /// The promotional text to display in a product ad. The text can contain a maximum of 45 characters. If you do not want to add promotional text to the product ads, set PromotionalText to null or an empty string.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PromotionalText
+        {
+            get
+            {
+                return this.PromotionalTextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PromotionalTextField, value) != true))
+                {
+                    this.PromotionalTextField = value;
+                    this.RaisePropertyChanged("PromotionalText");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a mobile ad. A mobile ad is displayed to a user when the ad is viewed on a low-fi mobile device.
     /// </summary>
     /// <remarks>
@@ -6636,147 +7020,6 @@ namespace Microsoft.BingAds.CampaignManagement
         /// The ad copy. The copy must contain at least one word. The ad's copy and title combined must total at least three words.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Text
-        {
-            get
-            {
-                return this.TextField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TextField, value) != true))
-                {
-                    this.TextField = value;
-                    this.RaisePropertyChanged("Text");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The title of the ad. The title must contain at least one word. The ad's copy and title combined must total at least three words.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string Title
-        {
-            get
-            {
-                return this.TitleField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TitleField, value) != true))
-                {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines a product ad.
-    /// <para>Product ads are only available in the United States.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj738612(v=msads.90).aspx">ProductAd Data Object</see> http://msdn.microsoft.com/en-us/library/jj738612(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductAd", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
-    [System.SerializableAttribute()]
-    public partial class ProductAd : Microsoft.BingAds.CampaignManagement.Ad
-    {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PromotionalTextField;
-        
-        /// <summary>
-        /// The promotional text to display in a product ad. The text can contain a maximum of 45 characters. If you do not want to add promotional text to the product ads, set PromotionalText to null or an empty string.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PromotionalText
-        {
-            get
-            {
-                return this.PromotionalTextField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.PromotionalTextField, value) != true))
-                {
-                    this.PromotionalTextField = value;
-                    this.RaisePropertyChanged("PromotionalText");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines a text ad.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672081(v=msads.90).aspx">TextAd Data Object</see> http://msdn.microsoft.com/en-us/library/bb672081(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TextAd", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
-    [System.SerializableAttribute()]
-    public partial class TextAd : Microsoft.BingAds.CampaignManagement.Ad
-    {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DestinationUrlField;
-        
-        private string DisplayUrlField;
-        
-        private string TextField;
-        
-        private string TitleField;
-        
-        /// <summary>
-        /// The URL of the webpage to take the user to when they click the ad.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DestinationUrl
-        {
-            get
-            {
-                return this.DestinationUrlField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.DestinationUrlField, value) != true))
-                {
-                    this.DestinationUrlField = value;
-                    this.RaisePropertyChanged("DestinationUrl");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The URL to display in the ad.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string DisplayUrl
-        {
-            get
-            {
-                return this.DisplayUrlField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.DisplayUrlField, value) != true))
-                {
-                    this.DisplayUrlField = value;
-                    this.RaisePropertyChanged("DisplayUrl");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The ad copy. The copy must contain at least one word. The ad's copy and title combined must total at least three words.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Text
         {
             get
@@ -6937,7 +7180,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671833(v=msads.90).aspx">Keyword Data Object</see> http://msdn.microsoft.com/en-us/library/bb671833(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByAdGroupId">GetKeywordsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByEditorialStatus">GetKeywordsByEditorialStatus</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>and <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByAdGroupId">GetKeywordsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByEditorialStatus">GetKeywordsByEditorialStatus</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7115,7 +7358,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// The string to use as the substitution value in an ad if the ad's title, text, display URL, or destination URL contains the {Param1:default} dynamic substitution string.
+        /// The string to use as the substitution value in an ad if the ad's title, text, display URL, or destination URL contains the {Param1} dynamic substitution string.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Param1
@@ -7135,7 +7378,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// The string to use as the substitution value in an ad if the title, text, display URL, or destination URL contains the {Param2:default} dynamic substitution string.
+        /// The string to use as the substitution value in an ad if the title, text, display URL, or destination URL contains the {Param2} dynamic substitution string.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Param2
@@ -7155,7 +7398,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// The string to use as the substitution value in an ad if the title, text, display URL, or destination URL contains the {Param3:default} dynamic substitution string.
+        /// The string to use as the substitution value in an ad if the title, text, display URL, or destination URL contains the {Param3} dynamic substitution string.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Param3
@@ -7269,7 +7512,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn249974(v=msads.90).aspx">MatchType Value Set</see> http://msdn.microsoft.com/en-us/library/dn249974(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="Keyword"/>and <see cref="NegativeKeyword"/> data objects.</para>
+    /// <para>Used by <see cref="Keyword"/> and <see cref="NegativeKeyword"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MatchType", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
@@ -7343,7 +7586,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj622172(v=msads.90).aspx">EntityType Value Set</see> http://msdn.microsoft.com/en-us/library/jj622172(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>and <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see> and <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityType", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
@@ -7395,7 +7638,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dd797248(v=msads.90).aspx">SitePlacement Data Object</see> http://msdn.microsoft.com/en-us/library/dd797248(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSitePlacements">AddSitePlacements</see>, <see cref="CampaignManagementServiceClient.GetSitePlacementsByAdGroupId">GetSitePlacementsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetSitePlacementsByIds">GetSitePlacementsByIds</see>and <see cref="CampaignManagementServiceClient.UpdateSitePlacements">UpdateSitePlacements</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSitePlacements">AddSitePlacements</see>, <see cref="CampaignManagementServiceClient.GetSitePlacementsByAdGroupId">GetSitePlacementsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetSitePlacementsByIds">GetSitePlacementsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateSitePlacements">UpdateSitePlacements</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8440,17 +8683,18 @@ namespace Microsoft.BingAds.CampaignManagement
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh527708(v=msads.90).aspx">AdExtension Data Object</see> http://msdn.microsoft.com/en-us/library/hh527708(v=msads.90).aspx for details.
     /// <para>Used by <see cref="AdExtensionAssociation"/> data object.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdExtensions">AddAdExtensions</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>and <see cref="CampaignManagementServiceClient.UpdateAdExtensions">UpdateAdExtensions</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdExtensions">AddAdExtensions</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateAdExtensions">UpdateAdExtensions</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.AppAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.SiteLinksAdExtension))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ImageAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ProductAdExtension))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.LocationAdExtension))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ImageAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.CallAdExtension))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.LocationAdExtension))]
     public partial class AdExtension : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -8596,6 +8840,134 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
+    /// Currently this feature is only available for pilot participants. For more information, see GetCustomerPilotFeatures Service Operation.
+    /// <para>Defines an app ad extension that can be included in a text ad.</para>
+    /// <para>You can associate an app ad extension with one or more campaigns, and a campaign can be associated with multiple app ad extensions.</para>
+    /// <para>The AppAdExtension object derives from the AdExtension object. For a list of inherited elements, see the AdExtension object.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn817898(v=msads.90).aspx">AppAdExtension Data Object</see> http://msdn.microsoft.com/en-us/library/dn817898(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class AppAdExtension : Microsoft.BingAds.CampaignManagement.AdExtension
+    {
+        
+        private string AppPlatformField;
+        
+        private string AppStoreIdField;
+        
+        private string DestinationUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> DevicePreferenceField;
+        
+        private string DisplayTextField;
+        
+        /// <summary>
+        /// The application platform.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string AppPlatform
+        {
+            get
+            {
+                return this.AppPlatformField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AppPlatformField, value) != true))
+                {
+                    this.AppPlatformField = value;
+                    this.RaisePropertyChanged("AppPlatform");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The application identifier provided by the app store.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string AppStoreId
+        {
+            get
+            {
+                return this.AppStoreIdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AppStoreIdField, value) != true))
+                {
+                    this.AppStoreIdField = value;
+                    this.RaisePropertyChanged("AppStoreId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The URL of the app store download webpage that users are taken to when they click the app extension link. The URL can contain a maximum of 1,024 characters.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string DestinationUrl
+        {
+            get
+            {
+                return this.DestinationUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DestinationUrlField, value) != true))
+                {
+                    this.DestinationUrlField = value;
+                    this.RaisePropertyChanged("DestinationUrl");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// This element determines whether the preference is for the app extension to be displayed on mobile devices or all devices.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> DevicePreference
+        {
+            get
+            {
+                return this.DevicePreferenceField;
+            }
+            set
+            {
+                if ((this.DevicePreferenceField.Equals(value) != true))
+                {
+                    this.DevicePreferenceField = value;
+                    this.RaisePropertyChanged("DevicePreference");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The text displayed in the app ad extension. The text can contain a maximum of 35 characters.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string DisplayText
+        {
+            get
+            {
+                return this.DisplayTextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DisplayTextField, value) != true))
+                {
+                    this.DisplayTextField = value;
+                    this.RaisePropertyChanged("DisplayText");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines an ad extension that specifies one or more site links to add to a text ad.
     /// <para>The SiteLinksAdExtension object derives from the AdExtension object. For a list of inherited elements, see the AdExtension object.</para>
     /// </summary>
@@ -8627,6 +8999,114 @@ namespace Microsoft.BingAds.CampaignManagement
                 {
                     this.SiteLinksField = value;
                     this.RaisePropertyChanged("SiteLinks");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a product ad extension. The extension identifies a Bing Merchant Center store that contains the products that you want to advertise.
+    /// <para>Product ads are only available in the United States.</para>
+    /// <para>The ProductAdExtension object derives from the AdExtension object. For a list of inherited elements, see the AdExtension object.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/jj721706(v=msads.90).aspx">ProductAdExtension Data Object</see> http://msdn.microsoft.com/en-us/library/jj721706(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductAdExtension : Microsoft.BingAds.CampaignManagement.AdExtension
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.ProductConditionCollection> ProductSelectionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long StoreIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StoreNameField;
+        
+        /// <summary>
+        /// The display name of the extension. The name can contain a maximum of 100 characters.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of products from the Bing Merchant Center store to advertise.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.ProductConditionCollection> ProductSelection
+        {
+            get
+            {
+                return this.ProductSelectionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ProductSelectionField, value) != true))
+                {
+                    this.ProductSelectionField = value;
+                    this.RaisePropertyChanged("ProductSelection");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the Bing Merchant Center store contains the products to advertise.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long StoreId
+        {
+            get
+            {
+                return this.StoreIdField;
+            }
+            set
+            {
+                if ((this.StoreIdField.Equals(value) != true))
+                {
+                    this.StoreIdField = value;
+                    this.RaisePropertyChanged("StoreId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The name of the store that StoreId identifies.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StoreName
+        {
+            get
+            {
+                return this.StoreNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.StoreNameField, value) != true))
+                {
+                    this.StoreNameField = value;
+                    this.RaisePropertyChanged("StoreName");
                 }
             }
         }
@@ -8739,108 +9219,152 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a product ad extension. The extension identifies a Bing Merchant Center store that contains the products that you want to advertise.
-    /// <para>Product ads are only available in the United States.</para>
-    /// <para>The ProductAdExtension object derives from the AdExtension object. For a list of inherited elements, see the AdExtension object.</para>
+    /// Defines an object that specifies a click-to-call phone number to include in a text ad.
+    /// <para>You can associate a call ad extension with one or more campaigns; however, a campaign can be associated with only one call ad extension.</para>
+    /// <para>The CallAdExtension object derives from the AdExtension object. For a list of inherited elements, see the AdExtension object.</para>
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj721706(v=msads.90).aspx">ProductAdExtension Data Object</see> http://msdn.microsoft.com/en-us/library/jj721706(v=msads.90).aspx for details.
+    /// See <see href="http://msdn.microsoft.com/en-us/library/jj721598(v=msads.90).aspx">CallAdExtension Data Object</see> http://msdn.microsoft.com/en-us/library/jj721598(v=msads.90).aspx for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CallAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
     [System.SerializableAttribute()]
-    public partial class ProductAdExtension : Microsoft.BingAds.CampaignManagement.AdExtension
+    public partial class CallAdExtension : Microsoft.BingAds.CampaignManagement.AdExtension
     {
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
+        private string CountryCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.ProductConditionCollection> ProductSelectionField;
+        private System.Nullable<long> DevicePreferenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long StoreIdField;
+        private System.Nullable<bool> IsCallOnlyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StoreNameField;
+        private System.Nullable<bool> IsCallTrackingEnabledField;
+        
+        private string PhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> RequireTollFreeTrackingNumberField;
         
         /// <summary>
-        /// The display name of the extension. The name can contain a maximum of 100 characters.
+        /// The country code where the phone number is registered. The country code must contain a 2 character country code. For a list of country code values, see Geographical Location Codes.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string CountryCode
         {
             get
             {
-                return this.NameField;
+                return this.CountryCodeField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.NameField, value) != true))
+                if ((object.ReferenceEquals(this.CountryCodeField, value) != true))
                 {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
+                    this.CountryCodeField = value;
+                    this.RaisePropertyChanged("CountryCode");
                 }
             }
         }
         
         /// <summary>
-        /// The list of products from the Bing Merchant Center store to advertise.
+        /// This element determines whether the preference is for the click to call phone number to be displayed on mobile devices or all devices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.ProductConditionCollection> ProductSelection
+        public System.Nullable<long> DevicePreference
         {
             get
             {
-                return this.ProductSelectionField;
+                return this.DevicePreferenceField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.ProductSelectionField, value) != true))
+                if ((this.DevicePreferenceField.Equals(value) != true))
                 {
-                    this.ProductSelectionField = value;
-                    this.RaisePropertyChanged("ProductSelection");
+                    this.DevicePreferenceField = value;
+                    this.RaisePropertyChanged("DevicePreference");
                 }
             }
         }
         
         /// <summary>
-        /// The identifier of the Bing Merchant Center store contains the products to advertise.
+        /// A Boolean value that determines whether the phone number is the only clickable item in the ad. If true and the ad is displayed on a hi-fi mobile device, all otherwise clickable items such as addresses, the display URL, and site links will be disabled.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long StoreId
+        public System.Nullable<bool> IsCallOnly
         {
             get
             {
-                return this.StoreIdField;
+                return this.IsCallOnlyField;
             }
             set
             {
-                if ((this.StoreIdField.Equals(value) != true))
+                if ((this.IsCallOnlyField.Equals(value) != true))
                 {
-                    this.StoreIdField = value;
-                    this.RaisePropertyChanged("StoreId");
+                    this.IsCallOnlyField = value;
+                    this.RaisePropertyChanged("IsCallOnly");
                 }
             }
         }
         
         /// <summary>
-        /// The name of the store that StoreId identifies.
+        /// A Boolean value that determines whether call tracking is enabled for the call ad extension.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StoreName
+        public System.Nullable<bool> IsCallTrackingEnabled
         {
             get
             {
-                return this.StoreNameField;
+                return this.IsCallTrackingEnabledField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.StoreNameField, value) != true))
+                if ((this.IsCallTrackingEnabledField.Equals(value) != true))
                 {
-                    this.StoreNameField = value;
-                    this.RaisePropertyChanged("StoreName");
+                    this.IsCallTrackingEnabledField = value;
+                    this.RaisePropertyChanged("IsCallTrackingEnabled");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The phone number to include in the ad. The phone number is clickable on hi-fi mobile devices.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string PhoneNumber
+        {
+            get
+            {
+                return this.PhoneNumberField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true))
+                {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// A Boolean value that determines whether a toll-free tracking number should be created for call tracking. This element can only be set if IsCallTrackingEnabled is also true.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> RequireTollFreeTrackingNumber
+        {
+            get
+            {
+                return this.RequireTollFreeTrackingNumberField;
+            }
+            set
+            {
+                if ((this.RequireTollFreeTrackingNumberField.Equals(value) != true))
+                {
+                    this.RequireTollFreeTrackingNumberField = value;
+                    this.RaisePropertyChanged("RequireTollFreeTrackingNumber");
                 }
             }
         }
@@ -9021,158 +9545,6 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an object that specifies a click-to-call phone number to include in a text ad.
-    /// <para>You can associate a call ad extension with one or more campaigns; however, a campaign can be associated with only one call ad extension.</para>
-    /// <para>The CallAdExtension object derives from the AdExtension object. For a list of inherited elements, see the AdExtension object.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj721598(v=msads.90).aspx">CallAdExtension Data Object</see> http://msdn.microsoft.com/en-us/library/jj721598(v=msads.90).aspx for details.
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CallAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
-    [System.SerializableAttribute()]
-    public partial class CallAdExtension : Microsoft.BingAds.CampaignManagement.AdExtension
-    {
-        
-        private string CountryCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<long> DevicePreferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<bool> IsCallOnlyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<bool> IsCallTrackingEnabledField;
-        
-        private string PhoneNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<bool> RequireTollFreeTrackingNumberField;
-        
-        /// <summary>
-        /// The country code where the phone number is registered. The country code must contain a 2 character country code. For a list of country code values, see Geographical Location Codes.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string CountryCode
-        {
-            get
-            {
-                return this.CountryCodeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.CountryCodeField, value) != true))
-                {
-                    this.CountryCodeField = value;
-                    this.RaisePropertyChanged("CountryCode");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// This element determines whether the preference is for the click to call phone number to be displayed on mobile devices or all devices.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> DevicePreference
-        {
-            get
-            {
-                return this.DevicePreferenceField;
-            }
-            set
-            {
-                if ((this.DevicePreferenceField.Equals(value) != true))
-                {
-                    this.DevicePreferenceField = value;
-                    this.RaisePropertyChanged("DevicePreference");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A Boolean value that determines whether the phone number is the only clickable item in the ad. If true and the ad is displayed on a hi-fi mobile device, all otherwise clickable items such as addresses, the display URL, and site links will be disabled.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<bool> IsCallOnly
-        {
-            get
-            {
-                return this.IsCallOnlyField;
-            }
-            set
-            {
-                if ((this.IsCallOnlyField.Equals(value) != true))
-                {
-                    this.IsCallOnlyField = value;
-                    this.RaisePropertyChanged("IsCallOnly");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A Boolean value that determines whether call tracking is enabled for the call ad extension.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<bool> IsCallTrackingEnabled
-        {
-            get
-            {
-                return this.IsCallTrackingEnabledField;
-            }
-            set
-            {
-                if ((this.IsCallTrackingEnabledField.Equals(value) != true))
-                {
-                    this.IsCallTrackingEnabledField = value;
-                    this.RaisePropertyChanged("IsCallTrackingEnabled");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The phone number to include in the ad. The phone number is clickable on hi-fi mobile devices.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string PhoneNumber
-        {
-            get
-            {
-                return this.PhoneNumberField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true))
-                {
-                    this.PhoneNumberField = value;
-                    this.RaisePropertyChanged("PhoneNumber");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A Boolean value that determines whether a toll-free tracking number should be created for call tracking. This element can only be set if IsCallTrackingEnabled is also true.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<bool> RequireTollFreeTrackingNumber
-        {
-            get
-            {
-                return this.RequireTollFreeTrackingNumberField;
-            }
-            set
-            {
-                if ((this.RequireTollFreeTrackingNumberField.Equals(value) != true))
-                {
-                    this.RequireTollFreeTrackingNumberField = value;
-                    this.RaisePropertyChanged("RequireTollFreeTrackingNumber");
-                }
-            }
-        }
-    }
-    
-    /// <summary>
     /// Defines the possible status values of an ad extension.
     /// </summary>
     /// <remarks>
@@ -9320,7 +9692,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// The site-link text displayed in the ad. The text can contain a maximum of 35 characters.
+        /// The site-link text displayed in the ad.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string DisplayText
@@ -9416,11 +9788,11 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a condition that determines whether a product is selected.
+    /// Defines a condition that determines whether a product is selected from a customer's Bing Merchant Center catalog file.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj721705(v=msads.90).aspx">ProductCondition Data Object</see> http://msdn.microsoft.com/en-us/library/jj721705(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="Product"/>and <see cref="ProductConditionCollection"/> data objects.</para>
+    /// <para>Used by <see cref="Product"/>, <see cref="ProductConditionCollection"/>, <see cref="ProductPartition"/> and <see cref="ProductScope"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9914,7 +10286,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj134394(v=msads.90).aspx">AdExtensionsTypeFilter Value Set</see> http://msdn.microsoft.com/en-us/library/jj134394(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdExtensionIdsByAccountId">GetAdExtensionIdsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>and <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdExtensionIdsByAccountId">GetAdExtensionIdsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see> and <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -9951,6 +10323,12 @@ namespace Microsoft.BingAds.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImageAdExtension = 16,
+        
+        /// <summary>
+        /// An ad extension that contains a link to install an application from a supported app store. For more information, see AppAdExtension Data Object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppAdExtension = 32,
     }
     
     /// <summary>
@@ -9958,7 +10336,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn249980(v=msads.90).aspx">AdExtensionIdToEntityIdAssociation Data Object</see> http://msdn.microsoft.com/en-us/library/dn249980(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>and <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see> and <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10044,7 +10422,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn249973(v=msads.90).aspx">AssociationType Value Set</see> http://msdn.microsoft.com/en-us/library/dn249973(v=msads.90).aspx for details.
     /// <para>Used by <see cref="AdExtensionAssociation"/> data object.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionIdsByAccountId">GetAdExtensionIdsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>and <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionIdsByAccountId">GetAdExtensionIdsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see> and <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssociationType", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
@@ -10519,7 +10897,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn195580(v=msads.90).aspx">Media Data Object</see> http://msdn.microsoft.com/en-us/library/dn195580(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddMedia">AddMedia</see>and <see cref="CampaignManagementServiceClient.GetMediaByIds">GetMediaByIds</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddMedia">AddMedia</see> and <see cref="CampaignManagementServiceClient.GetMediaByIds">GetMediaByIds</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10667,7 +11045,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn766195(v=msads.90).aspx">MediaEnabledEntityFilter Value Set</see> http://msdn.microsoft.com/en-us/library/dn766195(v=msads.90).aspx for details.
     /// <para>Used by <see cref="MediaAssociation"/> data object.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>and <see cref="CampaignManagementServiceClient.GetMediaMetaDataByAccountId">GetMediaMetaDataByAccountId</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see> and <see cref="CampaignManagementServiceClient.GetMediaMetaDataByAccountId">GetMediaMetaDataByAccountId</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -10687,7 +11065,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn766198(v=msads.90).aspx">MediaMetaData Data Object</see> http://msdn.microsoft.com/en-us/library/dn766198(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetMediaMetaDataByAccountId">GetMediaMetaDataByAccountId</see>and <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetMediaMetaDataByAccountId">GetMediaMetaDataByAccountId</see> and <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11027,7 +11405,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// The system identifier of the media meta data.
+        /// The system identifier of the media enabled entity, for example the identifier of an ImageAdExtension.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long EntityId
@@ -11099,17 +11477,45 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
+    /// Defines the possible types of ad group criterions.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/jj689543(v=msads.90).aspx">CriterionType Value Set</see> http://msdn.microsoft.com/en-us/library/jj689543(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroupCriterions">AddAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.GetAdGroupCriterionsByAdGroupId">GetAdGroupCriterionsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetAdGroupCriterionsByIds">GetAdGroupCriterionsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateAdGroupCriterions">UpdateAdGroupCriterions</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CriterionType", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    public enum CriterionType : int
+    {
+        
+        /// <summary>
+        /// The ad group criterion represents a Bing Merchant Center product.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Product = 1,
+        
+        /// <summary>
+        /// The ad group criterion represents a Bing Shopping product partition.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductPartition = 2,
+    }
+    
+    /// <summary>
     /// Defines the base class of an ad group criterion.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj738614(v=msads.90).aspx">AdGroupCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/jj738614(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroupCriterions">AddAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.GetAdGroupCriterionsByAdGroupId">GetAdGroupCriterionsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetAdGroupCriterionsByIds">GetAdGroupCriterionsByIds</see>and <see cref="CampaignManagementServiceClient.UpdateAdGroupCriterions">UpdateAdGroupCriterions</see> service operations.</para>
+    /// <para>Used by <see cref="AdGroupCriterionAction"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroupCriterions">AddAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.GetAdGroupCriterionsByAdGroupId">GetAdGroupCriterionsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetAdGroupCriterionsByIds">GetAdGroupCriterionsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateAdGroupCriterions">UpdateAdGroupCriterions</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.BiddableAdGroupCriterion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.NegativeAdGroupCriterion))]
     public partial class AdGroupCriterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -11260,13 +11666,15 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj738613(v=msads.90).aspx">Criterion Data Object</see> http://msdn.microsoft.com/en-us/library/jj738613(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdGroupCriterion"/> data object.</para>
+    /// <para>Used by <see cref="AdGroupCriterion"/> and <see cref="CampaignCriterion"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Criterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ProductScope))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.Product))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.ProductPartition))]
     public partial class Criterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -11473,6 +11881,21 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines a negative ad group criterion that can be used to abstain from bidding on the Bing Shopping products in this ad group. You can still bid on these products in any other ad group in the same campaign, and within ad groups of lower priority campaigns.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913133(v=msads.90).aspx">NegativeAdGroupCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/dn913133(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NegativeAdGroupCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class NegativeAdGroupCriterion : Microsoft.BingAds.CampaignManagement.AdGroupCriterion
+    {
+    }
+    
+    /// <summary>
     /// Defines the possible status values that determine whether to apply the criterion to the ad group.
     /// </summary>
     /// <remarks>
@@ -11504,7 +11927,47 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a product criterion, which includes a list of conditions that determine whether a product from the Bing Merchant Center store gets served as a product ad.
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines a campaign level product scope with list of conditions that help determine whether a product from the Bing Merchant Center store gets served as a product ad.</para>
+    /// <para>ProductScope can only be specified for a campaign criterion, and may not be specified as an ad group criterion.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913124(v=msads.90).aspx">ProductScope Data Object</see> http://msdn.microsoft.com/en-us/library/dn913124(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductScope", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductScope : Microsoft.BingAds.CampaignManagement.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.ProductCondition> ConditionsField;
+        
+        /// <summary>
+        /// A list of up to 7 product conditions that helps determine whether a product from the Bing Merchant Center store gets served as an ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.ProductCondition> Conditions
+        {
+            get
+            {
+                return this.ConditionsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ConditionsField, value) != true))
+                {
+                    this.ConditionsField = value;
+                    this.RaisePropertyChanged("Conditions");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a campaign level product criterion, which includes a list of conditions that determine whether a product from the Bing Merchant Center store gets served as a product ad.
+    /// <para>Product can only be specified for a campaign criterion, and may not be specified as an ad group criterion.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj689539(v=msads.90).aspx">Product Data Object</see> http://msdn.microsoft.com/en-us/library/jj689539(v=msads.90).aspx for details.
@@ -11538,6 +12001,114 @@ namespace Microsoft.BingAds.CampaignManagement
                 }
             }
         }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines an ad group level product partition with one condition that helps determine whether a product from the Bing Merchant Center store gets served as a product ad.</para>
+    /// <para>ProductPartition can only be specified for an ad group criterion, and may not be specified as a campaign criterion.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913123(v=msads.90).aspx">ProductPartition Data Object</see> http://msdn.microsoft.com/en-us/library/dn913123(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartition", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class ProductPartition : Microsoft.BingAds.CampaignManagement.Criterion
+    {
+        
+        private Microsoft.BingAds.CampaignManagement.ProductCondition ConditionField;
+        
+        private System.Nullable<long> ParentCriterionIdField;
+        
+        private Microsoft.BingAds.CampaignManagement.ProductPartitionType PartitionTypeField;
+        
+        /// <summary>
+        /// A condition that helps determine whether a product from the Bing Merchant Center store gets served as an ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.CampaignManagement.ProductCondition Condition
+        {
+            get
+            {
+                return this.ConditionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ConditionField, value) != true))
+                {
+                    this.ConditionField = value;
+                    this.RaisePropertyChanged("Condition");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the parent BiddableAdGroupCriterion or NegativeAdGroupCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<long> ParentCriterionId
+        {
+            get
+            {
+                return this.ParentCriterionIdField;
+            }
+            set
+            {
+                if ((this.ParentCriterionIdField.Equals(value) != true))
+                {
+                    this.ParentCriterionIdField = value;
+                    this.RaisePropertyChanged("ParentCriterionId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The type of product partition, for example Subdivision or Unit.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.CampaignManagement.ProductPartitionType PartitionType
+        {
+            get
+            {
+                return this.PartitionTypeField;
+            }
+            set
+            {
+                if ((this.PartitionTypeField.Equals(value) != true))
+                {
+                    this.PartitionTypeField = value;
+                    this.RaisePropertyChanged("PartitionType");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the possible types of product partitions.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913120(v=msads.90).aspx">ProductPartitionType Value Set</see> http://msdn.microsoft.com/en-us/library/dn913120(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="ProductPartition"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionType", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    public enum ProductPartitionType : int
+    {
+        
+        /// <summary>
+        /// The ProductPartition is a product group subdivision. A subdivision is also referred to as a branch node in a tree.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Subdivision = 1,
+        
+        /// <summary>
+        /// The ProductPartition is a product group unit. A unit is also referred to as a leaf node in a tree.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unit = 2,
     }
     
     /// <summary>
@@ -11680,23 +12251,121 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the possible types of criterions.
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the action to apply to a BiddableAdGroupCriterion or NegativeAdGroupCriterion, specifically one that contains a ProductPartition. You can send a group of AdGroupCriterionAction objects, also known as a product group, to the ApplyProductPartitionActions service operation.</para>
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj689543(v=msads.90).aspx">CriterionType Value Set</see> http://msdn.microsoft.com/en-us/library/jj689543(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdGroupCriterionsByAdGroupId">GetAdGroupCriterionsByAdGroupId</see> service operation.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913128(v=msads.90).aspx">AdGroupCriterionAction Data Object</see> http://msdn.microsoft.com/en-us/library/dn913128(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupCriterionAction", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class AdGroupCriterionAction : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Microsoft.BingAds.CampaignManagement.ItemAction ActionField;
+        
+        private Microsoft.BingAds.CampaignManagement.AdGroupCriterion AdGroupCriterionField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The action to be applied for the AdGroupCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.CampaignManagement.ItemAction Action
+        {
+            get
+            {
+                return this.ActionField;
+            }
+            set
+            {
+                if ((this.ActionField.Equals(value) != true))
+                {
+                    this.ActionField = value;
+                    this.RaisePropertyChanged("Action");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The ad group criterion of either type BiddableAdGroupCriterion or NegativeAdGroupCriterion, which contains a ProductPartition and FixedBid.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.CampaignManagement.AdGroupCriterion AdGroupCriterion
+        {
+            get
+            {
+                return this.AdGroupCriterionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdGroupCriterionField, value) != true))
+                {
+                    this.AdGroupCriterionField = value;
+                    this.RaisePropertyChanged("AdGroupCriterion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the possible types of item actions, for example to add, delete, or update the BiddableAdGroupCriterion or NegativeAdGroupCriterion, specifically one that contains a ProductPartition.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913119(v=msads.90).aspx">ItemAction Value Set</see> http://msdn.microsoft.com/en-us/library/dn913119(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="AdGroupCriterionAction"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CriterionType", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
-    public enum CriterionType : int
+    [System.Runtime.Serialization.DataContractAttribute(Name="ItemAction", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    public enum ItemAction : int
     {
         
         /// <summary>
-        /// The criterion identifies a Bing Merchant Center product filter.
+        /// The requested action is to add the item, for example add the ProductPartition.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Product = 1,
+        Add = 1,
+        
+        /// <summary>
+        /// The requested action is to delete the item, for example delete the ProductPartition.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Delete = 2,
+        
+        /// <summary>
+        /// The requested action is to update the item, for example update the ProductPartition.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Update = 3,
     }
     
     /// <summary>
@@ -11861,7 +12530,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743733(v=msads.90).aspx">EntityNegativeKeyword Data Object</see> http://msdn.microsoft.com/en-us/library/dn743733(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddNegativeKeywordsToEntities">AddNegativeKeywordsToEntities</see>, <see cref="CampaignManagementServiceClient.DeleteNegativeKeywordsFromEntities">DeleteNegativeKeywordsFromEntities</see>and <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddNegativeKeywordsToEntities">AddNegativeKeywordsToEntities</see>, <see cref="CampaignManagementServiceClient.DeleteNegativeKeywordsFromEntities">DeleteNegativeKeywordsFromEntities</see> and <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12052,7 +12721,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743738(v=msads.90).aspx">SharedListItem Data Object</see> http://msdn.microsoft.com/en-us/library/dn743738(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>and <see cref="CampaignManagementServiceClient.GetListItemsBySharedList">GetListItemsBySharedList</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see> and <see cref="CampaignManagementServiceClient.GetListItemsBySharedList">GetListItemsBySharedList</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12205,7 +12874,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743731(v=msads.90).aspx">BatchErrorCollection Data Object</see> http://msdn.microsoft.com/en-us/library/dn743731(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddNegativeKeywordsToEntities">AddNegativeKeywordsToEntities</see>and <see cref="CampaignManagementServiceClient.DeleteNegativeKeywordsFromEntities">DeleteNegativeKeywordsFromEntities</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddNegativeKeywordsToEntities">AddNegativeKeywordsToEntities</see> and <see cref="CampaignManagementServiceClient.DeleteNegativeKeywordsFromEntities">DeleteNegativeKeywordsFromEntities</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12384,7 +13053,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743735(v=msads.90).aspx">SharedEntity Data Object</see> http://msdn.microsoft.com/en-us/library/dn743735(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.GetSharedEntitiesByAccountId">GetSharedEntitiesByAccountId</see>and <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.GetSharedEntitiesByAccountId">GetSharedEntitiesByAccountId</see> and <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12538,7 +13207,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743734(v=msads.90).aspx">SharedList Data Object</see> http://msdn.microsoft.com/en-us/library/dn743734(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>and <see cref="CampaignManagementServiceClient.GetListItemsBySharedList">GetListItemsBySharedList</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see> and <see cref="CampaignManagementServiceClient.GetListItemsBySharedList">GetListItemsBySharedList</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12590,7 +13259,7 @@ namespace Microsoft.BingAds.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743769(v=msads.90).aspx">SharedEntityAssociation Data Object</see> http://msdn.microsoft.com/en-us/library/dn743769(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>and <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see> and <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12787,6 +13456,220 @@ namespace Microsoft.BingAds.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the base class of a campaign criterion.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913126(v=msads.90).aspx">CampaignCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/dn913126(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaignCriterions">AddCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByCampaignId">GetCampaignCriterionsByCampaignId</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateCampaignCriterions">UpdateCampaignCriterions</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CampaignManagement.NegativeCampaignCriterion))]
+    public partial class CampaignCriterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> BidAdjustmentField;
+        
+        private long CampaignIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.CampaignManagement.Criterion CriterionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
+        
+        private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> BidAdjustment
+        {
+            get
+            {
+                return this.BidAdjustmentField;
+            }
+            set
+            {
+                if ((this.BidAdjustmentField.Equals(value) != true))
+                {
+                    this.BidAdjustmentField = value;
+                    this.RaisePropertyChanged("BidAdjustment");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the campaign to apply the criterion to.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long CampaignId
+        {
+            get
+            {
+                return this.CampaignIdField;
+            }
+            set
+            {
+                if ((this.CampaignIdField.Equals(value) != true))
+                {
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The criterion to apply to the campaign. For example use a criterion of type ProductScope to filter Bing Merchant Center catalog items.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.CampaignManagement.Criterion Criterion
+        {
+            get
+            {
+                return this.CriterionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CriterionField, value) != true))
+                {
+                    this.CriterionField = value;
+                    this.RaisePropertyChanged("Criterion");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
+        {
+            get
+            {
+                return this.ForwardCompatibilityMapField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ForwardCompatibilityMapField, value) != true))
+                {
+                    this.ForwardCompatibilityMapField = value;
+                    this.RaisePropertyChanged("ForwardCompatibilityMap");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The system-generated identifier that identifies this campaign criterion.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<long> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The type of campaign criterion. For more information, see Remarks.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type
+        {
+            get
+            {
+                return this.TypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TypeField, value) != true))
+                {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This object is reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913130(v=msads.90).aspx">NegativeCampaignCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/dn913130(v=msads.90).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NegativeCampaignCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    [System.SerializableAttribute()]
+    public partial class NegativeCampaignCriterion : Microsoft.BingAds.CampaignManagement.CampaignCriterion
+    {
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Defines the possible types of campaign criterions.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913131(v=msads.90).aspx">CampaignCriterionType Value Set</see> http://msdn.microsoft.com/en-us/library/dn913131(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaignCriterions">AddCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByCampaignId">GetCampaignCriterionsByCampaignId</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateCampaignCriterions">UpdateCampaignCriterions</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignCriterionType", Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+    public enum CampaignCriterionType : int
+    {
+        
+        /// <summary>
+        /// The criterion identifies a Bing Merchant Center product filter.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductScope = 1,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", ConfigurationName="Microsoft.BingAds.CampaignManagement.ICampaignManagementService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface ICampaignManagementService
@@ -12804,10 +13687,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of long values that represents the identifiers for the campaigns that were added.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddCampaigns", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dCampaignsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dCampaignsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dCampaignsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dCampaignsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.AddCampaignsResponse AddCampaigns(Microsoft.BingAds.CampaignManagement.AddCampaignsRequest request);
         
         /// <summary>
@@ -12836,10 +13719,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of Campaign objects that represents the campaigns that were retrieved. If no campaigns exist, an empty array is returned.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCampaignsByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tCampaignsByAccountIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tCampaignsByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tCampaignsByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignsByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetCampaignsByAccountIdResponse GetCampaignsByAccountId(Microsoft.BingAds.CampaignManagement.GetCampaignsByAccountIdRequest request);
         
         /// <summary>
@@ -12868,10 +13751,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of Campaign objects that corresponds directly to the campaign identifiers that you specified in the request. If a campaign does not exist, the corresponding element of the array is set to NULL.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCampaignsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tCampaignsByIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tCampaignsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tCampaignsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetCampaignsByIdsResponse GetCampaignsByIds(Microsoft.BingAds.CampaignManagement.GetCampaignsByIdsRequest request);
         
         /// <summary>
@@ -12900,10 +13783,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteCampaigns", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteCampaignsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
-            "leteCampaignsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteCampaignsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteCampaignsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.DeleteCampaignsResponse DeleteCampaigns(Microsoft.BingAds.CampaignManagement.DeleteCampaignsRequest request);
         
         /// <summary>
@@ -13032,10 +13915,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of CampaignNegativeSites objects that contain the negative site URLs of the specified campaigns.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetNegativeSitesByCampaignIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tNegativeSitesByCampaignIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tNegativeSitesByCampaignIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tNegativeSitesByCampaignIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tNegativeSitesByCampaignIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetNegativeSitesByCampaignIdsResponse GetNegativeSitesByCampaignIds(Microsoft.BingAds.CampaignManagement.GetNegativeSitesByCampaignIdsRequest request);
         
         /// <summary>
@@ -13096,10 +13979,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of long values that represents the identifiers for the ad groups that were added.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAdGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dAdGroupsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dAdGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dAdGroupsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dAdGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.AddAdGroupsResponse AddAdGroups(Microsoft.BingAds.CampaignManagement.AddAdGroupsRequest request);
         
         /// <summary>
@@ -13160,10 +14043,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of AdGroup objects that corresponds directly to the ad group identifiers that you specified in the request. If an ad group does not exist, the corresponding element of the array is set to NULL.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAdGroupsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdGroupsByIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tAdGroupsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdGroupsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tAdGroupsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetAdGroupsByIdsResponse GetAdGroupsByIds(Microsoft.BingAds.CampaignManagement.GetAdGroupsByIdsRequest request);
         
         /// <summary>
@@ -13192,10 +14075,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of AdGroup objects that represents the retrieved ad groups. If the specified campaign contains no ad groups, an empty array is returned.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAdGroupsByCampaignId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdGroupsByCampaignIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tAdGroupsByCampaignIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdGroupsByCampaignIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tAdGroupsByCampaignIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetAdGroupsByCampaignIdResponse GetAdGroupsByCampaignId(Microsoft.BingAds.CampaignManagement.GetAdGroupsByCampaignIdRequest request);
         
         /// <summary>
@@ -13225,10 +14108,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SubmitAdGroupForApproval", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Su" +
             "bmitAdGroupForApprovalResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Su" +
-            "bmitAdGroupForApprovalAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Su" +
             "bmitAdGroupForApprovalApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Su" +
+            "bmitAdGroupForApprovalAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.SubmitAdGroupForApprovalResponse SubmitAdGroupForApproval(Microsoft.BingAds.CampaignManagement.SubmitAdGroupForApprovalRequest request);
         
         /// <summary>
@@ -13258,10 +14141,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAdGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
             "dateAdGroupsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
-            "dateAdGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
             "dateAdGroupsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
+            "dateAdGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.UpdateAdGroupsResponse UpdateAdGroups(Microsoft.BingAds.CampaignManagement.UpdateAdGroupsRequest request);
         
         /// <summary>
@@ -13291,10 +14174,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of AdGroupNegativeKeywords objects that contains the negative keywords of the specified ad groups.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetNegativeKeywordsByAdGroupIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tNegativeKeywordsByAdGroupIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tNegativeKeywordsByAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tNegativeKeywordsByAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tNegativeKeywordsByAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetNegativeKeywordsByAdGroupIdsResponse GetNegativeKeywordsByAdGroupIds(Microsoft.BingAds.CampaignManagement.GetNegativeKeywordsByAdGroupIdsRequest request);
         
         /// <summary>
@@ -13358,10 +14241,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of AdGroupNegativeSites objects that contains the negative site URLs of the specified ad groups.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetNegativeSitesByAdGroupIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tNegativeSitesByAdGroupIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tNegativeSitesByAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tNegativeSitesByAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tNegativeSitesByAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetNegativeSitesByAdGroupIdsResponse GetNegativeSitesByAdGroupIds(Microsoft.BingAds.CampaignManagement.GetNegativeSitesByAdGroupIdsRequest request);
         
         /// <summary>
@@ -13422,10 +14305,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of long values that contains the identifiers of the targets that were added to your target library.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddTargetsToLibrary", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dTargetsToLibraryResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dTargetsToLibraryAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dTargetsToLibraryApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dTargetsToLibraryAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.AddTargetsToLibraryResponse AddTargetsToLibrary(Microsoft.BingAds.CampaignManagement.AddTargetsToLibraryRequest request);
         
         /// <summary>
@@ -13550,10 +14433,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of Target objects that contains information about the specified targets.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetTargetsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tTargetsByIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tTargetsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tTargetsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tTargetsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetTargetsByIdsResponse GetTargetsByIds(Microsoft.BingAds.CampaignManagement.GetTargetsByIdsRequest request);
         
         /// <summary>
@@ -13614,10 +14497,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteTargetFromAdGroup", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteTargetFromAdGroupResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
-            "leteTargetFromAdGroupAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteTargetFromAdGroupApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteTargetFromAdGroupAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.DeleteTargetFromAdGroupResponse DeleteTargetFromAdGroup(Microsoft.BingAds.CampaignManagement.DeleteTargetFromAdGroupRequest request);
         
         /// <summary>
@@ -13646,10 +14529,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of Target objects that corresponds directly to the list of ad group identifiers in the request. If the ad group does not contain a reference to a target object, the corresponding target element in the array is NULL.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetTargetsByAdGroupIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tTargetsByAdGroupIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tTargetsByAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tTargetsByAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tTargetsByAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetTargetsByAdGroupIdsResponse GetTargetsByAdGroupIds(Microsoft.BingAds.CampaignManagement.GetTargetsByAdGroupIdsRequest request);
         
         /// <summary>
@@ -13678,10 +14561,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SetTargetToCampaign", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
             "tTargetToCampaignResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
-            "tTargetToCampaignApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
             "tTargetToCampaignAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
+            "tTargetToCampaignApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.SetTargetToCampaignResponse SetTargetToCampaign(Microsoft.BingAds.CampaignManagement.SetTargetToCampaignRequest request);
         
         /// <summary>
@@ -13710,10 +14593,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteTargetFromCampaign", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteTargetFromCampaignResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
-            "leteTargetFromCampaignAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteTargetFromCampaignApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteTargetFromCampaignAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.DeleteTargetFromCampaignResponse DeleteTargetFromCampaign(Microsoft.BingAds.CampaignManagement.DeleteTargetFromCampaignRequest request);
         
         /// <summary>
@@ -13742,10 +14625,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of Target objects that corresponds directly to the list of campaign identifiers in the request. If the campaign does not contain a reference to a target object, the corresponding target element in the array is NULL.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetTargetsByCampaignIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tTargetsByCampaignIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tTargetsByCampaignIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tTargetsByCampaignIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tTargetsByCampaignIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetTargetsByCampaignIdsResponse GetTargetsByCampaignIds(Microsoft.BingAds.CampaignManagement.GetTargetsByCampaignIdsRequest request);
         
         /// <summary>
@@ -13902,10 +14785,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of Target2 objects that corresponds directly to the list of campaign identifiers in the request. If the campaign does not contain a reference to a target object, the corresponding target element in the array is NULL.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetTargetsByCampaignIds2", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tTargetsByCampaignIds2Response")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tTargetsByCampaignIds2ApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tTargetsByCampaignIds2AdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tTargetsByCampaignIds2ApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetTargetsByCampaignIds2Response GetTargetsByCampaignIds2(Microsoft.BingAds.CampaignManagement.GetTargetsByCampaignIds2Request request);
         
         /// <summary>
@@ -13934,10 +14817,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dAdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dAdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dAdsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dAdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.AddAdsResponse AddAds(Microsoft.BingAds.CampaignManagement.AddAdsRequest request);
         
         /// <summary>
@@ -13998,10 +14881,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of Ad objects that represents the ads that have been retrieved. If the ad group doesn't contain ads that meet the criteria, this array is empty.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAdsByEditorialStatus", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdsByEditorialStatusResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tAdsByEditorialStatusAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdsByEditorialStatusApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tAdsByEditorialStatusAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetAdsByEditorialStatusResponse GetAdsByEditorialStatus(Microsoft.BingAds.CampaignManagement.GetAdsByEditorialStatusRequest request);
         
         /// <summary>
@@ -14030,10 +14913,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAdsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdsByIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tAdsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tAdsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetAdsByIdsResponse GetAdsByIds(Microsoft.BingAds.CampaignManagement.GetAdsByIdsRequest request);
         
         /// <summary>
@@ -14126,10 +15009,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddKeywords", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dKeywordsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dKeywordsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.AddKeywordsResponse AddKeywords(Microsoft.BingAds.CampaignManagement.AddKeywordsRequest request);
         
         /// <summary>
@@ -14158,10 +15041,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of BatchError objects that contain details for any keywords that were not successfully deleted.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteKeywords", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteKeywordsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
-            "leteKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.DeleteKeywordsResponse DeleteKeywords(Microsoft.BingAds.CampaignManagement.DeleteKeywordsRequest request);
         
         /// <summary>
@@ -14222,10 +15105,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetKeywordsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tKeywordsByIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tKeywordsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tKeywordsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tKeywordsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetKeywordsByIdsResponse GetKeywordsByIds(Microsoft.BingAds.CampaignManagement.GetKeywordsByIdsRequest request);
         
         /// <summary>
@@ -14254,10 +15137,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of Keyword objects that represents the retrieved keywords. If no keywords exist, an empty array is returned.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetKeywordsByAdGroupId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tKeywordsByAdGroupIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tKeywordsByAdGroupIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tKeywordsByAdGroupIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tKeywordsByAdGroupIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetKeywordsByAdGroupIdResponse GetKeywordsByAdGroupId(Microsoft.BingAds.CampaignManagement.GetKeywordsByAdGroupIdRequest request);
         
         /// <summary>
@@ -14286,10 +15169,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of BatchError objects that contain details for any keywords that were not successfully updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateKeywords", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
             "dateKeywordsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
-            "dateKeywordsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
             "dateKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
+            "dateKeywordsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.UpdateKeywordsResponse UpdateKeywords(Microsoft.BingAds.CampaignManagement.UpdateKeywordsRequest request);
         
         /// <summary>
@@ -14414,10 +15297,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of SitePlacement objects that was successfully retrieved. If no website placements are retrieved, this array is empty.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSitePlacementsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tSitePlacementsByIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tSitePlacementsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tSitePlacementsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tSitePlacementsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetSitePlacementsByIdsResponse GetSitePlacementsByIds(Microsoft.BingAds.CampaignManagement.GetSitePlacementsByIdsRequest request);
         
         /// <summary>
@@ -14446,10 +15329,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of SitePlacement objects that was successfully retrieved. If no website placements are retrieved, this array is empty.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSitePlacementsByAdGroupId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tSitePlacementsByAdGroupIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tSitePlacementsByAdGroupIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tSitePlacementsByAdGroupIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tSitePlacementsByAdGroupIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetSitePlacementsByAdGroupIdResponse GetSitePlacementsByAdGroupId(Microsoft.BingAds.CampaignManagement.GetSitePlacementsByAdGroupIdRequest request);
         
         /// <summary>
@@ -14542,10 +15425,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>A collection of ads or keywords that failed editorial review. The object identifies the reason for the failure and whether it is appealable.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetEditorialReasonsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tEditorialReasonsByIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tEditorialReasonsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tEditorialReasonsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tEditorialReasonsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetEditorialReasonsByIdsResponse GetEditorialReasonsByIds(Microsoft.BingAds.CampaignManagement.GetEditorialReasonsByIdsRequest request);
         
         /// <summary>
@@ -14564,10 +15447,10 @@ namespace Microsoft.BingAds.CampaignManagement
         
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountMigrationStatuses", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAccountMigrationStatusesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tAccountMigrationStatusesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAccountMigrationStatusesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tAccountMigrationStatusesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetAccountMigrationStatusesResponse GetAccountMigrationStatuses(Microsoft.BingAds.CampaignManagement.GetAccountMigrationStatusesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountMigrationStatuses", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
@@ -14586,10 +15469,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The identities of the extensions that were added. The list corresponds directly to the list of extensions specified in the request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAdExtensions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dAdExtensionsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dAdExtensionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dAdExtensionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dAdExtensionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.AddAdExtensionsResponse AddAdExtensions(Microsoft.BingAds.CampaignManagement.AddAdExtensionsRequest request);
         
         /// <summary>
@@ -14650,10 +15533,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAdExtensions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
             "dateAdExtensionsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
-            "dateAdExtensionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
             "dateAdExtensionsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
+            "dateAdExtensionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.UpdateAdExtensionsResponse UpdateAdExtensions(Microsoft.BingAds.CampaignManagement.UpdateAdExtensionsRequest request);
         
         /// <summary>
@@ -14682,10 +15565,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAdExtensions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteAdExtensionsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
-            "leteAdExtensionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteAdExtensionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteAdExtensionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.DeleteAdExtensionsResponse DeleteAdExtensions(Microsoft.BingAds.CampaignManagement.DeleteAdExtensionsRequest request);
         
         /// <summary>
@@ -14747,10 +15630,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SetAdExtensionsAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
             "tAdExtensionsAssociationsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
-            "tAdExtensionsAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
             "tAdExtensionsAssociationsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
+            "tAdExtensionsAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.SetAdExtensionsAssociationsResponse SetAdExtensionsAssociations(Microsoft.BingAds.CampaignManagement.SetAdExtensionsAssociationsRequest request);
         
         /// <summary>
@@ -14844,10 +15727,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>A list of ad extension IDs. To get the extension, call the GetAdExtensionsByIds operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAdExtensionIdsByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdExtensionIdsByAccountIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tAdExtensionIdsByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tAdExtensionIdsByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tAdExtensionIdsByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetAdExtensionIdsByAccountIdResponse GetAdExtensionIdsByAccountId(Microsoft.BingAds.CampaignManagement.GetAdExtensionIdsByAccountIdRequest request);
         
         /// <summary>
@@ -14876,10 +15759,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The identifiers of the media that you added to the library. You use the identifier to set the appropriate media ID field in the ImageAdExtension or LocationAdExtension object.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddMedia", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dMediaResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dMediaAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dMediaApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dMediaAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.AddMediaResponse AddMedia(Microsoft.BingAds.CampaignManagement.AddMediaRequest request);
         
         /// <summary>
@@ -14943,10 +15826,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The specified media from the library.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetMediaByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tMediaByIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tMediaByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tMediaByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tMediaByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetMediaByIdsResponse GetMediaByIds(Microsoft.BingAds.CampaignManagement.GetMediaByIdsRequest request);
         
         /// <summary>
@@ -14978,10 +15861,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The specified media meta data from the library.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetMediaMetaDataByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tMediaMetaDataByAccountIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tMediaMetaDataByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tMediaMetaDataByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tMediaMetaDataByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetMediaMetaDataByAccountIdResponse GetMediaMetaDataByAccountId(Microsoft.BingAds.CampaignManagement.GetMediaMetaDataByAccountIdRequest request);
         
         /// <summary>
@@ -15049,10 +15932,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetMediaAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tMediaAssociationsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tMediaAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tMediaAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tMediaAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetMediaAssociationsResponse GetMediaAssociations(Microsoft.BingAds.CampaignManagement.GetMediaAssociationsRequest request);
         
         /// <summary>
@@ -15135,7 +16018,7 @@ namespace Microsoft.BingAds.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.GetAdGroupCriterionsByAdGroupIdResponse> GetAdGroupCriterionsByAdGroupIdAsync(Microsoft.BingAds.CampaignManagement.GetAdGroupCriterionsByAdGroupIdRequest request);
         
         /// <summary>
-        /// Adds one or more ad group criterions that determine whether ads in the ad group get served.
+        /// Adds one or more campaign criterions that help filter product catalog items for a Bing Merchant Center store.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx">AddAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx for details.
@@ -15146,14 +16029,14 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>A list of identifiers that identify the criterion that were added. The list of identifiers corresponds directly to the list of criterion in the request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAdGroupCriterions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dAdGroupCriterionsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dAdGroupCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dAdGroupCriterionsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dAdGroupCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.AddAdGroupCriterionsResponse AddAdGroupCriterions(Microsoft.BingAds.CampaignManagement.AddAdGroupCriterionsRequest request);
         
         /// <summary>
-        /// Adds one or more ad group criterions that determine whether ads in the ad group get served.
+        /// Adds one or more campaign criterions that help filter product catalog items for a Bing Merchant Center store.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx">AddAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx for details.
@@ -15210,10 +16093,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAdGroupCriterions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteAdGroupCriterionsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
-            "leteAdGroupCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteAdGroupCriterionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteAdGroupCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.DeleteAdGroupCriterionsResponse DeleteAdGroupCriterions(Microsoft.BingAds.CampaignManagement.DeleteAdGroupCriterionsRequest request);
         
         /// <summary>
@@ -15231,6 +16114,40 @@ namespace Microsoft.BingAds.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.DeleteAdGroupCriterionsResponse> DeleteAdGroupCriterionsAsync(Microsoft.BingAds.CampaignManagement.DeleteAdGroupCriterionsRequest request);
         
         /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyProductPartitionActions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ap" +
+            "plyProductPartitionActionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ap" +
+            "plyProductPartitionActionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ap" +
+            "plyProductPartitionActionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        Microsoft.BingAds.CampaignManagement.ApplyProductPartitionActionsResponse ApplyProductPartitionActions(Microsoft.BingAds.CampaignManagement.ApplyProductPartitionActionsRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyProductPartitionActions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ap" +
+            "plyProductPartitionActionsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.ApplyProductPartitionActionsResponse> ApplyProductPartitionActionsAsync(Microsoft.BingAds.CampaignManagement.ApplyProductPartitionActionsRequest request);
+        
+        /// <summary>
         /// Gets the Bing Merchant Center stores for the specified customer.
         /// </summary>
         /// <remarks>
@@ -15242,10 +16159,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The list of Bing Merchant Center stores for the specified customer.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetBMCStoresByCustomerId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tBMCStoresByCustomerIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tBMCStoresByCustomerIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tBMCStoresByCustomerIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tBMCStoresByCustomerIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetBMCStoresByCustomerIdResponse GetBMCStoresByCustomerId(Microsoft.BingAds.CampaignManagement.GetBMCStoresByCustomerIdRequest request);
         
         /// <summary>
@@ -15275,10 +16192,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddNegativeKeywordsToEntities", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dNegativeKeywordsToEntitiesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
-            "dNegativeKeywordsToEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
             "dNegativeKeywordsToEntitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dNegativeKeywordsToEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.AddNegativeKeywordsToEntitiesResponse AddNegativeKeywordsToEntities(Microsoft.BingAds.CampaignManagement.AddNegativeKeywordsToEntitiesRequest request);
         
         /// <summary>
@@ -15309,10 +16226,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetNegativeKeywordsByEntityIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tNegativeKeywordsByEntityIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tNegativeKeywordsByEntityIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tNegativeKeywordsByEntityIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tNegativeKeywordsByEntityIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.GetNegativeKeywordsByEntityIdsResponse GetNegativeKeywordsByEntityIds(Microsoft.BingAds.CampaignManagement.GetNegativeKeywordsByEntityIdsRequest request);
         
         /// <summary>
@@ -15576,10 +16493,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of BatchError objects that contain details for any associations that were not successfully added.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SetSharedEntityAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
             "tSharedEntityAssociationsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
-            "tSharedEntityAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
             "tSharedEntityAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Se" +
+            "tSharedEntityAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.CampaignManagement.SetSharedEntityAssociationsResponse SetSharedEntityAssociations(Microsoft.BingAds.CampaignManagement.SetSharedEntityAssociationsRequest request);
         
         /// <summary>
@@ -15675,10 +16592,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSharedEntityAssociationsByEntityIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tSharedEntityAssociationsByEntityIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tSharedEntityAssociationsByEntityIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tSharedEntityAssociationsByEntityIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tSharedEntityAssociationsByEntityIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetSharedEntityAssociationsByEntityIdsResponse GetSharedEntityAssociationsByEntityIds(Microsoft.BingAds.CampaignManagement.GetSharedEntityAssociationsByEntityIdsRequest request);
         
         /// <summary>
@@ -15708,10 +16625,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <returns>An array of BatchError objects that contain details for any shared entities that were not successfully deleted.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteSharedEntities", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteSharedEntitiesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
-            "leteSharedEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
             "leteSharedEntitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteSharedEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.DeleteSharedEntitiesResponse DeleteSharedEntities(Microsoft.BingAds.CampaignManagement.DeleteSharedEntitiesRequest request);
         
         /// <summary>
@@ -15730,15 +16647,185 @@ namespace Microsoft.BingAds.CampaignManagement
         
         [System.ServiceModel.OperationContractAttribute(Action="GetCampaignSizesByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tCampaignSizesByAccountIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
-            "tCampaignSizesByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tCampaignSizesByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignSizesByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CampaignManagement.GetCampaignSizesByAccountIdResponse GetCampaignSizesByAccountId(Microsoft.BingAds.CampaignManagement.GetCampaignSizesByAccountIdRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="GetCampaignSizesByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
             "tCampaignSizesByAccountIdResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.GetCampaignSizesByAccountIdResponse> GetCampaignSizesByAccountIdAsync(Microsoft.BingAds.CampaignManagement.GetCampaignSizesByAccountIdRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Adds one or more campaign criterions that help determine whether ads in each campaign get served.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddCampaignCriterions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dCampaignCriterionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dCampaignCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dCampaignCriterionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.CampaignManagement.AddCampaignCriterionsResponse AddCampaignCriterions(Microsoft.BingAds.CampaignManagement.AddCampaignCriterionsRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Adds one or more campaign criterions that help determine whether ads in each campaign get served.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddCampaignCriterions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ad" +
+            "dCampaignCriterionsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.AddCampaignCriterionsResponse> AddCampaignCriterionsAsync(Microsoft.BingAds.CampaignManagement.AddCampaignCriterionsRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Updates one or more campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any list items that were not successfully updated.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateCampaignCriterions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
+            "dateCampaignCriterionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
+            "dateCampaignCriterionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
+            "dateCampaignCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        Microsoft.BingAds.CampaignManagement.UpdateCampaignCriterionsResponse UpdateCampaignCriterions(Microsoft.BingAds.CampaignManagement.UpdateCampaignCriterionsRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Updates one or more campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any list items that were not successfully updated.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateCampaignCriterions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Up" +
+            "dateCampaignCriterionsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.UpdateCampaignCriterionsResponse> UpdateCampaignCriterionsAsync(Microsoft.BingAds.CampaignManagement.UpdateCampaignCriterionsRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Deletes one or more campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any list items that were not successfully deleted.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteCampaignCriterions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteCampaignCriterionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteCampaignCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteCampaignCriterionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.CampaignManagement.DeleteCampaignCriterionsResponse DeleteCampaignCriterions(Microsoft.BingAds.CampaignManagement.DeleteCampaignCriterionsRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Deletes one or more campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any list items that were not successfully deleted.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteCampaignCriterions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/De" +
+            "leteCampaignCriterionsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.DeleteCampaignCriterionsResponse> DeleteCampaignCriterionsAsync(Microsoft.BingAds.CampaignManagement.DeleteCampaignCriterionsRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Gets the specified types of criterions from the specified campaign.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignId Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of criterions that you requested. If the campaign does not contain the specified types of criterion, the list is empty.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetCampaignCriterionsByCampaignId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignCriterionsByCampaignIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignCriterionsByCampaignIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignCriterionsByCampaignIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByCampaignIdResponse GetCampaignCriterionsByCampaignId(Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByCampaignIdRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Gets the specified types of criterions from the specified campaign.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignId Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of criterions that you requested. If the campaign does not contain the specified types of criterion, the list is empty.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetCampaignCriterionsByCampaignId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignCriterionsByCampaignIdResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByCampaignIdResponse> GetCampaignCriterionsByCampaignIdAsync(Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByCampaignIdRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Gets the specified campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetCampaignCriterionsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignCriterionsByIdsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignCriterionsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignCriterionsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByIdsResponse GetCampaignCriterionsByIds(Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByIdsRequest request);
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Gets the specified campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetCampaignCriterionsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v9/ICampaignManagementService/Ge" +
+            "tCampaignCriterionsByIdsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByIdsResponse> GetCampaignCriterionsByIdsAsync(Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByIdsRequest request);
     }
     
     /// <summary>
@@ -15906,6 +16993,12 @@ namespace Microsoft.BingAds.CampaignManagement
         public long AccountId;
         
         /// <summary>
+        /// The type of campaign to get. You can specify one or more types.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public System.Nullable<Microsoft.BingAds.CampaignManagement.CampaignType> CampaignType;
+        
+        /// <summary>
         /// Constructor for the GetCampaignsByAccountIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -15922,7 +17015,8 @@ namespace Microsoft.BingAds.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn236299(v=msads.90).aspx">GetCampaignsByAccountIdRequest</see> http://msdn.microsoft.com/en-us/library/dn236299(v=msads.90).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
-        public GetCampaignsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId)
+        /// <param name="CampaignType">The type of campaign to get. You can specify one or more types.</param>
+        public GetCampaignsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<Microsoft.BingAds.CampaignManagement.CampaignType> CampaignType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -15932,6 +17026,7 @@ namespace Microsoft.BingAds.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.AccountId = AccountId;
+            this.CampaignType = CampaignType;
         }
     }
     
@@ -16028,6 +17123,12 @@ namespace Microsoft.BingAds.CampaignManagement
         public System.Collections.Generic.IList<long> CampaignIds;
         
         /// <summary>
+        /// The type of campaign to get. You can specify one or more types.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=2)]
+        public System.Nullable<Microsoft.BingAds.CampaignManagement.CampaignType> CampaignType;
+        
+        /// <summary>
         /// Constructor for the GetCampaignsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -16045,7 +17146,8 @@ namespace Microsoft.BingAds.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
         /// <param name="CampaignIds">A maximum of 100 identifiers of the campaigns to get from the specified account.</param>
-        public GetCampaignsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> CampaignIds)
+        /// <param name="CampaignType">The type of campaign to get. You can specify one or more types.</param>
+        public GetCampaignsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> CampaignIds, System.Nullable<Microsoft.BingAds.CampaignManagement.CampaignType> CampaignType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -16056,6 +17158,7 @@ namespace Microsoft.BingAds.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.CampaignIds = CampaignIds;
+            this.CampaignType = CampaignType;
         }
     }
     
@@ -24367,10 +25470,22 @@ namespace Microsoft.BingAds.CampaignManagement
         public long AccountId;
         
         /// <summary>
-        /// A list of unique identifiers that identify the criterions to get. You can specify a maximum of 1,000 IDs.
+        /// A list of unique identifiers that identify the criterions to get. You can specify a maximum of 100 IDs.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
         public System.Collections.Generic.IList<long> AdGroupCriterionIds;
+        
+        /// <summary>
+        /// The identifier of the ad group that owns the criterions to get.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=2)]
+        public System.Nullable<long> AdGroupId;
+        
+        /// <summary>
+        /// The types of ad group criterion to get, for example Product. You can specify one or more types.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=3)]
+        public System.Nullable<Microsoft.BingAds.CampaignManagement.CriterionType> CriterionType;
         
         /// <summary>
         /// Constructor for the GetAdGroupCriterionsByIdsRequest request object.
@@ -24389,8 +25504,10 @@ namespace Microsoft.BingAds.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277520(v=msads.90).aspx">GetAdGroupCriterionsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn277520(v=msads.90).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that owns the criterions to get.</param>
-        /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get. You can specify a maximum of 1,000 IDs.</param>
-        public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdGroupCriterionIds)
+        /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get. You can specify a maximum of 100 IDs.</param>
+        /// <param name="AdGroupId">The identifier of the ad group that owns the criterions to get.</param>
+        /// <param name="CriterionType">The types of ad group criterion to get, for example Product. You can specify one or more types.</param>
+        public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdGroupCriterionIds, System.Nullable<long> AdGroupId, System.Nullable<Microsoft.BingAds.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -24401,6 +25518,8 @@ namespace Microsoft.BingAds.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.AdGroupCriterionIds = AdGroupCriterionIds;
+            this.AdGroupId = AdGroupId;
+            this.CriterionType = CriterionType;
         }
     }
     
@@ -24583,7 +25702,7 @@ namespace Microsoft.BingAds.CampaignManagement
     }
     
     /// <summary>
-    /// Adds one or more ad group criterions that determine whether ads in the ad group get served.
+    /// Adds one or more campaign criterions that help filter product catalog items for a Bing Merchant Center store.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx">AddAdGroupCriterions Request Object</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx for details.
@@ -24629,6 +25748,12 @@ namespace Microsoft.BingAds.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.AdGroupCriterion> AdGroupCriterions;
         
         /// <summary>
+        /// The type of ad group criterion to add, for example Product. You can specify only one type.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=2)]
+        public System.Nullable<Microsoft.BingAds.CampaignManagement.CriterionType> CriterionType;
+        
+        /// <summary>
         /// Constructor for the AddAdGroupCriterionsRequest request object.
         /// </summary>
         /// <remarks>
@@ -24646,7 +25771,8 @@ namespace Microsoft.BingAds.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account to add the criterions to.</param>
         /// <param name="AdGroupCriterions">A list of criterions that determine whether ads in the ad group are served.</param>
-        public AddAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.AdGroupCriterion> AdGroupCriterions)
+        /// <param name="CriterionType">The type of ad group criterion to add, for example Product. You can specify only one type.</param>
+        public AddAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.AdGroupCriterion> AdGroupCriterions, System.Nullable<Microsoft.BingAds.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -24657,11 +25783,12 @@ namespace Microsoft.BingAds.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.AdGroupCriterions = AdGroupCriterions;
+            this.CriterionType = CriterionType;
         }
     }
     
     /// <summary>
-    /// Adds one or more ad group criterions that determine whether ads in the ad group get served.
+    /// Adds one or more campaign criterions that help filter product catalog items for a Bing Merchant Center store.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx">AddAdGroupCriterions Response Object</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx for details.
@@ -24747,10 +25874,16 @@ namespace Microsoft.BingAds.CampaignManagement
         public long AccountId;
         
         /// <summary>
-        /// The list of criterions to update. You may specify a maximum of 1,000 criterions.
+        /// The list of criterions to update. You may specify a maximum of 100 criterions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.AdGroupCriterion> AdGroupCriterions;
+        
+        /// <summary>
+        /// The type of ad group criterion to update, for example Product. You can specify only one type.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=2)]
+        public System.Nullable<Microsoft.BingAds.CampaignManagement.CriterionType> CriterionType;
         
         /// <summary>
         /// Constructor for the UpdateAdGroupCriterionsRequest request object.
@@ -24769,8 +25902,9 @@ namespace Microsoft.BingAds.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.90).aspx">UpdateAdGroupCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.90).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that owns the criterions to update.</param>
-        /// <param name="AdGroupCriterions">The list of criterions to update. You may specify a maximum of 1,000 criterions.</param>
-        public UpdateAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.AdGroupCriterion> AdGroupCriterions)
+        /// <param name="AdGroupCriterions">The list of criterions to update. You may specify a maximum of 100 criterions.</param>
+        /// <param name="CriterionType">The type of ad group criterion to update, for example Product. You can specify only one type.</param>
+        public UpdateAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.AdGroupCriterion> AdGroupCriterions, System.Nullable<Microsoft.BingAds.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -24781,6 +25915,7 @@ namespace Microsoft.BingAds.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.AdGroupCriterions = AdGroupCriterions;
+            this.CriterionType = CriterionType;
         }
     }
     
@@ -24875,6 +26010,12 @@ namespace Microsoft.BingAds.CampaignManagement
         public long AdGroupId;
         
         /// <summary>
+        /// The type of ad group criterion to delete, for example Product. You can specify only one type.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=3)]
+        public System.Nullable<Microsoft.BingAds.CampaignManagement.CriterionType> CriterionType;
+        
+        /// <summary>
         /// Constructor for the DeleteAdGroupCriterionsRequest request object.
         /// </summary>
         /// <remarks>
@@ -24893,7 +26034,8 @@ namespace Microsoft.BingAds.CampaignManagement
         /// <param name="AccountId">The identifier of the account that owns the criterion to delete.</param>
         /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterion to delete. You can specify a maximum on 1,000 identifiers per call.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterion to delete.</param>
-        public DeleteAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId)
+        /// <param name="CriterionType">The type of ad group criterion to delete, for example Product. You can specify only one type.</param>
+        public DeleteAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId, System.Nullable<Microsoft.BingAds.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -24905,6 +26047,7 @@ namespace Microsoft.BingAds.CampaignManagement
             this.AccountId = AccountId;
             this.AdGroupCriterionIds = AdGroupCriterionIds;
             this.AdGroupId = AdGroupId;
+            this.CriterionType = CriterionType;
         }
     }
     
@@ -24943,6 +26086,132 @@ namespace Microsoft.BingAds.CampaignManagement
         public DeleteAdGroupCriterionsResponse(string TrackingId)
         {
             this.TrackingId = TrackingId;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActions Request Object</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyProductPartitionActionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class ApplyProductPartitionActionsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string UserName;
+        
+        /// <summary>
+        /// A list of up to 5,000 AdGroupCriterionAction objects that each contain an Action element and either a BiddableAdGroupCriterion or NegativeAdGroupCriterion.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.AdGroupCriterionAction> CriterionActions;
+        
+        /// <summary>
+        /// Constructor for the ApplyProductPartitionActionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+        /// </remarks>
+        public ApplyProductPartitionActionsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ApplyProductPartitionActionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CriterionActions">A list of up to 5,000 AdGroupCriterionAction objects that each contain an Action element and either a BiddableAdGroupCriterion or NegativeAdGroupCriterion.</param>
+        public ApplyProductPartitionActionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.AdGroupCriterionAction> CriterionActions)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CriterionActions = CriterionActions;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActions Response Object</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyProductPartitionActionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class ApplyProductPartitionActionsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// A list of identifiers that identify the criterion that had the action applied. The list of identifiers corresponds directly to the list of criterion in the request.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<System.Nullable<long>> AdGroupCriterionIds;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any criterion action that was not successfully applied.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the ApplyProductPartitionActionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActionsResponse</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+        /// </remarks>
+        public ApplyProductPartitionActionsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ApplyProductPartitionActionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActionsResponse</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="AdGroupCriterionIds">A list of identifiers that identify the criterion that had the action applied. The list of identifiers corresponds directly to the list of criterion in the request.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any criterion action that was not successfully applied.</param>
+        public ApplyProductPartitionActionsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> AdGroupCriterionIds, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.AdGroupCriterionIds = AdGroupCriterionIds;
+            this.PartialErrors = PartialErrors;
         }
     }
     
@@ -26895,6 +28164,649 @@ namespace Microsoft.BingAds.CampaignManagement
         {
             this.TrackingId = TrackingId;
             this.CampaignSizes = CampaignSizes;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Adds one or more campaign criterions that help determine whether ads in each campaign get served.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterions Request Object</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaignCriterions">AddCampaignCriterions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddCampaignCriterionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class AddCampaignCriterionsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string UserName;
+        
+        /// <summary>
+        /// A list of criterions that help determine whether ads in each campaign get served.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.CampaignCriterion> CampaignCriterions;
+        
+        /// <summary>
+        /// The type of campaign criterion to add, for example ProductScope. You can specify only one type.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType;
+        
+        /// <summary>
+        /// Constructor for the AddCampaignCriterionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+        /// </remarks>
+        public AddCampaignCriterionsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddCampaignCriterionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignCriterions">A list of criterions that help determine whether ads in each campaign get served.</param>
+        /// <param name="CriterionType">The type of campaign criterion to add, for example ProductScope. You can specify only one type.</param>
+        public AddCampaignCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.CampaignCriterion> CampaignCriterions, Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignCriterions = CampaignCriterions;
+            this.CriterionType = CriterionType;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Adds one or more campaign criterions that help determine whether ads in each campaign get served.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterions Response Object</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaignCriterions">AddCampaignCriterions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddCampaignCriterionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class AddCampaignCriterionsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// A list of identifiers that identify the criterion that were added. The list of identifiers corresponds directly to the list of criterion in the request.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<System.Nullable<long>> CampaignCriterionIds;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any list items that were not successfully added.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the AddCampaignCriterionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterionsResponse</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+        /// </remarks>
+        public AddCampaignCriterionsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddCampaignCriterionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterionsResponse</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignCriterionIds">A list of identifiers that identify the criterion that were added. The list of identifiers corresponds directly to the list of criterion in the request.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any list items that were not successfully added.</param>
+        public AddCampaignCriterionsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> CampaignCriterionIds, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.CampaignCriterionIds = CampaignCriterionIds;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Updates one or more campaign criterions.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterions Request Object</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateCampaignCriterions">UpdateCampaignCriterions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateCampaignCriterionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class UpdateCampaignCriterionsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string UserName;
+        
+        /// <summary>
+        /// The list of campaign criterions to update.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.CampaignCriterion> CampaignCriterions;
+        
+        /// <summary>
+        /// The type of campaign criterion to update, for example ProductScope. You can specify only one type.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType;
+        
+        /// <summary>
+        /// Constructor for the UpdateCampaignCriterionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+        /// </remarks>
+        public UpdateCampaignCriterionsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateCampaignCriterionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignCriterions">The list of campaign criterions to update.</param>
+        /// <param name="CriterionType">The type of campaign criterion to update, for example ProductScope. You can specify only one type.</param>
+        public UpdateCampaignCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.CampaignCriterion> CampaignCriterions, Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignCriterions = CampaignCriterions;
+            this.CriterionType = CriterionType;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Updates one or more campaign criterions.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterions Response Object</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateCampaignCriterions">UpdateCampaignCriterions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateCampaignCriterionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class UpdateCampaignCriterionsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any list items that were not successfully updated.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the UpdateCampaignCriterionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterionsResponse</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+        /// </remarks>
+        public UpdateCampaignCriterionsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateCampaignCriterionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterionsResponse</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any list items that were not successfully updated.</param>
+        public UpdateCampaignCriterionsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Deletes one or more campaign criterions.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterions Request Object</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteCampaignCriterionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class DeleteCampaignCriterionsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string UserName;
+        
+        /// <summary>
+        /// A list of unique system identifiers corresponding to the campaign criterions that you want to delete.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<long> CampaignCriterionIds;
+        
+        /// <summary>
+        /// The type of campaign criterion, for example ProductScope.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType;
+        
+        /// <summary>
+        /// Constructor for the DeleteCampaignCriterionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+        /// </remarks>
+        public DeleteCampaignCriterionsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteCampaignCriterionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignCriterionIds">A list of unique system identifiers corresponding to the campaign criterions that you want to delete.</param>
+        /// <param name="CriterionType">The type of campaign criterion, for example ProductScope.</param>
+        public DeleteCampaignCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> CampaignCriterionIds, Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignCriterionIds = CampaignCriterionIds;
+            this.CriterionType = CriterionType;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Deletes one or more campaign criterions.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterions Response Object</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteCampaignCriterionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class DeleteCampaignCriterionsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any list items that were not successfully deleted.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the DeleteCampaignCriterionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterionsResponse</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+        /// </remarks>
+        public DeleteCampaignCriterionsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteCampaignCriterionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterionsResponse</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any list items that were not successfully deleted.</param>
+        public DeleteCampaignCriterionsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Gets the specified types of criterions from the specified campaign.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignId Request Object</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByCampaignId">GetCampaignCriterionsByCampaignId</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCampaignCriterionsByCampaignIdRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class GetCampaignCriterionsByCampaignIdRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string UserName;
+        
+        /// <summary>
+        /// The identifier of the campaign that contains the criterions to get.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public long CampaignId;
+        
+        /// <summary>
+        /// The types of campaign criterion to get, for example ProductScope. You can specify one or more types.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType;
+        
+        /// <summary>
+        /// Constructor for the GetCampaignCriterionsByCampaignIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignIdRequest</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+        /// </remarks>
+        public GetCampaignCriterionsByCampaignIdRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetCampaignCriterionsByCampaignIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignIdRequest</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignId">The identifier of the campaign that contains the criterions to get.</param>
+        /// <param name="CriterionType">The types of campaign criterion to get, for example ProductScope. You can specify one or more types.</param>
+        public GetCampaignCriterionsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignId = CampaignId;
+            this.CriterionType = CriterionType;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Gets the specified types of criterions from the specified campaign.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignId Response Object</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByCampaignId">GetCampaignCriterionsByCampaignId</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCampaignCriterionsByCampaignIdResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class GetCampaignCriterionsByCampaignIdResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The list of criterions that you requested. If the campaign does not contain the specified types of criterion, the list is empty.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.CampaignCriterion> CampaignCriterions;
+        
+        /// <summary>
+        /// Constructor for the GetCampaignCriterionsByCampaignIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignIdResponse</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+        /// </remarks>
+        public GetCampaignCriterionsByCampaignIdResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetCampaignCriterionsByCampaignIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignIdResponse</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignCriterions">The list of criterions that you requested. If the campaign does not contain the specified types of criterion, the list is empty.</param>
+        public GetCampaignCriterionsByCampaignIdResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.CampaignCriterion> CampaignCriterions)
+        {
+            this.TrackingId = TrackingId;
+            this.CampaignCriterions = CampaignCriterions;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Gets the specified campaign criterions.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIds Request Object</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCampaignCriterionsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class GetCampaignCriterionsByIdsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string UserName;
+        
+        /// <summary>
+        /// A list of unique identifiers that identify the campaign criterions to get. You can specify a maximum of 1,000 IDs.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<long> CampaignCriterionIds;
+        
+        /// <summary>
+        /// The types of campaign criterion to get, for example ProductScope. You can specify one or more types.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType;
+        
+        /// <summary>
+        /// Constructor for the GetCampaignCriterionsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+        /// </remarks>
+        public GetCampaignCriterionsByIdsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetCampaignCriterionsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignCriterionIds">A list of unique identifiers that identify the campaign criterions to get. You can specify a maximum of 1,000 IDs.</param>
+        /// <param name="CriterionType">The types of campaign criterion to get, for example ProductScope. You can specify one or more types.</param>
+        public GetCampaignCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> CampaignCriterionIds, Microsoft.BingAds.CampaignManagement.CampaignCriterionType CriterionType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignCriterionIds = CampaignCriterionIds;
+            this.CriterionType = CriterionType;
+        }
+    }
+    
+    /// <summary>
+    /// This feature is currently in pilot and will be generally available soon.
+    /// <para>Gets the specified campaign criterions.</para>
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIds Response Object</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCampaignCriterionsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v9", IsWrapped=true)]
+    public partial class GetCampaignCriterionsByIdsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.CampaignCriterion> CampaignCriterions;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any list items that were not successfully returned.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v9", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetCampaignCriterionsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIdsResponse</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+        /// </remarks>
+        public GetCampaignCriterionsByIdsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetCampaignCriterionsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIdsResponse</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignCriterions"></param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any list items that were not successfully returned.</param>
+        public GetCampaignCriterionsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.CampaignCriterion> CampaignCriterions, System.Collections.Generic.IList<Microsoft.BingAds.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.CampaignCriterions = CampaignCriterions;
+            this.PartialErrors = PartialErrors;
         }
     }
     
@@ -29129,7 +31041,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// Adds one or more ad group criterions that determine whether ads in the ad group get served.
+        /// Adds one or more campaign criterions that help filter product catalog items for a Bing Merchant Center store.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx">AddAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx for details.
@@ -29144,7 +31056,7 @@ namespace Microsoft.BingAds.CampaignManagement
         }
         
         /// <summary>
-        /// Adds one or more ad group criterions that determine whether ads in the ad group get served.
+        /// Adds one or more campaign criterions that help filter product catalog items for a Bing Merchant Center store.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx">AddAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.90).aspx for details.
@@ -29216,6 +31128,38 @@ namespace Microsoft.BingAds.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.DeleteAdGroupCriterionsResponse> DeleteAdGroupCriterionsAsync(Microsoft.BingAds.CampaignManagement.DeleteAdGroupCriterionsRequest request)
         {
             return base.Channel.DeleteAdGroupCriterionsAsync(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.CampaignManagement.ApplyProductPartitionActionsResponse ApplyProductPartitionActions(Microsoft.BingAds.CampaignManagement.ApplyProductPartitionActionsRequest request)
+        {
+            return base.Channel.ApplyProductPartitionActions(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx">ApplyProductPartitionActions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913134(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.ApplyProductPartitionActionsResponse> ApplyProductPartitionActionsAsync(Microsoft.BingAds.CampaignManagement.ApplyProductPartitionActionsRequest request)
+        {
+            return base.Channel.ApplyProductPartitionActionsAsync(request);
         }
         
         /// <summary>
@@ -29694,6 +31638,166 @@ namespace Microsoft.BingAds.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.GetCampaignSizesByAccountIdResponse> GetCampaignSizesByAccountIdAsync(Microsoft.BingAds.CampaignManagement.GetCampaignSizesByAccountIdRequest request)
         {
             return base.Channel.GetCampaignSizesByAccountIdAsync(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Adds one or more campaign criterions that help determine whether ads in each campaign get served.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.CampaignManagement.AddCampaignCriterionsResponse AddCampaignCriterions(Microsoft.BingAds.CampaignManagement.AddCampaignCriterionsRequest request)
+        {
+            return base.Channel.AddCampaignCriterions(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Adds one or more campaign criterions that help determine whether ads in each campaign get served.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx">AddCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.AddCampaignCriterionsResponse> AddCampaignCriterionsAsync(Microsoft.BingAds.CampaignManagement.AddCampaignCriterionsRequest request)
+        {
+            return base.Channel.AddCampaignCriterionsAsync(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Updates one or more campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any list items that were not successfully updated.</returns>
+        public Microsoft.BingAds.CampaignManagement.UpdateCampaignCriterionsResponse UpdateCampaignCriterions(Microsoft.BingAds.CampaignManagement.UpdateCampaignCriterionsRequest request)
+        {
+            return base.Channel.UpdateCampaignCriterions(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Updates one or more campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx">UpdateCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any list items that were not successfully updated.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.UpdateCampaignCriterionsResponse> UpdateCampaignCriterionsAsync(Microsoft.BingAds.CampaignManagement.UpdateCampaignCriterionsRequest request)
+        {
+            return base.Channel.UpdateCampaignCriterionsAsync(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Deletes one or more campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any list items that were not successfully deleted.</returns>
+        public Microsoft.BingAds.CampaignManagement.DeleteCampaignCriterionsResponse DeleteCampaignCriterions(Microsoft.BingAds.CampaignManagement.DeleteCampaignCriterionsRequest request)
+        {
+            return base.Channel.DeleteCampaignCriterions(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Deletes one or more campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx">DeleteCampaignCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any list items that were not successfully deleted.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.DeleteCampaignCriterionsResponse> DeleteCampaignCriterionsAsync(Microsoft.BingAds.CampaignManagement.DeleteCampaignCriterionsRequest request)
+        {
+            return base.Channel.DeleteCampaignCriterionsAsync(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Gets the specified types of criterions from the specified campaign.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignId Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of criterions that you requested. If the campaign does not contain the specified types of criterion, the list is empty.</returns>
+        public Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByCampaignIdResponse GetCampaignCriterionsByCampaignId(Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByCampaignIdRequest request)
+        {
+            return base.Channel.GetCampaignCriterionsByCampaignId(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Gets the specified types of criterions from the specified campaign.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx">GetCampaignCriterionsByCampaignId Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913136(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of criterions that you requested. If the campaign does not contain the specified types of criterion, the list is empty.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByCampaignIdResponse> GetCampaignCriterionsByCampaignIdAsync(Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByCampaignIdRequest request)
+        {
+            return base.Channel.GetCampaignCriterionsByCampaignIdAsync(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Gets the specified campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByIdsResponse GetCampaignCriterionsByIds(Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByIdsRequest request)
+        {
+            return base.Channel.GetCampaignCriterionsByIds(request);
+        }
+        
+        /// <summary>
+        /// This feature is currently in pilot and will be generally available soon.
+        /// <para>Gets the specified campaign criterions.</para>
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx">GetCampaignCriterionsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.90).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByIdsResponse> GetCampaignCriterionsByIdsAsync(Microsoft.BingAds.CampaignManagement.GetCampaignCriterionsByIdsRequest request)
+        {
+            return base.Channel.GetCampaignCriterionsByIdsAsync(request);
         }
     }
 }

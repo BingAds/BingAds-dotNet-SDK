@@ -64,7 +64,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCampaignCallAdExtension : BulkAdExtensionAssociation
+    public class BulkCampaignCallAdExtension : BulkCampaignAdExtensionAssociation
     {
     }
 }

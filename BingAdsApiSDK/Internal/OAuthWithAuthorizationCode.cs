@@ -104,6 +104,42 @@ namespace Microsoft.BingAds.Internal
         /// <param name="redirectionUri">
         /// The URI to which the user of the app will be redirected after receiving user consent.        
         /// </param>
+        /// <param name="refreshToken">
+        /// The refresh token that should be used to request an access token.
+        /// </param>
+        /// <remarks>
+        /// <para>
+        /// For more information about using a client identifier for authentication, see the 
+        /// Client Password Authentication section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1
+        /// </para>
+        /// <para>
+        /// For web applications, redirectionUri must be within the same domain of your registered application.  
+        /// For more information, see the Redirection Uri section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1.
+        /// </para>
+        /// </remarks>
+        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, string refreshToken)
+            : this(clientId, optionalClientSecret, redirectionUri, new LiveComOAuthService())
+        {
+            if (refreshToken == null)
+            {
+                throw new ArgumentNullException("refreshToken");
+            }
+
+            OAuthTokens = new OAuthTokens(null, 0, refreshToken);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the OAuthWithAuthorizationCode class.
+        /// </summary>
+        /// <param name="clientId">
+        /// The client identifier corresponding to your registered application.         
+        /// </param>
+        /// <param name="optionalClientSecret">
+        /// The client secret corresponding to your registered application, or null if your app is a desktop or mobile app.        
+        /// </param>
+        /// <param name="redirectionUri">
+        /// The URI to which the user of the app will be redirected after receiving user consent.        
+        /// </param>
         /// <remarks>
         /// <para>
         /// For more information about using a client identifier for authentication, see the 
@@ -115,6 +151,12 @@ namespace Microsoft.BingAds.Internal
         /// </para>
         /// </remarks>
         protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri)
+            : this(clientId, optionalClientSecret, redirectionUri, new LiveComOAuthService())
+        {
+
+        }
+
+        internal OAuthWithAuthorizationCode(string clientId, string clientSecret, Uri redirectionUri, IOAuthService oauthService)
             : base(clientId)
         {
             if (redirectionUri == null)
@@ -122,14 +164,8 @@ namespace Microsoft.BingAds.Internal
                 throw new ArgumentNullException("redirectionUri");
             }
 
-            _optionalClientSecret = optionalClientSecret;
+            _optionalClientSecret = clientSecret;
             _redirectionUri = redirectionUri;
-            _oauthService = new LiveComOAuthService();
-        }
-
-        internal OAuthWithAuthorizationCode(string clientId, string clientSecret, Uri redirectionUri, IOAuthService oauthService)
-            : this(clientId, clientSecret, redirectionUri)
-        {
             _oauthService = oauthService;
         }
 
@@ -168,6 +204,22 @@ namespace Microsoft.BingAds.Internal
 
             var queryParts = responseUri.ParseQuery();
 
+            string error;
+
+            if (queryParts.TryGetValue("error", out error))
+            {
+                var details = new OAuthErrorDetails { Error = Uri.UnescapeDataString(error) };
+
+                string errorDescription;
+
+                if (queryParts.TryGetValue("error_description", out errorDescription))
+                {
+                    details.Description = Uri.UnescapeDataString(errorDescription);
+                }
+
+                throw new OAuthTokenRequestException(ErrorMessages.OAuthError, details);
+            }
+
             if (!queryParts.ContainsKey("code"))
             {
                 throw new ArgumentException(ErrorMessages.UriDoesntContainCode);
@@ -188,7 +240,7 @@ namespace Microsoft.BingAds.Internal
             RaiseNewTokensReceivedEvent();
 
             return OAuthTokens;
-        }        
+        }
 
         /// <summary>
         /// Retrieves OAuth access and refresh tokens from the Microsoft Account authorization service 

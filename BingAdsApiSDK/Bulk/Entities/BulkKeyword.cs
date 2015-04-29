@@ -131,7 +131,28 @@ namespace Microsoft.BingAds.Bulk.Entities
                     BidSuggestions.FirstPage = nextBidSuggestion;
                 }
             }            
-        }        
+        }
+
+        internal override void WriteAdditionalData(IBulkObjectWriter writer)
+        {
+            if (BidSuggestions != null)
+            {
+                if (BidSuggestions.BestPosition != null)
+                {
+                    writer.WriteObjectRow(BidSuggestions.BestPosition);
+                }
+
+                if (BidSuggestions.MainLine != null)
+                {
+                    writer.WriteObjectRow(BidSuggestions.MainLine);
+                }
+
+                if (BidSuggestions.FirstPage != null)
+                {
+                    writer.WriteObjectRow(BidSuggestions.FirstPage);
+                }
+            }
+        }
 
         private static readonly IBulkMapping<BulkKeyword>[] Mappings =
         {
@@ -212,11 +233,18 @@ namespace Microsoft.BingAds.Bulk.Entities
             PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);            
         }        
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             ValidatePropertyNotNull(Keyword, "Keyword");
 
             this.ConvertToValues(values, Mappings);
+
+            if (!excludeReadonlyData)
+            {
+                QualityScoreData.WriteToRowValuesIfNotNull(QualityScoreData, values);
+
+                PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
+            }
         }
     }
 }

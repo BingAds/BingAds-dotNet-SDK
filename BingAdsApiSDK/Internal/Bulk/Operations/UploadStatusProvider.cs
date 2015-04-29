@@ -56,12 +56,9 @@ namespace Microsoft.BingAds.Internal.Bulk.Operations
     {
         private readonly string _requestId;
 
-        private readonly AuthorizationData _authorizationData;
-
-        public UploadStatusProvider(string requestId, AuthorizationData authorizationData)
+        public UploadStatusProvider(string requestId)
         {
             _requestId = requestId;
-            _authorizationData = authorizationData;
         }
 
         public async Task<BulkOperationStatus<UploadStatus>> GetCurrentStatus(ServiceClient<IBulkService> bulkServiceClient)
@@ -70,31 +67,26 @@ namespace Microsoft.BingAds.Internal.Bulk.Operations
             {
                 RequestId = _requestId,
             };
-
-            GetDetailedBulkUploadStatusResponse response;
-
-            using (var apiService = new ServiceClient<IBulkService>(_authorizationData))
-            {
-                response = await apiService.CallAsync((s, r) => s.GetDetailedBulkUploadStatusAsync(r), request).ConfigureAwait(false);
-            }            
+            
+            var response = await bulkServiceClient.CallAsync((s, r) => s.GetDetailedBulkUploadStatusAsync(r), request).ConfigureAwait(false);
 
             return new BulkOperationStatus<UploadStatus>
             {
-                TrackingId = response.TrackingId, 
-                Status = response.RequestStatus.Parse<UploadStatus>(), 
-                ResultFileUrl = response.ResultFileUrl, 
+                TrackingId = response.TrackingId,
+                Status = response.RequestStatus.Parse<UploadStatus>(),
+                ResultFileUrl = response.ResultFileUrl,
                 PercentComplete = response.PercentComplete,
                 Errors = response.Errors
             };
         }
 
         public bool IsFinalStatus(BulkOperationStatus<UploadStatus> status)
-        {            
-            return 
-                status.Status == UploadStatus.Completed || 
-                status.Status == UploadStatus.CompletedWithErrors || 
-                status.Status == UploadStatus.Failed || 
-                status.Status == UploadStatus.Expired || 
+        {
+            return
+                status.Status == UploadStatus.Completed ||
+                status.Status == UploadStatus.CompletedWithErrors ||
+                status.Status == UploadStatus.Failed ||
+                status.Status == UploadStatus.Expired ||
                 status.Status == UploadStatus.Aborted;
         }
 

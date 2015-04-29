@@ -80,7 +80,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         /// </summary>
         public string CampaignName { get; set; }
 
-        private readonly IBulkMapping<BulkAdGroupNegativeSitesIdentifier>[] Mappings =
+        private static readonly IBulkMapping<BulkAdGroupNegativeSitesIdentifier>[] Mappings =
         {
             new SimpleBulkMapping<BulkAdGroupNegativeSitesIdentifier>(StringTable.Campaign,
                 c => c.CampaignName,
@@ -95,9 +95,9 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             values.ConvertToEntity(this, Mappings);
         }
 
-        internal override void WriteToRowValues(RowValues values)
+        internal override void WriteToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            base.WriteToRowValues(values);
+            base.WriteToRowValues(values, excludeReadonlyData);
 
             this.ConvertToValues(values, Mappings);
         }
@@ -105,6 +105,26 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         internal override MultiRecordBulkEntity CreateEntityWithThisIdentifier()
         {
             return new BulkAdGroupNegativeSites(this);
+        }
+
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
+        public override bool Equals(BulkEntityIdentifier other)
+        {
+            var otherIdentifier = other as BulkAdGroupNegativeSitesIdentifier;
+
+            if (otherIdentifier == null)
+            {
+                return false;
+            }
+
+            var isNameNotEmpty = !string.IsNullOrEmpty(CampaignName) && !string.IsNullOrEmpty(AdGroupName);
+
+            return AdGroupId == otherIdentifier.AdGroupId ||
+                   (isNameNotEmpty &&
+                    CampaignName == otherIdentifier.CampaignName &&
+                    AdGroupName == otherIdentifier.AdGroupName);
         }
 
         /// <summary>

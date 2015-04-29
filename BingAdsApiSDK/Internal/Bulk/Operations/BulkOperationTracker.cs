@@ -57,7 +57,9 @@ namespace Microsoft.BingAds.Internal.Bulk.Operations
 {
     internal class BulkOperationTracker<TStatus> : IBulkOperationTracker<TStatus>, IDisposable
     {
-        private const int FirstTimeStatusCheckIntervalInMs = 1000;
+        private const int InitialStatusCheckIntervalInMs = 1000;
+
+        private const int NumberOfInitialStatusChecks = 5;
 
         private Timer _updateProgressTimer;
 
@@ -105,8 +107,10 @@ namespace Microsoft.BingAds.Internal.Bulk.Operations
 
         private void StartTracking()
         {
-            _updateProgressTimer.Change(FirstTimeStatusCheckIntervalInMs, _statusCheckIntervalInMs);
+            _updateProgressTimer.Change(InitialStatusCheckIntervalInMs, InitialStatusCheckIntervalInMs);
         }
+
+        private int _statusUpdateCount;
 
         private int _updateInProgress;
 
@@ -132,11 +136,15 @@ namespace Microsoft.BingAds.Internal.Bulk.Operations
                         return;
                     }
 
+                    _statusUpdateCount++;
+
+                    ChangeTimerIntervalIfNeeded();
+
                     await RefreshStatus().ConfigureAwait(false);
 
                     ReportProgressIfNeeded();
-
-                    CompleteTaskIfOperationIsComplete();
+                    
+                    CompleteTaskIfOperationIsComplete();                    
                 }             
                 finally
                 {
@@ -145,9 +153,17 @@ namespace Microsoft.BingAds.Internal.Bulk.Operations
             }
             catch (Exception ex)
             {
-                StopTracking();
+                StopTracking();                
 
                 PropagateExceptionToCallingThread(ex);
+            }
+        }
+
+        private void ChangeTimerIntervalIfNeeded()
+        {
+            if (_statusUpdateCount == NumberOfInitialStatusChecks)
+            {
+                _updateProgressTimer.Change(_statusCheckIntervalInMs, _statusCheckIntervalInMs);
             }
         }
 

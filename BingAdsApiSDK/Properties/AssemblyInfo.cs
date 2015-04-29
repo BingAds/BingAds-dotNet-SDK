@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -63,7 +62,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: CLSCompliant(true)]
 
 [assembly: InternalsVisibleTo("BingAdsApiSDK.UnitTests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]

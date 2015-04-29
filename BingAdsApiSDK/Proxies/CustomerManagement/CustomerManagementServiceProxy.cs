@@ -67,7 +67,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ff728414(v=msads.90).aspx">AccountInfo Data Object</see> http://msdn.microsoft.com/en-us/library/ff728414(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see>and <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see> and <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -223,7 +223,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ff728394(v=msads.90).aspx">AccountLifeCycleStatus Value Set</see> http://msdn.microsoft.com/en-us/library/ff728394(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="Account"/>, <see cref="AccountInfo"/>and <see cref="AccountInfoWithCustomerData"/> data objects.</para>
+    /// <para>Used by <see cref="Account"/>, <see cref="AccountInfo"/> and <see cref="AccountInfoWithCustomerData"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountLifeCycleStatus", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
@@ -542,7 +542,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn169112(v=msads.90).aspx">OperationError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169112(v=msads.90).aspx for details.
     /// <para>Used by <see cref="ApiFault"/> data object.</para>
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see>and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -653,7 +653,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ee704168(v=msads.90).aspx">ApplicationType Value Set</see> http://msdn.microsoft.com/en-us/library/ee704168(v=msads.90).aspx for details.
     /// <para>Used by <see cref="User"/> data object.</para>
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see>, <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see>, <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see>and <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see>, <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see>, <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> and <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApplicationType", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
@@ -672,7 +672,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671588(v=msads.90).aspx">Account Data Object</see> http://msdn.microsoft.com/en-us/library/bb671588(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see>, <see cref="CustomerManagementServiceClient.AddPrepayAccount">AddPrepayAccount</see>, <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see>, <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see>, <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see>and <see cref="CustomerManagementServiceClient.UpdatePrepayAccount">UpdatePrepayAccount</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see>, <see cref="CustomerManagementServiceClient.AddPrepayAccount">AddPrepayAccount</see>, <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see>, <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see>, <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> and <see cref="CustomerManagementServiceClient.UpdatePrepayAccount">UpdatePrepayAccount</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1726,7 +1726,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672074(v=msads.90).aspx">LanguageType Value Set</see> http://msdn.microsoft.com/en-us/library/bb672074(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="Account"/>and <see cref="Customer"/> data objects.</para>
+    /// <para>Used by <see cref="Account"/> and <see cref="Customer"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LanguageType", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
@@ -2082,7 +2082,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671875(v=msads.90).aspx">Customer Data Object</see> http://msdn.microsoft.com/en-us/library/bb671875(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccessibleCustomer">GetAccessibleCustomer</see>, <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see>and <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccessibleCustomer">GetAccessibleCustomer</see>, <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> and <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2445,7 +2445,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671505(v=msads.90).aspx">Address Data Object</see> http://msdn.microsoft.com/en-us/library/bb671505(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="ContactInfo"/>and <see cref="Customer"/> data objects.</para>
+    /// <para>Used by <see cref="ContactInfo"/> and <see cref="Customer"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3053,7 +3053,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671824(v=msads.90).aspx">User Data Object</see> http://msdn.microsoft.com/en-us/library/bb671824(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCurrentUser">GetCurrentUser</see>, <see cref="CustomerManagementServiceClient.GetUser">GetUser</see>and <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCurrentUser">GetCurrentUser</see>, <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> and <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3867,7 +3867,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671785(v=msads.90).aspx">LCID Value Set</see> http://msdn.microsoft.com/en-us/library/bb671785(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="User"/>and <see cref="UserInvitation"/> data objects.</para>
+    /// <para>Used by <see cref="User"/> and <see cref="UserInvitation"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LCID", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
@@ -4637,7 +4637,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn452060(v=msads.90).aspx">Predicate Data Object</see> http://msdn.microsoft.com/en-us/library/dn452060(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see>and <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> and <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4871,7 +4871,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn452057(v=msads.90).aspx">OrderBy Data Object</see> http://msdn.microsoft.com/en-us/library/dn452057(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see>and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5014,7 +5014,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn452059(v=msads.90).aspx">Paging Data Object</see> http://msdn.microsoft.com/en-us/library/dn452059(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see>and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5103,7 +5103,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn632189(v=msads.90).aspx">ClientLink Data Object</see> http://msdn.microsoft.com/en-us/library/dn632189(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see>and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5631,7 +5631,7 @@ namespace Microsoft.BingAds.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn771360(v=msads.90).aspx">UserInvitation Data Object</see> http://msdn.microsoft.com/en-us/library/dn771360(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see>and <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> and <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6614,7 +6614,9 @@ namespace Microsoft.BingAds.CustomerManagement
         /// This feature is not supported in sandbox.
         /// <para>Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.</para>
         /// <para>The client account must have a valid payment instrument set up for post-pay billing. Prepaid accounts are not supported for management by agencies.</para>
-        /// <para>Only an agency may call this service operation. For more information about becoming an agency, see Getting started with agency enablement. The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>Only an agency may call this service operation. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
+        /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx">AddClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx for details.
@@ -6635,7 +6637,9 @@ namespace Microsoft.BingAds.CustomerManagement
         /// This feature is not supported in sandbox.
         /// <para>Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.</para>
         /// <para>The client account must have a valid payment instrument set up for post-pay billing. Prepaid accounts are not supported for management by agencies.</para>
-        /// <para>Only an agency may call this service operation. For more information about becoming an agency, see Getting started with agency enablement. The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>Only an agency may call this service operation. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
+        /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx">AddClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx for details.
@@ -6651,9 +6655,10 @@ namespace Microsoft.BingAds.CustomerManagement
         /// <summary>
         /// This feature is not supported in sandbox.
         /// <para>Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks operation to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.</para>
-        /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see Getting started with agency enablement.</para>
+        /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
         /// <para>If your user is within a client customer that has one or more accounts managed or invited to be managed by an agency, then you may only use this operation to update the status as LinkAccepted or LinkDeclined. A client may also accept or decline the link request via the Bing Ads web application. For more information, see Accept an agency request.</para>
         /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx">UpdateClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx for details.
@@ -6673,9 +6678,10 @@ namespace Microsoft.BingAds.CustomerManagement
         /// <summary>
         /// This feature is not supported in sandbox.
         /// <para>Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks operation to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.</para>
-        /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see Getting started with agency enablement.</para>
+        /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
         /// <para>If your user is within a client customer that has one or more accounts managed or invited to be managed by an agency, then you may only use this operation to update the status as LinkAccepted or LinkDeclined. A client may also accept or decline the link request via the Bing Ads web application. For more information, see Accept an agency request.</para>
         /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx">UpdateClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx for details.
@@ -9542,7 +9548,9 @@ namespace Microsoft.BingAds.CustomerManagement
     /// This feature is not supported in sandbox.
     /// <para>Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.</para>
     /// <para>The client account must have a valid payment instrument set up for post-pay billing. Prepaid accounts are not supported for management by agencies.</para>
-    /// <para>Only an agency may call this service operation. For more information about becoming an agency, see Getting started with agency enablement. The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+    /// <para>Only an agency may call this service operation. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
+    /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+    /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx">AddClientLinks Request Object</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx for details.
@@ -9607,7 +9615,9 @@ namespace Microsoft.BingAds.CustomerManagement
     /// This feature is not supported in sandbox.
     /// <para>Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.</para>
     /// <para>The client account must have a valid payment instrument set up for post-pay billing. Prepaid accounts are not supported for management by agencies.</para>
-    /// <para>Only an agency may call this service operation. For more information about becoming an agency, see Getting started with agency enablement. The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+    /// <para>Only an agency may call this service operation. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
+    /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+    /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx">AddClientLinks Response Object</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx for details.
@@ -9663,9 +9673,10 @@ namespace Microsoft.BingAds.CustomerManagement
     /// <summary>
     /// This feature is not supported in sandbox.
     /// <para>Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks operation to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.</para>
-    /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see Getting started with agency enablement.</para>
+    /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
     /// <para>If your user is within a client customer that has one or more accounts managed or invited to be managed by an agency, then you may only use this operation to update the status as LinkAccepted or LinkDeclined. A client may also accept or decline the link request via the Bing Ads web application. For more information, see Accept an agency request.</para>
     /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+    /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx">UpdateClientLinks Request Object</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx for details.
@@ -9729,9 +9740,10 @@ namespace Microsoft.BingAds.CustomerManagement
     /// <summary>
     /// This feature is not supported in sandbox.
     /// <para>Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks operation to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.</para>
-    /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see Getting started with agency enablement.</para>
+    /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
     /// <para>If your user is within a client customer that has one or more accounts managed or invited to be managed by an agency, then you may only use this operation to update the status as LinkAccepted or LinkDeclined. A client may also accept or decline the link request via the Bing Ads web application. For more information, see Accept an agency request.</para>
     /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+    /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx">UpdateClientLinks Response Object</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx for details.
@@ -10926,7 +10938,9 @@ namespace Microsoft.BingAds.CustomerManagement
         /// This feature is not supported in sandbox.
         /// <para>Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.</para>
         /// <para>The client account must have a valid payment instrument set up for post-pay billing. Prepaid accounts are not supported for management by agencies.</para>
-        /// <para>Only an agency may call this service operation. For more information about becoming an agency, see Getting started with agency enablement. The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>Only an agency may call this service operation. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
+        /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx">AddClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx for details.
@@ -10944,7 +10958,9 @@ namespace Microsoft.BingAds.CustomerManagement
         /// This feature is not supported in sandbox.
         /// <para>Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.</para>
         /// <para>The client account must have a valid payment instrument set up for post-pay billing. Prepaid accounts are not supported for management by agencies.</para>
-        /// <para>Only an agency may call this service operation. For more information about becoming an agency, see Getting started with agency enablement. The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>Only an agency may call this service operation. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
+        /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx">AddClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.90).aspx for details.
@@ -10961,9 +10977,10 @@ namespace Microsoft.BingAds.CustomerManagement
         /// <summary>
         /// This feature is not supported in sandbox.
         /// <para>Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks operation to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.</para>
-        /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see Getting started with agency enablement.</para>
+        /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
         /// <para>If your user is within a client customer that has one or more accounts managed or invited to be managed by an agency, then you may only use this operation to update the status as LinkAccepted or LinkDeclined. A client may also accept or decline the link request via the Bing Ads web application. For more information, see Accept an agency request.</para>
         /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx">UpdateClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx for details.
@@ -10980,9 +10997,10 @@ namespace Microsoft.BingAds.CustomerManagement
         /// <summary>
         /// This feature is not supported in sandbox.
         /// <para>Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks operation to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.</para>
-        /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see Getting started with agency enablement.</para>
+        /// <para>If your user is within an agency, then the operation may be used to update the client link status of any account that you manage or have invited to manage. For more information about becoming an agency, see the Getting started with Bing Ads section of the Agency hub page.</para>
         /// <para>If your user is within a client customer that has one or more accounts managed or invited to be managed by an agency, then you may only use this operation to update the status as LinkAccepted or LinkDeclined. A client may also accept or decline the link request via the Bing Ads web application. For more information, see Accept an agency request.</para>
         /// <para>The role of the user calling this operation must be Super Admin. For more information, see User Roles and Available Service Operations.</para>
+        /// <para>There is no set limit to the amount of client accounts that can be linked to an agency.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx">UpdateClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.90).aspx for details.

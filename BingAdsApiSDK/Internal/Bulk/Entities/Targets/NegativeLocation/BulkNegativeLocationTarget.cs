@@ -57,239 +57,101 @@ using Microsoft.BingAds.Bulk.Entities;
 namespace Microsoft.BingAds.Internal.Bulk.Entities
 {
     /// <summary>
-    /// This abstract base class provides properties that are shared by all bulk negative location target classes, for example <see cref="BulkAdGroupNegativeLocationTarget"/>.
+    /// A base class for all bulk negative location target classes, for example <see cref="BulkAdGroupNegativeLocationTarget"/>.
     /// </summary>
     /// <typeparam name="TBid"><see cref="BulkNegativeLocationTargetBid"/></typeparam>
-    public abstract class BulkNegativeLocationTarget<TBid> : BulkSubTarget<TBid>
+    public abstract class BulkNegativeLocationTarget<TBid> : BulkLocationTargetWithStringLocation<TBid>
         where TBid : BulkNegativeLocationTargetBid
     {
-        /// <summary>
-        /// Defines a list of cities to target with bid adjustments.
-        /// </summary>
-        public CityTarget CityTarget
+        // Should only convert bid if it's excluded
+
+        internal override bool ShouldConvertCityTargetBid(CityTargetBid bid)
         {
-            get { return GetLocationProperty(x => x.CityTarget); }
-            set { SetLocationProperty(x => x.CityTarget = value); }
+            return bid.IsExcluded;
         }
 
-        /// <summary>
-        /// Defines a list of metro areas to target with bid adjustments.
-        /// </summary>
-        public MetroAreaTarget MetroAreaTarget
+        internal override bool ShouldConvertMetroAreaTargetBid(MetroAreaTargetBid bid)
         {
-            get { return GetLocationProperty(x => x.MetroAreaTarget); }
-            set { SetLocationProperty(x => x.MetroAreaTarget = value); }
+            return bid.IsExcluded;
         }
 
-        /// <summary>
-        /// Defines a list of states to target with bid adjustments.
-        /// </summary>
-        public StateTarget StateTarget
+        internal override bool ShouldConvertStateTargetBid(StateTargetBid bid)
         {
-            get { return GetLocationProperty(x => x.StateTarget); }
-            set { SetLocationProperty(x => x.StateTarget = value); }
+            return bid.IsExcluded;
         }
 
-        /// <summary>
-        /// Defines a list of countries to target with bid adjustments.
-        /// </summary>
-        public CountryTarget CountryTarget
+        internal override bool ShouldConvertCountryTargetBid(CountryTargetBid bid)
         {
-            get { return GetLocationProperty(x => x.CountryTarget); }
-            set { SetLocationProperty(x => x.CountryTarget = value); }
+            return bid.IsExcluded;
         }
 
-        /// <summary>
-        /// Defines a list of postal codes to target with bid adjustments.
-        /// </summary>
-        public PostalCodeTarget PostalCodeTarget
+        internal override bool ShouldConvertPostalCodeTargetBid(PostalCodeTargetBid bid)
         {
-            get { return GetLocationProperty(x => x.PostalCodeTarget); }
-            set { SetLocationProperty(x => x.PostalCodeTarget = value); }
+            return bid.IsExcluded;
         }
 
-        /// <summary>
-        /// Defines the possible intent options for location targeting. 
-        /// </summary>
-        public IntentOption? IntentOption
+        // Set IsExcluded to true when converting to API bids
+
+        internal override CityTargetBid SetCityBidAdditionalProperties(CityTargetBid apiBid, TBid bulkBid)
         {
-            get { return GetLocationProperty(x => x.IntentOption); }
-            set { SetLocationProperty(x => x.IntentOption = value); }
+            apiBid.IsExcluded = true;
+
+            return apiBid;
         }
 
-        internal LocationTarget2 Location { get; set; }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        protected override void ReconstructSubTargets()
+        internal override MetroAreaTargetBid SetMetroAreaBidAdditionalProperties(MetroAreaTargetBid apiBid, TBid bulkBid)
         {
-            ReconstructApiBids(
-                LocationTargetType.City,
-                t => new CityTargetBid { IsExcluded = true, City = t.Location },
-                () => Location.CityTarget,
-                _ => Location.CityTarget = _,
-                () => Location.CityTarget.Bids,
-                _ => Location.CityTarget.Bids = _
-            );
+            apiBid.IsExcluded = true;
 
-            ReconstructApiBids(
-                LocationTargetType.MetroArea,
-                t => new MetroAreaTargetBid() { IsExcluded = true, MetroArea = t.Location },
-                () => Location.MetroAreaTarget,
-                _ => Location.MetroAreaTarget = _,
-                () => Location.MetroAreaTarget.Bids,
-                _ => Location.MetroAreaTarget.Bids = _
-            );
-
-            ReconstructApiBids(
-                LocationTargetType.State,
-                t => new StateTargetBid() { IsExcluded = true, State = t.Location },
-                () => Location.StateTarget,
-                _ => Location.StateTarget = _,
-                () => Location.StateTarget.Bids,
-                _ => Location.StateTarget.Bids = _
-            );
-
-            ReconstructApiBids(
-                LocationTargetType.Country,
-                t => new CountryTargetBid() { IsExcluded = true, CountryAndRegion = t.Location },
-                () => Location.CountryTarget,
-                _ => Location.CountryTarget = _,
-                () => Location.CountryTarget.Bids,
-                _ => Location.CountryTarget.Bids = _
-            );
-
-            ReconstructApiBids(
-                LocationTargetType.PostalCode,
-                t => new PostalCodeTargetBid() { IsExcluded = true, PostalCode = t.Location },
-                () => Location.PostalCodeTarget,
-                _ => Location.PostalCodeTarget = _,
-                () => Location.PostalCodeTarget.Bids,
-                _ => Location.PostalCodeTarget.Bids = _
-            );
+            return apiBid;
         }
 
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        protected override IReadOnlyList<TBid> ConvertApiToBulkBids()
+        internal override StateTargetBid SetStateBidAdditionalProperties(StateTargetBid apiBid, TBid bulkBid)
         {
-            var bids = new List<TBid>();
+            apiBid.IsExcluded = true;
 
-            var intentOption = Location.IntentOption;
-
-            AddBids(bids, () => Location.CityTarget, _ => _.Bids, LocationTargetType.City, _ => _.City, _ => _.IsExcluded, intentOption);
-            AddBids(bids, () => Location.MetroAreaTarget, _ => _.Bids, LocationTargetType.MetroArea, _ => _.MetroArea, _ => _.IsExcluded, intentOption);
-            AddBids(bids, () => Location.StateTarget, _ => _.Bids, LocationTargetType.State, _ => _.State, _ => _.IsExcluded, intentOption);
-            AddBids(bids, () => Location.CountryTarget, _ => _.Bids, LocationTargetType.Country, _ => _.CountryAndRegion, _ => _.IsExcluded, intentOption);
-            AddBids(bids, () => Location.PostalCodeTarget, _ => _.Bids, LocationTargetType.PostalCode, _ => _.PostalCode, _ => _.IsExcluded, intentOption);
-
-            return bids;
+            return apiBid;
         }
 
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        protected override void ValidatePropertiesNotNull()
+        internal override CountryTargetBid SetCountryBidAdditionalProperties(CountryTargetBid apiBid, TBid bulkBid)
         {
-            if (CityTarget == null && MetroAreaTarget == null && StateTarget == null && CountryTarget == null && PostalCodeTarget == null)
-            {
-                throw new InvalidOperationException(ErrorMessages.AtLeastOneLocationSubTargetMustNotBeNull);
-            }
+            apiBid.IsExcluded = true;
+
+            return apiBid;
         }
 
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        protected override void ValidateBidsNotNullOrEmpty()
+        internal override PostalCodeTargetBid SetPostalCodeBidAdditionalProperties(PostalCodeTargetBid apiBid, TBid bulkBid)
         {
-            if (CityTarget != null)
-            {
-                ValidateListNotNullOrEmpty(CityTarget.Bids, "CityTarget.Bids");
-            }
+            apiBid.IsExcluded = true;
 
-            if (MetroAreaTarget != null)
-            {
-                ValidateListNotNullOrEmpty(MetroAreaTarget.Bids, "MetroAreaTarget.Bids");
-            }
-
-            if (StateTarget != null)
-            {
-                ValidateListNotNullOrEmpty(StateTarget.Bids, "StateTarget.Bids");
-            }
-
-            if (CountryTarget != null)
-            {
-                ValidateListNotNullOrEmpty(CountryTarget.Bids, "CountryTarget.Bids");
-            }
-
-            if (PostalCodeTarget != null)
-            {
-                ValidateListNotNullOrEmpty(PostalCodeTarget.Bids, "PostalCodeTarget.Bids");
-            }
+            return apiBid;
         }
 
-        private void ReconstructApiBids<TApiBid, TTarget>(LocationTargetType locationType, Func<TBid, TApiBid> createBid, Func<TTarget> getTarget, Action<TTarget> setTarget, Func<IList<TApiBid>> getBids, Action<IList<TApiBid>> setBids)
-            where TApiBid : new()
-            where TTarget : class, new()
+        // No additional properties need to be set for BulkNegativeLocationTargetBids (Location and LocationType are set by the base class)
+
+        internal override void SetBulkCityBidAdditionalProperties(TBid bulkBid, CityTargetBid apiBid)
         {
-            var bidsFromFile = Bids.Where(t => t.LocationType == locationType).Select(createBid).ToList();
-
-            if (bidsFromFile.Count > 0)
-            {
-                if (getTarget() == null)
-                {
-                    setTarget(new TTarget());
-
-                    setBids(new List<TApiBid>());
-                }
-
-                getBids().AddRange(bidsFromFile);
-            }
+            
         }
 
-        private void AddBids<T, TTarget>(IList<TBid> bids, Func<TTarget> getTarget, Func<TTarget, IList<T>> getBids, LocationTargetType locationType, Func<T, string> location, Func<T, bool> isExcluded, IntentOption? intentOption)
+        internal override void SetBulkMetroAreaBidAdditionalProperties(TBid bulkBid, MetroAreaTargetBid apiBid)
         {
-            var target = getTarget();
-
-            if (target == null)
-            {
-                return;
-            }
-
-            var v9Bids = getBids(target);
-
-            if (v9Bids == null)
-            {
-                return;
-            }
-
-            bids.AddRange(v9Bids.Where(isExcluded).Select(b => CreateAndPopulateBid(x =>
-            {             
-                x.Location = location(b);
-                x.LocationType = locationType;                
-            })));
+            
         }
 
-        private T GetLocationProperty<T>(Func<LocationTarget2, T> getFunc)            
+        internal override void SetBulkStateBidAdditionalProperties(TBid bulkBid, StateTargetBid apiBid)
         {
-            if (Location == null)
-            {
-                return default(T);
-            }
-
-            return getFunc(Location);
+            
         }
 
-        private void SetLocationProperty(Action<LocationTarget2> setAction)
+        internal override void SetBulkCountryBidAdditionalProperties(TBid bulkBid, CountryTargetBid apiBid)
         {
-            if (Location == null)
-            {
-                Location = new LocationTarget2();
-            }
+            
+        }
 
-            setAction(Location);
+        internal override void SetBulkPostalCodeBidAdditionalProperties(TBid bulkBid, PostalCodeTargetBid apiBid)
+        {
+            
         }
     }
 }

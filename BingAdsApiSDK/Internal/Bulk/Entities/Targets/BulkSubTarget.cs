@@ -68,17 +68,17 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         public long? TargetId { get; set; }
 
         /// <summary>
-        /// Entity Id (Campaign or Ad Group Id)
+        /// Reserved for internal use.
         /// </summary>
         protected internal long? EntityId { get; set; }
 
         /// <summary>
-        /// Entity name (Campaign or Ad Group name)
+        /// Reserved for internal use.
         /// </summary>
         protected internal string EntityName { get; set; }
 
         /// <summary>
-        /// Parent entity name (Campaign name for Ad Group targets)
+        /// Reserved for internal use.
         /// </summary>
         protected internal string ParentEntityName { get; set; }
 
@@ -142,7 +142,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
         internal bool IsBeingWrittenAsPartOfParentTarget;
 
-        internal override void WriteToStream(IBulkObjectWriter rowWriter)
+        internal override void WriteToStream(IBulkObjectWriter rowWriter, bool excludeReadonlyData)
         {
             // If the sub-target (for example BulkAgeTarget) is being written as part of BulkTarget, 
             // AgeTarget may be null, which means no Age bids should be written.
@@ -164,7 +164,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
             identifier.EntityName = EntityName;
             identifier.ParentEntityName = ParentEntityName;
 
-            identifier.WriteToStream(rowWriter);
+            identifier.WriteToStream(rowWriter, excludeReadonlyData);
 
             if (Status == BingAds.Bulk.Entities.Status.Deleted)
             {
@@ -173,7 +173,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
             foreach (var subTarget in ConvertApiToBulkBids())
             {
-                subTarget.WriteToStream(rowWriter);
+                subTarget.WriteToStream(rowWriter, excludeReadonlyData);
             }
         }
 

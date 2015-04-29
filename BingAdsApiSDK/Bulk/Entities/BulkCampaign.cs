@@ -135,11 +135,18 @@ namespace Microsoft.BingAds.Bulk.Entities
             PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);            
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues values)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             ValidatePropertyNotNull(Campaign, "Campaign");
 
             this.ConvertToValues(values, Mappings);
+
+            if (!excludeReadonlyData)
+            {
+                QualityScoreData.WriteToRowValuesIfNotNull(QualityScoreData, values);
+
+                PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
+            }
         }
 
         private static void CsvToBudget(RowValues values, BulkCampaign c)

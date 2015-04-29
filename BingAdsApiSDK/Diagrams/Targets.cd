@@ -48,7 +48,7 @@
       <Method Name="ValidatePropertiesNotNull" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAIAAAAAAAABgAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAQAAAAAAAAIAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\Age\BulkAgeTarget.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -105,7 +105,7 @@
       <Method Name="WriteToStream" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AACAAEAEQQIAEkAABAAQgAAAAIAQAAADAABAAAABIEA=</HashCode>
+      <HashCode>AACAAEAEQQIAEkAARAAQgAAAAIAQAAADAABAAAABIEA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\BulkSubTarget.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -157,7 +157,7 @@
       <Method Name="ValidatePropertiesNotNull" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAQAEAAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAQAEAAAAAAAAAAQAAAAAAAAIAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\DayTime\BulkDayTimeTarget.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -222,7 +222,7 @@
       <Method Name="ValidatePropertiesNotNull" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAoAAAAAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAQAAAAAAAAoAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\DeviceOs\BulkDeviceOsTarget.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -287,7 +287,7 @@
       <Method Name="ValidatePropertiesNotNull" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAABEAAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAABEAAAAAAAAAAQAAAAAAAAIAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\Gender\BulkGenderTarget.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -345,18 +345,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkLocationTarget&lt;TBid&gt;">
-    <Position X="20.5" Y="9" Width="3.25" />
+    <Position X="20.5" Y="7.25" Width="3.25" />
     <Members>
       <Method Name="ConvertApiToBulkBids" Hidden="true" />
-      <Method Name="ConvertBidsFromApi" Hidden="true" />
-      <Method Name="ConvertBidsToRaw" Hidden="true" />
-      <Method Name="GetLocationProperty" Hidden="true" />
-      <Property Name="Location" Hidden="true" />
       <Method Name="ReconstructSubTargets" Hidden="true" />
-      <Method Name="SetLocationProperty" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>ARAAAECAEAAEAAAAAgIAAAABAAAAAQAAABRAAAAAAAA=</HashCode>
+      <HashCode>oAwAEMAAgAAAAAAAAAAABgAABAAAAAAEAABEAwAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\Location\BulkLocationTarget.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -369,7 +364,7 @@
       <Method Name="ProcessMappingsToRowValues" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAgAAACAAAAAgAAAAAIAAAAAAAABAAAABAACAAAAAAA=</HashCode>
+      <HashCode>AAgAAACAAAAAgAAAAAAAAAAAAAABAAAAAAACAAAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\Location\BulkLocationTargetBid.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -415,26 +410,8 @@
   </Class>
   <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkNegativeLocationTarget&lt;TBid&gt;">
     <Position X="25" Y="9" Width="3.25" />
-    <Members>
-      <Method Name="AddBids" Hidden="true" />
-      <Method Name="ConvertApiToBulkBids" Hidden="true" />
-      <Method Name="GetLocationProperty" Hidden="true" />
-      <Property Name="Location" Hidden="true" />
-      <Method Name="ReconstructBids" Hidden="true" />
-      <Method Name="ReconstructSubTargets" Hidden="true" />
-      <Method Name="SetLocationProperty" Hidden="true" />
-    </Members>
-    <InheritanceLine Type="Microsoft.BingAds.Internal.Bulk.Entities.BulkSubTarget&lt;TBid&gt;" FixedToPoint="true">
-      <Path>
-        <Point X="14.75" Y="8.117" />
-        <Point X="14.75" Y="8.625" />
-        <Point X="24.625" Y="8.625" />
-        <Point X="24.625" Y="9.438" />
-        <Point X="25" Y="9.438" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AQAAAECAEAAEAABAAgIAAAAAAAAAAQAACBRAAAAAAAA=</HashCode>
+      <HashCode>oAwAEIAAgAAAAAAAAAAABgAABAAAAAAEAAAEAwAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\NegativeLocation\BulkNegativeLocationTarget.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -442,12 +419,9 @@
     <Position X="19.5" Y="17.5" Width="3.25" />
     <Members>
       <Method Name="BulkNegativeLocationTargetBid" Hidden="true" />
-      <Field Name="Mappings" Hidden="true" />
-      <Method Name="ProcessMappingsFromRowValues" Hidden="true" />
-      <Method Name="ProcessMappingsToRowValues" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAgAAAAAIAAAAAAAAAAAAABAACAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\NegativeLocation\BulkNegativeLocationTargetBid.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -492,17 +466,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Microsoft.BingAds.Internal.Bulk.Entities.BulkRadiusTarget&lt;TBid&gt;">
-    <Position X="16.75" Y="10" Width="3" />
+    <Position X="16.75" Y="9.25" Width="3" />
     <Members>
       <Method Name="ConvertApiToBulkBids" Hidden="true" />
-      <Method Name="GetLocationProperty" Hidden="true" />
-      <Property Name="Location" Hidden="true" />
       <Method Name="ReconstructSubTargets" Hidden="true" />
-      <Method Name="ReconstructV9Bids" Hidden="true" />
-      <Method Name="SetLocationProperty" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAECAAAAEAAAAAAIAAAAAQAAAAAAAAARAAACAAAA=</HashCode>
+      <HashCode>AAAAAECAAAAAAAAAQAAAAAAAQIAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\Radius\BulkRadiusTarget.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -515,7 +485,7 @@
       <Method Name="ProcessMappingsToRowValues" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAgAAAAAAACAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AAgAAACAAAAAgAAAAAAACAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\Radius\BulkRadiusTargetBid.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -546,6 +516,7 @@
     <Members>
       <Field Name="_bids" Hidden="true" />
       <Field Name="_deleteAllRows" Hidden="true" />
+      <Field Name="_originalIdentifier" Hidden="true" />
       <Property Name="AllChildrenArePresent" Hidden="true" />
       <Method Name="BulkTarget" Hidden="true" />
       <Property Name="ChildEntities" Hidden="true" />
@@ -560,7 +531,7 @@
       <Method Name="WriteToStream" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>CAAQBACEQAIAAAAAQEAQACAAQgAQAAADAAAgEAQGAEA=</HashCode>
+      <HashCode>CAAQBACGQAIAAAAAQEAQACAAQgAQAAADAAAgEAQGAEA=</HashCode>
       <FileName>Internal\Bulk\Entities\Targets\BulkTarget.cs</FileName>
     </TypeIdentifier>
   </Class>

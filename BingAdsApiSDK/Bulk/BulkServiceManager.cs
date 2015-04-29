@@ -88,7 +88,7 @@ namespace Microsoft.BingAds.Bulk
 
         internal const string FormatVersion = "3.0";
 
-        internal const int DefaultStatusPollIntervalInMilliseconds = 15000;
+        internal const int DefaultStatusPollIntervalInMilliseconds = 5000;
 
         /// <summary>
         /// The time interval in milliseconds between two status polling attempts. The default value is 15000 (15 seconds).
@@ -342,6 +342,8 @@ namespace Microsoft.BingAds.Bulk
             operation.HttpService = HttpService;
             operation.ZipExtractor = ZipExtractor;
             operation.FileSystem = FileSystem;
+
+            CreateWorkingDirectoryIfNeeded();
 
             var localFile = await operation.DownloadResultFileAsync(resultFileDirectory ?? WorkingDirectory, resultFileName, true, overwrite).ConfigureAwait(false);
 

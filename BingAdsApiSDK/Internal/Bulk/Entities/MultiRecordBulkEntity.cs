@@ -47,6 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.BingAds.Bulk.Entities;
@@ -78,6 +79,17 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         public override bool HasErrors
         {
             get { return ChildEntities.Any(c => c.HasErrors); }
+        }
+
+        /// <summary>
+        /// Gets the last modified time for the first child entity, or null if there are no ChildEntities.
+        /// </summary>
+        public override DateTime? LastModifiedTime
+        {
+            get
+            {
+                return ChildEntities.Count > 0 ? ChildEntities[0].LastModifiedTime : null;
+            }
         }
     }
 }

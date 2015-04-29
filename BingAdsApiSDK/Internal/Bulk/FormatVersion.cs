@@ -55,9 +55,10 @@ namespace Microsoft.BingAds.Internal.Bulk
     {
         public string Value { get; internal set; }
 
-        private readonly IBulkMapping<FormatVersion>[] Mappings =
+        private static readonly IBulkMapping<FormatVersion>[] Mappings =
         {
             new SimpleBulkMapping<FormatVersion>(StringTable.Name,
+                c => c.Value,
                 (v, c) => c.Value = v
             ),
         };
