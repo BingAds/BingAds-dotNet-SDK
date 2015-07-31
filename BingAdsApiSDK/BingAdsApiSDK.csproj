@@ -45,6 +45,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Bulk\Entities\BulkCampaignProductScope.cs" />
     <Compile Include="Bulk\BulkOperationCouldNotBeCompletedException.cs" />
     <Compile Include="Bulk\BulkDownloadOperation.cs" />
     <Compile Include="Bulk\BulkFileReader.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Bulk\Entities\BidSuggestionData.cs" />
     <Compile Include="Bulk\Entities\BulkAccount.cs" />
     <Compile Include="Bulk\Entities\BulkAdGroup.cs" />
+    <Compile Include="Bulk\Entities\BulkAdGroupProductPartition.cs" />
     <Compile Include="Bulk\Entities\BulkAdGroupProductTarget.cs" />
     <Compile Include="Bulk\Entities\BulkCampaign.cs" />
     <Compile Include="Bulk\Entities\BulkEntity.cs" />
@@ -285,3 +287,4 @@
   </Target>
   -->
 </Project>
+

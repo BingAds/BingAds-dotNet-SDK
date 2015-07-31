@@ -220,6 +220,12 @@ namespace Microsoft.BingAds.Internal.Bulk
 
             StringTable.Error,
             StringTable.ErrorNumber,
+
+            // Bing Shopping Campaigns
+            StringTable.IsExcluded,
+            StringTable.ParentAdGroupCriterionId,
+            StringTable.CampaignType,
+            StringTable.CampaignPriority,
         };
 
         /// <summary>

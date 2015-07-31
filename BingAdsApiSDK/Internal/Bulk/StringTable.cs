@@ -284,5 +284,11 @@ namespace Microsoft.BingAds.Internal.Bulk
         public const string StateSubType = "State";
         public const string CitySubType = "City";
         public const string PostalCodeSubType = "Postal Code";
+
+        // BSC
+        public const string IsExcluded = "Is Excluded";
+        public const string ParentAdGroupCriterionId = "Parent Criterion Id";
+        public const string CampaignType = "Campaign Type";
+        public const string CampaignPriority = "Priority";
     }
 }

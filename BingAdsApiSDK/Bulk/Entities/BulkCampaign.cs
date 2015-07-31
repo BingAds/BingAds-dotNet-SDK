@@ -47,6 +47,9 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.Internal.Bulk;
 using Microsoft.BingAds.Internal.Bulk.Mappings;
@@ -89,8 +92,63 @@ namespace Microsoft.BingAds.Bulk.Entities
         /// </summary>
         public PerformanceData PerformanceData { get; private set; }
 
+        private ShoppingSetting GetShoppingSetting()
+        {
+            if (Campaign.Settings == null) return null;
+
+            var shoppingSettings = Campaign.Settings.Where(setting => setting is ShoppingSetting).ToList();
+
+            if (shoppingSettings.Count != 1)
+            {
+                throw new ArgumentException("Can only have 1 ShoppingSetting in Campaign Settings");
+            }
+
+            return (ShoppingSetting) shoppingSettings[0];
+        }
+
         private static readonly IBulkMapping<BulkCampaign>[] Mappings =
         {
+            // NOTE: Put this mapping before other mapping which need to access CampaignType and Settings
+            new SimpleBulkMapping<BulkCampaign>(StringTable.CampaignType,
+                c =>
+                {
+                    if (!c.Campaign.CampaignType.HasValue)
+                    {
+                        return null;
+                    }
+
+                    var campaignType = c.Campaign.CampaignType.Value;
+
+                    var count =
+                        Enum.GetValues(typeof (CampaignType))
+                            .Cast<object>()
+                            .Count(value => campaignType.HasFlag((CampaignType) value));
+
+                    if (count != 1)
+                    {
+                        throw new ArgumentException("Only 1 CampaignType can be set in Campaign");
+                    }
+
+                    return campaignType.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    c.Campaign.CampaignType = v.ParseOptional<CampaignType>();
+
+                    // NOTE: If there are other type of Setting, consider to refactor this part
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        c.Campaign.Settings = new List<Setting>
+                        {
+                            new ShoppingSetting
+                            {
+                                Type = typeof (ShoppingSetting).Name,
+                            },
+                        };
+                    }
+                }
+                ), 
+
             new SimpleBulkMapping<BulkCampaign>(StringTable.Status,
                 c => c.Campaign.Status.ToBulkString(),
                 (v, c) => c.Campaign.Status = v.ParseOptional<CampaignStatus>()
@@ -120,6 +178,80 @@ namespace Microsoft.BingAds.Bulk.Entities
                 c => c.Campaign.BudgetType.ToBulkString(),
                 (v, c) => c.Campaign.BudgetType = v.ParseOptional<BudgetLimitType>()                
             ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BidAdjustment,
+                c => c.Campaign.NativeBidAdjustment.ToBulkString(),
+                (v, c) => c.Campaign.NativeBidAdjustment = v.ParseOptional<int>()
+            ), 
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BingMerchantCenterId,
+                c =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        var shoppingSetting = c.GetShoppingSetting();
+
+                        return shoppingSetting == null ? null : shoppingSetting.StoreId.ToBulkString();
+                    }
+
+                    return null;
+                },
+                (v, c) =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        var shoppingSetting = c.GetShoppingSetting();
+
+                        shoppingSetting.StoreId = v.ParseOptional<long>();
+                    }
+                }
+            ), 
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.CampaignPriority,
+                c =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        var shoppingSetting = c.GetShoppingSetting();
+
+                        return shoppingSetting == null ? null : shoppingSetting.Priority.ToBulkString();
+                    }
+
+                    return null;
+                },
+                (v, c) =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        var shoppingSetting = c.GetShoppingSetting();
+
+                        shoppingSetting.Priority = v.ParseOptional<int>();
+                    }
+                }
+            ), 
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.CountryCode,
+                c =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        var shoppingSetting = c.GetShoppingSetting();
+
+                        return shoppingSetting == null ? null : shoppingSetting.SalesCountryCode;
+                    }
+
+                    return null;
+                },
+                (v, c) =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        var shoppingSetting = c.GetShoppingSetting();
+
+                        shoppingSetting.SalesCountryCode = v;
+                    }
+                }
+            ), 
 
             new ComplexBulkMapping<BulkCampaign>(BudgetToCsv, CsvToBudget)            
         };

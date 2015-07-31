@@ -187,7 +187,12 @@ namespace Microsoft.BingAds.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroup>(StringTable.Language,
                 c => c.AdGroup.Language,
                 (v, c) => c.AdGroup.Language = v  
-            )
+            ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.BidAdjustment,
+                c => c.AdGroup.NativeBidAdjustment.ToBulkString(),
+                (v, c) => c.AdGroup.NativeBidAdjustment = v.ParseOptional<int>()
+            ), 
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
