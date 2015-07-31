@@ -30,7 +30,7 @@ namespace BingAdsExamples
                 return s.Name;
             }
         }
-
+        
         /// <summary>
         /// Initializes a new instance of the ExampleBase class, and sets the default output status message.
         /// </summary>
@@ -38,7 +38,7 @@ namespace BingAdsExamples
         {
             OutputStatusMessage = OutputStatusMessageDefault;
         }
-
+        
         /// <summary>
         /// Write to the console by default, if the example does not implement its own OutputStatusMessage method.
         /// </summary>
@@ -47,7 +47,7 @@ namespace BingAdsExamples
         {
             Console.WriteLine(msg);
         }
-
+        
         /// <summary>
         /// Each example must implement either Run or RunAsync as the main entry point. 
         /// </summary>
@@ -80,7 +80,7 @@ namespace BingAdsExamples
                 BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
                 MonthlyBudget = 1000.00,
                 TimeZone = "PacificTimeUSCanadaTijuana",
-                DaylightSaving = true,
+                DaylightSaving = true, 
             };
         }
 
@@ -155,12 +155,21 @@ namespace BingAdsExamples
             if (adGroup != null)
             {
                 OutputStatusMessage(string.Format("AdDistribution: {0}", adGroup.AdDistribution));
-                OutputStatusMessage(string.Format("AdRotation: {0}", adGroup.AdRotation));
+                OutputStatusMessage(string.Format("AdRotation Type: {0}", 
+                    adGroup.AdRotation != null ? adGroup.AdRotation.Type : null));
                 OutputStatusMessage(string.Format("BiddingModel: {0}", adGroup.BiddingModel));
-                OutputStatusMessage(string.Format("BroadMatchBid: {0}", adGroup.BroadMatchBid));
+                OutputStatusMessage(string.Format("BroadMatchBid: {0}",
+                    adGroup.BroadMatchBid != null ? adGroup.BroadMatchBid.Amount : 0));
                 OutputStatusMessage(string.Format("ContentMatchBid: {0}", adGroup.ContentMatchBid));
-                OutputStatusMessage(string.Format("EndDate: {0}", adGroup.EndDate));
-                OutputStatusMessage(string.Format("ExactMatchBid: {0}", adGroup.ExactMatchBid));
+                if (adGroup.EndDate != null)
+                {
+                    OutputStatusMessage(string.Format("EndDate: {0}/{1}/{2}",
+                    adGroup.EndDate.Month,
+                    adGroup.EndDate.Day,
+                    adGroup.EndDate.Year));
+                }
+                OutputStatusMessage(string.Format("ExactMatchBid: {0}",
+                    adGroup.ExactMatchBid != null ? adGroup.ExactMatchBid.Amount : 0));
                 OutputStatusMessage("ForwardCompatibilityMap: ");
                 if (adGroup.ForwardCompatibilityMap != null)
                 {
@@ -174,9 +183,16 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Language: {0}", adGroup.Language));
                 OutputStatusMessage(string.Format("Name: {0}", adGroup.Name));
                 OutputStatusMessage(string.Format("Network: {0}", adGroup.Network));
-                OutputStatusMessage(string.Format("PhraseMatchBid: {0}", adGroup.PhraseMatchBid));
+                OutputStatusMessage(string.Format("PhraseMatchBid: {0}",
+                        adGroup.PhraseMatchBid != null ? adGroup.PhraseMatchBid.Amount : 0));
                 OutputStatusMessage(string.Format("PricingModel: {0}", adGroup.PricingModel));
-                OutputStatusMessage(string.Format("StartDate: {0}", adGroup.StartDate));
+                if (adGroup.StartDate != null)
+                {
+                    OutputStatusMessage(string.Format("EndDate: {0}/{1}/{2}",
+                    adGroup.StartDate.Month,
+                    adGroup.StartDate.Day,
+                    adGroup.StartDate.Year));
+                }
                 OutputStatusMessage(string.Format("Status: {0}", adGroup.Status));
             }
         }
@@ -346,6 +362,184 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", ad.Status));
                 OutputStatusMessage(string.Format("Text: {0}", ad.Text));
                 OutputStatusMessage(string.Format("Title: {0}", ad.Title));
+            }
+        }
+
+        /// <summary>
+        /// Gets an example ProductPartition. 
+        /// </summary>
+        protected ProductPartition GetExampleProductPartition()
+        {
+            return new ProductPartition
+            {
+                // This is an example of a root node, because it does not have a parent.
+                ParentCriterionId = null,
+                Condition = new ProductCondition{
+                    Operand = "All", 
+                    Attribute = null  
+                },
+                PartitionType = ProductPartitionType.Unit
+            };
+        }
+
+        /// <summary>
+        /// Outputs the ProductPartition.
+        /// </summary>
+        protected void OutputProductPartition(ProductPartition productPartition)
+        {
+            if (productPartition != null)
+            {
+                OutputStatusMessage(string.Format("ParentCriterionId: {0}", productPartition.ParentCriterionId));
+                OutputStatusMessage(string.Format("PartitionType: {0}", productPartition.PartitionType));
+                if (productPartition.Condition != null)
+                {
+                    OutputStatusMessage(string.Format("Condition: "));
+                    OutputStatusMessage(string.Format("\tOperand: {0}", productPartition.Condition.Operand));
+                    OutputStatusMessage(string.Format("\tAttribute: {0}", productPartition.Condition.Attribute));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets an example FixedBid. 
+        /// </summary>
+        protected FixedBid GetExampleFixedBid()
+        {
+            return new FixedBid
+            {
+                Bid = new Bid()
+                {
+                    Amount = 0.35
+                },
+            };
+        }
+
+        /// <summary>
+        /// Outputs the FixedBid.
+        /// </summary>
+        protected void OutputFixedBid(FixedBid fixedBid)
+        {
+            if (fixedBid != null && fixedBid.Bid != null)
+            {
+                OutputStatusMessage(string.Format("Bid Amount: {0}", fixedBid.Bid.Amount));
+            }
+        }
+
+        /// <summary>
+        /// Gets an example CampaignCriterion that contains ProductPartition. 
+        /// </summary>
+        protected AdGroupCriterion GetExampleAdGroupCriterionWithProductPartition()
+        {
+            return new BiddableAdGroupCriterion
+            {
+                Criterion = GetExampleProductPartition(),
+                CriterionBid = GetExampleFixedBid(),
+            };
+        }
+
+        /// <summary>
+        /// Outputs the AdGroupCriterion that contains a ProductPartition.
+        /// </summary>
+        protected void OutputAdGroupCriterionWithProductPartition(AdGroupCriterion adGroupCriterion)
+        {
+            if (adGroupCriterion != null)
+            {
+                OutputStatusMessage(string.Format("AdGroupId: {0}", adGroupCriterion.AdGroupId));
+                OutputStatusMessage(string.Format("AdGroupCriterion Id: {0}", adGroupCriterion.Id));
+                OutputStatusMessage(string.Format("AdGroupCriterion Type: {0}", adGroupCriterion.Type));
+
+                var biddableAdGroupCriterion = adGroupCriterion as BiddableAdGroupCriterion;
+                if (biddableAdGroupCriterion != null)
+                {
+                    OutputStatusMessage(string.Format("DestinationUrl: {0}", biddableAdGroupCriterion.DestinationUrl));
+
+                    // Output the Campaign Management ProductPartition Object
+                    OutputFixedBid((FixedBid)biddableAdGroupCriterion.CriterionBid);
+                }
+                else
+                {
+                    var negativeAdGroupCriterion = adGroupCriterion as NegativeAdGroupCriterion;
+                    if (negativeAdGroupCriterion != null)
+                    {
+                    }
+                }
+
+                // Output the Campaign Management ProductPartition Object
+                OutputProductPartition((ProductPartition)adGroupCriterion.Criterion);
+            }
+        }
+
+        /// <summary>
+        /// Gets an example ProductScope. 
+        /// </summary>
+        protected ProductScope GetExampleProductScope()
+        {
+            return new ProductScope
+            {
+                Conditions = new ProductCondition[] {
+                    new ProductCondition {
+                        Operand = "Condition",
+                        Attribute = "New"
+                    },
+                    new ProductCondition {
+                        Operand = "CustomLabel0",
+                        Attribute = "MerchantDefinedCustomLabel"
+                    },
+                }
+            };
+        }
+
+        /// <summary>
+        /// Outputs the ProductScope.
+        /// </summary>
+        protected void OutputProductScope(ProductScope productScope)
+        {
+            if (productScope != null)
+            {
+                OutputStatusMessage(string.Format("Product Conditions: \n"));
+                foreach (var condition in productScope.Conditions)
+                {
+                    OutputStatusMessage(string.Format("Operand: {0}", condition.Operand));
+                    OutputStatusMessage(string.Format("Attribute: {0}", condition.Attribute));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets an example CampaignCriterion that contains ProductScope. 
+        /// </summary>
+        protected CampaignCriterion GetExampleCampaignCriterionWithProductScope()
+        {
+            return new CampaignCriterion
+            {
+                BidAdjustment = 0,
+                Criterion = GetExampleProductScope(),
+            };
+        }
+
+        /// <summary>
+        /// Outputs the CampaignCriterion that contains a Product Scope.
+        /// </summary>
+        protected void OutputCampaignCriterionWithProductScope(CampaignCriterion campaignCriterion)
+        {
+            if (campaignCriterion != null)
+            {
+                OutputStatusMessage(string.Format("BidAdjustment: {0}", campaignCriterion.BidAdjustment));
+                OutputStatusMessage(string.Format("CampaignId: {0}", campaignCriterion.CampaignId));
+                OutputStatusMessage("ForwardCompatibilityMap: ");
+                if (campaignCriterion.ForwardCompatibilityMap != null)
+                {
+                    foreach (var pair in campaignCriterion.ForwardCompatibilityMap)
+                    {
+                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
+                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
+                    }
+                }
+                OutputStatusMessage(string.Format("CampaignCriterion Id: {0}", campaignCriterion.Id));
+                OutputStatusMessage(string.Format("CampaignCriterion Type: {0}", campaignCriterion.Type));
+
+                // Output the Campaign Management ProductScope Object
+                OutputProductScope((ProductScope)campaignCriterion.Criterion);
             }
         }
 
@@ -1007,7 +1201,7 @@ namespace BingAdsExamples
             return new ImageAdExtension
             {
                 AlternativeText = "Image Alternative Text",
-                ImageMediaId = imageMediaId,
+                ImageMediaId = imageMediaId, 
                 Id = null
             };
         }

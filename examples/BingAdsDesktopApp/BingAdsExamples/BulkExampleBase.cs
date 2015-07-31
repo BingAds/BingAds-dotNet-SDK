@@ -26,7 +26,7 @@ namespace BingAdsExamples
         /// Provides methods to read bulk entities from a file. 
         /// </summary>
         protected static BulkFileReader Reader;
-
+        
         /// <summary>
         /// The directory for the bulk files.
         /// </summary>
@@ -41,7 +41,7 @@ namespace BingAdsExamples
         /// The name of the bulk upload file.
         /// </summary>
         protected const string ResultFileName = @"result.csv";
-
+        
         /// <summary>
         /// The bulk file extension type.
         /// </summary>
@@ -73,7 +73,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("SyncTime: {0}", entity.SyncTime));
             }
-        }
+        }     
 
         /// <summary>
         /// Gets an example BulkAdGroup that can be written as an Ad Group record in a Bulk file. 
@@ -85,7 +85,7 @@ namespace BingAdsExamples
 
             return new BulkAdGroup
             {
-                CampaignId = campaignIdKey,
+                CampaignId=campaignIdKey,
                 AdGroup = adGroup,
             };
         }
@@ -103,7 +103,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("IsExpired: {0}", entity.IsExpired));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-
+                
                 OutputBulkPerformanceData(entity.PerformanceData);
                 OutputBulkQualityScoreData(entity.QualityScoreData);
 
@@ -483,8 +483,7 @@ namespace BingAdsExamples
             foreach (var entity in bulkEntities)
             {
                 OutputStatusMessage("\nBulkAdGroupImageAdExtension: \n");
-                if (entity.AdExtensionIdToEntityIdAssociation != null)
-                {
+                if(entity.AdExtensionIdToEntityIdAssociation != null){
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
                     OutputStatusMessage(string.Format("EntityId (Ad Group Id): {0}", entity.AdExtensionIdToEntityIdAssociation.EntityId));
                 }
@@ -832,7 +831,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 OutputNegativeSites(new[] { entity.Website });
-
+                        
                 if (entity.HasErrors)
                 {
                     OutputErrors(entity.Errors);
@@ -1077,7 +1076,7 @@ namespace BingAdsExamples
         /// </summary>
         protected BulkCampaign GetExampleBulkCampaign()
         {
-
+            
             var campaign = GetExampleCampaign();
             campaign.Id = campaignIdKey;
 
@@ -1716,8 +1715,7 @@ namespace BingAdsExamples
         {
             return new BulkCampaignNegativeKeywordList
             {
-                SharedEntityAssociation = new SharedEntityAssociation
-                {
+                SharedEntityAssociation = new SharedEntityAssociation{
                     EntityId = campaignIdKey,
                     EntityType = "Campaign",
                     SharedEntityId = negativeKeywordListIdKey,
@@ -1737,18 +1735,17 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
-                if (entity.SharedEntityAssociation != null)
-                {
-                    OutputStatusMessage(string.Format("EntityId: {0}",
+                if(entity.SharedEntityAssociation != null){
+                    OutputStatusMessage(string.Format("EntityId: {0}", 
                         entity.SharedEntityAssociation.EntityId));
-                    OutputStatusMessage(string.Format("EntityType: {0}",
+                    OutputStatusMessage(string.Format("EntityType: {0}", 
                         entity.SharedEntityAssociation.EntityType));
-                    OutputStatusMessage(string.Format("SharedEntityId: {0}",
+                    OutputStatusMessage(string.Format("SharedEntityId: {0}", 
                         entity.SharedEntityAssociation.SharedEntityId));
-                    OutputStatusMessage(string.Format("SharedEntityType: {0}",
+                    OutputStatusMessage(string.Format("SharedEntityType: {0}", 
                         entity.SharedEntityAssociation.SharedEntityType));
                 }
-
+                
                 if (entity.HasErrors)
                 {
                     OutputErrors(entity.Errors);
@@ -2255,7 +2252,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputNegativeKeywordList(entity.NegativeKeywordList);
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.Status));
-
+                
                 if (entity.HasErrors)
                 {
                     OutputErrors(entity.Errors);
@@ -2298,6 +2295,82 @@ namespace BingAdsExamples
                 {
                     OutputErrors(entity.Errors);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets an example BulkCampaignProductScope that can be written as a Campaign Product Scope record in a Bulk file. 
+        /// </summary>
+        protected BulkCampaignProductScope GetExampleBulkCampaignProductScope()
+        {
+            var campaignCriterion = GetExampleCampaignCriterionWithProductScope();
+            campaignCriterion.Id = campaignIdKey;
+
+            return new BulkCampaignProductScope
+            {
+                CampaignCriterion = campaignCriterion,
+            };
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkCampaignProductScope.
+        /// </summary>
+        protected void OutputBulkCampaignProductScopes(IEnumerable<BulkCampaignProductScope> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkCampaignProductScope: \n");
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management CampaignCriterion and ProductScope Objects
+                OutputCampaignCriterionWithProductScope(entity.CampaignCriterion);
+
+                if (entity.HasErrors)
+                {
+                    OutputErrors(entity.Errors);
+                }
+
+                OutputStatusMessage("\n");
+            }
+        }
+
+        /// <summary>
+        /// Gets an example BulkAdGroupProductPartition that can be written as an AdGroup Product Partition record in a Bulk file. 
+        /// </summary>
+        protected BulkAdGroupProductPartition GetExampleBulkAdGroupProductPartition()
+        {
+            var adGroupCriterion = GetExampleAdGroupCriterionWithProductPartition();
+            adGroupCriterion.AdGroupId = adGroupIdKey;
+
+            return new BulkAdGroupProductPartition
+            {
+                AdGroupCriterion = adGroupCriterion,
+            };
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkAdGroupProductPartition.
+        /// </summary>
+        protected void OutputBulkAdGroupProductPartitions(IEnumerable<BulkAdGroupProductPartition> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkAdGroupProductPartition: \n");
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management AdGroupCriterion and ProductPartition Objects
+                OutputAdGroupCriterionWithProductPartition(entity.AdGroupCriterion);
+
+                if (entity.HasErrors)
+                {
+                    OutputErrors(entity.Errors);
+                }
+
+                OutputStatusMessage("\n");
             }
         }
 
@@ -2368,7 +2441,7 @@ namespace BingAdsExamples
 
                 // Output the Campaign Management SiteLinksAdExtension Object
                 OutputSiteLinksAdExtension(entity.SiteLinksAdExtension);
-
+                
                 if (entity.SiteLinks != null && entity.SiteLinks.Count > 0)
                 {
                     OutputBulkSiteLinks(entity.SiteLinks);
@@ -2393,7 +2466,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Version: {0}", entity.Version));
 
                 // Output the Campaign Management SiteLink Object
-                OutputSiteLinks(new[] { entity.SiteLink });
+                OutputSiteLinks(new [] { entity.SiteLink });
 
                 if (entity.HasErrors)
                 {

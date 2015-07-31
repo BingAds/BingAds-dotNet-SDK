@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.BingAds">
-      <HintPath>..\packages\Microsoft.BingAds.SDK.9.3.7\lib\net45\Microsoft.BingAds.dll</HintPath>
+      <HintPath>..\packages\Microsoft.BingAds.SDK.9.3.8\lib\net45\Microsoft.BingAds.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -66,6 +66,7 @@
     <Compile Include="BrowserWindow.xaml.cs">
       <DependentUpon>BrowserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BulkShoppingCampaigns.cs" />
     <Compile Include="SearchUserAccounts.cs" />
     <Compile Include="ShoppingCampaigns.cs" />
     <Compile Include="StringProtection.cs" />

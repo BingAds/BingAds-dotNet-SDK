@@ -21,6 +21,7 @@ namespace BingAdsExamples
             {
                 new EstimatedBid(), 
                 new BulkAdExtensions(),
+                new BulkShoppingCampaigns(),
                 new BulkTargets(),
                 new NegativeKeywords(), 
                 new AdExtensions(),
