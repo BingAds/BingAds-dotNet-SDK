@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(EnvironmentConfig)" />
   <PropertyGroup>
     <ProjectGuid>{DE5C4B10-3728-4377-A6AF-4C9C94367FA6}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -8,8 +8,35 @@
     <RootNamespace>Microsoft.BingAds</RootNamespace>
     <AssemblyName>Microsoft.BingAds</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SignAssembly Condition="'$(QCodeSignBuild)'=='True'">true</SignAssembly>
+    <DelaySign Condition="'$(QCodeSignBuild)'=='True'">true</DelaySign>
+    <AssemblyOriginatorKeyFile>$(PackagesRoot)\Codesign.Tools\bin\key\MSSharedLibSN1024.snk</AssemblyOriginatorKeyFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DocumentationFile>$(OutputPath)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="..\inc\version.targets" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>$(OutputPath)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|amd64'">
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>$(OutputPath)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <DocumentationFile>$(OutputPath)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|amd64'">
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>$(OutputPath)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -25,25 +52,6 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>bin\Debug\$(AssemblyName).xml</DocumentationFile>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>bin\Release\$(AssemblyName).xml</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bulk\Entities\BulkCampaignProductScope.cs" />
     <Compile Include="Bulk\BulkOperationCouldNotBeCompletedException.cs" />
@@ -249,6 +257,17 @@
     <Compile Include="OAuthTokens.cs" />
     <Compile Include="OAuthErrorDetail.cs" />
     <Compile Include="NewOAuthTokensReceivedEventArgs.cs" />
+    <Compile Include="Proxies\V10\AdInsight\AdInsightServiceProxy.cs" />
+    <Compile Include="Proxies\V10\Bulk\BulkServiceProxy.cs" />
+    <Compile Include="Proxies\V10\CampaignManagement\CampaignManagementServiceProxy.cs" />
+    <Compile Include="Reporting\ReportingOperationStatus.cs" />
+    <Compile Include="Reporting\ReportingDownloadParameters.cs" />
+    <Compile Include="Reporting\ReportingDownloadOperation.cs" />
+    <Compile Include="Reporting\ReportingStatusProvider.cs" />
+    <Compile Include="Reporting\ReportingOperationCouldNotBeCompletedException.cs" />
+    <Compile Include="Reporting\ReportingOperationInProgressException.cs" />
+    <Compile Include="Reporting\ReportingOperationTracker.cs" />
+    <Compile Include="Reporting\ReportingServiceManager.cs" />
     <Compile Include="ServiceClient.cs" />
     <Compile Include="Internal\StringExtensions.cs" />
     <Compile Include="OAuthDesktopMobileAuthCodeGrant.cs" />
@@ -265,9 +284,187 @@
     <Compile Include="Proxies\Optimizer\OptimizerServiceProxy.cs" />
     <Compile Include="Proxies\Reporting\ReportingServiceProxy.cs" />
     <Compile Include="AuthorizationData.cs" />
+    <Compile Include="V10\Bulk\BulkDownloadOperation.cs" />
+    <Compile Include="V10\Bulk\BulkFileReader.cs" />
+    <Compile Include="V10\Bulk\BulkFileWriter.cs" />
+    <Compile Include="V10\Bulk\BulkOperation.cs" />
+    <Compile Include="V10\Bulk\BulkOperationCouldNotBeCompletedException.cs" />
+    <Compile Include="V10\Bulk\BulkOperationProgressInfo.cs" />
+    <Compile Include="V10\Bulk\BulkOperationStatus.cs" />
+    <Compile Include="V10\Bulk\BulkOperationStillInProgressException.cs" />
+    <Compile Include="V10\Bulk\BulkServiceManager.cs" />
+    <Compile Include="V10\Bulk\BulkUploadOperation.cs" />
+    <Compile Include="V10\Bulk\DownloadParameters.cs" />
+    <Compile Include="V10\Bulk\DownloadStatus.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupAppAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupImageAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupSiteLinkAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAppAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCallAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignAppAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignCallAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignImageAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignLocationAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignSiteLinkAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkImageAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkLocationAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSiteLink.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSiteLinkAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\Ads\BulkProductAd.cs" />
+    <Compile Include="V10\Bulk\Entities\Ads\BulkTextAd.cs" />
+    <Compile Include="V10\Bulk\Entities\BidSuggestionData.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkAccount.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkAdGroup.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkAdGroupProductPartition.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkCampaign.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkCampaignProductScope.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkEntity.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkError.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkKeyword.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkKeywordMainLineBid.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeKeywords\BulkAdGroupNegativeKeyword.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeKeywords\BulkCampaignNegativeKeyword.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeKeywords\BulkCampaignNegativeKeywordList.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeKeywords\BulkNegativeKeywordList.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeKeywords\BulkSharedNegativeKeyword.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeSites\BulkAdGroupNegativeSite.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeSites\BulkAdGroupNegativeSites.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeSites\BulkCampaignNegativeSite.cs" />
+    <Compile Include="V10\Bulk\Entities\NegativeSites\BulkCampaignNegativeSites.cs" />
+    <Compile Include="V10\Bulk\Entities\PerformanceData.cs" />
+    <Compile Include="V10\Bulk\Entities\QualityScore.cs" />
+    <Compile Include="V10\Bulk\Entities\Status.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Age\BulkAdGroupAgeTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Age\BulkAdGroupAgeTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Age\BulkCampaignAgeTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Age\BulkCampaignAgeTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\BulkAdGroupTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\BulkCampaignTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\DayTime\BulkAdGroupDayTimeTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\DayTime\BulkAdGroupDayTimeTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\DayTime\BulkCampaignDayTimeTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\DayTime\BulkCampaignDayTimeTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\DeviceOs\BulkAdGroupDeviceOsTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\DeviceOs\BulkAdGroupDeviceOsTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\DeviceOs\BulkCampaignDeviceOsTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\DeviceOs\BulkCampaignDeviceOsTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Gender\BulkAdGroupGenderTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Gender\BulkAdGroupGenderTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Gender\BulkCampaignGenderTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Gender\BulkCampaignGenderTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Location\BulkAdGroupLocationTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Location\BulkAdGroupLocationTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Location\BulkCampaignLocationTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Location\BulkCampaignLocationTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Location\LocationTargetType.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\NegativeLocation\BulkAdGroupNegativeLocationTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\NegativeLocation\BulkAdGroupNegativeLocationTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\NegativeLocation\BulkCampaignNegativeLocationTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\NegativeLocation\BulkCampaignNegativeLocationTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Radius\BulkAdGroupRadiusTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Radius\BulkAdGroupRadiusTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Radius\BulkCampaignRadiusTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\Targets\Radius\BulkCampaignRadiusTargetBid.cs" />
+    <Compile Include="V10\Bulk\Entities\UnknownBulkEntity.cs" />
+    <Compile Include="V10\Bulk\EntityReadException.cs" />
+    <Compile Include="V10\Bulk\EntityUploadParameters.cs" />
+    <Compile Include="V10\Bulk\EntityWriteException.cs" />
+    <Compile Include="V10\Bulk\FileUploadParameters.cs" />
+    <Compile Include="V10\Bulk\ResultFileType.cs" />
+    <Compile Include="V10\Bulk\SubmitDownloadParameters.cs" />
+    <Compile Include="V10\Bulk\SubmitUploadParameters.cs" />
+    <Compile Include="V10\Bulk\UploadStatus.cs" />
+    <Compile Include="V10\Internal\Bulk\BulkFileReaderEnumerable.cs" />
+    <Compile Include="V10\Internal\Bulk\BulkFileReaderFactory.cs" />
+    <Compile Include="V10\Internal\Bulk\BulkFileReaderIEnumerator.cs" />
+    <Compile Include="V10\Internal\Bulk\BulkObject.cs" />
+    <Compile Include="V10\Internal\Bulk\BulkObjectFactory.cs" />
+    <Compile Include="V10\Internal\Bulk\BulkObjectReader.cs" />
+    <Compile Include="V10\Internal\Bulk\BulkObjectWriter.cs" />
+    <Compile Include="V10\Internal\Bulk\BulkStreamReader.cs" />
+    <Compile Include="V10\Internal\Bulk\CollectionExtensions.cs" />
+    <Compile Include="V10\Internal\Bulk\CsvHeaders.cs" />
+    <Compile Include="V10\Internal\Bulk\CsvLight.cs" />
+    <Compile Include="V10\Internal\Bulk\CsvReader.cs" />
+    <Compile Include="V10\Internal\Bulk\CsvTextFormatter.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\AdExtensions\BulkAdExtension.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\AdExtensions\BulkAdExtensionAssociation.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\AdExtensions\BulkAdExtensionIdentifier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\AdExtensions\BulkAdGroupAdExtensionAssociation.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\AdExtensions\BulkCampaignAdExtensionAssociation.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\AdExtensions\SiteLinkAdExtensionIdentifier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkAd.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkAdGroupNegativeSitesIdentifier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkCampaignNegativeSitesIdentifier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkEntityIdentifier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkKeywordBestPositionBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkKeywordBidSuggestion.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkKeywordFirstPageBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkNegativeSite.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkNegativeSiteIdentifier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\BulkNegativeSites.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\MultiRecordBulkEntity.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\NegativeKeywords\BulkEntityNegativeKeyword.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\NegativeKeywords\BulkNegativeKeyword.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\ProductConditionHelper.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\SingleRecordBulkEntity.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\Age\BulkAgeTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\Age\BulkAgeTargetBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkAdGroupTargetIdentifier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkCampaignTargetIdentitfier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkLocationTargetBidWithStringLocation.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkLocationTargetWithStringLocation.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkSubTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkTargetBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkTargetIdentifier.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\BulkTargetWithLocation.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\DayTime\BulkDayTimeTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\DayTime\BulkDayTimeTargetBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\DeviceOs\BulkDeviceOsTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\DeviceOs\BulkDeviceOsTargetBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\Gender\BulkGenderTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\Gender\BulkGenderTargetBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\Location\BulkLocationTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\Location\BulkLocationTargetBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\NegativeLocation\BulkNegativeLocationTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\NegativeLocation\BulkNegativeLocationTargetBid.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\Radius\BulkRadiusTarget.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\Targets\Radius\BulkRadiusTargetBid.cs" />
+    <Compile Include="V10\Internal\Bulk\EntityInfo.cs" />
+    <Compile Include="V10\Internal\Bulk\FormatVersion.cs" />
+    <Compile Include="V10\Internal\Bulk\IBulkFileReaderFactory.cs" />
+    <Compile Include="V10\Internal\Bulk\IBulkObjectFactory.cs" />
+    <Compile Include="V10\Internal\Bulk\IBulkObjectReader.cs" />
+    <Compile Include="V10\Internal\Bulk\IBulkObjectWriter.cs" />
+    <Compile Include="V10\Internal\Bulk\IBulkStreamReader.cs" />
+    <Compile Include="V10\Internal\Bulk\ICsvReader.cs" />
+    <Compile Include="V10\Internal\Bulk\ICsvTextFormatter.cs" />
+    <Compile Include="V10\Internal\Bulk\MappingExtensions.cs" />
+    <Compile Include="V10\Internal\Bulk\Mappings\ComplexBulkMapping.cs" />
+    <Compile Include="V10\Internal\Bulk\Mappings\ConditionalBulkMapping.cs" />
+    <Compile Include="V10\Internal\Bulk\Mappings\DynamicColumnNameMapping.cs" />
+    <Compile Include="V10\Internal\Bulk\Mappings\IBulkMapping.cs" />
+    <Compile Include="V10\Internal\Bulk\Mappings\SimpleBulkMapping.cs" />
+    <Compile Include="V10\Internal\Bulk\Operations\BulkOperationTracker.cs" />
+    <Compile Include="V10\Internal\Bulk\Operations\DownloadStatusProvider.cs" />
+    <Compile Include="V10\Internal\Bulk\Operations\IBulkFileRetriever.cs" />
+    <Compile Include="V10\Internal\Bulk\Operations\IBulkOperationStatusProvider.cs" />
+    <Compile Include="V10\Internal\Bulk\Operations\IBulkOperationTracker.cs" />
+    <Compile Include="V10\Internal\Bulk\Operations\UploadStatusProvider.cs" />
+    <Compile Include="V10\Internal\Bulk\PropertyValidationInfo.cs" />
+    <Compile Include="V10\Internal\Bulk\RowValues.cs" />
+    <Compile Include="V10\Internal\Bulk\StringExtensions.cs" />
+    <Compile Include="V10\Internal\Bulk\StringTable.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(QCodeSignBuild)'!='True' And '$(ENABLE_CODESIGN)'!='1'">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(QCodeSignBuild)'=='True'Or '$(ENABLE_CODESIGN)'=='1'">
+    <Compile Include="Properties\AssemblyInfoSigned.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <QCustomInput Include="Properties\AssemblyInfoSigned.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagrams\AdExtensions.cd" />
@@ -278,7 +475,15 @@
     <None Include="Proxies\generateProxy.bat" />
   </ItemGroup>
   <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Robocopy Include="$(OutDir)">
+      <DestinationFolder>$(DistribPath)\BingAdsApiSDK</DestinationFolder>
+      <FileMatch>*dll *pdb *xml</FileMatch>
+      <IsRecursive>false</IsRecursive>
+    </Robocopy>
+  </ItemGroup>
+  <Import Project="$(ExtendedTargetsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(EnlistmentRoot)\private\Common\BuildTargets\CodeSign.Bing.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -287,4 +492,3 @@
   </Target>
   -->
 </Project>
-
