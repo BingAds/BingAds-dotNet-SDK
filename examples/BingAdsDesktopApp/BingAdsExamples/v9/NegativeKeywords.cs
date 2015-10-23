@@ -7,7 +7,7 @@ using Microsoft.BingAds.CampaignManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to associate negative keywords and negative keyword lists with a campaign.
@@ -18,7 +18,7 @@ namespace BingAdsExamples
 
         public override string Description
         {
-            get { return "Campaign Management | Negative Keywords"; }
+            get { return "Negative Keywords | Campaign Management V9 (Deprecated)"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -58,10 +58,15 @@ namespace BingAdsExamples
                                 NegativeKeywords = new[]
                                     {
                                         new NegativeKeyword
-                                            {
-                                                MatchType = MatchType.Phrase,
-                                                Text = "auto"
-                                            }
+                                        {
+                                            MatchType = MatchType.Phrase,
+                                            Text = "auto"
+                                        },
+                                        new NegativeKeyword
+                                        {
+                                            MatchType = MatchType.Phrase,
+                                            Text = "auto"
+                                        },
                                     }
                             }
                     };

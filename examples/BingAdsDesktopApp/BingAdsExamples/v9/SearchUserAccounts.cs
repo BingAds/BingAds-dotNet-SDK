@@ -7,7 +7,7 @@ using Microsoft.BingAds.CustomerManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to search for accounts that can be managed by the current authenticated user.
@@ -18,7 +18,7 @@ namespace BingAdsExamples
 
         public override string Description
         {
-            get { return "Customer Management | Search Accounts for Current User"; }
+            get { return "Search Accounts for Current User | Customer Management V9"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)

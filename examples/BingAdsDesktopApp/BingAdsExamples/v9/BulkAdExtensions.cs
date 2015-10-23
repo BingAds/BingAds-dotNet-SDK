@@ -11,7 +11,7 @@ using Microsoft.BingAds.Bulk.Entities;
 using Microsoft.BingAds.CampaignManagement;
 
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to add and update ad extensions using the BulkServiceManager class.
@@ -20,7 +20,7 @@ namespace BingAdsExamples
     {
         public override string Description
         {
-            get { return "BulkServiceManager | Ad Extensions"; }
+            get { return "AdExtensions | Bulk V9 (Deprecated)"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -50,17 +50,18 @@ namespace BingAdsExamples
                     // Note: This bulk file Client Id is not related to an application Client Id for OAuth. 
                     ClientId = "YourClientIdGoesHere",
                     Campaign = new Campaign
-                    {
-                        // When using the Campaign Management service, the Id cannot be set. In the context of a BulkCampaign, the Id is optional 
-                        // and may be used as a negative reference key during bulk upload. For example the same negative value set for the campaign Id 
-                        // will be used when associating this new campaign with a new call ad extension in the BulkCampaignCallAdExtension object below. 
-                        Id = campaignIdKey,
-                        Name = "Women's Shoes " + DateTime.UtcNow,
-                        Description = "Red shoes line.",
-                        BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                        MonthlyBudget = 1000.00,
-                        TimeZone = "PacificTimeUSCanadaTijuana",
-                    }
+                        {
+                            // When using the Campaign Management service, the Id cannot be set. In the context of a BulkCampaign, the Id is optional 
+                            // and may be used as a negative reference key during bulk upload. For example the same negative value set for the campaign Id 
+                            // will be used when associating this new campaign with a new call ad extension in the BulkCampaignCallAdExtension object below. 
+                            Id = campaignIdKey,
+                            Name = "Women's Shoes " + DateTime.UtcNow,
+                            Description = "Red shoes line.",
+                            BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
+                            MonthlyBudget = 1000.00,
+                            TimeZone = "PacificTimeUSCanadaTijuana",
+                            Status = CampaignStatus.Paused
+                        }
                 };
 
                 // Prepare ad extensions for upload
@@ -70,10 +71,10 @@ namespace BingAdsExamples
                     AccountId = authorizationData.AccountId,
                     AppAdExtension = new AppAdExtension
                     {
-                        AppPlatform = "Windows",
+                        AppPlatform="Windows",
                         AppStoreId = "AppStoreIdGoesHere",
                         DestinationUrl = "DestinationUrlGoesHere",
-                        DisplayText = "Contoso",
+                        DisplayText="Contoso",
                         Id = appAdExtensionIdKey,
                     }
                 };
@@ -94,22 +95,22 @@ namespace BingAdsExamples
                 {
                     AccountId = authorizationData.AccountId,
                     LocationAdExtension = new LocationAdExtension
-                    {
-                        Id = locationAdExtensionIdKey,
-                        PhoneNumber = "206-555-0100",
-                        CompanyName = "Contoso Shoes",
-                        IconMediaId = null,
-                        ImageMediaId = null,
-                        Address = new Address
                         {
-                            StreetAddress = "1234 Washington Place",
-                            StreetAddress2 = "Suite 1210",
-                            CityName = "Woodinville",
-                            ProvinceName = "WA",
-                            CountryCode = "US",
-                            PostalCode = "98608"
+                            Id = locationAdExtensionIdKey,
+                            PhoneNumber = "206-555-0100",
+                            CompanyName = "Contoso Shoes",
+                            IconMediaId = null,
+                            ImageMediaId = null,
+                            Address = new Address
+                                {
+                                    StreetAddress = "1234 Washington Place",
+                                    StreetAddress2 = "Suite 1210",
+                                    CityName = "Woodinville",
+                                    ProvinceName = "WA",
+                                    CountryCode = "US",
+                                    PostalCode = "98608"
+                                }
                         }
-                    }
                 };
 
                 // Note that when written to file using the BulkFileWriter, an extra Sitelink Ad Extension record with Deleted
@@ -123,11 +124,11 @@ namespace BingAdsExamples
                 {
                     AccountId = authorizationData.AccountId,
                     SiteLinksAdExtension = new SiteLinksAdExtension
-                    {
-                        // Note that if you do not specify a negative Id as reference key, each of SiteLinks items will
-                        // be split during upload into separate sitelink ad extensions with unique ad extension identifiers.
-                        Id = siteLinksAdExtensionIdKey,
-                        SiteLinks = new List<SiteLink>
+                        {
+                            // Note that if you do not specify a negative Id as reference key, each of SiteLinks items will
+                            // be split during upload into separate sitelink ad extensions with unique ad extension identifiers.
+                            Id = siteLinksAdExtensionIdKey,
+                            SiteLinks = new List<SiteLink>
                                 {
                                     new SiteLink
                                         {
@@ -140,7 +141,7 @@ namespace BingAdsExamples
                                             DisplayText = "Women's Shoe Sale 2"
                                         }
                                 }
-                    }
+                        }
                     // Note that BulkSiteLinkAdExtension.SiteLinks is read only and only 
                     // accessible when reading results from the download or upload results file.
                     // To upload new site links for a new site links ad extension, you should specify
@@ -148,7 +149,7 @@ namespace BingAdsExamples
                 };
 
                 // Prepare ad extension associations for upload
-
+                
                 var bulkCampaignAppAdExtension = new BulkCampaignAppAdExtension
                 {
                     AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
@@ -166,16 +167,16 @@ namespace BingAdsExamples
                         EntityId = campaignIdKey
                     }
                 };
-
+                
                 var bulkCampaignLocationAdExtension = new BulkCampaignLocationAdExtension
-                {
-                    AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
                     {
-                        AdExtensionId = locationAdExtensionIdKey,
-                        EntityId = campaignIdKey
-                    }
-                };
-
+                        AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                        {
+                            AdExtensionId = locationAdExtensionIdKey,
+                            EntityId = campaignIdKey
+                        }
+                    };
+                
                 var bulkCampaignSiteLinkAdExtension = new BulkCampaignSiteLinkAdExtension
                 {
                     AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
@@ -217,12 +218,12 @@ namespace BingAdsExamples
                 };
 
                 // UploadFileAsync will upload the file you finished writing and will download the results file
-
+                
                 OutputStatusMessage("\nAdding campaign, ad extensions, and associations . . .\n");
                 var bulkFilePath = await BulkService.UploadFileAsync(fileUploadParameters, progress, CancellationToken.None);
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
                 OutputStatusMessage("Upload Results Bulk File Path: " + Reader.BulkFilePath + "\n");
-
+                
                 // Write the upload output
 
                 var bulkEntities = Reader.ReadEntities().ToList();
@@ -232,16 +233,16 @@ namespace BingAdsExamples
 
                 var appAdExtensionResults = bulkEntities.OfType<BulkAppAdExtension>().ToList();
                 OutputBulkAppAdExtensions(appAdExtensionResults);
-
+                
                 var callAdExtensionResults = bulkEntities.OfType<BulkCallAdExtension>().ToList();
                 OutputBulkCallAdExtensions(callAdExtensionResults);
-
+                
                 var locationAdExtensionResults = bulkEntities.OfType<BulkLocationAdExtension>().ToList();
                 OutputBulkLocationAdExtensions(locationAdExtensionResults);
-
+                
                 var siteLinkAdExtensionResults = bulkEntities.OfType<BulkSiteLinkAdExtension>().ToList();
                 OutputBulkSiteLinkAdExtensions(siteLinkAdExtensionResults);
-
+                
                 OutputBulkCampaignAppAdExtensions(bulkEntities.OfType<BulkCampaignAppAdExtension>().ToList());
                 OutputBulkCampaignCallAdExtensions(bulkEntities.OfType<BulkCampaignCallAdExtension>().ToList());
                 OutputBulkCampaignLocationAdExtensions(bulkEntities.OfType<BulkCampaignLocationAdExtension>().ToList());
@@ -291,7 +292,7 @@ namespace BingAdsExamples
                 // Write the new site link and updated site link to the file
 
                 Writer = new BulkFileWriter(FileDirectory + UploadFileName);
-
+                
                 foreach (var bulkSiteLink in bulkSiteLinks)
                 {
                     Writer.WriteEntity(bulkSiteLink);
@@ -314,7 +315,7 @@ namespace BingAdsExamples
                 bulkFilePath = await BulkService.UploadFileAsync(fileUploadParameters, progress, CancellationToken.None);
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
                 OutputStatusMessage("Upload Results Bulk File Path: " + Reader.BulkFilePath + "\n");
-
+                
                 // Write any upload errors
 
                 bulkEntities = Reader.ReadEntities().ToList();
@@ -477,8 +478,8 @@ namespace BingAdsExamples
             }
             finally
             {
-                if (Reader != null) { Reader.Dispose(); }
-                if (Writer != null) { Writer.Dispose(); }
+                if(Reader != null){ Reader.Dispose(); }
+                if(Writer != null){ Writer.Dispose(); }
             }
         }
     }

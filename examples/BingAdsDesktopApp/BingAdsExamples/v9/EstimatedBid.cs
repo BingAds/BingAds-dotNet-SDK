@@ -7,7 +7,7 @@ using Microsoft.BingAds.AdIntelligence;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to get the minimum suggested bid value of one or more keywords 
@@ -19,7 +19,7 @@ namespace BingAdsExamples
 
         public override string Description
         {
-            get { return "Ad Intelligence | Estimated Bid"; }
+            get { return "Estimated Bid | Ad Intelligence V9 (Deprecated)"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)

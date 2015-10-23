@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.BingAds.Bulk;
-using Microsoft.BingAds.Bulk.Entities;
-using Microsoft.BingAds.CampaignManagement;
+using Microsoft.BingAds.V10.Bulk;
+using Microsoft.BingAds.V10.Bulk.Entities;
+using Microsoft.BingAds.V10.CampaignManagement;
+using System.Threading.Tasks;
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V10
 {
     /// <summary>
     /// Provides default file paths and custom example implementations for a subset of BulkServiceManager and BulkOperation methods. 
@@ -26,7 +27,7 @@ namespace BingAdsExamples
         /// Provides methods to read bulk entities from a file. 
         /// </summary>
         protected static BulkFileReader Reader;
-        
+
         /// <summary>
         /// The directory for the bulk files.
         /// </summary>
@@ -41,7 +42,7 @@ namespace BingAdsExamples
         /// The name of the bulk upload file.
         /// </summary>
         protected const string ResultFileName = @"result.csv";
-        
+
         /// <summary>
         /// The bulk file extension type.
         /// </summary>
@@ -60,6 +61,39 @@ namespace BingAdsExamples
 
 
         /// <summary>
+        /// Writes the specified entities to a local file and uploads the file. We could have uploaded directly
+        /// without writing to file. This example writes to file as an exercise so that you can view the structure 
+        /// of the bulk records being uploaded as needed. 
+        /// </summary>
+        /// <param name="uploadEntities"></param>
+        /// <returns></returns>
+        protected async Task<BulkFileReader> UploadEntities(IEnumerable<BulkEntity> uploadEntities)
+        {
+            Writer = new BulkFileWriter(FileDirectory + UploadFileName);
+
+            foreach (var entity in uploadEntities)
+            {
+                Writer.WriteEntity(entity);
+            }
+
+            Writer.Dispose();
+
+            var fileUploadParameters = new FileUploadParameters
+            {
+                ResultFileDirectory = FileDirectory,
+                CompressUploadFile = true,
+                ResultFileName = ResultFileName,
+                OverwriteResultFile = true,
+                UploadFilePath = FileDirectory + UploadFileName,
+                ResponseMode = ResponseMode.ErrorsAndResults
+            };
+
+            var bulkFilePath = await BulkService.UploadFileAsync(fileUploadParameters);
+
+            return new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
+        }
+
+        /// <summary>
         /// Outputs the list of BulkAccount
         /// </summary>
         protected void OutputBulkAccounts(IEnumerable<BulkAccount> bulkEntities)
@@ -73,7 +107,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("SyncTime: {0}", entity.SyncTime));
             }
-        }     
+        }
 
         /// <summary>
         /// Gets an example BulkAdGroup that can be written as an Ad Group record in a Bulk file. 
@@ -85,7 +119,7 @@ namespace BingAdsExamples
 
             return new BulkAdGroup
             {
-                CampaignId=campaignIdKey,
+                CampaignId = campaignIdKey,
                 AdGroup = adGroup,
             };
         }
@@ -103,7 +137,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("IsExpired: {0}", entity.IsExpired));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-                
+
                 OutputBulkPerformanceData(entity.PerformanceData);
                 OutputBulkQualityScoreData(entity.QualityScoreData);
 
@@ -112,7 +146,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -140,7 +174,7 @@ namespace BingAdsExamples
                 // If the BulkAdGroupAgeTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkAdGroupAgeTargetBid objects. For example if you want to print the 
                 // BulkAdGroupAgeTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.AgeTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkAdGroupAgeTarget: \n");
                     OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
@@ -150,10 +184,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                     OutputStatusMessage(string.Format("TargetId: {0}", entity.TargetId));
 
-                    foreach (var bid in entity.AgeTarget.Bids)
+                    if (entity.AgeTarget != null)
                     {
-                        // Output the Campaign Management AgeTargetBid Object
-                        OutputAgeTargetBid(bid);
+                        foreach (var bid in entity.AgeTarget.Bids)
+                        {
+                            // Output the Campaign Management AgeTargetBid Object
+                            OutputAgeTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -198,7 +235,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -239,7 +276,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -267,7 +304,7 @@ namespace BingAdsExamples
                 // If the BulkAdGroupDayTimeTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkAdGroupDayTimeTargetBid objects. For example if you want to print the 
                 // BulkAdGroupDayTimeTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.DayTimeTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkAdGroupDayTimeTarget: \n");
                     OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
@@ -277,10 +314,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                     OutputStatusMessage(string.Format("TargetId: {0}", entity.TargetId));
 
-                    foreach (var bid in entity.DayTimeTarget.Bids)
+                    if (entity.DayTimeTarget != null)
                     {
-                        // Output the Campaign Management DayTimeTarget Object
-                        OutputDayTimeTargetBid(bid);
+                        foreach (var bid in entity.DayTimeTarget.Bids)
+                        {
+                            // Output the Campaign Management DayTimeTarget Object
+                            OutputDayTimeTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -311,7 +351,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -339,7 +379,7 @@ namespace BingAdsExamples
                 // If the BulkAdGroupDeviceOsTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkAdGroupDeviceOsTargetBid objects. For example if you want to print the 
                 // BulkAdGroupDeviceOsTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.DeviceOsTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkAdGroupDeviceOsTarget: \n");
                     OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
@@ -349,10 +389,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                     OutputStatusMessage(string.Format("TargetId: {0}", entity.TargetId));
 
-                    foreach (var bid in entity.DeviceOsTarget.Bids)
+                    if (entity.DeviceOsTarget != null)
                     {
-                        // Output the Campaign Management DeviceOSTarget Object
-                        OutputDeviceOSTargetBid(bid);
+                        foreach (var bid in entity.DeviceOsTarget.Bids)
+                        {
+                            // Output the Campaign Management DeviceOSTarget Object
+                            OutputDeviceOSTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -383,7 +426,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -411,7 +454,7 @@ namespace BingAdsExamples
                 // If the BulkAdGroupGenderTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkAdGroupGenderTargetBid objects. For example if you want to print the 
                 // BulkAdGroupGenderTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.GenderTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkAdGroupGenderTarget: \n");
                     OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
@@ -421,10 +464,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                     OutputStatusMessage(string.Format("TargetId: {0}", entity.TargetId));
 
-                    foreach (var bid in entity.GenderTarget.Bids)
+                    if (entity.GenderTarget != null)
                     {
-                        // Output the Campaign Management GenderTarget Object
-                        OutputGenderTargetBid(bid);
+                        foreach (var bid in entity.GenderTarget.Bids)
+                        {
+                            // Output the Campaign Management GenderTarget Object
+                            OutputGenderTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -455,7 +501,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -483,7 +529,8 @@ namespace BingAdsExamples
             foreach (var entity in bulkEntities)
             {
                 OutputStatusMessage("\nBulkAdGroupImageAdExtension: \n");
-                if(entity.AdExtensionIdToEntityIdAssociation != null){
+                if (entity.AdExtensionIdToEntityIdAssociation != null)
+                {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
                     OutputStatusMessage(string.Format("EntityId (Ad Group Id): {0}", entity.AdExtensionIdToEntityIdAssociation.EntityId));
                 }
@@ -495,7 +542,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -615,7 +662,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -653,7 +700,7 @@ namespace BingAdsExamples
                 }
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -772,7 +819,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -831,10 +878,10 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 OutputNegativeSites(new[] { entity.Website });
-                        
+
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -848,7 +895,7 @@ namespace BingAdsExamples
             {
                 AdGroupId = adGroupIdKey,
                 TargetId = targetIdKey,
-                RadiusTarget = GetExampleRadiusTarget2(),
+                RadiusTarget = GetExampleRadiusTarget(),
             };
         }
 
@@ -862,7 +909,7 @@ namespace BingAdsExamples
                 // If the BulkAdGroupRadiusTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkAdGroupRadiusTargetBid objects. For example if you want to print the 
                 // BulkAdGroupRadiusTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.RadiusTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkAdGroupRadiusTarget: \n");
                     OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
@@ -873,10 +920,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
-                    foreach (var bid in entity.RadiusTarget.Bids)
+                    if (entity.RadiusTarget != null)
                     {
-                        // Output the Campaign Management RadiusTargetBid2 Object
-                        OutputRadiusTargetBid2(bid);
+                        foreach (var bid in entity.RadiusTarget.Bids)
+                        {
+                            // Output the Campaign Management RadiusTargetBid Object
+                            OutputRadiusTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -903,12 +953,12 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
-                // Output the Campaign Management RadiusTargetBid2 Object
-                OutputRadiusTargetBid2(entity.RadiusTargetBid);
+                // Output the Campaign Management RadiusTargetBid Object
+                OutputRadiusTargetBid(entity.RadiusTargetBid);
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -949,7 +999,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -959,13 +1009,13 @@ namespace BingAdsExamples
         /// </summary>
         protected BulkAdGroupTarget GetExampleBulkAdGroupTarget()
         {
-            var target2 = GetExampleTarget2();
-            target2.Id = targetIdKey;
+            var Target = GetExampleTarget();
+            Target.Id = targetIdKey;
 
             return new BulkAdGroupTarget
             {
                 AdGroupId = adGroupIdKey,
-                Target = target2,
+                Target = Target,
             };
         }
 
@@ -983,8 +1033,8 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
-                // Output the Campaign Management Target2 Object
-                OutputTarget2(entity.Target);
+                // Output the Campaign Management Target Object
+                OutputTarget(entity.Target);
 
                 OutputBulkAdGroupAgeTargets(new[] { entity.AgeTarget });
                 OutputBulkAdGroupDayTimeTargets(new[] { entity.DayTimeTarget });
@@ -1028,7 +1078,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1066,7 +1116,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1076,7 +1126,7 @@ namespace BingAdsExamples
         /// </summary>
         protected BulkCampaign GetExampleBulkCampaign()
         {
-            
+
             var campaign = GetExampleCampaign();
             campaign.Id = campaignIdKey;
 
@@ -1110,7 +1160,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1138,7 +1188,7 @@ namespace BingAdsExamples
                 // If the BulkCampaignAgeTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkCampaignAgeTargetBid objects. For example if you want to print the 
                 // BulkCampaignAgeTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.AgeTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkCampaignAgeTarget: \n");
                     OutputStatusMessage(string.Format("CampaignId: {0}", entity.CampaignId));
@@ -1147,10 +1197,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                     OutputStatusMessage(string.Format("TargetId: {0}", entity.TargetId));
 
-                    foreach (var bid in entity.AgeTarget.Bids)
+                    if (entity.AgeTarget != null)
                     {
-                        // Output the Campaign Management AgeTargetBid Object
-                        OutputAgeTargetBid(bid);
+                        foreach (var bid in entity.AgeTarget.Bids)
+                        {
+                            // Output the Campaign Management AgeTargetBid Object
+                            OutputAgeTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -1180,7 +1233,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1220,7 +1273,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1260,7 +1313,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1288,7 +1341,7 @@ namespace BingAdsExamples
                 // If the BulkCampaignDayTimeTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkCampaignDayTimeTargetBid objects. For example if you want to print the 
                 // BulkCampaignDayTimeTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.DayTimeTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkCampaignDayTimeTarget: \n");
                     OutputStatusMessage(string.Format("Campaign Id: {0}", entity.CampaignId));
@@ -1297,10 +1350,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                     OutputStatusMessage(string.Format("TargetId: {0}", entity.TargetId));
 
-                    foreach (var bid in entity.DayTimeTarget.Bids)
+                    if (entity.DayTimeTarget != null)
                     {
-                        // Output the Campaign Management DayTimeTarget Object
-                        OutputDayTimeTargetBid(bid);
+                        foreach (var bid in entity.DayTimeTarget.Bids)
+                        {
+                            // Output the Campaign Management DayTimeTarget Object
+                            OutputDayTimeTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -1330,7 +1386,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1358,7 +1414,7 @@ namespace BingAdsExamples
                 // If the BulkCampaignDeviceOsTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkCampaignDeviceOsTargetBid objects. For example if you want to print the 
                 // BulkCampaignDeviceOsTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.DeviceOsTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkCampaignDeviceOsTarget: \n");
                     OutputStatusMessage(string.Format("CampaignId: {0}", entity.CampaignId));
@@ -1367,10 +1423,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                     OutputStatusMessage(string.Format("TargetId: {0}", entity.TargetId));
 
-                    foreach (var bid in entity.DeviceOsTarget.Bids)
+                    if (entity.DeviceOsTarget != null)
                     {
-                        // Output the Campaign Management DeviceOSTarget Object
-                        OutputDeviceOSTargetBid(bid);
+                        foreach (var bid in entity.DeviceOsTarget.Bids)
+                        {
+                            // Output the Campaign Management DeviceOSTarget Object
+                            OutputDeviceOSTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -1400,7 +1459,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1428,7 +1487,7 @@ namespace BingAdsExamples
                 // If the BulkCampaignGenderTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkCampaignGenderTargetBid objects. For example if you want to print the 
                 // BulkCampaignGenderTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.GenderTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkAdGroupGenderTarget: \n");
                     OutputStatusMessage(string.Format("CampaignId: {0}", entity.CampaignId));
@@ -1437,10 +1496,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                     OutputStatusMessage(string.Format("TargetId: {0}", entity.TargetId));
 
-                    foreach (var bid in entity.GenderTarget.Bids)
+                    if (entity.GenderTarget != null)
                     {
-                        // Output the Campaign Management GenderTarget Object
-                        OutputGenderTargetBid(bid);
+                        foreach (var bid in entity.GenderTarget.Bids)
+                        {
+                            // Output the Campaign Management GenderTarget Object
+                            OutputGenderTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -1470,7 +1532,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1510,7 +1572,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1550,7 +1612,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1666,7 +1728,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1703,7 +1765,7 @@ namespace BingAdsExamples
                 }
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1715,7 +1777,8 @@ namespace BingAdsExamples
         {
             return new BulkCampaignNegativeKeywordList
             {
-                SharedEntityAssociation = new SharedEntityAssociation{
+                SharedEntityAssociation = new SharedEntityAssociation
+                {
                     EntityId = campaignIdKey,
                     EntityType = "Campaign",
                     SharedEntityId = negativeKeywordListIdKey,
@@ -1735,20 +1798,21 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
-                if(entity.SharedEntityAssociation != null){
-                    OutputStatusMessage(string.Format("EntityId: {0}", 
+                if (entity.SharedEntityAssociation != null)
+                {
+                    OutputStatusMessage(string.Format("EntityId: {0}",
                         entity.SharedEntityAssociation.EntityId));
-                    OutputStatusMessage(string.Format("EntityType: {0}", 
+                    OutputStatusMessage(string.Format("EntityType: {0}",
                         entity.SharedEntityAssociation.EntityType));
-                    OutputStatusMessage(string.Format("SharedEntityId: {0}", 
+                    OutputStatusMessage(string.Format("SharedEntityId: {0}",
                         entity.SharedEntityAssociation.SharedEntityId));
-                    OutputStatusMessage(string.Format("SharedEntityType: {0}", 
+                    OutputStatusMessage(string.Format("SharedEntityType: {0}",
                         entity.SharedEntityAssociation.SharedEntityType));
                 }
-                
+
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1856,7 +1920,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1916,7 +1980,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -1930,7 +1994,7 @@ namespace BingAdsExamples
             {
                 CampaignId = campaignIdKey,
                 TargetId = targetIdKey,
-                RadiusTarget = GetExampleRadiusTarget2(),
+                RadiusTarget = GetExampleRadiusTarget(),
             };
         }
 
@@ -1944,7 +2008,7 @@ namespace BingAdsExamples
                 // If the BulkCampaignRadiusTarget object was created by the application, and not read from a bulk file, 
                 // then there will be no BulkCampaignRadiusTargetBid objects. For example if you want to print the 
                 // BulkCampaignRadiusTarget prior to upload.
-                if (entity.Bids.Count == 0 && entity.RadiusTarget != null)
+                if (entity.Bids.Count == 0)
                 {
                     OutputStatusMessage("\nBulkCampaignRadiusTarget: \n");
                     OutputStatusMessage(string.Format("CampaignId: {0}", entity.CampaignId));
@@ -1954,10 +2018,13 @@ namespace BingAdsExamples
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
-                    foreach (var bid in entity.RadiusTarget.Bids)
+                    if (entity.RadiusTarget != null)
                     {
-                        // Output the Campaign Management RadiusTargetBid2 Object
-                        OutputRadiusTargetBid2(bid);
+                        foreach (var bid in entity.RadiusTarget.Bids)
+                        {
+                            // Output the Campaign Management RadiusTargetBid Object
+                            OutputRadiusTargetBid(bid);
+                        }
                     }
                 }
                 else
@@ -1983,12 +2050,12 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
-                // Output the Campaign Management RadiusTargetBid2 Object
-                OutputRadiusTargetBid2(entity.RadiusTargetBid);
+                // Output the Campaign Management RadiusTargetBid Object
+                OutputRadiusTargetBid(entity.RadiusTargetBid);
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2028,7 +2095,7 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2038,13 +2105,13 @@ namespace BingAdsExamples
         /// </summary>
         protected BulkCampaignTarget GetExampleBulkCampaignTarget()
         {
-            var target2 = GetExampleTarget2();
-            target2.Id = targetIdKey;
+            var Target = GetExampleTarget();
+            Target.Id = targetIdKey;
 
             return new BulkCampaignTarget
             {
                 CampaignId = campaignIdKey,
-                Target = target2,
+                Target = Target,
             };
         }
 
@@ -2061,8 +2128,8 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
-                // Output the Campaign Management Target2 Object
-                OutputTarget2(entity.Target);
+                // Output the Campaign Management Target Object
+                OutputTarget(entity.Target);
 
                 OutputBulkCampaignAgeTargets(new[] { entity.AgeTarget });
                 OutputBulkCampaignDayTimeTargets(new[] { entity.DayTimeTarget });
@@ -2106,7 +2173,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2146,7 +2213,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2183,45 +2250,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets an example BulkMobileAd that can be written as a Mobile Ad record in a Bulk file. 
-        /// </summary>
-        protected BulkMobileAd GetExampleBulkMobileAd()
-        {
-            return new BulkMobileAd
-            {
-                AdGroupId = adGroupIdKey,
-                MobileAd = GetExampleMobileAd(),
-            };
-        }
-
-        /// <summary>
-        /// Outputs the list of BulkMobileAd.
-        /// </summary>
-        protected void OutputBulkMobileAds(IEnumerable<BulkMobileAd> bulkEntities)
-        {
-            foreach (var entity in bulkEntities)
-            {
-                OutputStatusMessage("\nBulkMobileAd: \n");
-                OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
-                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
-                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
-                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
-                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-
-                OutputBulkPerformanceData(entity.PerformanceData);
-
-                // Output the Campaign Management MobileAd Object
-                OutputMobileAd(entity.MobileAd);
-
-                if (entity.HasErrors)
-                {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2252,10 +2281,10 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputNegativeKeywordList(entity.NegativeKeywordList);
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.Status));
-                
+
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2293,7 +2322,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2329,7 +2358,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
 
                 OutputStatusMessage("\n");
@@ -2359,6 +2388,7 @@ namespace BingAdsExamples
             {
                 OutputStatusMessage("\nBulkAdGroupProductPartition: \n");
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
@@ -2367,7 +2397,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
 
                 OutputStatusMessage("\n");
@@ -2402,7 +2432,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2441,7 +2471,7 @@ namespace BingAdsExamples
 
                 // Output the Campaign Management SiteLinksAdExtension Object
                 OutputSiteLinksAdExtension(entity.SiteLinksAdExtension);
-                
+
                 if (entity.SiteLinks != null && entity.SiteLinks.Count > 0)
                 {
                     OutputBulkSiteLinks(entity.SiteLinks);
@@ -2466,11 +2496,11 @@ namespace BingAdsExamples
                 OutputStatusMessage(string.Format("Version: {0}", entity.Version));
 
                 // Output the Campaign Management SiteLink Object
-                OutputSiteLinks(new [] { entity.SiteLink });
+                OutputSiteLinks(new[] { entity.SiteLink });
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2508,7 +2538,7 @@ namespace BingAdsExamples
 
                 if (entity.HasErrors)
                 {
-                    OutputErrors(entity.Errors);
+                    OutputBulkErrors(entity.Errors);
                 }
             }
         }
@@ -2566,7 +2596,7 @@ namespace BingAdsExamples
         /// Outputs the list of BulkError.
         /// </summary>
         /// <param name="errors"></param>
-        private void OutputErrors(IEnumerable<BulkError> errors)
+        private void OutputBulkErrors(IEnumerable<BulkError> errors)
         {
             foreach (var error in errors)
             {

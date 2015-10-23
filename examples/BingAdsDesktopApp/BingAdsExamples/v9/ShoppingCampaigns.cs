@@ -13,7 +13,7 @@ using Microsoft.BingAds;
 
 using System.IO;
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to apply product conditions for Bing Shopping Campaigns.
@@ -24,7 +24,7 @@ namespace BingAdsExamples
 
         public override string Description
         {
-            get { return "Campaign Management | Bing Shopping Campaigns"; }
+            get { return "Bing Shopping Campaigns | Campaign Management V9 (Deprecated)"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -72,6 +72,12 @@ namespace BingAdsExamples
 
                 var campaignIds = await AddCampaignsAsync(authorizationData.AccountId, new[] { campaign });
                 OutputCampaignIdentifiers(campaignIds);
+
+                // You must include Shopping as a CampaignType, otherwise by default the GetCampaignsByAccountId operation
+                // excludes shopping campaigns from the results.
+                var allCampaigns = await GetCampaignsByAccountIdAsync(
+                    authorizationData.AccountId,
+                    CampaignType.SearchAndContent | CampaignType.Shopping);
 
                 /* Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
                  * Use the product scope criterion to include a subset of your product catalog, for example a specific brand, 
@@ -503,6 +509,21 @@ namespace BingAdsExamples
             return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request)).CampaignIds;
         }
 
+        // Gets campaigns of the specified type for the account.
+
+        private async Task<IList<Campaign>> GetCampaignsByAccountIdAsync(
+            long accountId,
+            CampaignType campaignType)
+        {
+            var request = new GetCampaignsByAccountIdRequest
+            {
+                AccountId = accountId,
+                CampaignType = campaignType
+            };
+
+            return (await Service.CallAsync((s, r) => s.GetCampaignsByAccountIdAsync(r), request)).Campaigns;
+        }
+
         // Deletes one or more campaigns from the specified account.
 
         private void DeleteCampaignsAsync(
@@ -810,7 +831,8 @@ namespace BingAdsExamples
                             Bid = new Bid() {
                                 Amount = bidAmount
                             }
-                        }
+                        },
+                        DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
                     };
                 }
 
@@ -858,7 +880,7 @@ namespace BingAdsExamples
             /// <summary>
             /// Sets the Update action for the specified BiddableAdGroupCriterion, 
             /// and adds it to the helper's list of AdGroupCriterionAction. 
-            /// You can only update the CriterionBid, DestinationUrl, Param1, Param2, and Param3 elements 
+            /// You can only update the CriterionBid and DestinationUrl elements 
             /// of the BiddableAdGroupCriterion. 
             /// When working with product partitions, youu cannot update the Criterion (ProductPartition). 
             /// To update a ProductPartition, you must delete the existing node (DeletePartition) and 

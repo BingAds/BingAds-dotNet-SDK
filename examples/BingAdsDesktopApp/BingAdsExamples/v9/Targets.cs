@@ -7,7 +7,7 @@ using Microsoft.BingAds.CampaignManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to associate targets with a campaign and ad group. 
@@ -21,7 +21,7 @@ namespace BingAdsExamples
 
         public override string Description
         {
-            get { return "Campaign Management | Targets"; }
+            get { return "Targets | Campaign Management V9 (Deprecated)"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -71,6 +71,17 @@ namespace BingAdsExamples
                 var campaignTarget = new Target
                 {
                     Name = "My Campaign Target",
+                    DeviceOS = new DeviceOSTarget
+                    {
+                        Bids = new[]
+                            {
+                                new DeviceOSTargetBid
+                                {
+                                    BidAdjustment = 10,
+                                    DeviceName = "Smartphones",
+                                },
+                            },
+                    },
                     Day = new DayTarget
                     {
                         Bids = new[]
@@ -214,10 +225,10 @@ namespace BingAdsExamples
                         Bids = new[]
                             {
                                 new DeviceOSTargetBid
-                                    {
-                                        BidAdjustment = 20,
-                                        DeviceName = "Tablets",
-                                    }
+                                {
+                                    BidAdjustment = 20,
+                                    DeviceName = "Tablets",
+                                },
                             },
                     },
                     Gender = new GenderTarget
@@ -278,11 +289,11 @@ namespace BingAdsExamples
                                 {
                                     new RadiusTargetBid2
                                         {
-                                            BidAdjustment = 50,
+                                            BidAdjustment = 51,
                                             LatitudeDegrees = 47.755367,
                                             LongitudeDegrees = -122.091827,
                                             Radius = 11,
-                                            RadiusUnit = DistanceUnit.Kilometers
+                                            //RadiusUnit = DistanceUnit.Kilometers
                                         }
                                 }
                         }

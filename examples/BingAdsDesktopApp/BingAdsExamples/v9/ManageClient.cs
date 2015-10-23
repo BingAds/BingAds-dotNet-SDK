@@ -8,7 +8,7 @@ using Microsoft.BingAds.CustomerManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to use agency credentials to invite a client, 
@@ -24,7 +24,7 @@ namespace BingAdsExamples
         
         public override string Description
         {
-            get { return "Customer Management | Manage Client"; }
+            get { return "Manage Client | Customer Management V9"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)

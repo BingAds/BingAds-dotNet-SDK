@@ -8,7 +8,7 @@ using Microsoft.BingAds.CampaignManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to get the budget opportunities which have not expired for the specified account.
@@ -20,7 +20,7 @@ namespace BingAdsExamples
 
         public override string Description
         {
-            get { return "Optimizer | Budget Opportunity and Landscape"; }
+            get { return "Budget Opportunity and Landscape | Optimizer V9 (Deprecated)"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -56,7 +56,9 @@ namespace BingAdsExamples
                     ApplyOpportunitiesAsync(authorizationData.AccountId, opportunityKeys);
                 }
 
-                var campaigns = (Campaign[])await GetCampaignsByAccountIdAsync(authorizationData.AccountId);
+                var campaigns = (Campaign[])await GetCampaignsByAccountIdAsync(
+                    authorizationData.AccountId,
+                    CampaignType.SearchAndContent | CampaignType.Shopping);
                 
                 IList<CampaignBudgetLandscape> campaignBudgetLandscapes = new List<CampaignBudgetLandscape>();
                 IList<string> landscapeKeys = new List<string>();
@@ -121,13 +123,16 @@ namespace BingAdsExamples
             return (await OptimizerService.CallAsync((s, r) => s.GetBudgetOpportunitiesAsync(r), request)).Opportunities;
         }
 
-        // Gets the budget opportunities which have not expired for the specified account.
+        // Gets campaigns of the specified type for the account.
 
-        private async Task<IList<Campaign>> GetCampaignsByAccountIdAsync(long accountId)
+        private async Task<IList<Campaign>> GetCampaignsByAccountIdAsync(
+            long accountId,
+            CampaignType? campaignType)
         {
             var request = new GetCampaignsByAccountIdRequest
             {
-                AccountId = accountId
+                AccountId = accountId,
+                CampaignType = campaignType
             };
 
             return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByAccountIdAsync(r), request)).Campaigns;

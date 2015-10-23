@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to add, get, and delete extensions for an account’s ad extension library, 
@@ -18,10 +18,10 @@ namespace BingAdsExamples
     public class AdExtensions : ExampleBase
     {
         public static ServiceClient<ICampaignManagementService> Service;
-
+                
         public override string Description
         {
-            get { return "Campaign Management | Ad Extensions"; }
+            get { return "Ad Extensions | Campaign Management V9 (Deprecated)"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -114,27 +114,27 @@ namespace BingAdsExamples
                 OutputStatusMessage("Set ad extension associations.\n\n");
 
                 // Get editorial rejection reasons for the respective ad extension and entity associations.
-                var adExtensionEditorialReasonCollection =
-                    (AdExtensionEditorialReasonCollection[])await GetAdExtensionsEditorialReasons(
+                var adExtensionEditorialReasonCollection = 
+                    (AdExtensionEditorialReasonCollection[]) await GetAdExtensionsEditorialReasons(
                         authorizationData.AccountId,
                         adExtensionIdToEntityIdAssociations,
                         AssociationType.Campaign
                         );
 
-                const AdExtensionsTypeFilter adExtensionsTypeFilter = AdExtensionsTypeFilter.AppAdExtension |
+                const AdExtensionsTypeFilter adExtensionsTypeFilter = AdExtensionsTypeFilter.AppAdExtension | 
                                                                       AdExtensionsTypeFilter.CallAdExtension |
                                                                       AdExtensionsTypeFilter.LocationAdExtension |
                                                                       AdExtensionsTypeFilter.SiteLinksAdExtension;
 
                 // Get the specified ad extensions from the account’s ad extension library.
-                adExtensions = (AdExtension[])await GetAdExtensionsByIdsAsync(
+                adExtensions = (AdExtension[]) await GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     adExtensionIds,
                     adExtensionsTypeFilter
                     );
 
                 PrintAdExtensions(adExtensions, adExtensionEditorialReasonCollection);
-
+                
                 // Remove the specified associations from the respective campaigns or ad groups. 
                 // The extesions are still available in the account's extensions library. 
                 DeleteAdExtensionsAssociationsAsync(

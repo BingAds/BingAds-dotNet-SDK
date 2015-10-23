@@ -34,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BingAds">
-      <HintPath>..\packages\Microsoft.BingAds.SDK.9.3.8\lib\net45\Microsoft.BingAds.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -66,12 +63,38 @@
     <Compile Include="BrowserWindow.xaml.cs">
       <DependentUpon>BrowserWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BulkShoppingCampaigns.cs" />
-    <Compile Include="SearchUserAccounts.cs" />
-    <Compile Include="ShoppingCampaigns.cs" />
+    <Compile Include="GeographicalLocations.cs" />
     <Compile Include="StringProtection.cs" />
-    <Compile Include="Targets.cs" />
-    <Compile Include="BulkTargets.cs" />
+    <Compile Include="v10\AdExtensions.cs" />
+    <Compile Include="v10\BudgetOpportunities.cs" />
+    <Compile Include="v10\BulkAdExtensions.cs" />
+    <Compile Include="v10\BulkExampleBase.cs" />
+    <Compile Include="v10\BulkKeywordsAds.cs" />
+    <Compile Include="v10\BulkShoppingCampaigns.cs" />
+    <Compile Include="v10\BulkTargets.cs" />
+    <Compile Include="v10\ExampleBase.cs" />
+    <Compile Include="v10\KeywordsAds.cs" />
+    <Compile Include="v10\NegativeKeywords.cs" />
+    <Compile Include="v10\ShoppingCampaigns.cs" />
+    <Compile Include="v10\Targets.cs" />
+    <Compile Include="v9\AdExtensions.cs" />
+    <Compile Include="v9\BulkAdExtensions.cs" />
+    <Compile Include="v9\BulkExampleBase.cs" />
+    <Compile Include="v9\BulkKeywordsAds.cs" />
+    <Compile Include="v9\BulkServiceClientDownloadUpload.cs" />
+    <Compile Include="v9\BulkShoppingCampaigns.cs" />
+    <Compile Include="v9\BulkTargets.cs" />
+    <Compile Include="v9\EstimatedBid.cs" />
+    <Compile Include="v9\ExampleBase.cs" />
+    <Compile Include="v9\KeywordsAds.cs" />
+    <Compile Include="v9\ManageClient.cs" />
+    <Compile Include="v9\NegativeKeywords.cs" />
+    <Compile Include="v9\OptimizeBudget.cs" />
+    <Compile Include="v9\PerformanceReports.cs" />
+    <Compile Include="v9\ReportRequests.cs" />
+    <Compile Include="v9\SearchUserAccounts.cs" />
+    <Compile Include="v9\ShoppingCampaigns.cs" />
+    <Compile Include="v9\Targets.cs" />
     <Page Include="BrowserWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,27 +103,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AdExtensions.cs" />
-    <Compile Include="BulkAdExtensions.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BulkExampleBase.cs" />
-    <Compile Include="CreateKeywordsAds.cs" />
-    <Compile Include="EstimatedBid.cs" />
     <Compile Include="ExampleBase.cs" />
-    <Compile Include="KeywordPerformance.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ManageClient.cs" />
-    <Compile Include="NegativeKeywords.cs" />
     <Compile Include="OAuthHelper.cs" />
-    <Compile Include="OptimizeBudget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -118,7 +132,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

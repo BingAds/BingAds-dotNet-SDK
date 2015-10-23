@@ -7,19 +7,19 @@ using Microsoft.BingAds.CampaignManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamples
+namespace BingAdsExamples.V9
 {
     /// <summary>
     /// This example demonstrates how to add ads and keywords to a new ad group, 
     /// and handle partial errors when some ads or keywords are not successfully created.
     /// </summary>
-    public class CreateKeywordsAds : ExampleBase
+    public class KeywordsAds : ExampleBase
     {
         public static ServiceClient<ICampaignManagementService> Service;
                
         public override string Description
         {
-            get { return "Campaign Management | Create Ads and Keywords"; }
+            get { return "Keywords and Ads | Campaign Management V9 (Deprecated)"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -37,7 +37,7 @@ namespace BingAdsExamples
                     BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
                     MonthlyBudget = 1000.00,
                     TimeZone = "PacificTimeUSCanadaTijuana",
-                    DaylightSaving = true
+                    DaylightSaving = true,
                 };
 
                 // Specify one or more ad groups.
@@ -52,7 +52,7 @@ namespace BingAdsExamples
                     EndDate = new Date { Month = 12, Day = 31, Year = 2015 },
                     ExactMatchBid = new Bid { Amount = 0.09 },
                     PhraseMatchBid = new Bid { Amount = 0.07 },
-                    Language = "English"
+                    Language = "English",
 
                 };
 
@@ -91,22 +91,35 @@ namespace BingAdsExamples
                 var ads = new Ad[] {
                     new TextAd 
                     {
-                        DestinationUrl = "http://www.contoso.com/womenshoesale",
                         DisplayUrl = "Contoso.com",
                         Text = "Huge Savings on red shoes.",
-                        Title = ""
+                        Title = "",
+                        // Destination URLs are deprecated and will be sunset in March 2016. 
+                        // If you are currently using the Destination URL, you must use Bing Ads 
+                        // Campaign Management service version 10 and upgrade to Final URLs.
+                        // Here is an example of a DestinationUrl in version 9. 
+                        DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
                     },
                     new TextAd {
-                        DestinationUrl = "http://www.contoso.com/womenshoesale",
                         DisplayUrl = "Contoso.com",
                         Text = "Huge Savings on red shoes.",
-                        Title = "Women's Shoe Sale"
+                        Title = "Women's Shoe Sale",
+
+                        // Destination URLs are deprecated and will be sunset in March 2016. 
+                        // If you are currently using the Destination URL, you must use Bing Ads 
+                        // Campaign Management service version 10 and upgrade to Final URLs.
+                        // Here is an example of a DestinationUrl in version 9. 
+                        DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
                     },
                     new TextAd {
-                        DestinationUrl = "http://www.contoso.com/womenshoesale",
                         DisplayUrl = "Contoso.com",
                         Text = "Huge Savings on red shoes.",
-                        Title = "Women's Shoe Sale"
+                        Title = "Women's Shoe Sale",
+                        // Destination URLs are deprecated and will be sunset in March 2016. 
+                        // If you are currently using the Destination URL, you must use Bing Ads 
+                        // Campaign Management service version 10 and upgrade to Final URLs.
+                        // Here is an example of a DestinationUrl in version 9. 
+                        DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
                     }
                 };
 
@@ -118,7 +131,7 @@ namespace BingAdsExamples
                 AddKeywordsResponse addKeywordsResponse = await AddKeywordsAsync(adGroupIds[0], keywords);
                 long?[] keywordIds = addKeywordsResponse.KeywordIds.ToArray();
                 BatchError[] keywordErrors = addKeywordsResponse.PartialErrors.ToArray();
-
+                
                 AddAdsResponse addAdsResponse = await AddAdsAsync(adGroupIds[0], ads);
                 long?[] adIds = addAdsResponse.AdIds.ToArray();
                 BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
@@ -133,6 +146,29 @@ namespace BingAdsExamples
                 PrintKeywordResults(keywords, keywordIds, keywordErrors);
                 PrintAdResults(ads, adIds, adErrors);
 
+                // Here is a simple example that updates the campaign budget
+
+                var updateCampaign = new Campaign
+                {
+                    Id = campaignIds[0],
+                    MonthlyBudget = 500,
+                };
+
+                UpdateCampaignsAsync(authorizationData.AccountId, new[] { updateCampaign });
+
+                // Here is a simple example that updates the keyword bid to use the ad group bid
+
+                var updateKeyword = new Keyword
+                {
+                    // Set Bid.Amount null (new empty Bid) to use the ad group bid.
+                    // If the Bid property is null, your keyword bid will not be updated.
+                    Bid = new Bid(),
+                    Id = keywordIds[1],
+                };
+
+                await GetKeywordsByAdGroupIdAsync(adGroupIds[0]);
+                await UpdateKeywordsAsync(adGroupIds[0], new[] { updateKeyword });
+                await GetKeywordsByAdGroupIdAsync(adGroupIds[0]);
 
                 // Delete the campaign, ad group, keyword, and ad that were previously added. 
                 // You should remove this line if you want to view the added entities in the 
@@ -180,6 +216,19 @@ namespace BingAdsExamples
             return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request)).CampaignIds;
         }
 
+        // Updates one or more campaigns.
+
+        private void UpdateCampaignsAsync(long accountId, IList<Campaign> campaigns)
+        {
+            var request = new UpdateCampaignsRequest
+            {
+                AccountId = accountId,
+                Campaigns = campaigns
+            };
+
+            Service.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
+        }
+
         // Deletes one or more campaigns from the specified account.
 
         private void DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
@@ -193,6 +242,19 @@ namespace BingAdsExamples
             Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
         }
 
+        // Gets one or more campaigns in the specified account.
+
+        private async Task<IList<Campaign>> GetCampaignsByIdsAsync(long accountId, IList<long> campaignIds)
+        {
+            var request = new GetCampaignsByIdsRequest
+            {
+                AccountId = accountId,
+                CampaignIds = campaignIds
+            };
+
+            return (await Service.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request)).Campaigns;
+        }
+
         // Adds one or more ad groups to the specified campaign.
 
         private async Task<IList<long>> AddAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
@@ -202,8 +264,21 @@ namespace BingAdsExamples
                 CampaignId = campaignId,
                 AdGroups = adGroups
             };
-
+            
             return (await Service.CallAsync((s, r) => s.AddAdGroupsAsync(r), request)).AdGroupIds;
+        }
+
+        // Updates one or more ad groups.
+
+        private async Task UpdateAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
+        {
+            var request = new UpdateAdGroupsRequest
+            {
+                CampaignId = campaignId,
+                AdGroups = adGroups
+            };
+
+            await Service.CallAsync((s, r) => s.UpdateAdGroupsAsync(r), request);
         }
 
         // Adds one or more keywords to the specified ad group.
@@ -217,6 +292,29 @@ namespace BingAdsExamples
             };
 
             return (await Service.CallAsync((s, r) => s.AddKeywordsAsync(r), request));
+        }
+
+        // Updates one or more keywords.
+
+        private async Task UpdateKeywordsAsync(long adGroupId, IList<Keyword> keywords)
+        {
+            var request = new UpdateKeywordsRequest
+            {
+                AdGroupId = adGroupId,
+                Keywords = keywords
+            };
+
+           await Service.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
+        }
+
+        private async Task<IList<Keyword>> GetKeywordsByAdGroupIdAsync(long adGroupId)
+        {
+            var request = new GetKeywordsByAdGroupIdRequest
+            {
+                AdGroupId = adGroupId,
+            };
+
+            return (await Service.CallAsync((s, r) => s.GetKeywordsByAdGroupIdAsync(r), request)).Keywords;
         }
 
         // Adds one or more ads to the specified ad group.
