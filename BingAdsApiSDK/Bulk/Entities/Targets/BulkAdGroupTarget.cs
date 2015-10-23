@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -65,7 +65,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// When requesting downloaded entities of type <see cref="BulkAdGroupTarget"/>, the results will include 
     /// Ad Group Age Target, Ad Group DayTime Target, Ad Group DeviceOS Target, Ad Group Gender Target, Ad Group Location Target, 
     /// Ad Group Negative Location Target, and Ad Group Radius Target records. 
-    /// For more information, see Bulk File Schema at http://go.microsoft.com/fwlink/?LinkID=511639. 
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511639">Bulk File Schema</see>. 
     /// </para>
     /// <para>
     /// For upload you must set the <see cref="Target2"/> object, which will effectively replace any existing bids for the corresponding target.

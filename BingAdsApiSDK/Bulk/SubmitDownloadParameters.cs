@@ -1,5 +1,5 @@
 //=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -59,19 +59,19 @@ namespace Microsoft.BingAds.Bulk
     {
         /// <summary>
         /// The scope or types of data to download. 
-        /// For possible values, see DataScope Value Set at http://go.microsoft.com/fwlink/?LinkId=511670.
+        /// For possible values, see <see href="http://go.microsoft.com/fwlink/?LinkId=511670">DataScope Value Set</see>.
         /// </summary>
         public DataScope DataScope { get; set; }
 
         /// <summary>
         /// The type of entities to download.
-        /// For possible values, see BulkDownloadEntity Value Set at http://go.microsoft.com/fwlink/?LinkId=511671.
+        /// For possible values, see <see href="http://go.microsoft.com/fwlink/?LinkId=511671">BulkDownloadEntity Value Set</see>.
         /// </summary>
         public BulkDownloadEntity Entities { get; set; }
 
         /// <summary>
         /// The extension type of the downloaded file.
-        /// For possible values, see DownloadFileType Value Set at http://go.microsoft.com/fwlink/?LinkId=511672.
+        /// For possible values, see <see href="http://go.microsoft.com/fwlink/?LinkId=511672">DownloadFileType Value Set</see>.
         /// </summary>
         public DownloadFileType FileType { get; set; }
 
@@ -91,7 +91,7 @@ namespace Microsoft.BingAds.Bulk
 
         /// <summary>
         /// The date range values for the requested performance data in a bulk download.
-        /// For possible values, see PerformanceStatsDateRange Data Object at http://go.microsoft.com/fwlink/?LinkId=511673.
+        /// For possible values, see <see href="http://go.microsoft.com/fwlink/?LinkId=511673">PerformanceStatsDateRange Data Object</see>.
         /// </summary>
         public PerformanceStatsDateRange PerformanceStatsDateRange { get; set; }
 

@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents one day and time target bid within a day and time target that is associated with a campaign. 
     /// This class exposes the <see cref="BulkDayTimeTargetBid.DayTimeTargetBid"/> property that can be read and written as fields of the Campaign DayTime Target record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Campaign DayTime Target at http://go.microsoft.com/fwlink/?LinkID=512016. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=512016">Campaign DayTime Target</see>. </para>
     /// </summary>
     /// <remarks>
     /// One <see cref="BulkCampaignDayTimeTarget"/> exposes a read only list of <see cref="BulkCampaignDayTimeTargetBid"/>. Each <see cref="BulkCampaignDayTimeTargetBid"/> instance 

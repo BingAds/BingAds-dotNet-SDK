@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -67,7 +67,7 @@ namespace Microsoft.BingAds.Bulk.Entities
         /// <see cref="BulkFileReader"/> when reading the corresponding <see cref="BulkKeyword"/>. 
         /// An instance of this class can represent a single best position bid, and thus one record in the bulk file. 
         /// Properties of this class and of classes that it is derived from, correspond to fields of the Keyword Best Position Bid record in a bulk file.
-        /// For more information, see Keyword Best Position Bid at http://go.microsoft.com/fwlink/?LinkID=511557. 
+        /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511557">Keyword Best Position Bid</see>. 
         /// </summary>
         public BulkKeywordBidSuggestion BestPosition { get; internal set; }
 
@@ -76,7 +76,7 @@ namespace Microsoft.BingAds.Bulk.Entities
         /// <see cref="BulkFileReader"/> when reading the corresponding <see cref="BulkKeyword"/>. 
         /// An instance of this class can represent a single main line bid, and thus one record in the bulk file. 
         /// Properties of this class and of classes that it is derived from, correspond to fields of the Keyword Main Line Bid record in a bulk file.
-        /// For more information, see Keyword Main Line Bid at http://go.microsoft.com/fwlink/?LinkID=511558. 
+        /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511558">Keyword Main Line Bid</see>. 
         /// </summary>
         public BulkKeywordBidSuggestion MainLine { get; internal set; }
 
@@ -85,7 +85,7 @@ namespace Microsoft.BingAds.Bulk.Entities
         /// <see cref="BulkFileReader"/> when reading the corresponding <see cref="BulkKeyword"/>. 
         /// An instance of this class can represent a single first page bid, and thus one record in the bulk file. 
         /// Properties of this class and of classes that it is derived from, correspond to fields of the Keyword First Page Bid record in a bulk file.
-        /// For more information, see Keyword First Page Bid at http://go.microsoft.com/fwlink/?LinkID=511559. 
+        /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511559">Keyword First Page Bid</see>. 
         /// </summary>
         public BulkKeywordBidSuggestion FirstPage { get; internal set; }
     }

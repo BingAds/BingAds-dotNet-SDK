@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -55,7 +55,7 @@ namespace Microsoft.BingAds.Internal.Bulk
     /// <summary>
     /// The abstract base class for all bulk objects that can be read and written in a file 
     /// that conforms to the Bing Ad Bulk File Schema. 
-    /// For more information about the Bulk File Schema, see http://go.microsoft.com/fwlink/?LinkID=511639.
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511639">Bulk File Schema</see>.
     /// </summary>
     public abstract class BulkObject
     {

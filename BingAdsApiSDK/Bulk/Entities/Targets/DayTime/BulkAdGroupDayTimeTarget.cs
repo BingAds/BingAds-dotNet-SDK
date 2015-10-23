@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -64,7 +64,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// then you are effectively replacing any existing bids for the corresponding day and time target. 
     /// </para>
     /// <para>Properties of this class and of classes that it is derived from, correspond to fields of the Ad Group DayTime Target record in a bulk file.
-    /// For more information, see Ad Group DayTime Target at http://go.microsoft.com/fwlink/?LinkID=512015. </para>
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=512015">Ad Group DayTime Target</see>. </para>
     /// </remarks>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

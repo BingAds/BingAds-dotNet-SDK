@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -56,7 +56,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 {
     /// <summary>
     /// <para>This abstract class provides properties that are shared by all bulk ad extension association classes.</para>
-    /// <para>For more information, see Bulk File Schema at http://go.microsoft.com/fwlink/?LinkID=511639.</para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511639">Bulk File Schema</see>.</para>
     /// </summary>
     public abstract class BulkAdExtensionAssociation : SingleRecordBulkEntity
     {
@@ -73,7 +73,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
         public AdExtensionIdToEntityIdAssociation AdExtensionIdToEntityIdAssociation { get; set; }        
 
         /// <summary>
-        /// The editorial status of the ad extension and associated entity. For more information, see AdExtensionEditorialStatus at http://go.microsoft.com/fwlink/?LinkId=511866.
+        /// The editorial status of the ad extension and associated entity. For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=511866">AdExtensionEditorialStatus</see>.
         /// Corresponds to the 'Editorial Status' field in the bulk file. 
         /// </summary>
         public AdExtensionEditorialStatus? EditorialStatus { get; internal set; }

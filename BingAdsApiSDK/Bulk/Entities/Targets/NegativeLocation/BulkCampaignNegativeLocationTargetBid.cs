@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents one sub location negative target bid within a negative location target that is associated with a campaign. 
     /// This class exposes properties that can be read and written as fields of the Campaign Negative Location Target record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Campaign Negative Location Target at http://go.microsoft.com/fwlink/?LinkID=511526. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511526">Campaign Negative Location Target</see>. </para>
     /// </summary>
     /// <remarks>
     /// <para>Each negative location sub type contains a list of bids. For example <see cref="BulkLocationTargetWithStringLocation{TBid}.CityTarget"/> contains a list of <see cref="CityTargetBid"/>. 

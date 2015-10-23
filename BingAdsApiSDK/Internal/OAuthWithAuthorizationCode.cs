@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -58,10 +58,11 @@ namespace Microsoft.BingAds.Internal
 {
     /// <summary>
     /// Represents a proxy to the Microsoft account authorization service. 
-    /// Implement an extension of this class in compliance with the authorization code grant flow for Managing User Authentication with OAuth 
-    /// documented at http://go.microsoft.com/fwlink/?LinkID=511609. This is a standard OAuth 2.0 flow and is defined in detail in the 
-    /// Authorization Code Grant section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1.
-    /// For more information about registering a Bing Ads application, see http://go.microsoft.com/fwlink/?LinkID=511607. 
+    /// Implement an extension of this class in compliance with the authorization code grant flow for 
+    /// <see href="http://go.microsoft.com/fwlink/?LinkID=511609">Managing User Authentication with OAuth 
+    /// documented</see>. This is a standard OAuth 2.0 flow and is defined in detail in the 
+    /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1">Authorization Code Grant section of the OAuth 2.0 spec</see>.
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511607">registering a Bing Ads application</see>. 
     /// </summary>
     public abstract class OAuthWithAuthorizationCode : OAuthAuthorization
     {
@@ -109,12 +110,12 @@ namespace Microsoft.BingAds.Internal
         /// </param>
         /// <remarks>
         /// <para>
-        /// For more information about using a client identifier for authentication, see the 
-        /// Client Password Authentication section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1
+        /// For more information about using a client identifier for authentication, see 
+        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see the Redirection Uri section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1.
+        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
         protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, string refreshToken)
@@ -142,12 +143,11 @@ namespace Microsoft.BingAds.Internal
         /// </param>
         /// <remarks>
         /// <para>
-        /// For more information about using a client identifier for authentication, see the 
-        /// Client Password Authentication section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1
+        /// For more information about using a client identifier for authentication, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see the Redirection Uri section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1.
+        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
         protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri)
@@ -191,7 +191,7 @@ namespace Microsoft.BingAds.Internal
         /// The authorization response redirect <see cref="Uri"/> that contains the authorization code.        
         /// </param>
         /// <remarks>
-        /// For more information, see the Authorization Response section in the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1.2.
+        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1.2">Authorization Response section in the OAuth 2.0 spec</see>.
         /// </remarks>
         /// <returns>A task that represents the asynchronous operation. The task result will be an <see cref="OAuthTokens"/> object.</returns>      
         /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be received due to an error received from the Microsoft Account authorization server.</exception>  
@@ -250,7 +250,7 @@ namespace Microsoft.BingAds.Internal
         /// The refresh token used to request new access and refresh tokens.        
         /// </param>
         /// <remarks>
-        /// For more information, see the Refreshing an Access Token section in the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-6.
+        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-6">Refreshing an Access Token section in the OAuth 2.0 spec</see>.
         /// </remarks>
         /// <returns>A task that represents the asynchronous operation. The task result will be an <see cref="OAuthTokens"/> object.</returns>        
         /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be received due to an error received from the Microsoft Account authorization server.</exception>

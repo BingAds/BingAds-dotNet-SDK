@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -61,7 +61,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents a negative keyword list that can be read or written in a bulk file. 
     /// This class exposes the <see cref="BulkNegativeKeywordList.NegativeKeywordList"/> property that can be read and written as fields of the Negative Keyword List record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Negative Keyword List at http://go.microsoft.com/fwlink/?LinkID=511519. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511519">Negative Keyword List</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -64,7 +64,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// This class exposes the <see cref="BulkSiteLinkAdExtension.SiteLinksAdExtension"/> property that can be read and written 
     /// as fields of the Sitelink Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Sitelink Ad Extension at http://go.microsoft.com/fwlink/?LinkID=511517. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511517">Sitelink Ad Extension</see>. </para>
     /// </summary>
     /// <remarks>
     /// <para>

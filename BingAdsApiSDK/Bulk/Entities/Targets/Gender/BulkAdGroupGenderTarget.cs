@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -61,7 +61,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// One <see cref="BulkAdGroupGenderTarget"/> exposes a read only list of <see cref="BulkAdGroupGenderTargetBid"/>. Each <see cref="BulkAdGroupGenderTargetBid"/> instance 
     /// corresponds to one Ad Group Gender Target record in the bulk file. If you upload a <see cref="BulkAdGroupGenderTarget"/>, 
     /// then you are effectively replacing any existing bids for the corresponding gender target. 
-    /// <para>For more information, see Ad Group Gender Target at http://go.microsoft.com/fwlink/?LinkID=511544. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511544">Ad Group Gender Target</see>. </para>
     /// </remarks>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

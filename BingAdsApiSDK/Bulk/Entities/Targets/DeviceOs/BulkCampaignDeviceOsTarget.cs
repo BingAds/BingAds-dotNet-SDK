@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -61,7 +61,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// One <see cref="BulkCampaignDeviceOsTarget"/> exposes a read only list of <see cref="BulkCampaignDeviceOsTargetBid"/>. Each <see cref="BulkCampaignDeviceOsTargetBid"/> instance 
     /// corresponds to one Campaign DeviceOS Target record in the bulk file. If you upload a <see cref="BulkCampaignDeviceOsTarget"/>, 
     /// then you are effectively replacing any existing bids for the corresponding device OS target. 
-    /// <para>For more information, see Campaign DeviceOS Target at http://go.microsoft.com/fwlink/?LinkID=511529. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511529">Campaign DeviceOS Target</see>. </para>
     /// </remarks>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

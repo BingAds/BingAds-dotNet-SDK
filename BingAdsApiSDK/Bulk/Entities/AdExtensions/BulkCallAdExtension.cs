@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -62,7 +62,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// This class exposes the <see cref="BulkCallAdExtension.CallAdExtension"/> property that can be read and written 
     /// as fields of the Call Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Call Ad Extension at http://go.microsoft.com/fwlink/?LinkID=511514. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511514">Call Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

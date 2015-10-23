@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -57,7 +57,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents a negative site that is assigned to a campaign. Each negative site can be read or written in a bulk file. 
     /// This class exposes properties that can be read and written as fields of the Campaign Negative Site record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Campaign Negative Site at http://go.microsoft.com/fwlink/?LinkID=511524. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511524">Campaign Negative Site</see>. </para>
     /// </summary>
     /// <remarks>
     /// One <see cref="BulkCampaignNegativeSites"/> has one or more <see cref="BulkCampaignNegativeSite"/>. Each <see cref="BulkCampaignNegativeSite"/> instance 

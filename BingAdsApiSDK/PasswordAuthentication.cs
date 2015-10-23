@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -90,8 +90,8 @@ namespace Microsoft.BingAds
         /// <param name="apiRequest">The Bing Ads service operation request object.
         /// </param>
         /// <remarks>
-        /// For example, <paramref name="apiRequest"/> can be the GetUserRequest message of the GetUser service operation. 
-        /// For more information about GetUser, see http://go.microsoft.com/fwlink/?LinkID=511603. 
+        /// For example, <paramref name="apiRequest"/> can be the GetUserRequest message of the 
+        /// <see href="http://go.microsoft.com/fwlink/?LinkID=511603">GetUser</see> service operation.
         /// </remarks>
         protected internal override void SetAuthenticationFieldsOnApiRequestObject(dynamic apiRequest)
         {

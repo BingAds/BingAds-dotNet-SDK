@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -56,7 +56,7 @@ namespace Microsoft.BingAds.Bulk.Entities
 {
     /// <summary>
     /// The abstract base class for all bulk entities that can be read or written in a bulk file. 
-    /// For more information, see Bulk File Schema at http://go.microsoft.com/fwlink/?LinkID=511639. 
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511639">Bulk File Schema</see>. 
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

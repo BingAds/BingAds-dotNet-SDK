@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents one gender target bid within a gender target that is associated with a campaign. 
     /// This class exposes the <see cref="BulkGenderTargetBid.GenderTargetBid"/> property that can be read and written as fields of the Campaign Gender Target record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Campaign Gender Target at http://go.microsoft.com/fwlink/?LinkID=511528. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511528">Campaign Gender Target</see>. </para>
     /// </summary>
     /// <remarks>
     /// One <see cref="BulkCampaignGenderTarget"/> exposes a read only list of <see cref="BulkCampaignGenderTargetBid"/>. Each <see cref="BulkCampaignGenderTargetBid"/> instance 

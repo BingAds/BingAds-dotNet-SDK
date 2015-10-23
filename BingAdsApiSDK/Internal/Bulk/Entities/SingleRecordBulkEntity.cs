@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -57,7 +57,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
     /// <summary>
     /// Bulk entity that has its data in a single record within the bulk file.
     /// For example, <see cref="BulkCampaign"/> and <see cref="BulkSiteLink"/> are single record bulk entities.
-    /// For more information, see Bulk File Schema at http://go.microsoft.com/fwlink/?LinkID=511639.
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511639">Bulk File Schema</see>.
     /// </summary>
     public abstract class SingleRecordBulkEntity : BulkEntity
     {
@@ -81,7 +81,7 @@ namespace Microsoft.BingAds.Internal.Bulk.Entities
 
         /// <summary>
         /// A read only list of <see cref="BulkError"/> details in a seperate bulk record that corresponds to the record of a <see cref="BulkEntity"/> derived instance. 
-        /// For more information, see Bulk File Schema at http://go.microsoft.com/fwlink/?LinkID=511639.
+        /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511639">Bulk File Schema</see>.
         /// </summary>
         public IReadOnlyList<BulkError> Errors { get; private set; }
 

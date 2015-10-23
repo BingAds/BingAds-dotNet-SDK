@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -63,7 +63,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// corresponds to one Ad Group Age Target record in the bulk file. If you upload a <see cref="BulkAdGroupAgeTarget"/>, 
     /// then you are effectively replacing any existing bids for the corresponding age target. 
     /// </para>
-    /// <para>For more information, see Ad Group Age Target at http://go.microsoft.com/fwlink/?LinkID=511546. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511546">Ad Group Age Target</see>. </para>
     /// </remarks>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

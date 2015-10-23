@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents one age target bid within an age target that is associated with an ad group.  
     /// This class exposes the <see cref="BulkAgeTargetBid.AgeTargetBid"/> property that can be read and written as fields of the Ad Group Age Target record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Ad Group Age Target at http://go.microsoft.com/fwlink/?LinkID=511546. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511546">Ad Group Age Target</see>. </para>
     /// </summary>
     /// <remarks>
     /// One <see cref="BulkAdGroupAgeTarget"/> exposes a read only list of <see cref="BulkAdGroupAgeTargetBid"/>. Each <see cref="BulkAdGroupAgeTargetBid"/> instance 

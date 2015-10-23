@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -67,8 +67,9 @@ namespace Microsoft.BingAds
         /// <summary>
         /// Sets the required SOAP header elements for the corresponding Bing Ads service operation. 
         /// </summary>
-        /// <param name="apiRequest">The Bing Ads service operation request object. For example, this object can be the 
-        /// GetUserRequest message of the GetUser service operation. For more information about GetUser, see http://go.microsoft.com/fwlink/?LinkID=511603. </param>
+        /// <param name="apiRequest">The Bing Ads service operation request object. For example,
+        /// this object can be the GetUserRequest message of the <see href="http://go.microsoft.com/fwlink/?LinkID=511603">GetUser</see> service operation.
+        /// </param>
         /// <remarks>
         /// The header elements that the method sets will differ depending on the type of authentication. 
         /// For example if you use one of the OAuth classes, the AuthenticationToken header will be set by this method, 

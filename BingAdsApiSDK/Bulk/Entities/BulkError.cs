@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -56,7 +56,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// <summary>
     /// Contains bulk file error details in a seperate record that corresponds to the record of a <see cref="BulkEntity"/> derived instance. 
     /// Properties of this class and of classes that it is derived from, correspond to error fields of the 'Error' records in a bulk file.
-    /// For more information, see Bulk File Schema at http://go.microsoft.com/fwlink/?LinkID=511639.
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511639">Bulk File Schema</see>.
     /// </summary>
     /// <example>
     /// If you upload a <see cref="BulkCampaign"/> without setting the campaign name 
@@ -71,14 +71,14 @@ namespace Microsoft.BingAds.Bulk.Entities
         /// <summary>
         /// The error code, for example 'CampaignServiceEditorialValidationError'.
         /// Corresponds to the 'Error' field in the bulk file. 
-        /// For more information, see Bing Ads Operation Error Codes at http://go.microsoft.com/fwlink/?LinkId=511884.
+        /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=511884">Bing Ads Operation Error Codes</see>.
         /// </summary>
         public string Error { get; private set; }
 
         /// <summary>
         /// The error number, for example '1042'.
         /// Corresponds to the 'Error Number' field in the bulk file. 
-        /// For more information, see Bing Ads Operation Error Codes at http://go.microsoft.com/fwlink/?LinkId=511884.
+        /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=511884">Bing Ads Operation Error Codes</see>.
         /// </summary>
         public int Number { get; private set; }
 
@@ -97,7 +97,7 @@ namespace Microsoft.BingAds.Bulk.Entities
         /// <summary>
         /// The term that resulted in the editorial error, for example '17'.
         /// Corresponds to the 'Editorial Reason Code' field in the bulk file. 
-        /// For more information, see Bing Ads Editorial Failure Reason Codes at http://go.microsoft.com/fwlink/?LinkId=511883.
+        /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=511883">Bing Ads Editorial Failure Reason Codes</see>.
         /// </summary>
         public int? EditorialReasonCode { get; private set; }
 

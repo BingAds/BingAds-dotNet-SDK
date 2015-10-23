@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -61,7 +61,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents an ad group product target. 
     /// This class exposes the <see cref="BulkAdGroupProductTarget.BiddableAdGroupCriterion"/> property that can be read and written as fields of the Ad Group Product Target record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Ad Group Product Target at http://go.microsoft.com/fwlink/?LinkID=511550. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511550">Ad Group Product Target</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
@@ -71,7 +71,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     {
         /// <summary>
         /// The BiddableAdGroupCriterion Data Object of the Campaign Management Service. A subset of BiddableAdGroupCriterion properties are available 
-        /// in the Ad Group Product Target record. For more information, see Ad Group Product Target at http://go.microsoft.com/fwlink/?LinkID=511550.
+        /// in the Ad Group Product Target record. For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511550">Ad Group Product Target</see>.
         /// </summary>
         public BiddableAdGroupCriterion BiddableAdGroupCriterion { get; set; }
 

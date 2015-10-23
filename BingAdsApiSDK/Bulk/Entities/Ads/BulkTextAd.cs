@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -61,7 +61,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents a text ad. 
     /// This class exposes the <see cref="BulkTextAd.TextAd"/> property that can be read and written as fields of the Text Ad record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Text Ad at http://go.microsoft.com/fwlink/?LinkID=511554. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511554">Text Ad</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

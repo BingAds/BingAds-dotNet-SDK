@@ -1,5 +1,5 @@
 //=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -63,7 +63,7 @@ namespace Microsoft.BingAds.Internal.Bulk
     {
         /// <summary>
         /// Determines whether the bulk service should return upload errors with the corresponding <see cref="BulkEntity"/> data.
-        /// For possible values, see ResponseMode Value Set at http://go.microsoft.com/fwlink/?LinkId=511681.
+        /// For possible values, see <see href="http://go.microsoft.com/fwlink/?LinkId=511681">ResponseMode Value Set</see>.
         /// </summary>
         /// <remarks>If not specified, this property is set by default to ErrorsAndResults.</remarks>
         public ResponseMode ResponseMode { get; set; }

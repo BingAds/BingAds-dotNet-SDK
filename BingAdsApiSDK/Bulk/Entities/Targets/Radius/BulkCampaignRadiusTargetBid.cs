@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -57,7 +57,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents one radius target bid within a radius target that is associated with a campaign. 
     /// This class exposes the <see cref="BulkRadiusTargetBid.RadiusTargetBid"/> property that can be read and written as fields of the Campaign Radius Target record in a bulk file. 
     /// </para>
-    /// <para>For more information, see Campaign Radius Target at http://go.microsoft.com/fwlink/?LinkID=511527. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511527">Campaign Radius Target</see>. </para>
     /// </summary>
     /// <remarks>
     /// One <see cref="BulkCampaignRadiusTarget"/> exposes a read only list of <see cref="BulkCampaignRadiusTargetBid"/>. Each <see cref="BulkCampaignRadiusTargetBid"/> instance 

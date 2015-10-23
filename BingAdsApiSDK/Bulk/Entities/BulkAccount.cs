@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -60,7 +60,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// Represents an account that can be read or written in a bulk file. 
     /// </para>
     /// <para>Properties of this class and of classes that it is derived from, correspond to fields of the Account record in a bulk file.
-    /// For more information, see Account at http://go.microsoft.com/fwlink/?LinkID=511513. </para>
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511513">Account</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

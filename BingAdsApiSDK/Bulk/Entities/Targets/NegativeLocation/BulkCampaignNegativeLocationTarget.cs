@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -67,7 +67,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// <para>
     /// The <see cref="BulkLocationTargetBidWithStringLocation.LocationType"/> property determines the geographical location sub type.
     /// </para>
-    /// <para>For more information, see Campaign Negative Location Target at http://go.microsoft.com/fwlink/?LinkID=511526. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511526">Campaign Negative Location Target</see>. </para>
     /// </remarks>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

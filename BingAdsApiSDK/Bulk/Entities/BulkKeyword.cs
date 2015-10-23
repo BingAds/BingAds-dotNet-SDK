@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -61,7 +61,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// This class exposes the <see cref="BulkKeyword.Keyword"/> property that can be read and written as fields of the Keyword record in a bulk file. 
     /// </para>
     /// <para>Properties of this class and of classes that it is derived from, correspond to fields of the Keyword record in a bulk file.
-    /// For more information, see Keyword at http://go.microsoft.com/fwlink/?LinkID=511556. </para>
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511556">Keyword</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

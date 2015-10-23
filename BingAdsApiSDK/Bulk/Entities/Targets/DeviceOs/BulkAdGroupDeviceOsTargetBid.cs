@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -59,7 +59,7 @@ namespace Microsoft.BingAds.Bulk.Entities
     /// This class exposes the <see cref="BulkDeviceOsTargetBid.DeviceOsTargetBid"/> property that can be read and written as fields of the Ad Group DeviceOS Target record in a bulk file. 
     /// </para>
     /// <para>
-    /// For more information, see Ad Group DeviceOS Target at http://go.microsoft.com/fwlink/?LinkID=511529. </para>
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511529">Ad Group DeviceOS Target</see>. </para>
     /// </summary>
     /// <remarks>
     /// One <see cref="BulkAdGroupDeviceOsTarget"/> exposes a read only list of <see cref="BulkAdGroupDeviceOsTargetBid"/>. Each <see cref="BulkAdGroupDeviceOsTargetBid"/> instance 

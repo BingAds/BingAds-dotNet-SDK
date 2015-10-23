@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -57,15 +57,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-
 #pragma warning disable 1573
 #pragma warning disable 1591
+#pragma warning disable 3005
 
 namespace Microsoft.BingAds.AdIntelligence
 {
-    
-    
+
+
     /// <summary>
     /// Defines the possible time periods that determine the pool of data that the service uses to get the performance statistics of a keyword.
     /// </summary>
@@ -74,53 +73,53 @@ namespace Microsoft.BingAds.AdIntelligence
     /// <para>Used by <see cref="AdIntelligenceServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> and <see cref="AdIntelligenceServiceClient.GetPublisherKeywordPerformance">GetPublisherKeywordPerformance</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TimeInterval", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "TimeInterval", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum TimeInterval : int
     {
-        
+
         /// <summary>
         /// Use data from the previous calendar month. Note that it can take up to 72 hours for the previous calendar month's data to be available. For example, if you request data on August 1st, 2nd or 3rd, and July's data is not ready, the response will be based on June's data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Last30Days = 0,
-        
+
         /// <summary>
-        /// Use data from last week, Sunday through Saturday.
+        /// Use data from last week, Sunday through Saturday. The data is refreshed every Sunday. Note that it can take up to 72 hours for the previous week's data to be available. For example, if you request data on the 4th Monday of the month, and data for the 3rd Sunday through 3rd Saturday is not ready, the response will be based on data for the 2nd Sunday through 2nd Saturday.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Last7Days = 1,
-        
+
         /// <summary>
-        /// Use data from yesterday.
+        /// Use data from yesterday. If data from yesterday is not yet available, data from the most recently completed day is provided. Note that it can take up to 72 hours for the most recent day's data to be available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastDay = 2,
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordPerformance", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordPerformance", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordPerformance : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AverageCpcField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.AdIntelligence.Scale> ImpressionsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.AdIntelligence.Scale> BidDensityField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -132,7 +131,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Keyword
         {
@@ -149,8 +148,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public double AverageCpc
         {
             get
@@ -166,8 +165,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Nullable<Microsoft.BingAds.AdIntelligence.Scale> Impressions
         {
             get
@@ -183,8 +182,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public System.Nullable<Microsoft.BingAds.AdIntelligence.Scale> BidDensity
         {
             get
@@ -200,9 +199,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -212,29 +211,29 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Scale", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "Scale", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum Scale : int
     {
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Minimal = 0,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Low = 1,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Medium = 2,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         High = 3,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VeryHigh = 4,
     }
-    
+
     /// <summary>
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
@@ -243,19 +242,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ApplicationFault", Namespace="https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name = "ApplicationFault", Namespace = "https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail))]
     public partial class ApplicationFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrackingIdField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -267,7 +266,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The identifier of the log entry that contains the details of the API call.
         /// </summary>
@@ -287,9 +286,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -299,7 +298,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
@@ -308,14 +307,14 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     public partial class AdApiFaultDetail : Microsoft.BingAds.AdIntelligence.ApplicationFault
     {
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AdApiError> ErrorsField;
-        
+
         /// <summary>
         /// An array of AdApiError objects that contains the details that explain why the service operation failed.
         /// </summary>
@@ -336,7 +335,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
@@ -345,17 +344,17 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ApiFaultDetail", Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name = "ApiFaultDetail", Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
     [System.SerializableAttribute()]
     public partial class ApiFaultDetail : Microsoft.BingAds.AdIntelligence.ApplicationFault
     {
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.BatchError> BatchErrorsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.OperationError> OperationErrorsField;
-        
+
         /// <summary>
         /// An array of BatchError objects that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
         /// </summary>
@@ -375,7 +374,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An array of OperationError objects that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
         /// </summary>
@@ -396,7 +395,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
@@ -406,29 +405,29 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BatchError", Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name = "BatchError", Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
     [System.SerializableAttribute()]
     public partial class BatchError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ErrorCodeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IndexField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -440,7 +439,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// A numeric error code that identifies the error.
         /// </summary>
@@ -460,7 +459,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A message that provides additional details about the batch error. This string can be empty.
         /// </summary>
@@ -480,7 +479,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
         /// </summary>
@@ -500,7 +499,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The zero-based index of the item in the batch of items in the request message that failed.
         /// </summary>
@@ -520,7 +519,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -540,9 +539,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -552,7 +551,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
@@ -562,26 +561,26 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OperationError", Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name = "OperationError", Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
     [System.SerializableAttribute()]
     public partial class OperationError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ErrorCodeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -593,7 +592,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// A numeric error code that identifies the error
         /// </summary>
@@ -613,7 +612,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A message that provides additional details about the error. This string can be empty.
         /// </summary>
@@ -633,7 +632,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
         /// </summary>
@@ -653,7 +652,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -673,9 +672,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -685,7 +684,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
@@ -695,26 +694,26 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AdApiError", Namespace = "https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     public partial class AdApiError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ErrorCodeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -726,7 +725,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// A numeric error code that identifies the error.
         /// </summary>
@@ -746,7 +745,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A message that contains additional details about the error. This string can be empty.
         /// </summary>
@@ -766,7 +765,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
         /// </summary>
@@ -786,7 +785,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -806,9 +805,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -818,7 +817,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains a suggested keyword and a confidence score. The confidence score indicates the probability that the keyword would match a user's search query.
     /// </summary>
@@ -829,21 +828,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordAndConfidence", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordAndConfidence", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordAndConfidence : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SuggestedKeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ConfidenceScoreField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -855,7 +854,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The suggested keyword.
         /// </summary>
@@ -875,11 +874,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A score from 0.0 to 1.0 that indicates the probability that the keyword would match a user's search query.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public double ConfidenceScore
         {
             get
@@ -895,9 +894,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -907,7 +906,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines the possible positions where you can target an ad to appear in the search results or on a content-based webpage.
     /// </summary>
@@ -916,30 +915,30 @@ namespace Microsoft.BingAds.AdIntelligence
     /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywordIds">GetEstimatedBidByKeywordIds</see> and <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TargetAdPosition", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "TargetAdPosition", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum TargetAdPosition : int
     {
-        
+
         /// <summary>
         /// Target the first position at the top of the search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainLine1 = 0,
-        
+
         /// <summary>
         /// Target the second, third, and fourth positions at the top of the search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainLine = 1,
-        
+
         /// <summary>
         /// Target any position on the right side of the search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar = 2,
     }
-    
+
     /// <summary>
     /// Defines an object that contains the identifier of the keyword and the suggested bid value for the keyword and match type.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -951,21 +950,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordIdEstimatedBid", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordIdEstimatedBid", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordIdEstimatedBid : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long KeywordIdField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.KeywordEstimatedBid KeywordEstimatedBidField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -977,7 +976,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The identifier of the keyword to which the suggested bid applies.
         /// </summary>
@@ -997,11 +996,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An object that contains the keyword string and the suggested bid value for each match type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public Microsoft.BingAds.AdIntelligence.KeywordEstimatedBid KeywordEstimatedBid
         {
             get
@@ -1017,9 +1016,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1029,7 +1028,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the keyword and the estimated bid value for each match type.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -1041,21 +1040,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordEstimatedBid", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordEstimatedBid", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordEstimatedBid : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.EstimatedBidAndTraffic> EstimatedBidsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1067,7 +1066,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword to which the estimates apply.
         /// </summary>
@@ -1087,11 +1086,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A list of EstimatedBidAndTraffic objects that contains the suggested bid value for the keyword and match type. If there is data available for the keyword, the EstimatedBidAndTraffic object will provide an estimated bid value. Otherwise, if no data is available the EstimatedBids element will be null.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.EstimatedBidAndTraffic> EstimatedBids
         {
             get
@@ -1107,9 +1106,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1119,7 +1118,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains estimates of clicks, average cost per click (CPC), impressions, click-through rate (CTR), and total cost for the specified keyword given the suggested bid.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -1130,48 +1129,48 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EstimatedBidAndTraffic", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "EstimatedBidAndTraffic", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class EstimatedBidAndTraffic : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.MatchType MatchTypeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> MinClicksPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> MaxClicksPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> AverageCPCField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> MinImpressionsPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> MaxImpressionsPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> CTRField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> MinTotalCostPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> MaxTotalCostPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.Currency CurrencyField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedMinBidField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1183,7 +1182,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword match type used to determine the estimates.
         /// </summary>
@@ -1203,7 +1202,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum number of clicks per week.
         /// </summary>
@@ -1223,11 +1222,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum number of clicks per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Nullable<double> MaxClicksPerWeek
         {
             get
@@ -1243,11 +1242,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated average CPC.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public System.Nullable<double> AverageCPC
         {
             get
@@ -1263,11 +1262,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum number of impressions per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 4)]
         public System.Nullable<long> MinImpressionsPerWeek
         {
             get
@@ -1283,11 +1282,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum number of impressions per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 5)]
         public System.Nullable<long> MaxImpressionsPerWeek
         {
             get
@@ -1303,11 +1302,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated CTR.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 6)]
         public System.Nullable<double> CTR
         {
             get
@@ -1323,11 +1322,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum cost per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 7)]
         public System.Nullable<double> MinTotalCostPerWeek
         {
             get
@@ -1343,11 +1342,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum cost per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 8)]
         public System.Nullable<double> MaxTotalCostPerWeek
         {
             get
@@ -1363,11 +1362,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The monetary unit of the cost estimates and suggested bid value.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 9)]
         public Microsoft.BingAds.AdIntelligence.Currency Currency
         {
             get
@@ -1383,11 +1382,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The suggested bid value.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 10)]
         public double EstimatedMinBid
         {
             get
@@ -1403,9 +1402,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1415,7 +1414,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines the possible keyword match type values.
     /// </summary>
@@ -1425,42 +1424,42 @@ namespace Microsoft.BingAds.AdIntelligence
     /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> and <see cref="AdIntelligenceServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MatchType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "MatchType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum MatchType : int
     {
-        
+
         /// <summary>
         /// An exact match results when all of the words in the keyword exactly match the user's search query.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Exact = 0,
-        
+
         /// <summary>
         /// A phrase match results when all of the words in the keyword are present in the user's search query and are in the same order.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Phrase = 1,
-        
+
         /// <summary>
         /// A broad match results when words in the keyword are present in the user's search query; however, the word order can vary.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Broad = 2,
-        
+
         /// <summary>
         /// A content match results when the keywords extracted from the content webpage match the keywords in the user's search query by using an exact match comparison. An exact match results when all of the words in the keyword exactly match the user's query.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Content = 3,
-        
+
         /// <summary>
         /// Aggregates the data across all match types.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Aggregate = 4,
     }
-    
+
     /// <summary>
     /// Defines a selection of currency values.
     /// <para>The value set defines a broad selection of currency types; however, not all currencies are supported. For a list of supported currencies, see Currencies.</para>
@@ -1471,288 +1470,288 @@ namespace Microsoft.BingAds.AdIntelligence
     /// <para>Used by <see cref="AdIntelligenceServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> and <see cref="AdIntelligenceServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Currency", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "Currency", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum Currency : int
     {
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AlgerianDinar = 0,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArgentinePeso = 1,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArmenianDram = 2,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AustralianDollar = 3,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AzerbaijanianManat = 4,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BahrainiDinar = 5,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Baht = 6,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Balboa = 7,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BelarussianRuble = 8,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BelizeDollar = 9,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bolivar = 10,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Boliviano = 11,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrazilianReal = 12,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BruneiDollar = 13,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CanadianDollar = 14,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChileanPeso = 15,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ColombianPeso = 16,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CordobaOro = 17,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostaRicanColon = 18,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Croatiankuna = 19,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CzechKoruna = 20,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DanishKrone = 21,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Denar = 22,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DominicanPeso = 23,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Dong = 24,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EgyptianPound = 25,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Euro = 26,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Forint = 27,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Guarani = 28,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HongKongDollar = 29,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hryvnia = 30,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IcelandKrona = 31,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IndianRupee = 32,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IranianRial = 33,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IraqiDinar = 34,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JamaicanDollar = 35,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JapaneseYen = 36,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JordanianDinar = 37,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KenyanShilling = 38,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kroon = 39,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KuwaitiDinar = 40,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lari = 41,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LatvianLats = 42,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LebanesePound = 43,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lek = 44,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lempira = 45,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Leu = 46,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lev = 47,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LibyanDinar = 48,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LithuanianLitus = 49,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MalaysianRinggit = 50,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MexicanPeso = 51,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoroccanDirham = 52,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewIsraeliSheqel = 53,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewTaiwanDollar = 54,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewZealandDollar = 55,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NorwegianKrone = 56,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NuevoSol = 57,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PakistanRupee = 58,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pataca = 59,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PesoUruguayo = 60,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhilippinePeso = 61,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QatariRial = 62,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Quetzal = 63,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RialOmani = 64,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rufiyaa = 65,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rupiah = 66,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RussianRuble = 67,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SaudiRiyal = 68,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SingaporeDollar = 69,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SlovakKoruna = 70,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Som = 71,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SouthAfricanRand = 72,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwedishKrona = 73,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwissFranc = 74,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SyrianPound = 75,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tenge = 76,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tolar = 77,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrinidadandTobagoDollar = 78,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tugrik = 79,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TunisianDinar = 80,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TurkishLira = 81,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UAEDirham = 82,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UKPound = 83,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         USDollar = 84,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UzbekistanSum = 85,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Won = 86,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YemeniRial = 87,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YuanRenminbi = 88,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YugoslavianNewDinar = 89,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ZimbabweDollar = 90,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Zloty = 91,
     }
-    
+
     /// <summary>
     /// Defines an object that contains the identifier of a keyword and the estimated search results position for the keyword and match type.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -1763,21 +1762,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordIdEstimatedPosition", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordIdEstimatedPosition", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordIdEstimatedPosition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long KeywordIdField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.KeywordEstimatedPosition KeywordEstimatedPositionField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1789,7 +1788,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The identifier of the keyword to which the estimated position applies.
         /// </summary>
@@ -1809,11 +1808,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An object that contains the keyword string and estimated position in the search results given the specified maximum bid.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public Microsoft.BingAds.AdIntelligence.KeywordEstimatedPosition KeywordEstimatedPosition
         {
             get
@@ -1829,9 +1828,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1841,7 +1840,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the keyword and the estimated position in the search results for each match type.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -1853,21 +1852,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordEstimatedPosition", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordEstimatedPosition", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordEstimatedPosition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.EstimatedPositionAndTraffic> EstimatedPositionsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1879,7 +1878,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword to which the estimates apply.
         /// </summary>
@@ -1899,11 +1898,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An array of EstimatedPositionAndTraffic objects that contains the position in the search results corresponding to the specified maximum bid.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.EstimatedPositionAndTraffic> EstimatedPositions
         {
             get
@@ -1919,9 +1918,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1931,7 +1930,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the estimated search results position and estimated keyword statistics such as clicks, average cost per click (CPC), impressions, click-through rate (CTR), and total cost for the specified keyword given the specified bid.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -1942,48 +1941,48 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EstimatedPositionAndTraffic", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "EstimatedPositionAndTraffic", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class EstimatedPositionAndTraffic : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.MatchType MatchTypeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double MinClicksPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double MaxClicksPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AverageCPCField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long MinImpressionsPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long MaxImpressionsPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double CTRField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double MinTotalCostPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double MaxTotalCostPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.Currency CurrencyField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedAdPositionField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1995,7 +1994,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword match type used to determine the estimates.
         /// </summary>
@@ -2015,7 +2014,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum number of clicks per week.
         /// </summary>
@@ -2035,11 +2034,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum number of clicks per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public double MaxClicksPerWeek
         {
             get
@@ -2055,11 +2054,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated average CPC.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public double AverageCPC
         {
             get
@@ -2075,11 +2074,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum number of impressions per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 4)]
         public long MinImpressionsPerWeek
         {
             get
@@ -2095,11 +2094,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum number of impressions per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 5)]
         public long MaxImpressionsPerWeek
         {
             get
@@ -2115,11 +2114,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated CTR.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 6)]
         public double CTR
         {
             get
@@ -2135,11 +2134,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum cost per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 7)]
         public double MinTotalCostPerWeek
         {
             get
@@ -2155,11 +2154,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum cost per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 8)]
         public double MaxTotalCostPerWeek
         {
             get
@@ -2175,11 +2174,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The monetary unit of the cost values, such as AverageCPC.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 9)]
         public Microsoft.BingAds.AdIntelligence.Currency Currency
         {
             get
@@ -2195,11 +2194,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The position in the search results given the specified bid.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 10)]
         public double EstimatedAdPosition
         {
             get
@@ -2215,9 +2214,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2227,7 +2226,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains a keyword and corresponding match types.
     /// </summary>
@@ -2237,21 +2236,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordAndMatchType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordAndMatchType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordAndMatchType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordTextField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.MatchType> MatchTypesField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2263,7 +2262,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword text.
         /// </summary>
@@ -2283,7 +2282,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The corresponding match types for the keyword.
         /// </summary>
@@ -2303,9 +2302,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2315,7 +2314,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains estimates of clicks, average cost per click (CPC), impressions, click-through rate (CTR), and total cost for the specified ad group given the suggested bid.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -2326,45 +2325,45 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupEstimatedBid", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AdGroupEstimatedBid", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AdGroupEstimatedBid : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> MinClicksPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> MaxClicksPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<decimal> AverageCPCField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> MinImpressionsPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> MaxImpressionsPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> CTRField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<decimal> MinTotalCostPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<decimal> MaxTotalCostPerWeekField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.Currency CurrencyField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedAdGroupBidField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2376,7 +2375,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum number of clicks per week.
         /// </summary>
@@ -2396,11 +2395,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum number of clicks per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Nullable<double> MaxClicksPerWeek
         {
             get
@@ -2416,11 +2415,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated average CPC.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Nullable<decimal> AverageCPC
         {
             get
@@ -2436,11 +2435,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum number of impressions per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public System.Nullable<long> MinImpressionsPerWeek
         {
             get
@@ -2456,11 +2455,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum number of impressions per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 4)]
         public System.Nullable<long> MaxImpressionsPerWeek
         {
             get
@@ -2476,11 +2475,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated CTR.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 5)]
         public System.Nullable<double> CTR
         {
             get
@@ -2496,11 +2495,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated minimum cost per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 6)]
         public System.Nullable<decimal> MinTotalCostPerWeek
         {
             get
@@ -2516,11 +2515,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated maximum cost per week.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 7)]
         public System.Nullable<decimal> MaxTotalCostPerWeek
         {
             get
@@ -2536,11 +2535,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The monetary unit of the cost estimates and suggested bid value.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 8)]
         public Microsoft.BingAds.AdIntelligence.Currency Currency
         {
             get
@@ -2556,11 +2555,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated ad group level default bid value.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 9)]
         public double EstimatedAdGroupBid
         {
             get
@@ -2576,9 +2575,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2588,7 +2587,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that you use to specify the start and end dates of a date range.
     /// </summary>
@@ -2599,24 +2598,24 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DayMonthAndYear", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "DayMonthAndYear", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class DayMonthAndYear : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int DayField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MonthField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int YearField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2628,7 +2627,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The day of the month.
         /// </summary>
@@ -2648,7 +2647,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The month specified as an integer value in the range of 1 through 12, where 1 is January and 12 is December.
         /// </summary>
@@ -2668,7 +2667,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The year specified as a four-digit integer value.
         /// </summary>
@@ -2688,9 +2687,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2700,7 +2699,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the number of times the keyword was included in a search query on the specified device type. The count data is aggregated based on the aggregation level specified in the request.
     /// </summary>
@@ -2710,24 +2709,24 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordSearchCount", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordSearchCount", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordSearchCount : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.HistoricalSearchCountPeriodic> HistoricalSearchCountsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2739,7 +2738,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword to which the search count data applies.
         /// </summary>
@@ -2759,11 +2758,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The type of device on which users searched for the specified keyword.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public string Device
         {
             get
@@ -2779,11 +2778,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An array of HistoricalSearchCountPeriodic objects that contain a count of the number of times that the keyword was used in a search query. The array contains an item for each month in the specified date range. The items are ordered by calendar month.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.HistoricalSearchCountPeriodic> HistoricalSearchCounts
         {
             get
@@ -2799,9 +2798,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2811,7 +2810,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the number of times that the keyword was used in a search query during the specified time period.
     /// </summary>
@@ -2821,21 +2820,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="HistoricalSearchCountPeriodic", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "HistoricalSearchCountPeriodic", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class HistoricalSearchCountPeriodic : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long SearchCountField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.DayMonthAndYear DayMonthAndYearField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2847,7 +2846,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The number of times that the keyword was used in a search query on the specified device type during the time period. The count aggregates data from all specified countries.
         /// </summary>
@@ -2867,11 +2866,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The time period in which the count was captured. The type of aggregation (daily, weekly, or monthly) that you specify in the request determines the length of the time period. For example, if you specified weekly aggregation, the time period is a week and the date is the Sunday of the week when the count was captured.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public Microsoft.BingAds.AdIntelligence.DayMonthAndYear DayMonthAndYear
         {
             get
@@ -2887,9 +2886,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2899,7 +2898,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines the possible positions of an ad in the search results or on a content-based webpage.
     /// </summary>
@@ -2909,108 +2908,108 @@ namespace Microsoft.BingAds.AdIntelligence
     /// <para>Used by <see cref="AdIntelligenceServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operation.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdPosition", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AdPosition", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum AdPosition : int
     {
-        
+
         /// <summary>
         /// Indicates all search result positions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         All = 0,
-        
+
         /// <summary>
         /// The first ad to appear at the top of the search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainLine1 = 1,
-        
+
         /// <summary>
         /// The second ad to appear at the top of the search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainLine2 = 2,
-        
+
         /// <summary>
         /// The third ad to appear at the top of the search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainLine3 = 3,
-        
+
         /// <summary>
         /// The fourth ad to appear at the top of the search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainLine4 = 4,
-        
+
         /// <summary>
         /// The first ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar1 = 5,
-        
+
         /// <summary>
         /// The second ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar2 = 6,
-        
+
         /// <summary>
         /// The third ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar3 = 7,
-        
+
         /// <summary>
         /// The fourth ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar4 = 8,
-        
+
         /// <summary>
         /// The fifth ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar5 = 9,
-        
+
         /// <summary>
         /// The sixth ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar6 = 10,
-        
+
         /// <summary>
         /// The seventh ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar7 = 11,
-        
+
         /// <summary>
         /// The eighth ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar8 = 12,
-        
+
         /// <summary>
         /// The ninth ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar9 = 13,
-        
+
         /// <summary>
         /// The tenth ad to appear on the right side of the first search results page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SideBar10 = 14,
-        
+
         /// <summary>
         /// Aggregates the data for all supported positions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Aggregate = 15,
     }
-    
+
     /// <summary>
     /// Defines an object that contains the key performance index data for the specified keyword and device.
     /// </summary>
@@ -3020,24 +3019,24 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordHistoricalPerformance", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordHistoricalPerformance", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordHistoricalPerformance : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordKPI> KeywordKPIsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3049,7 +3048,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword to which the keyword performance data applies.
         /// </summary>
@@ -3069,11 +3068,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The type of device on which the user entered their search query.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public string Device
         {
             get
@@ -3089,11 +3088,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An array of KeywordKPI objects that contains the performance data.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordKPI> KeywordKPIs
         {
             get
@@ -3109,9 +3108,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3121,7 +3120,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines a key performance index object for a keyword. The object contains the historical performance statistics of the keyword for the specified match type and ad position.
     /// </summary>
@@ -3131,39 +3130,39 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordKPI", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordKPI", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordKPI : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.MatchType MatchTypeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.AdPosition AdPositionField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ClicksField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ImpressionsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AverageCPCField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double CTRField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double TotalCostField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AverageBidField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3175,7 +3174,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The match type that you specified in the request.
         /// </summary>
@@ -3195,11 +3194,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The position in the search results in which the ad appeared.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public Microsoft.BingAds.AdIntelligence.AdPosition AdPosition
         {
             get
@@ -3215,11 +3214,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The number of clicks that the keyword and match type generated during the specified time interval.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public int Clicks
         {
             get
@@ -3235,11 +3234,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The number of impressions that the keyword and match type generated during the specified time interval.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public long Impressions
         {
             get
@@ -3255,11 +3254,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The average cost per click (CPC). The average CPC is calculated by dividing the cost of all clicks by the number of clicks.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 4)]
         public double AverageCPC
         {
             get
@@ -3275,11 +3274,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The click-through rate (CTR) as a percentage. The CTR is calculated by dividing the number of clicks by the number of impressions and multiplying the result by 100.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 5)]
         public double CTR
         {
             get
@@ -3295,11 +3294,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The cost of using the specified keyword and match type during the specified time interval.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 6)]
         public double TotalCost
         {
             get
@@ -3315,11 +3314,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The average bid of the keyword.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 7)]
         public double AverageBid
         {
             get
@@ -3335,9 +3334,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3347,7 +3346,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains a list of suggested keywords that may perform better than the specified keyword.
     /// </summary>
@@ -3357,21 +3356,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordSuggestion", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordSuggestion", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordSuggestion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordAndConfidence> SuggestionsAndConfidenceField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3383,7 +3382,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword to which the suggested keywords apply.
         /// </summary>
@@ -3403,7 +3402,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A KeywordAndConfidence array that contains a list of suggested keywords and, for each keyword, a score that indicates the probability that using the keyword would result in an ad being included in the results of a search query.
         /// </summary>
@@ -3423,9 +3422,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3435,7 +3434,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the locations where users were located when they searched for the specified keyword using the specified type of device.
     /// </summary>
@@ -3445,24 +3444,24 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordLocationResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordLocationResult", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordLocationResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordLocation> KeywordLocationsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3474,7 +3473,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword.
         /// </summary>
@@ -3494,11 +3493,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The type of device used by the user.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public string Device
         {
             get
@@ -3514,11 +3513,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An array of KeywordLocation objects that contains the users' geographical locations and the percentage of times that users searched for the keyword from that location.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordLocation> KeywordLocations
         {
             get
@@ -3534,9 +3533,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3546,7 +3545,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the location and the percentage of time that a user in the specified location entered a search query with the specified keyword.
     /// </summary>
@@ -3556,21 +3555,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordLocation", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordLocation", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordLocation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LocationField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double PercentageField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3582,7 +3581,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The country, state, metropolitan area, or city where users searched for the specified keyword.
         /// </summary>
@@ -3602,7 +3601,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The percentage of time that users searched for the keyword from the location. The value is specified in the range 0.0 through 100.0.
         /// </summary>
@@ -3622,9 +3621,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3634,7 +3633,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the keyword and a list of keyword categories that the keyword might belong to.
     /// </summary>
@@ -3644,21 +3643,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordCategoryResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordCategoryResult", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordCategoryResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordCategory> KeywordCategoriesField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3670,7 +3669,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword being categorized.
         /// </summary>
@@ -3690,7 +3689,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An array of KeywordCategory objects that contains a keyword category and a score that indicates the confidence that the keyword belongs to that keyword category.
         /// </summary>
@@ -3710,9 +3709,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3722,7 +3721,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains a keyword category and a confidence score. The confidence score indicates the likelihood that the keyword belongs to the keyword category.
     /// </summary>
@@ -3732,21 +3731,21 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordCategory", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordCategory", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CategoryField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ConfidenceScoreField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3758,7 +3757,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword category that the keyword might belong to.
         /// </summary>
@@ -3778,7 +3777,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// A score from 0.0 to 1.0 that indicates the likelihood that the keyword belongs to the category.
         /// </summary>
@@ -3798,9 +3797,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3810,7 +3809,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the keyword and percentage of users by age and gender (if known) who searched for the specified keyword on the specified device.
     /// </summary>
@@ -3820,24 +3819,24 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordDemographicResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordDemographicResult", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordDemographicResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.KeywordDemographic KeywordDemographicsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3849,7 +3848,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword.
         /// </summary>
@@ -3869,11 +3868,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The type of device used by the user.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public string Device
         {
             get
@@ -3889,11 +3888,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// An array of KeywordDemographic objects that contains the percentage of users by age and gender (if known) that searched for the keyword on the device.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public Microsoft.BingAds.AdIntelligence.KeywordDemographic KeywordDemographics
         {
             get
@@ -3909,9 +3908,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3921,7 +3920,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains the age and gender of the user who entered the search query, if known.
     /// </summary>
@@ -3931,42 +3930,42 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordDemographic", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordDemographic", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordDemographic : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double Age18_24Field;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double Age25_34Field;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double Age35_49Field;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double Age50_64Field;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double Age65PlusField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AgeUnknownField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double FemaleField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double MaleField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double GenderUnknownField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3978,7 +3977,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The percentage of time that users 18 through 24 years of age searched for the keyword. The value is specified in the range 0.0 through 1.0.
         /// </summary>
@@ -3998,7 +3997,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The percentage of time that users 25 through 34 years of age searched for the keyword. The value is specified in the range 0.0 through 1.0.
         /// </summary>
@@ -4018,7 +4017,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The percentage of time that users 35 through 49 years of age searched for the keyword. The value is specified in the range 0.0 through 1.0.
         /// </summary>
@@ -4038,7 +4037,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The percentage of time that users 50 through 64 years of age searched for the keyword. The value is specified in the range 0.0 through 1.0.
         /// </summary>
@@ -4058,7 +4057,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The percentage of time that users 65 years of age or older searched for the keyword. The value is specified in the range 0.0 through 1.0.
         /// </summary>
@@ -4078,7 +4077,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// Not used.
         /// </summary>
@@ -4098,7 +4097,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The percentage of time that female users searched for the keyword. The value is specified in the range 0.0 through 1.0.
         /// </summary>
@@ -4118,7 +4117,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The percentage of time that male users searched for the keyword. The value is specified in the range 0.0 through 1.0.
         /// </summary>
@@ -4138,11 +4137,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// Not Used.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 8)]
         public double GenderUnknown
         {
             get
@@ -4158,9 +4157,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -4170,7 +4169,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains a list of estimated clicks, cost, and impressions from 1 to 7 days for the keyword identifier given the suggested bid.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -4182,27 +4181,27 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordBidLandscape", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordBidLandscape", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordBidLandscape : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long KeywordIdField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.DayMonthAndYear StartDateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.DayMonthAndYear EndDateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.BidLandscapePoint> BidLandscapePointsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4214,7 +4213,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The keyword identifier.
         /// </summary>
@@ -4234,7 +4233,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The first date used to calculate the bid landscape. The start date is usually seven days prior to the end date.
         /// </summary>
@@ -4254,11 +4253,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The most recent date used to calculate the bid landscape. The end date should be approximately 2 days prior to today's date when the service is called.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public Microsoft.BingAds.AdIntelligence.DayMonthAndYear EndDate
         {
             get
@@ -4274,11 +4273,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The list of the total estimated clicks, cost, and impressions from StartDate to EndDate given the suggested bid.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.BidLandscapePoint> BidLandscapePoints
         {
             get
@@ -4294,9 +4293,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -4306,7 +4305,7 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     /// <summary>
     /// Defines an object that contains estimates of clicks, cost, and impressions given the suggested bid.
     /// <para>The estimates are not a prediction or guarantee of future performance. Estimates are for search traffic only, and not based on performance for ads on the content network.</para>
@@ -4317,36 +4316,36 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BidLandscapePoint", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "BidLandscapePoint", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class BidLandscapePoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double BidField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> ClicksField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ImpressionsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> TopImpressionsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.Currency CurrencyField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> CostField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> MarginalCPCField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4358,7 +4357,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         /// <summary>
         /// The suggested bid value.
         /// </summary>
@@ -4378,7 +4377,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated number of clicks.
         /// </summary>
@@ -4398,7 +4397,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated number of impressions.
         /// </summary>
@@ -4418,7 +4417,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated number of impressions in the top or mainline ad results.
         /// </summary>
@@ -4438,11 +4437,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The monetary unit of the suggested bid value and estimated performance statistics.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 4)]
         public Microsoft.BingAds.AdIntelligence.Currency Currency
         {
             get
@@ -4458,11 +4457,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// The estimated cost.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 5)]
         public System.Nullable<double> Cost
         {
             get
@@ -4478,11 +4477,11 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         /// <summary>
         /// Reserved for future use.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 6)]
         public System.Nullable<double> MarginalCPC
         {
             get
@@ -4498,9 +4497,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -4510,31 +4509,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
-    /// <summary>
-    /// Defines an object that contains the requested bid landscape type for the corresponding ad group identifier.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743747(v=msads.90).aspx">AdGroupBidLandscapeInput Data Object</see> http://msdn.microsoft.com/en-us/library/dn743747(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetBidLandscapeByAdGroupIds">GetBidLandscapeByAdGroupIds</see> service operation.</para>
-    /// </remarks>
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupBidLandscapeInput", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AdGroupBidLandscapeInput", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AdGroupBidLandscapeInput : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.AdGroupBidLandscapeType AdGroupBidLandscapeTypeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AdGroupIdField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4546,10 +4538,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
-        /// <summary>
-        /// Determines whether all or a subset of an ad group's existing keywords should be used to determine the bid landscape.
-        /// </summary>
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.AdGroupBidLandscapeType AdGroupBidLandscapeType
         {
@@ -4566,10 +4555,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        /// <summary>
-        /// The ad group identifier.
-        /// </summary>
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AdGroupId
         {
@@ -4586,9 +4572,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -4598,67 +4584,46 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
-    /// <summary>
-    /// Defines the possible values that indicate whether all or a subset of an ad group's existing keywords are used to determine the bid landscape.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743748(v=msads.90).aspx">AdGroupBidLandscapeType Value Set</see> http://msdn.microsoft.com/en-us/library/dn743748(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdGroupBidLandscape"/> and <see cref="AdGroupBidLandscapeInput"/> data objects.</para>
-    /// </remarks>
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupBidLandscapeType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AdGroupBidLandscapeType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum AdGroupBidLandscapeType : int
     {
-        
-        /// <summary>
-        /// All of an ad group's existing keywords are used to determine the bid landscape.
-        /// </summary>
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Uniform = 0,
-        
-        /// <summary>
-        /// Only existing keywords that use the ad group's default bid are used to determine the bid landscape.
-        /// </summary>
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DefaultBidOnly = 1,
     }
-    
-    /// <summary>
-    /// Defines an object that contains a list of estimated clicks, cost, and impressions from 1 to 7 days for the ad group identifier given the suggested bid.
-    /// <para>The estimates are not a prediction or guarantee of future performance.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743746(v=msads.90).aspx">AdGroupBidLandscape Data Object</see> http://msdn.microsoft.com/en-us/library/dn743746(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetBidLandscapeByAdGroupIds">GetBidLandscapeByAdGroupIds</see> service operation.</para>
-    /// </remarks>
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupBidLandscape", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AdGroupBidLandscape", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AdGroupBidLandscape : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AdGroupIdField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.AdGroupBidLandscapeType AdGroupBidLandscapeTypeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.DayMonthAndYear StartDateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.DayMonthAndYear EndDateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.BidLandscapePoint> BidLandscapePointsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4670,10 +4635,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
-        /// <summary>
-        /// The ad group identifier.
-        /// </summary>
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AdGroupId
         {
@@ -4690,11 +4652,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        /// <summary>
-        /// Indicates whether all or a subset of an ad group's existing keywords were used to determine the bid landscape.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public Microsoft.BingAds.AdIntelligence.AdGroupBidLandscapeType AdGroupBidLandscapeType
         {
             get
@@ -4710,11 +4669,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        /// <summary>
-        /// The first date used to calculate the bid landscape. The start date is usually seven days prior to the end date.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public Microsoft.BingAds.AdIntelligence.DayMonthAndYear StartDate
         {
             get
@@ -4730,11 +4686,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        /// <summary>
-        /// The most recent date used to calculate the bid landscape. The end date should be approximately 2 days prior to today's date when the service is called.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public Microsoft.BingAds.AdIntelligence.DayMonthAndYear EndDate
         {
             get
@@ -4750,11 +4703,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        /// <summary>
-        /// The list of the total estimated clicks, cost, and impressions from StartDate to EndDate given the suggested bid.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 4)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.BidLandscapePoint> BidLandscapePoints
         {
             get
@@ -4770,9 +4720,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -4782,36 +4732,36 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Selector", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "Selector", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class Selector : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.DateRange DateRangeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.Field> GroupByField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.OrderBy> OrderingField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.Paging PageInfoField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.Predicate> PredicatesField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.Field> SelectedFieldsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4823,7 +4773,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.DateRange DateRange
         {
@@ -4840,7 +4790,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.Field> GroupBy
         {
@@ -4857,7 +4807,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.OrderBy> Ordering
         {
@@ -4874,7 +4824,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.Paging PageInfo
         {
@@ -4891,7 +4841,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.Predicate> Predicates
         {
@@ -4908,7 +4858,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.Field> SelectedFields
         {
@@ -4925,9 +4875,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -4937,24 +4887,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DateRange", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "DateRange", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class DateRange : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MaxDateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MinDateField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4966,7 +4916,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MaxDate
         {
@@ -4983,7 +4933,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MinDate
         {
@@ -5000,9 +4950,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5012,24 +4962,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Paging", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "Paging", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class Paging : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IndexField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int SizeField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5041,7 +4991,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Index
         {
@@ -5058,7 +5008,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Size
         {
@@ -5075,9 +5025,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5087,67 +5037,67 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Field", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "Field", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum Field : int
     {
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UNKNOW = 0,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidLandscape = 1001,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidSuggestion = 1002,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityAuctionInsight = 1021,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AggregatedAuctionInsight = 1022,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AuctionInsightAvailableChildren = 1023,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopMover = 1011,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2001,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 2002,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 2003,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 2004,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimeInterval = 2005,
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderBy", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "OrderBy", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class OrderBy : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.SortOrder SortOrderField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.Field SortingFieldField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5159,7 +5109,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.SortOrder SortOrder
         {
@@ -5176,7 +5126,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.Field SortingField
         {
@@ -5193,9 +5143,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5205,27 +5155,27 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Predicate", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "Predicate", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class Predicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.Field FilteringFieldField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.Operator OperatorField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> ValuesField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5237,7 +5187,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.Field FilteringField
         {
@@ -5254,7 +5204,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.Operator Operator
         {
@@ -5271,7 +5221,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Values
         {
@@ -5288,9 +5238,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5300,93 +5250,92 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SortOrder", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "SortOrder", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum SortOrder : int
     {
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ASCENDING = 0,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DESCENDING = 1,
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Operator", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "Operator", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum Operator : int
     {
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        [CLSCompliant(false)]
         EQUALS = 0,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NOT_EQUALS = 1,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IN = 2,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NOT_IN = 3,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GREATER_THAN = 4,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GREATER_THAN_EQUALS = 5,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LESS_THAN = 6,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LESS_THAN_EQUALS = 7,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         STARTS_WITH = 8,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         STARTS_WITH_IGNORE_CASE = 9,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CONTAINS = 10,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CONTAINS_IGNORE_CASE = 11,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DOES_NOT_CONTAIN = 12,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DOES_NOT_CONTAIN_IGNORE_CASE = 13,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UNKNOWN = 14,
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightPage", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightPage", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightPage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TotalNumEntriesField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsight> EntriesField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DataVersionField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5398,7 +5347,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int TotalNumEntries
         {
@@ -5415,8 +5364,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsight> Entries
         {
             get
@@ -5432,8 +5381,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Nullable<System.DateTime> DataVersion
         {
             get
@@ -5449,9 +5398,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5461,24 +5410,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsight", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsight", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsight : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> EntityIdField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightDetail> DetailsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5490,7 +5439,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> EntityId
         {
@@ -5507,8 +5456,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightDetail> Details
         {
             get
@@ -5524,9 +5473,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5536,24 +5485,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightDetail", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightDetail", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.AuctionInsightTimeInterval TimeIntervalField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightKPI> AuctionInsightKPIsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5565,7 +5514,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightTimeInterval TimeInterval
         {
@@ -5582,8 +5531,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightKPI> AuctionInsightKPIs
         {
             get
@@ -5599,9 +5548,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5611,55 +5560,55 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightTimeInterval", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightTimeInterval", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     public enum AuctionInsightTimeInterval : int
     {
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Last30Days = 30,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Last14Days = 14,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Last7Days = 7,
-        
+
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastDay = 1,
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightKPI", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightKPI", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightKPI : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DisplayDomainField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ImpressionShareField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double OverlapRateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AveragePositionField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AboveRateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double TopOfPageRateField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5671,7 +5620,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DisplayDomain
         {
@@ -5688,7 +5637,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double ImpressionShare
         {
@@ -5705,7 +5654,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double OverlapRate
         {
@@ -5722,8 +5671,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public double AveragePosition
         {
             get
@@ -5739,8 +5688,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 4)]
         public double AboveRate
         {
             get
@@ -5756,8 +5705,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 5)]
         public double TopOfPageRate
         {
             get
@@ -5773,9 +5722,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5785,30 +5734,30 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightResult", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TotalNumEntriesField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightV2Entity> EntriesField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double UsedImpressionsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double UsedKeywordsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5820,7 +5769,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int TotalNumEntries
         {
@@ -5837,8 +5786,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightV2Entity> Entries
         {
             get
@@ -5854,8 +5803,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public double UsedImpressions
         {
             get
@@ -5871,8 +5820,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public double UsedKeywords
         {
             get
@@ -5888,9 +5837,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5900,27 +5849,27 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightV2Entity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightV2Entity", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightV2Entity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DisplayDomainField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.AuctionInsightKPINode AggregatedKPIField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightKPINode> KPIsField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5932,7 +5881,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DisplayDomain
         {
@@ -5949,8 +5898,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightKPINode AggregatedKPI
         {
             get
@@ -5966,8 +5915,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightKPINode> KPIs
         {
             get
@@ -5983,9 +5932,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -5995,36 +5944,36 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightKPINode", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightKPINode", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightKPINode : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> DimensionNamesField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ImpressionShareField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double OverlapRateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AveragePositionField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AboveRateField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double TopOfPageRateField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -6036,7 +5985,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> DimensionNames
         {
@@ -6053,7 +6002,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double ImpressionShare
         {
@@ -6070,7 +6019,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double OverlapRate
         {
@@ -6087,8 +6036,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 3)]
         public double AveragePosition
         {
             get
@@ -6104,8 +6053,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 4)]
         public double AboveRate
         {
             get
@@ -6121,8 +6070,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 5)]
         public double TopOfPageRate
         {
             get
@@ -6138,9 +6087,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -6150,24 +6099,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightAvailableChildren", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightAvailableChildren", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightAvailableChildren : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightAvailableChildrenDetail> DetailsField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DataVersionField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -6179,7 +6128,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightAvailableChildrenDetail> Details
         {
@@ -6196,8 +6145,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Nullable<System.DateTime> DataVersion
         {
             get
@@ -6213,9 +6162,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -6225,27 +6174,27 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightAvailableChildrenDetail", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightAvailableChildrenDetail", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightAvailableChildrenDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ParentEntityIdField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.AuctionInsightTimeInterval TimeIntervalField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightAvailableEntry> EntriesField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -6257,7 +6206,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long ParentEntityId
         {
@@ -6274,7 +6223,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightTimeInterval TimeInterval
         {
@@ -6291,8 +6240,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AuctionInsightAvailableEntry> Entries
         {
             get
@@ -6308,9 +6257,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -6320,27 +6269,27 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightAvailableEntry", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "AuctionInsightAvailableEntry", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuctionInsightAvailableEntry : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long EntityIdField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EntityNameField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsValidAuctionInsightDataField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -6352,7 +6301,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long EntityId
         {
@@ -6369,7 +6318,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string EntityName
         {
@@ -6386,7 +6335,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsValidAuctionInsightData
         {
@@ -6403,9 +6352,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -6415,24 +6364,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordIdBidEstimationPage", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordIdBidEstimationPage", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordIdBidEstimationPage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TotalNumEntriesField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordIdBidEstimation> EntriesField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -6444,7 +6393,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int TotalNumEntries
         {
@@ -6461,8 +6410,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordIdBidEstimation> Entries
         {
             get
@@ -6478,9 +6427,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -6490,24 +6439,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordIdBidEstimation", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordIdBidEstimation", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordIdBidEstimation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.KeywordBidLandscape BidLandscapeField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.KeywordIdBidSuggestion BidSuggestionField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -6519,7 +6468,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.KeywordBidLandscape BidLandscape
         {
@@ -6536,7 +6485,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.KeywordIdBidSuggestion BidSuggestion
         {
@@ -6553,9 +6502,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -6565,27 +6514,27 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordIdBidSuggestion", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
+    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordIdBidSuggestion", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.CampaignMana" +
         "gement.Api.DataContracts")]
     [System.SerializableAttribute()]
     public partial class KeywordIdBidSuggestion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-        
+
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.KeywordIdEstimatedBid MainLine1Field;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.KeywordIdEstimatedBid MainLineField;
-        
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.AdIntelligence.KeywordIdEstimatedBid FirstPageField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -6597,7 +6546,7 @@ namespace Microsoft.BingAds.AdIntelligence
                 this.extensionDataField = value;
             }
         }
-        
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.AdIntelligence.KeywordIdEstimatedBid MainLine1
         {
@@ -6614,8 +6563,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
         public Microsoft.BingAds.AdIntelligence.KeywordIdEstimatedBid MainLine
         {
             get
@@ -6631,8 +6580,8 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+
+        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
         public Microsoft.BingAds.AdIntelligence.KeywordIdEstimatedBid FirstPage
         {
             get
@@ -6648,9 +6597,9 @@ namespace Microsoft.BingAds.AdIntelligence
                 }
             }
         }
-        
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
+
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -6660,24 +6609,24 @@ namespace Microsoft.BingAds.AdIntelligence
             }
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", ConfigurationName="Microsoft.BingAds.AdIntelligence.IAdIntelligenceService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
+    [System.ServiceModel.ServiceContractAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", ConfigurationName = "Microsoft.BingAds.AdIntelligence.IAdIntelligenceService", SessionMode = System.ServiceModel.SessionMode.NotAllowed)]
     public interface IAdIntelligenceService
     {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetPublisherKeywordPerformance", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetPublish" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetPublisherKeywordPerformance", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetPublish" +
             "erKeywordPerformanceResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetPublish" +
-            "erKeywordPerformanceApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetPublish" +
-            "erKeywordPerformanceAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetPublish" +
+            "erKeywordPerformanceApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetPublish" +
+            "erKeywordPerformanceAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetPublisherKeywordPerformanceResponse GetPublisherKeywordPerformance(Microsoft.BingAds.AdIntelligence.GetPublisherKeywordPerformanceRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetPublisherKeywordPerformance", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetPublish" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetPublisherKeywordPerformance", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetPublish" +
             "erKeywordPerformanceResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetPublisherKeywordPerformanceResponse> GetPublisherKeywordPerformanceAsync(Microsoft.BingAds.AdIntelligence.GetPublisherKeywordPerformanceRequest request);
-        
+
         /// <summary>
         /// Suggests the possible keywords for the content located at the specified URL.
         /// </summary>
@@ -6688,14 +6637,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordAndConfidence objects that contains the possible keywords found in the content of the specified URL. In addition, the object includes a score that indicates the probability that using the keyword would result in the URL being included in the results of a search query.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="SuggestKeywordsForUrl", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+        [System.ServiceModel.OperationContractAttribute(Action = "SuggestKeywordsForUrl", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
             "wordsForUrlResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
-            "wordsForUrlApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
-            "wordsForUrlAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+            "wordsForUrlApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+            "wordsForUrlAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.SuggestKeywordsForUrlResponse SuggestKeywordsForUrl(Microsoft.BingAds.AdIntelligence.SuggestKeywordsForUrlRequest request);
-        
+
         /// <summary>
         /// Suggests the possible keywords for the content located at the specified URL.
         /// </summary>
@@ -6706,10 +6655,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordAndConfidence objects that contains the possible keywords found in the content of the specified URL. In addition, the object includes a score that indicates the probability that using the keyword would result in the URL being included in the results of a search query.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="SuggestKeywordsForUrl", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+        [System.ServiceModel.OperationContractAttribute(Action = "SuggestKeywordsForUrl", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
             "wordsForUrlResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.SuggestKeywordsForUrlResponse> SuggestKeywordsForUrlAsync(Microsoft.BingAds.AdIntelligence.SuggestKeywordsForUrlRequest request);
-        
+
         /// <summary>
         /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -6721,14 +6670,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordIdEstimatedBid objects. The array contains a corresponding item for each keyword specified in the request. If the keyword ID is not valid, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedBidByKeywordIds", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedBidByKeywordIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edBidByKeywordIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edBidByKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edBidByKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edBidByKeywordIdsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edBidByKeywordIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordIdsResponse GetEstimatedBidByKeywordIds(Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordIdsRequest request);
-        
+
         /// <summary>
         /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -6740,10 +6689,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordIdEstimatedBid objects. The array contains a corresponding item for each keyword specified in the request. If the keyword ID is not valid, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedBidByKeywordIds", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedBidByKeywordIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edBidByKeywordIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordIdsResponse> GetEstimatedBidByKeywordIdsAsync(Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordIdsRequest request);
-        
+
         /// <summary>
         /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -6755,14 +6704,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of KeywordIdEstimatedPosition objects. The array contains an item for each keyword specified in the request. If the keyword ID is not valid, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedPositionByKeywordIds", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedPositionByKeywordIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edPositionByKeywordIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edPositionByKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edPositionByKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edPositionByKeywordIdsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edPositionByKeywordIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordIdsResponse GetEstimatedPositionByKeywordIds(Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordIdsRequest request);
-        
+
         /// <summary>
         /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -6774,10 +6723,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of KeywordIdEstimatedPosition objects. The array contains an item for each keyword specified in the request. If the keyword ID is not valid, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedPositionByKeywordIds", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedPositionByKeywordIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edPositionByKeywordIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordIdsResponse> GetEstimatedPositionByKeywordIdsAsync(Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordIdsRequest request);
-        
+
         /// <summary>
         /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
         /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -6789,14 +6738,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The response object for this service operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedBidByKeywords", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedBidByKeywords", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edBidByKeywordsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edBidByKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edBidByKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edBidByKeywordsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edBidByKeywordsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordsResponse GetEstimatedBidByKeywords(Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordsRequest request);
-        
+
         /// <summary>
         /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
         /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -6808,10 +6757,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The response object for this service operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedBidByKeywords", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedBidByKeywords", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edBidByKeywordsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordsResponse> GetEstimatedBidByKeywordsAsync(Microsoft.BingAds.AdIntelligence.GetEstimatedBidByKeywordsRequest request);
-        
+
         /// <summary>
         /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could be generated with the estimated bid.
         /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -6823,14 +6772,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordEstimatedPosition objects. The array contains an item for each keyword specified in the request. If the keyword is not valid, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedPositionByKeywords", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedPositionByKeywords", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edPositionByKeywordsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edPositionByKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
-            "edPositionByKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edPositionByKeywordsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+            "edPositionByKeywordsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordsResponse GetEstimatedPositionByKeywords(Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordsRequest request);
-        
+
         /// <summary>
         /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could be generated with the estimated bid.
         /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -6842,10 +6791,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordEstimatedPosition objects. The array contains an item for each keyword specified in the request. If the keyword is not valid, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedPositionByKeywords", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetEstimatedPositionByKeywords", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetEstimat" +
             "edPositionByKeywordsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordsResponse> GetEstimatedPositionByKeywordsAsync(Microsoft.BingAds.AdIntelligence.GetEstimatedPositionByKeywordsRequest request);
-        
+
         /// <summary>
         /// Gets the number of times the normalized term was used in a search during the specified time period. The results are aggregated by device type.
         /// </summary>
@@ -6856,14 +6805,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordSearchCount objects. The array contains an item for each keyword specified in the request. If the keyword is not valid, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetHistoricalSearchCount", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetHistoricalSearchCount", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
             "calSearchCountResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
-            "calSearchCountAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
-            "calSearchCountApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
+            "calSearchCountAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
+            "calSearchCountApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetHistoricalSearchCountResponse GetHistoricalSearchCount(Microsoft.BingAds.AdIntelligence.GetHistoricalSearchCountRequest request);
-        
+
         /// <summary>
         /// Gets the number of times the normalized term was used in a search during the specified time period. The results are aggregated by device type.
         /// </summary>
@@ -6874,10 +6823,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordSearchCount objects. The array contains an item for each keyword specified in the request. If the keyword is not valid, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetHistoricalSearchCount", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetHistoricalSearchCount", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
             "calSearchCountResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetHistoricalSearchCountResponse> GetHistoricalSearchCountAsync(Microsoft.BingAds.AdIntelligence.GetHistoricalSearchCountRequest request);
-        
+
         /// <summary>
         /// Gets the historical performance of the normalized search term. The results are aggregated by device type.
         /// </summary>
@@ -6887,15 +6836,15 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetHistoricalKeywordPerformance", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
+        /// <returns>An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword, device, match type, and ad position specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action = "GetHistoricalKeywordPerformance", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
             "calKeywordPerformanceResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
-            "calKeywordPerformanceAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
-            "calKeywordPerformanceApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
+            "calKeywordPerformanceAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
+            "calKeywordPerformanceApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetHistoricalKeywordPerformanceResponse GetHistoricalKeywordPerformance(Microsoft.BingAds.AdIntelligence.GetHistoricalKeywordPerformanceRequest request);
-        
+
         /// <summary>
         /// Gets the historical performance of the normalized search term. The results are aggregated by device type.
         /// </summary>
@@ -6905,11 +6854,11 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetHistoricalKeywordPerformance", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
+        /// <returns>An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword, device, match type, and ad position specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action = "GetHistoricalKeywordPerformance", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetHistori" +
             "calKeywordPerformanceResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetHistoricalKeywordPerformanceResponse> GetHistoricalKeywordPerformanceAsync(Microsoft.BingAds.AdIntelligence.GetHistoricalKeywordPerformanceRequest request);
-        
+
         /// <summary>
         /// Suggests keywords that could perform better than the specified keywords.
         /// </summary>
@@ -6920,14 +6869,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordSuggestion objects. The array contains an item for each keyword specified in the request. The object contains a list of suggested keywords that may perform better than the specified keyword.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="SuggestKeywordsFromExistingKeywords", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+        [System.ServiceModel.OperationContractAttribute(Action = "SuggestKeywordsFromExistingKeywords", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
             "wordsFromExistingKeywordsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
-            "wordsFromExistingKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
-            "wordsFromExistingKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+            "wordsFromExistingKeywordsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+            "wordsFromExistingKeywordsApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.SuggestKeywordsFromExistingKeywordsResponse SuggestKeywordsFromExistingKeywords(Microsoft.BingAds.AdIntelligence.SuggestKeywordsFromExistingKeywordsRequest request);
-        
+
         /// <summary>
         /// Suggests keywords that could perform better than the specified keywords.
         /// </summary>
@@ -6938,10 +6887,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordSuggestion objects. The array contains an item for each keyword specified in the request. The object contains a list of suggested keywords that may perform better than the specified keyword.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="SuggestKeywordsFromExistingKeywords", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
+        [System.ServiceModel.OperationContractAttribute(Action = "SuggestKeywordsFromExistingKeywords", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/SuggestKey" +
             "wordsFromExistingKeywordsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.SuggestKeywordsFromExistingKeywordsResponse> SuggestKeywordsFromExistingKeywordsAsync(Microsoft.BingAds.AdIntelligence.SuggestKeywordsFromExistingKeywordsRequest request);
-        
+
         /// <summary>
         /// Gets the geographical locations of users who have searched for the specified keywords.
         /// </summary>
@@ -6952,14 +6901,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordLocationResult objects. Each object contains the keyword, geographical location, and percentage of time that users in the geographical location searched for the specified keyword.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordLocations", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordLocations", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "LocationsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "LocationsApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "LocationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "LocationsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "LocationsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetKeywordLocationsResponse GetKeywordLocations(Microsoft.BingAds.AdIntelligence.GetKeywordLocationsRequest request);
-        
+
         /// <summary>
         /// Gets the geographical locations of users who have searched for the specified keywords.
         /// </summary>
@@ -6970,10 +6919,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordLocationResult objects. Each object contains the keyword, geographical location, and percentage of time that users in the geographical location searched for the specified keyword.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordLocations", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordLocations", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "LocationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetKeywordLocationsResponse> GetKeywordLocationsAsync(Microsoft.BingAds.AdIntelligence.GetKeywordLocationsRequest request);
-        
+
         /// <summary>
         /// Gets the keyword categories to which the specified keywords belong.
         /// </summary>
@@ -6984,14 +6933,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordCategoryResult objects. Each object contains the keyword and a list of categories to which it belongs. For more information, see Remarks.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordCategories", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordCategories", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "CategoriesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "CategoriesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "CategoriesApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "CategoriesAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "CategoriesApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetKeywordCategoriesResponse GetKeywordCategories(Microsoft.BingAds.AdIntelligence.GetKeywordCategoriesRequest request);
-        
+
         /// <summary>
         /// Gets the keyword categories to which the specified keywords belong.
         /// </summary>
@@ -7002,10 +6951,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordCategoryResult objects. Each object contains the keyword and a list of categories to which it belongs. For more information, see Remarks.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordCategories", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordCategories", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "CategoriesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetKeywordCategoriesResponse> GetKeywordCategoriesAsync(Microsoft.BingAds.AdIntelligence.GetKeywordCategoriesRequest request);
-        
+
         /// <summary>
         /// Gets the age and gender of users who have searched for the specified keywords.
         /// </summary>
@@ -7016,14 +6965,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordDemographicResult objects. Each object contains the keyword and the percentage of time that users of a certain age and gender searched for the specified keyword.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordDemographics", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordDemographics", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "DemographicsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "DemographicsApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "DemographicsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "DemographicsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "DemographicsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetKeywordDemographicsResponse GetKeywordDemographics(Microsoft.BingAds.AdIntelligence.GetKeywordDemographicsRequest request);
-        
+
         /// <summary>
         /// Gets the age and gender of users who have searched for the specified keywords.
         /// </summary>
@@ -7034,10 +6983,10 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordDemographicResult objects. Each object contains the keyword and the percentage of time that users of a certain age and gender searched for the specified keyword.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordDemographics", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordDemographics", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "DemographicsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetKeywordDemographicsResponse> GetKeywordDemographicsAsync(Microsoft.BingAds.AdIntelligence.GetKeywordDemographicsRequest request);
-        
+
         /// <summary>
         /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -7049,14 +6998,14 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordBidLandscape objects. The array contains a KeywordBidLandscape corresponding to each keyword specified in the request. Duplicate keyword identifiers are allowed in the same call and will return the same results.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetBidLandscapeByKeywordIds", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetBidLandscapeByKeywordIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
             "scapeByKeywordIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
-            "scapeByKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
-            "scapeByKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+            "scapeByKeywordIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+            "scapeByKeywordIdsApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetBidLandscapeByKeywordIdsResponse GetBidLandscapeByKeywordIds(Microsoft.BingAds.AdIntelligence.GetBidLandscapeByKeywordIdsRequest request);
-        
+
         /// <summary>
         /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -7068,178 +7017,170 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of KeywordBidLandscape objects. The array contains a KeywordBidLandscape corresponding to each keyword specified in the request. Duplicate keyword identifiers are allowed in the same call and will return the same results.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetBidLandscapeByKeywordIds", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+        [System.ServiceModel.OperationContractAttribute(Action = "GetBidLandscapeByKeywordIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
             "scapeByKeywordIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetBidLandscapeByKeywordIdsResponse> GetBidLandscapeByKeywordIdsAsync(Microsoft.BingAds.AdIntelligence.GetBidLandscapeByKeywordIdsRequest request);
-        
-        /// <summary>
-        /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same ad group to help make decisions about how to adjust your ad group level default bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
-        /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
-        /// </summary>
+
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx">GetBidLandscapeByAdGroupIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of AdGroupBidLandscape objects. The array contains a AdGroupBidLandscape corresponding to each ad group and bid landscape type input specified in the request. Duplicate input are allowed in the same call and will return the same results.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetBidLandscapeByAdGroupIds", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action = "GetBidLandscapeByAdGroupIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
             "scapeByAdGroupIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
-            "scapeByAdGroupIdsApiFaultDetailFault", Name="ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
-            "scapeByAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+            "scapeByAdGroupIdsApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+            "scapeByAdGroupIdsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
         Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsResponse GetBidLandscapeByAdGroupIds(Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsRequest request);
-        
-        /// <summary>
-        /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same ad group to help make decisions about how to adjust your ad group level default bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
-        /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
-        /// </summary>
+
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx">GetBidLandscapeByAdGroupIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of AdGroupBidLandscape objects. The array contains a AdGroupBidLandscape corresponding to each ad group and bid landscape type input specified in the request. Duplicate input are allowed in the same call and will return the same results.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action="GetBidLandscapeByAdGroupIds", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action = "GetBidLandscapeByAdGroupIds", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetBidLand" +
             "scapeByAdGroupIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsResponse> GetBidLandscapeByAdGroupIdsAsync(Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAccountAuctionInsight", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAccountAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
             "AuctionInsightResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
-            "AuctionInsightAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
-            "AuctionInsightApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
+            "AuctionInsightAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
+            "AuctionInsightApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightResponse GetAccountAuctionInsight(Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAccountAuctionInsight", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAccountAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAccount" +
             "AuctionInsightResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightResponse> GetAccountAuctionInsightAsync(Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetCampaignAuctionInsight", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetCampaig" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetCampaignAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetCampaig" +
             "nAuctionInsightResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetCampaig" +
-            "nAuctionInsightAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetCampaig" +
-            "nAuctionInsightApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetCampaig" +
+            "nAuctionInsightAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetCampaig" +
+            "nAuctionInsightApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetCampaignAuctionInsightResponse GetCampaignAuctionInsight(Microsoft.BingAds.AdIntelligence.GetCampaignAuctionInsightRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetCampaignAuctionInsight", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetCampaig" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetCampaignAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetCampaig" +
             "nAuctionInsightResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetCampaignAuctionInsightResponse> GetCampaignAuctionInsightAsync(Microsoft.BingAds.AdIntelligence.GetCampaignAuctionInsightRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAdGroupAuctionInsight", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAdGroup" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAdGroupAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAdGroup" +
             "AuctionInsightResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAdGroup" +
-            "AuctionInsightAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAdGroup" +
-            "AuctionInsightApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAdGroup" +
+            "AuctionInsightAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAdGroup" +
+            "AuctionInsightApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetAdGroupAuctionInsightResponse GetAdGroupAuctionInsight(Microsoft.BingAds.AdIntelligence.GetAdGroupAuctionInsightRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAdGroupAuctionInsight", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAdGroup" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAdGroupAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAdGroup" +
             "AuctionInsightResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAdGroupAuctionInsightResponse> GetAdGroupAuctionInsightAsync(Microsoft.BingAds.AdIntelligence.GetAdGroupAuctionInsightRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordAuctionInsight", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "AuctionInsightResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "AuctionInsightAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "AuctionInsightApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "AuctionInsightAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "AuctionInsightApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightResponse GetKeywordAuctionInsight(Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordAuctionInsight", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordAuctionInsight", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "AuctionInsightResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightResponse> GetKeywordAuctionInsightAsync(Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightData", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAuctionInsightData", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
             "InsightDataResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
-            "InsightDataAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
-            "InsightDataApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+            "InsightDataAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+            "InsightDataApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataResponse GetAuctionInsightData(Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightData", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAuctionInsightData", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
             "InsightDataResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataResponse> GetAuctionInsightDataAsync(Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightAvail", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAuctionInsightAvail", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
             "InsightAvailResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
-            "InsightAvailAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
-            "InsightAvailApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+            "InsightAvailAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+            "InsightAvailApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailResponse GetAuctionInsightAvail(Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightAvail", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAuctionInsightAvail", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
             "InsightAvailResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailResponse> GetAuctionInsightAvailAsync(Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightAvailableChildren", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAuctionInsightAvailableChildren", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
             "InsightAvailableChildrenResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
-            "InsightAvailableChildrenAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
-            "InsightAvailableChildrenApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+            "InsightAvailableChildrenAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+            "InsightAvailableChildrenApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailableChildrenResponse GetAuctionInsightAvailableChildren(Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailableChildrenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightAvailableChildren", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetAuctionInsightAvailableChildren", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetAuction" +
             "InsightAvailableChildrenResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailableChildrenResponse> GetAuctionInsightAvailableChildrenAsync(Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailableChildrenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordIdBidEstimation", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordIdBidEstimation", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "IdBidEstimationResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "IdBidEstimationAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
-            "IdBidEstimationApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.AdApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "IdBidEstimationAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.AdIntelligence.ApiFaultDetail), Action = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+            "IdBidEstimationApiFaultDetailFault", Name = "ApiFaultDetail")]
         Microsoft.BingAds.AdIntelligence.GetKeywordIdBidEstimationResponse GetKeywordIdBidEstimation(Microsoft.BingAds.AdIntelligence.GetKeywordIdBidEstimationRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordIdBidEstimation", ReplyAction="https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
+
+        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordIdBidEstimation", ReplyAction = "https://bingads.microsoft.com/AdIntelligence/v9/IAdIntelligenceService/GetKeyword" +
             "IdBidEstimationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetKeywordIdBidEstimationResponse> GetKeywordIdBidEstimationAsync(Microsoft.BingAds.AdIntelligence.GetKeywordIdBidEstimationRequest request);
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPublisherKeywordPerformanceRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetPublisherKeywordPerformanceRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetPublisherKeywordPerformanceRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<string> Keywords;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public System.Nullable<Microsoft.BingAds.AdIntelligence.TimeInterval> TimeInterval;
-        
+
         public GetPublisherKeywordPerformanceRequest()
         {
         }
-        
+
         public GetPublisherKeywordPerformanceRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> Keywords, System.Nullable<Microsoft.BingAds.AdIntelligence.TimeInterval> TimeInterval)
         {
             this.ApplicationToken = ApplicationToken;
@@ -7253,30 +7194,30 @@ namespace Microsoft.BingAds.AdIntelligence
             this.TimeInterval = TimeInterval;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPublisherKeywordPerformanceResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetPublisherKeywordPerformanceResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetPublisherKeywordPerformanceResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordPerformance> KeywordPerformance;
-        
+
         public GetPublisherKeywordPerformanceResponse()
         {
         }
-        
+
         public GetPublisherKeywordPerformanceResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordPerformance> KeywordPerformance)
         {
             this.TrackingId = TrackingId;
             this.KeywordPerformance = KeywordPerformance;
         }
     }
-    
+
     /// <summary>
     /// Suggests the possible keywords for the content located at the specified URL.
     /// </summary>
@@ -7286,61 +7227,61 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SuggestKeywordsForUrlRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "SuggestKeywordsForUrlRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class SuggestKeywordsForUrlRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// The URL of the webpage to scan for possible keywords. The URL can contain a maximum of 2,000 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public string Url;
-        
+
         /// <summary>
         /// The language used by the website.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public string Language;
-        
+
         /// <summary>
         /// A positive integer value that specifies the maximum number of keywords to return. The maximum value that you can specify is 200.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public System.Nullable<int> MaxKeywords;
-        
+
         /// <summary>
         /// A filter value that limits the keywords that the service returns to those that have a confidence score that is greater than or equal to the specified score. For example, you can specify that you want the operation to return only keywords that have a confidence score of at least 80 percent (0.8).
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public System.Nullable<double> MinConfidenceScore;
-        
+
         /// <summary>
         /// A value that determines whether the results exclude brand keywords. To exclude brand keywords in the result, set to true. The default is false.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 4)]
         public System.Nullable<bool> ExcludeBrand;
-        
+
         /// <summary>
         /// Constructor for the SuggestKeywordsForUrlRequest request object.
         /// </summary>
@@ -7350,7 +7291,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public SuggestKeywordsForUrlRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the SuggestKeywordsForUrlRequest request object.
         /// </summary>
@@ -7378,7 +7319,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.ExcludeBrand = ExcludeBrand;
         }
     }
-    
+
     /// <summary>
     /// Suggests the possible keywords for the content located at the specified URL.
     /// </summary>
@@ -7388,19 +7329,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SuggestKeywordsForUrlResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "SuggestKeywordsForUrlResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class SuggestKeywordsForUrlResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordAndConfidence objects that contains the possible keywords found in the content of the specified URL. In addition, the object includes a score that indicates the probability that using the keyword would result in the URL being included in the results of a search query.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordAndConfidence> Keywords;
-        
+
         /// <summary>
         /// Constructor for the SuggestKeywordsForUrlResponse response object.
         /// </summary>
@@ -7410,7 +7351,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public SuggestKeywordsForUrlResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the SuggestKeywordsForUrlResponse response object.
         /// </summary>
@@ -7424,7 +7365,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Keywords = Keywords;
         }
     }
-    
+
     /// <summary>
     /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
     /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -7435,43 +7376,43 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEstimatedBidByKeywordIdsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetEstimatedBidByKeywordIdsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetEstimatedBidByKeywordIdsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of identifiers of the keywords for which you want to get the suggested bid values that could have resulted in your ad appearing in the targeted position in the search results. You may specify a maximum of 1,000 keywords.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<long> KeywordIds;
-        
+
         /// <summary>
         /// The position in which you want your ads to appear in the search results.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public Microsoft.BingAds.AdIntelligence.TargetAdPosition TargetPositionForAds;
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedBidByKeywordIdsRequest request object.
         /// </summary>
@@ -7481,7 +7422,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetEstimatedBidByKeywordIdsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedBidByKeywordIdsRequest request object.
         /// </summary>
@@ -7503,7 +7444,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.TargetPositionForAds = TargetPositionForAds;
         }
     }
-    
+
     /// <summary>
     /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
     /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -7514,19 +7455,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEstimatedBidByKeywordIdsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetEstimatedBidByKeywordIdsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetEstimatedBidByKeywordIdsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordIdEstimatedBid objects. The array contains a corresponding item for each keyword specified in the request. If the keyword ID is not valid, the corresponding item in the array will be null.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordIdEstimatedBid> KeywordEstimatedBids;
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedBidByKeywordIdsResponse response object.
         /// </summary>
@@ -7536,7 +7477,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetEstimatedBidByKeywordIdsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedBidByKeywordIdsResponse response object.
         /// </summary>
@@ -7550,7 +7491,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.KeywordEstimatedBids = KeywordEstimatedBids;
         }
     }
-    
+
     /// <summary>
     /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
     /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -7561,43 +7502,43 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEstimatedPositionByKeywordIdsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetEstimatedPositionByKeywordIdsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetEstimatedPositionByKeywordIdsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of identifiers of the keywords for which you want to get the estimated position in the search results, based on the specified bid value. You may specify a maximum of 1,000 keyword identifiers.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<long> KeywordIds;
-        
+
         /// <summary>
         /// The maximum bid value to use to determine the estimated position in the search results.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public double MaxBid;
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedPositionByKeywordIdsRequest request object.
         /// </summary>
@@ -7607,7 +7548,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetEstimatedPositionByKeywordIdsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedPositionByKeywordIdsRequest request object.
         /// </summary>
@@ -7629,7 +7570,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.MaxBid = MaxBid;
         }
     }
-    
+
     /// <summary>
     /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
     /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -7640,19 +7581,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEstimatedPositionByKeywordIdsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetEstimatedPositionByKeywordIdsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetEstimatedPositionByKeywordIdsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// A list of KeywordIdEstimatedPosition objects. The array contains an item for each keyword specified in the request. If the keyword ID is not valid, the corresponding item in the array will be null.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordIdEstimatedPosition> KeywordEstimatedPositions;
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedPositionByKeywordIdsResponse response object.
         /// </summary>
@@ -7662,7 +7603,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetEstimatedPositionByKeywordIdsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedPositionByKeywordIdsResponse response object.
         /// </summary>
@@ -7676,7 +7617,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.KeywordEstimatedPositions = KeywordEstimatedPositions;
         }
     }
-    
+
     /// <summary>
     /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -7687,76 +7628,76 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEstimatedBidByKeywordsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetEstimatedBidByKeywordsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetEstimatedBidByKeywordsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// A list of KeywordAndMatchType objects for which you want to get suggested bid values. You may specify a maximum of 1,000 keywords, and each keyword can contain a maximum of 100 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordAndMatchType> Keywords;
-        
+
         /// <summary>
         /// The position where you want your ads to appear in the search results.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public Microsoft.BingAds.AdIntelligence.TargetAdPosition TargetPositionForAds;
-        
+
         /// <summary>
         /// The language used to help determine the country to use as the source of data for estimating the bids, if the PublisherCountries element is not specified.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public string Language;
-        
+
         /// <summary>
         /// The country codes of the countries to use as the source of data for estimating the bids.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public System.Collections.Generic.IList<string> PublisherCountries;
-        
+
         /// <summary>
         /// The monetary unit to use to calculate the cost estimates and suggested bid value.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 4)]
         public System.Nullable<Microsoft.BingAds.AdIntelligence.Currency> Currency;
-        
+
         /// <summary>
         /// The identifier of the campaign that owns the ad group specified in AdGroupId. If you do not specify an ad group, the campaign's performance data is used to help determine how well the keyword might perform in the context of the campaign.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=5)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 5)]
         public System.Nullable<long> CampaignId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=6)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 6)]
         public System.Nullable<long> AdgroupId;
-        
+
         /// <summary>
         /// Determines whether to return estimates for keyword level bids, ad group level bids, or both.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=7)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 7)]
         public System.Nullable<int> GetBidsAtLevel;
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedBidByKeywordsRequest request object.
         /// </summary>
@@ -7766,7 +7707,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetEstimatedBidByKeywordsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedBidByKeywordsRequest request object.
         /// </summary>
@@ -7800,7 +7741,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.GetBidsAtLevel = GetBidsAtLevel;
         }
     }
-    
+
     /// <summary>
     /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -7811,25 +7752,25 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEstimatedBidByKeywordsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetEstimatedBidByKeywordsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetEstimatedBidByKeywordsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordEstimatedBid objects. The array contains an item for each keyword specified in the request. If the keyword is not valid, the corresponding item in the array will be null.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordEstimatedBid> KeywordEstimatedBids;
-        
+
         /// <summary>
         /// Contains estimates of clicks, average cost per click (CPC), impressions, click-through rate (CTR), and total cost for the specified ad group if you would use the suggested bid.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public Microsoft.BingAds.AdIntelligence.AdGroupEstimatedBid AdGroupEstimatedBid;
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedBidByKeywordsResponse response object.
         /// </summary>
@@ -7839,7 +7780,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetEstimatedBidByKeywordsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedBidByKeywordsResponse response object.
         /// </summary>
@@ -7855,7 +7796,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.AdGroupEstimatedBid = AdGroupEstimatedBid;
         }
     }
-    
+
     /// <summary>
     /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could be generated with the estimated bid.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -7866,76 +7807,76 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEstimatedPositionByKeywordsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetEstimatedPositionByKeywordsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetEstimatedPositionByKeywordsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of keywords for which you want to get the estimated position in the search results, based on the specified bid value. You may specify a maximum of 1,000 keywords and each keyword can contains a maximum of 100 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<string> Keywords;
-        
+
         /// <summary>
         /// The maximum bid value to use to determine the estimated position in the search results.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public double MaxBid;
-        
+
         /// <summary>
         /// The language used to help determine the country to use as the source of data for estimating the bids, if the PublisherCountries element is not specified.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public string Language;
-        
+
         /// <summary>
         /// The country codes of the countries to use as the source of data for estimating the bids.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public System.Collections.Generic.IList<string> PublisherCountries;
-        
+
         /// <summary>
         /// The monetary unit to use to calculate the cost estimates and suggested bid value.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 4)]
         public System.Nullable<Microsoft.BingAds.AdIntelligence.Currency> Currency;
-        
+
         /// <summary>
         /// An array of unique match types for which you want to get estimates.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=5)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 5)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.MatchType> MatchTypes;
-        
+
         /// <summary>
         /// The identifier of the campaign that owns the ad group specified in AdGroupId. If you do not specify an ad group, the campaign's performance data is used to help determine how well the keyword might perform in the context of the campaign.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=6)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 6)]
         public System.Nullable<long> CampaignId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=7)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 7)]
         public System.Nullable<long> AdgroupId;
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedPositionByKeywordsRequest request object.
         /// </summary>
@@ -7945,7 +7886,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetEstimatedPositionByKeywordsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedPositionByKeywordsRequest request object.
         /// </summary>
@@ -7979,7 +7920,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.AdgroupId = AdgroupId;
         }
     }
-    
+
     /// <summary>
     /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could be generated with the estimated bid.
     /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -7990,19 +7931,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEstimatedPositionByKeywordsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetEstimatedPositionByKeywordsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetEstimatedPositionByKeywordsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordEstimatedPosition objects. The array contains an item for each keyword specified in the request. If the keyword is not valid, the corresponding item in the array will be null.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordEstimatedPosition> KeywordEstimatedPositions;
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedPositionByKeywordsResponse response object.
         /// </summary>
@@ -8012,7 +7953,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetEstimatedPositionByKeywordsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetEstimatedPositionByKeywordsResponse response object.
         /// </summary>
@@ -8026,7 +7967,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.KeywordEstimatedPositions = KeywordEstimatedPositions;
         }
     }
-    
+
     /// <summary>
     /// Gets the number of times the normalized term was used in a search during the specified time period. The results are aggregated by device type.
     /// </summary>
@@ -8036,73 +7977,73 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHistoricalSearchCountRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetHistoricalSearchCountRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetHistoricalSearchCountRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of keywords for which you want to determine the number of times that the keyword was used in a search query. The array can contain a maximum of 1,000 keywords, and each keyword can contain a maximum of 100 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<string> Keywords;
-        
+
         /// <summary>
         /// The language in which the keywords are written.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public string Language;
-        
+
         /// <summary>
         /// The country codes of the countries/regions to use as the source of the count data.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public System.Collections.Generic.IList<string> PublisherCountries;
-        
+
         /// <summary>
         /// The start date of the date range that identifies the data that you want to use to determine the historical search count.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public Microsoft.BingAds.AdIntelligence.DayMonthAndYear StartDate;
-        
+
         /// <summary>
         /// The end date of the date range that identifies the data that you want to use to determine the historical search count.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 4)]
         public Microsoft.BingAds.AdIntelligence.DayMonthAndYear EndDate;
-        
+
         /// <summary>
         /// You may specify whether to return data aggregated daily, weekly, or monthly. The following case-sensitive values may be specified, and data will be returned as far back as the corresponding maximum available historical data range.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=5)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 5)]
         public string TimePeriodRollup;
-        
+
         /// <summary>
         /// A list of one or more of the following device types. The default is Computers.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=6)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 6)]
         public System.Collections.Generic.IList<string> Devices;
-        
+
         /// <summary>
         /// Constructor for the GetHistoricalSearchCountRequest request object.
         /// </summary>
@@ -8112,7 +8053,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetHistoricalSearchCountRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetHistoricalSearchCountRequest request object.
         /// </summary>
@@ -8144,7 +8085,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Devices = Devices;
         }
     }
-    
+
     /// <summary>
     /// Gets the number of times the normalized term was used in a search during the specified time period. The results are aggregated by device type.
     /// </summary>
@@ -8154,19 +8095,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHistoricalSearchCountResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetHistoricalSearchCountResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetHistoricalSearchCountResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordSearchCount objects. The array contains an item for each keyword specified in the request. If the keyword is not valid, the corresponding item in the array will be null.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordSearchCount> KeywordSearchCounts;
-        
+
         /// <summary>
         /// Constructor for the GetHistoricalSearchCountResponse response object.
         /// </summary>
@@ -8176,7 +8117,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetHistoricalSearchCountResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetHistoricalSearchCountResponse response object.
         /// </summary>
@@ -8190,7 +8131,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.KeywordSearchCounts = KeywordSearchCounts;
         }
     }
-    
+
     /// <summary>
     /// Gets the historical performance of the normalized search term. The results are aggregated by device type.
     /// </summary>
@@ -8200,73 +8141,73 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHistoricalKeywordPerformanceRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetHistoricalKeywordPerformanceRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetHistoricalKeywordPerformanceRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of keywords for which you want to get historical performance statistics. The array can contain a maximum of 1,000 keywords, and each keyword can contain a maximum of 100 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<string> Keywords;
-        
+
         /// <summary>
         /// The time period that identifies the data to use to determine the key performance index of the specified keywords. For example, use data from the previous seven days or previous 30 days to determine the keyword performance.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public System.Nullable<Microsoft.BingAds.AdIntelligence.TimeInterval> TimeInterval;
-        
+
         /// <summary>
         /// The position of the search results for which you want to get performance data.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public System.Nullable<Microsoft.BingAds.AdIntelligence.AdPosition> TargetAdPosition;
-        
+
         /// <summary>
         /// The match types for which you want to get historical data.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.MatchType> MatchTypes;
-        
+
         /// <summary>
         /// The language in which the keywords are written.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 4)]
         public string Language;
-        
+
         /// <summary>
         /// The country codes of the countries/regions to use as the source of the historical data.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=5)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 5)]
         public System.Collections.Generic.IList<string> PublisherCountries;
-        
+
         /// <summary>
         /// A list of one or more of the following device types. The default is Computers.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=6)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 6)]
         public System.Collections.Generic.IList<string> Devices;
-        
+
         /// <summary>
         /// Constructor for the GetHistoricalKeywordPerformanceRequest request object.
         /// </summary>
@@ -8276,7 +8217,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetHistoricalKeywordPerformanceRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetHistoricalKeywordPerformanceRequest request object.
         /// </summary>
@@ -8308,7 +8249,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Devices = Devices;
         }
     }
-    
+
     /// <summary>
     /// Gets the historical performance of the normalized search term. The results are aggregated by device type.
     /// </summary>
@@ -8318,19 +8259,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHistoricalKeywordPerformanceResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetHistoricalKeywordPerformanceResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetHistoricalKeywordPerformanceResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
-        /// An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.
+        /// An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword, device, match type, and ad position specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordHistoricalPerformance> KeywordHistoricalPerformances;
-        
+
         /// <summary>
         /// Constructor for the GetHistoricalKeywordPerformanceResponse response object.
         /// </summary>
@@ -8340,21 +8281,21 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetHistoricalKeywordPerformanceResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetHistoricalKeywordPerformanceResponse response object.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn336996(v=msads.90).aspx">GetHistoricalKeywordPerformanceResponse</see> http://msdn.microsoft.com/en-us/library/dn336996(v=msads.90).aspx for details.
         /// </remarks>
-        /// <param name="KeywordHistoricalPerformances">An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</param>
+        /// <param name="KeywordHistoricalPerformances">An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword, device, match type, and ad position specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</param>
         public GetHistoricalKeywordPerformanceResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordHistoricalPerformance> KeywordHistoricalPerformances)
         {
             this.TrackingId = TrackingId;
             this.KeywordHistoricalPerformances = KeywordHistoricalPerformances;
         }
     }
-    
+
     /// <summary>
     /// Suggests keywords that could perform better than the specified keywords.
     /// </summary>
@@ -8364,85 +8305,85 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SuggestKeywordsFromExistingKeywordsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "SuggestKeywordsFromExistingKeywordsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class SuggestKeywordsFromExistingKeywordsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of keywords for which you want to get suggested keywords that could perform better. The array can contain a maximum of 1,000 keywords, and each keyword can contain a maximum of 100 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<string> Keywords;
-        
+
         /// <summary>
         /// The language in which the keyword is written.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public string Language;
-        
+
         /// <summary>
         /// The country codes of the countries/regions to use as the source of data for determining the suggested keywords.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public System.Collections.Generic.IList<string> PublisherCountries;
-        
+
         /// <summary>
         /// The maximum number of keyword suggestions to return per specified keyword. If SuggestionType is set to 4, you can request a maximum of 200 suggestions per keyword; otherwise the maximum suggestions that you can request is 100.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public System.Nullable<int> MaxSuggestionsPerKeyword;
-        
+
         /// <summary>
         /// The provider to use to generate the keyword suggestions. For a list of possible providers, the language and country restrictions of each provider, and the default provider by country, see the Remarks section below.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 4)]
         public System.Nullable<int> SuggestionType;
-        
+
         /// <summary>
         /// A Boolean value that determines whether to remove duplicate keywords from the list of suggested keywords. To remove duplicates, set to true. The default is false.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=5)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 5)]
         public System.Nullable<bool> RemoveDuplicates;
-        
+
         /// <summary>
         /// A value that determines whether the results exclude brand keywords. To exclude brand keywords in the result, set to true. The default is false.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=6)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 6)]
         public System.Nullable<bool> ExcludeBrand;
-        
+
         /// <summary>
         /// The identifier of the ad group for suggested keywords.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=7)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 7)]
         public System.Nullable<long> AdGroupId;
-        
+
         /// <summary>
         /// The identifier of the campaign for suggested keywords.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=8)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 8)]
         public System.Nullable<long> CampaignId;
-        
+
         /// <summary>
         /// Constructor for the SuggestKeywordsFromExistingKeywordsRequest request object.
         /// </summary>
@@ -8452,7 +8393,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public SuggestKeywordsFromExistingKeywordsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the SuggestKeywordsFromExistingKeywordsRequest request object.
         /// </summary>
@@ -8469,21 +8410,21 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <param name="AdGroupId">The identifier of the ad group for suggested keywords.</param>
         /// <param name="CampaignId">The identifier of the campaign for suggested keywords.</param>
         public SuggestKeywordsFromExistingKeywordsRequest(
-                    string ApplicationToken, 
-                    string AuthenticationToken, 
-                    string CustomerAccountId, 
-                    string CustomerId, 
-                    string DeveloperToken, 
-                    string Password, 
-                    string UserName, 
-                    System.Collections.Generic.IList<string> Keywords, 
-                    string Language, 
-                    System.Collections.Generic.IList<string> PublisherCountries, 
-                    System.Nullable<int> MaxSuggestionsPerKeyword, 
-                    System.Nullable<int> SuggestionType, 
-                    System.Nullable<bool> RemoveDuplicates, 
-                    System.Nullable<bool> ExcludeBrand, 
-                    System.Nullable<long> AdGroupId, 
+                    string ApplicationToken,
+                    string AuthenticationToken,
+                    string CustomerAccountId,
+                    string CustomerId,
+                    string DeveloperToken,
+                    string Password,
+                    string UserName,
+                    System.Collections.Generic.IList<string> Keywords,
+                    string Language,
+                    System.Collections.Generic.IList<string> PublisherCountries,
+                    System.Nullable<int> MaxSuggestionsPerKeyword,
+                    System.Nullable<int> SuggestionType,
+                    System.Nullable<bool> RemoveDuplicates,
+                    System.Nullable<bool> ExcludeBrand,
+                    System.Nullable<long> AdGroupId,
                     System.Nullable<long> CampaignId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8504,7 +8445,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.CampaignId = CampaignId;
         }
     }
-    
+
     /// <summary>
     /// Suggests keywords that could perform better than the specified keywords.
     /// </summary>
@@ -8514,19 +8455,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SuggestKeywordsFromExistingKeywordsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "SuggestKeywordsFromExistingKeywordsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class SuggestKeywordsFromExistingKeywordsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordSuggestion objects. The array contains an item for each keyword specified in the request. The object contains a list of suggested keywords that may perform better than the specified keyword.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordSuggestion> KeywordSuggestions;
-        
+
         /// <summary>
         /// Constructor for the SuggestKeywordsFromExistingKeywordsResponse response object.
         /// </summary>
@@ -8536,7 +8477,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public SuggestKeywordsFromExistingKeywordsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the SuggestKeywordsFromExistingKeywordsResponse response object.
         /// </summary>
@@ -8550,7 +8491,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.KeywordSuggestions = KeywordSuggestions;
         }
     }
-    
+
     /// <summary>
     /// Gets the geographical locations of users who have searched for the specified keywords.
     /// </summary>
@@ -8560,73 +8501,73 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordLocationsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordLocationsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordLocationsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of keywords for which you want to get geographical location information. The data is broken out by device type. The array can contain a maximum of 1,000 keywords, and each keyword can contain a maximum of 100 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<string> Keywords;
-        
+
         /// <summary>
         /// The language in which the keywords are written.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public string Language;
-        
+
         /// <summary>
         /// The country code of the country/region to use as the source of the location data.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public string PublisherCountry;
-        
+
         /// <summary>
         /// A list of one or more of the following device types.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public System.Collections.Generic.IList<string> Device;
-        
+
         /// <summary>
         /// The level at which to aggregate the geographical location data. The following are the possible values.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 4)]
         public System.Nullable<int> Level;
-        
+
         /// <summary>
         /// The country from which the search originated.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=5)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 5)]
         public string ParentCountry;
-        
+
         /// <summary>
         /// The maximum number of locations to return. You can request a maximum of 10 locations.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=6)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 6)]
         public System.Nullable<int> MaxLocations;
-        
+
         /// <summary>
         /// Constructor for the GetKeywordLocationsRequest request object.
         /// </summary>
@@ -8636,7 +8577,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetKeywordLocationsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetKeywordLocationsRequest request object.
         /// </summary>
@@ -8668,7 +8609,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.MaxLocations = MaxLocations;
         }
     }
-    
+
     /// <summary>
     /// Gets the geographical locations of users who have searched for the specified keywords.
     /// </summary>
@@ -8678,19 +8619,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordLocationsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordLocationsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordLocationsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordLocationResult objects. Each object contains the keyword, geographical location, and percentage of time that users in the geographical location searched for the specified keyword.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordLocationResult> KeywordLocationResult;
-        
+
         /// <summary>
         /// Constructor for the GetKeywordLocationsResponse response object.
         /// </summary>
@@ -8700,7 +8641,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetKeywordLocationsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetKeywordLocationsResponse response object.
         /// </summary>
@@ -8714,7 +8655,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.KeywordLocationResult = KeywordLocationResult;
         }
     }
-    
+
     /// <summary>
     /// Gets the keyword categories to which the specified keywords belong.
     /// </summary>
@@ -8724,55 +8665,55 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordCategoriesRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordCategoriesRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordCategoriesRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of keywords for which you want to determine the possible keyword categories that each keyword belongs to. The array can contain a maximum of 1,000 keywords, and each keyword can contain a maximum of 100 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<string> Keywords;
-        
+
         /// <summary>
         /// The language in which the keywords are written. You must set this element to English.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public string Language;
-        
+
         /// <summary>
         /// The country code of the country/region to use as the source of the category data.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public string PublisherCountry;
-        
+
         /// <summary>
         /// The number of categories to include in the results. The maximum number of categories that you can request is 5.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public System.Nullable<int> MaxCategories;
-        
+
         /// <summary>
         /// Constructor for the GetKeywordCategoriesRequest request object.
         /// </summary>
@@ -8782,7 +8723,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetKeywordCategoriesRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetKeywordCategoriesRequest request object.
         /// </summary>
@@ -8808,7 +8749,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.MaxCategories = MaxCategories;
         }
     }
-    
+
     /// <summary>
     /// Gets the keyword categories to which the specified keywords belong.
     /// </summary>
@@ -8818,19 +8759,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordCategoriesResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordCategoriesResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordCategoriesResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordCategoryResult objects. Each object contains the keyword and a list of categories to which it belongs. For more information, see Remarks.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordCategoryResult> Result;
-        
+
         /// <summary>
         /// Constructor for the GetKeywordCategoriesResponse response object.
         /// </summary>
@@ -8840,7 +8781,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetKeywordCategoriesResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetKeywordCategoriesResponse response object.
         /// </summary>
@@ -8854,7 +8795,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Result = Result;
         }
     }
-    
+
     /// <summary>
     /// Gets the age and gender of users who have searched for the specified keywords.
     /// </summary>
@@ -8864,55 +8805,55 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordDemographicsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordDemographicsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordDemographicsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of keywords for which you want to get demographics data. The data is broken out by device type. The array can contain a maximum of 1,000 keywords, and each keyword can contain a maximum of 100 characters.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<string> Keywords;
-        
+
         /// <summary>
         /// The language in which the keywords are written.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public string Language;
-        
+
         /// <summary>
         /// The country code of the country/region to use as the source of the demographics data.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 2)]
         public string PublisherCountry;
-        
+
         /// <summary>
         /// A list of one or more of the following device types.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 3)]
         public System.Collections.Generic.IList<string> Device;
-        
+
         /// <summary>
         /// Constructor for the GetKeywordDemographicsRequest request object.
         /// </summary>
@@ -8922,7 +8863,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetKeywordDemographicsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetKeywordDemographicsRequest request object.
         /// </summary>
@@ -8948,7 +8889,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Device = Device;
         }
     }
-    
+
     /// <summary>
     /// Gets the age and gender of users who have searched for the specified keywords.
     /// </summary>
@@ -8958,19 +8899,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordDemographicsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordDemographicsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordDemographicsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordDemographicResult objects. Each object contains the keyword and the percentage of time that users of a certain age and gender searched for the specified keyword.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordDemographicResult> KeywordDemographicResult;
-        
+
         /// <summary>
         /// Constructor for the GetKeywordDemographicsResponse response object.
         /// </summary>
@@ -8980,7 +8921,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetKeywordDemographicsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetKeywordDemographicsResponse response object.
         /// </summary>
@@ -8994,7 +8935,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.KeywordDemographicResult = KeywordDemographicResult;
         }
     }
-    
+
     /// <summary>
     /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
     /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -9005,43 +8946,43 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBidLandscapeByKeywordIdsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBidLandscapeByKeywordIdsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetBidLandscapeByKeywordIdsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
+
         /// <summary>
         /// An array of identifiers of the keywords for which you want to get the list of suggested bid values with estimated performance statistics.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<long> KeywordIds;
-        
+
         /// <summary>
         /// When set to false, the suggested bid values might not include the keyword's current bid. The default value is false.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 1)]
         public System.Nullable<bool> IncludeCurrentBid;
-        
+
         /// <summary>
         /// Constructor for the GetBidLandscapeByKeywordIdsRequest request object.
         /// </summary>
@@ -9051,7 +8992,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetBidLandscapeByKeywordIdsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetBidLandscapeByKeywordIdsRequest request object.
         /// </summary>
@@ -9073,7 +9014,7 @@ namespace Microsoft.BingAds.AdIntelligence
             this.IncludeCurrentBid = IncludeCurrentBid;
         }
     }
-    
+
     /// <summary>
     /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
     /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -9084,19 +9025,19 @@ namespace Microsoft.BingAds.AdIntelligence
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBidLandscapeByKeywordIdsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBidLandscapeByKeywordIdsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetBidLandscapeByKeywordIdsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
+
         /// <summary>
         /// An array of KeywordBidLandscape objects. The array contains a KeywordBidLandscape corresponding to each keyword specified in the request. Duplicate keyword identifiers are allowed in the same call and will return the same results.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.KeywordBidLandscape> BidLandscape;
-        
+
         /// <summary>
         /// Constructor for the GetBidLandscapeByKeywordIdsResponse response object.
         /// </summary>
@@ -9106,7 +9047,7 @@ namespace Microsoft.BingAds.AdIntelligence
         public GetBidLandscapeByKeywordIdsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetBidLandscapeByKeywordIdsResponse response object.
         /// </summary>
@@ -9120,65 +9061,54 @@ namespace Microsoft.BingAds.AdIntelligence
             this.BidLandscape = BidLandscape;
         }
     }
-    
-    /// <summary>
-    /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same ad group to help make decisions about how to adjust your ad group level default bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
-    /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIds Request Object</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetBidLandscapeByAdGroupIds">GetBidLandscapeByAdGroupIds</see> service operation.</para>
-    /// </remarks>
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBidLandscapeByAdGroupIdsRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBidLandscapeByAdGroupIdsRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetBidLandscapeByAdGroupIdsRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        /// <summary>
-        /// An array of ad group identifiers with corresponding bid landscape type input. A list of suggested bid values with estimated performance statistics will be returned for each input.
-        /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AdGroupBidLandscapeInput> AdGroupBidLandscapeInputs;
-        
+
         /// <summary>
         /// Constructor for the GetBidLandscapeByAdGroupIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx">GetBidLandscapeByAdGroupIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx for details.
         /// </remarks>
         public GetBidLandscapeByAdGroupIdsRequest()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetBidLandscapeByAdGroupIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx">GetBidLandscapeByAdGroupIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="AdGroupBidLandscapeInputs">An array of ad group identifiers with corresponding bid landscape type input. A list of suggested bid values with estimated performance statistics will be returned for each input.</param>
+        /// <param name="AdGroupBidLandscapeInputs"></param>
         public GetBidLandscapeByAdGroupIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AdGroupBidLandscapeInput> AdGroupBidLandscapeInputs)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9191,88 +9121,77 @@ namespace Microsoft.BingAds.AdIntelligence
             this.AdGroupBidLandscapeInputs = AdGroupBidLandscapeInputs;
         }
     }
-    
-    /// <summary>
-    /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same ad group to help make decisions about how to adjust your ad group level default bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
-    /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIds Response Object</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdIntelligenceServiceClient.GetBidLandscapeByAdGroupIds">GetBidLandscapeByAdGroupIds</see> service operation.</para>
-    /// </remarks>
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBidLandscapeByAdGroupIdsResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBidLandscapeByAdGroupIdsResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetBidLandscapeByAdGroupIdsResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        /// <summary>
-        /// An array of AdGroupBidLandscape objects. The array contains a AdGroupBidLandscape corresponding to each ad group and bid landscape type input specified in the request. Duplicate input are allowed in the same call and will return the same results.
-        /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AdGroupBidLandscape> BidLandscape;
-        
+
         /// <summary>
         /// Constructor for the GetBidLandscapeByAdGroupIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIdsResponse</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx">GetBidLandscapeByAdGroupIdsResponse</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx for details.
         /// </remarks>
         public GetBidLandscapeByAdGroupIdsResponse()
         {
         }
-        
+
         /// <summary>
         /// Constructor for the GetBidLandscapeByAdGroupIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIdsResponse</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx">GetBidLandscapeByAdGroupIdsResponse</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="BidLandscape">An array of AdGroupBidLandscape objects. The array contains a AdGroupBidLandscape corresponding to each ad group and bid landscape type input specified in the request. Duplicate input are allowed in the same call and will return the same results.</param>
+        /// <param name="BidLandscape"></param>
         public GetBidLandscapeByAdGroupIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.AdIntelligence.AdGroupBidLandscape> BidLandscape)
         {
             this.TrackingId = TrackingId;
             this.BidLandscape = BidLandscape;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountAuctionInsightRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAccountAuctionInsightRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAccountAuctionInsightRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.Selector Selector;
-        
+
         public GetAccountAuctionInsightRequest()
         {
         }
-        
+
         public GetAccountAuctionInsightRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.AdIntelligence.Selector Selector)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9285,64 +9204,64 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Selector = Selector;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountAuctionInsightResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAccountAuctionInsightResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAccountAuctionInsightResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightPage Result;
-        
+
         public GetAccountAuctionInsightResponse()
         {
         }
-        
+
         public GetAccountAuctionInsightResponse(string TrackingId, Microsoft.BingAds.AdIntelligence.AuctionInsightPage Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCampaignAuctionInsightRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetCampaignAuctionInsightRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetCampaignAuctionInsightRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.Selector Selector;
-        
+
         public GetCampaignAuctionInsightRequest()
         {
         }
-        
+
         public GetCampaignAuctionInsightRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.AdIntelligence.Selector Selector)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9355,64 +9274,64 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Selector = Selector;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCampaignAuctionInsightResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetCampaignAuctionInsightResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetCampaignAuctionInsightResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightPage Result;
-        
+
         public GetCampaignAuctionInsightResponse()
         {
         }
-        
+
         public GetCampaignAuctionInsightResponse(string TrackingId, Microsoft.BingAds.AdIntelligence.AuctionInsightPage Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAdGroupAuctionInsightRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAdGroupAuctionInsightRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAdGroupAuctionInsightRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.Selector Selector;
-        
+
         public GetAdGroupAuctionInsightRequest()
         {
         }
-        
+
         public GetAdGroupAuctionInsightRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.AdIntelligence.Selector Selector)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9425,64 +9344,64 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Selector = Selector;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAdGroupAuctionInsightResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAdGroupAuctionInsightResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAdGroupAuctionInsightResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightPage Result;
-        
+
         public GetAdGroupAuctionInsightResponse()
         {
         }
-        
+
         public GetAdGroupAuctionInsightResponse(string TrackingId, Microsoft.BingAds.AdIntelligence.AuctionInsightPage Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordAuctionInsightRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordAuctionInsightRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordAuctionInsightRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.Selector Selector;
-        
+
         public GetKeywordAuctionInsightRequest()
         {
         }
-        
+
         public GetKeywordAuctionInsightRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.AdIntelligence.Selector Selector)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9495,64 +9414,64 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Selector = Selector;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordAuctionInsightResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordAuctionInsightResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordAuctionInsightResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightPage Result;
-        
+
         public GetKeywordAuctionInsightResponse()
         {
         }
-        
+
         public GetKeywordAuctionInsightResponse(string TrackingId, Microsoft.BingAds.AdIntelligence.AuctionInsightPage Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAuctionInsightDataRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAuctionInsightDataRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAuctionInsightDataRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.Selector Selector;
-        
+
         public GetAuctionInsightDataRequest()
         {
         }
-        
+
         public GetAuctionInsightDataRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.AdIntelligence.Selector Selector)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9565,64 +9484,64 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Selector = Selector;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAuctionInsightDataResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAuctionInsightDataResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAuctionInsightDataResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightResult Result;
-        
+
         public GetAuctionInsightDataResponse()
         {
         }
-        
+
         public GetAuctionInsightDataResponse(string TrackingId, Microsoft.BingAds.AdIntelligence.AuctionInsightResult Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAuctionInsightAvailRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAuctionInsightAvailRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAuctionInsightAvailRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.Selector Selector;
-        
+
         public GetAuctionInsightAvailRequest()
         {
         }
-        
+
         public GetAuctionInsightAvailRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.AdIntelligence.Selector Selector)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9635,64 +9554,64 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Selector = Selector;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAuctionInsightAvailResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAuctionInsightAvailResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAuctionInsightAvailResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public System.Collections.Generic.IList<long> Result;
-        
+
         public GetAuctionInsightAvailResponse()
         {
         }
-        
+
         public GetAuctionInsightAvailResponse(string TrackingId, System.Collections.Generic.IList<long> Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAuctionInsightAvailableChildrenRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAuctionInsightAvailableChildrenRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAuctionInsightAvailableChildrenRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.Selector Selector;
-        
+
         public GetAuctionInsightAvailableChildrenRequest()
         {
         }
-        
+
         public GetAuctionInsightAvailableChildrenRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.AdIntelligence.Selector Selector)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9705,64 +9624,64 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Selector = Selector;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAuctionInsightAvailableChildrenResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAuctionInsightAvailableChildrenResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetAuctionInsightAvailableChildrenResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.AuctionInsightAvailableChildren Result;
-        
+
         public GetAuctionInsightAvailableChildrenResponse()
         {
         }
-        
+
         public GetAuctionInsightAvailableChildrenResponse(string TrackingId, Microsoft.BingAds.AdIntelligence.AuctionInsightAvailableChildren Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordIdBidEstimationRequest", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordIdBidEstimationRequest", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordIdBidEstimationRequest
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string ApplicationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string AuthenticationToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerAccountId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string CustomerId;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string DeveloperToken;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string Password;
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string UserName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.Selector Selector;
-        
+
         public GetKeywordIdBidEstimationRequest()
         {
         }
-        
+
         public GetKeywordIdBidEstimationRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.AdIntelligence.Selector Selector)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9775,74 +9694,74 @@ namespace Microsoft.BingAds.AdIntelligence
             this.Selector = Selector;
         }
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordIdBidEstimationResponse", WrapperNamespace="https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordIdBidEstimationResponse", WrapperNamespace = "https://bingads.microsoft.com/AdIntelligence/v9", IsWrapped = true)]
     public partial class GetKeywordIdBidEstimationResponse
     {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9")]
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9")]
         public string TrackingId;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdIntelligence/v9", Order=0)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/AdIntelligence/v9", Order = 0)]
         public Microsoft.BingAds.AdIntelligence.KeywordIdBidEstimationPage Result;
-        
+
         public GetKeywordIdBidEstimationResponse()
         {
         }
-        
+
         public GetKeywordIdBidEstimationResponse(string TrackingId, Microsoft.BingAds.AdIntelligence.KeywordIdBidEstimationPage Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
         }
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IAdIntelligenceServiceChannel : Microsoft.BingAds.AdIntelligence.IAdIntelligenceService, System.ServiceModel.IClientChannel
     {
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class AdIntelligenceServiceClient : System.ServiceModel.ClientBase<Microsoft.BingAds.AdIntelligence.IAdIntelligenceService>, Microsoft.BingAds.AdIntelligence.IAdIntelligenceService
     {
-        
+
         public AdIntelligenceServiceClient()
         {
         }
-        
-        public AdIntelligenceServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName)
+
+        public AdIntelligenceServiceClient(string endpointConfigurationName) :
+            base(endpointConfigurationName)
         {
         }
-        
-        public AdIntelligenceServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress)
+
+        public AdIntelligenceServiceClient(string endpointConfigurationName, string remoteAddress) :
+            base(endpointConfigurationName, remoteAddress)
         {
         }
-        
-        public AdIntelligenceServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress)
+
+        public AdIntelligenceServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
+            base(endpointConfigurationName, remoteAddress)
         {
         }
-        
-        public AdIntelligenceServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress)
+
+        public AdIntelligenceServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
+            base(binding, remoteAddress)
         {
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetPublisherKeywordPerformanceResponse GetPublisherKeywordPerformance(Microsoft.BingAds.AdIntelligence.GetPublisherKeywordPerformanceRequest request)
         {
             return base.Channel.GetPublisherKeywordPerformance(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetPublisherKeywordPerformanceResponse> GetPublisherKeywordPerformanceAsync(Microsoft.BingAds.AdIntelligence.GetPublisherKeywordPerformanceRequest request)
         {
             return base.Channel.GetPublisherKeywordPerformanceAsync(request);
         }
-        
+
         /// <summary>
         /// Suggests the possible keywords for the content located at the specified URL.
         /// </summary>
@@ -9857,7 +9776,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.SuggestKeywordsForUrl(request);
         }
-        
+
         /// <summary>
         /// Suggests the possible keywords for the content located at the specified URL.
         /// </summary>
@@ -9872,7 +9791,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.SuggestKeywordsForUrlAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -9888,7 +9807,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetEstimatedBidByKeywordIds(request);
         }
-        
+
         /// <summary>
         /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -9904,7 +9823,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetEstimatedBidByKeywordIdsAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -9920,7 +9839,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetEstimatedPositionByKeywordIds(request);
         }
-        
+
         /// <summary>
         /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could have generated with the estimated bid.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -9936,7 +9855,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetEstimatedPositionByKeywordIdsAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
         /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -9952,7 +9871,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetEstimatedBidByKeywords(request);
         }
-        
+
         /// <summary>
         /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
         /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -9968,7 +9887,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetEstimatedBidByKeywordsAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could be generated with the estimated bid.
         /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -9984,7 +9903,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetEstimatedPositionByKeywords(request);
         }
-        
+
         /// <summary>
         /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords. In addition, the operation provides estimates of clicks, average cost per click (CPC), and impressions that the keywords could be generated with the estimated bid.
         /// <para>The estimates are not a prediction or guarantee of future performance.</para>
@@ -10000,7 +9919,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetEstimatedPositionByKeywordsAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the number of times the normalized term was used in a search during the specified time period. The results are aggregated by device type.
         /// </summary>
@@ -10015,7 +9934,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetHistoricalSearchCount(request);
         }
-        
+
         /// <summary>
         /// Gets the number of times the normalized term was used in a search during the specified time period. The results are aggregated by device type.
         /// </summary>
@@ -10030,7 +9949,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetHistoricalSearchCountAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the historical performance of the normalized search term. The results are aggregated by device type.
         /// </summary>
@@ -10040,12 +9959,12 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</returns>
+        /// <returns>An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword, device, match type, and ad position specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</returns>
         public Microsoft.BingAds.AdIntelligence.GetHistoricalKeywordPerformanceResponse GetHistoricalKeywordPerformance(Microsoft.BingAds.AdIntelligence.GetHistoricalKeywordPerformanceRequest request)
         {
             return base.Channel.GetHistoricalKeywordPerformance(request);
         }
-        
+
         /// <summary>
         /// Gets the historical performance of the normalized search term. The results are aggregated by device type.
         /// </summary>
@@ -10055,12 +9974,12 @@ namespace Microsoft.BingAds.AdIntelligence
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</returns>
+        /// <returns>An array of KeywordHistoricalPerformance objects. The array contains an item for each keyword, device, match type, and ad position specified in the request. If the keyword is not valid or has no data available, the corresponding item in the array will be null.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetHistoricalKeywordPerformanceResponse> GetHistoricalKeywordPerformanceAsync(Microsoft.BingAds.AdIntelligence.GetHistoricalKeywordPerformanceRequest request)
         {
             return base.Channel.GetHistoricalKeywordPerformanceAsync(request);
         }
-        
+
         /// <summary>
         /// Suggests keywords that could perform better than the specified keywords.
         /// </summary>
@@ -10075,7 +9994,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.SuggestKeywordsFromExistingKeywords(request);
         }
-        
+
         /// <summary>
         /// Suggests keywords that could perform better than the specified keywords.
         /// </summary>
@@ -10090,7 +10009,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.SuggestKeywordsFromExistingKeywordsAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the geographical locations of users who have searched for the specified keywords.
         /// </summary>
@@ -10105,7 +10024,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetKeywordLocations(request);
         }
-        
+
         /// <summary>
         /// Gets the geographical locations of users who have searched for the specified keywords.
         /// </summary>
@@ -10120,7 +10039,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetKeywordLocationsAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the keyword categories to which the specified keywords belong.
         /// </summary>
@@ -10135,7 +10054,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetKeywordCategories(request);
         }
-        
+
         /// <summary>
         /// Gets the keyword categories to which the specified keywords belong.
         /// </summary>
@@ -10150,7 +10069,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetKeywordCategoriesAsync(request);
         }
-        
+
         /// <summary>
         /// Gets the age and gender of users who have searched for the specified keywords.
         /// </summary>
@@ -10165,7 +10084,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetKeywordDemographics(request);
         }
-        
+
         /// <summary>
         /// Gets the age and gender of users who have searched for the specified keywords.
         /// </summary>
@@ -10180,7 +10099,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetKeywordDemographicsAsync(request);
         }
-        
+
         /// <summary>
         /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -10196,7 +10115,7 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetBidLandscapeByKeywordIds(request);
         }
-        
+
         /// <summary>
         /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
         /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
@@ -10212,114 +10131,106 @@ namespace Microsoft.BingAds.AdIntelligence
         {
             return base.Channel.GetBidLandscapeByKeywordIdsAsync(request);
         }
-        
-        /// <summary>
-        /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same ad group to help make decisions about how to adjust your ad group level default bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
-        /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
-        /// </summary>
+
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx">GetBidLandscapeByAdGroupIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of AdGroupBidLandscape objects. The array contains a AdGroupBidLandscape corresponding to each ad group and bid landscape type input specified in the request. Duplicate input are allowed in the same call and will return the same results.</returns>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsResponse GetBidLandscapeByAdGroupIds(Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsRequest request)
         {
             return base.Channel.GetBidLandscapeByAdGroupIds(request);
         }
-        
-        /// <summary>
-        /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same ad group to help make decisions about how to adjust your ad group level default bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
-        /// <para>The estimates are based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
-        /// </summary>
+
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx">GetBidLandscapeByAdGroupIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx for details.
+        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx">GetBidLandscapeByAdGroupIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743755(v=msads.100).aspx for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of AdGroupBidLandscape objects. The array contains a AdGroupBidLandscape corresponding to each ad group and bid landscape type input specified in the request. Duplicate input are allowed in the same call and will return the same results.</returns>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsResponse> GetBidLandscapeByAdGroupIdsAsync(Microsoft.BingAds.AdIntelligence.GetBidLandscapeByAdGroupIdsRequest request)
         {
             return base.Channel.GetBidLandscapeByAdGroupIdsAsync(request);
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightResponse GetAccountAuctionInsight(Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightRequest request)
         {
             return base.Channel.GetAccountAuctionInsight(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightResponse> GetAccountAuctionInsightAsync(Microsoft.BingAds.AdIntelligence.GetAccountAuctionInsightRequest request)
         {
             return base.Channel.GetAccountAuctionInsightAsync(request);
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetCampaignAuctionInsightResponse GetCampaignAuctionInsight(Microsoft.BingAds.AdIntelligence.GetCampaignAuctionInsightRequest request)
         {
             return base.Channel.GetCampaignAuctionInsight(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetCampaignAuctionInsightResponse> GetCampaignAuctionInsightAsync(Microsoft.BingAds.AdIntelligence.GetCampaignAuctionInsightRequest request)
         {
             return base.Channel.GetCampaignAuctionInsightAsync(request);
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetAdGroupAuctionInsightResponse GetAdGroupAuctionInsight(Microsoft.BingAds.AdIntelligence.GetAdGroupAuctionInsightRequest request)
         {
             return base.Channel.GetAdGroupAuctionInsight(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAdGroupAuctionInsightResponse> GetAdGroupAuctionInsightAsync(Microsoft.BingAds.AdIntelligence.GetAdGroupAuctionInsightRequest request)
         {
             return base.Channel.GetAdGroupAuctionInsightAsync(request);
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightResponse GetKeywordAuctionInsight(Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightRequest request)
         {
             return base.Channel.GetKeywordAuctionInsight(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightResponse> GetKeywordAuctionInsightAsync(Microsoft.BingAds.AdIntelligence.GetKeywordAuctionInsightRequest request)
         {
             return base.Channel.GetKeywordAuctionInsightAsync(request);
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataResponse GetAuctionInsightData(Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataRequest request)
         {
             return base.Channel.GetAuctionInsightData(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataResponse> GetAuctionInsightDataAsync(Microsoft.BingAds.AdIntelligence.GetAuctionInsightDataRequest request)
         {
             return base.Channel.GetAuctionInsightDataAsync(request);
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailResponse GetAuctionInsightAvail(Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailRequest request)
         {
             return base.Channel.GetAuctionInsightAvail(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailResponse> GetAuctionInsightAvailAsync(Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailRequest request)
         {
             return base.Channel.GetAuctionInsightAvailAsync(request);
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailableChildrenResponse GetAuctionInsightAvailableChildren(Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailableChildrenRequest request)
         {
             return base.Channel.GetAuctionInsightAvailableChildren(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailableChildrenResponse> GetAuctionInsightAvailableChildrenAsync(Microsoft.BingAds.AdIntelligence.GetAuctionInsightAvailableChildrenRequest request)
         {
             return base.Channel.GetAuctionInsightAvailableChildrenAsync(request);
         }
-        
+
         public Microsoft.BingAds.AdIntelligence.GetKeywordIdBidEstimationResponse GetKeywordIdBidEstimation(Microsoft.BingAds.AdIntelligence.GetKeywordIdBidEstimationRequest request)
         {
             return base.Channel.GetKeywordIdBidEstimation(request);
         }
-        
+
         public System.Threading.Tasks.Task<Microsoft.BingAds.AdIntelligence.GetKeywordIdBidEstimationResponse> GetKeywordIdBidEstimationAsync(Microsoft.BingAds.AdIntelligence.GetKeywordIdBidEstimationRequest request)
         {
             return base.Channel.GetKeywordIdBidEstimationAsync(request);

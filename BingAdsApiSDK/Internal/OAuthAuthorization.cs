@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -69,8 +69,7 @@ namespace Microsoft.BingAds.Internal
         /// The client identifier corresponding to your registered application.         
         /// </summary>
         /// <remarks>
-        /// For more information about using a client identifier for authentication, see the 
-        /// Client Password Authentication section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1
+        /// For more information about using a client identifier for authentication, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
         public string ClientId
         {
@@ -89,8 +88,7 @@ namespace Microsoft.BingAds.Internal
         /// The client identifier corresponding to your registered application.         
         /// </param>
         /// <remarks>
-        /// For more information about using a client identifier for authentication, see the 
-        /// Client Password Authentication section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1
+        /// For more information about using a client identifier for authentication, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
         protected OAuthAuthorization(string clientId)
         {
@@ -112,7 +110,7 @@ namespace Microsoft.BingAds.Internal
         /// </para>
         /// <para>
         /// For example, <paramref name="apiRequest"/> object can be the 
-        /// GetUserRequest message of the GetUser service operation. For more information about GetUser, see http://go.microsoft.com/fwlink/?LinkID=511603. 
+        /// GetUserRequest message of the GetUser service operation. For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511603">GetUser</see>. 
         /// </para>
         /// </remarks>
         protected internal override void SetAuthenticationFieldsOnApiRequestObject(dynamic apiRequest)

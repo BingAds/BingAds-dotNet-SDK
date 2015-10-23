@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 9.3
+// Bing Ads .NET SDK ver. 10.4
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -62,10 +62,10 @@ namespace Microsoft.BingAds
     /// In this case the AuthenticationToken request header will be set to the corresponding <see cref="OAuthTokens.AccessToken"/> value.
     /// </para>
     /// <para>
-    /// This class implements the authorization code grant flow for Managing User Authentication with OAuth 
-    /// documented at http://go.microsoft.com/fwlink/?LinkID=511609. This is a standard OAuth 2.0 flow and is defined in detail in the 
-    /// Authorization Code Grant section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1.
-    /// For more information about registering a Bing Ads application, see http://go.microsoft.com/fwlink/?LinkID=511607. 
+    /// This class implements the authorization code grant flow for 
+    /// <see href="http://go.microsoft.com/fwlink/?LinkID=511609">Managing User Authentication with OAuth documented</see>. This is a standard OAuth 2.0 flow and is defined in detail in the 
+    /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1">Authorization Code Grant section of the OAuth 2.0 spec</see>.
+    /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511607">registering a Bing Ads application</see>. 
     /// </para> 
     /// </remarks>    
     public class OAuthWebAuthCodeGrant : OAuthWithAuthorizationCode
@@ -92,12 +92,12 @@ namespace Microsoft.BingAds
         /// </param>
         /// <remarks>
         /// <para>
-        /// For more information about using a client identifier for authentication, see the 
-        /// Client Password Authentication section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1
+        /// For more information about using a client identifier for authentication, see 
+        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see the Redirection Uri section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1.
+        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
         public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri)
@@ -126,12 +126,12 @@ namespace Microsoft.BingAds
         /// </param>
         /// <remarks>
         /// <para>
-        /// For more information about using a client identifier for authentication, see the 
-        /// Client Password Authentication section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1
+        /// For more information about using a client identifier for authentication, see 
+        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see the Redirection Uri section of the OAuth 2.0 spec at http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1.
+        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
         public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, string refreshToken)
