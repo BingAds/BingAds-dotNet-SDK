@@ -43,6 +43,8 @@ namespace BingAdsExamples.V10
                 // Prepare the bulk entities that you want to upload. Each bulk entity contains the corresponding campaign management object, 
                 // and additional elements needed to read from and write to a bulk file. 
 
+                var uploadEntities = new List<BulkEntity>();
+
                 var bulkCampaign = new BulkCampaign
                 {
                     // ClientId may be used to associate records in the bulk upload file with records in the results file. The value of this field 
@@ -142,8 +144,7 @@ namespace BingAdsExamples.V10
                                         {
                                             DisplayText = "Women's Shoe Sale 1",
 
-                                            // Destination URLs are deprecated and will be sunset in March 2016. 
-                                            // If you are currently using the Destination URL, you must upgrade to Final URLs. 
+                                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
                                             // Here is an example of a DestinationUrl you might have used previously. 
                                             // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
@@ -188,8 +189,7 @@ namespace BingAdsExamples.V10
                                         {
                                             DisplayText = "Women's Shoe Sale 2",
 
-                                            // Destination URLs are deprecated and will be sunset in March 2016. 
-                                            // If you are currently using the Destination URL, you must upgrade to Final URLs. 
+                                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
                                             // Here is an example of a DestinationUrl you might have used previously. 
                                             // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
@@ -277,45 +277,27 @@ namespace BingAdsExamples.V10
                 };
 
 
-                // Write the entities created above, to the specified file.
+                // Upload the entities created above.
                 // Dependent entities such as BulkCampaignCallAdExtension must be written after any dependencies,  
                 // for example the BulkCampaign and BulkCallAdExtension. 
 
-                Writer = new BulkFileWriter(FileDirectory + UploadFileName);
+                uploadEntities.Add(bulkCampaign);
 
-                Writer.WriteEntity(bulkCampaign);
+                uploadEntities.Add(bulkAppAdExtension);
+                uploadEntities.Add(bulkCallAdExtension);
+                uploadEntities.Add(bulkLocationAdExtension);
+                uploadEntities.Add(bulkSiteLinkAdExtension);
 
-                Writer.WriteEntity(bulkAppAdExtension);
-                Writer.WriteEntity(bulkCallAdExtension);
-                Writer.WriteEntity(bulkLocationAdExtension);
-                Writer.WriteEntity(bulkSiteLinkAdExtension);
-
-                Writer.WriteEntity(bulkCampaignAppAdExtension);
-                Writer.WriteEntity(bulkCampaignCallAdExtension);
-                Writer.WriteEntity(bulkCampaignLocationAdExtension);
-                Writer.WriteEntity(bulkCampaignSiteLinkAdExtension);
-
-
-                Writer.Dispose();
-
-                var fileUploadParameters = new FileUploadParameters
-                {
-                    ResultFileDirectory = FileDirectory,
-                    ResultFileName = ResultFileName,
-                    OverwriteResultFile = true,
-                    UploadFilePath = FileDirectory + UploadFileName,
-                    ResponseMode = ResponseMode.ErrorsAndResults
-                };
-
-                // UploadFileAsync will upload the file you finished writing and will download the results file
+                uploadEntities.Add(bulkCampaignAppAdExtension);
+                uploadEntities.Add(bulkCampaignCallAdExtension);
+                uploadEntities.Add(bulkCampaignLocationAdExtension);
+                uploadEntities.Add(bulkCampaignSiteLinkAdExtension);
 
                 OutputStatusMessage("\nAdding campaign, ad extensions, and associations . . .\n");
-                var bulkFilePath = await BulkService.UploadFileAsync(fileUploadParameters, progress, CancellationToken.None);
-                Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
-                OutputStatusMessage("Upload Results Bulk File Path: " + Reader.BulkFilePath + "\n");
 
                 // Write the upload output
 
+                var Reader = await UploadEntities(uploadEntities);
                 var bulkEntities = Reader.ReadEntities().ToList();
 
                 var campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
@@ -366,8 +348,11 @@ namespace BingAdsExamples.V10
                             
                             DisplayText = "Women's Shoe Sale 3",
 
-                            // Destination URLs are deprecated and will be sunset in March 2016. 
-                            // If you are currently using the Destination URL, you must upgrade to Final URLs. 
+                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
+                            // Destination URLs are deprecated and will be read-only starting in the 
+                            // second calendar quarter of 2016. After Bulk and Campaign Management version 9 APIs 
+                            // sunset at the beginning of the third calendar quarter of 2016, you will no longer 
+                            // be able to use Destination URLs. 
                             // Here is an example of a DestinationUrl you might have used previously. 
                             // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
@@ -420,33 +405,19 @@ namespace BingAdsExamples.V10
 
                 // Write the new site link and updated site link to the file
 
-                Writer = new BulkFileWriter(FileDirectory + UploadFileName);
+                uploadEntities = new List<BulkEntity>();
 
                 foreach (var bulkSiteLink in bulkSiteLinks)
                 {
-                    Writer.WriteEntity(bulkSiteLink);
+                    uploadEntities.Add(bulkSiteLink);
                 }
 
-                Writer.Dispose();
-
-                fileUploadParameters = new FileUploadParameters
-                {
-                    ResultFileDirectory = FileDirectory,
-                    ResultFileName = ResultFileName,
-                    OverwriteResultFile = true,
-                    UploadFilePath = FileDirectory + UploadFileName,
-                    ResponseMode = ResponseMode.ErrorsAndResults
-                };
-
-                // UploadFileAsync will upload the file you finished writing and will download the results file
 
                 OutputStatusMessage("\nUpdating sitelinks . . .\n");
-                bulkFilePath = await BulkService.UploadFileAsync(fileUploadParameters, progress, CancellationToken.None);
-                Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
-                OutputStatusMessage("Upload Results Bulk File Path: " + Reader.BulkFilePath + "\n");
 
-                // Write any upload errors
+                // Write the upload output
 
+                Reader = await UploadEntities(uploadEntities);
                 bulkEntities = Reader.ReadEntities().ToList();
                 var siteLinkResults = bulkEntities.OfType<BulkSiteLink>().ToList();
                 OutputBulkSiteLinks(siteLinkResults);
@@ -515,36 +486,20 @@ namespace BingAdsExamples.V10
                 // For example, if you delete either BulkCampaign or BulkCallAdExtension, then the equivalent of 
                 // BulkCampaignCallAdExtension is effectively deleted. 
 
-                Writer = new BulkFileWriter(FileDirectory + UploadFileName);
+                uploadEntities = new List<BulkEntity>();
 
-                Writer.WriteEntity(bulkCampaign);
+                uploadEntities.Add(bulkCampaign);
 
-                Writer.WriteEntity(bulkAppAdExtension);
-                Writer.WriteEntity(bulkCallAdExtension);
-                Writer.WriteEntity(bulkLocationAdExtension);
-                Writer.WriteEntity(bulkSiteLinkAdExtension);
-
-
-                Writer.Dispose();
-
-                fileUploadParameters = new FileUploadParameters
-                {
-                    ResultFileDirectory = FileDirectory,
-                    ResultFileName = ResultFileName,
-                    OverwriteResultFile = true,
-                    UploadFilePath = FileDirectory + UploadFileName,
-                    ResponseMode = ResponseMode.ErrorsAndResults
-                };
-
-                // UploadFileAsync will upload the file you finished writing and will download the results file
+                uploadEntities.Add(bulkAppAdExtension);
+                uploadEntities.Add(bulkCallAdExtension);
+                uploadEntities.Add(bulkLocationAdExtension);
+                uploadEntities.Add(bulkSiteLinkAdExtension);
 
                 OutputStatusMessage("\nDeleting campaign and ad extensions . . .\n");
-                bulkFilePath = await BulkService.UploadFileAsync(fileUploadParameters, progress, CancellationToken.None);
-                Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
-                OutputStatusMessage("Upload Results Bulk File Path: " + Reader.BulkFilePath + "\n");
 
                 // Write the upload output
 
+                Reader = await UploadEntities(uploadEntities);
                 bulkEntities = Reader.ReadEntities().ToList();
 
                 campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();

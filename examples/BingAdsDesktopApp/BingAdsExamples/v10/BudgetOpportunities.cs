@@ -86,7 +86,7 @@ namespace BingAdsExamples.V10
         /// <returns></returns>
         private async Task<IList<Campaign>> GetCampaignsByAccountIdAsync(
             long accountId,
-            CampaignType? campaignType)
+            CampaignType campaignType)
         {
             var request = new GetCampaignsByAccountIdRequest
             {

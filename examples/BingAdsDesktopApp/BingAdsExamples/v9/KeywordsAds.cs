@@ -94,7 +94,6 @@ namespace BingAdsExamples.V9
                         DisplayUrl = "Contoso.com",
                         Text = "Huge Savings on red shoes.",
                         Title = "",
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
                         // If you are currently using the Destination URL, you must use Bing Ads 
                         // Campaign Management service version 10 and upgrade to Final URLs.
                         // Here is an example of a DestinationUrl in version 9. 
@@ -105,7 +104,6 @@ namespace BingAdsExamples.V9
                         Text = "Huge Savings on red shoes.",
                         Title = "Women's Shoe Sale",
 
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
                         // If you are currently using the Destination URL, you must use Bing Ads 
                         // Campaign Management service version 10 and upgrade to Final URLs.
                         // Here is an example of a DestinationUrl in version 9. 
@@ -115,7 +113,6 @@ namespace BingAdsExamples.V9
                         DisplayUrl = "Contoso.com",
                         Text = "Huge Savings on red shoes.",
                         Title = "Women's Shoe Sale",
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
                         // If you are currently using the Destination URL, you must use Bing Ads 
                         // Campaign Management service version 10 and upgrade to Final URLs.
                         // Here is an example of a DestinationUrl in version 9. 

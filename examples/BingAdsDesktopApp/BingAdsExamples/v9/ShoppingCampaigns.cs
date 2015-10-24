@@ -73,8 +73,6 @@ namespace BingAdsExamples.V9
                 var campaignIds = await AddCampaignsAsync(authorizationData.AccountId, new[] { campaign });
                 OutputCampaignIdentifiers(campaignIds);
 
-                // You must include Shopping as a CampaignType, otherwise by default the GetCampaignsByAccountId operation
-                // excludes shopping campaigns from the results.
                 var allCampaigns = await GetCampaignsByAccountIdAsync(
                     authorizationData.AccountId,
                     CampaignType.SearchAndContent | CampaignType.Shopping);

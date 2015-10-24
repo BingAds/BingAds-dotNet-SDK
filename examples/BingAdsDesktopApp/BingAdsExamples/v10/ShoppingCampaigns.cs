@@ -87,8 +87,7 @@ namespace BingAdsExamples.V10
                     authorizationData.AccountId,
                     CampaignType.SearchAndContent | CampaignType.Shopping);
 
-                // CampaignType is optional. If CampaignType is specified, then the Campaigns corresponding
-                // to the identifier(s) must match the campaign types.
+                // The Campaigns corresponding to the identifier(s) must match the campaign types.
                 allCampaigns = await GetCampaignsByIdsAsync(
                     authorizationData.AccountId,
                     new [] { campaignId },
@@ -540,7 +539,7 @@ namespace BingAdsExamples.V10
 
         private async Task<IList<Campaign>> GetCampaignsByAccountIdAsync(
             long accountId,
-            CampaignType? campaignType)
+            CampaignType campaignType)
         {
             var request = new GetCampaignsByAccountIdRequest
             {
@@ -556,7 +555,7 @@ namespace BingAdsExamples.V10
         private async Task<IList<Campaign>> GetCampaignsByIdsAsync(
             long accountId,
             IList<long> campaignIds,
-            CampaignType? campaignType)
+            CampaignType campaignType)
         {
             var request = new GetCampaignsByIdsRequest
             {

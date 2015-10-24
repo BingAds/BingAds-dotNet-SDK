@@ -108,8 +108,7 @@ namespace BingAdsExamples.V10
                         Text = "Huge Savings on red shoes.",
                         DisplayUrl = "Contoso.com",
                         
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
-                        // If you are currently using the Destination URL, you must upgrade to Final URLs. 
+                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
                         // Here is an example of a DestinationUrl you might have used previously. 
                         // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
@@ -155,8 +154,7 @@ namespace BingAdsExamples.V10
                         Text = "Huge Savings on red shoes.",
                         DisplayUrl = "Contoso.com",                       
                         
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
-                        // If you are currently using the Destination URL, you must upgrade to Final URLs. 
+                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
                         // Here is an example of a DestinationUrl you might have used previously. 
                         // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
@@ -202,8 +200,7 @@ namespace BingAdsExamples.V10
                         Text = "Huge Savings on red shoes.",
                         DisplayUrl = "Contoso.com",
 
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
-                        // If you are currently using the Destination URL, you must upgrade to Final URLs. 
+                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
                         // Here is an example of a DestinationUrl you might have used previously. 
                         // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
@@ -249,8 +246,7 @@ namespace BingAdsExamples.V10
                         Text = "Huge Savings on red shoes.",
                         DisplayUrl = "Contoso.com",                       
                         
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
-                        // If you are currently using the Destination URL, you must upgrade to Final URLs. 
+                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
                         // Here is an example of a DestinationUrl you might have used previously. 
                         // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
