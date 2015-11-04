@@ -372,9 +372,17 @@ namespace BingAdsExamples.V10
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                await GetCampaignsByIdsAsync(authorizationData.AccountId, new [] { (long)campaignIds[0] });
+                await GetCampaignsByIdsAsync(
+                    authorizationData.AccountId,
+                    new[] { (long)campaignIds[0] },
+                    CampaignType.SearchAndContent | CampaignType.Shopping
+                );
                 UpdateCampaignsAsync(authorizationData.AccountId, new[] { updateCampaign });
-                await GetCampaignsByIdsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
+                await GetCampaignsByIdsAsync(
+                    authorizationData.AccountId,
+                    new[] { (long)campaignIds[0] },
+                    CampaignType.SearchAndContent | CampaignType.Shopping
+                );
                 
                 // Update the Text for the 3 successfully created ads, and update some UrlCustomParameters.
                 var updateAds = new Ad[] {
@@ -507,12 +515,17 @@ namespace BingAdsExamples.V10
 
         // Gets one or more campaigns in the specified account.
 
-        private async Task<IList<Campaign>> GetCampaignsByIdsAsync(long accountId, IList<long> campaignIds)
+        private async Task<IList<Campaign>> GetCampaignsByIdsAsync(
+            long accountId,
+            IList<long> campaignIds,
+            CampaignType campaignType
+            )
         {
             var request = new GetCampaignsByIdsRequest
             {
                 AccountId = accountId,
-                CampaignIds = campaignIds
+                CampaignIds = campaignIds,
+                CampaignType = campaignType
             };
 
             return (await Service.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request)).Campaigns;
