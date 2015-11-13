@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -55,18 +54,23 @@ namespace BingAdsExamples.V10
                 // Specify the extensions.
 
                 var adExtensions = new AdExtension[] {
-                    new AppAdExtension
-                    {
-                        AppPlatform = "Windows",
-                        AppStoreId = "AppStoreIdGoesHere",
-                        DestinationUrl = "DestinationUrlGoesHere",
-                        DisplayText = "Contoso",
-                    },
+                    //new AppAdExtension
+                    //{
+                    //    AppPlatform = "Windows",
+                    //    AppStoreId = "AppStoreIdGoesHere",
+                    //    DestinationUrl = "DestinationUrlGoesHere",
+                    //    DisplayText = "Contoso",
+                    //},
                     new CallAdExtension {
                         CountryCode = "US",
                         PhoneNumber = "2065550100",
                         IsCallOnly = false
                     },
+                    //new ImageAdExtension
+                    //{
+                    //    AlternativeText = "Image Extension Alt Text",
+                    //    ImageMediaIds = new long[] { await AddImageAsync(authorizationData) }
+                    //},
                     new LocationAdExtension {
                         PhoneNumber = "206-555-0100",
                         CompanyName = "Contoso Shoes",
@@ -225,6 +229,7 @@ namespace BingAdsExamples.V10
 
                 const AdExtensionsTypeFilter adExtensionsTypeFilter = AdExtensionsTypeFilter.AppAdExtension |
                                                                       AdExtensionsTypeFilter.CallAdExtension |
+                                                                      AdExtensionsTypeFilter.ImageAdExtension | 
                                                                       AdExtensionsTypeFilter.LocationAdExtension |
                                                                       AdExtensionsTypeFilter.SiteLinksAdExtension;
 
@@ -292,6 +297,39 @@ namespace BingAdsExamples.V10
             };
 
             return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
+        }
+
+        private async Task<long> AddImageAsync(AuthorizationData authorizationData)
+        {
+            var media = new List<Microsoft.BingAds.V10.CampaignManagement.Media>();
+            var image = new Microsoft.BingAds.V10.CampaignManagement.Image();
+            image.Data = GetImage15x10Data();
+            // This example uses an image with 1.5:1 aspect ratio.
+            // For more information about available aspect ratios and min / max dimensions,
+            // see the Image data object reference documentation on MSDN.
+            image.Type = "Image15x10";
+            image.MediaType = "Image";
+            media.Add(image);
+
+            var request = new AddMediaRequest
+            {
+                Media = media
+            };
+
+            var Service = new ServiceClient<ICampaignManagementService>(authorizationData);
+            return (await Service.CallAsync((s, r) => s.AddMediaAsync(r), request)).MediaIds[0];
+        }
+
+        public string GetImage15x10Data()
+        {
+            var png = new System.Drawing.Bitmap("blankimageadextension.png");
+            using (MemoryStream ms = new MemoryStream())
+            {
+                png.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                byte[] imageBytes = ms.ToArray();
+                string base64String = Convert.ToBase64String(imageBytes);
+                return base64String;
+            }
         }
 
         // Adds one or more ad extensions to the account's ad extension library.

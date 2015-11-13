@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.BingAds;
 using Microsoft.BingAds.V10.CampaignManagement;
 
 namespace BingAdsExamples.V10
@@ -446,47 +444,10 @@ namespace BingAdsExamples.V10
                 }
                 else
                 {
-                    OutputStatusMessage("Ad extension ID: " + extension.Id);
-                    OutputStatusMessage("Ad extension Type: " + extension.Type);
-
                     var appAdExtension = extension as AppAdExtension;
                     if (appAdExtension != null)
                     {
-                        OutputStatusMessage(string.Format("AppPlatform: {0}", appAdExtension.AppPlatform));
-                        OutputStatusMessage(string.Format("AppStoreId: {0}", appAdExtension.AppStoreId));
-                        OutputStatusMessage(string.Format("DestinationUrl: {0}", appAdExtension.DestinationUrl));
-                        OutputStatusMessage(string.Format("DevicePreference: {0}", appAdExtension.DevicePreference));
-                        OutputStatusMessage(string.Format("DisplayText: {0}", appAdExtension.DisplayText));
-                        OutputStatusMessage("FinalMobileUrls: ");
-                        if (appAdExtension.FinalMobileUrls != null)
-                        {
-                            foreach (var finalMobileUrl in appAdExtension.FinalMobileUrls)
-                            {
-                                OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
-                            }
-                        }
-
-                        OutputStatusMessage("FinalUrls: ");
-                        if (appAdExtension.FinalUrls != null)
-                        {
-                            foreach (var finalUrl in appAdExtension.FinalUrls)
-                            {
-                                OutputStatusMessage(string.Format("\t{0}", finalUrl));
-                            }
-                        }
-                        OutputStatusMessage(string.Format("Id: {0}", appAdExtension.Id));
-                        OutputStatusMessage(string.Format("Status: {0}", appAdExtension.Status));
-                        OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", appAdExtension.TrackingUrlTemplate));
-                        OutputStatusMessage("UrlCustomParameters: ");
-                        if (appAdExtension.UrlCustomParameters != null && appAdExtension.UrlCustomParameters.Parameters != null)
-                        {
-                            foreach (var customParameter in appAdExtension.UrlCustomParameters.Parameters)
-                            {
-                                OutputStatusMessage(string.Format("\tKey: {0}", customParameter.Key));
-                                OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
-                            }
-                        }
-                        OutputStatusMessage(string.Format("Version: {0}", appAdExtension.Version));
+                        OutputAppAdExtension(appAdExtension);
                         OutputStatusMessage("\n");
                     }
                     else
@@ -494,39 +455,37 @@ namespace BingAdsExamples.V10
                         var callAdExtension = extension as CallAdExtension;
                         if (callAdExtension != null)
                         {
-                            OutputStatusMessage("Phone number: " + callAdExtension.PhoneNumber);
-                            OutputStatusMessage("Country: " + callAdExtension.CountryCode);
-                            OutputStatusMessage("Is only clickable item: " + callAdExtension.IsCallOnly);
+                            OutputCallAdExtension(callAdExtension);
                             OutputStatusMessage("\n");
                         }
                         else
                         {
-                            var locationAdExtension = extension as LocationAdExtension;
-                            if (locationAdExtension != null)
+                            var imageAdExtension = extension as ImageAdExtension;
+                            if (imageAdExtension != null)
                             {
-                                OutputStatusMessage("Company name: " + locationAdExtension.CompanyName);
-                                OutputStatusMessage("Phone number: " + locationAdExtension.PhoneNumber);
-                                OutputStatusMessage("Street: " + locationAdExtension.Address.StreetAddress);
-                                OutputStatusMessage("City: " + locationAdExtension.Address.CityName);
-                                OutputStatusMessage("State: " + locationAdExtension.Address.ProvinceName);
-                                OutputStatusMessage("Country: " + locationAdExtension.Address.CountryCode);
-                                OutputStatusMessage("Zip code: " + locationAdExtension.Address.PostalCode);
-                                OutputStatusMessage("Business coordinates determined?: " +
-                                             locationAdExtension.GeoCodeStatus);
-                                OutputStatusMessage("Map icon ID: " + locationAdExtension.IconMediaId);
-                                OutputStatusMessage("Business image ID: " + locationAdExtension.ImageMediaId);
+                                OutputImageAdExtension(imageAdExtension);
                                 OutputStatusMessage("\n");
                             }
                             else
                             {
-                                var linksAdExtension = extension as SiteLinksAdExtension;
-                                if (linksAdExtension != null)
+                                var locationAdExtension = extension as LocationAdExtension;
+                                if (locationAdExtension != null)
                                 {
-                                    OutputSiteLinks(linksAdExtension.SiteLinks);
+                                    OutputLocationAdExtension(locationAdExtension);
+                                    OutputStatusMessage("\n");
                                 }
                                 else
                                 {
-                                    OutputStatusMessage("Unknown extension type");
+                                    var linksAdExtension = extension as SiteLinksAdExtension;
+                                    if (linksAdExtension != null)
+                                    {
+                                        OutputSiteLinksAdExtension(linksAdExtension);
+                                        OutputStatusMessage("\n");
+                                    }
+                                    else
+                                    {
+                                        OutputStatusMessage("Unknown extension type");
+                                    }
                                 }
                             }
                         }
@@ -907,7 +866,6 @@ namespace BingAdsExamples.V10
                 Text = "Huge Savings on red shoes.",
                 DisplayUrl = "Contoso.com",
 
-                // Destination URLs are deprecated and will be sunset in March 2016. 
                 // If you are currently using the Destination URL, you must upgrade to Final URLs. 
                 // Here is an example of a DestinationUrl you might have used previously. 
                 // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
@@ -1839,6 +1797,7 @@ namespace BingAdsExamples.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
+                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
                 OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
@@ -1881,6 +1840,7 @@ namespace BingAdsExamples.V10
                 OutputStatusMessage(string.Format("PhoneNumber: {0}", extension.PhoneNumber));
                 OutputStatusMessage(string.Format("RequireTollFreeTrackingNumber: {0}", extension.RequireTollFreeTrackingNumber));
                 OutputStatusMessage(string.Format("Status: {0}", extension.Status));
+                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
                 OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
@@ -1954,6 +1914,7 @@ namespace BingAdsExamples.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
+                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
                 OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
@@ -2022,6 +1983,7 @@ namespace BingAdsExamples.V10
                 OutputStatusMessage(string.Format("ImageMediaId: {0}", extension.ImageMediaId));
                 OutputStatusMessage(string.Format("PhoneNumber: {0}", extension.PhoneNumber));
                 OutputStatusMessage(string.Format("Status: {0}", extension.Status));
+                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
                 OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
@@ -2040,7 +2002,6 @@ namespace BingAdsExamples.V10
                     {
                         DisplayText = "Women's Shoe Sale 1",
 
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
                         // If you are currently using the Destination URL, you must upgrade to Final URLs. 
                         // Here is an example of a DestinationUrl you might have used previously. 
                         // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
@@ -2081,7 +2042,6 @@ namespace BingAdsExamples.V10
                     {
                         DisplayText = "Women's Shoe Sale 2",
 
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
                         // If you are currently using the Destination URL, you must upgrade to Final URLs. 
                         // Here is an example of a DestinationUrl you might have used previously. 
                         // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
@@ -2140,7 +2100,9 @@ namespace BingAdsExamples.V10
                 }
                 OutputStatusMessage(string.Format("Id: {0}", extension.Id));
                 OutputStatusMessage(string.Format("Status: {0}", extension.Status));
+                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
                 OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+                OutputStatusMessage("\n");
                 OutputSiteLinks(extension.SiteLinks);
             }
         }
@@ -2152,6 +2114,8 @@ namespace BingAdsExamples.V10
         {
             if (siteLinks != null)
             {
+                OutputStatusMessage("SiteLinks: ");
+
                 foreach (var siteLink in siteLinks)
                 {
                     OutputStatusMessage(string.Format("Description1: {0}", siteLink.Description1));
