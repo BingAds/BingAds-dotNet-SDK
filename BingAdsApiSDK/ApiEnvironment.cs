@@ -47,57 +47,20 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.Internal.Bulk.Operations;
-
-namespace Microsoft.BingAds.Bulk
+namespace Microsoft.BingAds
 {
     /// <summary>
-    /// Represents a bulk download operation requested by a user. 
-    /// You can use this class to poll for the download status, and then download the file when available.
+    /// Represents Bing Ads API environment (Production or Sandbox).
     /// </summary>
-    /// <example>The <see cref="BulkServiceManager.SubmitDownloadAsync"/> method returns an instance of this class. 
-    /// If for any reason you do not want to wait for the file to be prepared for download, 
-    /// for example if your application quits unexpectedly or you have other tasks to process, you can 
-    /// use an instance of <see cref="BulkDownloadOperation"/> to download the file when it is available.</example>
-    public class BulkDownloadOperation : BulkOperation<DownloadStatus>
-    {        
+    public enum ApiEnvironment
+    {
         /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/> and <see cref="AuthorizationData"/>.
+        /// Production
         /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account. 
-        /// </param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData)
-            : this(requestId, authorizationData, null, null)
-        {
-             
-        }
-
+        Production,
         /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/>, <see cref="AuthorizationData"/> and <paramref name="apiEnvironment"/>.
+        /// Sandbox
         /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account.
-        /// </param>
-        /// <param name="apiEnvironment">Bing Ads API environment</param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
-            : this(requestId, authorizationData, null, apiEnvironment)
-        {
-
-        }
-
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId)
-        {
-
-        }
-
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId, ApiEnvironment? apiEnvironment)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId, apiEnvironment)
-        {
-
-        } 
+        Sandbox
     }
 }

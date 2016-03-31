@@ -229,6 +229,14 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             StringTable.FinalMobileUrl,
             StringTable.TrackingTemplate,
             StringTable.CustomParameter,
+
+            // Review Ad Extension
+            StringTable.IsExact,
+            StringTable.Source,
+            StringTable.Url,
+
+            // Callout Ad Extension
+            StringTable.CalloutText
         };
 
         /// <summary>

@@ -62,11 +62,10 @@
 
 namespace Microsoft.BingAds.Optimizer
 {
-
-
+    
+    
     /// <summary>
     /// Defines an object that contains the suggested budget with estimated clicks and impressions opportunities.
-    /// <para>The budget opportunity is an estimate based on the last 15 days of performance data, and not a prediction or guarantee of future performance.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh418054(v=msads.90).aspx">BudgetOpportunity Data Object</see> http://msdn.microsoft.com/en-us/library/hh418054(v=msads.90).aspx for details.
@@ -74,36 +73,36 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BudgetOpportunity", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BudgetOpportunity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BudgetOpportunity : Microsoft.BingAds.Optimizer.Opportunity
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.Optimizer.BudgetLimitType BudgetTypeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long CampaignIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double CurrentBudgetField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double IncreaseInClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IncreaseInImpressionsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PercentageIncreaseInClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PercentageIncreaseInImpressionsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double RecommendedBudgetField;
-
+        
         /// <summary>
         /// The type of budget that the campaign uses.
         /// </summary>
@@ -123,7 +122,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The identifier of the campaign to which the suggested budget applies.
         /// </summary>
@@ -143,7 +142,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The campaign's current budget.
         /// </summary>
@@ -163,7 +162,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated clicks opportunities corresponding to the suggested budget.
         /// </summary>
@@ -183,7 +182,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated impressions opportunities corresponding to the suggested budget.
         /// </summary>
@@ -203,7 +202,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated percentage increase in clicks corresponding to the suggested budget.
         /// </summary>
@@ -223,7 +222,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated percentage increase in impressions corresponding to the suggested budget.
         /// </summary>
@@ -243,7 +242,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The suggested budget based on the last 15 days of performance history for the corresponding campaign.
         /// </summary>
@@ -264,7 +263,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// This is the base class from which opportunity objects derive. The class contains the key used to identify the opportunity and the date by when the opportunity expires.
     /// </summary>
@@ -273,7 +272,7 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "Opportunity", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="Opportunity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.CampaignBudgetLandscape))]
@@ -284,16 +283,16 @@ namespace Microsoft.BingAds.Optimizer
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BudgetOpportunity))]
     public partial class Opportunity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime ExpirationDateField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OpportunityKeyField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -305,7 +304,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The date by when the suggested opportunity expires. The dateTime object contains only the date portion.
         /// </summary>
@@ -325,9 +324,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// An identifier that uniquely identifies the opportunity. You use this identifier when calling the ApplyOpportunites operation.
+        /// An identifier that uniquely identifies the opportunity. You use this identifier when calling ApplyOpportunities.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string OpportunityKey
@@ -345,9 +344,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -357,10 +356,9 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an object that contains a list of budget points for a campaign. You may use the budget points to compare the proposed budgets to your current budget, with the corresponding estimates for impressions, clicks, and cost.
-    /// <para>The campaign budget landscape is an estimate based on the last 15 days of performance data, and not a prediction or guarantee of future performance.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn434660(v=msads.90).aspx">CampaignBudgetLandscape Data Object</see> http://msdn.microsoft.com/en-us/library/dn434660(v=msads.90).aspx for details.
@@ -368,21 +366,21 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "CampaignBudgetLandscape", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignBudgetLandscape", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class CampaignBudgetLandscape : Microsoft.BingAds.Optimizer.Opportunity
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime BaseDateField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BudgetPoint> BudgetPointsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long CampaignIdField;
-
+        
         /// <summary>
         /// The date when data for budget points were most recently updated by the system.
         /// </summary>
@@ -402,9 +400,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// The list of budget points, including budget point type and budget landscape points.
+        /// The list of budget points, including budget point type and budget landscape points. Note: If you apply the campaign budget landscape's OpportunityKey using ApplyOpportunities operation, the amount corresponding to the budget point whose type is Suggested will be applied as your new campaign budget.To apply a proposed budget other than the Suggested type, use the UpdateCampaigns operation provided by the Campaign Management service.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BudgetPoint> BudgetPoints
@@ -422,7 +420,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The identifier of the campaign corresponding to the list of budget points.
         /// </summary>
@@ -443,10 +441,9 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an object that contains the suggested bid with estimated clicks and impressions opportunities.
-    /// <para>The bid opportunity is an estimate based on the last 7 days of performance data, and not a prediction or guarantee of future performance.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh802384(v=msads.90).aspx">BidOpportunity Data Object</see> http://msdn.microsoft.com/en-us/library/hh802384(v=msads.90).aspx for details.
@@ -454,36 +451,36 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BidOpportunity", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BidOpportunity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BidOpportunity : Microsoft.BingAds.Optimizer.Opportunity
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AdGroupIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double CurrentBidField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedIncreaseInClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedIncreaseInCostField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long EstimatedIncreaseInImpressionsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long KeywordIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MatchTypeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double SuggestedBidField;
-
+        
         /// <summary>
         /// The identifier of the ad group that owns the keyword.
         /// </summary>
@@ -503,7 +500,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The current keyword bid amount specified for the match type in the MatchType element.
         /// </summary>
@@ -523,7 +520,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated clicks opportunities corresponding to the suggested bid.
         /// </summary>
@@ -543,7 +540,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated increase in spend corresponding to the suggested bid.
         /// </summary>
@@ -563,7 +560,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated impressions opportunities corresponding to the suggested bid.
         /// </summary>
@@ -583,7 +580,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The identifier of the keyword to which the bid opportunity applies.
         /// </summary>
@@ -603,9 +600,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// The match type to which the suggested bid value applies. The possible values are:
+        /// The match type to which the suggested bid value applies. The possible values are: - BroadMatch - ExactMatch - PhraseMatch
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MatchType
@@ -623,7 +620,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The suggested bid based on the last 7 days of performance history for the corresponding ad group.
         /// </summary>
@@ -644,7 +641,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an object that contains a suggested keyword and bid value.
     /// </summary>
@@ -654,52 +651,52 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordOpportunity", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordOpportunity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BroadMatchKeywordOpportunity))]
     public partial class KeywordOpportunity : Microsoft.BingAds.Optimizer.Opportunity
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AdGroupIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long CampaignIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double CompetitionField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MatchTypeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long MonthlySearchesField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double SuggestedBidField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SuggestedKeywordField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> AverageCPCField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> AverageCTRField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> ClickShareField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> EstimatedIncreaseInClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> EstimatedIncreaseInCostField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> EstimatedIncreaseInImpressionsField;
-
+        
         /// <summary>
         /// The identifier of the ad group to apply the suggested keyword to.
         /// </summary>
@@ -719,7 +716,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The identifier of the campaign that owns the ad group.
         /// </summary>
@@ -739,7 +736,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// An indicator of competitive bids for this keyword relative to all search keywords. The competition score ranges from 0 to 1.00, where 0 indicates low competition and 1.00 indicates that there is a high number of advertisers competing for this keyword.
         /// </summary>
@@ -759,7 +756,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The match type that the suggested bid applies to. The following are the possible match-type values.
         /// </summary>
@@ -779,7 +776,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated monthly volume of user search queries that may match the suggested keyword for the corresponding MatchType element.
         /// </summary>
@@ -799,7 +796,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The suggested bid that may result in your ads serving on the first page of the search query results.
         /// </summary>
@@ -819,7 +816,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The suggested keyword.
         /// </summary>
@@ -839,11 +836,11 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// Broad match average CPC in the marketplace.
+        /// Broad match average CPC in the marketplace. Important: By default this element is not returned within the KeywordOpportunity data object. This element is only returned within the BroadMatchKeywordOpportunity object, which derives from KeywordOpportunity.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue = false, Order = 7)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
         public System.Nullable<double> AverageCPC
         {
             get
@@ -859,11 +856,11 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// Broad match average CTR in the marketplace.
+        /// Broad match average CTR in the marketplace. Important: By default this element is not returned within the KeywordOpportunity data object. This element is only returned within the BroadMatchKeywordOpportunity object, which derives from KeywordOpportunity.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue = false, Order = 8)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
         public System.Nullable<double> AverageCTR
         {
             get
@@ -879,11 +876,11 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// Broad match click share in the marketplace.
+        /// Broad match click share in the marketplace. Important: By default this element is not returned within the KeywordOpportunity data object. This element is only returned within the BroadMatchKeywordOpportunity object, which derives from KeywordOpportunity.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue = false, Order = 9)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
         public System.Nullable<double> ClickShare
         {
             get
@@ -899,11 +896,11 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// Estimated increase in clicks if the opportunity is applied.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue = false, Order = 10)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
         public System.Nullable<double> EstimatedIncreaseInClicks
         {
             get
@@ -919,11 +916,11 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// Estimated increase in cost if the opportunity is applied.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue = false, Order = 11)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
         public System.Nullable<double> EstimatedIncreaseInCost
         {
             get
@@ -939,11 +936,11 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// Estimated increase in impressions if the opportunity is applied.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue = false, Order = 12)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
         public System.Nullable<long> EstimatedIncreaseInImpressions
         {
             get
@@ -960,7 +957,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an object that contains the marketplace impact statistics of including broad match type keyword bids.
     /// </summary>
@@ -969,27 +966,27 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BroadMatchKeywordOpportunity", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchKeywordOpportunity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BroadMatchKeywordOpportunity : Microsoft.BingAds.Optimizer.KeywordOpportunity
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ImpressionShareField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ReferenceKeywordBidField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ReferenceKeywordIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ReferenceKeywordMatchTypeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchSearchQueryKPI> SearchQueryKPIsField;
-
+        
         /// <summary>
         /// Broad match impression share in the marketplace.
         /// </summary>
@@ -1009,7 +1006,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The bid of an existing reference keyword used by the service to offer the keyword opportunity.
         /// </summary>
@@ -1029,7 +1026,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The identifier of an existing reference keyword used by the service to offer the keyword opportunity.
         /// </summary>
@@ -1049,7 +1046,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The match type of an existing reference keyword used by the service to offer the keyword opportunity.
         /// </summary>
@@ -1069,7 +1066,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A list of up to three broad match search query KPI objects. Each item contains search query statistics of including broad match type keyword bids
         /// </summary>
@@ -1090,75 +1087,75 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BroadMatchOpportunity", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchOpportunity", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BroadMatchOpportunity : Microsoft.BingAds.Optimizer.Opportunity
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AccountIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccountNameField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AdGroupIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AdGroupNameField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AverageCPCField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AverageCTRField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double CPCAdvantageField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long CampaignIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CampaignNameField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ClickShareField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ImpressionShareField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ImpressionsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double MainLineImpressionShareField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long MainLineImpressionsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ReferenceKeywordBidField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ReferenceKeywordIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ReferenceKeywordMatchTypeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double SuggestedBidField;
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AccountId
         {
@@ -1175,7 +1172,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AccountName
         {
@@ -1192,7 +1189,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AdGroupId
         {
@@ -1209,7 +1206,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AdGroupName
         {
@@ -1226,7 +1223,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double AverageCPC
         {
@@ -1243,7 +1240,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double AverageCTR
         {
@@ -1260,7 +1257,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double CPCAdvantage
         {
@@ -1277,7 +1274,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long CampaignId
         {
@@ -1294,7 +1291,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CampaignName
         {
@@ -1311,7 +1308,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double ClickShare
         {
@@ -1328,7 +1325,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double Clicks
         {
@@ -1345,7 +1342,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double ImpressionShare
         {
@@ -1362,7 +1359,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Impressions
         {
@@ -1379,7 +1376,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Keyword
         {
@@ -1396,7 +1393,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double MainLineImpressionShare
         {
@@ -1413,7 +1410,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long MainLineImpressions
         {
@@ -1430,7 +1427,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double ReferenceKeywordBid
         {
@@ -1447,7 +1444,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long ReferenceKeywordId
         {
@@ -1464,7 +1461,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ReferenceKeywordMatchType
         {
@@ -1481,7 +1478,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double SuggestedBid
         {
@@ -1499,7 +1496,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the possible types of campaign budgets.
     /// </summary>
@@ -1508,33 +1505,32 @@ namespace Microsoft.BingAds.Optimizer
     /// <para>Used by <see cref="BudgetOpportunity"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BudgetLimitType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BudgetLimitType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts")]
     public enum BudgetLimitType : int
     {
-
+        
         /// <summary>
         /// A monthly budget that is spent until it is depleted. Depending on the activity, the complete budget could be spent in a couple of days, weeks, or not at all.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MonthlyBudgetSpendUntilDepleted = 2,
-
+        
         /// <summary>
         /// A daily budget that is spread throughout the day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DailyBudgetStandard = 5,
-
+        
         /// <summary>
         /// A daily budget that is spent until it is depleted. Depending on the activity, the complete budget could be spent within a couple of minutes, hours, or not at all.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DailyBudgetAccelerated = 6,
     }
-
+    
     /// <summary>
     /// Defines an object that contains a budget amount and an estimate of daily impressions, clicks, and cost for this budget amount averaged over the last 15 days. Additionally, the object contains a list of budget landscape points with daily impressions and clicks estimates for the given budget amount during the last 15 days.
-    /// <para>The budget point is an estimate based on the last 15 days of performance data, and not a prediction or guarantee of future performance.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn434659(v=msads.90).aspx">BudgetPoint Data Object</see> http://msdn.microsoft.com/en-us/library/dn434659(v=msads.90).aspx for details.
@@ -1542,33 +1538,33 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BudgetPoint", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BudgetPoint", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BudgetPoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double BudgetAmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BudgetLandscapePoint> BudgetLandscapePointsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.Optimizer.BudgetPointType BudgetPointTypeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedAvgDailyClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedAvgDailyCostField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedAvgDailyImpressionsField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1580,9 +1576,9 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
-        /// A potential new budget.
+        /// A potential new budget. Note: This budget amount is your current campaign budget if the BudgetPointType value is Current.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double BudgetAmount
@@ -1600,7 +1596,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The list of budget landscape points with daily impressions and clicks estimates for the last 15 days.
         /// </summary>
@@ -1620,7 +1616,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The type of budget relative to a list of budget points. For example, if the budget point type is Current then this object's BudgetAmount element would be equal to the corresponding campaign's daily budget.
         /// </summary>
@@ -1640,7 +1636,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated average daily clicks for the given budget amount.
         /// </summary>
@@ -1660,7 +1656,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated average daily cost for the given budget amount.
         /// </summary>
@@ -1680,7 +1676,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The estimated average daily impressions for the given budget amount.
         /// </summary>
@@ -1700,9 +1696,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1712,10 +1708,9 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an object that contains daily impressions and clicks estimates for one of the last 15 days.
-    /// <para>The budget landscape point is an estimate based on the last 15 days of performance data, and not a prediction or guarantee of future performance.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn434658(v=msads.90).aspx">BudgetLandscapePoint Data Object</see> http://msdn.microsoft.com/en-us/library/dn434658(v=msads.90).aspx for details.
@@ -1723,30 +1718,30 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BudgetLandscapePoint", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BudgetLandscapePoint", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BudgetLandscapePoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime BudgetLandscapePointDateField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double EstimatedClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long EstimatedImpressionsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ImpressionsField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1758,7 +1753,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// Represents one day within the last 15 days.
         /// </summary>
@@ -1778,9 +1773,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// The real historical campaign clicks performance for the day, if the budget on the corresponding day is equal to your current budget.
+        /// The real historical campaign clicks performance for the day, if the budget on the corresponding day is equal to your current budget. Note: If your budget was updated during the last 15 days, this is an estimation of historical campaign clicks performance, had your current budget been used on the corresponding day.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double Clicks
@@ -1798,9 +1793,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// The estimated clicks performance for the day , given the provided BudgetAmount element of the BudgetPoint object.
+        /// The estimated clicks performance for the day , given the provided BudgetAmount element of the BudgetPoint.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double EstimatedClicks
@@ -1818,9 +1813,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// The estimated impressions performance for the day, given the provided BudgetAmount element of the BudgetPoint object.
+        /// The estimated impressions performance for the day, given the provided BudgetAmount element of the BudgetPoint.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long EstimatedImpressions
@@ -1838,9 +1833,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
-        /// The real historical campaign impressions performance for the day, if the budget on the corresponding day is equal to your current budget.
+        /// The real historical campaign impressions performance for the day, if the budget on the corresponding day is equal to your current budget. Note: If your budget was updated during the last 15 days, this is an estimation of historical campaign impressions performance, had your current budget been used on the corresponding day.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Impressions
@@ -1858,9 +1853,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1870,7 +1865,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the possible values of a campaign budget point.
     /// </summary>
@@ -1879,36 +1874,36 @@ namespace Microsoft.BingAds.Optimizer
     /// <para>Used by <see cref="BudgetPoint"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BudgetPointType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BudgetPointType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     public enum BudgetPointType : int
     {
-
+        
         /// <summary>
         /// The budget point includes the current budget.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Current = 0,
-
+        
         /// <summary>
         /// The budget point includes the optimal suggested budget. The proposed budget is estimated to yield the optimal ratio of increased clicks to minimal budget increase.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Suggested = 1,
-
+        
         /// <summary>
         /// The budget point includes the proposed budget which is estimated to yield the maximum number of clicks.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Maximum = 2,
-
+        
         /// <summary>
         /// The budget point includes a proposed budget other than current, maximum, or suggested.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Other = 3,
     }
-
+    
     /// <summary>
     /// Defines an object that contains search query statistics of including broad match type keyword bids.
     /// </summary>
@@ -1918,30 +1913,30 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BroadMatchSearchQueryKPI", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchSearchQueryKPI", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BroadMatchSearchQueryKPI : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AverageCTRField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ImpressionsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long SRPVField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SearchQueryField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1953,7 +1948,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The average CTR for the search query.
         /// </summary>
@@ -1973,7 +1968,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The clicks for the search query.
         /// </summary>
@@ -1993,7 +1988,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The impressions for the search query.
         /// </summary>
@@ -2013,7 +2008,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The SRPV for the search query.
         /// </summary>
@@ -2033,7 +2028,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The search query corresponding to the keyword.
         /// </summary>
@@ -2053,9 +2048,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2065,7 +2060,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
@@ -2074,19 +2069,19 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "ApplicationFault", Namespace = "https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApplicationFault", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail))]
     public partial class ApplicationFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrackingIdField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2098,7 +2093,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The identifier of the log entry that contains the details of the API call.
         /// </summary>
@@ -2118,9 +2113,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2130,7 +2125,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
@@ -2139,14 +2134,14 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     public partial class AdApiFaultDetail : Microsoft.BingAds.Optimizer.ApplicationFault
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.AdApiError> ErrorsField;
-
+        
         /// <summary>
         /// An array of AdApiError objects that contains the details that explain why the service operation failed.
         /// </summary>
@@ -2167,7 +2162,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
@@ -2176,17 +2171,17 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "ApiFaultDetail", Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApiFaultDetail", Namespace="https://bingads.microsoft.com/Optimizer/v9")]
     [System.SerializableAttribute()]
     public partial class ApiFaultDetail : Microsoft.BingAds.Optimizer.ApplicationFault
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BatchError> BatchErrorsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.OperationError> OperationErrorsField;
-
+        
         /// <summary>
         /// An array of BatchError objects that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
         /// </summary>
@@ -2206,7 +2201,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// An array of OperationError objects that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
         /// </summary>
@@ -2227,7 +2222,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
@@ -2237,29 +2232,29 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BatchError", Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BatchError", Namespace="https://bingads.microsoft.com/Optimizer/v9")]
     [System.SerializableAttribute()]
     public partial class BatchError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ErrorCodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IndexField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2271,7 +2266,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// A numeric error code that identifies the error.
         /// </summary>
@@ -2291,7 +2286,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that provides additional details about the batch error. This string can be empty.
         /// </summary>
@@ -2311,7 +2306,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
         /// </summary>
@@ -2331,7 +2326,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// The zero-based index of the item in the batch of items in the request message that failed.
         /// </summary>
@@ -2351,7 +2346,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -2371,9 +2366,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2383,7 +2378,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
@@ -2393,26 +2388,26 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "OperationError", Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OperationError", Namespace="https://bingads.microsoft.com/Optimizer/v9")]
     [System.SerializableAttribute()]
     public partial class OperationError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ErrorCodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2424,7 +2419,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// A numeric error code that identifies the error
         /// </summary>
@@ -2444,7 +2439,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that provides additional details about the error. This string can be empty.
         /// </summary>
@@ -2464,7 +2459,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
         /// </summary>
@@ -2484,7 +2479,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -2504,9 +2499,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2516,7 +2511,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
@@ -2526,26 +2521,26 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "AdApiError", Namespace = "https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     public partial class AdApiError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ErrorCodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2557,7 +2552,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// A numeric error code that identifies the error.
         /// </summary>
@@ -2577,7 +2572,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that contains additional details about the error. This string can be empty.
         /// </summary>
@@ -2597,7 +2592,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
         /// </summary>
@@ -2617,7 +2612,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -2637,9 +2632,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2649,7 +2644,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the possible bid opportunity types you can request when calling GetBidOpportunities.
     /// </summary>
@@ -2659,36 +2654,36 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BidOpportunityType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BidOpportunityType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     public enum BidOpportunityType : int
     {
-
+        
         /// <summary>
         /// The bid opportunity may lead to increased traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IncreaseTraffic = 1,
-
+        
         /// <summary>
         /// The bid opportunity may lead to ads shown in one of the first page positions of search results.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FirstPage = 2,
-
+        
         /// <summary>
         /// The bid opportunity may lead to ads shown in one of the mainline positions of search results.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainLine = 4,
-
+        
         /// <summary>
         /// The bid opportunity may lead to ads shown in the first mainline position of search results.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainLine1 = 8,
     }
-
+    
     /// <summary>
     /// Defines the possible keyword opportunity types you can request when calling GetKeywordOpportunities.
     /// </summary>
@@ -2698,47 +2693,47 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordOpportunityType", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordOpportunityType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     public enum KeywordOpportunityType : int
     {
-
+        
         /// <summary>
         /// The keyword opportunity will be suggested based on the marketplace impact of adding keywords with the broad match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BroadMatch = 1,
-
+        
         /// <summary>
         /// The keyword opportunity will be suggested based on the full context of the campaign, including existing keywords, landing page, and ad copy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignContext = 2,
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BroadMatchSearchQuery", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchSearchQuery", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BroadMatchSearchQuery : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AccountIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccountNameField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeywordField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchSearchQueryKPI> SearchQueryKPIsField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2750,7 +2745,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AccountId
         {
@@ -2767,7 +2762,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AccountName
         {
@@ -2784,7 +2779,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Keyword
         {
@@ -2801,7 +2796,7 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchSearchQueryKPI> SearchQueryKPIs
         {
@@ -2818,9 +2813,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2830,20 +2825,20 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "OpportunityAction", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="OpportunityAction", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     public enum OpportunityAction : int
     {
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Accept = 1,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Reject = 2,
     }
-
+    
     /// <summary>
     /// Defines an object that contains the key used to identify the opportunity to be applied. This is the base class from which opportunity modifier objects derive.
     /// </summary>
@@ -2853,7 +2848,7 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "OpportunityModifier", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="OpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BidOpportunityModifier))]
@@ -2862,13 +2857,13 @@ namespace Microsoft.BingAds.Optimizer
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BudgetOpportunityModifier))]
     public partial class OpportunityModifier : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OpportunityKeyField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2880,7 +2875,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// An identifier that uniquely identifies the opportunity to modify.
         /// </summary>
@@ -2900,9 +2895,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -2912,7 +2907,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a bid opportunity modifier object.
     /// </summary>
@@ -2921,15 +2916,15 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BidOpportunityModifier", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BidOpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BidOpportunityModifier : Microsoft.BingAds.Optimizer.OpportunityModifier
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> BidField;
-
+        
         /// <summary>
         /// The new bid amount that you want to apply instead of the suggested opportunity.
         /// </summary>
@@ -2950,7 +2945,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a broad match opportunity modifier object.
     /// </summary>
@@ -2959,15 +2954,15 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BroadMatchOpportunityModifier", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchOpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BroadMatchOpportunityModifier : Microsoft.BingAds.Optimizer.OpportunityModifier
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> BidField;
-
+        
         /// <summary>
         /// The new bid amount that you want to apply instead of the suggested opportunity.
         /// </summary>
@@ -2988,7 +2983,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a keyword opportunity modifier object.
     /// </summary>
@@ -2997,15 +2992,15 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "KeywordOpportunityModifier", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordOpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class KeywordOpportunityModifier : Microsoft.BingAds.Optimizer.OpportunityModifier
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> AdGroupIdField;
-
+        
         /// <summary>
         /// The identifier of the ad group that you want to apply the opportunity instead of the ad group suggested by the original opportunity.
         /// </summary>
@@ -3026,7 +3021,7 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a budget opportunity modifier object.
     /// </summary>
@@ -3035,15 +3030,15 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BudgetOpportunityModifier", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BudgetOpportunityModifier", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BudgetOpportunityModifier : Microsoft.BingAds.Optimizer.OpportunityModifier
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> BudgetField;
-
+        
         /// <summary>
         /// The new budget amount that you want to apply instead of the suggested opportunity.
         /// </summary>
@@ -3064,28 +3059,28 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "AppliedResult", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppliedResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.Optimizer.BroadMatchAppliedResult))]
     public partial class AppliedResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OpportunityKeyField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3097,7 +3092,7 @@ namespace Microsoft.BingAds.Optimizer
                 this.extensionDataField = value;
             }
         }
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string OpportunityKey
         {
@@ -3114,8 +3109,8 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
-        [System.Runtime.Serialization.DataMemberAttribute(Order = 1)]
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public int Code
         {
             get
@@ -3131,8 +3126,8 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
-        [System.Runtime.Serialization.DataMemberAttribute(Order = 2)]
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public string Message
         {
             get
@@ -3148,9 +3143,9 @@ namespace Microsoft.BingAds.Optimizer
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -3160,18 +3155,18 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BroadMatchAppliedResult", Namespace = "http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="BroadMatchAppliedResult", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.Optimizer.Ap" +
         "i.DataContracts.Entities")]
     [System.SerializableAttribute()]
     public partial class BroadMatchAppliedResult : Microsoft.BingAds.Optimizer.AppliedResult
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> KeywordIdField;
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> KeywordId
         {
@@ -3189,12 +3184,12 @@ namespace Microsoft.BingAds.Optimizer
             }
         }
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", ConfigurationName = "Microsoft.BingAds.Optimizer.IOptimizerService", SessionMode = System.ServiceModel.SessionMode.NotAllowed)]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", ConfigurationName="Microsoft.BingAds.Optimizer.IOptimizerService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface IOptimizerService
     {
-
+        
         /// <summary>
         /// Gets the campaign budget opportunities of the specified account.
         /// </summary>
@@ -3204,15 +3199,15 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call the ApplyOpportunities operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBudgetOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetOpportuniti" +
+        /// <returns>An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call ApplyOpportunities.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetBudgetOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetOpportuniti" +
             "esResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetOpportuniti" +
-            "esApiFaultDetailFault", Name = "ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetOpportuniti" +
-            "esAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetOpportuniti" +
+            "esApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetOpportuniti" +
+            "esAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.Optimizer.GetBudgetOpportunitiesResponse GetBudgetOpportunities(Microsoft.BingAds.Optimizer.GetBudgetOpportunitiesRequest request);
-
+        
         /// <summary>
         /// Gets the campaign budget opportunities of the specified account.
         /// </summary>
@@ -3222,11 +3217,11 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call the ApplyOpportunities operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBudgetOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetOpportuniti" +
+        /// <returns>An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call ApplyOpportunities.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetBudgetOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetOpportuniti" +
             "esResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetBudgetOpportunitiesResponse> GetBudgetOpportunitiesAsync(Microsoft.BingAds.Optimizer.GetBudgetOpportunitiesRequest request);
-
+        
         /// <summary>
         /// Gets the campaign budget landscape and corresponding budget points for the specified campaign in an account. You may use the budget points to compare your current budget to any of the proposed budgets.
         /// </summary>
@@ -3237,14 +3232,14 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of CampaignBudgetLandscape objects that identify one or more campaigns with suggested budget points.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBudgetLandscape", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetLandscapeRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetBudgetLandscape", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetLandscapeRe" +
             "sponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetLandscapeAp" +
-            "iFaultDetailFault", Name = "ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetLandscapeAd" +
-            "ApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetLandscapeAd" +
+            "ApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetLandscapeAp" +
+            "iFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.Optimizer.GetBudgetLandscapeResponse GetBudgetLandscape(Microsoft.BingAds.Optimizer.GetBudgetLandscapeRequest request);
-
+        
         /// <summary>
         /// Gets the campaign budget landscape and corresponding budget points for the specified campaign in an account. You may use the budget points to compare your current budget to any of the proposed budgets.
         /// </summary>
@@ -3255,13 +3250,12 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of CampaignBudgetLandscape objects that identify one or more campaigns with suggested budget points.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBudgetLandscape", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetLandscapeRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetBudgetLandscape", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBudgetLandscapeRe" +
             "sponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetBudgetLandscapeResponse> GetBudgetLandscapeAsync(Microsoft.BingAds.Optimizer.GetBudgetLandscapeRequest request);
-
+        
         /// <summary>
         /// Gets the keyword bid opportunities of the specified ad group.
-        /// <para>Currently bid opportunities are only available in the United States. It is not recommended to use this service operation for accounts in other markets.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx">GetBidOpportunities Service Operation</see> http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx for details.
@@ -3270,17 +3264,16 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of BidOpportunity objects that identifies the keywords whose clicks and impressions may increase if you were to apply the suggested match-type bid value. To apply the suggested bid value, call the ApplyOpportunities operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBidOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBidOpportunitiesR" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetBidOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBidOpportunitiesR" +
             "esponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBidOpportunitiesA" +
-            "dApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBidOpportunitiesA" +
-            "piFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBidOpportunitiesA" +
+            "piFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBidOpportunitiesA" +
+            "dApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.Optimizer.GetBidOpportunitiesResponse GetBidOpportunities(Microsoft.BingAds.Optimizer.GetBidOpportunitiesRequest request);
-
+        
         /// <summary>
         /// Gets the keyword bid opportunities of the specified ad group.
-        /// <para>Currently bid opportunities are only available in the United States. It is not recommended to use this service operation for accounts in other markets.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx">GetBidOpportunities Service Operation</see> http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx for details.
@@ -3289,10 +3282,10 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>An array of BidOpportunity objects that identifies the keywords whose clicks and impressions may increase if you were to apply the suggested match-type bid value. To apply the suggested bid value, call the ApplyOpportunities operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBidOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBidOpportunitiesR" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetBidOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBidOpportunitiesR" +
             "esponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetBidOpportunitiesResponse> GetBidOpportunitiesAsync(Microsoft.BingAds.Optimizer.GetBidOpportunitiesRequest request);
-
+        
         /// <summary>
         /// Gets a list of keyword suggestions that are relevant to the specified ad group. The keyword suggestion also includes a suggested bid value.
         /// </summary>
@@ -3303,14 +3296,14 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of KeywordOpportunity objects that identifies a suggested keyword and bid value. The list will be empty if there are no suggestions, which may occur if the ad group does not contain existing ads and keywords.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetKeywordOpportunit" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetKeywordOpportunit" +
             "iesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetKeywordOpportunit" +
-            "iesApiFaultDetailFault", Name = "ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetKeywordOpportunit" +
-            "iesAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetKeywordOpportunit" +
+            "iesApiFaultDetailFault", Name="ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetKeywordOpportunit" +
+            "iesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.Optimizer.GetKeywordOpportunitiesResponse GetKeywordOpportunities(Microsoft.BingAds.Optimizer.GetKeywordOpportunitiesRequest request);
-
+        
         /// <summary>
         /// Gets a list of keyword suggestions that are relevant to the specified ad group. The keyword suggestion also includes a suggested bid value.
         /// </summary>
@@ -3321,48 +3314,48 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of KeywordOpportunity objects that identifies a suggested keyword and bid value. The list will be empty if there are no suggestions, which may occur if the ad group does not contain existing ads and keywords.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetKeywordOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetKeywordOpportunit" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetKeywordOpportunit" +
             "iesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetKeywordOpportunitiesResponse> GetKeywordOpportunitiesAsync(Microsoft.BingAds.Optimizer.GetKeywordOpportunitiesRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBroadMatchOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetBroadMatchOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
             "nitiesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
-            "nitiesAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
-            "nitiesApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
+            "nitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
+            "nitiesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesResponse GetBroadMatchOpportunities(Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBroadMatchOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetBroadMatchOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchOpportu" +
             "nitiesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesResponse> GetBroadMatchOpportunitiesAsync(Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBroadMatchSearchQueries", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchSearchQ" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetBroadMatchSearchQueries", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchSearchQ" +
             "ueriesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchSearchQ" +
-            "ueriesApiFaultDetailFault", Name = "ApiFaultDetail")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchSearchQ" +
-            "ueriesAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchSearchQ" +
+            "ueriesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchSearchQ" +
+            "ueriesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.Optimizer.GetBroadMatchSearchQueriesResponse GetBroadMatchSearchQueries(Microsoft.BingAds.Optimizer.GetBroadMatchSearchQueriesRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBroadMatchSearchQueries", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchSearchQ" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetBroadMatchSearchQueries", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/GetBroadMatchSearchQ" +
             "ueriesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetBroadMatchSearchQueriesResponse> GetBroadMatchSearchQueriesAsync(Microsoft.BingAds.Optimizer.GetBroadMatchSearchQueriesRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "ApplyOpportunityModifiers", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyOpportunityModifiers", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
             "fiersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
-            "fiersAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
-            "fiersApiFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
+            "fiersAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
+            "fiersApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersResponse ApplyOpportunityModifiers(Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "ApplyOpportunityModifiers", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyOpportunityModifiers", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunityModi" +
             "fiersResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersResponse> ApplyOpportunityModifiersAsync(Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersRequest request);
-
+        
         /// <summary>
-        /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by the GetBidOpportunities operation.
+        /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by GetBidOpportunities.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx">ApplyOpportunities Service Operation</see> http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx for details.
@@ -3371,16 +3364,16 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The response object for this service operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "ApplyOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunitiesRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunitiesRe" +
             "sponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunitiesAd" +
-            "ApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunitiesAp" +
-            "iFaultDetailFault", Name = "ApiFaultDetail")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.AdApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunitiesAd" +
+            "ApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.Optimizer.ApiFaultDetail), Action="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunitiesAp" +
+            "iFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.Optimizer.ApplyOpportunitiesResponse ApplyOpportunities(Microsoft.BingAds.Optimizer.ApplyOpportunitiesRequest request);
-
+        
         /// <summary>
-        /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by the GetBidOpportunities operation.
+        /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by GetBidOpportunities.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx">ApplyOpportunities Service Operation</see> http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx for details.
@@ -3389,11 +3382,11 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The response object for this service operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "ApplyOpportunities", ReplyAction = "https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunitiesRe" +
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyOpportunities", ReplyAction="https://bingads.microsoft.com/Optimizer/v9/IOptimizerService/ApplyOpportunitiesRe" +
             "sponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.ApplyOpportunitiesResponse> ApplyOpportunitiesAsync(Microsoft.BingAds.Optimizer.ApplyOpportunitiesRequest request);
     }
-
+    
     /// <summary>
     /// Gets the campaign budget opportunities of the specified account.
     /// </summary>
@@ -3403,37 +3396,37 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBudgetOpportunitiesRequest", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBudgetOpportunitiesRequest", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBudgetOpportunitiesRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerAccountId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// The identifier of the account for which you want to discover possible campaign budget opportunities.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public long AccountId;
-
+        
         /// <summary>
         /// Constructor for the GetBudgetOpportunitiesRequest request object.
         /// </summary>
@@ -3443,7 +3436,7 @@ namespace Microsoft.BingAds.Optimizer
         public GetBudgetOpportunitiesRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBudgetOpportunitiesRequest request object.
         /// </summary>
@@ -3463,7 +3456,7 @@ namespace Microsoft.BingAds.Optimizer
             this.AccountId = AccountId;
         }
     }
-
+    
     /// <summary>
     /// Gets the campaign budget opportunities of the specified account.
     /// </summary>
@@ -3473,19 +3466,19 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBudgetOpportunitiesResponse", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBudgetOpportunitiesResponse", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBudgetOpportunitiesResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string TrackingId;
-
+        
         /// <summary>
-        /// An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call the ApplyOpportunities operation.
+        /// An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call ApplyOpportunities.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BudgetOpportunity> Opportunities;
-
+        
         /// <summary>
         /// Constructor for the GetBudgetOpportunitiesResponse response object.
         /// </summary>
@@ -3495,21 +3488,21 @@ namespace Microsoft.BingAds.Optimizer
         public GetBudgetOpportunitiesResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBudgetOpportunitiesResponse response object.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376335(v=msads.90).aspx">GetBudgetOpportunitiesResponse</see> http://msdn.microsoft.com/en-us/library/dn376335(v=msads.90).aspx for details.
         /// </remarks>
-        /// <param name="Opportunities">An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call the ApplyOpportunities operation.</param>
+        /// <param name="Opportunities">An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call ApplyOpportunities.</param>
         public GetBudgetOpportunitiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BudgetOpportunity> Opportunities)
         {
             this.TrackingId = TrackingId;
             this.Opportunities = Opportunities;
         }
     }
-
+    
     /// <summary>
     /// Gets the campaign budget landscape and corresponding budget points for the specified campaign in an account. You may use the budget points to compare your current budget to any of the proposed budgets.
     /// </summary>
@@ -3519,43 +3512,43 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBudgetLandscapeRequest", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBudgetLandscapeRequest", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBudgetLandscapeRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerAccountId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// The identifier of the account for which you want to discover a list of campaign budget suggestions.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public long AccountId;
-
+        
         /// <summary>
-        /// The identifier of the campaign for which you want to discover a list of campaign budget suggestions.
+        /// The identifier of the campaign for which you want to discover a list of campaign budget suggestions. Note: If this element is not specified, the response will include budget landscapes for all campaigns in the specified account.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=1)]
         public System.Nullable<long> CampaignId;
-
+        
         /// <summary>
         /// Constructor for the GetBudgetLandscapeRequest request object.
         /// </summary>
@@ -3565,7 +3558,7 @@ namespace Microsoft.BingAds.Optimizer
         public GetBudgetLandscapeRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBudgetLandscapeRequest request object.
         /// </summary>
@@ -3573,7 +3566,7 @@ namespace Microsoft.BingAds.Optimizer
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn434657(v=msads.90).aspx">GetBudgetLandscapeRequest</see> http://msdn.microsoft.com/en-us/library/dn434657(v=msads.90).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account for which you want to discover a list of campaign budget suggestions.</param>
-        /// <param name="CampaignId">The identifier of the campaign for which you want to discover a list of campaign budget suggestions.</param>
+        /// <param name="CampaignId">The identifier of the campaign for which you want to discover a list of campaign budget suggestions. Note: If this element is not specified, the response will include budget landscapes for all campaigns in the specified account.</param>
         public GetBudgetLandscapeRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<long> CampaignId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -3587,7 +3580,7 @@ namespace Microsoft.BingAds.Optimizer
             this.CampaignId = CampaignId;
         }
     }
-
+    
     /// <summary>
     /// Gets the campaign budget landscape and corresponding budget points for the specified campaign in an account. You may use the budget points to compare your current budget to any of the proposed budgets.
     /// </summary>
@@ -3597,19 +3590,19 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBudgetLandscapeResponse", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBudgetLandscapeResponse", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBudgetLandscapeResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// A list of CampaignBudgetLandscape objects that identify one or more campaigns with suggested budget points.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.CampaignBudgetLandscape> CampaignBudgetLandscapes;
-
+        
         /// <summary>
         /// Constructor for the GetBudgetLandscapeResponse response object.
         /// </summary>
@@ -3619,7 +3612,7 @@ namespace Microsoft.BingAds.Optimizer
         public GetBudgetLandscapeResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBudgetLandscapeResponse response object.
         /// </summary>
@@ -3633,10 +3626,9 @@ namespace Microsoft.BingAds.Optimizer
             this.CampaignBudgetLandscapes = CampaignBudgetLandscapes;
         }
     }
-
+    
     /// <summary>
     /// Gets the keyword bid opportunities of the specified ad group.
-    /// <para>Currently bid opportunities are only available in the United States. It is not recommended to use this service operation for accounts in other markets.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx">GetBidOpportunities Request Object</see> http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx for details.
@@ -3644,55 +3636,55 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBidOpportunitiesRequest", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBidOpportunitiesRequest", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBidOpportunitiesRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerAccountId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// The identifier of the account that owns the campaign specified in the CampaignId element.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public long AccountId;
-
+        
         /// <summary>
         /// The identifier of the ad group for which you want to determine keyword bid opportunities.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=1)]
         public System.Nullable<long> AdGroupId;
-
+        
         /// <summary>
         /// The identifier of the campaign that owns the ad group specified in the AdGroupId element.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=2)]
         public System.Nullable<long> CampaignId;
-
+        
         /// <summary>
         /// Determines the type or types of bid opportunities corresponding to your ad position goals.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=3)]
         public System.Nullable<Microsoft.BingAds.Optimizer.BidOpportunityType> OpportunityType;
-
+        
         /// <summary>
         /// Constructor for the GetBidOpportunitiesRequest request object.
         /// </summary>
@@ -3702,7 +3694,7 @@ namespace Microsoft.BingAds.Optimizer
         public GetBidOpportunitiesRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBidOpportunitiesRequest request object.
         /// </summary>
@@ -3728,10 +3720,9 @@ namespace Microsoft.BingAds.Optimizer
             this.OpportunityType = OpportunityType;
         }
     }
-
+    
     /// <summary>
     /// Gets the keyword bid opportunities of the specified ad group.
-    /// <para>Currently bid opportunities are only available in the United States. It is not recommended to use this service operation for accounts in other markets.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx">GetBidOpportunities Response Object</see> http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx for details.
@@ -3739,19 +3730,19 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBidOpportunitiesResponse", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBidOpportunitiesResponse", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBidOpportunitiesResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// An array of BidOpportunity objects that identifies the keywords whose clicks and impressions may increase if you were to apply the suggested match-type bid value. To apply the suggested bid value, call the ApplyOpportunities operation.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BidOpportunity> Opportunities;
-
+        
         /// <summary>
         /// Constructor for the GetBidOpportunitiesResponse response object.
         /// </summary>
@@ -3761,7 +3752,7 @@ namespace Microsoft.BingAds.Optimizer
         public GetBidOpportunitiesResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBidOpportunitiesResponse response object.
         /// </summary>
@@ -3775,7 +3766,7 @@ namespace Microsoft.BingAds.Optimizer
             this.Opportunities = Opportunities;
         }
     }
-
+    
     /// <summary>
     /// Gets a list of keyword suggestions that are relevant to the specified ad group. The keyword suggestion also includes a suggested bid value.
     /// </summary>
@@ -3785,61 +3776,61 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordOpportunitiesRequest", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordOpportunitiesRequest", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetKeywordOpportunitiesRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerAccountId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// The identifier of the account that owns the specified campaign.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public long AccountId;
-
+        
         /// <summary>
         /// The identifier of the ad group to get keyword suggestions for.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=1)]
         public System.Nullable<long> AdGroupId;
-
+        
         /// <summary>
         /// The identifier of the campaign that owns the specified ad group.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=2)]
         public System.Nullable<long> CampaignId;
-
+        
         /// <summary>
-        /// When set to true, the estimated impact elements are included in the KeywordOpportunity object. These elements are:
+        /// When set to true, the estimated impact elements are included in the KeywordOpportunity. These elements are: - EstimatedIncreaseInClicks- EstimatedIncreaseInCost- EstimatedIncreaseInImpressionsWhen set to false: - the estimated impact elements are included in KeywordOpportunity object when OpportunityType is set to BroadMatch.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=3)]
         public System.Nullable<bool> IncludeEstimations;
-
+        
         /// <summary>
         /// Determines the type or types of keyword opportunities that you want.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 4)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=4)]
         public System.Nullable<Microsoft.BingAds.Optimizer.KeywordOpportunityType> OpportunityType;
-
+        
         /// <summary>
         /// Constructor for the GetKeywordOpportunitiesRequest request object.
         /// </summary>
@@ -3849,7 +3840,7 @@ namespace Microsoft.BingAds.Optimizer
         public GetKeywordOpportunitiesRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetKeywordOpportunitiesRequest request object.
         /// </summary>
@@ -3859,7 +3850,7 @@ namespace Microsoft.BingAds.Optimizer
         /// <param name="AccountId">The identifier of the account that owns the specified campaign.</param>
         /// <param name="AdGroupId">The identifier of the ad group to get keyword suggestions for.</param>
         /// <param name="CampaignId">The identifier of the campaign that owns the specified ad group.</param>
-        /// <param name="IncludeEstimations">When set to true, the estimated impact elements are included in the KeywordOpportunity object. These elements are:</param>
+        /// <param name="IncludeEstimations">When set to true, the estimated impact elements are included in the KeywordOpportunity. These elements are: - EstimatedIncreaseInClicks- EstimatedIncreaseInCost- EstimatedIncreaseInImpressionsWhen set to false: - the estimated impact elements are included in KeywordOpportunity object when OpportunityType is set to BroadMatch.</param>
         /// <param name="OpportunityType">Determines the type or types of keyword opportunities that you want.</param>
         public GetKeywordOpportunitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<long> AdGroupId, System.Nullable<long> CampaignId, System.Nullable<bool> IncludeEstimations, System.Nullable<Microsoft.BingAds.Optimizer.KeywordOpportunityType> OpportunityType)
         {
@@ -3877,7 +3868,7 @@ namespace Microsoft.BingAds.Optimizer
             this.OpportunityType = OpportunityType;
         }
     }
-
+    
     /// <summary>
     /// Gets a list of keyword suggestions that are relevant to the specified ad group. The keyword suggestion also includes a suggested bid value.
     /// </summary>
@@ -3887,19 +3878,19 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKeywordOpportunitiesResponse", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordOpportunitiesResponse", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetKeywordOpportunitiesResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// A list of KeywordOpportunity objects that identifies a suggested keyword and bid value. The list will be empty if there are no suggestions, which may occur if the ad group does not contain existing ads and keywords.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.KeywordOpportunity> Opportunities;
-
+        
         /// <summary>
         /// Constructor for the GetKeywordOpportunitiesResponse response object.
         /// </summary>
@@ -3909,7 +3900,7 @@ namespace Microsoft.BingAds.Optimizer
         public GetKeywordOpportunitiesResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetKeywordOpportunitiesResponse response object.
         /// </summary>
@@ -3923,47 +3914,47 @@ namespace Microsoft.BingAds.Optimizer
             this.Opportunities = Opportunities;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBroadMatchOpportunitiesRequest", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBroadMatchOpportunitiesRequest", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBroadMatchOpportunitiesRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerAccountId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string UserName;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public long AccountId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 1)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=1)]
         public System.Nullable<long> AdGroupId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 2)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=2)]
         public System.Nullable<long> CampaignId;
-
+        
         public GetBroadMatchOpportunitiesRequest()
         {
         }
-
+        
         public GetBroadMatchOpportunitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<long> AdGroupId, System.Nullable<long> CampaignId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -3978,70 +3969,70 @@ namespace Microsoft.BingAds.Optimizer
             this.CampaignId = CampaignId;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBroadMatchOpportunitiesResponse", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBroadMatchOpportunitiesResponse", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBroadMatchOpportunitiesResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string TrackingId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchOpportunity> Opportunities;
-
+        
         public GetBroadMatchOpportunitiesResponse()
         {
         }
-
+        
         public GetBroadMatchOpportunitiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchOpportunity> Opportunities)
         {
             this.TrackingId = TrackingId;
             this.Opportunities = Opportunities;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBroadMatchSearchQueriesRequest", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBroadMatchSearchQueriesRequest", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBroadMatchSearchQueriesRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerAccountId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string UserName;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public long AccountId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 1)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=1)]
         public System.Nullable<long> AdGroupId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 2)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=2)]
         public System.Nullable<long> CampaignId;
-
+        
         public GetBroadMatchSearchQueriesRequest()
         {
         }
-
+        
         public GetBroadMatchSearchQueriesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<long> AdGroupId, System.Nullable<long> CampaignId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -4056,70 +4047,70 @@ namespace Microsoft.BingAds.Optimizer
             this.CampaignId = CampaignId;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBroadMatchSearchQueriesResponse", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBroadMatchSearchQueriesResponse", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class GetBroadMatchSearchQueriesResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string TrackingId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchSearchQuery> SearchQueries;
-
+        
         public GetBroadMatchSearchQueriesResponse()
         {
         }
-
+        
         public GetBroadMatchSearchQueriesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.BroadMatchSearchQuery> SearchQueries)
         {
             this.TrackingId = TrackingId;
             this.SearchQueries = SearchQueries;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "ApplyOpportunityModifiersRequest", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyOpportunityModifiersRequest", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class ApplyOpportunityModifiersRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerAccountId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string UserName;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public long AccountId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 1)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=1)]
         public Microsoft.BingAds.Optimizer.OpportunityAction Action;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 2)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.OpportunityModifier> Opportunities;
-
+        
         public ApplyOpportunityModifiersRequest()
         {
         }
-
+        
         public ApplyOpportunityModifiersRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.Optimizer.OpportunityAction Action, System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.OpportunityModifier> Opportunities)
         {
             this.ApplicationToken = ApplicationToken;
@@ -4134,32 +4125,32 @@ namespace Microsoft.BingAds.Optimizer
             this.Opportunities = Opportunities;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "ApplyOpportunityModifiersResponse", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyOpportunityModifiersResponse", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class ApplyOpportunityModifiersResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string TrackingId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.AppliedResult> AppliedResults;
-
+        
         public ApplyOpportunityModifiersResponse()
         {
         }
-
+        
         public ApplyOpportunityModifiersResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.AppliedResult> AppliedResults)
         {
             this.TrackingId = TrackingId;
             this.AppliedResults = AppliedResults;
         }
     }
-
+    
     /// <summary>
-    /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by the GetBidOpportunities operation.
+    /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by GetBidOpportunities.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx">ApplyOpportunities Request Object</see> http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx for details.
@@ -4167,49 +4158,49 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "ApplyOpportunitiesRequest", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyOpportunitiesRequest", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class ApplyOpportunitiesRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerAccountId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string CustomerId;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// The identifier of the account that owns the entities to apply the opportunities to.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=0)]
         public long AccountId;
-
+        
         /// <summary>
         /// The list of opportunity objects identifying the opportunities that you want to apply. For example, GetBidOpportunities may return one or more opportunity keys, and to apply the opportunity keys you can specify them in this list.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=1)]
         public System.Collections.Generic.IList<string> OpportunityKeys;
-
+        
         /// <summary>
         /// An array of modifiers that overrides the available opportunity keys.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9", Order = 2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9", Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Optimizer.OpportunityModifier> OpportunityModifiers;
-
+        
         /// <summary>
         /// Constructor for the ApplyOpportunitiesRequest request object.
         /// </summary>
@@ -4219,7 +4210,7 @@ namespace Microsoft.BingAds.Optimizer
         public ApplyOpportunitiesRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the ApplyOpportunitiesRequest request object.
         /// </summary>
@@ -4243,9 +4234,9 @@ namespace Microsoft.BingAds.Optimizer
             this.OpportunityModifiers = OpportunityModifiers;
         }
     }
-
+    
     /// <summary>
-    /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by the GetBidOpportunities operation.
+    /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by GetBidOpportunities.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx">ApplyOpportunities Response Object</see> http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx for details.
@@ -4253,13 +4244,13 @@ namespace Microsoft.BingAds.Optimizer
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "ApplyOpportunitiesResponse", WrapperNamespace = "https://bingads.microsoft.com/Optimizer/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyOpportunitiesResponse", WrapperNamespace="https://bingads.microsoft.com/Optimizer/v9", IsWrapped=true)]
     public partial class ApplyOpportunitiesResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Optimizer/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Optimizer/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// Constructor for the ApplyOpportunitiesResponse response object.
         /// </summary>
@@ -4269,7 +4260,7 @@ namespace Microsoft.BingAds.Optimizer
         public ApplyOpportunitiesResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the ApplyOpportunitiesResponse response object.
         /// </summary>
@@ -4281,41 +4272,41 @@ namespace Microsoft.BingAds.Optimizer
             this.TrackingId = TrackingId;
         }
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IOptimizerServiceChannel : Microsoft.BingAds.Optimizer.IOptimizerService, System.ServiceModel.IClientChannel
     {
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class OptimizerServiceClient : System.ServiceModel.ClientBase<Microsoft.BingAds.Optimizer.IOptimizerService>, Microsoft.BingAds.Optimizer.IOptimizerService
     {
-
+        
         public OptimizerServiceClient()
         {
         }
-
-        public OptimizerServiceClient(string endpointConfigurationName) :
-            base(endpointConfigurationName)
+        
+        public OptimizerServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName)
         {
         }
-
-        public OptimizerServiceClient(string endpointConfigurationName, string remoteAddress) :
-            base(endpointConfigurationName, remoteAddress)
+        
+        public OptimizerServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress)
         {
         }
-
-        public OptimizerServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(endpointConfigurationName, remoteAddress)
+        
+        public OptimizerServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress)
         {
         }
-
-        public OptimizerServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(binding, remoteAddress)
+        
+        public OptimizerServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress)
         {
         }
-
+        
         /// <summary>
         /// Gets the campaign budget opportunities of the specified account.
         /// </summary>
@@ -4325,12 +4316,12 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call the ApplyOpportunities operation.</returns>
+        /// <returns>An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call ApplyOpportunities.</returns>
         public Microsoft.BingAds.Optimizer.GetBudgetOpportunitiesResponse GetBudgetOpportunities(Microsoft.BingAds.Optimizer.GetBudgetOpportunitiesRequest request)
         {
             return base.Channel.GetBudgetOpportunities(request);
         }
-
+        
         /// <summary>
         /// Gets the campaign budget opportunities of the specified account.
         /// </summary>
@@ -4340,12 +4331,12 @@ namespace Microsoft.BingAds.Optimizer
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call the ApplyOpportunities operation.</returns>
+        /// <returns>An array of BudgetOpportunity objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget. To apply the suggested budget, call ApplyOpportunities.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetBudgetOpportunitiesResponse> GetBudgetOpportunitiesAsync(Microsoft.BingAds.Optimizer.GetBudgetOpportunitiesRequest request)
         {
             return base.Channel.GetBudgetOpportunitiesAsync(request);
         }
-
+        
         /// <summary>
         /// Gets the campaign budget landscape and corresponding budget points for the specified campaign in an account. You may use the budget points to compare your current budget to any of the proposed budgets.
         /// </summary>
@@ -4360,7 +4351,7 @@ namespace Microsoft.BingAds.Optimizer
         {
             return base.Channel.GetBudgetLandscape(request);
         }
-
+        
         /// <summary>
         /// Gets the campaign budget landscape and corresponding budget points for the specified campaign in an account. You may use the budget points to compare your current budget to any of the proposed budgets.
         /// </summary>
@@ -4375,10 +4366,9 @@ namespace Microsoft.BingAds.Optimizer
         {
             return base.Channel.GetBudgetLandscapeAsync(request);
         }
-
+        
         /// <summary>
         /// Gets the keyword bid opportunities of the specified ad group.
-        /// <para>Currently bid opportunities are only available in the United States. It is not recommended to use this service operation for accounts in other markets.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx">GetBidOpportunities Service Operation</see> http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx for details.
@@ -4391,10 +4381,9 @@ namespace Microsoft.BingAds.Optimizer
         {
             return base.Channel.GetBidOpportunities(request);
         }
-
+        
         /// <summary>
         /// Gets the keyword bid opportunities of the specified ad group.
-        /// <para>Currently bid opportunities are only available in the United States. It is not recommended to use this service operation for accounts in other markets.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx">GetBidOpportunities Service Operation</see> http://msdn.microsoft.com/en-us/library/dn376337(v=msads.90).aspx for details.
@@ -4407,7 +4396,7 @@ namespace Microsoft.BingAds.Optimizer
         {
             return base.Channel.GetBidOpportunitiesAsync(request);
         }
-
+        
         /// <summary>
         /// Gets a list of keyword suggestions that are relevant to the specified ad group. The keyword suggestion also includes a suggested bid value.
         /// </summary>
@@ -4422,7 +4411,7 @@ namespace Microsoft.BingAds.Optimizer
         {
             return base.Channel.GetKeywordOpportunities(request);
         }
-
+        
         /// <summary>
         /// Gets a list of keyword suggestions that are relevant to the specified ad group. The keyword suggestion also includes a suggested bid value.
         /// </summary>
@@ -4437,39 +4426,39 @@ namespace Microsoft.BingAds.Optimizer
         {
             return base.Channel.GetKeywordOpportunitiesAsync(request);
         }
-
+        
         public Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesResponse GetBroadMatchOpportunities(Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesRequest request)
         {
             return base.Channel.GetBroadMatchOpportunities(request);
         }
-
+        
         public System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesResponse> GetBroadMatchOpportunitiesAsync(Microsoft.BingAds.Optimizer.GetBroadMatchOpportunitiesRequest request)
         {
             return base.Channel.GetBroadMatchOpportunitiesAsync(request);
         }
-
+        
         public Microsoft.BingAds.Optimizer.GetBroadMatchSearchQueriesResponse GetBroadMatchSearchQueries(Microsoft.BingAds.Optimizer.GetBroadMatchSearchQueriesRequest request)
         {
             return base.Channel.GetBroadMatchSearchQueries(request);
         }
-
+        
         public System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.GetBroadMatchSearchQueriesResponse> GetBroadMatchSearchQueriesAsync(Microsoft.BingAds.Optimizer.GetBroadMatchSearchQueriesRequest request)
         {
             return base.Channel.GetBroadMatchSearchQueriesAsync(request);
         }
-
+        
         public Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersResponse ApplyOpportunityModifiers(Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersRequest request)
         {
             return base.Channel.ApplyOpportunityModifiers(request);
         }
-
+        
         public System.Threading.Tasks.Task<Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersResponse> ApplyOpportunityModifiersAsync(Microsoft.BingAds.Optimizer.ApplyOpportunityModifiersRequest request)
         {
             return base.Channel.ApplyOpportunityModifiersAsync(request);
         }
-
+        
         /// <summary>
-        /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by the GetBidOpportunities operation.
+        /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by GetBidOpportunities.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx">ApplyOpportunities Service Operation</see> http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx for details.
@@ -4482,9 +4471,9 @@ namespace Microsoft.BingAds.Optimizer
         {
             return base.Channel.ApplyOpportunities(request);
         }
-
+        
         /// <summary>
-        /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by the GetBidOpportunities operation.
+        /// Applies the recommended opportunities that the get opportunities operations returned, for example the OpportunityKeys returned by GetBidOpportunities.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx">ApplyOpportunities Service Operation</see> http://msdn.microsoft.com/en-us/library/dn376334(v=msads.90).aspx for details.

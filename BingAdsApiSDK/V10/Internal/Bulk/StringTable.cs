@@ -290,5 +290,19 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public const string FinalMobileUrl = "Mobile Final Url";
         public const string TrackingTemplate = "Tracking Template";
         public const string CustomParameter = "Custom Parameter";
+
+        // Review Ad Extension
+        public const string ReviewAdExtension = "Review Ad Extension";
+        public const string CampaignReviewAdExtension = "Campaign Review Ad Extension";
+        public const string AdGroupReviewAdExtension = "Ad Group Review Ad Extension";
+        public const string IsExact = "Is Exact";
+        public const string Source = "Source";
+        public const string Url = "Url";
+
+        // Callout Ad Extension
+        public const string CalloutAdExtension = "Callout Ad Extension";
+        public const string CampaignCalloutAdExtension = "Campaign Callout Ad Extension";
+        public const string AdGroupCalloutAdExtension = "Ad Group Callout Ad Extension";
+        public const string CalloutText = "Callout Text";
     }
 }

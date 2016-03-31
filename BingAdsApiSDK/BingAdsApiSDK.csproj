@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ApiEnvironment.cs" />
+    <Compile Include="Bulk\CouldNotGetBulkOperationStatusException.cs" />
+    <Compile Include="Bulk\CouldNotSubmitBulkDownloadException.cs" />
+    <Compile Include="Bulk\CouldNotSubmitBulkUploadException.cs" />
     <Compile Include="Bulk\Entities\BulkCampaignProductScope.cs" />
     <Compile Include="Bulk\BulkOperationCouldNotBeCompletedException.cs" />
     <Compile Include="Bulk\BulkDownloadOperation.cs" />
@@ -91,6 +95,8 @@
     <Compile Include="Bulk\Entities\NegativeKeywords\BulkAdGroupNegativeKeyword.cs" />
     <Compile Include="Bulk\Entities\NegativeKeywords\BulkCampaignNegativeKeyword.cs" />
     <Compile Include="Bulk\Entities\NegativeKeywords\BulkCampaignNegativeKeywordList.cs" />
+    <Compile Include="CouldNotDownloadResultFileException.cs" />
+    <Compile Include="CouldNotUploadFileException.cs" />
     <Compile Include="Internal\Bulk\BulkFileReaderIEnumerator.cs" />
     <Compile Include="Internal\Bulk\BulkFileReaderEnumerable.cs" />
     <Compile Include="Internal\Bulk\Entities\AdExtensions\BulkAdGroupAdExtensionAssociation.cs" />
@@ -221,7 +227,6 @@
     <Compile Include="Internal\Bulk\StringTable.cs" />
     <Compile Include="Bulk\SubmitUploadParameters.cs" />
     <Compile Include="Internal\CollectionExtensions.cs" />
-    <Compile Include="Internal\ApiEnvironment.cs" />
     <Compile Include="Internal\ErrorMessages.cs" />
     <Compile Include="Internal\HeaderInspector.cs" />
     <Compile Include="Internal\HttpContentExtensions.cs" />
@@ -252,6 +257,8 @@
     <Compile Include="Proxies\V10\AdInsight\AdInsightServiceProxy.cs" />
     <Compile Include="Proxies\V10\Bulk\BulkServiceProxy.cs" />
     <Compile Include="Proxies\V10\CampaignManagement\CampaignManagementServiceProxy.cs" />
+    <Compile Include="Reporting\CouldNotGetReportingDownloadStatusException.cs" />
+    <Compile Include="Reporting\CouldNotSubmitReportingDownloadException.cs" />
     <Compile Include="Reporting\ReportingOperationStatus.cs" />
     <Compile Include="Reporting\ReportingDownloadParameters.cs" />
     <Compile Include="Reporting\ReportingDownloadOperation.cs" />
@@ -286,20 +293,29 @@
     <Compile Include="V10\Bulk\BulkOperationStillInProgressException.cs" />
     <Compile Include="V10\Bulk\BulkServiceManager.cs" />
     <Compile Include="V10\Bulk\BulkUploadOperation.cs" />
+    <Compile Include="V10\Bulk\CouldNotGetBulkOperationStatusException.cs" />
+    <Compile Include="V10\Bulk\CouldNotSubmitBulkDownloadException.cs" />
+    <Compile Include="V10\Bulk\CouldNotSubmitBulkUploadException.cs" />
     <Compile Include="V10\Bulk\DownloadParameters.cs" />
     <Compile Include="V10\Bulk\DownloadStatus.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupAppAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupCalloutAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupImageAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupReviewAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupSiteLinkAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAppAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCallAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCalloutAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignAppAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignCallAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignCalloutAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignImageAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignLocationAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignReviewAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignSiteLinkAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkImageAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkLocationAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkReviewAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSiteLink.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSiteLinkAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\Ads\BulkProductAd.cs" />

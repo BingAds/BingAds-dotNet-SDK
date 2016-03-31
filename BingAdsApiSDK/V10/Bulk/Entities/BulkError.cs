@@ -79,7 +79,7 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
         /// Corresponds to the 'Error Number' field in the bulk file. 
         /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=511884">Bing Ads Operation Error Codes</see>.
         /// </summary>
-        public int Number { get; private set; }
+        public int? Number { get; private set; }
 
         /// <summary>
         /// The field path of the error.
@@ -132,7 +132,7 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
 
             new SimpleBulkMapping<BulkError>(StringTable.ErrorNumber,
                 c => c.Number.ToBulkString(),
-                (v, c) => c.Number = v.Parse<int>()
+                (v, c) => c.Number = v.ParseOptional<int>()
             ),
 
             new SimpleBulkMapping<BulkError>(StringTable.EditorialLocation,

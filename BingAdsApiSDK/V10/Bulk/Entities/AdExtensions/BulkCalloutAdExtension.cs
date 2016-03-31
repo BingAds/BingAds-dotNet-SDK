@@ -47,57 +47,64 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.Internal.Bulk.Operations;
+using Microsoft.BingAds.V10.Internal.Bulk;
+using Microsoft.BingAds.V10.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities;
+using Microsoft.BingAds.V10.CampaignManagement;
 
-namespace Microsoft.BingAds.Bulk
+// ReSharper disable once CheckNamespace
+
+namespace Microsoft.BingAds.V10.Bulk.Entities
 {
     /// <summary>
-    /// Represents a bulk download operation requested by a user. 
-    /// You can use this class to poll for the download status, and then download the file when available.
+    /// <para>
+    /// Represents a callout ad extension. 
+    /// This class exposes the <see cref="BulkCalloutAdExtension.CalloutAdExtension"/> property that can be read and written 
+    /// as fields of the Callout Ad Extension record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=730543">Callout Ad Extension</see>. </para>
     /// </summary>
-    /// <example>The <see cref="BulkServiceManager.SubmitDownloadAsync"/> method returns an instance of this class. 
-    /// If for any reason you do not want to wait for the file to be prepared for download, 
-    /// for example if your application quits unexpectedly or you have other tasks to process, you can 
-    /// use an instance of <see cref="BulkDownloadOperation"/> to download the file when it is available.</example>
-    public class BulkDownloadOperation : BulkOperation<DownloadStatus>
-    {        
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkCalloutAdExtension : BulkAdExtensionBase<CalloutAdExtension>
+    {
         /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/> and <see cref="AuthorizationData"/>.
+        /// The callout ad extension.
         /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account. 
-        /// </param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData)
-            : this(requestId, authorizationData, null, null)
+        public CalloutAdExtension CalloutAdExtension
         {
-             
+            get { return AdExtension; }
+            set { AdExtension = value; }
         }
 
-        /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/>, <see cref="AuthorizationData"/> and <paramref name="apiEnvironment"/>.
-        /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account.
-        /// </param>
-        /// <param name="apiEnvironment">Bing Ads API environment</param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
-            : this(requestId, authorizationData, null, apiEnvironment)
+        private static readonly IBulkMapping<BulkCalloutAdExtension>[] Mappings =
         {
+            new SimpleBulkMapping<BulkCalloutAdExtension>(StringTable.CalloutText,
+                c => c.CalloutAdExtension.Text,
+                (v, c) => c.CalloutAdExtension.Text = v),
+        };
 
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            CalloutAdExtension = new CalloutAdExtension
+            {
+                Type = "CalloutAdExtension",
+            };
+
+            base.ProcessMappingsFromRowValues(values);
+
+            values.ConvertToEntity(this, Mappings);
         }
 
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
+            ValidatePropertyNotNull(CalloutAdExtension, "CalloutAdExtension");
 
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+
+            this.ConvertToValues(values, Mappings);
         }
-
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId, ApiEnvironment? apiEnvironment)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId, apiEnvironment)
-        {
-
-        } 
     }
 }

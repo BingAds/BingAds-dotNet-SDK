@@ -47,57 +47,25 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.Internal.Bulk.Operations;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities;
 
-namespace Microsoft.BingAds.Bulk
+// ReSharper disable once CheckNamespace
+
+namespace Microsoft.BingAds.V10.Bulk.Entities
 {
     /// <summary>
-    /// Represents a bulk download operation requested by a user. 
-    /// You can use this class to poll for the download status, and then download the file when available.
+    /// <para>
+    /// Represents a campaign level callout ad extension. 
+    /// This class exposes properties that can be read and written 
+    /// as fields of the Campaign Callout Ad Extension record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=730545">Campaign Callout Ad Extension</see>. </para>
     /// </summary>
-    /// <example>The <see cref="BulkServiceManager.SubmitDownloadAsync"/> method returns an instance of this class. 
-    /// If for any reason you do not want to wait for the file to be prepared for download, 
-    /// for example if your application quits unexpectedly or you have other tasks to process, you can 
-    /// use an instance of <see cref="BulkDownloadOperation"/> to download the file when it is available.</example>
-    public class BulkDownloadOperation : BulkOperation<DownloadStatus>
-    {        
-        /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/> and <see cref="AuthorizationData"/>.
-        /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account. 
-        /// </param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData)
-            : this(requestId, authorizationData, null, null)
-        {
-             
-        }
-
-        /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/>, <see cref="AuthorizationData"/> and <paramref name="apiEnvironment"/>.
-        /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account.
-        /// </param>
-        /// <param name="apiEnvironment">Bing Ads API environment</param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
-            : this(requestId, authorizationData, null, apiEnvironment)
-        {
-
-        }
-
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId)
-        {
-
-        }
-
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId, ApiEnvironment? apiEnvironment)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId, apiEnvironment)
-        {
-
-        } 
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkCampaignCalloutAdExtension : BulkCampaignAdExtensionAssociation
+    {
     }
 }

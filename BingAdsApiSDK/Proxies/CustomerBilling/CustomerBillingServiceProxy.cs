@@ -62,8 +62,8 @@
 
 namespace Microsoft.BingAds.CustomerBilling
 {
-
-
+    
+    
     /// <summary>
     /// Defines a billing document identification object that contains information about a billing document, such as the billing document identifier, billing document amount, and account identifier.
     /// </summary>
@@ -73,35 +73,35 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BillingDocumentInfo", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BillingDocumentInfo", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     [System.SerializableAttribute()]
     public partial class BillingDocumentInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AccountIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccountNameField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccountNumberField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CurrencyCodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DocumentDateField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> DocumentIdField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -113,7 +113,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The identifier of the account for which the billing document was generated.
         /// </summary>
@@ -133,7 +133,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The account name.
         /// </summary>
@@ -153,7 +153,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The account number.
         /// </summary>
@@ -173,7 +173,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The amount of the billing document.
         /// </summary>
@@ -193,7 +193,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The currency of the billing document. For possible values, see Currencies.
         /// </summary>
@@ -213,7 +213,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The date of the billing document.
         /// </summary>
@@ -233,7 +233,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// An identifier of the billing document.
         /// </summary>
@@ -253,9 +253,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -265,7 +265,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
@@ -274,20 +274,20 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "ApplicationFault", Namespace = "https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApplicationFault", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault))]
     public partial class ApplicationFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrackingIdField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -299,7 +299,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The identifier of the log entry that contains the details of the API call.
         /// </summary>
@@ -319,9 +319,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -331,7 +331,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
@@ -340,14 +340,14 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     public partial class AdApiFaultDetail : Microsoft.BingAds.CustomerBilling.ApplicationFault
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.AdApiError> ErrorsField;
-
+        
         /// <summary>
         /// An array of AdApiError objects that contains the details that explain why the service operation failed.
         /// </summary>
@@ -368,7 +368,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
@@ -377,15 +377,15 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "ApiFault", Namespace = "https://bingads.microsoft.com/Customer/v9/Exception")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApiFault", Namespace="https://bingads.microsoft.com/Customer/v9/Exception")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault))]
     public partial class ApiFault : Microsoft.BingAds.CustomerBilling.ApplicationFault
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.OperationError> OperationErrorsField;
-
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.OperationError> OperationErrors
         {
@@ -403,7 +403,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
@@ -412,14 +412,14 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "ApiBatchFault", Namespace = "https://bingads.microsoft.com/Customer/v9/Exception")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApiBatchFault", Namespace="https://bingads.microsoft.com/Customer/v9/Exception")]
     [System.SerializableAttribute()]
     public partial class ApiBatchFault : Microsoft.BingAds.CustomerBilling.ApiFault
     {
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.BatchError> BatchErrorsField;
-
+        
         /// <summary>
         /// An array of BatchError objects that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
         /// </summary>
@@ -440,7 +440,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
@@ -450,23 +450,23 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "OperationError", Namespace = "https://bingads.microsoft.com/Customer/v9/Exception")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OperationError", Namespace="https://bingads.microsoft.com/Customer/v9/Exception")]
     [System.SerializableAttribute()]
     public partial class OperationError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -478,7 +478,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// A numeric error code that identifies the error
         /// </summary>
@@ -498,7 +498,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that provides additional details about the error. This string can be empty.
         /// </summary>
@@ -518,7 +518,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -538,9 +538,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -550,7 +550,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
@@ -560,26 +560,26 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "AdApiError", Namespace = "https://adapi.microsoft.com")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
     public partial class AdApiError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ErrorCodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -591,7 +591,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// A numeric error code that identifies the error.
         /// </summary>
@@ -611,7 +611,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that contains additional details about the error. This string can be empty.
         /// </summary>
@@ -631,7 +631,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
         /// </summary>
@@ -651,7 +651,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -671,9 +671,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -683,7 +683,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
@@ -693,26 +693,26 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BatchError", Namespace = "https://bingads.microsoft.com/Customer/v9/Exception")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BatchError", Namespace="https://bingads.microsoft.com/Customer/v9/Exception")]
     [System.SerializableAttribute()]
     public partial class BatchError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DetailsField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IndexField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -724,7 +724,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// A numeric error code that identifies the error.
         /// </summary>
@@ -744,7 +744,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that provides additional details about the batch error. This string can be empty.
         /// </summary>
@@ -764,7 +764,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The zero-based index of the item in the batch of items in the request message that failed.
         /// </summary>
@@ -784,7 +784,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A message that describes the error.
         /// </summary>
@@ -804,9 +804,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -816,7 +816,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the possible formats in which to generate the billing document.
     /// </summary>
@@ -826,23 +826,23 @@ namespace Microsoft.BingAds.CustomerBilling
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see> and <see cref="CustomerBillingServiceClient.GetDisplayInvoices">GetDisplayInvoices</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "DataType", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DataType", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     public enum DataType : int
     {
-
+        
         /// <summary>
         /// Use XML format.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Xml = 1,
-
+        
         /// <summary>
         /// Use PDF format.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pdf = 2,
     }
-
+    
     /// <summary>
     /// Defines a billing document.
     /// </summary>
@@ -852,23 +852,23 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "BillingDocument", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BillingDocument", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     [System.SerializableAttribute()]
     public partial class BillingDocument : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] DataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long IdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.CustomerBilling.DataType TypeField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -880,7 +880,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The billing document.
         /// </summary>
@@ -900,7 +900,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The identifier of the billing document.
         /// </summary>
@@ -920,7 +920,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The format of the billing document.
         /// </summary>
@@ -940,9 +940,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -952,11 +952,9 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines an insertion order.
-    /// <para>An account can have multiple active insertion orders, and only one insertion order is spending at a time. The spending insertion order is the one with the earliest end date.</para>
-    /// <para>Only the Status element of an insertion order may be updated, for example to approve, decline, or cancel an insertion order.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ff728378(v=msads.90).aspx">InsertionOrder Data Object</see> http://msdn.microsoft.com/en-us/library/ff728378(v=msads.90).aspx for details.
@@ -964,59 +962,59 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "InsertionOrder", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertionOrder", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     [System.SerializableAttribute()]
     public partial class InsertionOrder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long AccountIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> BalanceAmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BookingCountryCodeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CommentField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime EndDateField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> InsertionOrderIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> LastModifiedByUserIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> LastModifiedTimeField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> NotificationThresholdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> ReferenceIdField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double SpendCapAmountField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.CustomerBilling.InsertionOrderStatus> StatusField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PurchaseOrderField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1028,7 +1026,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The identifier of the account to which the insertion order applies.
         /// </summary>
@@ -1048,7 +1046,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The running balance of the insertion order. The running balance value is initially the same as the spending limit, and then decreases each time an ad in the account is served.
         /// </summary>
@@ -1068,7 +1066,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A code that identifies the country/region in which the account operates. For a list of country code values, see Geographical Location Codes.
         /// </summary>
@@ -1088,7 +1086,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A description of the insertion order. The description is limited to 100 characters.
         /// </summary>
@@ -1108,7 +1106,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The date that the insertion order expires. The end date must be later than the start date.
         /// </summary>
@@ -1128,7 +1126,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A system generated identifier that identifies the insertion order.
         /// </summary>
@@ -1148,7 +1146,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// An identifier of the last user to update the insertion order.
         /// </summary>
@@ -1168,7 +1166,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The date and time that the insertion order was last updated.
         /// </summary>
@@ -1188,7 +1186,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A percentage of the budget that has been spent. Specify the percentage as a value from 0 to 100. Notification is sent when the threshold is reached. For example, if you set the threshold to 70, the Billing service sends notification when you have spent 70 percent of the budget.
         /// </summary>
@@ -1208,7 +1206,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// Internal use only.
         /// </summary>
@@ -1228,7 +1226,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The budget for this insertion order. The budget is a hard limit. When the account reaches this limit and there is not another insertion order available, the account's lifecycle status value is set to Pause.
         /// </summary>
@@ -1248,7 +1246,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The date that the insertion order can begin accruing charges. The start date must be later than the current date.
         /// </summary>
@@ -1268,11 +1266,11 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The friendly name that can be used to reference this insertion order.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order = 12)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public string Name
         {
             get
@@ -1288,11 +1286,11 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The status of the insertion order.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order = 13)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public System.Nullable<Microsoft.BingAds.CustomerBilling.InsertionOrderStatus> Status
         {
             get
@@ -1308,11 +1306,11 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// A purchase order value that can be used to reference this insertion order in monthly invoices. This value will be printed as the purchase order in the monthly invoices.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order = 14)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public string PurchaseOrder
         {
             get
@@ -1328,9 +1326,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1340,7 +1338,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the possible status values of an InsertionOrder.
     /// </summary>
@@ -1349,49 +1347,49 @@ namespace Microsoft.BingAds.CustomerBilling
     /// <para>Used by <see cref="InsertionOrder"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "InsertionOrderStatus", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertionOrderStatus", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     public enum InsertionOrderStatus : int
     {
-
+        
         /// <summary>
         /// A super admin of the bill-to customer added the insertion order, and the insertion order is pending account manager approval.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PendingSystemReview = 0,
-
+        
         /// <summary>
         /// An account manager added the insertion order, and the insertion order is pending approval from the super admin of the bill-to customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PendingUserReview = 1,
-
+        
         /// <summary>
         /// The insertion order is active, which means that the account and its campaigns will begin showing ads once the start date is reached. Even if the spending limit has been reached and the balance is depleted, the insertion order status can be active.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 2,
-
+        
         /// <summary>
         /// Either the super admin of the bill-to customer or the account manager declined the insertion order.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Declined = 3,
-
+        
         /// <summary>
         /// The end date or spend limit of the insertion order is reached, which means that the insertion order is expired or inactive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Expired = 4,
-
+        
         /// <summary>
         /// Either the super admin of the bill-to customer or the account manager canceled the insertion order.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Canceled = 5,
     }
-
+    
     /// <summary>
-    /// Defines a predicate for the list of insertion orders returned using SearchInsertionOrders.
+    /// Defines a predicate for the list of insertion orders returned using the SearchInsertionOrders operation.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743756(v=msads.90).aspx">Predicate Data Object</see> http://msdn.microsoft.com/en-us/library/dn743756(v=msads.90).aspx for details.
@@ -1399,23 +1397,23 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "Predicate", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Predicate", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     [System.SerializableAttribute()]
     public partial class Predicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FieldField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.CustomerBilling.PredicateOperator OperatorField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ValueField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1427,7 +1425,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The name of the element for the object you are searching.
         /// </summary>
@@ -1447,7 +1445,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// Defines the relationship between the field and the value.
         /// </summary>
@@ -1467,7 +1465,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The string to search in the specified field.
         /// </summary>
@@ -1487,9 +1485,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1499,7 +1497,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the condition of results for insertion orders returned using SearchInsertionOrders.
     /// </summary>
@@ -1508,37 +1506,61 @@ namespace Microsoft.BingAds.CustomerBilling
     /// <para>Used by <see cref="Predicate"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "PredicateOperator", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PredicateOperator", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     public enum PredicateOperator : int
     {
-
+        
+        /// <summary>
+        /// The field must equal the specified value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Equals = 0,
-
+        
+        /// <summary>
+        /// The field must not equal the specified value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NotEquals = 1,
-
+        
+        /// <summary>
+        /// The field must contain the specified value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Contains = 2,
-
+        
+        /// <summary>
+        /// The field must equal one of the specified comma separated values.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         In = 3,
-
+        
+        /// <summary>
+        /// The field must be greater than or equal to the specified value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreaterThanEquals = 4,
-
+        
+        /// <summary>
+        /// The field must be less than or equal to the specified value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LessThanEquals = 5,
-
+        
+        /// <summary>
+        /// The field must start with the specified value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartsWith = 6,
-
+        
+        /// <summary>
+        /// The field must not contain the specified value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NotContains = 7,
     }
-
+    
     /// <summary>
-    /// Defines an order for the list of insertion orders returned using SearchInsertionOrders.
+    /// Defines an order for the list of insertion orders returned using the SearchInsertionOrders operation.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743752(v=msads.90).aspx">OrderBy Data Object</see> http://msdn.microsoft.com/en-us/library/dn743752(v=msads.90).aspx for details.
@@ -1546,20 +1568,20 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "OrderBy", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderBy", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     [System.SerializableAttribute()]
     public partial class OrderBy : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.CustomerBilling.OrderByField FieldField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.CustomerBilling.SortOrder OrderField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1571,7 +1593,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// Determines the field to order the results. For example order the results by Id.
         /// </summary>
@@ -1591,7 +1613,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// Determines whether the results are ascending or descending.
         /// </summary>
@@ -1611,9 +1633,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1623,7 +1645,7 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     /// <summary>
     /// Defines the field order of insertion orders returned using SearchInsertionOrders.
     /// </summary>
@@ -1632,35 +1654,35 @@ namespace Microsoft.BingAds.CustomerBilling
     /// <para>Used by <see cref="OrderBy"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "OrderByField", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderByField", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     public enum OrderByField : int
     {
-
+        
         /// <summary>
         /// The order is determined by a predicate identifier.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Id = 0,
-
+        
         /// <summary>
         /// The order is determined by a predicate name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Name = 1,
-
+        
         /// <summary>
         /// The order is determined by a predicate number.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Number = 2,
-
+        
         /// <summary>
         /// The order is determined by a predicate life cycle status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LifeCycleStatus = 3,
     }
-
+    
     /// <summary>
     /// Defines the ascending or descending sort order of results for SearchInsertionOrders.
     /// </summary>
@@ -1669,19 +1691,25 @@ namespace Microsoft.BingAds.CustomerBilling
     /// <para>Used by <see cref="OrderBy"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "SortOrder", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SortOrder", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     public enum SortOrder : int
     {
-
+        
+        /// <summary>
+        /// The results will be sorted ascending.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ascending = 0,
-
+        
+        /// <summary>
+        /// The results will be sorted descending.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Descending = 1,
     }
-
+    
     /// <summary>
-    /// Defines a paging object for the list of insertion orders returned using SearchInsertionOrders.
+    /// Defines a paging object for the list of insertion orders returned using the SearchInsertionOrders operation.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743749(v=msads.90).aspx">Paging Data Object</see> http://msdn.microsoft.com/en-us/library/dn743749(v=msads.90).aspx for details.
@@ -1689,20 +1717,20 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "Paging", Namespace = "https://bingads.microsoft.com/Customer/v9/Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Paging", Namespace="https://bingads.microsoft.com/Customer/v9/Entities")]
     [System.SerializableAttribute()]
     public partial class Paging : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
-
+        
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IndexField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int SizeField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1714,7 +1742,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 this.extensionDataField = value;
             }
         }
-
+        
         /// <summary>
         /// The zero-based results page index. For example to request the first page of results, set this value to 0 (zero).
         /// </summary>
@@ -1734,7 +1762,7 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         /// <summary>
         /// The page size and the number of results to return in the specified page.
         /// </summary>
@@ -1754,9 +1782,9 @@ namespace Microsoft.BingAds.CustomerBilling
                 }
             }
         }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
+        
         protected void RaisePropertyChanged(string propertyName)
         {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
@@ -1766,15 +1794,14 @@ namespace Microsoft.BingAds.CustomerBilling
             }
         }
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", ConfigurationName = "Microsoft.BingAds.CustomerBilling.ICustomerBillingService", SessionMode = System.ServiceModel.SessionMode.NotAllowed)]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", ConfigurationName="Microsoft.BingAds.CustomerBilling.ICustomerBillingService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface ICustomerBillingService
     {
-
+        
         /// <summary>
         /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
-        /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx">GetBillingDocumentsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx for details.
@@ -1784,19 +1811,18 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The list of billing document information objects that were retrieved.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBillingDocumentsInfo", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetBillingDocumentsInfo", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
             "ntsInfoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
-            "ntsInfoApiFault", Name = "ApiFault")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
-            "ntsInfoApiBatchFault", Name = "ApiBatchFault")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
-            "ntsInfoAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+            "ntsInfoApiFault", Name="ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+            "ntsInfoApiBatchFault", Name="ApiBatchFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+            "ntsInfoAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CustomerBilling.GetBillingDocumentsInfoResponse GetBillingDocumentsInfo(Microsoft.BingAds.CustomerBilling.GetBillingDocumentsInfoRequest request);
-
+        
         /// <summary>
         /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
-        /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx">GetBillingDocumentsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx for details.
@@ -1806,13 +1832,12 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The list of billing document information objects that were retrieved.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBillingDocumentsInfo", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetBillingDocumentsInfo", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
             "ntsInfoResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.GetBillingDocumentsInfoResponse> GetBillingDocumentsInfoAsync(Microsoft.BingAds.CustomerBilling.GetBillingDocumentsInfoRequest request);
-
+        
         /// <summary>
         /// Gets the specified billing documents.
-        /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx">GetBillingDocuments Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx for details.
@@ -1822,19 +1847,18 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The list of billing documents that were retrieved.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBillingDocuments", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetBillingDocuments", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
             "ntsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
-            "ntsAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
-            "ntsApiFault", Name = "ApiFault")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
-            "ntsApiBatchFault", Name = "ApiBatchFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+            "ntsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+            "ntsApiFault", Name="ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+            "ntsApiBatchFault", Name="ApiBatchFault")]
         Microsoft.BingAds.CustomerBilling.GetBillingDocumentsResponse GetBillingDocuments(Microsoft.BingAds.CustomerBilling.GetBillingDocumentsRequest request);
-
+        
         /// <summary>
         /// Gets the specified billing documents.
-        /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx">GetBillingDocuments Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx for details.
@@ -1844,24 +1868,24 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The list of billing documents that were retrieved.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetBillingDocuments", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetBillingDocuments", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetBillingDocume" +
             "ntsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.GetBillingDocumentsResponse> GetBillingDocumentsAsync(Microsoft.BingAds.CustomerBilling.GetBillingDocumentsRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "GetDisplayInvoices", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetDisplayInvoices", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
             "esResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
-            "esApiFault", Name = "ApiFault")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
-            "esAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
-            "esApiBatchFault", Name = "ApiBatchFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
+            "esApiFault", Name="ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
+            "esAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
+            "esApiBatchFault", Name="ApiBatchFault")]
         Microsoft.BingAds.CustomerBilling.GetDisplayInvoicesResponse GetDisplayInvoices(Microsoft.BingAds.CustomerBilling.GetDisplayInvoicesRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "GetDisplayInvoices", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetDisplayInvoices", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetDisplayInvoic" +
             "esResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.GetDisplayInvoicesResponse> GetDisplayInvoicesAsync(Microsoft.BingAds.CustomerBilling.GetDisplayInvoicesRequest request);
-
+        
         /// <summary>
         /// Adds an insertion order to the specified account.
         /// </summary>
@@ -1872,14 +1896,14 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The response object for this service operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "AddInsertionOrder", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/AddInsertionOrde" +
+        [System.ServiceModel.OperationContractAttribute(Action="AddInsertionOrder", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/AddInsertionOrde" +
             "rResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/AddInsertionOrde" +
-            "rApiFault", Name = "ApiFault")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/AddInsertionOrde" +
-            "rAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/AddInsertionOrde" +
+            "rApiFault", Name="ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/AddInsertionOrde" +
+            "rAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CustomerBilling.AddInsertionOrderResponse AddInsertionOrder(Microsoft.BingAds.CustomerBilling.AddInsertionOrderRequest request);
-
+        
         /// <summary>
         /// Adds an insertion order to the specified account.
         /// </summary>
@@ -1890,10 +1914,10 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The response object for this service operation.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "AddInsertionOrder", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/AddInsertionOrde" +
+        [System.ServiceModel.OperationContractAttribute(Action="AddInsertionOrder", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/AddInsertionOrde" +
             "rResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.AddInsertionOrderResponse> AddInsertionOrderAsync(Microsoft.BingAds.CustomerBilling.AddInsertionOrderRequest request);
-
+        
         /// <summary>
         /// Updates an insertion order within the specified account.
         /// </summary>
@@ -1904,14 +1928,14 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>Identifies the server time in UTC when the insertion order was last modified.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "UpdateInsertionOrder", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/UpdateInsertionO" +
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateInsertionOrder", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/UpdateInsertionO" +
             "rderResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/UpdateInsertionO" +
-            "rderAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/UpdateInsertionO" +
-            "rderApiFault", Name = "ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/UpdateInsertionO" +
+            "rderAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/UpdateInsertionO" +
+            "rderApiFault", Name="ApiFault")]
         Microsoft.BingAds.CustomerBilling.UpdateInsertionOrderResponse UpdateInsertionOrder(Microsoft.BingAds.CustomerBilling.UpdateInsertionOrderRequest request);
-
+        
         /// <summary>
         /// Updates an insertion order within the specified account.
         /// </summary>
@@ -1922,13 +1946,12 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>Identifies the server time in UTC when the insertion order was last modified.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "UpdateInsertionOrder", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/UpdateInsertionO" +
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateInsertionOrder", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/UpdateInsertionO" +
             "rderResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.UpdateInsertionOrderResponse> UpdateInsertionOrderAsync(Microsoft.BingAds.CustomerBilling.UpdateInsertionOrderRequest request);
-
+        
         /// <summary>
         /// Gets a list of insertion orders for the specified account.
-        /// <para>This operation is deprecated and will be removed in a future API version. To get insertion orders, you should use SearchInsertionOrders.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx">GetInsertionOrdersByAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx for details.
@@ -1937,17 +1960,16 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of insertion orders.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetInsertionOrdersByAccount", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetInsertionOrde" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetInsertionOrdersByAccount", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetInsertionOrde" +
             "rsByAccountResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetInsertionOrde" +
-            "rsByAccountAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetInsertionOrde" +
-            "rsByAccountApiFault", Name = "ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetInsertionOrde" +
+            "rsByAccountApiFault", Name="ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetInsertionOrde" +
+            "rsByAccountAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         Microsoft.BingAds.CustomerBilling.GetInsertionOrdersByAccountResponse GetInsertionOrdersByAccount(Microsoft.BingAds.CustomerBilling.GetInsertionOrdersByAccountRequest request);
-
+        
         /// <summary>
         /// Gets a list of insertion orders for the specified account.
-        /// <para>This operation is deprecated and will be removed in a future API version. To get insertion orders, you should use SearchInsertionOrders.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx">GetInsertionOrdersByAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx for details.
@@ -1956,10 +1978,10 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of insertion orders.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetInsertionOrdersByAccount", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetInsertionOrde" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetInsertionOrdersByAccount", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetInsertionOrde" +
             "rsByAccountResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.GetInsertionOrdersByAccountResponse> GetInsertionOrdersByAccountAsync(Microsoft.BingAds.CustomerBilling.GetInsertionOrdersByAccountRequest request);
-
+        
         /// <summary>
         /// Searches for insertion orders that match a specified criteria.
         /// </summary>
@@ -1970,14 +1992,14 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of insertion orders that meet the specified criteria.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "SearchInsertionOrders", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/SearchInsertionO" +
+        [System.ServiceModel.OperationContractAttribute(Action="SearchInsertionOrders", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/SearchInsertionO" +
             "rdersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/SearchInsertionO" +
-            "rdersAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/SearchInsertionO" +
-            "rdersApiFault", Name = "ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/SearchInsertionO" +
+            "rdersAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/SearchInsertionO" +
+            "rdersApiFault", Name="ApiFault")]
         Microsoft.BingAds.CustomerBilling.SearchInsertionOrdersResponse SearchInsertionOrders(Microsoft.BingAds.CustomerBilling.SearchInsertionOrdersRequest request);
-
+        
         /// <summary>
         /// Searches for insertion orders that match a specified criteria.
         /// </summary>
@@ -1988,24 +2010,24 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>A list of insertion orders that meet the specified criteria.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "SearchInsertionOrders", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/SearchInsertionO" +
+        [System.ServiceModel.OperationContractAttribute(Action="SearchInsertionOrders", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/SearchInsertionO" +
             "rdersResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.SearchInsertionOrdersResponse> SearchInsertionOrdersAsync(Microsoft.BingAds.CustomerBilling.SearchInsertionOrdersRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "GetKOHIOInvoices", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetKOHIOInvoices", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
             "Response")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
-            "ApiBatchFault", Name = "ApiBatchFault")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
-            "AdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
-            "ApiFault", Name = "ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
+            "ApiFault", Name="ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
+            "AdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiBatchFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
+            "ApiBatchFault", Name="ApiBatchFault")]
         Microsoft.BingAds.CustomerBilling.GetKOHIOInvoicesResponse GetKOHIOInvoices(Microsoft.BingAds.CustomerBilling.GetKOHIOInvoicesRequest request);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "GetKOHIOInvoices", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetKOHIOInvoices", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetKOHIOInvoices" +
             "Response")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.GetKOHIOInvoicesResponse> GetKOHIOInvoicesAsync(Microsoft.BingAds.CustomerBilling.GetKOHIOInvoicesRequest request);
-
+        
         /// <summary>
         /// Gets the amount spent by the account in the specified month.
         /// </summary>
@@ -2016,14 +2038,14 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The amount spent by the account in the specified period.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetAccountMonthlySpend", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetAccountMonthl" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetAccountMonthlySpend", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetAccountMonthl" +
             "ySpendResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetAccountMonthl" +
-            "ySpendAdApiFaultDetailFault", Name = "AdApiFaultDetail", Namespace = "https://adapi.microsoft.com")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetAccountMonthl" +
-            "ySpendApiFault", Name = "ApiFault")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetAccountMonthl" +
+            "ySpendAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetAccountMonthl" +
+            "ySpendApiFault", Name="ApiFault")]
         Microsoft.BingAds.CustomerBilling.GetAccountMonthlySpendResponse GetAccountMonthlySpend(Microsoft.BingAds.CustomerBilling.GetAccountMonthlySpendRequest request);
-
+        
         /// <summary>
         /// Gets the amount spent by the account in the specified month.
         /// </summary>
@@ -2034,14 +2056,13 @@ namespace Microsoft.BingAds.CustomerBilling
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
         /// <returns>The amount spent by the account in the specified period.</returns>
-        [System.ServiceModel.OperationContractAttribute(Action = "GetAccountMonthlySpend", ReplyAction = "https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetAccountMonthl" +
+        [System.ServiceModel.OperationContractAttribute(Action="GetAccountMonthlySpend", ReplyAction="https://bingads.microsoft.com/Billing/v9/ICustomerBillingService/GetAccountMonthl" +
             "ySpendResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.GetAccountMonthlySpendResponse> GetAccountMonthlySpendAsync(Microsoft.BingAds.CustomerBilling.GetAccountMonthlySpendRequest request);
     }
-
+    
     /// <summary>
     /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
-    /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx">GetBillingDocumentsInfo Request Object</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx for details.
@@ -2049,43 +2070,43 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBillingDocumentsInfoRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBillingDocumentsInfoRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetBillingDocumentsInfoRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// A list of identifiers of the accounts whose billing document information you want to get.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<long> AccountIds;
-
+        
         /// <summary>
         /// The start date to use for specifying the billing documents to get.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=1)]
         public System.DateTime StartDate;
-
+        
         /// <summary>
         /// The end date to use for specifying the billing documents to get.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=2)]
         public System.Nullable<System.DateTime> EndDate;
-
+        
         /// <summary>
         /// Constructor for the GetBillingDocumentsInfoRequest request object.
         /// </summary>
@@ -2095,7 +2116,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public GetBillingDocumentsInfoRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBillingDocumentsInfoRequest request object.
         /// </summary>
@@ -2117,10 +2138,9 @@ namespace Microsoft.BingAds.CustomerBilling
             this.EndDate = EndDate;
         }
     }
-
+    
     /// <summary>
     /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
-    /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx">GetBillingDocumentsInfo Response Object</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx for details.
@@ -2128,19 +2148,19 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBillingDocumentsInfoResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBillingDocumentsInfoResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetBillingDocumentsInfoResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// The list of billing document information objects that were retrieved.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.BillingDocumentInfo> BillingDocumentsInfo;
-
+        
         /// <summary>
         /// Constructor for the GetBillingDocumentsInfoResponse response object.
         /// </summary>
@@ -2150,7 +2170,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public GetBillingDocumentsInfoResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBillingDocumentsInfoResponse response object.
         /// </summary>
@@ -2164,10 +2184,9 @@ namespace Microsoft.BingAds.CustomerBilling
             this.BillingDocumentsInfo = BillingDocumentsInfo;
         }
     }
-
+    
     /// <summary>
     /// Gets the specified billing documents.
-    /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx">GetBillingDocuments Request Object</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx for details.
@@ -2175,37 +2194,37 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBillingDocumentsRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBillingDocumentsRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetBillingDocumentsRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// A list of identifiers of the billing documents to get. To get a list of identifiers, call the GetBillingDocumentsInfo operation.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<long> DocumentIds;
-
+        
         /// <summary>
         /// The format to use to generate the billing document. For example, you can generate the billing document in PDF or XML format.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=1)]
         public Microsoft.BingAds.CustomerBilling.DataType Type;
-
+        
         /// <summary>
         /// Constructor for the GetBillingDocumentsRequest request object.
         /// </summary>
@@ -2215,7 +2234,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public GetBillingDocumentsRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBillingDocumentsRequest request object.
         /// </summary>
@@ -2235,10 +2254,9 @@ namespace Microsoft.BingAds.CustomerBilling
             this.Type = Type;
         }
     }
-
+    
     /// <summary>
     /// Gets the specified billing documents.
-    /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx">GetBillingDocuments Response Object</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx for details.
@@ -2246,19 +2264,19 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetBillingDocumentsResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBillingDocumentsResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetBillingDocumentsResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// The list of billing documents that were retrieved.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.BillingDocument> BillingDocuments;
-
+        
         /// <summary>
         /// Constructor for the GetBillingDocumentsResponse response object.
         /// </summary>
@@ -2268,7 +2286,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public GetBillingDocumentsResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetBillingDocumentsResponse response object.
         /// </summary>
@@ -2282,38 +2300,38 @@ namespace Microsoft.BingAds.CustomerBilling
             this.BillingDocuments = BillingDocuments;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetDisplayInvoicesRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDisplayInvoicesRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetDisplayInvoicesRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<long> InvoiceIds;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 1)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=1)]
         public Microsoft.BingAds.CustomerBilling.DataType Type;
-
+        
         public GetDisplayInvoicesRequest()
         {
         }
-
+        
         public GetDisplayInvoicesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> InvoiceIds, Microsoft.BingAds.CustomerBilling.DataType Type)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2325,30 +2343,30 @@ namespace Microsoft.BingAds.CustomerBilling
             this.Type = Type;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetDisplayInvoicesResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDisplayInvoicesResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetDisplayInvoicesResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.BillingDocument> BillingDocuments;
-
+        
         public GetDisplayInvoicesResponse()
         {
         }
-
+        
         public GetDisplayInvoicesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.BillingDocument> BillingDocuments)
         {
             this.TrackingId = TrackingId;
             this.BillingDocuments = BillingDocuments;
         }
     }
-
+    
     /// <summary>
     /// Adds an insertion order to the specified account.
     /// </summary>
@@ -2358,31 +2376,31 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "AddInsertionOrderRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddInsertionOrderRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class AddInsertionOrderRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// An insertion order to add to the account specified in the InsertionOrder object.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public Microsoft.BingAds.CustomerBilling.InsertionOrder InsertionOrder;
-
+        
         /// <summary>
         /// Constructor for the AddInsertionOrderRequest request object.
         /// </summary>
@@ -2392,7 +2410,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public AddInsertionOrderRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the AddInsertionOrderRequest request object.
         /// </summary>
@@ -2410,7 +2428,7 @@ namespace Microsoft.BingAds.CustomerBilling
             this.InsertionOrder = InsertionOrder;
         }
     }
-
+    
     /// <summary>
     /// Adds an insertion order to the specified account.
     /// </summary>
@@ -2420,25 +2438,25 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "AddInsertionOrderResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddInsertionOrderResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class AddInsertionOrderResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// A long value that represents the identifier for the insertion order that was added.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public long InsertionOrderId;
-
+        
         /// <summary>
         /// Identifies the server time in UTC when the insertion order was added.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=1)]
         public System.DateTime CreateTime;
-
+        
         /// <summary>
         /// Constructor for the AddInsertionOrderResponse response object.
         /// </summary>
@@ -2448,7 +2466,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public AddInsertionOrderResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the AddInsertionOrderResponse response object.
         /// </summary>
@@ -2464,7 +2482,7 @@ namespace Microsoft.BingAds.CustomerBilling
             this.CreateTime = CreateTime;
         }
     }
-
+    
     /// <summary>
     /// Updates an insertion order within the specified account.
     /// </summary>
@@ -2474,31 +2492,31 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "UpdateInsertionOrderRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateInsertionOrderRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class UpdateInsertionOrderRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// An insertion order to update within the account specified in the InsertionOrder object.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public Microsoft.BingAds.CustomerBilling.InsertionOrder InsertionOrder;
-
+        
         /// <summary>
         /// Constructor for the UpdateInsertionOrderRequest request object.
         /// </summary>
@@ -2508,7 +2526,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public UpdateInsertionOrderRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the UpdateInsertionOrderRequest request object.
         /// </summary>
@@ -2526,7 +2544,7 @@ namespace Microsoft.BingAds.CustomerBilling
             this.InsertionOrder = InsertionOrder;
         }
     }
-
+    
     /// <summary>
     /// Updates an insertion order within the specified account.
     /// </summary>
@@ -2536,19 +2554,19 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "UpdateInsertionOrderResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateInsertionOrderResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class UpdateInsertionOrderResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// Identifies the server time in UTC when the insertion order was last modified.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.DateTime LastModifiedTime;
-
+        
         /// <summary>
         /// Constructor for the UpdateInsertionOrderResponse response object.
         /// </summary>
@@ -2558,7 +2576,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public UpdateInsertionOrderResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the UpdateInsertionOrderResponse response object.
         /// </summary>
@@ -2572,10 +2590,9 @@ namespace Microsoft.BingAds.CustomerBilling
             this.LastModifiedTime = LastModifiedTime;
         }
     }
-
+    
     /// <summary>
     /// Gets a list of insertion orders for the specified account.
-    /// <para>This operation is deprecated and will be removed in a future API version. To get insertion orders, you should use SearchInsertionOrders.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx">GetInsertionOrdersByAccount Request Object</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx for details.
@@ -2583,37 +2600,37 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetInsertionOrdersByAccountRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetInsertionOrdersByAccountRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetInsertionOrdersByAccountRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
+        
         /// <summary>
         /// The identifier of the account that contains the insertion orders to get.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public long AccountId;
-
+        
         /// <summary>
         /// A list of identifiers of the insertion orders to get. To get all insertion orders, including those that have expired, set to NULL.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=1)]
         public System.Collections.Generic.IList<long> InsertionOrderIds;
-
+        
         /// <summary>
         /// Constructor for the GetInsertionOrdersByAccountRequest request object.
         /// </summary>
@@ -2623,7 +2640,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public GetInsertionOrdersByAccountRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetInsertionOrdersByAccountRequest request object.
         /// </summary>
@@ -2643,10 +2660,9 @@ namespace Microsoft.BingAds.CustomerBilling
             this.InsertionOrderIds = InsertionOrderIds;
         }
     }
-
+    
     /// <summary>
     /// Gets a list of insertion orders for the specified account.
-    /// <para>This operation is deprecated and will be removed in a future API version. To get insertion orders, you should use SearchInsertionOrders.</para>
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx">GetInsertionOrdersByAccount Response Object</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx for details.
@@ -2654,19 +2670,19 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetInsertionOrdersByAccountResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetInsertionOrdersByAccountResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetInsertionOrdersByAccountResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// A list of insertion orders.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.InsertionOrder> InsertionOrders;
-
+        
         /// <summary>
         /// Constructor for the GetInsertionOrdersByAccountResponse response object.
         /// </summary>
@@ -2676,7 +2692,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public GetInsertionOrdersByAccountResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetInsertionOrdersByAccountResponse response object.
         /// </summary>
@@ -2690,7 +2706,7 @@ namespace Microsoft.BingAds.CustomerBilling
             this.InsertionOrders = InsertionOrders;
         }
     }
-
+    
     /// <summary>
     /// Searches for insertion orders that match a specified criteria.
     /// </summary>
@@ -2700,43 +2716,43 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "SearchInsertionOrdersRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SearchInsertionOrdersRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class SearchInsertionOrdersRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
+        
         /// <summary>
-        /// Determines the request conditions. This operation's response will include accounts that match all of the specified predicates.
+        /// Determines the request conditions. This operation's response will include accounts that match all of the specified predicates. Note: You may specify up to 6 predicates, and one of the predicate fields must be AccountId. You may use the StartDate and EndDate predicate fields twice each to specify start and end date ranges, and otherwise may only use each predicate field once.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.Predicate> Predicates;
-
+        
         /// <summary>
-        /// Determines the order of results by the specified property of an account.
+        /// Determines the order of results by the specified property of an account. Note: You should only specify one OrderBy element in the array. Additional elements are not supported and will be ignored by the service.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 1)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.OrderBy> Ordering;
-
+        
         /// <summary>
         /// Determines the index and size of results per page.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=2)]
         public Microsoft.BingAds.CustomerBilling.Paging PageInfo;
-
+        
         /// <summary>
         /// Constructor for the SearchInsertionOrdersRequest request object.
         /// </summary>
@@ -2746,15 +2762,15 @@ namespace Microsoft.BingAds.CustomerBilling
         public SearchInsertionOrdersRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the SearchInsertionOrdersRequest request object.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.90).aspx">SearchInsertionOrdersRequest</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.90).aspx for details.
         /// </remarks>
-        /// <param name="Predicates">Determines the request conditions. This operation's response will include accounts that match all of the specified predicates.</param>
-        /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
+        /// <param name="Predicates">Determines the request conditions. This operation's response will include accounts that match all of the specified predicates. Note: You may specify up to 6 predicates, and one of the predicate fields must be AccountId. You may use the StartDate and EndDate predicate fields twice each to specify start and end date ranges, and otherwise may only use each predicate field once.</param>
+        /// <param name="Ordering">Determines the order of results by the specified property of an account. Note: You should only specify one OrderBy element in the array. Additional elements are not supported and will be ignored by the service.</param>
         /// <param name="PageInfo">Determines the index and size of results per page.</param>
         public SearchInsertionOrdersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.CustomerBilling.Paging PageInfo)
         {
@@ -2768,7 +2784,7 @@ namespace Microsoft.BingAds.CustomerBilling
             this.PageInfo = PageInfo;
         }
     }
-
+    
     /// <summary>
     /// Searches for insertion orders that match a specified criteria.
     /// </summary>
@@ -2778,19 +2794,19 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "SearchInsertionOrdersResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SearchInsertionOrdersResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class SearchInsertionOrdersResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// A list of insertion orders that meet the specified criteria.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.InsertionOrder> InsertionOrders;
-
+        
         /// <summary>
         /// Constructor for the SearchInsertionOrdersResponse response object.
         /// </summary>
@@ -2800,7 +2816,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public SearchInsertionOrdersResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the SearchInsertionOrdersResponse response object.
         /// </summary>
@@ -2814,35 +2830,35 @@ namespace Microsoft.BingAds.CustomerBilling
             this.InsertionOrders = InsertionOrders;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKOHIOInvoicesRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKOHIOInvoicesRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetKOHIOInvoicesRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<string> InvoiceIds;
-
+        
         public GetKOHIOInvoicesRequest()
         {
         }
-
+        
         public GetKOHIOInvoicesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> InvoiceIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2853,30 +2869,30 @@ namespace Microsoft.BingAds.CustomerBilling
             this.InvoiceIds = InvoiceIds;
         }
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetKOHIOInvoicesResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKOHIOInvoicesResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetKOHIOInvoicesResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.BillingDocument> BillingDocuments;
-
+        
         public GetKOHIOInvoicesResponse()
         {
         }
-
+        
         public GetKOHIOInvoicesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.CustomerBilling.BillingDocument> BillingDocuments)
         {
             this.TrackingId = TrackingId;
             this.BillingDocuments = BillingDocuments;
         }
     }
-
+    
     /// <summary>
     /// Gets the amount spent by the account in the specified month.
     /// </summary>
@@ -2886,31 +2902,37 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAccountMonthlySpendRequest", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountMonthlySpendRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetAccountMonthlySpendRequest
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string ApplicationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string AuthenticationToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string DeveloperToken;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string Password;
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string UserName;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        
+        /// <summary>
+        /// The identifier of the account that contains the spend information to get.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public long AccountId;
-
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 1)]
+        
+        /// <summary>
+        /// The month and year for which you want to get the monthly spend information (the operation ignores the day and time values). Note: The service uses the month and year components corresponding to the specified dateTime. For example 2013-06-15T00:00:00 and 2013-06 are both valid and will return the same results.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=1)]
         public System.DateTime MonthYear;
-
+        
         /// <summary>
         /// Constructor for the GetAccountMonthlySpendRequest request object.
         /// </summary>
@@ -2920,15 +2942,15 @@ namespace Microsoft.BingAds.CustomerBilling
         public GetAccountMonthlySpendRequest()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetAccountMonthlySpendRequest request object.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.90).aspx">GetAccountMonthlySpendRequest</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.90).aspx for details.
         /// </remarks>
-        /// <param name="AccountId"></param>
-        /// <param name="MonthYear"></param>
+        /// <param name="AccountId">The identifier of the account that contains the spend information to get.</param>
+        /// <param name="MonthYear">The month and year for which you want to get the monthly spend information (the operation ignores the day and time values). Note: The service uses the month and year components corresponding to the specified dateTime. For example 2013-06-15T00:00:00 and 2013-06 are both valid and will return the same results.</param>
         public GetAccountMonthlySpendRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, System.DateTime MonthYear)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2940,7 +2962,7 @@ namespace Microsoft.BingAds.CustomerBilling
             this.MonthYear = MonthYear;
         }
     }
-
+    
     /// <summary>
     /// Gets the amount spent by the account in the specified month.
     /// </summary>
@@ -2950,19 +2972,19 @@ namespace Microsoft.BingAds.CustomerBilling
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "GetAccountMonthlySpendResponse", WrapperNamespace = "https://bingads.microsoft.com/Billing/v9", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountMonthlySpendResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v9", IsWrapped=true)]
     public partial class GetAccountMonthlySpendResponse
     {
-
-        [System.ServiceModel.MessageHeaderAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9")]
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v9")]
         public string TrackingId;
-
+        
         /// <summary>
         /// The amount spent by the account in the specified period.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "https://bingads.microsoft.com/Billing/v9", Order = 0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v9", Order=0)]
         public double Amount;
-
+        
         /// <summary>
         /// Constructor for the GetAccountMonthlySpendResponse response object.
         /// </summary>
@@ -2972,7 +2994,7 @@ namespace Microsoft.BingAds.CustomerBilling
         public GetAccountMonthlySpendResponse()
         {
         }
-
+        
         /// <summary>
         /// Constructor for the GetAccountMonthlySpendResponse response object.
         /// </summary>
@@ -2986,44 +3008,43 @@ namespace Microsoft.BingAds.CustomerBilling
             this.Amount = Amount;
         }
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICustomerBillingServiceChannel : Microsoft.BingAds.CustomerBilling.ICustomerBillingService, System.ServiceModel.IClientChannel
     {
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class CustomerBillingServiceClient : System.ServiceModel.ClientBase<Microsoft.BingAds.CustomerBilling.ICustomerBillingService>, Microsoft.BingAds.CustomerBilling.ICustomerBillingService
     {
-
+        
         public CustomerBillingServiceClient()
         {
         }
-
-        public CustomerBillingServiceClient(string endpointConfigurationName) :
-            base(endpointConfigurationName)
+        
+        public CustomerBillingServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName)
         {
         }
-
-        public CustomerBillingServiceClient(string endpointConfigurationName, string remoteAddress) :
-            base(endpointConfigurationName, remoteAddress)
+        
+        public CustomerBillingServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress)
         {
         }
-
-        public CustomerBillingServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(endpointConfigurationName, remoteAddress)
+        
+        public CustomerBillingServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress)
         {
         }
-
-        public CustomerBillingServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
-            base(binding, remoteAddress)
+        
+        public CustomerBillingServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress)
         {
         }
-
+        
         /// <summary>
         /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
-        /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx">GetBillingDocumentsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx for details.
@@ -3037,10 +3058,9 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.GetBillingDocumentsInfo(request);
         }
-
+        
         /// <summary>
         /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
-        /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx">GetBillingDocumentsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.90).aspx for details.
@@ -3054,10 +3074,9 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.GetBillingDocumentsInfoAsync(request);
         }
-
+        
         /// <summary>
         /// Gets the specified billing documents.
-        /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx">GetBillingDocuments Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx for details.
@@ -3071,10 +3090,9 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.GetBillingDocuments(request);
         }
-
+        
         /// <summary>
         /// Gets the specified billing documents.
-        /// <para>This operation will not return billing documents associated with Yahoo!-managed accounts.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx">GetBillingDocuments Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.90).aspx for details.
@@ -3088,17 +3106,17 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.GetBillingDocumentsAsync(request);
         }
-
+        
         public Microsoft.BingAds.CustomerBilling.GetDisplayInvoicesResponse GetDisplayInvoices(Microsoft.BingAds.CustomerBilling.GetDisplayInvoicesRequest request)
         {
             return base.Channel.GetDisplayInvoices(request);
         }
-
+        
         public System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.GetDisplayInvoicesResponse> GetDisplayInvoicesAsync(Microsoft.BingAds.CustomerBilling.GetDisplayInvoicesRequest request)
         {
             return base.Channel.GetDisplayInvoicesAsync(request);
         }
-
+        
         /// <summary>
         /// Adds an insertion order to the specified account.
         /// </summary>
@@ -3113,7 +3131,7 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.AddInsertionOrder(request);
         }
-
+        
         /// <summary>
         /// Adds an insertion order to the specified account.
         /// </summary>
@@ -3128,7 +3146,7 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.AddInsertionOrderAsync(request);
         }
-
+        
         /// <summary>
         /// Updates an insertion order within the specified account.
         /// </summary>
@@ -3143,7 +3161,7 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.UpdateInsertionOrder(request);
         }
-
+        
         /// <summary>
         /// Updates an insertion order within the specified account.
         /// </summary>
@@ -3158,10 +3176,9 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.UpdateInsertionOrderAsync(request);
         }
-
+        
         /// <summary>
         /// Gets a list of insertion orders for the specified account.
-        /// <para>This operation is deprecated and will be removed in a future API version. To get insertion orders, you should use SearchInsertionOrders.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx">GetInsertionOrdersByAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx for details.
@@ -3174,10 +3191,9 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.GetInsertionOrdersByAccount(request);
         }
-
+        
         /// <summary>
         /// Gets a list of insertion orders for the specified account.
-        /// <para>This operation is deprecated and will be removed in a future API version. To get insertion orders, you should use SearchInsertionOrders.</para>
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx">GetInsertionOrdersByAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.90).aspx for details.
@@ -3190,7 +3206,7 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.GetInsertionOrdersByAccountAsync(request);
         }
-
+        
         /// <summary>
         /// Searches for insertion orders that match a specified criteria.
         /// </summary>
@@ -3205,7 +3221,7 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.SearchInsertionOrders(request);
         }
-
+        
         /// <summary>
         /// Searches for insertion orders that match a specified criteria.
         /// </summary>
@@ -3220,17 +3236,17 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.SearchInsertionOrdersAsync(request);
         }
-
+        
         public Microsoft.BingAds.CustomerBilling.GetKOHIOInvoicesResponse GetKOHIOInvoices(Microsoft.BingAds.CustomerBilling.GetKOHIOInvoicesRequest request)
         {
             return base.Channel.GetKOHIOInvoices(request);
         }
-
+        
         public System.Threading.Tasks.Task<Microsoft.BingAds.CustomerBilling.GetKOHIOInvoicesResponse> GetKOHIOInvoicesAsync(Microsoft.BingAds.CustomerBilling.GetKOHIOInvoicesRequest request)
         {
             return base.Channel.GetKOHIOInvoicesAsync(request);
         }
-
+        
         /// <summary>
         /// Gets the amount spent by the account in the specified month.
         /// </summary>
@@ -3245,7 +3261,7 @@ namespace Microsoft.BingAds.CustomerBilling
         {
             return base.Channel.GetAccountMonthlySpend(request);
         }
-
+        
         /// <summary>
         /// Gets the amount spent by the account in the specified month.
         /// </summary>

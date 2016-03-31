@@ -80,7 +80,7 @@ namespace Microsoft.BingAds.Bulk.Entities
         /// Corresponds to the 'Error Number' field in the bulk file. 
         /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=511884">Bing Ads Operation Error Codes</see>.
         /// </summary>
-        public int Number { get; private set; }
+        public int? Number { get; private set; }
 
         /// <summary>
         /// The location of the entity property that resulted in the editorial error, for example 'AdDescription'.
@@ -122,7 +122,7 @@ namespace Microsoft.BingAds.Bulk.Entities
 
             new SimpleBulkMapping<BulkError>(StringTable.ErrorNumber,
                 c => c.Number.ToBulkString(),
-                (v, c) => c.Number = v.Parse<int>()
+                (v, c) => c.Number = v.ParseOptional<int>()
             ),
 
             new SimpleBulkMapping<BulkError>(StringTable.EditorialLocation,

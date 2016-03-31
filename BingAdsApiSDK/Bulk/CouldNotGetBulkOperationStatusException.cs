@@ -47,57 +47,42 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.Internal.Bulk.Operations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Microsoft.BingAds.Bulk
 {
     /// <summary>
-    /// Represents a bulk download operation requested by a user. 
-    /// You can use this class to poll for the download status, and then download the file when available.
+    /// This exception is thrown when failed to get operation status after multiple retries.
     /// </summary>
-    /// <example>The <see cref="BulkServiceManager.SubmitDownloadAsync"/> method returns an instance of this class. 
-    /// If for any reason you do not want to wait for the file to be prepared for download, 
-    /// for example if your application quits unexpectedly or you have other tasks to process, you can 
-    /// use an instance of <see cref="BulkDownloadOperation"/> to download the file when it is available.</example>
-    public class BulkDownloadOperation : BulkOperation<DownloadStatus>
-    {        
+    class CouldNotGetBulkOperationStatusException: Exception
+    {
         /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/> and <see cref="AuthorizationData"/>.
+        /// Initializes a new instance of the CouldNotGetBulkOperationStatusException class.
         /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account. 
-        /// </param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData)
-            : this(requestId, authorizationData, null, null)
+        public CouldNotGetBulkOperationStatusException()
         {
-             
         }
 
         /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/>, <see cref="AuthorizationData"/> and <paramref name="apiEnvironment"/>.
+        /// Initializes a new instance of the CouldNotGetBulkOperationStatusException class with the specified message.
         /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account.
-        /// </param>
-        /// <param name="apiEnvironment">Bing Ads API environment</param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
-            : this(requestId, authorizationData, null, apiEnvironment)
+        /// <param name="message"></param>
+        public CouldNotGetBulkOperationStatusException(string message) : base(message)
         {
-
         }
 
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId)
+        /// <summary>
+        /// Initializes a new instance of the CouldNotGetBulkOperationStatusException class with the specified message and inner exception.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="inner"></param>
+        public CouldNotGetBulkOperationStatusException(string message, Exception inner)
+            : base(message, inner)
         {
-
         }
-
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId, ApiEnvironment? apiEnvironment)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId, apiEnvironment)
-        {
-
-        } 
     }
 }

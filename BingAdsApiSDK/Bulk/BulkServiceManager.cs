@@ -90,6 +90,8 @@ namespace Microsoft.BingAds.Bulk
 
         internal const int DefaultStatusPollIntervalInMilliseconds = 5000;
 
+        private ApiEnvironment? _apiEnvironment;
+
         /// <summary>
         /// The time interval in milliseconds between two status polling attempts. The default value is 15000 (15 seconds).
         /// </summary>
@@ -105,6 +107,16 @@ namespace Microsoft.BingAds.Bulk
         /// </summary>
         /// <param name="authorizationData">Represents a user who intends to access the corresponding customer and account. </param>
         public BulkServiceManager(AuthorizationData authorizationData)
+            : this(authorizationData, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of this class with the specified <see cref="AuthorizationData"/> and <paramref name="apiEnvironment"/>.
+        /// </summary>
+        /// <param name="authorizationData">Represents a user who intends to access the corresponding customer and account. </param>
+        /// <param name="apiEnvironment">Bing Ads API environment</param>
+        public BulkServiceManager(AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
         {
             if (authorizationData == null)
             {
@@ -124,6 +136,8 @@ namespace Microsoft.BingAds.Bulk
             StatusPollIntervalInMilliseconds = DefaultStatusPollIntervalInMilliseconds;
 
             WorkingDirectory = Path.Combine(Path.GetTempPath(), "BingAdsSDK");
+
+            if (apiEnvironment != null) _apiEnvironment = apiEnvironment.Value;
         }
 
         /// <summary>
@@ -368,12 +382,19 @@ namespace Microsoft.BingAds.Bulk
 
                 DownloadCampaignsByAccountIdsResponse response;
 
-                using (var apiService = new ServiceClient<IBulkService>(_authorizationData))
+                using (var apiService = new ServiceClient<IBulkService>(_authorizationData, _apiEnvironment))
                 {
-                    response = await apiService.CallAsync((s, r) => s.DownloadCampaignsByAccountIdsAsync(r), request).ConfigureAwait(false);
+                    try
+                    {
+                        response = await apiService.CallAsync((s, r) => s.DownloadCampaignsByAccountIdsAsync(r), request).ConfigureAwait(false);
+                    }
+                    catch (Exception e)
+                    {
+                        throw new CouldNotSubmitBulkDownloadException("Submit download operation failed.", e);
+                    }
                 }
 
-                return new BulkDownloadOperation(response.DownloadRequestId, _authorizationData, response.TrackingId)
+                return new BulkDownloadOperation(response.DownloadRequestId, _authorizationData, response.TrackingId, _apiEnvironment)
                 {
                     StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds
                 };
@@ -394,12 +415,19 @@ namespace Microsoft.BingAds.Bulk
 
                 DownloadCampaignsByCampaignIdsResponse response;
 
-                using (var apiService = new ServiceClient<IBulkService>(_authorizationData))
+                using (var apiService = new ServiceClient<IBulkService>(_authorizationData, _apiEnvironment))
                 {
-                    response = await apiService.CallAsync((s, r) => s.DownloadCampaignsByCampaignIdsAsync(r), request).ConfigureAwait(false);
+                    try
+                    {
+                        response = await apiService.CallAsync((s, r) => s.DownloadCampaignsByCampaignIdsAsync(r), request).ConfigureAwait(false);
+                    }
+                    catch (Exception e)
+                    {
+                        throw new CouldNotSubmitBulkDownloadException("Submit download operation failed.", e);
+                    }
                 }
 
-                return new BulkDownloadOperation(response.DownloadRequestId, _authorizationData, response.TrackingId)
+                return new BulkDownloadOperation(response.DownloadRequestId, _authorizationData, response.TrackingId, _apiEnvironment)
                 {
                     StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds
                 };
@@ -415,9 +443,17 @@ namespace Microsoft.BingAds.Bulk
 
             GetBulkUploadUrlResponse getUploadUrlResponse;
 
-            using (var apiService = new ServiceClient<IBulkService>(_authorizationData))
+            using (var apiService = new ServiceClient<IBulkService>(_authorizationData, _apiEnvironment))
             {
-                getUploadUrlResponse = await apiService.CallAsync((s, r) => s.GetBulkUploadUrlAsync(r), request).ConfigureAwait(false);
+                try
+                {
+                    getUploadUrlResponse = await apiService.CallAsync((s, r) => s.GetBulkUploadUrlAsync(r), request).ConfigureAwait(false);
+                }
+                catch (Exception e)
+                {
+                    throw new CouldNotSubmitBulkUploadException("Get upload url failed.", e);
+                }
+                
             }
 
             var uploadUrl = getUploadUrlResponse.UploadUrl;
@@ -448,7 +484,7 @@ namespace Microsoft.BingAds.Bulk
 
                 effectiveFileUploadPath = compressedFilePath;
             }
-
+            
             await HttpService.UploadFileAsync(new Uri(uploadUrl), effectiveFileUploadPath, addHeaders).ConfigureAwait(false);
 
             if (shouldCompress && compressedFilePath != null)
@@ -456,7 +492,7 @@ namespace Microsoft.BingAds.Bulk
                 FileSystem.DeleteFile(compressedFilePath);
             }
 
-            return new BulkUploadOperation(getUploadUrlResponse.RequestId, _authorizationData, getUploadUrlResponse.TrackingId)
+            return new BulkUploadOperation(getUploadUrlResponse.RequestId, _authorizationData, getUploadUrlResponse.TrackingId, _apiEnvironment)
             {
                 StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds
             };

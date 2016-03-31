@@ -80,6 +80,8 @@ namespace Microsoft.BingAds.Reporting
 
         internal const int DefaultStatusPollIntervalInMilliseconds = 5000;
 
+        private ApiEnvironment? _apiEnvironment;
+
         /// <summary>
         /// The time interval in milliseconds between two status polling attempts. The default value is 5000 (5 seconds).
         /// </summary>
@@ -95,6 +97,16 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         /// <param name="authorizationData">Represents a user who intends to access the corresponding customer and account. </param>
         public ReportingServiceManager(AuthorizationData authorizationData)
+            : this(authorizationData, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of this class with the specified <see cref="AuthorizationData"/> and <paramref name="apiEnvironment"/>.
+        /// </summary>
+        /// <param name="authorizationData">Represents a user who intends to access the corresponding customer and account. </param>
+        /// <param name="apiEnvironment">Bing Ads API environment</param>
+        public ReportingServiceManager(AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
         {
             if (authorizationData == null)
             {
@@ -112,6 +124,8 @@ namespace Microsoft.BingAds.Reporting
             StatusPollIntervalInMilliseconds = DefaultStatusPollIntervalInMilliseconds;
 
             WorkingDirectory = Path.Combine(Path.GetTempPath(), "BingAdsSDK", "Reporting");
+
+            if (apiEnvironment != null) _apiEnvironment = apiEnvironment.Value;
         }
 
         /// <summary>
@@ -160,12 +174,19 @@ namespace Microsoft.BingAds.Reporting
             var submitRequest = new SubmitGenerateReportRequest {ReportRequest = request,};
             SubmitGenerateReportResponse response;
 
-            using (var apiService = new ServiceClient<IReportingService>(_authorizationData))
+            using (var apiService = new ServiceClient<IReportingService>(_authorizationData, _apiEnvironment))
             {
-                response = await apiService.CallAsync((s, r) => s.SubmitGenerateReportAsync(r), submitRequest).ConfigureAwait(false);
+                try
+                {
+                    response = await apiService.CallAsync((s, r) => s.SubmitGenerateReportAsync(r), submitRequest).ConfigureAwait(false);
+                }
+                catch (Exception e)
+                {
+                    throw new CouldNotSubmitReportingDownloadException("Submit download operation failed.", e);
+                }               
             }
 
-            return new ReportingDownloadOperation(response.ReportRequestId, _authorizationData, response.TrackingId) {StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds};
+            return new ReportingDownloadOperation(response.ReportRequestId, _authorizationData, response.TrackingId, _apiEnvironment) {StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds};
         }
 
         private async Task<string> DownloadFileAsyncImpl(ReportingDownloadParameters parameters, CancellationToken cancellationToken)

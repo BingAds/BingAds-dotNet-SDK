@@ -140,8 +140,19 @@ namespace Microsoft.BingAds.Internal.Bulk.Operations
 
                     ChangeTimerIntervalIfNeeded();
 
-                    await RefreshStatus().ConfigureAwait(false);
+                    try
+                    {
+                        await RefreshStatus().ConfigureAwait(false);
+                    }
+                    catch (Exception e)
+                    {
+                        StopTracking();
 
+                        PropagateExceptionToCallingThread(new CouldNotGetBulkOperationStatusException("Get operation status failed.", e));
+
+                        return;
+                    }
+                    
                     ReportProgressIfNeeded();
                     
                     CompleteTaskIfOperationIsComplete();                    

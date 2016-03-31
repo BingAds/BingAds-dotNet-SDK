@@ -66,14 +66,22 @@ namespace Microsoft.BingAds.Internal
         }
 
         public async Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite)
-        {
+        {           
             var client = new HttpClient();
 
-            var response = await client.GetAsync(fileUri).ConfigureAwait(false);
+            try
+            {
+                var response = await client.GetAsync(fileUri).ConfigureAwait(false);
 
-            response.EnsureSuccessStatusCode();
+                response.EnsureSuccessStatusCode();
 
-            await response.Content.ReadAsFileAsync(localFilePath, overwrite).ConfigureAwait(false);
+                await response.Content.ReadAsFileAsync(localFilePath, overwrite).ConfigureAwait(false);
+            }
+            catch (Exception e)
+            {
+                throw new CouldNotDownloadResultFileException("Download File failed.", e);
+            }
+            
         }
 
         public async Task UploadFileAsync(Uri uri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction)
@@ -89,9 +97,21 @@ namespace Microsoft.BingAds.Internal
                     { new StreamContent(stream), "file", string.Format("\"{0}{1}\"", Guid.NewGuid(), Path.GetExtension(uploadFilePath)) }
                 };
 
-                var response = await client.PostAsync(uri, multiPart).ConfigureAwait(false);
+                try
+                {
+                    var response = await client.PostAsync(uri, multiPart).ConfigureAwait(false);
+                  
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        var content = await response.Content.ReadAsStringAsync();
 
-                response.EnsureSuccessStatusCode();
+                        throw new CouldNotUploadFileException("Unsuccessful Status Code: " + response.StatusCode + "; Exception Message: " + content);
+                    }                                      
+                }            
+                catch (Exception e)
+                {
+                    throw new CouldNotUploadFileException("Upload File failed.", e);
+                }
             }
         }
     }

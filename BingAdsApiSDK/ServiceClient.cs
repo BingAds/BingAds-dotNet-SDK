@@ -86,6 +86,8 @@ namespace Microsoft.BingAds
 
         private const string EnvironmentAppSetting = "BingAdsEnvironment";
 
+        private ApiEnvironment _environment;
+
         /// <summary>
         /// Represents a user who intends to access the corresponding customer and account.
         /// </summary>
@@ -106,7 +108,17 @@ namespace Microsoft.BingAds
         /// Initializes a new instance of this class with the specified <see cref="AuthorizationData"/>.
         /// </summary>
         /// <param name="authorizationData">Represents a user who intends to access the corresponding customer and account.</param>
-        public ServiceClient(AuthorizationData authorizationData)
+        public ServiceClient(AuthorizationData authorizationData): this(authorizationData, null)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of this class with the specified <see cref="AuthorizationData"/>.
+        /// </summary>
+        /// <param name="authorizationData">Represents a user who intends to access the corresponding customer and account.</param>
+        /// <param name="environment">Bing Ads API environment</param>
+        public ServiceClient(AuthorizationData authorizationData, ApiEnvironment? environment)
         {
             if (authorizationData == null)
             {
@@ -121,18 +133,23 @@ namespace Microsoft.BingAds
             {
                 throw new InvalidOperationException(ErrorMessages.ApiServiceTypeMustBeInterface);
             }
-
-            var envSetting = HostingEnvironment.IsHosted ?
+            if (environment == null)
+            {
+                var envSetting = HostingEnvironment.IsHosted ?
                 WebConfigurationManager.AppSettings[EnvironmentAppSetting] :
                 ConfigurationManager.AppSettings[EnvironmentAppSetting];
 
-            ApiEnvironment environment;
-            if (!Enum.TryParse(envSetting, out environment))
-            {
-                environment = ApiEnvironment.Production;
+                if (!Enum.TryParse(envSetting, out _environment))
+                {
+                    _environment = ApiEnvironment.Production;
+                }
             }
+            else
+            {
+                _environment = environment.Value;
+            }           
 
-            _channelFactory = _serviceClientFactory.CreateChannelFactory<TService>(environment);
+            _channelFactory = _serviceClientFactory.CreateChannelFactory<TService>(_environment);
 
             RefreshOAuthTokensAutomatically = true;
         }

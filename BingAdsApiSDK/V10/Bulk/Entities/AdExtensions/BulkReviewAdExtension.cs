@@ -47,57 +47,76 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.Internal.Bulk.Operations;
+using Microsoft.BingAds.V10.Internal.Bulk;
+using Microsoft.BingAds.V10.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities;
+using Microsoft.BingAds.V10.CampaignManagement;
 
-namespace Microsoft.BingAds.Bulk
+// ReSharper disable once CheckNamespace
+
+namespace Microsoft.BingAds.V10.Bulk.Entities
 {
     /// <summary>
-    /// Represents a bulk download operation requested by a user. 
-    /// You can use this class to poll for the download status, and then download the file when available.
+    /// <para>
+    /// Represents a review ad extension. 
+    /// This class exposes the <see cref="BulkReviewAdExtension.ReviewAdExtension"/> property that can be read and written 
+    /// as fields of the Review Ad Extension record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=730546">Review Ad Extension</see>. </para>
     /// </summary>
-    /// <example>The <see cref="BulkServiceManager.SubmitDownloadAsync"/> method returns an instance of this class. 
-    /// If for any reason you do not want to wait for the file to be prepared for download, 
-    /// for example if your application quits unexpectedly or you have other tasks to process, you can 
-    /// use an instance of <see cref="BulkDownloadOperation"/> to download the file when it is available.</example>
-    public class BulkDownloadOperation : BulkOperation<DownloadStatus>
-    {        
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkReviewAdExtension : BulkAdExtensionBase<ReviewAdExtension>
+    {
         /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/> and <see cref="AuthorizationData"/>.
+        /// The review ad extension.
         /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account. 
-        /// </param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData)
-            : this(requestId, authorizationData, null, null)
+        public ReviewAdExtension ReviewAdExtension
         {
-             
+            get { return AdExtension; }
+            set { AdExtension = value; }
         }
 
-        /// <summary>
-        /// Initializes a new instance of this class with the specified <paramref name="requestId"/>, <see cref="AuthorizationData"/> and <paramref name="apiEnvironment"/>.
-        /// </summary>
-        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
-        /// <param name="authorizationData">
-        /// Represents a user who intends to access the corresponding customer and account.
-        /// </param>
-        /// <param name="apiEnvironment">Bing Ads API environment</param>
-        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
-            : this(requestId, authorizationData, null, apiEnvironment)
+        private static readonly IBulkMapping<BulkReviewAdExtension>[] Mappings =
         {
+            new SimpleBulkMapping<BulkReviewAdExtension>(StringTable.IsExact,
+                c => c.ReviewAdExtension.IsExact.ToString(),
+                (v, c) => c.ReviewAdExtension.IsExact = v.Parse<bool>(returnDefaultValueOnNullOrEmpty:true)),
 
+            new SimpleBulkMapping<BulkReviewAdExtension>(StringTable.Text,
+                c => c.ReviewAdExtension.Text,
+                (v, c) => c.ReviewAdExtension.Text = v),
+
+            new SimpleBulkMapping<BulkReviewAdExtension>(StringTable.Source,
+                c => c.ReviewAdExtension.Source,
+                (v, c) => c.ReviewAdExtension.Source = v),
+
+            new SimpleBulkMapping<BulkReviewAdExtension>(StringTable.Url,
+                c => c.ReviewAdExtension.Url,
+                (v, c) => c.ReviewAdExtension.Url = v),
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            ReviewAdExtension = new ReviewAdExtension
+            {
+                Type = "ReviewAdExtension",
+            };
+
+            base.ProcessMappingsFromRowValues(values);
+
+            values.ConvertToEntity(this, Mappings);
         }
 
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
+            ValidatePropertyNotNull(ReviewAdExtension, "ReviewAdExtension");
 
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+
+            this.ConvertToValues(values, Mappings);
         }
-
-        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId, ApiEnvironment? apiEnvironment)
-            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId, apiEnvironment)
-        {
-
-        } 
     }
 }

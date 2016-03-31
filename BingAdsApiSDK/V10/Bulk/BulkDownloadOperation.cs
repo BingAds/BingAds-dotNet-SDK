@@ -69,13 +69,32 @@ namespace Microsoft.BingAds.V10.Bulk
         /// Represents a user who intends to access the corresponding customer and account. 
         /// </param>
         public BulkDownloadOperation(string requestId, AuthorizationData authorizationData)
-            : this(requestId, authorizationData, null)
+            : this(requestId, authorizationData, null, null)
         {
              
+        }
+        /// <summary>
+        /// Initializes a new instance of this class with the specified <paramref name="requestId"/>, <see cref="AuthorizationData"/> and <paramref name="apiEnvironment"/>.
+        /// </summary>
+        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
+        /// <param name="authorizationData">
+        /// Represents a user who intends to access the corresponding customer and account.
+        /// </param>
+        /// <param name="apiEnvironment">Bing Ads API environment</param>
+        public BulkDownloadOperation(string requestId, AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
+            : this(requestId, authorizationData, null, apiEnvironment)
+        {
+
         }
 
         internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId)
             : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId)
+        {
+
+        }
+
+        internal BulkDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId, ApiEnvironment? apiEnvironment)
+            : base(requestId, authorizationData, new DownloadStatusProvider(requestId), trackingId, apiEnvironment)
         {
 
         }      

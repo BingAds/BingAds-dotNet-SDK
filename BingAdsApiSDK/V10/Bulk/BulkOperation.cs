@@ -98,9 +98,15 @@ namespace Microsoft.BingAds.V10.Bulk
         /// <summary>
         /// The amount of time in milliseconds between two status polling attempts. 
         /// </summary>
-        public int StatusPollIntervalInMilliseconds { get; set; }        
+        public int StatusPollIntervalInMilliseconds { get; set; }
 
         internal BulkOperation(string requestId, AuthorizationData authorizationData, IBulkOperationStatusProvider<TStatus> statusProvider, string trackingId)
+            : this(requestId, authorizationData, statusProvider, trackingId, null)
+        {
+
+        }
+
+        internal BulkOperation(string requestId, AuthorizationData authorizationData, IBulkOperationStatusProvider<TStatus> statusProvider, string trackingId, ApiEnvironment? apiEnvironment)
         {
             RequestId = requestId;
 
@@ -112,7 +118,7 @@ namespace Microsoft.BingAds.V10.Bulk
 
             StatusPollIntervalInMilliseconds = BulkServiceManager.DefaultStatusPollIntervalInMilliseconds;
 
-            _bulkServiceClient = new ServiceClient<IBulkService>(authorizationData);
+            _bulkServiceClient = new ServiceClient<IBulkService>(authorizationData, apiEnvironment);
 
             ZipExtractor = new ZipExtractor();
 

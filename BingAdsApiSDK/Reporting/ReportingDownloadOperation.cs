@@ -105,16 +105,35 @@ namespace Microsoft.BingAds.Reporting
         /// <param name="authorizationData">
         /// Represents a user who intends to access the corresponding customer and account. 
         /// </param>
-        public ReportingDownloadOperation(string requestId, AuthorizationData authorizationData) : this(requestId, authorizationData, null)
+        public ReportingDownloadOperation(string requestId, AuthorizationData authorizationData)
+            : this(requestId, authorizationData, null, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of this class with the specified <paramref name="requestId"/>, <see cref="BingAds.AuthorizationData"/> and <paramref name="apiEnvironment"/>.
+        /// </summary>
+        /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
+        /// <param name="authorizationData">
+        /// Represents a user who intends to access the corresponding customer and account. 
+        /// </param>
+        /// <param name="apiEnvironment">Bing Ads API environment</param>
+        public ReportingDownloadOperation(string requestId, AuthorizationData authorizationData, ApiEnvironment? apiEnvironment)
+            : this(requestId, authorizationData, null, apiEnvironment)
         {
         }
 
         internal ReportingDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId)
-            : this(requestId, authorizationData, new ReportingStatusProvider(requestId), trackingId)
+            : this(requestId, authorizationData, new ReportingStatusProvider(requestId), trackingId, null)
         {
         }
 
-        internal ReportingDownloadOperation(string requestId, AuthorizationData authorizationData, ReportingStatusProvider statusProvider, string trackingId)
+        internal ReportingDownloadOperation(string requestId, AuthorizationData authorizationData, string trackingId, ApiEnvironment? apiEnvironment)
+            : this(requestId, authorizationData, new ReportingStatusProvider(requestId), trackingId, apiEnvironment)
+        {
+        }
+
+        internal ReportingDownloadOperation(string requestId, AuthorizationData authorizationData, ReportingStatusProvider statusProvider, string trackingId, ApiEnvironment? apiEnvironment)
         {
             RequestId = requestId;
 
@@ -126,7 +145,7 @@ namespace Microsoft.BingAds.Reporting
 
             StatusPollIntervalInMilliseconds = ReportingServiceManager.DefaultStatusPollIntervalInMilliseconds;
 
-            _reportingServiceClient = new ServiceClient<IReportingService>(authorizationData);
+            _reportingServiceClient = new ServiceClient<IReportingService>(authorizationData, apiEnvironment);
 
             ZipExtractor = new ZipExtractor();
 

@@ -136,8 +136,19 @@ namespace Microsoft.BingAds.Reporting
 
                     ChangeTimerIntervalIfNeeded();
 
-                    await RefreshStatus().ConfigureAwait(false);
+                    try
+                    {
+                        await RefreshStatus().ConfigureAwait(false);
+                    }
+                    catch (Exception e)
+                    {    
+                        StopTracking();
 
+                        PropagateExceptionToCallingThread(new CouldNotGetReportingDownloadStatusException("Get download status failed", e));
+
+                        return;
+                    }
+                    
                     CompleteTaskIfOperationIsComplete();
                 }
                 finally
