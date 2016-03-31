@@ -207,9 +207,9 @@ namespace BingAdsExamples.V9
                 uploadEntities.Add(bulkCampaignLocationTarget);
                 uploadEntities.Add(bulkCampaignRadiusTarget);
 
-                // Write the upload output
+                // Upload and write the output
 
-                var Reader = await UploadEntities(uploadEntities);
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var bulkEntities = Reader.ReadEntities().ToList();
 
                 var campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
@@ -262,9 +262,9 @@ namespace BingAdsExamples.V9
                     uploadEntities.Add(bulkCampaignDayTimeTargetBid);
                 }
 
-                // Write the upload output
+                // Upload and write the output
 
-                Reader = await UploadEntities(uploadEntities);
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
 
                 OutputStatusMessage("Upload Results Bulk File Path" + Reader.BulkFilePath + "\n");
                 OutputStatusMessage("Updated Entities\n");
@@ -301,9 +301,9 @@ namespace BingAdsExamples.V9
                 uploadEntities = new List<BulkEntity>();
                 uploadEntities.Add(bulkCampaign);
 
-                // Write the upload output
+                // Upload and write the output
 
-                Reader = await UploadEntities(uploadEntities);
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 bulkEntities = Reader.ReadEntities().ToList();
                 campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);

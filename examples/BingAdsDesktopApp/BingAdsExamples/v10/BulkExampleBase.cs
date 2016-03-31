@@ -34,12 +34,17 @@ namespace BingAdsExamples.V10
         protected const string FileDirectory = @"c:\bulk\";
 
         /// <summary>
+        /// The name of the bulk download file.
+        /// </summary>
+        protected const string DownloadFileName = @"download.csv";
+
+        /// <summary>
         /// The name of the bulk upload file.
         /// </summary>
         protected const string UploadFileName = @"upload.csv";
 
         /// <summary>
-        /// The name of the bulk upload file.
+        /// The name of the bulk upload result file.
         /// </summary>
         protected const string ResultFileName = @"result.csv";
 
@@ -48,13 +53,20 @@ namespace BingAdsExamples.V10
         /// </summary>
         protected const DownloadFileType FileType = DownloadFileType.Csv;
 
+        /// <summary>
+        /// The maximum amount of time (in milliseconds) that you want to wait for the bulk download or upload.
+        /// </summary>
+        protected const int TimeoutInMilliseconds = 36000000;
+
         protected const int targetIdKey = -1;
         protected const int appAdExtensionIdKey = -11;
         protected const int callAdExtensionIdKey = -12;
-        protected const int imageAdExtensionIdKey = -13;
-        protected const int locationAdExtensionIdKey = -14;
-        protected const int siteLinksAdExtensionIdKey = -15;
-        protected const int negativeKeywordListIdKey = -16;
+        protected const int calloutAdExtensionIdKey = -13;
+        protected const int imageAdExtensionIdKey = -14;
+        protected const int locationAdExtensionIdKey = -15;
+        protected const int reviewAdExtensionIdKey = -16;
+        protected const int siteLinksAdExtensionIdKey = -17;
+        protected const int negativeKeywordListIdKey = -18;
         protected const int campaignIdKey = -111;
         protected const int adGroupIdKey = -1111;
         protected const int negativeKeywordIdKey = -11111;
@@ -67,7 +79,7 @@ namespace BingAdsExamples.V10
         /// </summary>
         /// <param name="uploadEntities"></param>
         /// <returns></returns>
-        protected async Task<BulkFileReader> UploadEntities(IEnumerable<BulkEntity> uploadEntities)
+        protected async Task<BulkFileReader> WriteEntitiesAndUploadFileAsync(IEnumerable<BulkEntity> uploadEntities)
         {
             Writer = new BulkFileWriter(FileDirectory + UploadFileName);
 
@@ -1122,6 +1134,50 @@ namespace BingAdsExamples.V10
         }
 
         /// <summary>
+        /// Outputs the list of BulkCalloutAdExtension.
+        /// </summary>
+        protected void OutputBulkCalloutAdExtensions(IEnumerable<BulkCalloutAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkCalloutAdExtension: \n");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management CalloutAdExtension Object
+                OutputCalloutAdExtension(entity.CalloutAdExtension);
+                
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkReviewAdExtension.
+        /// </summary>
+        protected void OutputBulkReviewAdExtensions(IEnumerable<BulkReviewAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkReviewAdExtension: \n");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management ReviewAdExtension Object
+                OutputReviewAdExtension(entity.ReviewAdExtension);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets an example BulkCampaign that can be written as a Campaign record in a Bulk file. 
         /// </summary>
         protected BulkCampaign GetExampleBulkCampaign()
@@ -1301,6 +1357,56 @@ namespace BingAdsExamples.V10
             foreach (var entity in bulkEntities)
             {
                 OutputStatusMessage("\nBulkCampaignCallAdExtension: \n");
+                if (entity.AdExtensionIdToEntityIdAssociation != null)
+                {
+                    OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
+                    OutputStatusMessage(string.Format("EntityId (Ad Group Id): {0}", entity.AdExtensionIdToEntityIdAssociation.EntityId));
+                }
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("EditorialStatus: {0}", entity.EditorialStatus));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+                OutputStatusMessage(string.Format("Status: {0}", entity.Status));
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkCampaignCalloutAdExtension.
+        /// </summary>
+        protected void OutputBulkCampaignCalloutAdExtensions(IEnumerable<BulkCampaignCalloutAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkCampaignCalloutAdExtension: \n");
+                if (entity.AdExtensionIdToEntityIdAssociation != null)
+                {
+                    OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
+                    OutputStatusMessage(string.Format("EntityId (Ad Group Id): {0}", entity.AdExtensionIdToEntityIdAssociation.EntityId));
+                }
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("EditorialStatus: {0}", entity.EditorialStatus));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+                OutputStatusMessage(string.Format("Status: {0}", entity.Status));
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkCampaignReviewAdExtension.
+        /// </summary>
+        protected void OutputBulkCampaignReviewAdExtensions(IEnumerable<BulkCampaignReviewAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkCampaignReviewAdExtension: \n");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -2277,10 +2383,10 @@ namespace BingAdsExamples.V10
             foreach (var entity in bulkEntities)
             {
                 OutputStatusMessage("\nBulkNegativeKeywordList: \n");
-                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputNegativeKeywordList(entity.NegativeKeywordList);
-                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.Status));
+                OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
                 if (entity.HasErrors)
                 {
@@ -2579,7 +2685,7 @@ namespace BingAdsExamples.V10
         }
 
         /// <summary>
-        /// Outputs the PerformanceData
+        /// Outputs the BidSuggestionData
         /// </summary>
         private void OutputBulkBidSuggestions(BidSuggestionData bidSuggestions)
         {

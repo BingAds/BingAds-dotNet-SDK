@@ -101,7 +101,7 @@ namespace BingAdsExamples.V10
                 {
                     OutputPartialErrors(getNegativeKeywordsByEntityIdsResponse.PartialErrors);
                 }
-
+                
                 // If you attempt to delete a negative keyword without an identifier the operation will
                 // succeed but will return partial errors corresponding to the index of the negative keyword
                 // that was not deleted. 
@@ -333,7 +333,7 @@ namespace BingAdsExamples.V10
 
                 // Delete the campaign and any remaining assocations. 
 
-                DeleteCampaigns(authorizationData.AccountId, new[] { campaignId });
+                await DeleteCampaigns(authorizationData.AccountId, new[] { campaignId });
                 OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignId));
 
                 // DeleteCampaigns does not delete the negative keyword list from the account's library. 
@@ -587,7 +587,7 @@ namespace BingAdsExamples.V10
 
         // Deletes one or more campaigns from the specified account.
 
-        private void DeleteCampaigns(long accountId, IList<long> campaignIds)
+        private async Task DeleteCampaigns(long accountId, IList<long> campaignIds)
         {
             var request = new DeleteCampaignsRequest
             {
@@ -595,7 +595,7 @@ namespace BingAdsExamples.V10
                 CampaignIds = campaignIds
             };
 
-            Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
         }
 
         

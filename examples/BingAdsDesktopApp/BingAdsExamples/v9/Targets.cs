@@ -49,7 +49,12 @@ namespace BingAdsExamples.V9
                     BiddingModel = BiddingModel.Keyword,
                     PricingModel = PricingModel.Cpc,
                     StartDate = null,
-                    EndDate = new Date { Month = 12, Day = 31, Year = 2015 },
+                    EndDate = new Microsoft.BingAds.CampaignManagement.Date
+                    {
+                        Month = 12,
+                        Day = 31,
+                        Year = DateTime.UtcNow.Year + 1
+                    },
                     ExactMatchBid = new Bid { Amount = 0.09 },
                     PhraseMatchBid = new Bid { Amount = 0.07 },
                     Language = "English"
@@ -157,7 +162,7 @@ namespace BingAdsExamples.V9
                 // Add a target to the library and associate it with the campaign.
                 var campaignTargetId = (await AddTargetsToLibraryAsync(new[] { campaignTarget }))[0];
                 OutputStatusMessage(String.Format("Added Target Id: {0}\n", campaignTargetId));
-                SetTargetToCampaignAsync(campaignIds[0], campaignTargetId);
+                await SetTargetToCampaignAsync(campaignIds[0], campaignTargetId);
                 OutputStatusMessage(String.Format("Associated CampaignId {0} with TargetId {1}.\n", campaignIds[0], campaignTargetId));
 
                 // Get and print the Target with the legacy GetTargetsByIds operation
@@ -173,7 +178,7 @@ namespace BingAdsExamples.V9
                 // Add a target to the library and associate it with the ad group.
                 var adGroupTargetId = (await AddTargetsToLibraryAsync(new[] { adGroupTarget }))[0];
                 OutputStatusMessage(String.Format("Added Target Id: {0}\n", adGroupTargetId));
-                SetTargetToAdGroupAsync(adGroupIds[0], adGroupTargetId);
+                await SetTargetToAdGroupAsync(adGroupIds[0], adGroupTargetId);
                 OutputStatusMessage(String.Format("Associated AdGroupId {0} with TargetId {1}.\n", adGroupIds[0], adGroupTargetId));
 
                 // Get and print the Target with the legacy GetTargetsByIds operation
@@ -303,7 +308,7 @@ namespace BingAdsExamples.V9
                 // Update the same identified target as a Target2 object. 
                 // Going forward when getting the specified target Id, the Day and Hour elements of the legacy
                 // Target object will be nil, since the target is being updated with a DayTime target. 
-                UpdateTargetsInLibrary2Async(new[] { target2 });
+                await UpdateTargetsInLibrary2Async(new[] { target2 });
                 OutputStatusMessage("Updated the ad group level target as a Target2 object.\n");
 
                 // Get and print the Target with the legacy GetTargetsByIds operation
@@ -338,10 +343,10 @@ namespace BingAdsExamples.V9
                 // between ad groups and campaigns. To explicitly delete the association between an entity 
                 // and the target, use DeleteTargetFromCampaign and DeleteTargetFromAdGroup respectively.
 
-                DeleteTargetFromCampaignAsync(campaignIds[0]);
-                DeleteTargetFromAdGroupAsync(adGroupIds[0]);
+                await DeleteTargetFromCampaignAsync(campaignIds[0]);
+                await DeleteTargetFromAdGroupAsync(adGroupIds[0]);
 
-                DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignIds[0] });
+                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignIds[0] });
                 OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignIds[0]));
 
                 // DeleteCampaigns deletes the association between the campaign and target, but does not 
@@ -349,10 +354,10 @@ namespace BingAdsExamples.V9
                 // Call the DeleteTargetsFromLibrary operation for each target that you want to delete. 
                 // You must specify an array with exactly one item.
 
-                DeleteTargetsFromLibraryAsync(new[] { campaignTargetId });
+                await DeleteTargetsFromLibraryAsync(new[] { campaignTargetId });
                 OutputStatusMessage(String.Format("Deleted TargetId {0}\n", campaignTargetId));
 
-                DeleteTargetsFromLibraryAsync(new[] { adGroupTargetId });
+                await DeleteTargetsFromLibraryAsync(new[] { adGroupTargetId });
                 OutputStatusMessage(String.Format("Deleted TargetId {0}\n", adGroupTargetId));
             }
             // Catch authentication exceptions
@@ -395,7 +400,7 @@ namespace BingAdsExamples.V9
         }
 
         // Deletes one or more campaigns from the specified account.
-        private void DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
+        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
         {
             var request = new DeleteCampaignsRequest
             {
@@ -403,7 +408,7 @@ namespace BingAdsExamples.V9
                 CampaignIds = campaignIds
             };
 
-            Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
         }
 
         // Adds one or more ad groups to the specified campaign.
@@ -491,54 +496,54 @@ namespace BingAdsExamples.V9
 
         // Updates the specified Target2 object within the customer library. 
         // The operation requires exactly one Target2 in a list.
-        private void UpdateTargetsInLibrary2Async(IList<Target2> targets)
+        private async Task UpdateTargetsInLibrary2Async(IList<Target2> targets)
         {
             var request = new UpdateTargetsInLibrary2Request
             {
                 Targets = targets
             };
 
-            Service.CallAsync((s, r) => s.UpdateTargetsInLibrary2Async(r), request);
+            await Service.CallAsync((s, r) => s.UpdateTargetsInLibrary2Async(r), request);
         }
 
         // Deletes the specified target from the customer library. 
         // The operation requires exactly one identifier in a list.
-        private void DeleteTargetsFromLibraryAsync(IList<long> targetIds)
+        private async Task DeleteTargetsFromLibraryAsync(IList<long> targetIds)
         {
             var request = new DeleteTargetsFromLibraryRequest
             {
                 TargetIds = targetIds
             };
 
-            Service.CallAsync((s, r) => s.DeleteTargetsFromLibraryAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteTargetsFromLibraryAsync(r), request);
         }
 
         // Removes the target association from the specified campaign. 
         // Does not delete the target or the campaign.
-        private void DeleteTargetFromCampaignAsync(long campaignId)
+        private async Task DeleteTargetFromCampaignAsync(long campaignId)
         {
             var request = new DeleteTargetFromCampaignRequest
             {
                 CampaignId = campaignId
             };
 
-            Service.CallAsync((s, r) => s.DeleteTargetFromCampaignAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteTargetFromCampaignAsync(r), request);
         }
 
         // Removes the target association from the specified ad group. 
         // Does not delete the target or the ad group.
-        private void DeleteTargetFromAdGroupAsync(long adGroupId)
+        private async Task DeleteTargetFromAdGroupAsync(long adGroupId)
         {
             var request = new DeleteTargetFromAdGroupRequest
             {
                 AdGroupId = adGroupId
             };
 
-            Service.CallAsync((s, r) => s.DeleteTargetFromAdGroupAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteTargetFromAdGroupAsync(r), request);
         }
 
         // Associates the specified campaign and target. 
-        private void SetTargetToCampaignAsync(long campaignId, long targetId)
+        private async Task SetTargetToCampaignAsync(long campaignId, long targetId)
         {
             var request = new SetTargetToCampaignRequest
             {
@@ -546,11 +551,11 @@ namespace BingAdsExamples.V9
                 TargetId = targetId
             };
 
-            Service.CallAsync((s, r) => s.SetTargetToCampaignAsync(r), request);
+            await Service.CallAsync((s, r) => s.SetTargetToCampaignAsync(r), request);
         }
 
         // Associates the specified ad group and target. 
-        private void SetTargetToAdGroupAsync(long adGroupId, long targetId)
+        private async Task SetTargetToAdGroupAsync(long adGroupId, long targetId)
         {
             var request = new SetTargetToAdGroupRequest
             {
@@ -558,7 +563,7 @@ namespace BingAdsExamples.V9
                 TargetId = targetId
             };
 
-            Service.CallAsync((s, r) => s.SetTargetToAdGroupAsync(r), request);
+            await Service.CallAsync((s, r) => s.SetTargetToAdGroupAsync(r), request);
         }
 
         // Prints the info for each target. 

@@ -105,7 +105,7 @@ namespace BingAdsExamples.V9
                 }
 
                 // Associate the specified ad extensions with the respective campaigns or ad groups. 
-                SetAdExtensionsAssociationsAsync(
+                await SetAdExtensionsAssociationsAsync(
                     authorizationData.AccountId,
                     adExtensionIdToEntityIdAssociations,
                     AssociationType.Campaign
@@ -137,7 +137,7 @@ namespace BingAdsExamples.V9
                 
                 // Remove the specified associations from the respective campaigns or ad groups. 
                 // The extesions are still available in the account's extensions library. 
-                DeleteAdExtensionsAssociationsAsync(
+                await DeleteAdExtensionsAssociationsAsync(
                     authorizationData.AccountId,
                     adExtensionIdToEntityIdAssociations,
                     AssociationType.Campaign
@@ -146,7 +146,7 @@ namespace BingAdsExamples.V9
                 OutputStatusMessage("Deleted ad extension associations.\n\n");
 
                 // Deletes the ad extensions from the account’s ad extension library.
-                DeleteAdExtensionsAsync(
+                await DeleteAdExtensionsAsync(
                     authorizationData.AccountId,
                     adExtensionIds
                     );
@@ -207,7 +207,7 @@ namespace BingAdsExamples.V9
 
         // Deletes one or more ad extensions from the account’s ad extension library.
 
-        private void DeleteAdExtensionsAsync(long accountId, IList<long> adExtensionIds)
+        private async Task DeleteAdExtensionsAsync(long accountId, IList<long> adExtensionIds)
         {
             var request = new DeleteAdExtensionsRequest
             {
@@ -215,12 +215,12 @@ namespace BingAdsExamples.V9
                 AdExtensionIds = adExtensionIds
             };
 
-            Service.CallAsync((s, r) => s.DeleteAdExtensionsAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteAdExtensionsAsync(r), request);
         }
 
         // Associates one or more extensions with the corresponding campaign or ad group entities.
 
-        private void SetAdExtensionsAssociationsAsync(long accountId, IList<AdExtensionIdToEntityIdAssociation> associations, AssociationType associationType)
+        private async Task SetAdExtensionsAssociationsAsync(long accountId, IList<AdExtensionIdToEntityIdAssociation> associations, AssociationType associationType)
         {
             var request = new SetAdExtensionsAssociationsRequest
             {
@@ -229,12 +229,12 @@ namespace BingAdsExamples.V9
                 AssociationType = associationType
             };
 
-            Service.CallAsync((s, r) => s.SetAdExtensionsAssociationsAsync(r), request);
+            await Service.CallAsync((s, r) => s.SetAdExtensionsAssociationsAsync(r), request);
         }
 
         // Removes the specified association from the respective campaigns or ad groups.
 
-        private void DeleteAdExtensionsAssociationsAsync(long accountId, IList<AdExtensionIdToEntityIdAssociation> associations, AssociationType associationType)
+        private async Task DeleteAdExtensionsAssociationsAsync(long accountId, IList<AdExtensionIdToEntityIdAssociation> associations, AssociationType associationType)
         {
             var request = new DeleteAdExtensionsAssociationsRequest
             {
@@ -243,7 +243,7 @@ namespace BingAdsExamples.V9
                 AssociationType = associationType
             };
 
-            Service.CallAsync((s, r) => s.DeleteAdExtensionsAssociationsAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteAdExtensionsAssociationsAsync(r), request);
         }
 
         // Gets the specified ad extensions from the account's extension library.

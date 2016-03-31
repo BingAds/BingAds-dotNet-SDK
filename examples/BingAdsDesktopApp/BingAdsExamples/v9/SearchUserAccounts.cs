@@ -29,11 +29,22 @@ namespace BingAdsExamples.V9
 
                 var user = await GetUserAsync(null);
 
-                // Search for the accounts that matches the specified criteria.
+                // Search for the Bing Ads accounts that the user can access.
 
                 var accounts = await SearchAccountsByUserIdAsync(user.Id);
 
-                PrintAccounts(accounts);
+                OutputStatusMessage("The user can access the following Bing Ads accounts: \n");
+                foreach (var account in accounts)
+                {
+                    OutputAccount(account);
+
+                    // Optionally you can find out which pilot features the customer is able to use. 
+                    // Each account could belong to a different customer, so use the customer ID in each account.
+                    var featurePilotFlags = await GetCustomerPilotFeaturesAsync((long)account.ParentCustomerId);
+                    OutputStatusMessage("Customer Pilot flags:");
+                    OutputStatusMessage(string.Join("; ", featurePilotFlags.Select(flag => string.Format("{0}", flag))));
+                    OutputStatusMessage("\n");
+                }
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -72,6 +83,21 @@ namespace BingAdsExamples.V9
         }
 
         /// <summary>
+        /// Gets the list of pilot features that the customer is able to use.
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
+        private async Task<IList<int>> GetCustomerPilotFeaturesAsync(long customerId)
+        {
+            var request = new GetCustomerPilotFeaturesRequest
+            {
+                CustomerId = customerId
+            };
+
+            return (await Service.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
+        }
+
+        /// <summary>
         /// Searches by UserId for accounts that the user can manage.
         /// </summary>
         /// <param name="userId">The Bing Ads user identifier.</param>
@@ -102,16 +128,15 @@ namespace BingAdsExamples.V9
         }
 
         /// <summary>
-        /// Outputs the account and parent customer identifiers for the specified accounts. 
+        /// Outputs a subset of the properties of an Account data object.
         /// </summary>
-        /// <param name="accounts">The list of accounts to print.</param>
-        private void PrintAccounts(IEnumerable<Account> accounts)
+        /// <param name="account"></param>
+        private void OutputAccount(Account account)
         {
-            foreach (Account account in accounts)
-            {
-                OutputStatusMessage(string.Format("AccountId: {0}\n", account.Id));
-                OutputStatusMessage(string.Format("CustomerId: {0}\n", account.ParentCustomerId));
-            }
+            OutputStatusMessage(string.Format("Account Id: {0}", account.Id));
+            OutputStatusMessage(string.Format("Account Number: {0}", account.Number));
+            OutputStatusMessage(string.Format("Account Name: {0}", account.Name));
+            OutputStatusMessage(string.Format("Account Parent Customer Id: {0}", account.ParentCustomerId));
         }
     }
 }

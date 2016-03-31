@@ -323,7 +323,7 @@ namespace BingAdsExamples.V9
 
                 // Delete the campaign and any remaining assocations. 
 
-                DeleteCampaigns(authorizationData.AccountId, new[] { campaignIds[0] });
+                await DeleteCampaigns(authorizationData.AccountId, new[] { campaignIds[0] });
                 OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignIds[0]));
 
                 // DeleteCampaigns does not delete the negative keyword list from the account's library. 
@@ -577,7 +577,7 @@ namespace BingAdsExamples.V9
 
         // Deletes one or more campaigns from the specified account.
 
-        private void DeleteCampaigns(long accountId, IList<long> campaignIds)
+        private async Task DeleteCampaigns(long accountId, IList<long> campaignIds)
         {
             var request = new DeleteCampaignsRequest
             {
@@ -585,7 +585,7 @@ namespace BingAdsExamples.V9
                 CampaignIds = campaignIds
             };
 
-            Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
         }
 
         // Prints the campaign identifiers for each campaign added. 

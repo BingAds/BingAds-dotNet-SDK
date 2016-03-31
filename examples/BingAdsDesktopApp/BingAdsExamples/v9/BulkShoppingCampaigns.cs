@@ -135,7 +135,12 @@ namespace BingAdsExamples.V9
                         BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.CampaignManagement.Date { Month = 12, Day = 31, Year = 2016 },
+                        EndDate = new Microsoft.BingAds.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
                         Language = "English"
                     },
                 };
@@ -164,9 +169,9 @@ namespace BingAdsExamples.V9
                 uploadEntities.Add(bulkCampaignProductScope);
                 uploadEntities.Add(bulkProductAd);
 
-                // Write the upload output
+                // Upload and write the output
 
-                var Reader = await UploadEntities(uploadEntities);
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var bulkEntities = Reader.ReadEntities().ToList();
 
                 var campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
@@ -499,9 +504,9 @@ namespace BingAdsExamples.V9
                 uploadEntities = new List<BulkEntity>();
                 uploadEntities.Add(bulkCampaign);
 
-                // Write the upload output
+                // Upload and write the output
 
-                Reader = await UploadEntities(uploadEntities);
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 bulkEntities = Reader.ReadEntities().ToList();
                 campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
@@ -548,39 +553,6 @@ namespace BingAdsExamples.V9
                 if (Reader != null) { Reader.Dispose(); }
                 if (Writer != null) { Writer.Dispose(); }
             }
-        }
-
-        /// <summary>
-        /// Writes the specified entities to a local file and uploads the file. We could have uploaded directly
-        /// without writing to file. This example writes to file as an exercise so that you can view the structure 
-        /// of the bulk records being uploaded as needed. 
-        /// </summary>
-        /// <param name="uploadEntities"></param>
-        /// <returns></returns>
-        private async Task<BulkFileReader> UploadEntities(IEnumerable<BulkEntity> uploadEntities)
-        {
-            Writer = new BulkFileWriter(FileDirectory + UploadFileName);
-
-            foreach (var entity in uploadEntities)
-            {
-                Writer.WriteEntity(entity);
-            }
-
-            Writer.Dispose();
-
-            var fileUploadParameters = new FileUploadParameters
-            {
-                ResultFileDirectory = FileDirectory,
-                CompressUploadFile = true,
-                ResultFileName = ResultFileName,
-                OverwriteResultFile = true,
-                UploadFilePath = FileDirectory + UploadFileName,
-                ResponseMode = ResponseMode.ErrorsAndResults
-            };
-
-            var bulkFilePath = await BulkService.UploadFileAsync(fileUploadParameters);
-
-            return new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
         }
 
         // Gets any Bing Merchant Center stores registered with the customer.
@@ -643,7 +615,7 @@ namespace BingAdsExamples.V9
             {
                 Entities = BulkDownloadEntity.AdGroupProductPartitions,
                 ResultFileDirectory = FileDirectory,
-                ResultFileName = ResultFileName,
+                ResultFileName = DownloadFileName,
                 OverwriteResultFile = true,
                 LastSyncTimeInUTC = null
             };

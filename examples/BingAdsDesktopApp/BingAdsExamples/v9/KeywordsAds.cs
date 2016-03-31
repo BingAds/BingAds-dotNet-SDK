@@ -49,7 +49,12 @@ namespace BingAdsExamples.V9
                     BiddingModel = BiddingModel.Keyword,
                     PricingModel = PricingModel.Cpc,
                     StartDate = null,
-                    EndDate = new Date { Month = 12, Day = 31, Year = 2015 },
+                    EndDate = new Microsoft.BingAds.CampaignManagement.Date
+                    {
+                        Month = 12,
+                        Day = 31,
+                        Year = DateTime.UtcNow.Year + 1
+                    },
                     ExactMatchBid = new Bid { Amount = 0.09 },
                     PhraseMatchBid = new Bid { Amount = 0.07 },
                     Language = "English",
@@ -215,7 +220,7 @@ namespace BingAdsExamples.V9
 
         // Updates one or more campaigns.
 
-        private void UpdateCampaignsAsync(long accountId, IList<Campaign> campaigns)
+        private async Task UpdateCampaignsAsync(long accountId, IList<Campaign> campaigns)
         {
             var request = new UpdateCampaignsRequest
             {
@@ -223,12 +228,12 @@ namespace BingAdsExamples.V9
                 Campaigns = campaigns
             };
 
-            Service.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
+            await Service.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
         }
 
         // Deletes one or more campaigns from the specified account.
 
-        private void DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
+        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
         {
             var request = new DeleteCampaignsRequest
             {
@@ -236,7 +241,7 @@ namespace BingAdsExamples.V9
                 CampaignIds = campaignIds
             };
 
-            Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
         }
 
         // Gets one or more campaigns in the specified account.
