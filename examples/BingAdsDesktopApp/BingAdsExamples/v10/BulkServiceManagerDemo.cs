@@ -39,7 +39,7 @@ namespace BingAdsExamples.V10
                 var downloadParameters = new DownloadParameters
                 {
                     CampaignIds = null,
-                    DataScope = DataScope.EntityPerformanceData,
+                    DataScope = DataScope.EntityData | DataScope.EntityPerformanceData,
                     PerformanceStatsDateRange = new PerformanceStatsDateRange { PredefinedTime = ReportTimePeriod.LastFourWeeks },
                     Entities = entities,
                     FileType = FileType,
