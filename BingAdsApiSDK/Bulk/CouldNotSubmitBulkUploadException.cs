@@ -57,9 +57,9 @@ using System.Threading.Tasks;
 namespace Microsoft.BingAds.Bulk
 {
     /// <summary>
-    /// This exception is thrown when calling API related with bulk upload.
+    /// This exception is thrown by the BulkServiceManager when the GetBulkUploadUrl service operation that it called does not return a valid response.
     /// </summary>
-   
+
     [Serializable]
     public class CouldNotSubmitBulkUploadException : Exception
     {

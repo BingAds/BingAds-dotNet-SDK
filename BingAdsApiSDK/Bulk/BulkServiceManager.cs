@@ -305,7 +305,7 @@ namespace Microsoft.BingAds.Bulk
         }
 
         /// <summary>
-        /// Removes temporary files from <see cref="WorkingDirectory"/>.
+        /// Removes all files from <see cref="WorkingDirectory"/>, whether the files are used by this BulkServiceManager or by another instance.
         /// </summary>
         public void CleanupTempFiles()
         {

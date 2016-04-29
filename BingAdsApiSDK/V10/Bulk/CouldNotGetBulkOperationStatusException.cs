@@ -56,9 +56,9 @@ using System.Threading.Tasks;
 namespace Microsoft.BingAds.V10.Bulk
 {
     /// <summary>
-    /// This exception is thrown when failed to get operation status after multiple retries.
+    /// This exception is thrown if the BulkServiceManager failed to get the upload or download operation status after multiple retries.
     /// </summary>
-    class CouldNotGetBulkOperationStatusException: Exception
+    class CouldNotGetBulkOperationStatusException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the CouldNotGetBulkOperationStatusException class.

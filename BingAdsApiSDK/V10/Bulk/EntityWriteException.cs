@@ -54,6 +54,8 @@ namespace Microsoft.BingAds.V10.Bulk
 {
     /// <summary>
     /// This exception is thrown when attempting to write entities to a bulk file using <see cref="BulkFileWriter.WriteEntity(Microsoft.BingAds.V10.Bulk.Entities.BulkEntity)"/>.
+    /// To resolve this exception you can first check the stack trace to see the error details, in case there is some action you can take to resolve the issue.
+    /// For example you might have specified an invalid value for one of the upload entities.
     /// </summary>
     [Serializable]
     public class EntityWriteException : Exception

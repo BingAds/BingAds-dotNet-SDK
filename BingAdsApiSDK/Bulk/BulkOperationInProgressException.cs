@@ -50,10 +50,10 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace Microsoft.BingAds.V10.Bulk
+namespace Microsoft.BingAds.Bulk
 {
     /// <summary>
-    /// This exception is thrown if you are attempting to download a results file that is not yet available for download. 
+    /// This exception is thrown if an attempt was made to download a bulk results file that is not yet available. 
     /// </summary>
     [Serializable]
     public class BulkOperationInProgressException : Exception

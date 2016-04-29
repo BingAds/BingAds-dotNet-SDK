@@ -56,9 +56,9 @@ using System.Threading.Tasks;
 namespace Microsoft.BingAds
 {
     /// <summary>
-    /// This exception is thrown when trying to upload file.
+    /// This exception is thrown by the internal SDK HttpService after a failed attempt to upload a bulk file.
     /// </summary>
-    class CouldNotUploadFileException: Exception
+    class CouldNotUploadFileException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the CouldNotUploadFileException class.
