@@ -56,9 +56,9 @@ using System.Threading.Tasks;
 namespace Microsoft.BingAds.Reporting
 {
     /// <summary>
-    /// This exception is thrown when failed to get download status after multiple retries.
+    /// This exception is thrown if the ReportingServiceManager failed to get the download operation status after multiple retries.
     /// </summary>
-    class CouldNotGetReportingDownloadStatusException: Exception
+    class CouldNotGetReportingDownloadStatusException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the CouldNotGetReportingDownloadStatusException class.

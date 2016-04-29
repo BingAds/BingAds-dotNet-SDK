@@ -52,9 +52,9 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Microsoft.BingAds.V10.Bulk
-{    
+{
     /// <summary>
-    /// This exception is thrown if you are attempting to poll for a completed results file and the bulk service returns a failed status. 
+    /// This exception is thrown if an attempt was made to poll for a completed bulk results file and the bulk service returns a failed status. 
     /// </summary>
     /// <typeparam name="TStatus">Possible values include <see cref="DownloadStatus"/> and <see cref="UploadStatus"/>.</typeparam>
     [Serializable]

@@ -51,9 +51,11 @@ using System;
 using System.Runtime.Serialization;
 
 namespace Microsoft.BingAds.Bulk
-{    
+{
     /// <summary>
     /// This exception is thrown when attempting to read entities from a bulk file using <see cref="BulkFileReader.ReadEntities"/>.
+    /// To resolve this exception you can first check the stack trace to see the error details, in case there is some action you can take to resolve the issue.
+    /// For example the bulk file that you are attempting to read from might have an invalid value in one of the fields.
     /// </summary>
     [Serializable]
     public class EntityReadException : Exception

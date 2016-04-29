@@ -57,9 +57,9 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
     /// <para>
     /// Represents an ad group level sitelink ad extension. 
     /// This class exposes properties that can be read and written 
-    /// as fields of the Ad Group Sitelink Ad Extension record in a bulk file. 
+    /// as fields of the AdGroup Sitelink Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=620262">Ad Group Sitelink Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=620262">AdGroup Sitelink Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

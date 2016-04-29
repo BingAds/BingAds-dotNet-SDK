@@ -56,9 +56,9 @@ using System.Threading.Tasks;
 namespace Microsoft.BingAds.Reporting
 {
     /// <summary>
-    /// This exception is thrown when calling API related with reporting download.
+    /// This exception is thrown by the ReportingServiceManager when the SubmitGenerateReport service operation that it called does not return a valid response.
     /// </summary>
-    class CouldNotSubmitReportingDownloadException: Exception
+    class CouldNotSubmitReportingDownloadException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the CouldNotSubmitReportingDownloadException class.

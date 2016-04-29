@@ -52,7 +52,7 @@ using System;
 namespace Microsoft.BingAds.Reporting
 {
     /// <summary>
-    /// This exception is thrown if you are attempting to download a results file that is not yet available for download. 
+    /// This exception is thrown if an attempt was made to download a reporting results file that is not yet available.
     /// </summary>
     [Serializable]
     public class ReportingOperationInProgressException : Exception

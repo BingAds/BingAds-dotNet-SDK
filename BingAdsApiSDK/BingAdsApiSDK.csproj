@@ -57,7 +57,7 @@
     <Compile Include="Bulk\BulkOperation.cs" />
     <Compile Include="Bulk\BulkOperationProgressInfo.cs" />
     <Compile Include="Bulk\BulkOperationStatus.cs" />
-    <Compile Include="Bulk\BulkOperationStillInProgressException.cs" />
+    <Compile Include="Bulk\BulkOperationInProgressException.cs" />
     <Compile Include="Bulk\BulkServiceManager.cs" />
     <Compile Include="Bulk\BulkUploadOperation.cs" />
     <Compile Include="Bulk\DownloadParameters.cs" />
@@ -290,7 +290,7 @@
     <Compile Include="V10\Bulk\BulkOperationCouldNotBeCompletedException.cs" />
     <Compile Include="V10\Bulk\BulkOperationProgressInfo.cs" />
     <Compile Include="V10\Bulk\BulkOperationStatus.cs" />
-    <Compile Include="V10\Bulk\BulkOperationStillInProgressException.cs" />
+    <Compile Include="V10\Bulk\BulkOperationInProgressException.cs" />
     <Compile Include="V10\Bulk\BulkServiceManager.cs" />
     <Compile Include="V10\Bulk\BulkUploadOperation.cs" />
     <Compile Include="V10\Bulk\CouldNotGetBulkOperationStatusException.cs" />

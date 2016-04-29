@@ -56,9 +56,9 @@ using System.Threading.Tasks;
 namespace Microsoft.BingAds
 {
     /// <summary>
-    /// This exception is thrown when trying to download result file.
+    /// This exception is thrown by the internal SDK HttpService after a failed attempt to download a bulk or reporting result file.
     /// </summary>
-    class CouldNotDownloadResultFileException: Exception
+    class CouldNotDownloadResultFileException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the CouldNotDownloadResultFileException class.

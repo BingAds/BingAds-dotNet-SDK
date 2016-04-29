@@ -56,9 +56,9 @@ using System.Threading.Tasks;
 namespace Microsoft.BingAds.Bulk
 {
     /// <summary>
-    /// This exception is thrown when calling API related with bulk download.
+    /// This exception is thrown by the BulkServiceManager when the DownloadCampaignsByAccountIds service operation that it called does not return a valid response.
     /// </summary>
-    class CouldNotSubmitBulkDownloadException: Exception
+    class CouldNotSubmitBulkDownloadException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the CouldNotSubmitBulkDownloadException class.
