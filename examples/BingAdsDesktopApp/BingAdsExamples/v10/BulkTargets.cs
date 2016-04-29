@@ -207,21 +207,21 @@ namespace BingAdsExamples.V10
                 uploadEntities.Add(bulkCampaignLocationTarget);
                 uploadEntities.Add(bulkCampaignRadiusTarget);
 
-                var Reader = await UploadEntities(uploadEntities);
-                var bulkEntities = Reader.ReadEntities().ToList();
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                var downloadEntities = Reader.ReadEntities().ToList();
 
-                // Write the upload output
+                // Upload and write the output
 
-                var campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
+                var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
 
-                var campaignDayTimeTargetResults = bulkEntities.OfType<BulkCampaignDayTimeTarget>().ToList();
+                var campaignDayTimeTargetResults = downloadEntities.OfType<BulkCampaignDayTimeTarget>().ToList();
                 OutputBulkCampaignDayTimeTargets(campaignDayTimeTargetResults);
 
-                var campaignLocationTargetResults = bulkEntities.OfType<BulkCampaignLocationTarget>().ToList();
+                var campaignLocationTargetResults = downloadEntities.OfType<BulkCampaignLocationTarget>().ToList();
                 OutputBulkCampaignLocationTargets(campaignLocationTargetResults);
 
-                var campaignRadiusTargetResults = bulkEntities.OfType<BulkCampaignRadiusTarget>().ToList();
+                var campaignRadiusTargetResults = downloadEntities.OfType<BulkCampaignRadiusTarget>().ToList();
                 OutputBulkCampaignRadiusTargets(campaignRadiusTargetResults);
 
                 Reader.Dispose();
@@ -262,16 +262,16 @@ namespace BingAdsExamples.V10
                     uploadEntities.Add(bulkCampaignDayTimeTargetBid);
                 }
 
-                // Write the upload output
+                // Upload and write the output
 
-                Reader = await UploadEntities(uploadEntities);
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
 
                 OutputStatusMessage("Upload Results Bulk File Path" + Reader.BulkFilePath + "\n");
                 OutputStatusMessage("Updated Entities\n");
 
-                bulkEntities = Reader.ReadEntities().ToList();
+                downloadEntities = Reader.ReadEntities().ToList();
 
-                var campaignDayTimeTargetBidResults = bulkEntities.OfType<BulkCampaignDayTimeTargetBid>().ToList();
+                var campaignDayTimeTargetBidResults = downloadEntities.OfType<BulkCampaignDayTimeTargetBid>().ToList();
                 OutputBulkCampaignDayTimeTargetBids(campaignDayTimeTargetBidResults);
 
                 Reader.Dispose();
@@ -280,36 +280,35 @@ namespace BingAdsExamples.V10
 
                 #region CleanUp
 
-                /* Delete the campaign and target associations that were previously added. 
-                 * Note that the targets are not deleted. Deleting targets is not supported using the
-                 * Bulk service. To delete targets you can use the DeleteTargetsFromLibrary operation
-                 * via the Campaign Management service.
-                 * You should remove this region if you want to view the added entities in the 
-                 * Bing Ads web application or another tool.
-                 */
+                //Delete the campaign and target associations that were previously added. 
+                //You should remove this region if you want to view the added entities in the 
+                //Bing Ads web application or another tool.
 
-                var campaignId = campaignResults[0].Campaign.Id;
-                bulkCampaign = new BulkCampaign
-                {
-                    Campaign = new Campaign
-                    {
-                        Id = campaignId,
-                        Status = CampaignStatus.Deleted
-                    }
-                };
+                //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted.
+
+                //When you delete a BulkCampaign, the dependent entities such as BulkCampaignDayTimeTarget 
+                //are deleted without being specified explicitly.  
+
+                //Deleting targets is not supported using the Bulk service.
+                //To delete targets you can use the DeleteTargetsFromLibrary operation via the Campaign Management service.
 
                 uploadEntities = new List<BulkEntity>();
-                uploadEntities.Add(bulkCampaign);
 
-                // Write the upload output
+                foreach (var campaignResult in campaignResults)
+                {
+                    campaignResult.Campaign.Status = CampaignStatus.Deleted;
+                    uploadEntities.Add(campaignResult);
+                }
 
-                Reader = await UploadEntities(uploadEntities);
-                bulkEntities = Reader.ReadEntities().ToList();
-                campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
-                OutputBulkCampaigns(campaignResults);
+                // Upload and write the output
+
+                OutputStatusMessage("\nDeleting campaign, ad group, keywords, and ads . . .\n");
+
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                downloadEntities = Reader.ReadEntities().ToList();
+                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
+
                 Reader.Dispose();
-
-                OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignResults[0].Campaign.Id));
 
                 #endregion Cleanup
             }

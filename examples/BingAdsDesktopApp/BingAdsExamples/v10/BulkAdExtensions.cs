@@ -33,13 +33,7 @@ namespace BingAdsExamples.V10
                 OutputStatusMessage(String.Format("{0} % Complete", x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
                 #region Add
-
-                const int appAdExtensionIdKey = -11;
-                const int callAdExtensionIdKey = -12;
-                const int locationAdExtensionIdKey = -13;
-                const int siteLinksAdExtensionIdKey = -14;
-                const int campaignIdKey = -123;
-
+                
                 // Prepare the bulk entities that you want to upload. Each bulk entity contains the corresponding campaign management object, 
                 // and additional elements needed to read from and write to a bulk file. 
 
@@ -101,6 +95,16 @@ namespace BingAdsExamples.V10
                     }
                 };
 
+                var bulkCalloutAdExtension = new BulkCalloutAdExtension
+                {
+                    AccountId = authorizationData.AccountId,
+                    CalloutAdExtension = new CalloutAdExtension
+                    {
+                        Text = "Callout Text",
+                        Id = calloutAdExtensionIdKey
+                    }
+                };
+
                 var bulkLocationAdExtension = new BulkLocationAdExtension
                 {
                     AccountId = authorizationData.AccountId,
@@ -120,6 +124,19 @@ namespace BingAdsExamples.V10
                             CountryCode = "US",
                             PostalCode = "98608"
                         }
+                    }
+                };
+
+                var bulkReviewAdExtension = new BulkReviewAdExtension
+                {
+                    AccountId = authorizationData.AccountId,
+                    ReviewAdExtension = new ReviewAdExtension
+                    {
+                        IsExact = true,
+                        Source = "Review Source Name",
+                        Text = "Review Text",
+                        Url = "http://review.contoso.com", // The Url of the third-party review. This is not your business Url.
+                        Id = reviewAdExtensionIdKey
                     }
                 };
 
@@ -231,7 +248,7 @@ namespace BingAdsExamples.V10
                                             },
                                         }
                                 }
-                    }
+                    },
                     // Note that BulkSiteLinkAdExtension.SiteLinks is read only and only 
                     // accessible when reading results from the download or upload results file.
                     // To upload new site links for a new site links ad extension, you should specify
@@ -258,6 +275,15 @@ namespace BingAdsExamples.V10
                     }
                 };
 
+                var bulkCampaignCalloutAdExtension = new BulkCampaignCalloutAdExtension
+                {
+                    AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                    {
+                        AdExtensionId = calloutAdExtensionIdKey,
+                        EntityId = campaignIdKey
+                    }
+                };
+
                 var bulkCampaignLocationAdExtension = new BulkCampaignLocationAdExtension
                 {
                     AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
@@ -267,6 +293,15 @@ namespace BingAdsExamples.V10
                     }
                 };
 
+                var bulkCampaignReviewAdExtension = new BulkCampaignReviewAdExtension
+                {
+                    AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                    {
+                        AdExtensionId = reviewAdExtensionIdKey,
+                        EntityId = campaignIdKey
+                    }
+                };
+                
                 var bulkCampaignSiteLinkAdExtension = new BulkCampaignSiteLinkAdExtension
                 {
                     AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
@@ -285,40 +320,52 @@ namespace BingAdsExamples.V10
 
                 uploadEntities.Add(bulkAppAdExtension);
                 uploadEntities.Add(bulkCallAdExtension);
+                uploadEntities.Add(bulkCalloutAdExtension);
                 uploadEntities.Add(bulkLocationAdExtension);
+                uploadEntities.Add(bulkReviewAdExtension);
                 uploadEntities.Add(bulkSiteLinkAdExtension);
 
                 uploadEntities.Add(bulkCampaignAppAdExtension);
                 uploadEntities.Add(bulkCampaignCallAdExtension);
+                uploadEntities.Add(bulkCampaignCalloutAdExtension);
                 uploadEntities.Add(bulkCampaignLocationAdExtension);
+                uploadEntities.Add(bulkCampaignReviewAdExtension);
                 uploadEntities.Add(bulkCampaignSiteLinkAdExtension);
-
+                
                 OutputStatusMessage("\nAdding campaign, ad extensions, and associations . . .\n");
 
-                // Write the upload output
+                // Upload and write the output
 
-                var Reader = await UploadEntities(uploadEntities);
-                var bulkEntities = Reader.ReadEntities().ToList();
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                var downloadEntities = Reader.ReadEntities().ToList();
 
-                var campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
+                var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
 
-                var appAdExtensionResults = bulkEntities.OfType<BulkAppAdExtension>().ToList();
+                var appAdExtensionResults = downloadEntities.OfType<BulkAppAdExtension>().ToList();
                 OutputBulkAppAdExtensions(appAdExtensionResults);
 
-                var callAdExtensionResults = bulkEntities.OfType<BulkCallAdExtension>().ToList();
+                var callAdExtensionResults = downloadEntities.OfType<BulkCallAdExtension>().ToList();
                 OutputBulkCallAdExtensions(callAdExtensionResults);
 
-                var locationAdExtensionResults = bulkEntities.OfType<BulkLocationAdExtension>().ToList();
+                var calloutAdExtensionResults = downloadEntities.OfType<BulkCalloutAdExtension>().ToList();
+                OutputBulkCalloutAdExtensions(calloutAdExtensionResults);
+
+                var locationAdExtensionResults = downloadEntities.OfType<BulkLocationAdExtension>().ToList();
                 OutputBulkLocationAdExtensions(locationAdExtensionResults);
 
-                var siteLinkAdExtensionResults = bulkEntities.OfType<BulkSiteLinkAdExtension>().ToList();
+                var reviewAdExtensionResults = downloadEntities.OfType<BulkReviewAdExtension>().ToList();
+                OutputBulkReviewAdExtensions(reviewAdExtensionResults);
+
+                var siteLinkAdExtensionResults = downloadEntities.OfType<BulkSiteLinkAdExtension>().ToList();
                 OutputBulkSiteLinkAdExtensions(siteLinkAdExtensionResults);
 
-                OutputBulkCampaignAppAdExtensions(bulkEntities.OfType<BulkCampaignAppAdExtension>().ToList());
-                OutputBulkCampaignCallAdExtensions(bulkEntities.OfType<BulkCampaignCallAdExtension>().ToList());
-                OutputBulkCampaignLocationAdExtensions(bulkEntities.OfType<BulkCampaignLocationAdExtension>().ToList());
-                OutputBulkCampaignSiteLinkAdExtensions(bulkEntities.OfType<BulkCampaignSiteLinkAdExtension>().ToList());
+                OutputBulkCampaignAppAdExtensions(downloadEntities.OfType<BulkCampaignAppAdExtension>().ToList());
+                OutputBulkCampaignCallAdExtensions(downloadEntities.OfType<BulkCampaignCallAdExtension>().ToList());
+                OutputBulkCampaignCalloutAdExtensions(downloadEntities.OfType<BulkCampaignCalloutAdExtension>().ToList());
+                OutputBulkCampaignLocationAdExtensions(downloadEntities.OfType<BulkCampaignLocationAdExtension>().ToList());
+                OutputBulkCampaignReviewAdExtensions(downloadEntities.OfType<BulkCampaignReviewAdExtension>().ToList());
+                OutputBulkCampaignSiteLinkAdExtensions(downloadEntities.OfType<BulkCampaignSiteLinkAdExtension>().ToList());
 
                 Reader.Dispose();
 
@@ -349,10 +396,6 @@ namespace BingAdsExamples.V10
                             DisplayText = "Women's Shoe Sale 3",
 
                             // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Destination URLs are deprecated and will be read-only starting in the 
-                            // second calendar quarter of 2016. After Bulk and Campaign Management version 9 APIs 
-                            // sunset at the beginning of the third calendar quarter of 2016, you will no longer 
-                            // be able to use Destination URLs. 
                             // Here is an example of a DestinationUrl you might have used previously. 
                             // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
@@ -412,119 +455,93 @@ namespace BingAdsExamples.V10
                     uploadEntities.Add(bulkSiteLink);
                 }
 
-
                 OutputStatusMessage("\nUpdating sitelinks . . .\n");
 
-                // Write the upload output
+                // Upload and write the output
 
-                Reader = await UploadEntities(uploadEntities);
-                bulkEntities = Reader.ReadEntities().ToList();
-                var siteLinkResults = bulkEntities.OfType<BulkSiteLink>().ToList();
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                downloadEntities = Reader.ReadEntities().ToList();
+                var siteLinkResults = downloadEntities.OfType<BulkSiteLink>().ToList();
                 OutputBulkSiteLinks(siteLinkResults);
 
                 Reader.Dispose();
 
                 #endregion Update
 
-                #region Delete
+                #region CleanUp
 
-                // Prepare the bulk entities that you want to delete. You must set the Id field to the corresponding 
-                // entity identifier, and the Status field to Deleted. 
+                //Delete the campaign and ad extensions that were previously added. 
+                //You should remove this region if you want to view the added entities in the 
+                //Bing Ads web application or another tool.
 
-                var campaignId = campaignResults[0].Campaign.Id;
-                bulkCampaign = new BulkCampaign
-                {
-                    Campaign = new Campaign
-                    {
-                        Id = campaignId,
-                        Status = CampaignStatus.Deleted
-                    }
-                };
+                //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted. 
 
-                var appAdExtensionId = appAdExtensionResults[0].AppAdExtension.Id;
-                bulkAppAdExtension = new BulkAppAdExtension
-                {
-                    AppAdExtension = new AppAdExtension
-                    {
-                        Id = appAdExtensionId,
-                        Status = AdExtensionStatus.Deleted
-                    }
-                };
-
-                var callAdExtensionId = callAdExtensionResults[0].CallAdExtension.Id;
-                bulkCallAdExtension = new BulkCallAdExtension
-                {
-                    CallAdExtension = new CallAdExtension
-                    {
-                        Id = callAdExtensionId,
-                        Status = AdExtensionStatus.Deleted
-                    }
-                };
-
-                var locationAdExtensionId = locationAdExtensionResults[0].LocationAdExtension.Id;
-                bulkLocationAdExtension = new BulkLocationAdExtension
-                {
-                    LocationAdExtension = new LocationAdExtension
-                    {
-                        Id = locationAdExtensionId,
-                        Status = AdExtensionStatus.Deleted
-                    }
-                };
-
-
-                bulkSiteLinkAdExtension = new BulkSiteLinkAdExtension
-                {
-                    SiteLinksAdExtension = new SiteLinksAdExtension
-                    {
-                        Id = siteLinkAdExtensionId,
-                        Status = AdExtensionStatus.Deleted
-                    }
-                };
-
-                // Write the entities that you want deleted, to the specified file.
-                // Dependent entities such as BulkCampaignCallAdExtension are deleted without being specified explicitly.  
-                // For example, if you delete either BulkCampaign or BulkCallAdExtension, then the equivalent of 
-                // BulkCampaignCallAdExtension is effectively deleted. 
+                //When you delete a BulkCampaign or BulkCallAdExtension, dependent entities such as BulkCampaignCallAdExtension 
+                //are deleted without being specified explicitly.  
 
                 uploadEntities = new List<BulkEntity>();
 
-                uploadEntities.Add(bulkCampaign);
+                foreach (var campaignResult in campaignResults)
+                {
+                    campaignResult.Campaign.Status = CampaignStatus.Deleted;
+                    uploadEntities.Add(campaignResult);
+                }
 
-                uploadEntities.Add(bulkAppAdExtension);
-                uploadEntities.Add(bulkCallAdExtension);
-                uploadEntities.Add(bulkLocationAdExtension);
-                uploadEntities.Add(bulkSiteLinkAdExtension);
+                foreach (var appAdExtensionResult in appAdExtensionResults)
+                {
+                    appAdExtensionResult.AppAdExtension.Status = AdExtensionStatus.Deleted;
+                    //By default the sample does not successfully create any app ad extensions,
+                    //because you need to provide details such as the AppStoreId.
+                    //You can uncomment the following line if you added an app ad extension above.
+                    //uploadEntities.Add(appAdExtensionResult); 
+                }
+
+                foreach (var callAdExtensionResult in callAdExtensionResults)
+                {
+                    callAdExtensionResult.CallAdExtension.Status = AdExtensionStatus.Deleted;
+                    uploadEntities.Add(callAdExtensionResult);
+                }
+
+                foreach (var calloutAdExtensionResult in calloutAdExtensionResults)
+                {
+                    calloutAdExtensionResult.CalloutAdExtension.Status = AdExtensionStatus.Deleted;
+                    uploadEntities.Add(calloutAdExtensionResult);
+                }
+
+                foreach (var locationAdExtensionResult in locationAdExtensionResults)
+                {
+                    locationAdExtensionResult.LocationAdExtension.Status = AdExtensionStatus.Deleted;
+                    uploadEntities.Add(locationAdExtensionResult);
+                }
+
+                foreach (var reviewAdExtensionResult in reviewAdExtensionResults)
+                {
+                    reviewAdExtensionResult.ReviewAdExtension.Status = AdExtensionStatus.Deleted;
+                    uploadEntities.Add(reviewAdExtensionResult);
+                }
+
+                foreach (var siteLinkAdExtensionResult in siteLinkAdExtensionResults)
+                {
+                    siteLinkAdExtensionResult.SiteLinksAdExtension.Status = AdExtensionStatus.Deleted;
+                    uploadEntities.Add(siteLinkAdExtensionResult);
+                }
+
+                // Upload and write the output
 
                 OutputStatusMessage("\nDeleting campaign and ad extensions . . .\n");
 
-                // Write the upload output
-
-                Reader = await UploadEntities(uploadEntities);
-                bulkEntities = Reader.ReadEntities().ToList();
-
-                campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
-                OutputBulkCampaigns(campaignResults);
-
-                appAdExtensionResults = bulkEntities.OfType<BulkAppAdExtension>().ToList();
-                OutputBulkAppAdExtensions(appAdExtensionResults);
-
-                callAdExtensionResults = bulkEntities.OfType<BulkCallAdExtension>().ToList();
-                OutputBulkCallAdExtensions(callAdExtensionResults);
-
-                locationAdExtensionResults = bulkEntities.OfType<BulkLocationAdExtension>().ToList();
-                OutputBulkLocationAdExtensions(locationAdExtensionResults);
-
-                siteLinkAdExtensionResults = bulkEntities.OfType<BulkSiteLinkAdExtension>().ToList();
-                OutputBulkSiteLinkAdExtensions(siteLinkAdExtensionResults);
-
-                OutputBulkCampaignAppAdExtensions(bulkEntities.OfType<BulkCampaignAppAdExtension>().ToList());
-                OutputBulkCampaignCallAdExtensions(bulkEntities.OfType<BulkCampaignCallAdExtension>().ToList());
-                OutputBulkCampaignLocationAdExtensions(bulkEntities.OfType<BulkCampaignLocationAdExtension>().ToList());
-                OutputBulkCampaignSiteLinkAdExtensions(bulkEntities.OfType<BulkCampaignSiteLinkAdExtension>().ToList());
-
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                downloadEntities = Reader.ReadEntities().ToList();
+                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
+                OutputBulkAppAdExtensions(downloadEntities.OfType<BulkAppAdExtension>().ToList());
+                OutputBulkCallAdExtensions(downloadEntities.OfType<BulkCallAdExtension>().ToList());
+                OutputBulkCalloutAdExtensions(downloadEntities.OfType<BulkCalloutAdExtension>().ToList());
+                OutputBulkLocationAdExtensions(downloadEntities.OfType<BulkLocationAdExtension>().ToList());
+                OutputBulkReviewAdExtensions(downloadEntities.OfType<BulkReviewAdExtension>().ToList());
+                OutputBulkSiteLinkAdExtensions(downloadEntities.OfType<BulkSiteLinkAdExtension>().ToList());
                 Reader.Dispose();
 
-                #endregion Delete
+                #endregion Cleanup
 
             }
             // Catch Microsoft Account authorization exceptions.

@@ -34,6 +34,11 @@ namespace BingAdsExamples.V9
         protected const string FileDirectory = @"c:\bulk\";
 
         /// <summary>
+        /// The name of the bulk download file.
+        /// </summary>
+        protected const string DownloadFileName = @"download.csv";
+
+        /// <summary>
         /// The name of the bulk upload file.
         /// </summary>
         protected const string UploadFileName = @"upload.csv";
@@ -66,7 +71,7 @@ namespace BingAdsExamples.V9
         /// </summary>
         /// <param name="uploadEntities"></param>
         /// <returns></returns>
-        protected async Task<BulkFileReader> UploadEntities(IEnumerable<BulkEntity> uploadEntities)
+        protected async Task<BulkFileReader> WriteEntitiesAndUploadFileAsync(IEnumerable<BulkEntity> uploadEntities)
         {
             Writer = new BulkFileWriter(FileDirectory + UploadFileName);
 

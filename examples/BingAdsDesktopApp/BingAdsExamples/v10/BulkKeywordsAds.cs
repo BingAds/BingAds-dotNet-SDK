@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
 using Microsoft.BingAds.V10.Bulk;
@@ -80,7 +79,12 @@ namespace BingAdsExamples.V10
                         BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date { Month = 12, Day = 31, Year = 2016 },
+                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
                         Language = "English",
                         Status = AdGroupStatus.Active,
 
@@ -392,7 +396,6 @@ namespace BingAdsExamples.V10
                     },
                 };
 
-
                 uploadEntities.Add(bulkCampaign);
                 uploadEntities.Add(bulkAdGroup);
 
@@ -406,57 +409,57 @@ namespace BingAdsExamples.V10
                     uploadEntities.Add(bulkTextAd);
                 }
 
-                // Write the upload output
+                // Upload and write the output
 
-                var Reader = await UploadEntities(uploadEntities);
-                var bulkEntities = Reader.ReadEntities().ToList();
+                OutputStatusMessage("Adding campaign, ad group, ads, and keywords...\n");
 
-                var campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                var downloadEntities = Reader.ReadEntities().ToList();
+
+                var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
 
-                var adGroupResults = bulkEntities.OfType<BulkAdGroup>().ToList();
+                var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
                 OutputBulkAdGroups(adGroupResults);
 
-                var keywordResults = bulkEntities.OfType<BulkKeyword>().ToList();
+                var keywordResults = downloadEntities.OfType<BulkKeyword>().ToList();
                 OutputBulkKeywords(keywordResults);
 
-                var textAdResults = bulkEntities.OfType<BulkTextAd>().ToList();
+                var textAdResults = downloadEntities.OfType<BulkTextAd>().ToList();
                 OutputBulkTextAds(textAdResults);
 
                 Reader.Dispose();
 
                 #endregion Add
 
-
                 #region CleanUp
 
-                /* Delete the campaign, ad group, keywords, and ads that were previously added. 
-                 * You should remove this region if you want to view the added entities in the 
-                 * Bing Ads web application or another tool.
-                 */
+                //Delete the campaign, ad group, ads, and keywords that were previously added. 
+                //You should remove this region if you want to view the added entities in the 
+                //Bing Ads web application or another tool.
 
-                var campaignId = campaignResults[0].Campaign.Id;
-                bulkCampaign = new BulkCampaign
-                {
-                    Campaign = new Campaign
-                    {
-                        Id = campaignId,
-                        Status = CampaignStatus.Deleted
-                    }
-                };
+                //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted.
+
+                //When you delete a BulkCampaign, the dependent entities such as BulkAdGroup, BulkKeyword, and BulkTextAd 
+                //are deleted without being specified explicitly.  
 
                 uploadEntities = new List<BulkEntity>();
-                uploadEntities.Add(bulkCampaign);
 
-                // Write the upload output
+                foreach (var campaignResult in campaignResults)
+                {
+                    campaignResult.Campaign.Status = CampaignStatus.Deleted;
+                    uploadEntities.Add(campaignResult);
+                }
 
-                Reader = await UploadEntities(uploadEntities);
-                bulkEntities = Reader.ReadEntities().ToList();
-                campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
-                OutputBulkCampaigns(campaignResults);
+                // Upload and write the output
+
+                OutputStatusMessage("\nDeleting campaign, ad group, keywords, and ads . . .\n");
+
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                downloadEntities = Reader.ReadEntities().ToList();
+                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
+
                 Reader.Dispose();
-
-                OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignResults[0].Campaign.Id));
 
                 #endregion Cleanup
             }

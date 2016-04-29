@@ -224,7 +224,7 @@ namespace BingAdsExamples.V9
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
                 OutputStatusMessage("Upload Results Bulk File Path: " + Reader.BulkFilePath + "\n");
                 
-                // Write the upload output
+                // Upload and write the output
 
                 var bulkEntities = Reader.ReadEntities().ToList();
 
@@ -415,7 +415,7 @@ namespace BingAdsExamples.V9
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
                 OutputStatusMessage("Upload Results Bulk File Path: " + Reader.BulkFilePath + "\n");
 
-                // Write the upload output
+                // Upload and write the output
 
                 bulkEntities = Reader.ReadEntities().ToList();
 

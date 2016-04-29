@@ -53,7 +53,7 @@ namespace BingAdsExamples.V9
                     }
 
                     // Apply the suggested budget opportunities.
-                    ApplyOpportunitiesAsync(authorizationData.AccountId, opportunityKeys);
+                    await ApplyOpportunitiesAsync(authorizationData.AccountId, opportunityKeys);
                 }
 
                 var campaigns = (Campaign[])await GetCampaignsByAccountIdAsync(
@@ -87,7 +87,7 @@ namespace BingAdsExamples.V9
                     }
 
                     // Apply the suggested budget opportunities.
-                    ApplyOpportunitiesAsync(authorizationData.AccountId, landscapeKeys);
+                    await ApplyOpportunitiesAsync(authorizationData.AccountId, landscapeKeys);
                 }
             }
             // Catch authentication exceptions
@@ -153,7 +153,7 @@ namespace BingAdsExamples.V9
 
         // Apply opportunties for the specified account.
 
-        private void ApplyOpportunitiesAsync(long accountId, IList<string> opportunityKeys)
+        private async Task ApplyOpportunitiesAsync(long accountId, IList<string> opportunityKeys)
         {
             var request = new ApplyOpportunitiesRequest
             {
@@ -161,7 +161,7 @@ namespace BingAdsExamples.V9
                 OpportunityKeys = opportunityKeys
             };
 
-            OptimizerService.CallAsync((s, r) => s.ApplyOpportunitiesAsync(r), request);
+            await OptimizerService.CallAsync((s, r) => s.ApplyOpportunitiesAsync(r), request);
         }
     }
 }

@@ -27,7 +27,6 @@ namespace BingAdsExamples.V9
             try
             {
                 BulkService = new BulkServiceManager(authorizationData);
-                
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(String.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
@@ -76,7 +75,12 @@ namespace BingAdsExamples.V9
                         BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.CampaignManagement.Date { Month = 12, Day = 31, Year = 2016 },
+                        EndDate = new Microsoft.BingAds.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
                         Language = "English",
                         Status = AdGroupStatus.Active,
                     },
@@ -216,9 +220,9 @@ namespace BingAdsExamples.V9
                     uploadEntities.Add(bulkTextAd);
                 }
 
-                // Write the upload output
+                // Upload and write the output
 
-                var Reader = await UploadEntities(uploadEntities);
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var bulkEntities = Reader.ReadEntities().ToList();
 
                 var campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
@@ -257,9 +261,9 @@ namespace BingAdsExamples.V9
                 uploadEntities = new List<BulkEntity>();
                 uploadEntities.Add(bulkCampaign);
 
-                // Write the upload output
+                // Upload and write the output
 
-                Reader = await UploadEntities(uploadEntities);
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 bulkEntities = Reader.ReadEntities().ToList();
                 campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);

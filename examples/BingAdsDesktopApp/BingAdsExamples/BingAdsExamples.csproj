@@ -70,6 +70,10 @@
     <Compile Include="v10\BulkAdExtensions.cs" />
     <Compile Include="v10\BulkExampleBase.cs" />
     <Compile Include="v10\BulkKeywordsAds.cs" />
+    <Compile Include="v10\BulkNegativeKeywords.cs" />
+    <Compile Include="v10\BulkNegativeSites.cs" />
+    <Compile Include="v10\BulkProductPartitionUpdateBid.cs" />
+    <Compile Include="v10\BulkServiceManagerDemo.cs" />
     <Compile Include="v10\BulkShoppingCampaigns.cs" />
     <Compile Include="v10\BulkTargets.cs" />
     <Compile Include="v10\ExampleBase.cs" />
@@ -81,7 +85,6 @@
     <Compile Include="v9\BulkAdExtensions.cs" />
     <Compile Include="v9\BulkExampleBase.cs" />
     <Compile Include="v9\BulkKeywordsAds.cs" />
-    <Compile Include="v9\BulkServiceClientDownloadUpload.cs" />
     <Compile Include="v9\BulkShoppingCampaigns.cs" />
     <Compile Include="v9\BulkTargets.cs" />
     <Compile Include="v9\EstimatedBid.cs" />
@@ -90,7 +93,6 @@
     <Compile Include="v9\ManageClient.cs" />
     <Compile Include="v9\NegativeKeywords.cs" />
     <Compile Include="v9\OptimizeBudget.cs" />
-    <Compile Include="v9\PerformanceReports.cs" />
     <Compile Include="v9\ReportRequests.cs" />
     <Compile Include="v9\SearchUserAccounts.cs" />
     <Compile Include="v9\ShoppingCampaigns.cs" />

@@ -66,6 +66,10 @@ namespace BingAdsExamples.V10
                         PhoneNumber = "2065550100",
                         IsCallOnly = false
                     },
+                    new CalloutAdExtension
+                    {
+                        Text = "Callout Text"
+                    },
                     //new ImageAdExtension
                     //{
                     //    AlternativeText = "Image Extension Alt Text",
@@ -84,6 +88,13 @@ namespace BingAdsExamples.V10
                             CountryCode = "US",
                             PostalCode = "98608"
                         }
+                    },
+                    new ReviewAdExtension
+                    {
+                        IsExact = true,
+                        Source = "Review Source Name",
+                        Text = "Review Text",
+                        Url = "http://review.contoso.com" // The Url of the third-party review. This is not your business Url.
                     },
                     new SiteLinksAdExtension {
                         SiteLinks = new [] {
@@ -229,12 +240,14 @@ namespace BingAdsExamples.V10
 
                 const AdExtensionsTypeFilter adExtensionsTypeFilter = AdExtensionsTypeFilter.AppAdExtension |
                                                                       AdExtensionsTypeFilter.CallAdExtension |
+                                                                      AdExtensionsTypeFilter.CalloutAdExtension |
                                                                       AdExtensionsTypeFilter.ImageAdExtension | 
                                                                       AdExtensionsTypeFilter.LocationAdExtension |
+                                                                      AdExtensionsTypeFilter.ReviewAdExtension |
                                                                       AdExtensionsTypeFilter.SiteLinksAdExtension;
 
                 // Get the specified ad extensions from the account’s ad extension library.
-                adExtensions = (AdExtension[])await GetAdExtensionsByIdsAsync(
+                adExtensions = (AdExtension[]) await GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     adExtensionIds,
                     adExtensionsTypeFilter
@@ -301,12 +314,14 @@ namespace BingAdsExamples.V10
 
         private async Task<long> AddImageAsync(AuthorizationData authorizationData)
         {
-            var media = new List<Microsoft.BingAds.V10.CampaignManagement.Media>();
-            var image = new Microsoft.BingAds.V10.CampaignManagement.Image();
-            image.Data = GetImage15x10Data();
+            var media = new List<Media>();
+            var image = new Image();
+
             // This example uses an image with 1.5:1 aspect ratio.
             // For more information about available aspect ratios and min / max dimensions,
             // see the Image data object reference documentation on MSDN.
+
+            image.Data = GetImage15x10Data();
             image.Type = "Image15x10";
             image.MediaType = "Image";
             media.Add(image);

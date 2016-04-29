@@ -141,7 +141,12 @@ namespace BingAdsExamples.V10
                         BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date { Month = 12, Day = 31, Year = 2016 },
+                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
                         Language = "English",
                         Status = AdGroupStatus.Active
                     },
@@ -171,21 +176,21 @@ namespace BingAdsExamples.V10
                 uploadEntities.Add(bulkCampaignProductScope);
                 uploadEntities.Add(bulkProductAd);
 
-                // Write the upload output
+                // Upload and write the output
 
-                var Reader = await UploadEntities(uploadEntities);
-                var bulkEntities = Reader.ReadEntities().ToList();
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                var downloadEntities = Reader.ReadEntities().ToList();
 
-                var campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
+                var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
 
-                var adGroupResults = bulkEntities.OfType<BulkAdGroup>().ToList();
+                var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
                 OutputBulkAdGroups(adGroupResults);
 
-                var productAdResults = bulkEntities.OfType<BulkProductAd>().ToList();
+                var productAdResults = downloadEntities.OfType<BulkProductAd>().ToList();
                 OutputBulkProductAds(productAdResults);
 
-                var campaignProductScopeResults = bulkEntities.OfType<BulkCampaignProductScope>().ToList();
+                var campaignProductScopeResults = downloadEntities.OfType<BulkCampaignProductScope>().ToList();
                 OutputBulkCampaignProductScopes(campaignProductScopeResults);
 
                 Reader.Dispose();
@@ -486,46 +491,36 @@ namespace BingAdsExamples.V10
 
                 #endregion UpdateTree
 
-                var Service = new ServiceClient<ICampaignManagementService>(authorizationData);
-                var getCampaignIds = new List<long>();
-                getCampaignIds.Add((long)campaignResults[0].Campaign.Id);
-                var request = new GetCampaignsByIdsRequest
-                {
-                    AccountId = authorizationData.AccountId,
-                    CampaignIds = getCampaignIds,
-                    CampaignType = CampaignType.Shopping
-                };
-                await Service.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request);
-
                 #region CleanUp
 
-                /* Delete the campaign, ad group, criterion, and ad that were previously added. 
-                 * You should remove this region if you want to view the added entities in the 
-                 * Bing Ads web application or another tool.
-                 */
+                //Delete the campaign, ad group, criterion, and ad that were previously added. 
+                //You should remove this region if you want to view the added entities in the 
+                //Bing Ads web application or another tool.
 
-                var campaignId = campaignResults[0].Campaign.Id;
-                bulkCampaign = new BulkCampaign
-                {
-                    Campaign = new Campaign
-                    {
-                        Id = campaignId,
-                        Status = CampaignStatus.Deleted
-                    }
-                };
+                //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted.
+
+                //When you delete a BulkCampaign, the dependent entities such as BulkAdGroup and BulkAdGroupProductPartition 
+                //are deleted without being specified explicitly.  
 
                 uploadEntities = new List<BulkEntity>();
-                uploadEntities.Add(bulkCampaign);
 
-                // Write the upload output
+                foreach (var campaignResult in campaignResults)
+                {
+                    campaignResult.Campaign.Status = CampaignStatus.Deleted;
+                    uploadEntities.Add(campaignResult);
+                }
 
-                Reader = await UploadEntities(uploadEntities);
-                bulkEntities = Reader.ReadEntities().ToList();
-                campaignResults = bulkEntities.OfType<BulkCampaign>().ToList();
-                OutputBulkCampaigns(campaignResults);
+                // Upload and write the output
+
+                OutputStatusMessage(
+                    "Deleting the campaign, product conditions, ad group, product partitions, and product ad... \n"
+                );
+
+                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                downloadEntities = Reader.ReadEntities().ToList();
+                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
+
                 Reader.Dispose();
-
-                OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignResults[0].Campaign.Id));
 
                 #endregion Cleanup
             }
@@ -577,42 +572,7 @@ namespace BingAdsExamples.V10
                 if (Writer != null) { Writer.Dispose(); }
             }
         }
-
-        /// <summary>
-        /// Writes the specified entities to a local file and uploads the file. We could have uploaded directly
-        /// without writing to file. This example writes to file as an exercise so that you can view the structure 
-        /// of the bulk records being uploaded as needed. 
-        /// </summary>
-        /// <param name="uploadEntities"></param>
-        /// <returns></returns>
-        private async Task<BulkFileReader> UploadEntities(IEnumerable<BulkEntity> uploadEntities)
-        {
-            Writer = new BulkFileWriter(FileDirectory + UploadFileName);
-
-            foreach (var entity in uploadEntities)
-            {
-                Writer.WriteEntity(entity);
-            }
-
-            Writer.Dispose();
-
-            var fileUploadParameters = new FileUploadParameters
-            {
-                ResultFileDirectory = FileDirectory,
-                CompressUploadFile = true,
-                ResultFileName = ResultFileName,
-                OverwriteResultFile = true,
-                UploadFilePath = FileDirectory + UploadFileName,
-                ResponseMode = ResponseMode.ErrorsAndResults
-            };
-
-            var bulkFilePath = await BulkService.UploadFileAsync(fileUploadParameters);
-
-            return new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
-        }
-
-        // Gets any Bing Merchant Center stores registered with the customer.
-
+        
         private async Task<IList<BMCStore>> GetBMCStoresByCustomerIdAsync()
         {
             var request = new GetBMCStoresByCustomerIdRequest();
@@ -651,9 +611,11 @@ namespace BingAdsExamples.V10
                 await BulkService.UploadFileAsync(fileUploadParameters);
             Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
 
-            var bulkEntities = Reader.ReadEntities().ToList();
-            var bulkAdGroupProductPartitionResults = bulkEntities.OfType<BulkAdGroupProductPartition>().ToList();
-            OutputBulkAdGroupProductPartitions(bulkAdGroupProductPartitionResults);
+            var downloadEntities = Reader.ReadEntities().ToList();
+            var bulkAdGroupProductPartitionResults = downloadEntities.OfType<BulkAdGroupProductPartition>().ToList();
+
+            // Add this output line if you want to view details of each BulkAdGroupProductPartition. 
+            //OutputBulkAdGroupProductPartitions(bulkAdGroupProductPartitionResults);
 
             Reader.Dispose();
 
@@ -671,15 +633,15 @@ namespace BingAdsExamples.V10
             {
                 Entities = BulkDownloadEntity.AdGroupProductPartitions,
                 ResultFileDirectory = FileDirectory,
-                ResultFileName = ResultFileName,
+                ResultFileName = DownloadFileName,
                 OverwriteResultFile = true,
                 LastSyncTimeInUTC = null
             };
 
             var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
             Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
-            var bulkEntities = Reader.ReadEntities().ToList();
-            var bulkAdGroupProductPartitionResults = bulkEntities.OfType<BulkAdGroupProductPartition>().ToList();
+            var downloadEntities = Reader.ReadEntities().ToList();
+            var bulkAdGroupProductPartitionResults = downloadEntities.OfType<BulkAdGroupProductPartition>().ToList();
 
             Reader.Dispose();
 

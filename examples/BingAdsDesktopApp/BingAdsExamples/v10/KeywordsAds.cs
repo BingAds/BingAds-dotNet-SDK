@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.V10.CampaignManagement;
 using Microsoft.BingAds;
 
-
 namespace BingAdsExamples.V10
 {
     /// <summary>
@@ -56,7 +55,11 @@ namespace BingAdsExamples.V10
                         BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date { Month = 12, Day = 31, Year = 2016 },
+                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
                         SearchBid = new Bid { Amount = 0.09 },
                         Language = "English",
 
@@ -292,8 +295,7 @@ namespace BingAdsExamples.V10
                         Text = "Huge Savings on red shoes.",
                         DisplayUrl = "Contoso.com",                       
                         
-                        // Destination URLs are deprecated and will be sunset in March 2016. 
-                        // If you are currently using the Destination URL, you must upgrade to Final URLs. 
+                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
                         // Here is an example of a DestinationUrl you might have used previously.                
                         // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
@@ -355,14 +357,14 @@ namespace BingAdsExamples.V10
                 BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
 
                 
-                // Output the new assigned keyword and ad identifiers, as well as any partial errors
+                // Output the new assigned entity identifiers, as well as any partial errors
 
                 OutputCampaignsWithPartialErrors(campaigns, campaignIds, campaignErrors);
                 OutputAdGroupsWithPartialErrors(adGroups, adGroupIds, adGroupErrors);
                 OutputKeywordsWithPartialErrors(keywords, keywordIds, keywordErrors);
                 OutputAdsWithPartialErrors(ads, adIds, adErrors);
 
-                // Here is a simple example that updates the campaign budget
+                // Here is a simple example that updates the campaign budget.
 
                 var updateCampaign = new Campaign
                 {
@@ -373,11 +375,11 @@ namespace BingAdsExamples.V10
                 // As an exercise you can step through using the debugger and view the results.
 
                 await GetCampaignsByIdsAsync(
-                    authorizationData.AccountId,
-                    new[] { (long)campaignIds[0] },
+                    authorizationData.AccountId, 
+                    new [] { (long)campaignIds[0] },
                     CampaignType.SearchAndContent | CampaignType.Shopping
                 );
-                UpdateCampaignsAsync(authorizationData.AccountId, new[] { updateCampaign });
+                await UpdateCampaignsAsync(authorizationData.AccountId, new[] { updateCampaign });
                 await GetCampaignsByIdsAsync(
                     authorizationData.AccountId,
                     new[] { (long)campaignIds[0] },
@@ -425,8 +427,8 @@ namespace BingAdsExamples.V10
                 await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
 
 
-                // Here is a simple example that updates the keyword bid to use the ad group bid
-
+                // Here is a simple example that updates the keyword bid to use the ad group bid.
+                
                 var updateKeyword = new Keyword
                 {
                     // Set Bid.Amount null (new empty Bid) to use the ad group bid.
@@ -439,13 +441,13 @@ namespace BingAdsExamples.V10
 
                 await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
                 await UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
-                var foo = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
+                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
 
                 // Delete the campaign, ad group, keyword, and ad that were previously added. 
                 // You should remove this line if you want to view the added entities in the 
                 // Bing Ads web application or another tool.
 
-                DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
+                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
                 OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignIds[0]));
             }
             // Catch authentication exceptions
@@ -489,7 +491,7 @@ namespace BingAdsExamples.V10
 
         // Updates one or more campaigns.
 
-        private void UpdateCampaignsAsync(long accountId, IList<Campaign> campaigns)
+        private async Task UpdateCampaignsAsync(long accountId, IList<Campaign> campaigns)
         {
             var request = new UpdateCampaignsRequest
             {
@@ -497,12 +499,12 @@ namespace BingAdsExamples.V10
                 Campaigns = campaigns
             };
 
-            Service.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
+            await Service.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
         }
 
         // Deletes one or more campaigns from the specified account.
 
-        private void DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
+        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
         {
             var request = new DeleteCampaignsRequest
             {
@@ -510,13 +512,13 @@ namespace BingAdsExamples.V10
                 CampaignIds = campaignIds
             };
 
-            Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
         }
 
-        // Gets one or more campaigns in the specified account.
+        // Gets one or more campaigns for the specified campaign identifiers.
 
         private async Task<IList<Campaign>> GetCampaignsByIdsAsync(
-            long accountId,
+            long accountId, 
             IList<long> campaignIds,
             CampaignType campaignType
             )
@@ -606,6 +608,12 @@ namespace BingAdsExamples.V10
             return (await Service.CallAsync((s, r) => s.AddAdsAsync(r), request));
         }
 
+        /// <summary>
+        /// Updates the ads.
+        /// </summary>
+        /// <param name="adGroupId">The identifier of the ad group that contains the ads.</param>
+        /// <param name="ads">The ads that you want to update.</param>
+        /// <returns></returns>
         private async Task<UpdateAdsResponse> UpdateAdsAsync(long adGroupId, IList<Ad> ads)
         {
             var request = new UpdateAdsRequest
@@ -617,6 +625,11 @@ namespace BingAdsExamples.V10
             return (await Service.CallAsync((s, r) => s.UpdateAdsAsync(r), request));
         }
 
+        /// <summary>
+        /// Gets the ads in the specified ad group.
+        /// </summary>
+        /// <param name="adGroupId">The identifier of the ad group that contains the ads.</param>
+        /// <returns></returns>
         private async Task<GetAdsByAdGroupIdResponse> GetAdsByAdGroupIdAsync(long adGroupId)
         {
             var request = new GetAdsByAdGroupIdRequest
@@ -626,5 +639,7 @@ namespace BingAdsExamples.V10
 
             return (await Service.CallAsync((s, r) => s.GetAdsByAdGroupIdAsync(r), request));
         }
+
+
     }
 }

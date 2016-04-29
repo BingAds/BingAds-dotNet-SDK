@@ -12,7 +12,8 @@ using Microsoft.BingAds;
 namespace BingAdsExamples.V9
 {
     /// <summary>
-    /// This example demonstrates how to request and retrieve a keyword performance report.
+    /// This example demonstrates how to request and retrieve performance reports
+    /// using the ReportingServiceManager class.
     /// </summary>
     public class ReportRequests : ExampleBase
     {
@@ -32,6 +33,11 @@ namespace BingAdsExamples.V9
         /// The report file extension type.
         /// </summary>
         protected const ReportFormat ReportFileFormat = ReportFormat.Csv;
+
+        /// <summary>
+        /// The maximum amount of time (in milliseconds) that you want to wait for the report download.
+        /// </summary>
+        protected const int TimeoutInMilliseconds = 360000;
         
 
         public override string Description
@@ -45,13 +51,17 @@ namespace BingAdsExamples.V9
             {
                 ReportingService = new ReportingServiceManager(authorizationData);
                 ReportingService.StatusPollIntervalInMilliseconds = 5000;
-                
+
                 // You can submit one of the example reports, or build your own.
- 
-                var reportRequest = GetCampaignPerformanceReportRequest(authorizationData.AccountId);
+
+                var reportRequest = GetAccountPerformanceReportRequest(authorizationData.AccountId);
+                //var reportRequest = GetAdGroupPerformanceReportRequest(authorizationData.AccountId);
+                //var reportRequest = GetAudiencePerformanceReportRequest(authorizationData.AccountId);
+                //var reportRequest = GetCampaignPerformanceReportRequest(authorizationData.AccountId);
                 //var reportRequest = GetKeywordPerformanceReportRequest(authorizationData.AccountId);
                 //var reportRequest = GetProductDimensionPerformanceReportRequest(authorizationData.AccountId);
                 //var reportRequest = GetProductPartitionPerformanceReportRequest(authorizationData.AccountId);
+                //var reportRequest = GetSearchCampaignChangeHistoryReportRequest(authorizationData.AccountId);
 
                 var reportingDownloadParameters = new ReportingDownloadParameters
                 {
@@ -62,35 +72,35 @@ namespace BingAdsExamples.V9
                 };
 
                 // Option A - Background Completion with ReportingServiceManager
-                // You can submit a download or upload request and the ReportingServiceManager will automatically 
+                // You can submit a download request and the ReportingServiceManager will automatically 
                 // return results. The ReportingServiceManager abstracts the details of checking for result file 
                 // completion, and you don't have to write any code for results polling.
 
                 OutputStatusMessage("Awaiting Background Completion . . .");
-                await BackgroundCompletion(reportingDownloadParameters);
+                await BackgroundCompletionAsync(reportingDownloadParameters);
 
                 // Option B - Submit and Download with ReportingServiceManager
                 // Submit the download request and then use the ReportingDownloadOperation result to 
-                // track status yourself using GetStatusAsync.
+                // track status until the report is complete e.g. either using
+                // TrackAsync or GetStatusAsync.
 
-                OutputStatusMessage("Awaiting Submit and Download . . .");
-                await SubmitAndDownload(reportRequest);
+                //OutputStatusMessage("Awaiting Submit and Download . . .");
+                //await SubmitAndDownloadAsync(reportRequest);
 
                 // Option C - Download Results with ReportingServiceManager
                 // If for any reason you have to resume from a previous application state, 
                 // you can use an existing download request identifier and use it 
-                // to download the result file. Use TrackAsync to indicate that the application 
-                // should wait to ensure that the download status is completed.
+                // to download the result file. 
 
                 // For example you might have previously retrieved a request ID using SubmitDownloadAsync.
-                var reportingDownloadOperation = await ReportingService.SubmitDownloadAsync(reportRequest);
-                var requestId = reportingDownloadOperation.RequestId;
+                //var reportingDownloadOperation = await ReportingService.SubmitDownloadAsync(reportRequest);
+                //var requestId = reportingDownloadOperation.RequestId;
 
                 // Given the request ID above, you can resume the workflow and download the report.
                 // The report request identifier is valid for two days. 
                 // If you do not download the report within two days, you must request the report again.
-                OutputStatusMessage("Awaiting Download Results . . .");
-                await DownloadResults(requestId, authorizationData);
+                //OutputStatusMessage("Awaiting Download Results . . .");
+                //await DownloadResultsAsync(requestId, authorizationData);
 
             }
             // Catch authentication exceptions
@@ -124,48 +134,55 @@ namespace BingAdsExamples.V9
         }
 
         /// <summary>
-        /// You can submit a download or upload request and the ReportingServiceManager will automatically
+        /// You can submit a download request and the ReportingServiceManager will automatically
         /// return results. The ReportingServiceManager abstracts the details of checking for result file
         /// completion, and you don't have to write any code for results polling.
         /// </summary>
         /// <param name="reportingDownloadParameters"></param>
-        private async Task BackgroundCompletion(ReportingDownloadParameters reportingDownloadParameters)
+        private async Task BackgroundCompletionAsync(ReportingDownloadParameters reportingDownloadParameters)
         {
-            // You may optionally cancel the download after a specified time interval. 
-            // Pass this object to the DownloadFileAsync operation or specify CancellationToken.None. 
+            // You may optionally cancel the DownloadFileAsync operation after a specified time interval. 
             var tokenSource = new CancellationTokenSource();
-            tokenSource.CancelAfter(36000000);
+            tokenSource.CancelAfter(TimeoutInMilliseconds);
 
             var resultFilePath = await ReportingService.DownloadFileAsync(reportingDownloadParameters, tokenSource.Token);
             OutputStatusMessage(String.Format("Download result file: {0}\n", resultFilePath));
         }
 
         /// <summary>
-        /// Submit the download request and then use the ReportingDownloadOperation result to
-        /// track status yourself using GetStatusAsync.
+        /// Submit the download request and then use the ReportingDownloadOperation result to 
+        /// track status until the report is complete e.g. either using
+        /// TrackAsync or GetStatusAsync.
         /// </summary>
         /// <param name="reportRequest"></param>
         /// <returns></returns>
-        private async Task SubmitAndDownload(ReportRequest reportRequest)
+        private async Task SubmitAndDownloadAsync(ReportRequest reportRequest)
         {
+            // You may optionally cancel the TrackAsync operation after a specified time interval.  
+            var tokenSource = new CancellationTokenSource();
+            tokenSource.CancelAfter(TimeoutInMilliseconds);
+
             var reportingDownloadOperation = await ReportingService.SubmitDownloadAsync(reportRequest);
+
+            ReportingOperationStatus reportingOperationStatus = await reportingDownloadOperation.TrackAsync(tokenSource.Token);
             
-            ReportingOperationStatus downloadStatus;
-            var waitTime = new TimeSpan(0, 0, 5);
+            // You can use TrackAsync to poll until complete as shown above, 
+            // or use custom polling logic with GetStatusAsync as shown below.
 
-            // This sample polls every 5 seconds up to 2 minutes.
+            //ReportingOperationStatus reportingOperationStatus;
 
-            for (int i = 0; i < 24; i++)
-            {
-                Thread.Sleep(waitTime);
+            //var waitTime = new TimeSpan(0, 0, 5);
+            //for (int i = 0; i < 24; i++)
+            //{
+            //    Thread.Sleep(waitTime);
 
-                downloadStatus = await reportingDownloadOperation.GetStatusAsync();
+            //    reportingOperationStatus = await reportingDownloadOperation.GetStatusAsync();
 
-                if (downloadStatus.Status == ReportRequestStatusType.Success)
-                {
-                    break;
-                }
-            }
+            //    if (reportingOperationStatus.Status == ReportRequestStatusType.Success)
+            //    {
+            //        break;
+            //    }
+            //}
 
             var resultFilePath = await reportingDownloadOperation.DownloadResultFileAsync(
                 FileDirectory,
@@ -185,15 +202,19 @@ namespace BingAdsExamples.V9
         /// <param name="requestId"></param>
         /// <param name="authorizationData"></param>
         /// <returns></returns>
-        private async Task DownloadResults(
+        private async Task DownloadResultsAsync(
             string requestId,
             AuthorizationData authorizationData)
         {
+            // You may optionally cancel the TrackAsync operation after a specified time interval. 
+            var tokenSource = new CancellationTokenSource();
+            tokenSource.CancelAfter(TimeoutInMilliseconds);
+
             var reportingDownloadOperation = new ReportingDownloadOperation(requestId, authorizationData);
 
             // Use TrackAsync to indicate that the application should wait to ensure that 
             // the download status is completed.
-            var reportingOperationStatus = await reportingDownloadOperation.TrackAsync();
+            var reportingOperationStatus = await reportingDownloadOperation.TrackAsync(tokenSource.Token);
 
             var resultFilePath = await reportingDownloadOperation.DownloadResultFileAsync(
                 FileDirectory,
@@ -227,30 +248,17 @@ namespace BingAdsExamples.V9
                 {
                     // You may either use a custom date range or predefined time.
 
-                    //CustomDateRangeStart = new Date
-                    //    {
-                    //        Month = DateTime.Now.Month,
-                    //        Day = DateTime.Now.Day,
-                    //        Year = DateTime.Now.Year - 1
-                    //    },
-                    //CustomDateRangeEnd = new Date
-                    //    {
-                    //    Month = DateTime.Now.Month,
-                    //    Day = DateTime.Now.Day,
-                    //    Year = DateTime.Now.Year
-                    //    },
-
                     CustomDateRangeStart = new Date
                     {
-                        Month = 12,
-                        Day = 4,
-                        Year = DateTime.Now.Year - 5
+                        Month = 1,
+                        Day = 1,
+                        Year = DateTime.Now.Year - 1
                     },
                     CustomDateRangeEnd = new Date
                     {
-                        Month = 2,
-                        Day = 5,
-                        Year = DateTime.Now.Year
+                        Month = 12,
+                        Day = 31,
+                        Year = DateTime.Now.Year - 1
                     },
 
                     //PredefinedTime = ReportTimePeriod.Yesterday
@@ -346,32 +354,19 @@ namespace BingAdsExamples.V9
                     // You may either use a custom date range or predefined time.
 
                     //CustomDateRangeStart = new Date
-                    //    {
-                    //        Month = DateTime.Now.Month,
-                    //        Day = DateTime.Now.Day,
-                    //        Year = DateTime.Now.Year - 1
-                    //    },
+                    //{
+                    //    Month = 1,
+                    //    Day = 1,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
                     //CustomDateRangeEnd = new Date
-                    //    {
-                    //    Month = DateTime.Now.Month,
-                    //    Day = DateTime.Now.Day,
-                    //    Year = DateTime.Now.Year
-                    //    },
+                    //{
+                    //    Month = 12,
+                    //    Day = 31,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
 
-                    CustomDateRangeStart = new Date
-                    {
-                        Month = 12,
-                        Day = 4,
-                        Year = DateTime.Now.Year - 5
-                    },
-                    CustomDateRangeEnd = new Date
-                    {
-                        Month = 2,
-                        Day = 5,
-                        Year = DateTime.Now.Year
-                    },
-
-                    //PredefinedTime = ReportTimePeriod.Yesterday
+                    PredefinedTime = ReportTimePeriod.Yesterday
                 },
 
                 // If you specify a filter, results may differ from data you see in the Bing Ads web application
@@ -406,6 +401,181 @@ namespace BingAdsExamples.V9
                     CampaignPerformanceReportColumn.Ctr,
                     CampaignPerformanceReportColumn.AverageCpc,
                     CampaignPerformanceReportColumn.Spend,
+                    CampaignPerformanceReportColumn.LowQualityClicks,
+                    CampaignPerformanceReportColumn.LowQualityConversionRate
+                },
+
+            };
+
+            return report;
+        }
+
+
+        private ReportRequest GetAdGroupPerformanceReportRequest(long accountId)
+        {
+            var report = new AdGroupPerformanceReportRequest
+            {
+                Format = ReportFileFormat,
+                Language = ReportLanguage.English,
+                ReportName = "My Ad Group Performance Report",
+                ReturnOnlyCompleteData = false,
+                Aggregation = ReportAggregation.Daily,
+
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    Campaigns = null,
+                    AdGroups = null
+                },
+
+               // Alternatively you can request data for a subset of campaigns or ad groups.
+               //Scope = new AccountThroughAdGroupReportScope
+               //{
+               //    AccountIds = null,
+               //    Campaigns = new[] {
+               //         new AdGroupReportScope
+               //         {
+               //             AccountId = accountId,
+               //             CampaignId = <YourCampaignIdGoesHere>,
+               //             AdGroupId = <YourAdGroupIdGoesHere>
+               //         }
+               //    }
+               //},
+
+               Time = new ReportTime
+                {
+                    // You may either use a custom date range or predefined time.
+
+                    //CustomDateRangeStart = new Date
+                    //{
+                    //    Month = 1,
+                    //    Day = 1,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
+                    //CustomDateRangeEnd = new Date
+                    //{
+                    //    Month = 12,
+                    //    Day = 31,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
+
+                    PredefinedTime = ReportTimePeriod.Yesterday
+                },
+
+                // If you specify a filter, results may differ from data you see in the Bing Ads web application
+                //Filter = new AdGroupPerformanceReportFilter
+                //{
+                //    DeviceType = DeviceTypeReportFilter.Computer |
+                //                 DeviceTypeReportFilter.SmartPhone
+                //},
+
+                // Specify the attribute and data report columns. 
+                Columns = new[]
+                {
+                    AdGroupPerformanceReportColumn.TimePeriod,
+                    AdGroupPerformanceReportColumn.AccountId,
+                    AdGroupPerformanceReportColumn.CampaignId,
+                    AdGroupPerformanceReportColumn.DeviceType,
+                    AdGroupPerformanceReportColumn.BidMatchType,
+                    AdGroupPerformanceReportColumn.QualityScore,
+                    AdGroupPerformanceReportColumn.ExtendedCost,
+                    AdGroupPerformanceReportColumn.LandingPageRelevance,
+                    AdGroupPerformanceReportColumn.LandingPageUserExperience,
+                    AdGroupPerformanceReportColumn.Revenue,
+                    AdGroupPerformanceReportColumn.Assists,
+                    AdGroupPerformanceReportColumn.KeywordRelevance,
+                    AdGroupPerformanceReportColumn.DeliveredMatchType,
+                    AdGroupPerformanceReportColumn.AveragePosition,
+                    AdGroupPerformanceReportColumn.Conversions,
+                    AdGroupPerformanceReportColumn.AdDistribution,
+                    AdGroupPerformanceReportColumn.Network,
+                    AdGroupPerformanceReportColumn.Clicks,
+                    AdGroupPerformanceReportColumn.Impressions,
+                    AdGroupPerformanceReportColumn.Ctr,
+                    AdGroupPerformanceReportColumn.AverageCpc,
+                    AdGroupPerformanceReportColumn.Spend,
+                },
+
+            };
+
+            return report;
+        }
+
+        private ReportRequest GetAccountPerformanceReportRequest(long accountId)
+        {
+            var report = new AccountPerformanceReportRequest
+            {
+                Format = ReportFormat.Tsv,
+                Language = ReportLanguage.English,
+                ReportName = "My Account Performance Report",
+                ReturnOnlyCompleteData = false,
+                Aggregation = ReportAggregation.Weekly,
+
+                Scope = new AccountReportScope
+                {
+                    AccountIds = new[] { accountId }
+                },
+
+                Time = new ReportTime
+                {
+                    // You may either use a custom date range or predefined time.
+
+                    //CustomDateRangeStart = new Date
+                    //    {
+                    //        Month = DateTime.Now.Month,
+                    //        Day = DateTime.Now.Day,
+                    //        Year = DateTime.Now.Year - 1
+                    //    },
+                    //CustomDateRangeEnd = new Date
+                    //    {
+                    //    Month = DateTime.Now.Month,
+                    //    Day = DateTime.Now.Day,
+                    //    Year = DateTime.Now.Year
+                    //    },
+
+                    CustomDateRangeStart = new Date
+                    {
+                        Month = 1,
+                        Day = 1,
+                        Year = 2016
+                    },
+                    CustomDateRangeEnd = new Date
+                    {
+                        Month = 1,
+                        Day = 3,
+                        Year = 2016
+                    },
+
+                    //PredefinedTime = ReportTimePeriod.Yesterday
+                },
+
+                // If you specify a filter, results may differ from data you see in the Bing Ads web application
+                //Filter = new AccountPerformanceReportFilter
+                //{
+                //    DeviceType = DeviceTypeReportFilter.Computer |
+                //                 DeviceTypeReportFilter.SmartPhone
+                //},
+
+                // Specify the attribute and data report columns. 
+                Columns = new[]
+                {
+                    AccountPerformanceReportColumn.TimePeriod,
+                    AccountPerformanceReportColumn.AccountId,
+                    AccountPerformanceReportColumn.DeviceType,
+                    AccountPerformanceReportColumn.BidMatchType,
+                    AccountPerformanceReportColumn.ExtendedCost,
+                    AccountPerformanceReportColumn.Revenue,
+                    AccountPerformanceReportColumn.Assists,
+                    AccountPerformanceReportColumn.DeliveredMatchType,
+                    AccountPerformanceReportColumn.AveragePosition,
+                    AccountPerformanceReportColumn.Conversions,
+                    AccountPerformanceReportColumn.AdDistribution,
+                    AccountPerformanceReportColumn.Network,
+                    AccountPerformanceReportColumn.Clicks,
+                    AccountPerformanceReportColumn.Impressions,
+                    AccountPerformanceReportColumn.Ctr,
+                    AccountPerformanceReportColumn.AverageCpc,
+                    AccountPerformanceReportColumn.Spend,
                 },
 
             };
@@ -434,23 +604,23 @@ namespace BingAdsExamples.V9
                     // You may either use a custom date range or predefined time.
 
                     //CustomDateRangeStart = new Date
-                    //    {
-                    //        Month = DateTime.Now.Month,
-                    //        Day = DateTime.Now.Day,
-                    //        Year = DateTime.Now.Year - 1
-                    //    },
+                    //{
+                    //    Month = 1,
+                    //    Day = 1,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
                     //CustomDateRangeEnd = new Date
-                    //    {
-                    //    Month = DateTime.Now.Month,
-                    //    Day = DateTime.Now.Day,
-                    //    Year = DateTime.Now.Year
-                    //    },
+                    //{
+                    //    Month = 12,
+                    //    Day = 31,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
 
                     PredefinedTime = ReportTimePeriod.Yesterday
                 },
 
                 // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new CampaignPerformanceReportFilter
+                //Filter = new ProductDimensionPerformanceReportFilter
                 //{
                 //    DeviceType = DeviceTypeReportFilter.Computer |
                 //                 DeviceTypeReportFilter.SmartPhone
@@ -469,7 +639,6 @@ namespace BingAdsExamples.V9
                     ProductDimensionPerformanceReportColumn.AverageCpc,
                     ProductDimensionPerformanceReportColumn.Brand,
                     ProductDimensionPerformanceReportColumn.CampaignName,
-                    ProductDimensionPerformanceReportColumn.Clicks,
                     ProductDimensionPerformanceReportColumn.Condition,
                     ProductDimensionPerformanceReportColumn.Ctr,
                     ProductDimensionPerformanceReportColumn.CurrencyCode,
@@ -479,7 +648,6 @@ namespace BingAdsExamples.V9
                     ProductDimensionPerformanceReportColumn.CustomLabel3,
                     ProductDimensionPerformanceReportColumn.CustomLabel4,
                     ProductDimensionPerformanceReportColumn.DeviceType,
-                    ProductDimensionPerformanceReportColumn.Impressions,
                     ProductDimensionPerformanceReportColumn.Language,
                     ProductDimensionPerformanceReportColumn.ProductCategory1,
                     ProductDimensionPerformanceReportColumn.ProductCategory2,
@@ -523,23 +691,23 @@ namespace BingAdsExamples.V9
                     // You may either use a custom date range or predefined time.
 
                     //CustomDateRangeStart = new Date
-                    //    {
-                    //        Month = DateTime.Now.Month,
-                    //        Day = DateTime.Now.Day,
-                    //        Year = DateTime.Now.Year - 1
-                    //    },
+                    //{
+                    //    Month = 1,
+                    //    Day = 1,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
                     //CustomDateRangeEnd = new Date
-                    //    {
-                    //    Month = DateTime.Now.Month,
-                    //    Day = DateTime.Now.Day,
-                    //    Year = DateTime.Now.Year
-                    //    },
+                    //{
+                    //    Month = 12,
+                    //    Day = 31,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
 
                     PredefinedTime = ReportTimePeriod.Yesterday
                 },
 
                 // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new CampaignPerformanceReportFilter
+                //Filter = new ProductPartitionPerformanceReportFilter
                 //{
                 //    DeviceType = DeviceTypeReportFilter.Computer |
                 //                 DeviceTypeReportFilter.SmartPhone
@@ -562,6 +730,130 @@ namespace BingAdsExamples.V9
                     ProductPartitionPerformanceReportColumn.Spend,
                 },
             };
+        }
+
+        private ReportRequest GetAudiencePerformanceReportRequest(long accountId)
+        {
+            return new AudiencePerformanceReportRequest
+            {
+                Format = ReportFileFormat,
+                ReportName = "My Audience Performance Report",
+                ReturnOnlyCompleteData = false,
+                Aggregation = ReportAggregation.Daily,
+
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    AdGroups = null,
+                    Campaigns = null
+                },
+
+                Time = new ReportTime
+                {
+                    // You may either use a custom date range or predefined time.
+
+                    //CustomDateRangeStart = new Date
+                    //{
+                    //    Month = 1,
+                    //    Day = 1,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
+                    //CustomDateRangeEnd = new Date
+                    //{
+                    //    Month = 12,
+                    //    Day = 31,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
+
+                    PredefinedTime = ReportTimePeriod.Yesterday
+                },
+
+                // Specify the attribute and data report columns. 
+                Columns = new[]
+                {
+                    AudiencePerformanceReportColumn.TimePeriod,
+                    AudiencePerformanceReportColumn.AccountId,
+                    AudiencePerformanceReportColumn.CampaignId,
+                    AudiencePerformanceReportColumn.AudienceId,
+                    AudiencePerformanceReportColumn.AudienceName,
+                    AudiencePerformanceReportColumn.BidAdjustment,
+                    AudiencePerformanceReportColumn.TargetingSetting,
+                    AudiencePerformanceReportColumn.Clicks,
+                    AudiencePerformanceReportColumn.Impressions,
+                    AudiencePerformanceReportColumn.Ctr,
+                    AudiencePerformanceReportColumn.AverageCpc,
+                    AudiencePerformanceReportColumn.Spend,
+                },
+            };
+        }
+
+
+        private ReportRequest GetSearchCampaignChangeHistoryReportRequest(long accountId)
+        {
+            var report = new SearchCampaignChangeHistoryReportRequest
+            {
+                Format = ReportFileFormat,
+                Language = ReportLanguage.English,
+                ReportName = "My Change History Performance Report",
+                ReturnOnlyCompleteData = false,
+
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    AdGroups = null,
+                    Campaigns = null
+                },
+
+                Time = new ReportTime
+                {
+                    // You may either use a custom date range or predefined time.
+
+                    //CustomDateRangeStart = new Date
+                    //{
+                    //    Month = 1,
+                    //    Day = 1,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
+                    //CustomDateRangeEnd = new Date
+                    //{
+                    //    Month = 12,
+                    //    Day = 31,
+                    //    Year = DateTime.Now.Year - 1
+                    //},
+
+                    PredefinedTime = ReportTimePeriod.LastThreeMonths
+                },
+
+                // If you specify a filter, results may differ from data you see in the Bing Ads web application
+                //Filter = new SearchCampaignChangeHistoryReportFilter
+                //{
+                //    AdDistribution = AdDistributionReportFilter.Search | 
+                //                     AdDistributionReportFilter.Native
+                //},
+
+                // Specify the attribute and data report columns. 
+                Columns = new[]
+                {
+                    SearchCampaignChangeHistoryReportColumn.DateTime,
+                    SearchCampaignChangeHistoryReportColumn.AccountId,
+                    SearchCampaignChangeHistoryReportColumn.AdGroupId,
+                    SearchCampaignChangeHistoryReportColumn.AdGroupName,
+                    SearchCampaignChangeHistoryReportColumn.AdTitle,
+                    SearchCampaignChangeHistoryReportColumn.AttributeChanged,
+                    SearchCampaignChangeHistoryReportColumn.CampaignId,
+                    SearchCampaignChangeHistoryReportColumn.CampaignName,
+                    SearchCampaignChangeHistoryReportColumn.ChangedBy,
+                    SearchCampaignChangeHistoryReportColumn.DisplayUrl,
+                    SearchCampaignChangeHistoryReportColumn.HowChanged,
+                    SearchCampaignChangeHistoryReportColumn.ItemChanged,
+                    SearchCampaignChangeHistoryReportColumn.Keyword,
+                    SearchCampaignChangeHistoryReportColumn.NewValue,
+                    SearchCampaignChangeHistoryReportColumn.OldValue,
+                },
+                
+            };
+
+            return report;
         }
 
     }

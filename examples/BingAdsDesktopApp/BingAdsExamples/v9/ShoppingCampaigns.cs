@@ -72,11 +72,7 @@ namespace BingAdsExamples.V9
 
                 var campaignIds = await AddCampaignsAsync(authorizationData.AccountId, new[] { campaign });
                 OutputCampaignIdentifiers(campaignIds);
-
-                var allCampaigns = await GetCampaignsByAccountIdAsync(
-                    authorizationData.AccountId,
-                    CampaignType.SearchAndContent | CampaignType.Shopping);
-
+                
                 /* Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
                  * Use the product scope criterion to include a subset of your product catalog, for example a specific brand, 
                  * category, or product type. A campaign can only be associated with one ProductScope, which contains a list 
@@ -111,7 +107,7 @@ namespace BingAdsExamples.V9
 
                 #region ManageAdGroup
 
-                // Specify one or more ad groups.
+                // Create the ad group that will have the product partitions.
 
                 var adGroup = new AdGroup
                 {
@@ -120,7 +116,12 @@ namespace BingAdsExamples.V9
                     BiddingModel = BiddingModel.Keyword,
                     PricingModel = PricingModel.Cpc,
                     StartDate = null,
-                    EndDate = new Date { Month = 12, Day = 31, Year = 2016 },
+                    EndDate = new Microsoft.BingAds.CampaignManagement.Date
+                    {
+                        Month = 12,
+                        Day = 31,
+                        Year = DateTime.UtcNow.Year + 1
+                    },
                     Language = "English"
                 };
 
@@ -452,7 +453,7 @@ namespace BingAdsExamples.V9
                  * Bing Ads web application or another tool.
                  */
 
-                DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignIds[0] });
+                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignIds[0] });
                 OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignIds[0]));
 
                 #endregion CleanUp
@@ -507,24 +508,9 @@ namespace BingAdsExamples.V9
             return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request)).CampaignIds;
         }
 
-        // Gets campaigns of the specified type for the account.
-
-        private async Task<IList<Campaign>> GetCampaignsByAccountIdAsync(
-            long accountId,
-            CampaignType campaignType)
-        {
-            var request = new GetCampaignsByAccountIdRequest
-            {
-                AccountId = accountId,
-                CampaignType = campaignType
-            };
-
-            return (await Service.CallAsync((s, r) => s.GetCampaignsByAccountIdAsync(r), request)).Campaigns;
-        }
-
         // Deletes one or more campaigns from the specified account.
 
-        private void DeleteCampaignsAsync(
+        private async Task DeleteCampaignsAsync(
             long accountId, 
             IList<long> campaignIds)
         {
@@ -534,7 +520,7 @@ namespace BingAdsExamples.V9
                 CampaignIds = campaignIds
             };
 
-            Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
         }
 
         // Adds one or more campaign criterions.
