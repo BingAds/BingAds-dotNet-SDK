@@ -21,7 +21,7 @@ namespace BingAdsExamplesLibrary.V9
         /// It is important to note that the recipient can accept the invitation 
         /// and sign into Bing Ads with a Microsoft account different than the invitation email address.
         /// </summary>
-        const string UserInviteRecipientEmail = "eur@microsoft.com";// "<UserInviteRecipientEmailGoesHere>";
+        const string UserInviteRecipientEmail = "<UserInviteRecipientEmailGoesHere>";
         
         public override string Description
         {
