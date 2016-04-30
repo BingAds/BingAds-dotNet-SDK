@@ -1,0 +1,122 @@
+﻿using System;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
+using BingAdsWpfApp.Properties;
+using Microsoft.BingAds;
+
+namespace BingAdsWpfApp
+{
+    /// <summary>
+    /// Abstracts the details of interacting with a browser window or using a refresh token for the purpose of  
+    /// obtaining authorization for your application to manage a user's Bing Ads account. 
+    /// </summary>
+    public class OAuthHelper
+    {
+        /// <summary>
+        /// Ensures that your application has authorization to manage a Bing Ads account. 
+        /// If authorization has previously been granted, authentication is attempted with the refresh token.
+        /// If a refresh token is not available, authorization is requested in a browser window. 
+        /// </summary>
+        /// <returns>Returns an instance of OAuthDesktopMobileAuthCodeGrant when the authorization 
+        /// request task completes. </returns>
+        public static async Task<OAuthDesktopMobileAuthCodeGrant> AuthorizeDesktopMobileAuthCodeGrant()
+        {
+            var authentication = new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
+
+            // It is important to save the most recent refresh token whenever new OAuth tokens are received. 
+            // You will want to subscribe to the NewOAuthTokensReceived event handler. 
+            // When calling Bing Ads services with ServiceClient<TService>, BulkServiceManager, or ReportingServiceManager, 
+            // each instance will refresh your access token automatically if they detect the AuthenticationTokenExpired (109) error code. 
+            authentication.NewOAuthTokensReceived +=
+                    (sender, tokens) => SaveRefreshToken(tokens.NewRefreshToken);
+
+            string refreshToken;
+
+            if (GetRefreshToken(out refreshToken))
+            {
+                await AuthorizeWithRefreshTokenAsync(authentication, refreshToken);
+            }
+            else
+            {
+                await AuthorizeInBrowser(authentication);
+            }
+                        
+            return authentication;
+        }
+
+        private static bool GetRefreshToken(out string refreshToken)
+        {
+            var protectedToken = Settings.Default["RefreshToken"].ToString();
+
+            if (string.IsNullOrEmpty(protectedToken))
+            {
+                refreshToken = null;
+                return false;
+            }
+
+            try
+            {
+                refreshToken = protectedToken.Unprotect();
+                return true;
+            }
+            catch (CryptographicException)
+            {
+                refreshToken = null;
+                return false;
+            }
+            catch (FormatException)
+            {
+                refreshToken = null;
+                return false;
+            }
+        }
+
+        private static Task<OAuthTokens> AuthorizeWithRefreshTokenAsync(OAuthDesktopMobileAuthCodeGrant auth, string refreshToken)
+        {
+            return auth.RequestAccessAndRefreshTokensAsync(refreshToken);
+        }
+
+        private static void SaveRefreshToken(string newRefreshToken)
+        {
+            Settings.Default["RefreshToken"] = newRefreshToken.Protect();
+            Settings.Default.Save();
+        }
+
+        private static async Task AuthorizeInBrowser(OAuthDesktopMobileAuthCodeGrant auth)
+        {
+            var browserWindow = new BrowserWindow(auth.GetAuthorizationEndpoint(), auth.RedirectionUri.AbsolutePath);
+
+            browserWindow.Show();
+
+            var redirectUri = await browserWindow.GetRedirectUri();
+
+            await auth.RequestAccessAndRefreshTokensAsync(redirectUri);
+        }
+
+        /// <summary>
+        /// Ensures that your application has authorization to manage a Bing Ads account. 
+        /// Requests authorization in a browser window.
+        /// </summary>
+        /// <returns>Returns an instance of OAuthDesktopMobileImplicitGrant when the authorization 
+        /// request task completes. </returns>
+        public static async Task<OAuthDesktopMobileImplicitGrant> AuthorizeDesktopMobileImplicitGrant()
+        {
+            var auth = new OAuthDesktopMobileImplicitGrant(Settings.Default["ClientId"].ToString());
+
+            await AuthorizeImplicitlyInBrowser(auth);
+
+            return auth;
+        }
+
+        private static async Task AuthorizeImplicitlyInBrowser(OAuthDesktopMobileImplicitGrant auth)
+        {
+            var browserWindow = new BrowserWindow(auth.GetAuthorizationEndpoint(), auth.RedirectionUri.AbsolutePath);
+
+            browserWindow.Show();
+
+            var redirectUri = await browserWindow.GetRedirectUri();
+
+            auth.ExtractAccessTokenFromUri(redirectUri);
+        }
+    }
+}
