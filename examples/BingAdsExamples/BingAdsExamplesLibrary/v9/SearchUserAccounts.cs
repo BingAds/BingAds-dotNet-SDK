@@ -36,13 +36,10 @@ namespace BingAdsExamplesLibrary.V9
 
                 // Optionally if you are enabled for Final Urls, you can update each account with a tracking template.
                 var accountFCM = new List<KeyValuePair<string, string>>();
-                //accountFCM.Add(new KeyValuePair<string, string>(
-                //    "TrackingUrlTemplate",
-                //    "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
                 accountFCM.Add(new KeyValuePair<string, string>(
-                    "AutoTag",
-                    "0"));
-
+                    "TrackingUrlTemplate",
+                    "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
+                
                 OutputStatusMessage("The user can access the following Bing Ads accounts: \n");
                 foreach (var account in accounts)
                 {
@@ -56,7 +53,7 @@ namespace BingAdsExamplesLibrary.V9
                     
                     // Optionally if you are enabled for Final Urls, you can update each account with a tracking template.
                     // The pilot flag value for Final Urls is 194.
-                    if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 194) == 0)
+                    if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 194) > 0)
                     {
                         account.ForwardCompatibilityMap = accountFCM;
                         await UpdateAccountAsync(account);
