@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Net.Http;
 using BingAdsWpfApp.Properties;
 using Microsoft.BingAds;
 
@@ -12,6 +13,8 @@ namespace BingAdsWpfApp
     /// </summary>
     public class OAuthHelper
     {
+        private static string ClientState = "ClientStateGoesHere";
+
         /// <summary>
         /// Ensures that your application has authorization to manage a Bing Ads account. 
         /// If authorization has previously been granted, authentication is attempted with the refresh token.
@@ -21,27 +24,31 @@ namespace BingAdsWpfApp
         /// request task completes. </returns>
         public static async Task<OAuthDesktopMobileAuthCodeGrant> AuthorizeDesktopMobileAuthCodeGrant()
         {
-            var authentication = new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
+            var oAuthDesktopMobileAuthCodeGrant = new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
+
+            // It is recommended that you specify a non guessable 'state' request parameter to help prevent
+            // cross site request forgery (CSRF). 
+            oAuthDesktopMobileAuthCodeGrant.State = ClientState;
 
             // It is important to save the most recent refresh token whenever new OAuth tokens are received. 
             // You will want to subscribe to the NewOAuthTokensReceived event handler. 
             // When calling Bing Ads services with ServiceClient<TService>, BulkServiceManager, or ReportingServiceManager, 
             // each instance will refresh your access token automatically if they detect the AuthenticationTokenExpired (109) error code. 
-            authentication.NewOAuthTokensReceived +=
+            oAuthDesktopMobileAuthCodeGrant.NewOAuthTokensReceived +=
                     (sender, tokens) => SaveRefreshToken(tokens.NewRefreshToken);
 
             string refreshToken;
 
             if (GetRefreshToken(out refreshToken))
             {
-                await AuthorizeWithRefreshTokenAsync(authentication, refreshToken);
+                await AuthorizeWithRefreshTokenAsync(oAuthDesktopMobileAuthCodeGrant, refreshToken);
             }
             else
             {
-                await AuthorizeInBrowser(authentication);
+                await AuthorizeInBrowser(oAuthDesktopMobileAuthCodeGrant);
             }
                         
-            return authentication;
+            return oAuthDesktopMobileAuthCodeGrant;
         }
 
         private static bool GetRefreshToken(out string refreshToken)
@@ -82,15 +89,19 @@ namespace BingAdsWpfApp
             Settings.Default.Save();
         }
 
-        private static async Task AuthorizeInBrowser(OAuthDesktopMobileAuthCodeGrant auth)
+        private static async Task AuthorizeInBrowser(OAuthDesktopMobileAuthCodeGrant authentication)
         {
-            var browserWindow = new BrowserWindow(auth.GetAuthorizationEndpoint(), auth.RedirectionUri.AbsolutePath);
+            var browserWindow = new BrowserWindow(authentication.GetAuthorizationEndpoint(), authentication.RedirectionUri.AbsolutePath);
 
             browserWindow.Show();
 
             var redirectUri = await browserWindow.GetRedirectUri();
+            
+            if (authentication.State != ClientState)
+                throw new HttpRequestException("The OAuth response state does not match the client request state.");
 
-            await auth.RequestAccessAndRefreshTokensAsync(redirectUri);
+            await authentication.RequestAccessAndRefreshTokensAsync(redirectUri);
+
         }
 
         /// <summary>
@@ -108,15 +119,19 @@ namespace BingAdsWpfApp
             return auth;
         }
 
-        private static async Task AuthorizeImplicitlyInBrowser(OAuthDesktopMobileImplicitGrant auth)
+        private static async Task AuthorizeImplicitlyInBrowser(OAuthDesktopMobileImplicitGrant authentication)
         {
-            var browserWindow = new BrowserWindow(auth.GetAuthorizationEndpoint(), auth.RedirectionUri.AbsolutePath);
+            var browserWindow = new BrowserWindow(authentication.GetAuthorizationEndpoint(), authentication.RedirectionUri.AbsolutePath);
 
             browserWindow.Show();
 
             var redirectUri = await browserWindow.GetRedirectUri();
+            
+            authentication.ExtractAccessTokenFromUri(redirectUri);
 
-            auth.ExtractAccessTokenFromUri(redirectUri);
+            if (authentication.State != ClientState)
+                throw new HttpRequestException("The OAuth response state does not match the client request state.");
+
         }
     }
 }
