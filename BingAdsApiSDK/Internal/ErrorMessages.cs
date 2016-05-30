@@ -59,6 +59,10 @@ namespace Microsoft.BingAds.Internal
 
         public const string UriDoesntContainExpiresIn = "Uri passed doesn't contain expires_in param. Please make sure the has an expires_in param in it";
 
+        public const string UriDoesntContainState = "Uri passed doesn't contain state param while authentication requires a state verification. Please make sure the uri has a state in it, for example http://myurl.com?code=123&state=MyState";
+
+        public const string UriDoesntMatchState = "The state passed in Uri does not match the state value specified in authentication";
+
         public const string UserDataAuthenticationIsNull = "UserData object has the Authentication property set to null. Please make sure it's not null before calling this method";
         public const string UserDataDeveloperTokenIsNull = "UserData object has the DeveloperToken property set to null. Please make sure it's not null before calling this method";
         

@@ -73,6 +73,11 @@ namespace Microsoft.BingAds.Internal
         private readonly IOAuthService _oauthService;
 
         /// <summary>
+        /// An opaque value used by the client to maintain state between the request and callback. 
+        /// </summary>
+        public string State { get; set; }
+
+        /// <summary>
         /// Reserved for internal use.
         /// </summary>
         protected string OptionalClientSecret
@@ -130,6 +135,42 @@ namespace Microsoft.BingAds.Internal
         }
 
         /// <summary>
+        /// Initializes a new instance of the OAuthWebAuthCodeGrant class.
+        /// </summary>
+        /// <param name="clientId">
+        /// The client identifier corresponding to your registered application. 
+        /// </param>
+        /// <param name="optionalClientSecret">
+        /// The client secret corresponding to your registered application, or null if your app is a desktop or mobile app.
+        /// </param>
+        /// <param name="redirectionUri">
+        /// The URI to which the user of the app will be redirected after receiving user consent.
+        /// </param>
+        /// <param name="oauthTokens">
+        /// Contains information about OAuth access tokens received from the Microsoft Account authorization service.
+        /// </param>
+        /// <remarks>
+        /// <para>
+        /// For more information about using a client identifier for authentication, see 
+        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// </para>
+        /// <para>
+        /// For web applications, redirectionUri must be within the same domain of your registered application.  
+        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
+        /// </para>
+        /// </remarks>
+        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, OAuthTokens oauthTokens)
+            : this(clientId, optionalClientSecret, redirectionUri, new LiveComOAuthService())
+        {
+            if (oauthTokens == null || oauthTokens.RefreshToken == null)
+            {
+                throw new ArgumentNullException("oAuthTokens");
+            }
+
+            OAuthTokens = new OAuthTokens(null, 0, oauthTokens.RefreshToken);
+        }
+
+        /// <summary>
         /// Initializes a new instance of the OAuthWithAuthorizationCode class.
         /// </summary>
         /// <param name="clientId">
@@ -179,7 +220,8 @@ namespace Microsoft.BingAds.Internal
             {
                 ClientId = ClientId,
                 ResponseType = "code",
-                RedirectUri = RedirectionUri
+                RedirectUri = RedirectionUri,
+                State = State
             });
         }
 

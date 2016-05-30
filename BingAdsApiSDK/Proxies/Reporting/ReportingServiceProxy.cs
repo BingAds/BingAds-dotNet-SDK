@@ -358,7 +358,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a campaign performance report request. Use this report to view high-level performance statistics and quality attributes for each campaign or account. This is also a quick way to flag any major campaign or account problems. You can request impressions, impression share (%), clicks, spend, and average cost per click for each campaign or account. Once downloaded, this data can be sorted by campaign, campaign status, and quality score.
+    /// Defines a campaign performance report request. Use this report to view high-level performance statistics and quality attributes for each campaign or account. This is also a quick way to flag any major campaign or account problems.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671804(v=msads.90).aspx">CampaignPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671804(v=msads.90).aspx for details.
@@ -483,7 +483,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines an ad dynamic text performance report request. Use this report to identify which dynamic text strings are performing well and which strings you should consider changing. You can request impressions, clicks, spend, and average cost per click of your dynamic text strings. Once downloaded, this data can be sorted by ad title, destination URL, param 1, param 2, and param 3.
+    /// Defines an ad dynamic text performance report request. Use this report to identify which dynamic text strings are performing well and which strings you should consider changing.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671950(v=msads.90).aspx">AdDynamicTextPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671950(v=msads.90).aspx for details.
@@ -608,7 +608,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines an ad group performance report request. Use this report to more broadly compare delivery performance statistics by ad group, campaign, or account attributes rather than at the keyword level. You can request impressions, impression share (%), clicks, spend, and average cost per click of your ad groups. Once downloaded, this data can be sorted by ad group, ad group status, language, and network.
+    /// Defines an ad group performance report request. Use this report to more broadly compare delivery performance statistics by ad group, campaign, or account attributes rather than at the keyword level.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671686(v=msads.90).aspx">AdGroupPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671686(v=msads.90).aspx for details.
@@ -733,7 +733,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines an ad performance report request. Use this report to help you determine which ads lead to clicks and conversions, and which are not performing. Having underperforming ads in your account can pull down the quality of your campaigns. You can request impressions, clicks, spend, and average cost per click for each ad. Once downloaded, this data can be sorted by ad ID, ad status, ad title, display URL, and destination URL.
+    /// Defines an ad performance report request. Use this report to help you determine which ads lead to clicks and conversions, and which are not performing. Having underperforming ads in your account can pull down the quality of your campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672006(v=msads.90).aspx">AdPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb672006(v=msads.90).aspx for details.
@@ -968,7 +968,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a keyword performance report request. Use this report to find out which keywords are performing well and those that are not. You can request impressions, clicks, spend, and average cost per click for your landing pages. Once downloaded, this data can be sorted by keyword, account, campaign, and ad group.
+    /// Defines a keyword performance report request. Use this report to find out which keywords are performing well and those that are not.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671816(v=msads.90).aspx">KeywordPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671816(v=msads.90).aspx for details.
@@ -1139,7 +1139,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a destination URL performance report request. Use this report to identify landing pages that met audience expectations and potentially resulted in high click-through or conversion rates. You can request impressions, clicks, spend, and average cost per click for your landing pages. Once downloaded, this data can be sorted by destination URL, account, campaign, and ad group.
+    /// Defines a destination URL performance report request. Use this report to identify landing pages that met audience expectations and potentially resulted in high click-through or conversion rates.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671480(v=msads.90).aspx">DestinationUrlPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671480(v=msads.90).aspx for details.
@@ -1264,7 +1264,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a budget summary report request. Use this report to discover how your campaign's budget is performing for the month. For example, the report shows your monthly budget, how much you have spent to date, and whether you are on target to spend your monthly budget. You can request your monthly budget, how much you have spent to date, and whether you are on target to spend your monthly budget.
+    /// Defines a budget summary report request. Use this report to discover how your campaign's budget is performing for the month. For example, the report shows your monthly budget, how much you have spent to date, and whether you are on target to spend your monthly budget.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672028(v=msads.90).aspx">BudgetSummaryReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb672028(v=msads.90).aspx for details.
@@ -1344,7 +1344,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines an age and gender demographic report request. Use this report to discover how your campaigns and ad groups are resonating with audiences of diverse age and gender. You can request impression rate (%) and click-through-rate (%) for each campaign or ad group, organized by gender and age group.
+    /// Defines an age and gender demographic report request. Use this report to discover how your campaigns and ad groups are resonating with audiences of diverse age and gender.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671917(v=msads.90).aspx">AgeGenderDemographicReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671917(v=msads.90).aspx for details.
@@ -1579,7 +1579,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a publisher usage performance report request. Use this report to see if any website URLs aren't performing well enough for your campaign or ad group target settings. For example, if ad impressions at those URLs yield a low click-through rate, then you might decide to exclude those websites from your campaign. You can request impressions, clicks, spend, and conversions for websites including the Bing Ads and syndicated search partner networks. Once downloaded, this data can be sorted by website URL, account, campaign, and ad group.
+    /// Defines a publisher usage performance report request. Use this report to see if any website URLs aren't performing well enough for your campaign or ad group target settings. For example, if ad impressions at those URLs yield a low click-through rate, then you might decide to exclude those websites from your campaign.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dd797229(v=msads.90).aspx">PublisherUsagePerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dd797229(v=msads.90).aspx for details.
@@ -1704,7 +1704,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a site performance report request. If you bid on website placements, you can use this report to identify website placements that are performing well and those that you may want to exclude from your campaign. Use this information to determine whether any website placements should be excluded from your campaign or ad group target settings. You can request impressions, clicks, spend, and average cost per click for the websites you chose when setting up your ad groups. Once downloaded, this data can be sorted by ad group, placement name, website ID, account, and campaign.
+    /// Defines a site performance report request. If you bid on website placements, you can use this report to identify website placements that are performing well and those that you may want to exclude from your campaign. Use this information to determine whether any website placements should be excluded from your campaign or ad group target settings.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dd797220(v=msads.90).aspx">SitePerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dd797220(v=msads.90).aspx for details.
@@ -1829,7 +1829,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a search query performance report request. Use this report to see what your audience is searching for when your ads are shown.
+    /// Defines a search query performance report request. Use this report to see what your audience is searching for when your ads are shown. You can use this information to make informed additions, removals, or edits to both your keyword and negative keyword lists.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/ee703962(v=msads.90).aspx">SearchQueryPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/ee703962(v=msads.90).aspx for details.
@@ -1954,7 +1954,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a conversion performance report request. Use this report to understand which campaigns and keywords are leading an audience to complete a purchase or other conversion action. You can request conversions, assists, revenue, and revenue per conversion for your campaigns. Once downloaded, this data can be sorted by account, ad group, campaign, keyword, and device type.
+    /// Defines a conversion performance report request. Use this report to understand which campaigns and keywords are leading an audience to complete a purchase or other conversion action.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/gg262843(v=msads.90).aspx">ConversionPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262843(v=msads.90).aspx for details.
@@ -2064,7 +2064,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a goals and funnels report request. Use this report to discover whether your audience completes each step through the land, browse, prospect, and conversion pages of your website. For example, you can use this report to determine the step that users leave the conversion funnel, so that you can improve or remove that step to increase the chance that the user will continue to the next step. You can request spend, revenue, assists, conversions, and conversion steps of your websites. Once downloaded, this data can be sorted by account, ad group, campaign, keyword, and goal.
+    /// Defines a goals and funnels report request. Use this report to discover whether your audience completes each step through the land, browse, prospect, and conversion pages of your website. For example, you can use this report to determine the step that users leave the conversion funnel, so that you can improve or remove that step to increase the chance that the user will continue to the next step.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/gg262840(v=msads.90).aspx">GoalsAndFunnelsReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262840(v=msads.90).aspx for details.
@@ -2174,7 +2174,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a traffic sources report request. Use this report to see which advertising publisher sources bring the most traffic to your website. You can request revenue, assists, conversions, and conversion steps of your website traffic. Once downloaded, this data can be sorted by source of your traffic, account, and goal.
+    /// Defines a traffic sources report request. Use this report to see which advertising publisher sources bring the most traffic to your website.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/gg262853(v=msads.90).aspx">TrafficSourcesReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262853(v=msads.90).aspx for details.
@@ -2284,7 +2284,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a tactic and channel report request. Use this report to understand how people interact with your website through the conversion process. You can use this report to get information about which tactic and channel are generating the most revenue and return-on-ad spend. You can request number of times that users reach the different stages of a conversion funnel, broken out by advertising tactic and channel.
+    /// Defines a tactic and channel report request. Use this report to understand how people interact with your website through the conversion process. You can use this report to get information about which tactic and channel are generating the most revenue and return-on-ad spend.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/gg262842(v=msads.90).aspx">TacticChannelReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262842(v=msads.90).aspx for details.
@@ -2394,7 +2394,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a negative keyword conflict report request. Use this report to discover which keywords and negative keywords are in conflict, and whether the conflict is at the campaign or ad group level. Use this list to figure out which negative keywords to delete. You can request negative keywords that conflict with some of your keywords, and block your ad from showing.
+    /// Defines a negative keyword conflict report request. Use this report to discover which keywords and negative keywords are in conflict, and whether the conflict is at the campaign or ad group level. Use this list to figure out which negative keywords to delete.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh560534(v=msads.90).aspx">NegativeKeywordConflictReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/hh560534(v=msads.90).aspx for details.
@@ -2407,6 +2407,9 @@ namespace Microsoft.BingAds.Reporting
     {
         
         private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.NegativeKeywordConflictReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.Reporting.NegativeKeywordConflictReportFilter FilterField;
         
         private Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope ScopeField;
         
@@ -2426,6 +2429,26 @@ namespace Microsoft.BingAds.Reporting
                 {
                     this.ColumnsField = value;
                     this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.Reporting.NegativeKeywordConflictReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
                 }
             }
         }
@@ -2452,7 +2475,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a change history report request. Use this report to discover when changes to an account were made, as well as which user made the changes. You can request a record of changes made by user and date. For example, you can request a record of changes to campaign name, location target association, and keyword bid. You can request both the old value and new value in the report.
+    /// Defines a change history report request. Use this report to discover when changes to an account were made, as well as which user made the changes.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/hh912357(v=msads.90).aspx">SearchCampaignChangeHistoryReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/hh912357(v=msads.90).aspx for details.
@@ -2555,7 +2578,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines an ad extension by ad report request. Use this report to compare how well different versions of your ad extensions are performing with each ad. You can request impressions, clicks, spend, and average cost per click by ad. Once downloaded, this data can be sorted by ad ID, ad title, ad extension type, and ad extension version.
+    /// Defines an ad extension by ad report request. Use this report to compare how well different versions of your ad extensions are performing with each ad.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj713606(v=msads.90).aspx">AdExtensionByAdReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/jj713606(v=msads.90).aspx for details.
@@ -2680,7 +2703,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines an ad extension by keyword report request. Use this report to compare how well different versions of your ad extensions are performing for each keyword. You can request impressions, clicks, spend, and average cost per click of your extensions for each keyword. Once downloaded, this data can be sorted by keyword, keyword ID, ad extension type, and ad extension version.
+    /// Defines an ad extension by keyword report request. Use this report to compare how well different versions of your ad extensions are performing for each keyword.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj713605(v=msads.90).aspx">AdExtensionByKeywordReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/jj713605(v=msads.90).aspx for details.
@@ -3002,7 +3025,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines an ad extension detail report request. Use this report to discover the effectiveness of individual ad extension items, for example, each link of a sitelink extension. You can request impressions, clicks, spend, and average cost per click of individual extension items. This data can be sorted by the individual ad extension display name, ad extension ID, and ad extension type.
+    /// Defines an ad extension detail report request. Use this report to discover the effectiveness of individual ad extension items, for example, each link of a sitelink extension.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn610364(v=msads.90).aspx">AdExtensionDetailReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn610364(v=msads.90).aspx for details.
@@ -3127,7 +3150,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a share of voice (SOV) report request. Use this report to view impression share (%) of successful bids for each keyword, and identify opportunities to increase impression share. You can request impressions, impression share (%), impression share lost to budget (%), and impression share lost to bid. Once downloaded, this data can be sorted by keyword, keyword ID, landing page user experience, and quality score.
+    /// Defines a share of voice (SOV) report request. Use this report to view impression share (%) of successful bids for each keyword, and identify opportunities to increase impression share.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj592909(v=msads.90).aspx">ShareOfVoiceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/jj592909(v=msads.90).aspx for details.
@@ -3972,7 +3995,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    /// Defines a geo location performance report request. Use this report to see which locations your traffic is coming from. You can then validate whether your location targeting strategy is successful, and identify opportunities to improve. The report also identifies either the physical location of the search user or the geographical location interest based on the user's search query. You can request impressions, clicks, spend, and average cost per click for each ad group, organized by city, country, metro area, radius, state, and account.
+    /// Defines a geo location performance report request. Use this report to see which locations your traffic is coming from. You can then validate whether your location targeting strategy is successful, and identify opportunities to improve. The report also identifies either the physical location of the search user or the geographical location interest based on the user's search query.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743772(v=msads.90).aspx">GeoLocationPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn743772(v=msads.90).aspx for details.
@@ -4576,49 +4599,49 @@ namespace Microsoft.BingAds.Reporting
     {
         
         /// <summary>
-        /// The report data will be aggregated for the entire specified report time.
+        /// The report data will be aggregated by the entire specified report time. The report will not include a time period column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Summary = 0,
         
         /// <summary>
-        /// The report data will be aggregated for each hour.
+        /// Each row of the report identifies the hour when the transaction occurred. The report data will be aggregated by each hour of the day. The report will include a column named Hour, and the possible values are 0 - 23. The report will also include a column named GregorianDate that contains the date formatted as mm/dd/yyyy. If the report time spans multiple days, then the performance data for a given hour will be provided separately across multiple rows i.e. the report will include one row for each unique day and hour. For example if Campaign A has 5 impressions during Hour 7 on each of the 3 days included in the report time range, then the report will include three rows each with 5 impressions for Hour 7.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hourly = 1,
         
         /// <summary>
-        /// The report data will be aggregated for each day.
+        /// Each row of the report identifies the month, day, and year when the transaction occurred. The report data will be aggregated by each day. Each row of the report identifies the month, day, and year when the transaction occurred. The report will include a column named GregorianDate that contains the day formatted as mm/dd/yyyy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Daily = 2,
         
         /// <summary>
-        /// The report data will be aggregated for each week.
+        /// Each row of the report identifies the week when the transaction occurred. The report data will be aggregated by each week. The report will include a column named WeekStartDate that contains the date of the Sunday for each week formatted as mm/dd/yyyy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Weekly = 3,
         
         /// <summary>
-        /// The report data will be aggregated for each month.
+        /// Each row of the report identifies the month when the transaction occurred. The report data will be aggregated by each month. The report will include a column named MonthStartDate that contains the first day of the month formatted as mm/dd/yyyy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Monthly = 4,
         
         /// <summary>
-        /// The report data will be aggregated for each year.
+        /// Each row of the report identifies the year when the transaction occurred. The report data will be aggregated by each year. The report will include a column named Year that contains the year formatted as yyyy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yearly = 5,
         
         /// <summary>
-        /// The report data will be aggregated by each of the 24 hours in a day.
+        /// Each row of the report identifies the hour of the day when the transaction occurred. The report data will be aggregated by each of the 24 hours across all days. The report will include a column named HourOfDay, and the possible values are 0 - 23. If the report time spans multiple days, then the performance data across all days for a given hour will be aggregated in one row. For example if Campaign A has 5 impressions during hour 7 on each of the 3 days included in the report time range, then the report will include one row with impressions for HourOfDay totaling 15.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HourOfDay = 6,
         
         /// <summary>
-        /// The report data will be aggregated by each of the seven days in a week.
+        /// Each row of the report identifies the day of the week when the transaction occurred. The report data will be aggregated by each of the seven days in a week. The report will include a column named DayOfWeek, and the possible values are 1 - 7 where 1 represents Sunday and 7 represents Saturday. If the report time spans multiple weeks, then the performance data across all weeks for a given day of the week will be aggregated in one row. For example if Campaign A has 5 impressions every Monday (day 2) throughout each of the 3 weeks included in the report time range, then the report will include one row with DayOfWeek set to 2 and impressions in that row totaling 15.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DayOfWeek = 7,
@@ -4966,7 +4989,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt489832(v=msads.90).aspx">AccountStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/mt489832(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeoLocationPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductOfferPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="RichAdComponentPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/>, <see cref="SitePerformanceReportFilter"/>, <see cref="TacticChannelReportFilter"/> and <see cref="TrafficSourcesReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeoLocationPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductOfferPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="RichAdComponentPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/>, <see cref="SitePerformanceReportFilter"/>, <see cref="TacticChannelReportFilter"/> and <see cref="TrafficSourcesReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -5962,7 +5985,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb672004(v=msads.90).aspx">CampaignStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb672004(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeoLocationPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductOfferPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="RichAdComponentPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/>, <see cref="SitePerformanceReportFilter"/> and <see cref="TacticChannelReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeoLocationPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductOfferPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="RichAdComponentPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/>, <see cref="SitePerformanceReportFilter"/> and <see cref="TacticChannelReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -6446,31 +6469,31 @@ namespace Microsoft.BingAds.Reporting
     {
         
         /// <summary>
-        /// The report data will be aggregated for the entire specified report time.
+        /// The report data will be aggregated by the entire specified report time. The report will not include a time period column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Summary = 0,
         
         /// <summary>
-        /// The report data will be aggregated for each day.
+        /// Each row of the report identifies the month, day, and year when the transaction occurred. The report data will be aggregated by each day. Each row of the report identifies the month, day, and year when the transaction occurred. The report will include a column named GregorianDate that contains the day formatted as mm/dd/yyyy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Daily = 1,
         
         /// <summary>
-        /// The report data is aggregated for each week.
+        /// Each row of the report identifies the week when the transaction occurred. The report data will be aggregated by each week. The report will include a column named WeekStartDate that contains the date of the Sunday for each week formatted as mm/dd/yyyy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Weekly = 2,
         
         /// <summary>
-        /// The report data will be aggregated for each month.
+        /// Each row of the report identifies the month when the transaction occurred. The report data will be aggregated by each month. The report will include a column named MonthStartDate that contains the first day of the month formatted as mm/dd/yyyy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Monthly = 3,
         
         /// <summary>
-        /// The report data is aggregated for each year.
+        /// Each row of the report identifies the year when the transaction occurred. The report data will be aggregated by each year. The report will include a column named Year that contains the year formatted as yyyy.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yearly = 4,
@@ -6689,7 +6712,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671991(v=msads.90).aspx">AdGroupStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb671991(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeoLocationPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductOfferPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="RichAdComponentPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/>, <see cref="SitePerformanceReportFilter"/> and <see cref="TacticChannelReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeoLocationPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductOfferPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="RichAdComponentPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/>, <see cref="SitePerformanceReportFilter"/> and <see cref="TacticChannelReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -6857,7 +6880,7 @@ namespace Microsoft.BingAds.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt489834(v=msads.90).aspx">KeywordStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/mt489834(v=msads.90).aspx for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="TacticChannelReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductTargetPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="TacticChannelReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -13903,6 +13926,139 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
+    /// Defines the criteria to use to filter the negative keyword conflict report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt706469(v=msads.90).aspx">NegativeKeywordConflictReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt706469(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="NegativeKeywordConflictReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NegativeKeywordConflictReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    [System.SerializableAttribute()]
+    public partial class NegativeKeywordConflictReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.AccountStatusReportFilter> AccountStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.CampaignStatusReportFilter> CampaignStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.KeywordStatusReportFilter> KeywordStatusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will only include data for accounts with the specified status. For example, you can use the filter to include data for only active accounts.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.AccountStatusReportFilter> AccountStatus
+        {
+            get
+            {
+                return this.AccountStatusField;
+            }
+            set
+            {
+                if ((this.AccountStatusField.Equals(value) != true))
+                {
+                    this.AccountStatusField = value;
+                    this.RaisePropertyChanged("AccountStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will only include data for ad groups with the specified status. For example, you can use the filter to include data for only active ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.AdGroupStatusReportFilter> AdGroupStatus
+        {
+            get
+            {
+                return this.AdGroupStatusField;
+            }
+            set
+            {
+                if ((this.AdGroupStatusField.Equals(value) != true))
+                {
+                    this.AdGroupStatusField = value;
+                    this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will only include data for campaigns with the specified status. For example, you can use the filter to include data for only active campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.CampaignStatusReportFilter> CampaignStatus
+        {
+            get
+            {
+                return this.CampaignStatusField;
+            }
+            set
+            {
+                if ((this.CampaignStatusField.Equals(value) != true))
+                {
+                    this.CampaignStatusField = value;
+                    this.RaisePropertyChanged("CampaignStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will only include data for keywords with the specified status. For example, you can use the filter to include data for only active keywords.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.KeywordStatusReportFilter> KeywordStatus
+        {
+            get
+            {
+                return this.KeywordStatusField;
+            }
+            set
+            {
+                if ((this.KeywordStatusField.Equals(value) != true))
+                {
+                    this.KeywordStatusField = value;
+                    this.RaisePropertyChanged("KeywordStatus");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the attributes columns that you can include in the NegativeKeywordConflictReportRequest.
     /// </summary>
     /// <remarks>
@@ -14009,6 +14165,18 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordMatchType = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStatus = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStatus = 17,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupStatus = 18,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KeywordStatus = 19,
     }
     
     /// <summary>

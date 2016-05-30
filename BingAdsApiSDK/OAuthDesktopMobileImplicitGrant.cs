@@ -71,7 +71,12 @@ namespace Microsoft.BingAds
     /// </para>
     /// </remarks>
     public class OAuthDesktopMobileImplicitGrant : OAuthAuthorization
-    {   
+    {
+        /// <summary>
+        /// An opaque value used by the client to maintain state between the request and callback. 
+        /// </summary>
+        public string State { get; set; }
+
         /// <summary>
         /// The URI to which your client browser will be redirected after receiving user consent.
         /// </summary>
@@ -94,7 +99,25 @@ namespace Microsoft.BingAds
             : base(clientId)
         {            
             
-        }        
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the OAuthDesktopMobileImplicitGrant class.
+        /// </summary>
+        /// <param name="clientId">
+        /// The client identifier corresponding to your registered application.
+        /// </param>
+        /// <param name="oAuthTokens">
+        /// Contains information about OAuth access tokens received from the Microsoft Account authorization service.
+        /// </param>
+        /// /// <remarks>
+        /// For more information about using a client identifier for authentication, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// </remarks>
+        public OAuthDesktopMobileImplicitGrant(string clientId, OAuthTokens oAuthTokens)
+            : base(clientId)
+        {
+            OAuthTokens = oAuthTokens;
+        }
 
         /// <summary>
         /// Gets the Microsoft Account authorization endpoint where the user should be navigated to give his or her consent.
@@ -106,7 +129,8 @@ namespace Microsoft.BingAds
             {
                 ClientId = ClientId,
                 ResponseType = "token",
-                RedirectUri = LiveComOAuthService.DesktopRedirectUri
+                RedirectUri = LiveComOAuthService.DesktopRedirectUri,
+                State = State
             });
         }
 
@@ -129,7 +153,7 @@ namespace Microsoft.BingAds
 
             if (!fragmentParts.ContainsKey("expires_in"))
             {
-                throw new InvalidOperationException(ErrorMessages.UriDoesntContainAccessToken);
+                throw new InvalidOperationException(ErrorMessages.UriDoesntContainExpiresIn);
             }
 
             return OAuthTokens = new OAuthTokens(fragmentParts["access_token"], int.Parse(fragmentParts["expires_in"]), null);            

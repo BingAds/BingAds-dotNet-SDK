@@ -319,6 +319,7 @@
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSiteLink.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSiteLinkAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\Ads\BulkProductAd.cs" />
+    <Compile Include="V10\Bulk\Entities\Ads\BulkAppInstallAd.cs" />
     <Compile Include="V10\Bulk\Entities\Ads\BulkTextAd.cs" />
     <Compile Include="V10\Bulk\Entities\BidSuggestionData.cs" />
     <Compile Include="V10\Bulk\Entities\BulkAccount.cs" />

@@ -59,6 +59,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk.Entities
     /// <typeparam name="T">The type of ad from the <see cref="Microsoft.BingAds.V10.CampaignManagement"/> namespace, for example a <see cref="TextAd"/> object.</typeparam>
     /// <seealso cref="BulkProductAd"/>
     /// <seealso cref="BulkTextAd"/>
+    /// <seealso cref="BulkAppInstallAd"/>
     public abstract class BulkAd<T> : SingleRecordBulkEntity
         where T: Ad, new()
     {
