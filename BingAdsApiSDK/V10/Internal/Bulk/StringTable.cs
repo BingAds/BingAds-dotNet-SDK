@@ -79,6 +79,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public const string TextAd = "Text Ad";
         public const string MobileAd = "Mobile Ad";
         public const string ProductAd = "Product Ad";
+        public const string AppInstallAd = "App Install Ad";
 
         public const string Title = "Title";
         public const string EditorialStatus = "Editorial Status";

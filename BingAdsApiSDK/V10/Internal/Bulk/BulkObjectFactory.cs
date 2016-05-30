@@ -74,6 +74,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                 {StringTable.AdGroup,                       new EntityInfo(() => new BulkAdGroup())},
                 {StringTable.TextAd,                        new EntityInfo(() => new BulkTextAd())},
                 {StringTable.ProductAd,                     new EntityInfo(() => new BulkProductAd())},
+                {StringTable.AppInstallAd,                  new EntityInfo(() => new BulkAppInstallAd())},
                 {StringTable.Keyword,                       new EntityInfo(() => new BulkKeyword())},                
                 {StringTable.SiteLinksAdExtension,          new EntityInfo(() => new BulkSiteLink(),                            StringTable.SiteLinkExtensionOrder, () => new SiteLinkAdExtensionIdentifier())},
                 {StringTable.CampaignSiteLinksAdExtension,  new EntityInfo(() => new BulkCampaignSiteLinkAdExtension())},

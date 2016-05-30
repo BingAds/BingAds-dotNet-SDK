@@ -125,7 +125,7 @@ namespace Microsoft.BingAds.Internal.OAuth
                 "https://login.live.com/oauth20_authorize.srf?client_id={0}&scope=bingads.manage&response_type={1}&redirect_uri={2}",
                 parameters.ClientId,
                 parameters.ResponseType,
-                parameters.RedirectUri)
+                parameters.RedirectUri) + (string.IsNullOrEmpty(parameters.State) ? "": string.Format("&state={0}", parameters.State))
             );
         }
     }

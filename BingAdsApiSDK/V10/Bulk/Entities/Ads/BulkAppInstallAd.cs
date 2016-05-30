@@ -47,18 +47,77 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
+using Microsoft.BingAds.V10.Internal.Bulk;
+using Microsoft.BingAds.V10.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities;
+using Microsoft.BingAds.V10.CampaignManagement;
 
-namespace Microsoft.BingAds.Internal.OAuth
+namespace Microsoft.BingAds.V10.Bulk.Entities
 {
-    internal class OAuthUrlParameters
+    /// <summary>
+    /// <para>
+    /// Represents an app install ad. 
+    /// This class exposes the <see cref="AppInstallAd"/> property that can be read and written as fields of the App Install Ad record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=730549">App Install Ad</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkAppInstallAd : BulkAd<AppInstallAd>
     {
-        public string ClientId { get; set; }
+        /// <summary>
+        /// <para>
+        /// The app install ad. 
+        /// </para>
+        /// </summary>
+        public AppInstallAd AppInstallAd
+        {
+            get { return Ad; }
+            set { Ad = value; }
+        }
 
-        public string ResponseType { get; set; }
+        private static readonly IBulkMapping<BulkAppInstallAd>[] Mappings =
+        {            
+            new SimpleBulkMapping<BulkAppInstallAd>(StringTable.AppPlatform,
+                c => c.AppInstallAd.AppPlatform,
+                (v, c) => c.AppInstallAd.AppPlatform = v
+            ),
 
-        public Uri RedirectUri { get; set; }
+            new SimpleBulkMapping<BulkAppInstallAd>(StringTable.AppStoreId,
+                c => c.AppInstallAd.AppStoreId,
+                (v, c) => c.AppInstallAd.AppStoreId = v
+            ),
 
-        public string State { get; set; }
+            new SimpleBulkMapping<BulkAppInstallAd>(StringTable.Title,
+                c => c.AppInstallAd.Title,
+                (v, c) => c.AppInstallAd.Title = v
+            ),
+
+            new SimpleBulkMapping<BulkAppInstallAd>(StringTable.Text,
+                c => c.AppInstallAd.Text,
+                (v, c) => c.AppInstallAd.Text = v
+            ),
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            AppInstallAd = new AppInstallAd { Type = AdType.AppInstall };
+
+            base.ProcessMappingsFromRowValues(values);
+
+            values.ConvertToEntity(this, Mappings);
+        }
+
+
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            ValidatePropertyNotNull(AppInstallAd, "AppInstallAd");
+
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+
+            this.ConvertToValues(values, Mappings);
+        }
     }
 }
