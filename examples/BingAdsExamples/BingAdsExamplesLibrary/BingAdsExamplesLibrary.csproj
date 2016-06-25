@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BingAds, Version=10.4.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.BingAds.SDK.10.4.4\lib\net45\Microsoft.BingAds.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -66,27 +62,12 @@
     <Compile Include="v10\NegativeKeywords.cs" />
     <Compile Include="v10\ShoppingCampaigns.cs" />
     <Compile Include="v10\Targets.cs" />
-    <Compile Include="v9\AdExtensions.cs" />
-    <Compile Include="v9\BulkAdExtensions.cs" />
-    <Compile Include="v9\BulkExampleBase.cs" />
-    <Compile Include="v9\BulkKeywordsAds.cs" />
-    <Compile Include="v9\BulkShoppingCampaigns.cs" />
-    <Compile Include="v9\BulkTargets.cs" />
     <Compile Include="v9\CustomerSignup.cs" />
-    <Compile Include="v9\EstimatedBid.cs" />
     <Compile Include="v9\ExampleBase.cs" />
     <Compile Include="v9\InviteUser.cs" />
-    <Compile Include="v9\KeywordsAds.cs" />
     <Compile Include="v9\ManageClient.cs" />
-    <Compile Include="v9\NegativeKeywords.cs" />
-    <Compile Include="v9\OptimizeBudget.cs" />
     <Compile Include="v9\ReportRequests.cs" />
     <Compile Include="v9\SearchUserAccounts.cs" />
-    <Compile Include="v9\ShoppingCampaigns.cs" />
-    <Compile Include="v9\Targets.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

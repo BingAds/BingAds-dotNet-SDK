@@ -34,24 +34,12 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V10.BulkTargets(),
             new BingAdsExamplesLibrary.V10.Targets(),
             new BingAdsExamplesLibrary.V10.BulkNegativeSites(),
-            new BingAdsExamplesLibrary.GeographicalLocations(),
             new BingAdsExamplesLibrary.V9.SearchUserAccounts(),
             new BingAdsExamplesLibrary.V9.InviteUser(),
             new BingAdsExamplesLibrary.V9.CustomerSignup(),
             new BingAdsExamplesLibrary.V9.ManageClient(),
             new BingAdsExamplesLibrary.V9.ReportRequests(),
-            new BingAdsExamplesLibrary.V9.BulkAdExtensions(),
-            new BingAdsExamplesLibrary.V9.AdExtensions(),
-            new BingAdsExamplesLibrary.V9.BulkShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V9.ShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V9.BulkTargets(),
-            new BingAdsExamplesLibrary.V9.Targets(),
-            new BingAdsExamplesLibrary.V9.BulkKeywordsAds(),
-            new BingAdsExamplesLibrary.V9.KeywordsAds(),
-            new BingAdsExamplesLibrary.V9.NegativeKeywords(),
-            new BingAdsExamplesLibrary.V9.EstimatedBid(),
-            new BingAdsExamplesLibrary.V9.OptimizeBudget(),
-
+            new BingAdsExamplesLibrary.GeographicalLocations(),
         };
 
         private static long?[,] _accountCustomerIds;
