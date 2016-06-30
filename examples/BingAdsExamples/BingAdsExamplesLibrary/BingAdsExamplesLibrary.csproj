@@ -60,6 +60,7 @@
     <Compile Include="v10\ExampleBase.cs" />
     <Compile Include="v10\KeywordsAds.cs" />
     <Compile Include="v10\NegativeKeywords.cs" />
+    <Compile Include="v10\RemarketingLists.cs" />
     <Compile Include="v10\ShoppingCampaigns.cs" />
     <Compile Include="v10\Targets.cs" />
     <Compile Include="v9\CustomerSignup.cs" />
