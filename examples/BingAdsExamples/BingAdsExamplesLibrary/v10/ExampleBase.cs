@@ -1727,6 +1727,47 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Name: {0}", negativeKeywordList.Name));
             }
         }
+        
+        /// <summary>
+        /// Outputs the RemarketingList.
+        /// </summary>
+        protected void OutputRemarketingList(RemarketingList remarketingList)
+        {
+            if (remarketingList != null)
+            {
+                OutputStatusMessage(string.Format("Description: {0}", remarketingList.Description));
+                OutputStatusMessage("ForwardCompatibilityMap: ");
+                if (remarketingList.ForwardCompatibilityMap != null)
+                {
+                    foreach (var pair in remarketingList.ForwardCompatibilityMap)
+                    {
+                        OutputStatusMessage(string.Format("\tKey: {0}", pair.Key));
+                        OutputStatusMessage(string.Format("\tValue: {0}", pair.Value));
+                    }
+                }
+                OutputStatusMessage(string.Format("Id: {0}", remarketingList.Id));
+                OutputStatusMessage(string.Format("MembershipDuration: {0}", remarketingList.MembershipDuration));
+                OutputStatusMessage(string.Format("Name: {0}", remarketingList.Name));
+                OutputStatusMessage(string.Format("ParentId: {0}", remarketingList.ParentId));
+                OutputStatusMessage(string.Format("Scope: {0}", remarketingList.Scope));
+                OutputStatusMessage(string.Format("TagId: {0}\n", remarketingList.TagId));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the AdGroupRemarketingListAssociation.
+        /// </summary>
+        protected void OutputAdGroupRemarketingListAssociation(AdGroupRemarketingListAssociation adGroupRemarketingListAssociation)
+        {
+            if (adGroupRemarketingListAssociation != null)
+            {
+                OutputStatusMessage(string.Format("AdGroupId: {0}", adGroupRemarketingListAssociation.AdGroupId));
+                OutputStatusMessage(string.Format("BidAdjustment: {0}", adGroupRemarketingListAssociation.BidAdjustment));
+                OutputStatusMessage(string.Format("Id: {0}", adGroupRemarketingListAssociation.Id));
+                OutputStatusMessage(string.Format("RemarketingListId: {0}", adGroupRemarketingListAssociation.RemarketingListId));
+                OutputStatusMessage(string.Format("Status: {0}\n", adGroupRemarketingListAssociation.Status));
+            }
+        }
 
         /// <summary>
         /// Gets a list of example negative websites. 
