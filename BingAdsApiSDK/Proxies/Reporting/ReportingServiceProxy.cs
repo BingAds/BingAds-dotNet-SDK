@@ -2496,9 +2496,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.SearchCampaignChangeHistoryReportColumn> Columns
         {
@@ -2516,9 +2513,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.SearchCampaignChangeHistoryReportFilter Filter
         {
@@ -2536,9 +2530,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2556,9 +2547,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select one of the following predefined date ranges: LastSevenDays LastMonth LastThreeMonths
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -8683,6 +8671,9 @@ namespace Microsoft.BingAds.Reporting
         private System.Nullable<Microsoft.BingAds.Reporting.BidMatchTypeReportFilter> BidMatchTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.BidStrategyTypeReportFilter> BidStrategyTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.Reporting.CampaignStatusReportFilter> CampaignStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -8820,6 +8811,26 @@ namespace Microsoft.BingAds.Reporting
                 {
                     this.BidMatchTypeField = value;
                     this.RaisePropertyChanged("BidMatchType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified bid strategy type or types. For example, you can use the filter to include data only for keywords that were bid on using the enhanced bid strategy type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.BidStrategyTypeReportFilter> BidStrategyType
+        {
+            get
+            {
+                return this.BidStrategyTypeField;
+            }
+            set
+            {
+                if ((this.BidStrategyTypeField.Equals(value) != true))
+                {
+                    this.BidStrategyTypeField = value;
+                    this.RaisePropertyChanged("BidStrategyType");
                 }
             }
         }
@@ -9455,6 +9466,12 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalAppURL = 67,
+        
+        /// <summary>
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidStrategyType = 68,
     }
     
     /// <summary>
@@ -9578,6 +9595,32 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Content = 8,
+    }
+    
+    /// <summary>
+    /// Defines the possible values that you can use to use to filter the report data by bid strategy type.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt711485(v=msads.90).aspx">BidStrategyTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/mt711485(v=msads.90).aspx for details.
+    /// <para>Used by <see cref="KeywordPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="SitePerformanceReportFilter"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BidStrategyTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v9")]
+    public enum BidStrategyTypeReportFilter : int
+    {
+        
+        /// <summary>
+        /// The report will contain data related to keywords, ad groups, or campaigns that use the manual CPC bid strategy.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ManualCpc = 1,
+        
+        /// <summary>
+        /// The report will contain data related to keywords, ad groups, or campaigns that use the enhanced CPC bid strategy.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnhancedCpc = 16,
     }
     
     /// <summary>
@@ -11392,6 +11435,9 @@ namespace Microsoft.BingAds.Reporting
         private System.Nullable<Microsoft.BingAds.Reporting.AdTypeReportFilter> AdTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.BidStrategyTypeReportFilter> BidStrategyTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.Reporting.CampaignStatusReportFilter> CampaignStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -11514,6 +11560,26 @@ namespace Microsoft.BingAds.Reporting
                 {
                     this.AdTypeField = value;
                     this.RaisePropertyChanged("AdType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified bid strategy type or types. For example, you can use the filter to include data only for keywords that were bid on using the enhanced bid strategy type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.BidStrategyTypeReportFilter> BidStrategyType
+        {
+            get
+            {
+                return this.BidStrategyTypeField;
+            }
+            set
+            {
+                if ((this.BidStrategyTypeField.Equals(value) != true))
+                {
+                    this.BidStrategyTypeField = value;
+                    this.RaisePropertyChanged("BidStrategyType");
                 }
             }
         }
@@ -11875,6 +11941,12 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 38,
+        
+        /// <summary>
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidStrategyType = 39,
     }
     
     /// <summary>
@@ -15654,7 +15726,7 @@ namespace Microsoft.BingAds.Reporting
         AssociationStatus = 10,
         
         /// <summary>
-        /// This attribute reflects the current value of your ad group's audience bid adjustment. This value is the requested percentage to increase or decrease the bid amount for the remarketing list.
+        /// This attribute reflects the current value of your ad group's audience bid adjustment, even if a different bid adjustment value was used when the ad was shown. This value is the requested percentage to increase or decrease the bid amount for the remarketing list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidAdjustment = 11,
@@ -16212,6 +16284,9 @@ namespace Microsoft.BingAds.Reporting
         private System.Nullable<Microsoft.BingAds.Reporting.BidMatchTypeReportFilter> BidMatchTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.Reporting.BidStrategyTypeReportFilter> BidStrategyTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.Reporting.CampaignStatusReportFilter> CampaignStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -16317,6 +16392,26 @@ namespace Microsoft.BingAds.Reporting
                 {
                     this.BidMatchTypeField = value;
                     this.RaisePropertyChanged("BidMatchType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified bid strategy type or types. For example, you can use the filter to include data only for keywords that were bid on using the enhanced bid strategy type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.Reporting.BidStrategyTypeReportFilter> BidStrategyType
+        {
+            get
+            {
+                return this.BidStrategyTypeField;
+            }
+            set
+            {
+                if ((this.BidStrategyTypeField.Equals(value) != true))
+                {
+                    this.BidStrategyTypeField = value;
+                    this.RaisePropertyChanged("BidStrategyType");
                 }
             }
         }
@@ -16710,6 +16805,12 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 41,
+        
+        /// <summary>
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidStrategyType = 42,
     }
     
     /// <summary>

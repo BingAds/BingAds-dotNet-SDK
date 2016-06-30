@@ -115,6 +115,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             StringTable.EditorialReasonCode,
             StringTable.EditorialAppealStatus,
             StringTable.DevicePreference,
+            StringTable.NativePreference,
             
             // Keywords
             StringTable.Keyword,
@@ -236,7 +237,10 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             StringTable.Url,
 
             // Callout Ad Extension
-            StringTable.CalloutText
+            StringTable.CalloutText,
+
+            //AutoBidding
+            StringTable.BidStrategyType
         };
 
         /// <summary>

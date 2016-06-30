@@ -141,6 +141,8 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
         public const string LastModifiedTime = "Modified Time";
 
+        public const string NativePreference = "Ad Format Preference";
+
         // entity types
         public const string SemanticVersion = "Format Version";
         public const string LocationTarget = "Location Target";
@@ -305,5 +307,8 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public const string CampaignCalloutAdExtension = "Campaign Callout Ad Extension";
         public const string AdGroupCalloutAdExtension = "Ad Group Callout Ad Extension";
         public const string CalloutText = "Callout Text";
+
+        //AutoBidding
+        public const string BidStrategyType = "Bid Strategy Type";
     }
 }

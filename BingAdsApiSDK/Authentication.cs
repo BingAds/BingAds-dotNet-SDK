@@ -48,8 +48,8 @@
 //=====================================================================================================================================================
 
 using System.Net.Http.Headers;
-using Microsoft.BingAds.Bulk;
 using Microsoft.BingAds.Internal;
+using Microsoft.BingAds.V10.Bulk;
 
 namespace Microsoft.BingAds
 {

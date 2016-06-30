@@ -47,6 +47,8 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
+using System.Collections.Generic;
 using Microsoft.BingAds.V10.Internal.Bulk;
 using Microsoft.BingAds.V10.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V10.Internal.Bulk.Entities;
@@ -100,6 +102,30 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
                 c => c.TextAd.DestinationUrl.ToOptionalBulkString(),
                 (v, c) => c.TextAd.DestinationUrl = v.GetValueOrEmptyString()
             ),
+
+            new SimpleBulkMapping<BulkTextAd>(StringTable.NativePreference,
+                c => c.TextAd.ForwardCompatibilityMap.ToNativePreferenceBulkString(),
+                (v, c) =>
+                {
+                    if (c.TextAd.ForwardCompatibilityMap == null)
+                    {
+                        c.TextAd.ForwardCompatibilityMap = new List<KeyValuePair<string, string>>();
+                    }
+
+                    if (string.IsNullOrEmpty(v) || v.Equals("All"))
+                    {
+                        c.TextAd.ForwardCompatibilityMap.Add(new KeyValuePair<string, string>("NativePreference", "False"));
+                    } 
+                    else if (v.Equals("Native"))
+                    {
+                        c.TextAd.ForwardCompatibilityMap.Add(new KeyValuePair<string, string>("NativePreference", "True"));
+                    }
+                    else
+                    {
+                        throw new ArgumentException(string.Format("Unkonwn value for Native Preference : {0}", v));
+                    }
+                }
+                )
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
