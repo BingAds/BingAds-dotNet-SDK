@@ -49,8 +49,8 @@
 
 using System;
 using System.Globalization;
-using Microsoft.BingAds.CampaignManagement;
-using Microsoft.BingAds.Bulk.Entities;
+using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V10.Bulk.Entities;
 
 namespace Microsoft.BingAds.Internal
 {

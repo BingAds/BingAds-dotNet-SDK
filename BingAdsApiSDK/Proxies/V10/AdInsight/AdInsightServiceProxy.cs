@@ -140,9 +140,6 @@ namespace Microsoft.BingAds.V10.AdInsight
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double SuggestedBidField;
         
-        /// <summary>
-        /// The identifier of the ad group that owns the keyword.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AdGroupId
         {
@@ -160,9 +157,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The identifier of the campaign for the ad group that owns the keyword.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long CampaignId
         {
@@ -180,9 +174,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The current keyword bid amount specified for the match type in the MatchType element.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double CurrentBid
         {
@@ -200,9 +191,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated clicks opportunities corresponding to the suggested bid.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double EstimatedIncreaseInClicks
         {
@@ -220,9 +208,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated increase in spend corresponding to the suggested bid.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double EstimatedIncreaseInCost
         {
@@ -240,9 +225,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated impressions opportunities corresponding to the suggested bid.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long EstimatedIncreaseInImpressions
         {
@@ -260,9 +242,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The identifier of the keyword to which the bid opportunity applies.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long KeywordId
         {
@@ -280,9 +259,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The match type to which the suggested bid value applies. The possible values are BroadMatch, ExactMatch, and PhraseMatch.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MatchType
         {
@@ -300,9 +276,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The suggested bid based on the last 7 days of performance history for the corresponding ad group.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double SuggestedBid
         {
@@ -431,9 +404,6 @@ namespace Microsoft.BingAds.V10.AdInsight
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double RecommendedBudgetField;
         
-        /// <summary>
-        /// The list of budget points with weekly impressions, clicks and cost estimates for the given budget amount.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.BudgetPoint> BudgetPoints
         {
@@ -451,9 +421,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The type of budget that the campaign uses.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.AdInsight.BudgetLimitType BudgetType
         {
@@ -471,9 +438,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The identifier of the campaign to which the suggested budget applies.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long CampaignId
         {
@@ -491,9 +455,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The campaign's current budget.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double CurrentBudget
         {
@@ -511,9 +472,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated clicks opportunities corresponding to the suggested budget.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double IncreaseInClicks
         {
@@ -531,9 +489,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated impressions opportunities corresponding to the suggested budget.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long IncreaseInImpressions
         {
@@ -551,9 +506,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated percentage increase in clicks corresponding to the suggested budget.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int PercentageIncreaseInClicks
         {
@@ -571,9 +523,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated percentage increase in impressions corresponding to the suggested budget.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int PercentageIncreaseInImpressions
         {
@@ -591,9 +540,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The suggested budget based on the last 15 days of performance history for the corresponding campaign.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double RecommendedBudget
         {
@@ -1498,8 +1444,8 @@ namespace Microsoft.BingAds.V10.AdInsight
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApplicationFault", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail))]
     public partial class ApplicationFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -1554,6 +1500,66 @@ namespace Microsoft.BingAds.V10.AdInsight
     }
     
     /// <summary>
+    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt219317(v=msads.100).aspx">ApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/mt219317(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApiFaultDetail", Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+    [System.SerializableAttribute()]
+    public partial class ApiFaultDetail : Microsoft.BingAds.V10.AdInsight.ApplicationFault
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.BatchError> BatchErrorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.OperationError> OperationErrorsField;
+        
+        /// <summary>
+        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.BatchError> BatchErrors
+        {
+            get
+            {
+                return this.BatchErrorsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.BatchErrorsField, value) != true))
+                {
+                    this.BatchErrorsField = value;
+                    this.RaisePropertyChanged("BatchErrors");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// An array of operation errors that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.OperationError> OperationErrors
+        {
+            get
+            {
+                return this.OperationErrorsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.OperationErrorsField, value) != true))
+                {
+                    this.OperationErrorsField = value;
+                    this.RaisePropertyChanged("OperationErrors");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
@@ -1591,61 +1597,134 @@ namespace Microsoft.BingAds.V10.AdInsight
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt219317(v=msads.100).aspx">ApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/mt219317(v=msads.100).aspx for details.
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt219318(v=msads.100).aspx">AdApiError Data Object</see> http://msdn.microsoft.com/en-us/library/mt219318(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ApiFaultDetail", Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
     [System.SerializableAttribute()]
-    public partial class ApiFaultDetail : Microsoft.BingAds.V10.AdInsight.ApplicationFault
+    public partial class AdApiError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.BatchError> BatchErrorsField;
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.OperationError> OperationErrorsField;
+        private int CodeField;
         
-        /// <summary>
-        /// An array of BatchError objects that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.BatchError> BatchErrors
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DetailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
             {
-                return this.BatchErrorsField;
+                return this.extensionDataField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.BatchErrorsField, value) != true))
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// A numeric error code that identifies the error.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Code
+        {
+            get
+            {
+                return this.CodeField;
+            }
+            set
+            {
+                if ((this.CodeField.Equals(value) != true))
                 {
-                    this.BatchErrorsField = value;
-                    this.RaisePropertyChanged("BatchErrors");
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
                 }
             }
         }
         
         /// <summary>
-        /// An array of OperationError objects that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
+        /// A message that contains additional details about the error. This string can be empty.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.OperationError> OperationErrors
+        public string Detail
         {
             get
             {
-                return this.OperationErrorsField;
+                return this.DetailField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.OperationErrorsField, value) != true))
+                if ((object.ReferenceEquals(this.DetailField, value) != true))
                 {
-                    this.OperationErrorsField = value;
-                    this.RaisePropertyChanged("OperationErrors");
+                    this.DetailField = value;
+                    this.RaisePropertyChanged("Detail");
                 }
+            }
+        }
+        
+        /// <summary>
+        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorCode
+        {
+            get
+            {
+                return this.ErrorCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ErrorCodeField, value) != true))
+                {
+                    this.ErrorCodeField = value;
+                    this.RaisePropertyChanged("ErrorCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// A message that describes the error.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MessageField, value) != true))
+                {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -1883,139 +1962,6 @@ namespace Microsoft.BingAds.V10.AdInsight
                 {
                     this.DetailsField = value;
                     this.RaisePropertyChanged("Details");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ErrorCode
-        {
-            get
-            {
-                return this.ErrorCodeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.ErrorCodeField, value) != true))
-                {
-                    this.ErrorCodeField = value;
-                    this.RaisePropertyChanged("ErrorCode");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A message that describes the error.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message
-        {
-            get
-            {
-                return this.MessageField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.MessageField, value) != true))
-                {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt219318(v=msads.100).aspx">AdApiError Data Object</see> http://msdn.microsoft.com/en-us/library/mt219318(v=msads.100).aspx for details.
-    /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
-    [System.SerializableAttribute()]
-    public partial class AdApiError : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DetailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ErrorCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// A numeric error code that identifies the error.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Code
-        {
-            get
-            {
-                return this.CodeField;
-            }
-            set
-            {
-                if ((this.CodeField.Equals(value) != true))
-                {
-                    this.CodeField = value;
-                    this.RaisePropertyChanged("Code");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// A message that contains additional details about the error. This string can be empty.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Detail
-        {
-            get
-            {
-                return this.DetailField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.DetailField, value) != true))
-                {
-                    this.DetailField = value;
-                    this.RaisePropertyChanged("Detail");
                 }
             }
         }
@@ -6841,10 +6787,10 @@ namespace Microsoft.BingAds.V10.AdInsight
         /// <returns>An array of BidOpportunity objects that identifies the keywords whose clicks and impressions may increase if you were to apply the suggested match-type bid value.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetBidOpportunities", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetBidOpportunitiesR" +
             "esponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetBidOpportunitiesA" +
-            "piFaultDetailFault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetBidOpportunitiesA" +
             "dApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetBidOpportunitiesA" +
+            "piFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.AdInsight.GetBidOpportunitiesResponse GetBidOpportunities(Microsoft.BingAds.V10.AdInsight.GetBidOpportunitiesRequest request);
         
         /// <summary>
@@ -6873,10 +6819,10 @@ namespace Microsoft.BingAds.V10.AdInsight
         /// <returns>An array of BudgetOpportunity data objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetBudgetOpportunities", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetBudgetOpportuniti" +
             "esResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetBudgetOpportuniti" +
-            "esApiFaultDetailFault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetBudgetOpportuniti" +
             "esAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetBudgetOpportuniti" +
+            "esApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.AdInsight.GetBudgetOpportunitiesResponse GetBudgetOpportunities(Microsoft.BingAds.V10.AdInsight.GetBudgetOpportunitiesRequest request);
         
         /// <summary>
@@ -6969,10 +6915,10 @@ namespace Microsoft.BingAds.V10.AdInsight
         /// <returns>A list of KeywordIdEstimatedPosition data objects. The array contains an item for each keyword specified in the request. If the keyword ID is not valid, the corresponding item in the array will be null.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetEstimatedPositionByKeywordIds", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetEstimatedPosition" +
             "ByKeywordIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetEstimatedPosition" +
-            "ByKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetEstimatedPosition" +
             "ByKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetEstimatedPosition" +
+            "ByKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.AdInsight.GetEstimatedPositionByKeywordIdsResponse GetEstimatedPositionByKeywordIds(Microsoft.BingAds.V10.AdInsight.GetEstimatedPositionByKeywordIdsRequest request);
         
         /// <summary>
@@ -7161,10 +7107,10 @@ namespace Microsoft.BingAds.V10.AdInsight
         /// <returns>An array of KeywordSearchCount data objects. The array contains an item for each keyword specified in the request. If the keyword is not valid, the corresponding item in the array will be null.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetHistoricalSearchCount", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetHistoricalSearchC" +
             "ountResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetHistoricalSearchC" +
-            "ountApiFaultDetailFault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetHistoricalSearchC" +
             "ountAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetHistoricalSearchC" +
+            "ountApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.AdInsight.GetHistoricalSearchCountResponse GetHistoricalSearchCount(Microsoft.BingAds.V10.AdInsight.GetHistoricalSearchCountRequest request);
         
         /// <summary>
@@ -7193,10 +7139,10 @@ namespace Microsoft.BingAds.V10.AdInsight
         /// <returns>An array of KeywordCategoryResult data objects. Each object contains the keyword and a list of categories to which it belongs.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetKeywordCategories", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetKeywordCategories" +
             "Response")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetKeywordCategories" +
-            "ApiFaultDetailFault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetKeywordCategories" +
             "AdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetKeywordCategories" +
+            "ApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.AdInsight.GetKeywordCategoriesResponse GetKeywordCategories(Microsoft.BingAds.V10.AdInsight.GetKeywordCategoriesRequest request);
         
         /// <summary>
@@ -7225,10 +7171,10 @@ namespace Microsoft.BingAds.V10.AdInsight
         /// <returns>An array of KeywordDemographicResult data objects. The order of the items corresponds directly to the keywords specified in the request. If there is no demographic data available for a keyword, the keyword will be included in the list, but the KeywordDemographics element of the corresponding KeywordDemographicResult will be null.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetKeywordDemographics", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetKeywordDemographi" +
             "csResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetKeywordDemographi" +
-            "csApiFaultDetailFault", Name="ApiFaultDetail")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetKeywordDemographi" +
             "csAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetKeywordDemographi" +
+            "csApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.AdInsight.GetKeywordDemographicsResponse GetKeywordDemographics(Microsoft.BingAds.V10.AdInsight.GetKeywordDemographicsRequest request);
         
         /// <summary>

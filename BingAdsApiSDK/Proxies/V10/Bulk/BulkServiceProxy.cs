@@ -140,15 +140,9 @@ namespace Microsoft.BingAds.V10.Bulk
     public enum DownloadFileType : int
     {
         
-        /// <summary>
-        /// The file format is comma separated values (CSV).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Csv = 0,
         
-        /// <summary>
-        /// The file format is tab separated values (TSV).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tsv = 1,
     }
@@ -166,206 +160,125 @@ namespace Microsoft.BingAds.V10.Bulk
     public enum BulkDownloadEntity : long
     {
         
-        /// <summary>
-        /// Include Campaign records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Campaigns = 1,
         
-        /// <summary>
-        /// Include Ad Group records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroups = 2,
         
-        /// <summary>
-        /// Include Product Ad and Text Ad records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ads = 4,
         
-        /// <summary>
-        /// Include Keyword records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keywords = 8,
         
-        /// <summary>
-        /// Include Campaign Negative Keyword records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeKeywords = 16,
         
-        /// <summary>
-        /// Include Ad Group Negative Keyword records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeKeywords = 32,
         
-        /// <summary>
-        /// Include Campaign Age Target, Campaign DayTime Target, Campaign DeviceOS Target, Campaign Gender Target, Campaign Location Target, Campaign Negative Location Target, and Campaign Radius Target records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignTargets = 64,
         
-        /// <summary>
-        /// Include Ad Group Age Target, Ad Group DayTime Target, Ad Group DeviceOS Target, Ad Group Gender Target, Ad Group Location Target, Ad Group Negative Location Target, and Ad Group Radius Target records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupTargets = 128,
         
-        /// <summary>
-        /// Include Campaign Negative Site records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeSites = 256,
         
-        /// <summary>
-        /// Include Ad Group Negative Site records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeSites = 512,
         
-        /// <summary>
-        /// Include Campaign Sitelink Ad Extension records in the download that represents the association relationship between a campaign and a sitelink ad extension. For Sitelink Ad Extension records, you should include the SiteLinksAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignSiteLinksAdExtensions = 1024,
         
-        /// <summary>
-        /// Include Campaign Location Ad Extension records in the download that represents the association relationship between a campaign and a location ad extension. For Location Ad Extension records, you should include the LocationAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignLocationAdExtensions = 2048,
         
-        /// <summary>
-        /// Include Campaign Call Ad Extension records in the download that represents the association relationship between a campaign and a call ad extension. For Call Ad Extension records, you should include the CallAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignCallAdExtensions = 4096,
         
-        /// <summary>
-        /// Include AdGroup Sitelink Ad Extension records in the download that each represent the association relationship between an ad group and a sitelink ad extension. For Sitelink Ad Extension records, you should include the ReviewAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupSiteLinksAdExtensions = 8192,
         
-        /// <summary>
-        /// Include Location Ad Extension records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationAdExtensions = 16384,
         
-        /// <summary>
-        /// Include Call Ad Extension records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CallAdExtensions = 32768,
         
-        /// <summary>
-        /// Include Sitelink Ad Extension records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SiteLinksAdExtensions = 65536,
         
-        /// <summary>
-        /// Include Negative Keyword List records in the download data. The Negative Keyword List records do not include negative keywords that are shared in each list. For Shared Negative Keyword records, you should include the SharedNegativeKeywords value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordLists = 131072,
         
-        /// <summary>
-        /// Include Shared Negative Keyword records in the download data. Shared negative keywords belong to a negative keyword list. For Negative Keyword List records, you should include the NegativeKeywordLists value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SharedNegativeKeywords = 262144,
         
-        /// <summary>
-        /// Include Campaign Negative Keyword List Association records in the download that represents the association relationship between a campaign and a negative keyword list. For Negative Keyword List records, you should include the NegativeKeywordLists value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeKeywordListAssociations = 524288,
         
-        /// <summary>
-        /// Include Image Ad Extension records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImageAdExtensions = 1048576,
         
-        /// <summary>
-        /// Include Campaign Image Ad Extension records in the download that represents the association relationship between a campaign and an image ad extension. For Image Ad Extension records, you should include the ImageAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignImageAdExtensions = 2097152,
         
-        /// <summary>
-        /// Include Ad Group Image Ad Extension records in the download that each represent the association relationship between an ad group and an image ad extension. For Image Ad Extension records, you should include the ImageAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupImageAdExtensions = 4194304,
         
-        /// <summary>
-        /// Include App Ad Extension records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppAdExtensions = 8388608,
         
-        /// <summary>
-        /// Include Ad Group App Ad Extension records in the download that each represent the association relationship between an ad group and an app ad extension. For App Ad Extension records, you should include the AppAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupAppAdExtensions = 16777216,
         
-        /// <summary>
-        /// Include Campaign App Ad Extension records in the download that each represent the association relationship between a campaign and an app ad extension. For App Ad Extension records, you should include the AppAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignAppAdExtensions = 33554432,
         
-        /// <summary>
-        /// Include Review Ad Extension records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReviewAdExtensions = 67108864,
         
-        /// <summary>
-        /// Include Ad Group Product Partition records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupProductPartitions = 134217728,
         
-        /// <summary>
-        /// Include Campaign Product Scope records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignProductScopes = 268435456,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignReviewAdExtensions = 536870912,
         
-        /// <summary>
-        /// Include Ad Group Review Ad Extension records in the download that each represent the association relationship between an ad group and a review ad extension. For Review Ad Extension records, you should include the ReviewAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupReviewAdExtensions = 1073741824,
         
-        /// <summary>
-        /// Include Callout Ad Extension records in the download data.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CalloutAdExtensions = 2147483648,
         
-        /// <summary>
-        /// Include Campaign Callout Ad Extension records in the download that represents the association relationship between a campaign and a callout ad extension. For Callout Ad Extension records, you should include the CalloutAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignCalloutAdExtensions = 4294967296,
         
-        /// <summary>
-        /// Include Ad Group Callout Ad Extension records in the download that each represent the association relationship between an ad group and a callout ad extension. For Callout Ad Extension records, you should include the CalloutAdExtensions value in the download request.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCalloutAdExtensions = 8589934592,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        StructuredSnippetAdExtensions = 17179869184,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStructuredSnippetAdExtensions = 34359738368,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupStructuredSnippetAdExtensions = 68719476736,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RemarketingLists = 137438953472,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupRemarketingListAssociations = 274877906944,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Budgets = 549755813888,
     }
     
     /// <summary>
@@ -755,7 +668,7 @@ namespace Microsoft.BingAds.V10.Bulk
         private System.Collections.Generic.IList<Microsoft.BingAds.V10.Bulk.OperationError> OperationErrorsField;
         
         /// <summary>
-        /// An array of batch error objects that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
+        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.Bulk.BatchError> BatchErrors
@@ -775,7 +688,7 @@ namespace Microsoft.BingAds.V10.Bulk
         }
         
         /// <summary>
-        /// An array of operation error objects that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
+        /// An array of operation errors that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.Bulk.OperationError> OperationErrors

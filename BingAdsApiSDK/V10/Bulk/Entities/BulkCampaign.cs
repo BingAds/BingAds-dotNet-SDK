@@ -263,7 +263,12 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.CustomParameter,
                 c => c.Campaign.UrlCustomParameters.ToBulkString(),
                 (v, c) => c.Campaign.UrlCustomParameters = v.ParseCustomParameters()
-            ), 
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BidStrategyType,
+                c => c.Campaign.BiddingScheme.ToBiddingSchemeBulkString(),
+                (v, c) => c.Campaign.BiddingScheme = v.ParseBiddingScheme()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

@@ -522,5 +522,88 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
             return bulkString;
         }
+
+        public static string ToNativePreferenceBulkString(this IList<KeyValuePair<string, string>> parameters)
+        {
+            if (parameters == null)
+                return null;
+
+            foreach (var keyValuePair in parameters)
+            {
+                if (keyValuePair.Key.Equals("NativePreference"))
+                {
+                    var value = keyValuePair.Value.ToLower();
+
+                    if (value.Equals("true"))
+                    {
+                        return "Native";
+                    } 
+                    else if (value.Equals("false"))
+                    {
+                        return "All";
+                    }
+                    else
+                    {
+                        throw new ArgumentException(string.Format("Unkonwn value for Native Preference : {0}", value));
+                    }
+                }
+            }
+            return null;
+        }
+		
+        public static BiddingScheme ParseBiddingScheme(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            switch (s)
+            {
+                case "EnhancedCpc":
+                    return new EnhancedCpcBiddingScheme { Type = "EnhancedCpc" };
+                case "InheritFromParent":
+                    return new InheritFromParentBiddingScheme { Type = "InheritFromParent" };
+                case "ManualCpc":
+                    return new ManualCpcBiddingScheme { Type = "ManualCpc" };
+                case "MaxClicks":
+                    return new MaxClicksBiddingScheme { Type = "MaxClicks" };
+                case "MaxConversions":
+                    return new MaxConversionsBiddingScheme { Type = "MaxConversions" };
+                case "TargetCpa":
+                    return new TargetCpaBiddingScheme { Type = "TargetCpa" };
+                default:
+                    throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : %s", s));
+            }
+        }
+
+        public static string ToBiddingSchemeBulkString(this BiddingScheme biddingScheme)
+        {
+            if (biddingScheme == null)
+            {
+                return null;
+            }
+
+            var enhancedCpcBiddingScheme = biddingScheme as EnhancedCpcBiddingScheme;
+            if (enhancedCpcBiddingScheme != null)
+                return "EnhancedCpc";
+            var inheritFromParentBiddingScheme = biddingScheme as InheritFromParentBiddingScheme;
+            if (inheritFromParentBiddingScheme != null)
+                return "InheritFromParent";
+            var manualCpcBiddingScheme = biddingScheme as ManualCpcBiddingScheme;
+            if (manualCpcBiddingScheme != null)
+                return "ManualCpc";
+            var maxClicksBiddingScheme = biddingScheme as MaxClicksBiddingScheme;
+            if (maxClicksBiddingScheme != null)
+                return "MaxClicks";
+            var maxConversionsBiddingScheme = biddingScheme as MaxConversionsBiddingScheme;
+            if (maxConversionsBiddingScheme != null)
+                return "MaxConversions";
+            var targetCpaBiddingScheme = biddingScheme as TargetCpaBiddingScheme;
+            if (targetCpaBiddingScheme != null)
+                return "TargetCpa";
+
+            throw new ArgumentException("Unknown bidding scheme");
+        }
     }
 }

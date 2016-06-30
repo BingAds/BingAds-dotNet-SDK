@@ -49,9 +49,9 @@
 
 using System;
 using System.Collections.Generic;
-using Microsoft.BingAds.Bulk;
-using Microsoft.BingAds.Internal.Bulk;
-using Microsoft.BingAds.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V10.Bulk;
+using Microsoft.BingAds.V10.Internal.Bulk;
+using Microsoft.BingAds.V10.Internal.Bulk.Mappings;
 
 namespace Microsoft.BingAds.Internal
 {
