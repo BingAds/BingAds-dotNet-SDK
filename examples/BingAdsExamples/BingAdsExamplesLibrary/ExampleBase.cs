@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.CampaignManagement;
 
 namespace BingAdsExamplesLibrary
 {
