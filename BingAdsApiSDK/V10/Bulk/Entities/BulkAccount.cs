@@ -85,7 +85,12 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
         /// You should keep track of this value in UTC time. 
         /// Corresponds to the 'Sync Time' field in the bulk file. 
         /// </summary>
-        public DateTime SyncTime { get; private set; }
+        public DateTime? SyncTime { get; private set; }
+
+        /// <summary>
+        /// Corresponds to the 'Tracking Template' field in the bulk file.
+        /// </summary>
+        public string TrackingUrlTemplate { get; set; }
 
         private static readonly IBulkMapping<BulkAccount>[] Mappings =
         {
@@ -101,8 +106,13 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
 
             new SimpleBulkMapping<BulkAccount>(StringTable.SyncTime,
                 c => c.SyncTime.ToBulkString(),
-                (v, c) => c.SyncTime = v.Parse<DateTime>()
-            )
+                (v, c) => c.SyncTime = v.ParseOptional<DateTime>()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.TrackingTemplate,
+                c => c.TrackingUrlTemplate.ToOptionalBulkString(),
+                (v, c) => c.TrackingUrlTemplate = v.GetValueOrEmptyString()
+            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
