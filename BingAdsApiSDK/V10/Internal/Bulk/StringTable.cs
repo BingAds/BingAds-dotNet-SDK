@@ -310,5 +310,15 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
         //AutoBidding
         public const string BidStrategyType = "Bid Strategy Type";
+
+        // Remarketing
+        public const string RemarketingList = "Remarketing List";
+        public const string AdGroupRemarketingList = "Ad Group Remarketing List Association";
+        public const string Description = "Description";
+        public const string MembershipDuration = "Membership Duration";
+        public const string Scope = "Scope";
+        public const string TagId = "UET Tag Id";
+        public const string RemarketingListId = "Remarketing List Id";
+        public const string RemarketingTargetingSetting = "Remarketing Targeting Setting";
     }
 }
