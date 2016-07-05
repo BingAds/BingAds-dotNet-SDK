@@ -240,7 +240,15 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             StringTable.CalloutText,
 
             //AutoBidding
-            StringTable.BidStrategyType
+            StringTable.BidStrategyType,
+
+            // Remarketing
+            StringTable.Description,
+            StringTable.MembershipDuration,
+            StringTable.Scope,
+            StringTable.TagId,
+            StringTable.RemarketingListId,
+            StringTable.RemarketingTargetingSetting,
         };
 
         /// <summary>

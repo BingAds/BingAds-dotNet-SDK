@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.BingAds">
+      <HintPath>..\..\..\BingAdsApiSDK\bin\Debug\Microsoft.BingAds.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -54,6 +57,7 @@
     <Compile Include="v10\BulkNegativeKeywords.cs" />
     <Compile Include="v10\BulkNegativeSites.cs" />
     <Compile Include="v10\BulkProductPartitionUpdateBid.cs" />
+    <Compile Include="v10\BulkRemarketingLists.cs" />
     <Compile Include="v10\BulkServiceManagerDemo.cs" />
     <Compile Include="v10\BulkShoppingCampaigns.cs" />
     <Compile Include="v10\BulkTargets.cs" />

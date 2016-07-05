@@ -141,6 +141,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("NativeBidAdjustment: {0}", adGroup.NativeBidAdjustment));
                 OutputStatusMessage(string.Format("Network: {0}", adGroup.Network));
                 OutputStatusMessage(string.Format("PricingModel: {0}", adGroup.PricingModel));
+                OutputStatusMessage(string.Format("RemarketingTargetingSetting: {0}", adGroup.RemarketingTargetingSetting));
                 OutputStatusMessage(string.Format("SearchBid: {0}",
                     adGroup.SearchBid != null ? adGroup.SearchBid.Amount : 0));
                 if (adGroup.StartDate != null)

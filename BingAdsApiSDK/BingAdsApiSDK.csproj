@@ -101,6 +101,7 @@
     <Compile Include="Proxies\CustomerManagement\CustomerManagementServiceProxy.cs" />
     <Compile Include="Proxies\Reporting\ReportingServiceProxy.cs" />
     <Compile Include="AuthorizationData.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkAdGroupRemarketingList.cs" />
     <Compile Include="V10\Bulk\BulkDownloadOperation.cs" />
     <Compile Include="V10\Bulk\BulkFileReader.cs" />
     <Compile Include="V10\Bulk\BulkFileWriter.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="V10\Bulk\Entities\BulkError.cs" />
     <Compile Include="V10\Bulk\Entities\BulkKeyword.cs" />
     <Compile Include="V10\Bulk\Entities\BulkKeywordMainLineBid.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkRemarketingList.cs" />
     <Compile Include="V10\Bulk\Entities\NegativeKeywords\BulkAdGroupNegativeKeyword.cs" />
     <Compile Include="V10\Bulk\Entities\NegativeKeywords\BulkCampaignNegativeKeyword.cs" />
     <Compile Include="V10\Bulk\Entities\NegativeKeywords\BulkCampaignNegativeKeywordList.cs" />

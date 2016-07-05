@@ -121,7 +121,10 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                 {StringTable.AdGroupNegativeKeyword,        new EntityInfo(() => new BulkAdGroupNegativeKeyword())},
 
                 {"Campaign Product Scope",                  new EntityInfo(() => new BulkCampaignProductScope())},
-                {"Ad Group Product Partition",              new EntityInfo(() => new BulkAdGroupProductPartition())}
+                {"Ad Group Product Partition",              new EntityInfo(() => new BulkAdGroupProductPartition())},
+
+                {StringTable.RemarketingList,               new EntityInfo(() => new BulkRemarketingList())},
+                {StringTable.AdGroupRemarketingList,        new EntityInfo(() => new BulkAdGroupRemarketingList())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>
