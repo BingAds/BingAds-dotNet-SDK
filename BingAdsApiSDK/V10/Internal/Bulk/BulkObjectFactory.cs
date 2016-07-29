@@ -75,6 +75,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                 {StringTable.TextAd,                        new EntityInfo(() => new BulkTextAd())},
                 {StringTable.ProductAd,                     new EntityInfo(() => new BulkProductAd())},
                 {StringTable.AppInstallAd,                  new EntityInfo(() => new BulkAppInstallAd())},
+                {StringTable.ExpandedTextAd,                new EntityInfo(() => new BulkExpandedTextAd())},
                 {StringTable.Keyword,                       new EntityInfo(() => new BulkKeyword())},                
                 {StringTable.SiteLinksAdExtension,          new EntityInfo(() => new BulkSiteLink(),                            StringTable.SiteLinkExtensionOrder, () => new SiteLinkAdExtensionIdentifier())},
                 {StringTable.CampaignSiteLinksAdExtension,  new EntityInfo(() => new BulkCampaignSiteLinkAdExtension())},
@@ -95,6 +96,9 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                 {StringTable.CalloutAdExtension,            new EntityInfo(() => new BulkCalloutAdExtension()) },
                 {StringTable.CampaignCalloutAdExtension,    new EntityInfo(() => new BulkCampaignCalloutAdExtension())},
                 {StringTable.AdGroupCalloutAdExtension,     new EntityInfo(() => new BulkAdGroupCalloutAdExtension())},
+                {StringTable.StructuredSnippetAdExtension,  new EntityInfo(() => new BulkStructuredSnippetAdExtension()) },
+                {StringTable.CampaignStructuredSnippetAdExtension,    new EntityInfo(() => new BulkCampaignStructuredSnippetAdExtension())},
+                {StringTable.AdGroupStructuredSnippetAdExtension,     new EntityInfo(() => new BulkAdGroupStructuredSnippetAdExtension())},
                 {"Campaign Negative Site",                  new EntityInfo(() => new BulkCampaignNegativeSite(),                StringTable.Website,                () => new BulkCampaignNegativeSitesIdentifier())},
                 {"Ad Group Negative Site",                  new EntityInfo(() => new BulkAdGroupNegativeSite(),                 StringTable.Website,                () => new BulkAdGroupNegativeSitesIdentifier())},
                 
@@ -121,7 +125,9 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                 {StringTable.AdGroupNegativeKeyword,        new EntityInfo(() => new BulkAdGroupNegativeKeyword())},
 
                 {"Campaign Product Scope",                  new EntityInfo(() => new BulkCampaignProductScope())},
-                {"Ad Group Product Partition",              new EntityInfo(() => new BulkAdGroupProductPartition())}
+                {"Ad Group Product Partition",              new EntityInfo(() => new BulkAdGroupProductPartition())},
+                {StringTable.RemarketingList,               new EntityInfo(() => new BulkRemarketingList())},
+                {StringTable.AdGroupRemarketingListAssociation, new EntityInfo(() => new BulkAdGroupRemarketingListAssociation()) } 
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

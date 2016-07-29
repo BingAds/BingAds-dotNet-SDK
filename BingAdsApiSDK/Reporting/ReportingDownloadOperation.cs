@@ -99,6 +99,11 @@ namespace Microsoft.BingAds.Reporting
         public int StatusPollIntervalInMilliseconds { get; set; }
 
         /// <summary>
+        /// The time span of HttpClient download operation timeout. The default value is 100000(100s).
+        /// </summary>
+        public TimeSpan DownloadHttpTimeout { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of this class with the specified <paramref name="requestId"/> and <see cref="BingAds.AuthorizationData"/>.
         /// </summary>
         /// <param name="requestId">The identifier of a download request that has previously been submitted.</param>
@@ -144,6 +149,8 @@ namespace Microsoft.BingAds.Reporting
             TrackingId = trackingId;
 
             StatusPollIntervalInMilliseconds = ReportingServiceManager.DefaultStatusPollIntervalInMilliseconds;
+
+            DownloadHttpTimeout = TimeSpan.FromMilliseconds(ReportingServiceManager.DefaultHttpClientTimeoutInMillseconds);
 
             _reportingServiceClient = new ServiceClient<IReportingService>(authorizationData, apiEnvironment);
 
@@ -214,7 +221,7 @@ namespace Microsoft.BingAds.Reporting
         /// <param name="localResultFileName">The download result local file name.</param>
         /// <param name="decompress">Determines whether to decompress the ZIP file. 
         /// If set to true, the file will be decompressed after download.
-        /// The default value is false, in which case the downloaded file is not decompressed.</param>        
+        /// The default value is false, in which case the downloaded file is not decompressed.</param>
         /// <returns></returns>
         /// <exception cref="ReportingOperationInProgressException">Thrown if the reporting operation is still in progress.</exception>
         /// <exception cref="ReportingOperationCouldNotBeCompletedException">Thrown if the reporting operation has failed </exception>
@@ -295,7 +302,7 @@ namespace Microsoft.BingAds.Reporting
 
         private Task DownloadResultFileZipAsync(string url, string tempZipFileName, bool overwrite)
         {
-            return HttpService.DownloadFileAsync(new Uri(url), tempZipFileName, overwrite);
+            return HttpService.DownloadFileAsync(new Uri(url), tempZipFileName, overwrite, DownloadHttpTimeout);
         }
 
         /// <summary>

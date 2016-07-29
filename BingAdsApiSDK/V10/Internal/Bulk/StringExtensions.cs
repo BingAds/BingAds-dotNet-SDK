@@ -605,5 +605,31 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
             throw new ArgumentException("Unknown bidding scheme");
         }
+
+        public static List<string> ParseStructuredSnippetValues(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
+            var values = s.Split(';')
+                    .Where(token => !string.IsNullOrWhiteSpace(token) && token != ";")
+                    .ToList();
+
+            return values;           
+        }
+
+        public static string WriteStructuredSnippetValues(this IList<string> values, string seperator)
+        {
+            if (values == null || values.Count == 0)
+            {
+                return null;
+            }
+
+            var text = string.Join(seperator, values);
+
+            return text;
+        }
     }
 }

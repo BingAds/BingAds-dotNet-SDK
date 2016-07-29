@@ -6693,6 +6693,30 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 32,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart1 = 33,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart2 = 34,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Path1 = 35,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Path2 = 36,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalURL = 37,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalMobileURL = 38,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalAppURL = 39,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDescription = 40,
     }
     
     /// <summary>
@@ -6861,6 +6885,9 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstall = 256,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExpandedText = 1024,
     }
     
     /// <summary>
@@ -8197,6 +8224,18 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 53,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart1 = 54,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart2 = 55,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Path1 = 56,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Path2 = 57,
     }
     
     /// <summary>
@@ -14988,6 +15027,12 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 39,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart1 = 40,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart2 = 41,
     }
     
     /// <summary>
@@ -18190,6 +18235,18 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 40,
+        
+        /// <summary>
+        /// The current TrackingUrlTemplate element of the BiddableAdGroupCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TrackingTemplate = 41,
+        
+        /// <summary>
+        /// The current UrlCustomParameters element of the BiddableAdGroupCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomParameters = 42,
     }
     
     /// <summary>
@@ -18610,6 +18667,18 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 37,
+        
+        /// <summary>
+        /// The current TrackingUrlTemplate element of the BiddableAdGroupCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TrackingTemplate = 38,
+        
+        /// <summary>
+        /// The current UrlCustomParameters element of the BiddableAdGroupCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomParameters = 39,
     }
     
     /// <summary>

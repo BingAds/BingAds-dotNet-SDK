@@ -49,71 +49,83 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+using Microsoft.BingAds.V10.Internal.Bulk;
+using Microsoft.BingAds.V10.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities;
+using Microsoft.BingAds.V10.CampaignManagement;
 
-namespace Microsoft.BingAds.Internal
+// ReSharper disable once CheckNamespace
+namespace Microsoft.BingAds.V10.Bulk.Entities
 {
-    internal class HttpService : IHttpService
+    /// <summary>
+    /// <para>
+    /// Represents an expanded text ad. 
+    /// This class exposes the <see cref="BulkExpandedTextAd.ExpandedTextAd"/> property that can be read and written as fields of the Expanded Text Ad record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=823170">Expanded Text Ad</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkExpandedTextAd : BulkAd<ExpandedTextAd>
     {
-
-        public Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout)
+        /// <summary>
+        /// <para>
+        /// The expanded text ad. 
+        /// </para>
+        /// </summary>
+        public ExpandedTextAd ExpandedTextAd
         {
-            var client = new HttpClient { Timeout = timeout };
-
-            return client.PostAsync(requestUri, new FormUrlEncodedContent(formValues));
+            get { return Ad; }
+            set { Ad = value; }
         }
 
-        public async Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite, TimeSpan timeout)
+        private static readonly IBulkMapping<BulkExpandedTextAd>[] Mappings =
+        {            
+            new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.TitlePart1,
+                c => c.ExpandedTextAd.TitlePart1,
+                (v, c) => c.ExpandedTextAd.TitlePart1 = v
+            ),
+
+            new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.TitlePart2,
+                c => c.ExpandedTextAd.TitlePart2,
+                (v, c) => c.ExpandedTextAd.TitlePart2 = v
+            ),
+
+            new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.Path1,
+                c => c.ExpandedTextAd.Path1,
+                (v, c) => c.ExpandedTextAd.Path1 = v
+            ),
+
+            new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.Path2,
+                c => c.ExpandedTextAd.Path2,
+                (v, c) => c.ExpandedTextAd.Path2 = v
+            ),
+
+            new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.Text,
+                c => c.ExpandedTextAd.Text,
+                (v, c) => c.ExpandedTextAd.Text = v
+            ),
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            var client = new HttpClient { Timeout = timeout };
+            ExpandedTextAd = new ExpandedTextAd { Type = AdType.ExpandedText };
 
-            try
-            {
-                var response = await client.GetAsync(fileUri).ConfigureAwait(false);
+            base.ProcessMappingsFromRowValues(values);
 
-                response.EnsureSuccessStatusCode();
-
-                await response.Content.ReadAsFileAsync(localFilePath, overwrite).ConfigureAwait(false);
-            }
-            catch (Exception e)
-            {
-                throw new CouldNotDownloadResultFileException("Download File failed.", e);
-            }
-            
+            values.ConvertToEntity(this, Mappings);
         }
 
-        public async Task UploadFileAsync(Uri uri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction, TimeSpan timeout)
+
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            using (var stream = File.OpenRead(uploadFilePath))
-            {
-                var client = new HttpClient { Timeout = timeout };
+            ValidatePropertyNotNull(ExpandedTextAd, "ExpandedTextAd");
 
-                addHeadersAction(client.DefaultRequestHeaders);
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 
-                var multiPart = new MultipartFormDataContent
-                {
-                    { new StreamContent(stream), "file", string.Format("\"{0}{1}\"", Guid.NewGuid(), Path.GetExtension(uploadFilePath)) }
-                };
-
-                try
-                {
-                    var response = await client.PostAsync(uri, multiPart).ConfigureAwait(false);
-                  
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-
-                        throw new CouldNotUploadFileException("Unsuccessful Status Code: " + response.StatusCode + "; Exception Message: " + content);
-                    }                                      
-                }            
-                catch (Exception e)
-                {
-                    throw new CouldNotUploadFileException("Upload File failed.", e);
-                }
-            }
+            this.ConvertToValues(values, Mappings);
         }
     }
 }

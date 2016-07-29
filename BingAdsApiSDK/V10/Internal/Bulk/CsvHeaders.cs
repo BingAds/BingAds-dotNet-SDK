@@ -239,8 +239,28 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             // Callout Ad Extension
             StringTable.CalloutText,
 
-            //AutoBidding
-            StringTable.BidStrategyType
+            // AutoBidding
+            StringTable.BidStrategyType,
+
+            // Remarketing
+            StringTable.Description,
+            StringTable.MembershipDuration,
+            StringTable.Scope,
+            StringTable.TagId,
+            StringTable.RemarketingListId,
+            StringTable.RemarketingList,
+            StringTable.RemarketingTargetingSetting,
+            StringTable.AdGroupRemarketingListAssociation,
+
+            // Expanded Text Ad
+            StringTable.TitlePart1,
+            StringTable.TitlePart2,
+            StringTable.Path1,
+            StringTable.Path2,
+
+            // Structured Snippet Ad Extension
+            StringTable.StructuredSnippetHeader,
+            StringTable.StructuredSnippetValues
         };
 
         /// <summary>
