@@ -80,12 +80,19 @@ namespace Microsoft.BingAds.Reporting
 
         internal const int DefaultStatusPollIntervalInMilliseconds = 5000;
 
+        internal const int DefaultHttpClientTimeoutInMillseconds = 100000;
+
         private ApiEnvironment? _apiEnvironment;
 
         /// <summary>
         /// The time interval in milliseconds between two status polling attempts. The default value is 5000 (5 seconds).
         /// </summary>
         public int StatusPollIntervalInMilliseconds { get; set; }
+
+        /// <summary>
+        /// The time span of HttpClient download operation timeout. The default value is 100000(100s).
+        /// </summary>
+        public TimeSpan DownloadHttpTimeout { get; set; }
 
         /// <summary>
         /// Directory for storing downloaded files if result folder is not specified.
@@ -122,6 +129,8 @@ namespace Microsoft.BingAds.Reporting
             FileSystem = new FileSystem();
 
             StatusPollIntervalInMilliseconds = DefaultStatusPollIntervalInMilliseconds;
+
+            DownloadHttpTimeout = TimeSpan.FromMilliseconds(DefaultHttpClientTimeoutInMillseconds);
 
             WorkingDirectory = Path.Combine(Path.GetTempPath(), "BingAdsSDK", "Reporting");
 
@@ -186,7 +195,11 @@ namespace Microsoft.BingAds.Reporting
                 }               
             }
 
-            return new ReportingDownloadOperation(response.ReportRequestId, _authorizationData, response.TrackingId, _apiEnvironment) {StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds};
+            return new ReportingDownloadOperation(response.ReportRequestId, _authorizationData, response.TrackingId, _apiEnvironment)
+            {
+                StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds,
+                DownloadHttpTimeout = DownloadHttpTimeout
+            };
         }
 
         private async Task<string> DownloadFileAsyncImpl(ReportingDownloadParameters parameters, CancellationToken cancellationToken)

@@ -97,7 +97,7 @@ namespace Microsoft.BingAds.Internal.OAuth
                 values.Add(new KeyValuePair<string, string>("client_secret", oAuthParameters.ClientSecret));
             }
             
-            var response = await _httpService.PostAsync(new Uri("https://login.live.com/oauth20_token.srf"), values).ConfigureAwait(false);
+            var response = await _httpService.PostAsync(new Uri("https://login.live.com/oauth20_token.srf"), values, TimeSpan.FromSeconds(100)).ConfigureAwait(false);
 
             var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 

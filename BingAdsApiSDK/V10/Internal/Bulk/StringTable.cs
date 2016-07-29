@@ -308,7 +308,31 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public const string AdGroupCalloutAdExtension = "Ad Group Callout Ad Extension";
         public const string CalloutText = "Callout Text";
 
-        //AutoBidding
+        // AutoBidding
         public const string BidStrategyType = "Bid Strategy Type";
+
+        // Remarketing
+        public const string RemarketingList = "Remarketing List";
+        public const string AdGroupRemarketingListAssociation = "Ad Group Remarketing List Association";
+        public const string Description = "Description";
+        public const string MembershipDuration = "Membership Duration";
+        public const string Scope = "Scope";
+        public const string TagId = "UET Tag Id";
+        public const string RemarketingListId = "Remarketing List Id";
+        public const string RemarketingTargetingSetting = "Remarketing Targeting Setting";
+
+        // Expanded Text Ad
+        public const string ExpandedTextAd = "Expanded Text Ad";
+        public const string TitlePart1 = "Title Part 1";
+        public const string TitlePart2 = "Title Part 2";
+        public const string Path1 = "Path 1";
+        public const string Path2 = "Path 2";
+
+        // Structured Snippet Ad Extension
+        public const string CampaignStructuredSnippetAdExtension = "Campaign Structured Snippet Ad Extension";
+        public const string AdGroupStructuredSnippetAdExtension = "Ad Group Structured Snippet Ad Extension";
+        public const string StructuredSnippetAdExtension = "Structured Snippet Ad Extension";
+        public const string StructuredSnippetHeader = "Structured Snippet Header";
+        public const string StructuredSnippetValues = "Structured Snippet Values";
     }
 }

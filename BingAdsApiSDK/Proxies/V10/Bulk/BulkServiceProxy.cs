@@ -263,22 +263,43 @@ namespace Microsoft.BingAds.V10.Bulk
         AdGroupCalloutAdExtensions = 8589934592,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        StructuredSnippetAdExtensions = 17179869184,
+        Sitelink2AdExtensions = 17179869184,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignStructuredSnippetAdExtensions = 34359738368,
+        CampaignSitelink2AdExtensions = 34359738368,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupStructuredSnippetAdExtensions = 68719476736,
+        AdGroupSitelink2AdExtensions = 68719476736,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        RemarketingLists = 137438953472,
+        StructuredSnippetAdExtensions = 137438953472,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupRemarketingListAssociations = 274877906944,
+        CampaignStructuredSnippetAdExtensions = 274877906944,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Budgets = 549755813888,
+        AdGroupStructuredSnippetAdExtensions = 549755813888,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RemarketingLists = 1099511627776,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupRemarketingListAssociations = 2199023255552,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Budgets = 4398046511104,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TextAds = 8796093022208,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductAds = 17592186044416,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppInstallAds = 35184372088832,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExpandedTextAds = 70368744177664,
     }
     
     /// <summary>

@@ -47,73 +47,25 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities.AdExtensions;
 
-namespace Microsoft.BingAds.Internal
+// ReSharper disable once CheckNamespace
+
+namespace Microsoft.BingAds.V10.Bulk.Entities
 {
-    internal class HttpService : IHttpService
+    /// <summary>
+    /// <para>
+    /// Represents a ad group level structured snippet ad extension. 
+    /// This class exposes properties that can be read and written 
+    /// as fields of the Ad Group Structured Snippet Ad Extension record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=823165">Ad Group Structured Snippet Ad Extension</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkAdGroupStructuredSnippetAdExtension : BulkAdGroupAdExtensionAssociation
     {
-
-        public Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout)
-        {
-            var client = new HttpClient { Timeout = timeout };
-
-            return client.PostAsync(requestUri, new FormUrlEncodedContent(formValues));
-        }
-
-        public async Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite, TimeSpan timeout)
-        {
-            var client = new HttpClient { Timeout = timeout };
-
-            try
-            {
-                var response = await client.GetAsync(fileUri).ConfigureAwait(false);
-
-                response.EnsureSuccessStatusCode();
-
-                await response.Content.ReadAsFileAsync(localFilePath, overwrite).ConfigureAwait(false);
-            }
-            catch (Exception e)
-            {
-                throw new CouldNotDownloadResultFileException("Download File failed.", e);
-            }
-            
-        }
-
-        public async Task UploadFileAsync(Uri uri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction, TimeSpan timeout)
-        {
-            using (var stream = File.OpenRead(uploadFilePath))
-            {
-                var client = new HttpClient { Timeout = timeout };
-
-                addHeadersAction(client.DefaultRequestHeaders);
-
-                var multiPart = new MultipartFormDataContent
-                {
-                    { new StreamContent(stream), "file", string.Format("\"{0}{1}\"", Guid.NewGuid(), Path.GetExtension(uploadFilePath)) }
-                };
-
-                try
-                {
-                    var response = await client.PostAsync(uri, multiPart).ConfigureAwait(false);
-                  
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-
-                        throw new CouldNotUploadFileException("Unsuccessful Status Code: " + response.StatusCode + "; Exception Message: " + content);
-                    }                                      
-                }            
-                catch (Exception e)
-                {
-                    throw new CouldNotUploadFileException("Upload File failed.", e);
-                }
-            }
-        }
     }
 }

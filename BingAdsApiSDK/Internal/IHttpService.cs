@@ -57,10 +57,10 @@ namespace Microsoft.BingAds.Internal
 {
     internal interface IHttpService
     {
-        Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues);
+        Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout);
 
-        Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite);
+        Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite, TimeSpan timeout);
 
-        Task UploadFileAsync(Uri fileUri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction);
+        Task UploadFileAsync(Uri fileUri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction, TimeSpan timeout);
     }
 }

@@ -47,73 +47,68 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+using Microsoft.BingAds.V10.Internal.Bulk;
+using Microsoft.BingAds.V10.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities;
+using Microsoft.BingAds.V10.CampaignManagement;
 
-namespace Microsoft.BingAds.Internal
+// ReSharper disable once CheckNamespace
+
+namespace Microsoft.BingAds.V10.Bulk.Entities
 {
-    internal class HttpService : IHttpService
+    /// <summary>
+    /// <para>
+    /// Represents a structured snippet ad extension. 
+    /// This class exposes the <see cref="BulkStructuredSnippetAdExtension.StructuredSnippetAdExtension"/> property that can be read and written 
+    /// as fields of the Structured Snippet Ad Extension record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=823169">Structured Snippet Ad Extension</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkStructuredSnippetAdExtension : BulkAdExtensionBase<StructuredSnippetAdExtension>
     {
-
-        public Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout)
+        /// <summary>
+        /// The structured snippet ad extension.
+        /// </summary>
+        public StructuredSnippetAdExtension StructuredSnippetAdExtension
         {
-            var client = new HttpClient { Timeout = timeout };
-
-            return client.PostAsync(requestUri, new FormUrlEncodedContent(formValues));
+            get { return AdExtension; }
+            set { AdExtension = value; }
         }
 
-        public async Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite, TimeSpan timeout)
+        private static readonly IBulkMapping<BulkStructuredSnippetAdExtension>[] Mappings =
         {
-            var client = new HttpClient { Timeout = timeout };
+            new SimpleBulkMapping<BulkStructuredSnippetAdExtension>(StringTable.StructuredSnippetHeader,
+                c => c.StructuredSnippetAdExtension.Header,
+                (v, c) => c.StructuredSnippetAdExtension.Header = v),
 
-            try
+            new SimpleBulkMapping<BulkStructuredSnippetAdExtension>(StringTable.StructuredSnippetValues,
+                c => c.StructuredSnippetAdExtension.Values.WriteStructuredSnippetValues(";"),
+                (v, c) => c.StructuredSnippetAdExtension.Values = v.ParseStructuredSnippetValues())
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            StructuredSnippetAdExtension = new StructuredSnippetAdExtension
             {
-                var response = await client.GetAsync(fileUri).ConfigureAwait(false);
+                Type = "StructuredSnippetAdExtension",
+            };
 
-                response.EnsureSuccessStatusCode();
+            base.ProcessMappingsFromRowValues(values);
 
-                await response.Content.ReadAsFileAsync(localFilePath, overwrite).ConfigureAwait(false);
-            }
-            catch (Exception e)
-            {
-                throw new CouldNotDownloadResultFileException("Download File failed.", e);
-            }
-            
+            values.ConvertToEntity(this, Mappings);
         }
 
-        public async Task UploadFileAsync(Uri uri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction, TimeSpan timeout)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            using (var stream = File.OpenRead(uploadFilePath))
-            {
-                var client = new HttpClient { Timeout = timeout };
+            ValidatePropertyNotNull(StructuredSnippetAdExtension, "StructuredSnippetAdExtension");
 
-                addHeadersAction(client.DefaultRequestHeaders);
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 
-                var multiPart = new MultipartFormDataContent
-                {
-                    { new StreamContent(stream), "file", string.Format("\"{0}{1}\"", Guid.NewGuid(), Path.GetExtension(uploadFilePath)) }
-                };
-
-                try
-                {
-                    var response = await client.PostAsync(uri, multiPart).ConfigureAwait(false);
-                  
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-
-                        throw new CouldNotUploadFileException("Unsuccessful Status Code: " + response.StatusCode + "; Exception Message: " + content);
-                    }                                      
-                }            
-                catch (Exception e)
-                {
-                    throw new CouldNotUploadFileException("Upload File failed.", e);
-                }
-            }
+            this.ConvertToValues(values, Mappings);
         }
     }
 }

@@ -47,124 +47,106 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using Microsoft.BingAds.V10.CampaignManagement;
-using Microsoft.BingAds.V10.Bulk.Entities;
+using Microsoft.BingAds.V10.Internal.Bulk;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities;
 using Microsoft.BingAds.V10.Internal.Bulk.Mappings;
 
-namespace Microsoft.BingAds.V10.Internal.Bulk.Entities
+namespace Microsoft.BingAds.V10.Bulk.Entities
 {
     /// <summary>
-    /// This abstract base class provides properties that are shared by all bulk ad classes.
+    /// <para>
+    /// Represents an AdGroupRemarketingListAssociation that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkAdGroupRemarketingListAssociation.AdGroupRemarketingListAssociation"/> property that can be read and written as fields of the Ad Group Remarketing List Association record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkId=799353">Ad Group Remarketing List Association</see> </para>
     /// </summary>
-    /// <typeparam name="T">The type of ad from the <see cref="Microsoft.BingAds.V10.CampaignManagement"/> namespace, for example a <see cref="TextAd"/> object.</typeparam>
-    /// <seealso cref="BulkProductAd"/>
-    /// <seealso cref="BulkTextAd"/>
-    /// <seealso cref="BulkAppInstallAd"/>
-    /// <seealso cref="BulkExpandedTextAd"/>
-    public abstract class BulkAd<T> : SingleRecordBulkEntity
-        where T: Ad, new()
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkAdGroupRemarketingListAssociation : SingleRecordBulkEntity
     {
         /// <summary>
-        /// The identifier of the ad group that contains the ad.
-        /// Corresponds to the 'Parent Id' field in the bulk file. 
+        /// Defines an Ad Group Remarketing List Association.
         /// </summary>
-        public long? AdGroupId { get; set; }
+        public AdGroupRemarketingListAssociation AdGroupRemarketingListAssociation { get; set; }
 
         /// <summary>
-        /// The name of the campaign that contains the ad.
+        /// The name of the campaign that contains the ad group.
         /// Corresponds to the 'Campaign' field in the bulk file. 
         /// </summary>
         public string CampaignName { get; set; }
 
         /// <summary>
-        /// The name of the ad group that contains the ad.
-        /// Corresponds to the 'Ad Group' field in the bulk file. 
+        /// The <see href="http://go.microsoft.com/fwlink/?LinkID=511537">Ad Group</see> that is associated with the remarketing list.
+        /// Corresponds to the 'Ad Group' field in the bulk file.
         /// </summary>
         public string AdGroupName { get; set; }
 
         /// <summary>
-        /// The type of ad from the <see cref="Microsoft.BingAds.V10.CampaignManagement"/> namespace, for example a <see cref="TextAd"/> object.
+        /// The name of the remarketing list
+        /// Corresponds to the "Remarketing List" field in the bulk file.
         /// </summary>
-        protected T Ad { get; set; }
+        public string RemarketingListName { get; set; }
 
-        /// <summary>
-        /// The historical performance data for the ad.
-        /// </summary>
-        public PerformanceData PerformanceData { get; private set; }
-
-        private static readonly IBulkMapping<BulkAd<T>>[] Mappings =
+        private static readonly IBulkMapping<BulkAdGroupRemarketingListAssociation>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.Status,
-                c => c.Ad.Status.ToBulkString(),
-                (v, c) => c.Ad.Status = v.ParseOptional<AdStatus>()
+            new SimpleBulkMapping<BulkAdGroupRemarketingListAssociation>(StringTable.Status,
+                c => c.AdGroupRemarketingListAssociation.Status.ToBulkString(),
+                (v, c) => c.AdGroupRemarketingListAssociation.Status = v.ParseOptional<AdGroupRemarketingListAssociationStatus>()
             ),
 
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.Id,
-                c => c.Ad.Id.ToBulkString(),
-                (v, c) => c.Ad.Id = v.ParseOptional<long>()
+            new SimpleBulkMapping<BulkAdGroupRemarketingListAssociation>(StringTable.Id,
+                c => c.AdGroupRemarketingListAssociation.Id.ToBulkString(),
+                (v, c) => c.AdGroupRemarketingListAssociation.Id = v.ParseOptional<long>()
             ),
 
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.ParentId,
-                c => c.AdGroupId.ToBulkString(),
-                (v, c) => c.AdGroupId = v.ParseOptional<long>()
+            new SimpleBulkMapping<BulkAdGroupRemarketingListAssociation>(StringTable.ParentId,
+                c => c.AdGroupRemarketingListAssociation.AdGroupId.ToBulkString(true),
+                (v, c) => c.AdGroupRemarketingListAssociation.AdGroupId = v.Parse<long>()
             ),
 
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.Campaign,
+            new SimpleBulkMapping<BulkAdGroupRemarketingListAssociation>(StringTable.Campaign,
                 c => c.CampaignName,
                 (v, c) => c.CampaignName = v
             ),
 
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.AdGroup,
+            new SimpleBulkMapping<BulkAdGroupRemarketingListAssociation>(StringTable.AdGroup,
                 c => c.AdGroupName,
                 (v, c) => c.AdGroupName = v
             ),
 
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.EditorialStatus,
-                c => c.Ad.EditorialStatus.ToBulkString(),
-                (v, c) => c.Ad.EditorialStatus = v.ParseOptional<AdEditorialStatus>()
+            new SimpleBulkMapping<BulkAdGroupRemarketingListAssociation>(StringTable.RemarketingList,
+                c => c.RemarketingListName,
+                (v, c) => c.RemarketingListName = v
             ),
 
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.DevicePreference,
-                c => c.Ad.DevicePreference.ToDevicePreferenceBulkString(),
-                (v, c) => c.Ad.DevicePreference = v.ParseDevicePreference()
-            ),
-                        
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.FinalUrl,
-                c => c.Ad.FinalUrls.WriteUrls("; "),
-                (v, c) => c.Ad.FinalUrls = v.ParseUrls()
-            ), 
-
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.FinalMobileUrl,
-                c => c.Ad.FinalMobileUrls.WriteUrls("; "),
-                (v, c) => c.Ad.FinalMobileUrls = v.ParseUrls()
-            ), 
-
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.TrackingTemplate,
-                c => c.Ad.TrackingUrlTemplate.ToOptionalBulkString(),
-                (v, c) => c.Ad.TrackingUrlTemplate = v.GetValueOrEmptyString()
+            new SimpleBulkMapping<BulkAdGroupRemarketingListAssociation>(StringTable.BidAdjustment,
+                c => c.AdGroupRemarketingListAssociation.BidAdjustment.ToBulkString(),
+                (v, c) => c.AdGroupRemarketingListAssociation.BidAdjustment = v.ParseOptional<double>()
             ),
 
-            new SimpleBulkMapping<BulkAd<T>>(StringTable.CustomParameter,
-                c => c.Ad.UrlCustomParameters.ToBulkString(),
-                (v, c) => c.Ad.UrlCustomParameters = v.ParseCustomParameters()
-            ), 
+            new SimpleBulkMapping<BulkAdGroupRemarketingListAssociation>(StringTable.RemarketingListId,
+                c => c.AdGroupRemarketingListAssociation.RemarketingListId.ToBulkString(),
+                (v, c) => c.AdGroupRemarketingListAssociation.RemarketingListId = v.ParseOptional<long>()
+            ),
+
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            this.ConvertToValues(values, Mappings);
+            ValidatePropertyNotNull(AdGroupRemarketingListAssociation, "AdGroupRemarketingListAssociation");
 
-            if (!excludeReadonlyData)
-            {
-                PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
-            }
+            this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            values.ConvertToEntity(this, Mappings);
+            AdGroupRemarketingListAssociation = new AdGroupRemarketingListAssociation();
 
-            PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);
+            values.ConvertToEntity(this, Mappings);
         }
     }
 }

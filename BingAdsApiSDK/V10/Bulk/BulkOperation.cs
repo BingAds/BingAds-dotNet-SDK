@@ -100,6 +100,11 @@ namespace Microsoft.BingAds.V10.Bulk
         /// </summary>
         public int StatusPollIntervalInMilliseconds { get; set; }
 
+        /// <summary>
+        /// The time span of HttpClient download operation timeout. The default value is 100000(100s).
+        /// </summary>
+        public TimeSpan DownloadHttpTimeout { get; set; }
+
         internal BulkOperation(string requestId, AuthorizationData authorizationData, IBulkOperationStatusProvider<TStatus> statusProvider, string trackingId)
             : this(requestId, authorizationData, statusProvider, trackingId, null)
         {
@@ -117,6 +122,8 @@ namespace Microsoft.BingAds.V10.Bulk
             TrackingId = trackingId;
 
             StatusPollIntervalInMilliseconds = BulkServiceManager.DefaultStatusPollIntervalInMilliseconds;
+
+            DownloadHttpTimeout = TimeSpan.FromMilliseconds(BulkServiceManager.DefaultHttpTimeoutInMillseconds);
 
             _bulkServiceClient = new ServiceClient<IBulkService>(authorizationData, apiEnvironment);
 
@@ -188,7 +195,7 @@ namespace Microsoft.BingAds.V10.Bulk
         /// <param name="localResultFileName">The download result local file name.</param>
         /// <param name="decompress">Determines whether to decompress the ZIP file. 
         /// If set to true, the file will be decompressed after download.
-        /// The default value is false, in which case the downloaded file is not decompressed.</param>        
+        /// The default value is false, in which case the downloaded file is not decompressed.</param>
         /// <returns></returns>
         /// <exception cref="BulkOperationInProgressException">Thrown if the bulk operation is still in progress.</exception>
         /// <exception cref="BulkOperationCouldNotBeCompletedException{TStatus}">Thrown if the bulk operation has failed </exception>
@@ -267,7 +274,7 @@ namespace Microsoft.BingAds.V10.Bulk
 
         private Task DownloadResultFileZipAsync(string url, string tempZipFileName, bool overwrite)
         {
-            return HttpService.DownloadFileAsync(new Uri(url), tempZipFileName, overwrite);
+            return HttpService.DownloadFileAsync(new Uri(url), tempZipFileName, overwrite, DownloadHttpTimeout);
         }
 
         /// <summary>

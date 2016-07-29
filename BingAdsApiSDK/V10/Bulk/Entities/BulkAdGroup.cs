@@ -207,6 +207,11 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
                 (v, c) => c.AdGroup.BiddingScheme = v.ParseBiddingScheme()
             ),
 
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.RemarketingTargetingSetting,
+                c => c.AdGroup.RemarketingTargetingSetting.ToBulkString(),
+                (v, c) => c.AdGroup.RemarketingTargetingSetting = v.ParseOptional<RemarketingTargetingSetting>()
+            ),
+
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

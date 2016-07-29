@@ -89,12 +89,24 @@ namespace Microsoft.BingAds.V10.Bulk
 
         internal const int DefaultStatusPollIntervalInMilliseconds = 5000;
 
+        internal const int DefaultHttpTimeoutInMillseconds = 100000;
+
         private ApiEnvironment? _apiEnvironment;
 
         /// <summary>
         /// The time interval in milliseconds between two status polling attempts. The default value is 15000 (15 seconds).
         /// </summary>
         public int StatusPollIntervalInMilliseconds { get; set; }
+
+        /// <summary>
+        /// The time span of HttpClient upload operation timeout. The default value is 100000(100s).
+        /// </summary>
+        public TimeSpan UploadHttpTimeout { get; set; }
+
+        /// <summary>
+        /// The time span of HttpClient download operation timeout. The default value is 100000(100s).
+        /// </summary>
+        public TimeSpan DownloadHttpTimeout { get; set; }
 
         /// <summary>
         /// Directory for storing temporary files needed for some operations (for example <see cref="UploadEntitiesAsync(Microsoft.BingAds.V10.Bulk.EntityUploadParameters)"/> creates a temporary upload file).
@@ -133,6 +145,10 @@ namespace Microsoft.BingAds.V10.Bulk
             BulkFileReaderFactory = new BulkFileReaderFactory();
 
             StatusPollIntervalInMilliseconds = DefaultStatusPollIntervalInMilliseconds;
+
+            UploadHttpTimeout = TimeSpan.FromMilliseconds(DefaultHttpTimeoutInMillseconds);
+
+            DownloadHttpTimeout = TimeSpan.FromMilliseconds(DefaultHttpTimeoutInMillseconds);
 
             WorkingDirectory = Path.Combine(Path.GetTempPath(), "BingAdsSDK");
 
@@ -271,7 +287,7 @@ namespace Microsoft.BingAds.V10.Bulk
             return UploadFileAsyncImpl(parameters, progress, cancellationToken);
         }
 
-        /// <summary>
+       /// <summary>
         /// Submits a download request to the Bing Ads bulk service with the specified parameters.
         /// </summary>
         /// <param name="parameters">Determines various download parameters, for example what entities to download. Please see <see cref="SubmitDownloadParameters"/> for more information about available parameters.</param>
@@ -339,7 +355,7 @@ namespace Microsoft.BingAds.V10.Bulk
 
             return new BulkFileReaderEnumerable(BulkFileReaderFactory.CreateBulkFileReader(resultFile, ResultFileType.Upload, DownloadFileType.Csv));
         }
-
+        
         private async Task<string> UploadFileAsyncImpl(FileUploadParameters parameters, IProgress<BulkOperationProgressInfo> progress, CancellationToken cancellationToken)
         {
             using (var operation = await SubmitUploadAsync(parameters.SubmitUploadParameters).ConfigureAwait(false))
@@ -395,7 +411,8 @@ namespace Microsoft.BingAds.V10.Bulk
 
                 return new BulkDownloadOperation(response.DownloadRequestId, _authorizationData, response.TrackingId, _apiEnvironment)
                 {
-                    StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds
+                    StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds,
+                    DownloadHttpTimeout = DownloadHttpTimeout
                 };
             }
             else
@@ -428,7 +445,8 @@ namespace Microsoft.BingAds.V10.Bulk
 
                 return new BulkDownloadOperation(response.DownloadRequestId, _authorizationData, response.TrackingId, _apiEnvironment)
                 {
-                    StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds
+                    StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds,
+                    DownloadHttpTimeout = DownloadHttpTimeout
                 };
             }
         }
@@ -482,8 +500,8 @@ namespace Microsoft.BingAds.V10.Bulk
 
                 effectiveFileUploadPath = compressedFilePath;
             }
-
-            await HttpService.UploadFileAsync(new Uri(uploadUrl), effectiveFileUploadPath, addHeaders).ConfigureAwait(false);
+           
+            await HttpService.UploadFileAsync(new Uri(uploadUrl), effectiveFileUploadPath, addHeaders, UploadHttpTimeout).ConfigureAwait(false);
 
             if (shouldCompress && compressedFilePath != null)
             {
@@ -492,7 +510,8 @@ namespace Microsoft.BingAds.V10.Bulk
 
             return new BulkUploadOperation(getUploadUrlResponse.RequestId, _authorizationData, getUploadUrlResponse.TrackingId, _apiEnvironment)
             {
-                StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds
+                StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds,
+                DownloadHttpTimeout = DownloadHttpTimeout
             };
         }
 
