@@ -29,6 +29,8 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V10.BulkNegativeKeywords(),
             new BingAdsExamplesLibrary.V10.NegativeKeywords(),
             new BingAdsExamplesLibrary.V10.BulkProductPartitionUpdateBid(),
+            new BingAdsExamplesLibrary.V10.BulkRemarketingLists(),
+            new BingAdsExamplesLibrary.V10.RemarketingLists(),
             new BingAdsExamplesLibrary.V10.BulkShoppingCampaigns(),
             new BingAdsExamplesLibrary.V10.ShoppingCampaigns(),
             new BingAdsExamplesLibrary.V10.BulkTargets(),
