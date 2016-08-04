@@ -2650,6 +2650,51 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
+        /// Outputs the list of BulkRemarketingList.
+        /// </summary>
+        protected void OutputBulkRemarketingLists(IEnumerable<BulkRemarketingList> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkRemarketingList: \n");
+                OutputStatusMessage(string.Format("Status: {0}", entity.Status));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management RemarketingList Object
+                OutputRemarketingList(entity.RemarketingList);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkAdGroupRemarketingListAssociation.
+        /// </summary>
+        protected void OutputBulkAdGroupRemarketingListAssociations(IEnumerable<BulkAdGroupRemarketingListAssociation> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkAdGroupRemarketingList: \n");
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management AdGroupRemarketingListAssociation Object
+                OutputAdGroupRemarketingListAssociation(entity.AdGroupRemarketingListAssociation);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
         /// Outputs the PerformanceData
         /// </summary>
         private void OutputBulkPerformanceData(PerformanceData performanceData)
