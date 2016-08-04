@@ -57,6 +57,7 @@
     <Compile Include="v10\BulkNegativeKeywords.cs" />
     <Compile Include="v10\BulkNegativeSites.cs" />
     <Compile Include="v10\BulkProductPartitionUpdateBid.cs" />
+    <Compile Include="v10\BulkRemarketingLists.cs" />
     <Compile Include="v10\BulkServiceManagerDemo.cs" />
     <Compile Include="v10\BulkShoppingCampaigns.cs" />
     <Compile Include="v10\BulkTargets.cs" />

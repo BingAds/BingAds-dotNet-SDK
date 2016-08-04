@@ -17,6 +17,7 @@ namespace BingAdsConsoleApp
         // Uncomment any examples that you want to run. 
         private static readonly ExampleBase[] _examples =
         {
+            //new BingAdsExamplesLibrary.V10.BidOpportunities(),
             //new BingAdsExamplesLibrary.V10.BudgetOpportunities(),
             //new BingAdsExamplesLibrary.V10.BulkServiceManagerDemo(),
             //new BingAdsExamplesLibrary.V10.BulkAdExtensions(),
@@ -26,6 +27,8 @@ namespace BingAdsConsoleApp
             //new BingAdsExamplesLibrary.V10.BulkNegativeKeywords(),
             //new BingAdsExamplesLibrary.V10.NegativeKeywords(),
             //new BingAdsExamplesLibrary.V10.BulkProductPartitionUpdateBid(),
+            //new BingAdsExamplesLibrary.V10.BulkRemarketingLists(),
+            //new BingAdsExamplesLibrary.V10.RemarketingLists(),
             //new BingAdsExamplesLibrary.V10.BulkShoppingCampaigns(),
             //new BingAdsExamplesLibrary.V10.ShoppingCampaigns(),
             //new BingAdsExamplesLibrary.V10.BulkTargets(),
@@ -37,17 +40,6 @@ namespace BingAdsConsoleApp
             //new BingAdsExamplesLibrary.V9.CustomerSignup(),
             //new BingAdsExamplesLibrary.V9.ManageClient(),
             //new BingAdsExamplesLibrary.V9.ReportRequests(),
-            //new BingAdsExamplesLibrary.V9.BulkAdExtensions(),
-            //new BingAdsExamplesLibrary.V9.AdExtensions(),
-            //new BingAdsExamplesLibrary.V9.BulkShoppingCampaigns(),
-            //new BingAdsExamplesLibrary.V9.ShoppingCampaigns(),
-            //new BingAdsExamplesLibrary.V9.BulkTargets(),
-            //new BingAdsExamplesLibrary.V9.Targets(),
-            //new BingAdsExamplesLibrary.V9.BulkKeywordsAds(),
-            //new BingAdsExamplesLibrary.V9.KeywordsAds(),
-            //new BingAdsExamplesLibrary.V9.NegativeKeywords(),
-            //new BingAdsExamplesLibrary.V9.EstimatedBid(),
-            //new BingAdsExamplesLibrary.V9.OptimizeBudget(),
 
         };
 
@@ -59,48 +51,12 @@ namespace BingAdsConsoleApp
         {
             try
             {
-                var oAuthDesktopMobileAuthCodeGrant = new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
-
-                // It is recommended that you specify a non guessable 'state' request parameter to help prevent
-                // cross site request forgery (CSRF). 
-                oAuthDesktopMobileAuthCodeGrant.State = ClientState;
-
-                string refreshToken;
-
-                // If you have previously securely stored a refresh token, try to use it.
-                if (GetRefreshToken(out refreshToken))
-                {
-                    AuthorizeWithRefreshTokenAsync(oAuthDesktopMobileAuthCodeGrant, refreshToken).Wait();
-                }
-                else
-                {
-                    // You must request user consent at least once through a web browser control. 
-                    // Call the GetAuthorizationEndpoint method of the OAuthDesktopMobileAuthCodeGrant instance that you created above.
-                    Console.WriteLine(string.Format(
-                        "The Bing Ads user must provide consent for your application to access their Bing Ads accounts.\n" +
-                        "Open a new web browser and navigate to {0}.\n\n" +
-                        "After the user has granted consent in the web browser for the application to access their Bing Ads accounts, " +
-                        "please enter the response URI that includes the authorization 'code' parameter: \n", oAuthDesktopMobileAuthCodeGrant.GetAuthorizationEndpoint()));
-
-                    // Request access and refresh tokens using the URI that you provided manually during program execution.
-                    var responseUri = new Uri(Console.ReadLine());
-
-                    if (oAuthDesktopMobileAuthCodeGrant.State != ClientState)
-                        throw new HttpRequestException("The OAuth response state does not match the client request state.");
-
-                    oAuthDesktopMobileAuthCodeGrant.RequestAccessAndRefreshTokensAsync(responseUri).Wait();
-                }
-
-                // It is important to save the most recent refresh token whenever new OAuth tokens are received. 
-                // You will want to subscribe to the NewOAuthTokensReceived event handler. 
-                // When calling Bing Ads services with ServiceClient<TService>, BulkServiceManager, or ReportingServiceManager, 
-                // each instance will refresh your access token automatically if they detect the AuthenticationTokenExpired (109) error code. 
-                oAuthDesktopMobileAuthCodeGrant.NewOAuthTokensReceived +=
-                        (sender, tokens) => SaveRefreshToken(tokens.NewRefreshToken);
+                //Authentication authentication = AuthenticateWithUserName();
+                Authentication authentication = AuthenticateWithOAuth();
 
                 // Most Bing Ads service operations require account and customer ID. This utiltiy operation sets the global 
                 // authorization data instance to the first account that the current authenticated user can access. 
-                SetAuthorizationDataAsync(oAuthDesktopMobileAuthCodeGrant).Wait();
+                SetAuthorizationDataAsync(authentication).Wait();
 
                 // Run all of the examples that were included above.
                 foreach (var example in _examples)
@@ -142,6 +98,55 @@ namespace BingAdsConsoleApp
             {
                 OutputStatusMessage(ex.Message);
             }
+        }
+
+        private static Authentication AuthenticateWithOAuth()
+        {
+            var oAuthDesktopMobileAuthCodeGrant = new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
+
+            // It is recommended that you specify a non guessable 'state' request parameter to help prevent
+            // cross site request forgery (CSRF). 
+            oAuthDesktopMobileAuthCodeGrant.State = ClientState;
+
+            string refreshToken;
+
+            // If you have previously securely stored a refresh token, try to use it.
+            if (GetRefreshToken(out refreshToken))
+            {
+                AuthorizeWithRefreshTokenAsync(oAuthDesktopMobileAuthCodeGrant, refreshToken).Wait();
+            }
+            else
+            {
+                // You must request user consent at least once through a web browser control. 
+                // Call the GetAuthorizationEndpoint method of the OAuthDesktopMobileAuthCodeGrant instance that you created above.
+                Console.WriteLine(string.Format(
+                    "The Bing Ads user must provide consent for your application to access their Bing Ads accounts.\n" +
+                    "Open a new web browser and navigate to {0}.\n\n" +
+                    "After the user has granted consent in the web browser for the application to access their Bing Ads accounts, " +
+                    "please enter the response URI that includes the authorization 'code' parameter: \n", oAuthDesktopMobileAuthCodeGrant.GetAuthorizationEndpoint()));
+
+                // Request access and refresh tokens using the URI that you provided manually during program execution.
+                var responseUri = new Uri(Console.ReadLine());
+
+                if (oAuthDesktopMobileAuthCodeGrant.State != ClientState)
+                    throw new HttpRequestException("The OAuth response state does not match the client request state.");
+
+                oAuthDesktopMobileAuthCodeGrant.RequestAccessAndRefreshTokensAsync(responseUri).Wait();
+            }
+
+            // It is important to save the most recent refresh token whenever new OAuth tokens are received. 
+            // You will want to subscribe to the NewOAuthTokensReceived event handler. 
+            // When calling Bing Ads services with ServiceClient<TService>, BulkServiceManager, or ReportingServiceManager, 
+            // each instance will refresh your access token automatically if they detect the AuthenticationTokenExpired (109) error code. 
+            oAuthDesktopMobileAuthCodeGrant.NewOAuthTokensReceived +=
+                    (sender, tokens) => SaveRefreshToken(tokens.NewRefreshToken);
+
+            return oAuthDesktopMobileAuthCodeGrant;
+        }
+
+        private static Authentication AuthenticateWithUserName()
+        {
+            return new PasswordAuthentication("UserNameGoesHere", "PasswordGoesHere");
         }
 
         /// <summary>
@@ -187,7 +192,7 @@ namespace BingAdsConsoleApp
 
         private static void SaveRefreshToken(string newRefreshtoken)
         {
-            if(newRefreshtoken != null)
+            if (newRefreshtoken != null)
             {
                 Settings.Default["RefreshToken"] = newRefreshtoken.Protect();
                 Settings.Default.Save();
