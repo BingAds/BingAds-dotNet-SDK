@@ -478,31 +478,40 @@ namespace BingAdsExamplesLibrary.V10
                                 }
                                 else
                                 {
-                                    var linksAdExtension = extension as SiteLinksAdExtension;
-                                    if (linksAdExtension != null)
+                                    var siteLinksAdExtension = extension as SiteLinksAdExtension;
+                                    if (siteLinksAdExtension != null)
                                     {
-                                        OutputSiteLinksAdExtension(linksAdExtension);
+                                        OutputSiteLinksAdExtension(siteLinksAdExtension);
                                         OutputStatusMessage("\n");
                                     }
                                     else
                                     {
-                                        var calloutAdExtension = extension as CalloutAdExtension;
-                                        if (calloutAdExtension != null)
+                                        var sitelink2AdExtension = extension as Sitelink2AdExtension;
+                                        if (sitelink2AdExtension != null)
                                         {
-                                            OutputCalloutAdExtension(calloutAdExtension);
+                                            OutputSitelink2AdExtension(sitelink2AdExtension);
                                             OutputStatusMessage("\n");
                                         }
                                         else
                                         {
-                                            var reviewAdExtension = extension as ReviewAdExtension;
-                                            if (reviewAdExtension != null)
+                                            var calloutAdExtension = extension as CalloutAdExtension;
+                                            if (calloutAdExtension != null)
                                             {
-                                                OutputReviewAdExtension(reviewAdExtension);
+                                                OutputCalloutAdExtension(calloutAdExtension);
                                                 OutputStatusMessage("\n");
                                             }
                                             else
                                             {
-                                                OutputStatusMessage("Unknown extension type");
+                                                var reviewAdExtension = extension as ReviewAdExtension;
+                                                if (reviewAdExtension != null)
+                                                {
+                                                    OutputReviewAdExtension(reviewAdExtension);
+                                                    OutputStatusMessage("\n");
+                                                }
+                                                else
+                                                {
+                                                    OutputStatusMessage("Unknown extension type");
+                                                }
                                             }
                                         }
                                     }
@@ -2292,6 +2301,89 @@ namespace BingAdsExamplesLibrary.V10
                         }
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the Sitelink2AdExtension.
+        /// </summary>
+        protected void OutputSitelink2AdExtension(Sitelink2AdExtension extension)
+        {
+            if (extension != null)
+            {
+                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
+                OutputStatusMessage(string.Format("Description1: {0}", extension.Description1));
+                OutputStatusMessage(string.Format("Description2: {0}", extension.Description2));
+                OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
+                OutputStatusMessage(string.Format("DevicePreference: {0}", extension.DevicePreference));
+                OutputStatusMessage(string.Format("DisplayText: {0}", extension.DisplayText));
+                OutputStatusMessage("FinalMobileUrls: ");
+                if (extension.FinalMobileUrls != null)
+                {
+                    foreach (var finalMobileUrl in extension.FinalMobileUrls)
+                    {
+                        OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
+                    }
+                }
+
+                OutputStatusMessage("FinalUrls: ");
+                if (extension.FinalUrls != null)
+                {
+                    foreach (var finalUrl in extension.FinalUrls)
+                    {
+                        OutputStatusMessage(string.Format("\t{0}", finalUrl));
+                    }
+                }
+                OutputStatusMessage("ForwardCompatibilityMap: ");
+                if (extension.ForwardCompatibilityMap != null)
+                {
+                    foreach (var pair in extension.ForwardCompatibilityMap)
+                    {
+                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
+                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
+                    }
+                }
+                OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
+                OutputStatusMessage("UrlCustomParameters: ");
+                if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
+                {
+                    foreach (var customParameter in extension.UrlCustomParameters.Parameters)
+                    {
+                        OutputStatusMessage(string.Format("\tKey: {0}", customParameter.Key));
+                        OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
+                    }
+                }
+                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
+                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the AccountMigrationStatusesInfo.
+        /// </summary>
+        protected void OutputAccountMigrationStatusesInfo(AccountMigrationStatusesInfo accountMigrationStatusesInfo)
+        {
+            if (accountMigrationStatusesInfo != null)
+            {
+                OutputStatusMessage(string.Format("AccountId: {0}", accountMigrationStatusesInfo.AccountId));
+                foreach (var migrationStatusInfo in accountMigrationStatusesInfo.MigrationStatusInfo)
+                {
+                    OutputMigrationStatusInfo(migrationStatusInfo);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the MigrationStatusInfo.
+        /// </summary>
+        protected void OutputMigrationStatusInfo(MigrationStatusInfo migrationStatusInfo)
+        {
+            if (migrationStatusInfo != null)
+            {
+                OutputStatusMessage(string.Format("MigrationType: {0}", migrationStatusInfo.MigrationType));
+                OutputStatusMessage(string.Format("StartTimeInUtc: {0}", migrationStatusInfo.StartTimeInUtc));
+                OutputStatusMessage(string.Format("Status: {0}", migrationStatusInfo.Status));
             }
         }
     }

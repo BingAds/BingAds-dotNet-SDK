@@ -20,6 +20,7 @@ namespace BingAdsWpfApp
     {
         private static readonly ExampleBase[] _examples =
         {
+            new BingAdsExamplesLibrary.V10.SitelinkMigration(),
             new BingAdsExamplesLibrary.V10.BudgetOpportunities(),
             new BingAdsExamplesLibrary.V10.BulkServiceManagerDemo(),
             new BingAdsExamplesLibrary.V10.BulkAdExtensions(),
