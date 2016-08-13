@@ -60,6 +60,13 @@ namespace BingAdsExamplesLibrary.V10
                         // the value is not written to the Bulk file, and by default DaylightSaving is set to true.
                         DaylightSaving = true,
 
+                        // You can set your campaign bid strategy to Enhanced CPC (EnhancedCpcBiddingScheme) 
+                        // and then, at any time, set an individual ad group or keyword bid strategy to 
+                        // Manual CPC (ManualCpcBiddingScheme).
+                        // For campaigns you can use either of the EnhancedCpcBiddingScheme or ManualCpcBiddingScheme objects. 
+                        // If you do not set this element, then ManualCpcBiddingScheme is used by default.
+                        BiddingScheme = new EnhancedCpcBiddingScheme { },
+
                         // Used with FinalUrls shown in the text ads that we will add below.
                         TrackingUrlTemplate =
                             "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
@@ -88,6 +95,10 @@ namespace BingAdsExamplesLibrary.V10
                         Language = "English",
                         Status = AdGroupStatus.Active,
 
+                        // For ad groups you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
+                        // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+                        BiddingScheme = new ManualCpcBiddingScheme { },
+
                         // You could use a tracking template which would override the campaign level
                         // tracking template. Tracking templates defined for lower level entities 
                         // override those set for higher level entities.
@@ -109,7 +120,10 @@ namespace BingAdsExamplesLibrary.V10
                             MatchType = MatchType.Broad,
                             Text = "Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes " +
                                    "Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes " +
-                                   "Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes"
+                                   "Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes",
+                            // For keywords you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
+                            // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+                            BiddingScheme = new InheritFromParentBiddingScheme { },
                         },
                     },
                     new BulkKeyword{
@@ -119,7 +133,10 @@ namespace BingAdsExamplesLibrary.V10
                             Bid = new Bid { Amount = 0.47 },
                             Param2 = "10% Off",
                             MatchType = MatchType.Phrase,
-                            Text = "Brand-A Shoes"
+                            Text = "Brand-A Shoes",
+                            // For keywords you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
+                            // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+                            BiddingScheme = new InheritFromParentBiddingScheme { },
                         },
                     },
                     new BulkKeyword{
@@ -129,7 +146,10 @@ namespace BingAdsExamplesLibrary.V10
                             Bid = new Bid { Amount = 0.47 },
                             Param2 = "10% Off",
                             MatchType = MatchType.Phrase,
-                            Text = "Brand-A Shoes"
+                            Text = "Brand-A Shoes",
+                            // For keywords you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
+                            // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+                            BiddingScheme = new InheritFromParentBiddingScheme { },
                         },
                     },
                 };
