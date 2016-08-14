@@ -50,6 +50,7 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (campaign != null)
             {
+                OutputStatusMessage(string.Format("BiddingScheme: {0}", campaign.BiddingScheme));
                 OutputStatusMessage(string.Format("BudgetType: {0}", campaign.BudgetType));
                 OutputStatusMessage(string.Format("CampaignType: {0}", campaign.CampaignType));
                 OutputStatusMessage(string.Format("DailyBudget: {0}", campaign.DailyBudget));
@@ -126,6 +127,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("AdRotation Type: {0}",
                     adGroup.AdRotation != null ? adGroup.AdRotation.Type : null));
                 OutputStatusMessage(string.Format("BiddingModel: {0}", adGroup.BiddingModel));
+                OutputStatusMessage(string.Format("BiddingScheme: {0}", adGroup.BiddingScheme));
                 OutputStatusMessage("ForwardCompatibilityMap: ");
                 if (adGroup.ForwardCompatibilityMap != null)
                 {
@@ -789,6 +791,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Bid.Amount: {0}", 
                     keyword.Bid != null ? keyword.Bid.Amount : 0)
                 );
+                OutputStatusMessage(string.Format("BiddingScheme: {0}", keyword.BiddingScheme));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", keyword.DestinationUrl));
                 OutputStatusMessage(string.Format("EditorialStatus: {0}", keyword.EditorialStatus));
                 OutputStatusMessage("FinalMobileUrls: ");
