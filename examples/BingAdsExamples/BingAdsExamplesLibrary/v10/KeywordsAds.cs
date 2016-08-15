@@ -38,6 +38,13 @@ namespace BingAdsExamplesLibrary.V10
                         MonthlyBudget = 1000.00,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         DaylightSaving = true,
+
+                        // You can set your campaign bid strategy to Enhanced CPC (EnhancedCpcBiddingScheme) 
+                        // and then, at any time, set an individual ad group or keyword bid strategy to 
+                        // Manual CPC (ManualCpcBiddingScheme).
+                        // For campaigns you can use either of the EnhancedCpcBiddingScheme or ManualCpcBiddingScheme objects. 
+                        // If you do not set this element, then ManualCpcBiddingScheme is used by default.
+                        BiddingScheme = new EnhancedCpcBiddingScheme { },
                         
                         // Used with FinalUrls shown in the text ads that we will add below.
                         TrackingUrlTemplate = 
@@ -63,6 +70,10 @@ namespace BingAdsExamplesLibrary.V10
                         SearchBid = new Bid { Amount = 0.09 },
                         Language = "English",
 
+                        // For ad groups you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
+                        // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+                        BiddingScheme = new ManualCpcBiddingScheme { },
+                        
                         // You could use a tracking template which would override the campaign level
                         // tracking template. Tracking templates defined for lower level entities 
                         // override those set for higher level entities.
@@ -82,7 +93,10 @@ namespace BingAdsExamplesLibrary.V10
                         MatchType = MatchType.Broad,
                         Text = "Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes " +
                                "Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes " +
-                               "Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes"
+                               "Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes Brand-A Shoes",
+                        // For keywords you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
+                        // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+                        BiddingScheme = new InheritFromParentBiddingScheme { },
                     },
                     new Keyword
                     {
@@ -90,6 +104,9 @@ namespace BingAdsExamplesLibrary.V10
                         Param2 = "10% Off",
                         MatchType = MatchType.Phrase,
                         Text = "Brand-A Shoes",
+                        // For keywords you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
+                        // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+                        BiddingScheme = new InheritFromParentBiddingScheme { },
                     },
                     new Keyword
                     {
@@ -97,6 +114,9 @@ namespace BingAdsExamplesLibrary.V10
                         Param2 = "10% Off",
                         MatchType = MatchType.Phrase,
                         Text = "Brand-A Shoes",
+                        // For keywords you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
+                        // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+                        BiddingScheme = new InheritFromParentBiddingScheme { },
                     }
                 };
 
@@ -377,13 +397,15 @@ namespace BingAdsExamplesLibrary.V10
                 await GetCampaignsByIdsAsync(
                     authorizationData.AccountId, 
                     new [] { (long)campaignIds[0] },
-                    CampaignType.SearchAndContent | CampaignType.Shopping
+                    CampaignType.SearchAndContent | CampaignType.Shopping,
+                    CampaignAdditionalField.BiddingScheme
                 );
                 await UpdateCampaignsAsync(authorizationData.AccountId, new[] { updateCampaign });
                 await GetCampaignsByIdsAsync(
                     authorizationData.AccountId,
                     new[] { (long)campaignIds[0] },
-                    CampaignType.SearchAndContent | CampaignType.Shopping
+                    CampaignType.SearchAndContent | CampaignType.Shopping,
+                    CampaignAdditionalField.BiddingScheme
                 );
                 
                 // Update the Text for the 3 successfully created ads, and update some UrlCustomParameters.
@@ -439,9 +461,9 @@ namespace BingAdsExamplesLibrary.V10
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
+                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
                 await UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
-                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
+                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
 
                 // Delete the campaign, ad group, keyword, and ad that were previously added. 
                 // You should remove this line if you want to view the added entities in the 
@@ -520,14 +542,15 @@ namespace BingAdsExamplesLibrary.V10
         private async Task<IList<Campaign>> GetCampaignsByIdsAsync(
             long accountId, 
             IList<long> campaignIds,
-            CampaignType campaignType
-            )
+            CampaignType campaignType,
+            CampaignAdditionalField returnAdditionalFields)
         {
             var request = new GetCampaignsByIdsRequest
             {
                 AccountId = accountId,
                 CampaignIds = campaignIds,
-                CampaignType = campaignType
+                CampaignType = campaignType,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await Service.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request)).Campaigns;
@@ -585,11 +608,14 @@ namespace BingAdsExamplesLibrary.V10
             await Service.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
         }
 
-        private async Task<IList<Keyword>> GetKeywordsByAdGroupIdAsync(long adGroupId)
+        private async Task<IList<Keyword>> GetKeywordsByAdGroupIdAsync(
+            long adGroupId, 
+            KeywordAdditionalField returnAdditionalFields)
         {
             var request = new GetKeywordsByAdGroupIdRequest
             {
                 AdGroupId = adGroupId,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await Service.CallAsync((s, r) => s.GetKeywordsByAdGroupIdAsync(r), request)).Keywords;
