@@ -30,29 +30,38 @@ namespace BingAdsExamplesLibrary.V10
             {
                 Service = new ServiceClient<ICampaignManagementService>(authorizationData);
 
-                bool migrationIsCompleted = false;
+                bool sitelinkMigrationIsCompleted = false;
 
-
-                var accountMigrationStatusesInfos = await GetAccountMigrationStatusesAsync(
+                // Even if you have multiple accounts per customer, each account will have
+                // its own migration status. 
+                var accountMigrationStatusesInfos = (await GetAccountMigrationStatusesAsync(
                     new long[] { authorizationData.AccountId },
                     "SiteLinkAdExtension"
-                );
+                )).ToArray();
 
-                foreach(var accountMigrationStatusesInfo in accountMigrationStatusesInfos)
+                do
                 {
-                    OutputAccountMigrationStatusesInfo(accountMigrationStatusesInfo);
-                    if(accountMigrationStatusesInfo.MigrationStatusInfo.SingleOrDefault(statusInfo => statusInfo.Status == MigrationStatus.NotStarted) != null)
+                    foreach (var accountMigrationStatusesInfo in accountMigrationStatusesInfos)
                     {
-                        OutputStatusMessage("found\n");
+                        OutputAccountMigrationStatusesInfo(accountMigrationStatusesInfo);
+
+                        if (accountMigrationStatusesInfo.MigrationStatusInfo.SingleOrDefault(
+                            statusInfo =>
+                            statusInfo.Status == MigrationStatus.NotStarted && "SiteLinkAdExtension".CompareTo(statusInfo.MigrationType) == 0)
+                            != null)
+                        {
+                            sitelinkMigrationIsCompleted = true;
+                            OutputStatusMessage("found\n");
+                        }
                     }
-                }
-                
+                } while (!sitelinkMigrationIsCompleted);
+                                
 
                 // If migration has been completed, then you should request the Sitelink2AdExtension objects.
                 // You can always request both types; however, before migration only the deprecated SiteLinksAdExtension
                 // type will be returned, and after migration only the new Sitelink2AdExtension type will be returned.
                 AdExtensionsTypeFilter adExtensionsTypeFilter =
-                    migrationIsCompleted ? AdExtensionsTypeFilter.Sitelink2AdExtension : AdExtensionsTypeFilter.SiteLinksAdExtension;
+                    sitelinkMigrationIsCompleted ? AdExtensionsTypeFilter.Sitelink2AdExtension : AdExtensionsTypeFilter.SiteLinksAdExtension;
 
                 var adGroupAdExtensionIds = await GetAdExtensionIdsByAccountIdAsync(
                     authorizationData.AccountId, 
