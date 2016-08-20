@@ -510,7 +510,16 @@ namespace BingAdsExamplesLibrary.V10
                                                 }
                                                 else
                                                 {
-                                                    OutputStatusMessage("Unknown extension type");
+                                                    var structuredSnippetAdExtension = extension as StructuredSnippetAdExtension;
+                                                    if (structuredSnippetAdExtension != null)
+                                                    {
+                                                        OutputStructuredSnippetAdExtension(structuredSnippetAdExtension);
+                                                        OutputStatusMessage("\n");
+                                                    }
+                                                    else
+                                                    {
+                                                        OutputStatusMessage("Unknown extension type");
+                                                    }
                                                 }
                                             }
                                         }
@@ -1854,8 +1863,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the AppAdExtension
                 OutputStatusMessage(string.Format("AppPlatform: {0}", extension.AppPlatform));
                 OutputStatusMessage(string.Format("AppStoreId: {0}", extension.AppStoreId));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
@@ -1878,16 +1889,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\t{0}", finalUrl));
                     }
                 }
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
@@ -1898,7 +1899,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -1923,25 +1923,16 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the CallAdExtension
                 OutputStatusMessage(string.Format("CountryCode: {0}", extension.CountryCode));
                 OutputStatusMessage(string.Format("DevicePreference: {0}", extension.DevicePreference));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
                 OutputStatusMessage(string.Format("IsCallOnly: {0}", extension.IsCallOnly));
                 OutputStatusMessage(string.Format("IsCallTrackingEnabled: {0}", extension.IsCallTrackingEnabled));
                 OutputStatusMessage(string.Format("PhoneNumber: {0}", extension.PhoneNumber));
                 OutputStatusMessage(string.Format("RequireTollFreeTrackingNumber: {0}", extension.RequireTollFreeTrackingNumber));
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -1965,8 +1956,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the ImageAdExtension
                 OutputStatusMessage(string.Format("AlternativeText: {0}", extension.AlternativeText));
                 OutputStatusMessage(string.Format("Description: {0}", extension.Description));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
@@ -1987,15 +1980,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\t{0}", finalUrl));
                     }
                 }
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
                 OutputStatusMessage("ImageMediaIds: ");
                 if (extension.ImageMediaIds != null)
                 {
@@ -2004,7 +1988,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tId: {0}", id));
                     }
                 }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
@@ -2015,7 +1998,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -2050,8 +2032,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the LocationAdExtension
                 if (extension.Address != null)
                 {
                     OutputStatusMessage(string.Format("CityName: {0}", extension.Address.CityName));
@@ -2064,15 +2048,6 @@ namespace BingAdsExamplesLibrary.V10
                 }
 
                 OutputStatusMessage(string.Format("CompanyName: {0}", extension.CompanyName));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
                 OutputStatusMessage(string.Format("GeoCodeStatus: {0}", extension.GeoCodeStatus));
                 if (extension.GeoPoint != null)
                 {
@@ -2083,8 +2058,6 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("IconMediaId: {0}", extension.IconMediaId));
                 OutputStatusMessage(string.Format("ImageMediaId: {0}", extension.ImageMediaId));
                 OutputStatusMessage(string.Format("PhoneNumber: {0}", extension.PhoneNumber));
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -2095,19 +2068,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the CalloutAdExtension
                 OutputStatusMessage(string.Format("Callout Text: {0}", extension.Text));
             }
         }
@@ -2119,24 +2083,51 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the ReviewAdExtension
                 OutputStatusMessage(string.Format("IsExact: {0}", extension.IsExact));
                 OutputStatusMessage(string.Format("Source: {0}", extension.Source));
                 OutputStatusMessage(string.Format("Text: {0}", extension.Text));
                 OutputStatusMessage(string.Format("Url: {0}", extension.Url));
             }
+        }
+
+        /// <summary>
+        /// Outputs the StructuredSnippetAdExtension.
+        /// </summary>
+        protected void OutputStructuredSnippetAdExtension(StructuredSnippetAdExtension extension)
+        {
+            if (extension != null)
+            {
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the StructuredSnippetAdExtension
+                OutputStatusMessage(string.Format("Header: {0}", extension.Header));
+                OutputStatusMessage(string.Format("Values: {0}", string.Join("; ", extension.Values)));
+            }
+        }
+
+        /// <summary>
+        /// Outputs properties of the AdExtension base class.
+        /// </summary>
+        protected void OutputAdExtension(AdExtension extension)
+        {
+            OutputStatusMessage(string.Format("Id: {0}", extension.Id));
+            OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+            OutputStatusMessage("ForwardCompatibilityMap: ");
+            if (extension.ForwardCompatibilityMap != null)
+            {
+                foreach (var pair in extension.ForwardCompatibilityMap)
+                {
+                    OutputStatusMessage(string.Format("Key: {0}", pair.Key));
+                    OutputStatusMessage(string.Format("Value: {0}", pair.Value));
+                }
+            }
+            OutputStatusMessage(string.Format("Status: {0}", extension.Status));
+            OutputStatusMessage(string.Format("Version: {0}", extension.Version));
         }
 
         /// <summary>
@@ -2240,19 +2231,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the SiteLinksAdExtension
                 OutputSiteLinks(extension.SiteLinks);
             }
         }
@@ -2311,7 +2293,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the Sitelink2AdExtension
                 OutputStatusMessage(string.Format("Description1: {0}", extension.Description1));
                 OutputStatusMessage(string.Format("Description2: {0}", extension.Description2));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
@@ -2320,27 +2305,26 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage("FinalMobileUrls: ");
                 if (extension.FinalMobileUrls != null)
                 {
-                    foreach (var finalMobileUrl in extension.FinalMobileUrls)
+                    foreach (var url in extension.FinalMobileUrls)
                     {
-                        OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
+                        // List of 10 strings will be returned, but in this example we won't output empty lines.
+                        if(url != null && url.Length > 0)
+                        {
+                            OutputStatusMessage(string.Format("\t{0}", url));
+                        }
                     }
                 }
 
                 OutputStatusMessage("FinalUrls: ");
                 if (extension.FinalUrls != null)
                 {
-                    foreach (var finalUrl in extension.FinalUrls)
+                    foreach (var url in extension.FinalUrls)
                     {
-                        OutputStatusMessage(string.Format("\t{0}", finalUrl));
-                    }
-                }
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
+                        // List of 10 strings will be returned, but in this example we won't output empty lines.
+                        if (url != null && url.Length > 0)
+                        {
+                            OutputStatusMessage(string.Format("\t{0}", url));
+                        }
                     }
                 }
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
@@ -2353,9 +2337,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -2383,7 +2364,7 @@ namespace BingAdsExamplesLibrary.V10
             {
                 OutputStatusMessage(string.Format("MigrationType: {0}", migrationStatusInfo.MigrationType));
                 OutputStatusMessage(string.Format("StartTimeInUtc: {0}", migrationStatusInfo.StartTimeInUtc));
-                OutputStatusMessage(string.Format("Status: {0}", migrationStatusInfo.Status));
+                OutputStatusMessage(string.Format("Status: {0}\n", migrationStatusInfo.Status));
             }
         }
     }
