@@ -30,6 +30,22 @@ namespace BingAdsExamplesLibrary.V10
                 CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
                 CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
 
+                // Determine whether you are able to add shared budgets by checking the pilot flags.
+
+                bool enabledForSharedBudgets = false;
+
+                // Optionally you can find out which pilot features the customer is able to use. Even if the customer 
+                // is in pilot for sitelink migrations, the accounts that it contains might not be migrated.
+                var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
+
+                // The pilot flag value for Sitelink ad extension migration is 253.
+                // Pilot flags apply to all accounts within a given customer; however,
+                // each account goes through migration individually and has its own migration status.
+                if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 253) > 0)
+                {
+                    enabledForSharedBudgets = true;
+                }
+
                 // Specify one or more campaigns.
 
                 var campaigns = new[]{
@@ -389,20 +405,38 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Here is a simple example that updates the campaign budget.
 
+                var getCampaigns = (await GetCampaignsByIdsAsync(
+                    authorizationData.AccountId,
+                    new[] { (long)campaignIds[0] },
+                    CampaignType.SearchAndContent | CampaignType.Shopping,
+                    CampaignAdditionalField.BiddingScheme | CampaignAdditionalField.BudgetId
+                )).Campaigns;
+
+                var updateCampaigns = new List<Campaign>();
+                var updateBudgets = new List<Budget>();
+                
+                foreach(var campaign in getCampaigns)
+                {
+                    if(campaign != null && campaign.BudgetId != null)
+                    {
+                        var getBudgets = 1;
+                        updateCampaigns.Add(campaign);
+                    }
+                }
                 var updateCampaign = new Campaign
                 {
                     Id = campaignIds[0],
-                    MonthlyBudget = 500,
+
+                    // If you try to update the budget amount of a campaign that uses a shared budget, 
+                    // the service operation will return the CampaignServiceCannotUpdateSharedBudget error code. 
+                    // If you make other updates to the campaign without changing the budget amount, 
+                    // the error will not be returned.
+
+                    DailyBudget = 60,
                 };
+                
 
-                // As an exercise you can step through using the debugger and view the results.
-
-                await GetCampaignsByIdsAsync(
-                    authorizationData.AccountId, 
-                    new [] { (long)campaignIds[0] },
-                    CampaignType.SearchAndContent | CampaignType.Shopping,
-                    CampaignAdditionalField.BiddingScheme
-                );
+                
                 await UpdateCampaignsAsync(authorizationData.AccountId, new[] { updateCampaign });
                 await GetCampaignsByIdsAsync(
                     authorizationData.AccountId,
@@ -501,6 +535,21 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
+        /// <summary>
+        /// Gets the list of pilot features that the customer is able to use.
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
+        private async Task<IList<int>> GetCustomerPilotFeaturesAsync(long customerId)
+        {
+            var request = new GetCustomerPilotFeaturesRequest
+            {
+                CustomerId = customerId
+            };
+
+            return (await CustomerService.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
+        }
+
         // Adds one or more campaigns to the specified account.
 
         private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
@@ -542,7 +591,7 @@ namespace BingAdsExamplesLibrary.V10
 
         // Gets one or more campaigns for the specified campaign identifiers.
 
-        private async Task<IList<Campaign>> GetCampaignsByIdsAsync(
+        private async Task<GetCampaignsByIdsResponse> GetCampaignsByIdsAsync(
             long accountId, 
             IList<long> campaignIds,
             CampaignType campaignType,
@@ -556,7 +605,7 @@ namespace BingAdsExamplesLibrary.V10
                 ReturnAdditionalFields = returnAdditionalFields
             };
 
-            return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request)).Campaigns;
+            return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request));
         }
 
         // Adds one or more ad groups to the specified campaign.
