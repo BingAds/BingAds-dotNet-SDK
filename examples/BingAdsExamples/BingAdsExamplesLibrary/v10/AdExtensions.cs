@@ -123,7 +123,63 @@ namespace BingAdsExamplesLibrary.V10
                     new CallAdExtension {
                         CountryCode = "US",
                         PhoneNumber = "2065550100",
-                        IsCallOnly = false
+                        IsCallOnly = false,
+                        Scheduling = new Schedule {
+
+                            // For this example assume the call center is open Monday - Friday from 9am - 9pm
+                            // in the account's time zone.
+
+                            UseSearcherTimeZone = false,
+                            DayTimeRanges = new[]
+                            {
+                                new DayTime
+                                {
+                                    Day = Day.Monday,
+                                    StartHour = 9,
+                                    StartMinute = Minute.Zero,
+                                    EndHour = 21,
+                                    EndMinute = Minute.Zero,
+                                },
+                                new DayTime
+                                {
+                                    Day = Day.Tuesday,
+                                    StartHour = 9,
+                                    StartMinute = Minute.Zero,
+                                    EndHour = 21,
+                                    EndMinute = Minute.Zero,
+                                },
+                                new DayTime
+                                {
+                                    Day = Day.Wednesday,
+                                    StartHour = 9,
+                                    StartMinute = Minute.Zero,
+                                    EndHour = 21,
+                                    EndMinute = Minute.Zero,
+                                },
+                                new DayTime
+                                {
+                                    Day = Day.Thursday,
+                                    StartHour = 9,
+                                    StartMinute = Minute.Zero,
+                                    EndHour = 21,
+                                    EndMinute = Minute.Zero,
+                                },
+                                new DayTime
+                                {
+                                    Day = Day.Friday,
+                                    StartHour = 9,
+                                    StartMinute = Minute.Zero,
+                                    EndHour = 21,
+                                    EndMinute = Minute.Zero,
+                                },
+                            },
+                            StartDate = null,
+                            EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                                Month = 12,
+                                Day = 31,
+                                Year = DateTime.UtcNow.Year + 1
+                            },
+                        }
                     },
                     new CalloutAdExtension
                     {
@@ -146,6 +202,30 @@ namespace BingAdsExamplesLibrary.V10
                             ProvinceName = "WA",
                             CountryCode = "US",
                             PostalCode = "98608"
+                        },
+                        Scheduling = new Schedule {
+
+                            // For this example assume you want to drive traffic every Saturday morning
+                            // in the search user's time zone.
+
+                            UseSearcherTimeZone = true,
+                            DayTimeRanges = new[]
+                            {
+                                new DayTime
+                                {
+                                    Day = Day.Saturday,
+                                    StartHour = 9,
+                                    StartMinute = Minute.Zero,
+                                    EndHour = 12,
+                                    EndMinute = Minute.Zero,
+                                },
+                            },
+                            StartDate = null,
+                            EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                                Month = 12,
+                                Day = 31,
+                                Year = DateTime.UtcNow.Year + 1
+                            },
                         }
                     },
                     new ReviewAdExtension
@@ -172,7 +252,7 @@ namespace BingAdsExamplesLibrary.V10
                 var adExtensionIdentities = await AddAdExtensionsAsync(
                     authorizationData.AccountId,
                     adExtensions
-                    );
+                );
 
                 OutputStatusMessage("Added ad extensions.\n");
 
@@ -202,7 +282,7 @@ namespace BingAdsExamplesLibrary.V10
                     authorizationData.AccountId,
                     adExtensionIdToEntityIdAssociations,
                     AssociationType.Campaign
-                    );
+                );
 
                 OutputStatusMessage("Set ad extension associations.\n");
 
@@ -212,7 +292,7 @@ namespace BingAdsExamplesLibrary.V10
                         authorizationData.AccountId,
                         adExtensionIdToEntityIdAssociations,
                         AssociationType.Campaign
-                        );
+                    );
 
                 // If migration has been completed, then you should request the Sitelink2AdExtension objects.
                 // You can always request both types; however, before migration only the deprecated SiteLinksAdExtension
@@ -227,14 +307,62 @@ namespace BingAdsExamplesLibrary.V10
                     AdExtensionsTypeFilter.ReviewAdExtension |
                     AdExtensionsTypeFilter.StructuredSnippetAdExtension;
 
-                // Get the specified ad extensions from the account’s ad extension library.
+                // Get all ad extensions added above.
                 adExtensions = (AdExtension[]) await GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     adExtensionIds,
-                    adExtensionsTypeFilter
-                    );
+                    adExtensionsTypeFilter,
+                    AdExtensionAdditionalField.Scheduling
+                );
 
                 OutputStatusMessage("List of ad extensions that were added above:\n");
+                OutputAdExtensionsWithEditorialReasons(adExtensions, adExtensionEditorialReasonCollection);
+
+                // Get only the location extensions and remove scheduling.
+
+                adExtensionsTypeFilter = AdExtensionsTypeFilter.LocationAdExtension;
+
+                adExtensions = (AdExtension[])await GetAdExtensionsByIdsAsync(
+                    authorizationData.AccountId,
+                    adExtensionIds,
+                    adExtensionsTypeFilter,
+                    AdExtensionAdditionalField.Scheduling
+                    );
+
+                var updateExtensions = new List<AdExtension>();
+                var updateExtensionIds = new List<long>();
+
+                foreach (var extension in adExtensions)
+                {
+                    // GetAdExtensionsByIds will return a nil element if the request filters / conditions were not met.
+                    if(extension != null && extension.Id != null)
+                    {
+                        // Remove read-only elements that would otherwise cause the update operation to fail.
+                        var updateExtension = SetReadOnlyAdExtensionElementsToNull(extension);
+
+                        // If you set the Scheduling element null, any existing scheduling set for the ad extension will remain unchanged. 
+                        // If you set this to any non-null Schedule object, you are effectively replacing existing scheduling 
+                        // for the ad extension. In this example, we will remove any existing scheduling by setting this element  
+                        // to an empty Schedule object.
+                        updateExtension.Scheduling = new Schedule { };
+
+                        updateExtensions.Add(updateExtension);
+                        updateExtensionIds.Add((long)updateExtension.Id);
+                    }
+                }
+
+                OutputStatusMessage("Removing scheduling from the location ad extensions..\n");
+                await UpdateAdExtensionsAsync(authorizationData.AccountId, updateExtensions);
+
+                // Get only the location extension to output the result.
+                adExtensions = (AdExtension[])await GetAdExtensionsByIdsAsync(
+                    authorizationData.AccountId,
+                    updateExtensionIds,
+                    adExtensionsTypeFilter,
+                    AdExtensionAdditionalField.Scheduling
+                );
+
+                OutputStatusMessage("List of ad extensions that were updated above:\n");
                 OutputAdExtensionsWithEditorialReasons(adExtensions, adExtensionEditorialReasonCollection);
 
                 // Delete the ad extension associations, ad extensions, and campaign, that were previously added. 
@@ -247,14 +375,14 @@ namespace BingAdsExamplesLibrary.V10
                     authorizationData.AccountId,
                     adExtensionIdToEntityIdAssociations,
                     AssociationType.Campaign
-                    );
+                );
                 OutputStatusMessage("Deleted ad extension associations.\n");
 
                 // Deletes the ad extensions from the account’s ad extension library.
                 await DeleteAdExtensionsAsync(
                     authorizationData.AccountId,
                     adExtensionIds
-                    );
+                );
                 OutputStatusMessage("Deleted ad extensions.\n");
                 
                 await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
@@ -372,6 +500,20 @@ namespace BingAdsExamplesLibrary.V10
             await CampaignService.CallAsync((s, r) => s.DeleteAdExtensionsAsync(r), request);
         }
 
+        // Updates one or more ad extensions within the account's ad extension library.
+
+        private async Task<UpdateAdExtensionsResponse> UpdateAdExtensionsAsync(long accountId, IList<AdExtension> adExtensions)
+        {
+            var request = new UpdateAdExtensionsRequest
+            {
+                AccountId = accountId,
+                AdExtensions = adExtensions
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.UpdateAdExtensionsAsync(r), request));
+        }
+
+
         // Associates one or more extensions with the corresponding campaign or ad group entities.
 
         private async Task SetAdExtensionsAssociationsAsync(long accountId, IList<AdExtensionIdToEntityIdAssociation> associations, AssociationType associationType)
@@ -402,13 +544,18 @@ namespace BingAdsExamplesLibrary.V10
 
         // Gets the specified ad extensions from the account's extension library.
 
-        private async Task<IEnumerable<AdExtension>> GetAdExtensionsByIdsAsync(long accountId, IList<long> adExtensionIds, AdExtensionsTypeFilter adExtensionsTypeFilter)
+        private async Task<IEnumerable<AdExtension>> GetAdExtensionsByIdsAsync(
+            long accountId, 
+            IList<long> adExtensionIds, 
+            AdExtensionsTypeFilter adExtensionsTypeFilter,
+            AdExtensionAdditionalField returnAdditionalFields)
         {
             var request = new GetAdExtensionsByIdsRequest
             {
                 AccountId = accountId,
                 AdExtensionIds = adExtensionIds,
-                AdExtensionType = adExtensionsTypeFilter
+                AdExtensionType = adExtensionsTypeFilter,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignService.CallAsync((s, r) => s.GetAdExtensionsByIdsAsync(r), request)).AdExtensions;
@@ -481,7 +628,7 @@ namespace BingAdsExamplesLibrary.V10
                             // Here is an example of a DestinationUrl you might have used previously. 
                             // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
-                            // To migrate from DestinationUrl to FinalUrls for existing sitelinks, you can set DestinationUrl
+                            // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
                             // to an empty string when updating the sitelink. If you are removing DestinationUrl,
                             // then FinalUrls is required.
                             // DestinationUrl = "",
@@ -528,7 +675,7 @@ namespace BingAdsExamplesLibrary.V10
                             // Here is an example of a DestinationUrl you might have used previously. 
                             // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
-                            // To migrate from DestinationUrl to FinalUrls for existing sitelinks, you can set DestinationUrl
+                            // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
                             // to an empty string when updating the sitelink. If you are removing DestinationUrl,
                             // then FinalUrls is required.
                             // DestinationUrl = "",
@@ -584,7 +731,7 @@ namespace BingAdsExamplesLibrary.V10
                     // Here is an example of a DestinationUrl you might have used previously. 
                     // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
-                    // To migrate from DestinationUrl to FinalUrls for existing sitelinks, you can set DestinationUrl
+                    // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
                     // to an empty string when updating the sitelink. If you are removing DestinationUrl,
                     // then FinalUrls is required.
                     // DestinationUrl = "",
@@ -632,7 +779,7 @@ namespace BingAdsExamplesLibrary.V10
                     // Here is an example of a DestinationUrl you might have used previously. 
                     // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
-                    // To migrate from DestinationUrl to FinalUrls for existing sitelinks, you can set DestinationUrl
+                    // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
                     // to an empty string when updating the sitelink. If you are removing DestinationUrl,
                     // then FinalUrls is required.
                     // DestinationUrl = "",
@@ -647,6 +794,32 @@ namespace BingAdsExamplesLibrary.V10
                     FinalMobileUrls = new[] {
                         "http://mobile.contoso.com/womenshoesale"
                     },
+
+                    Scheduling = new Schedule {
+
+                        // For this example assume you want to drive traffic every Saturday morning
+                        // in the search user's time zone.
+
+                        UseSearcherTimeZone = true,
+                        DayTimeRanges = new[]
+                        {
+                            new DayTime
+                            {
+                                Day = Day.Saturday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 12,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        StartDate = null,
+                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                    },
+
                     // You could use a tracking template which would override the campaign level
                     // tracking template. Tracking templates defined for lower level entities 
                     // override those set for higher level entities.
