@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.CustomerManagement;
 using Microsoft.BingAds;
 
 namespace BingAdsExamplesLibrary.V10
@@ -14,7 +15,8 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class KeywordsAds : ExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> Service;
+        public static ServiceClient<ICampaignManagementService> CampaignService;
+        public static ServiceClient<ICustomerManagementService> CustomerService;
 
         public override string Description
         {
@@ -25,7 +27,8 @@ namespace BingAdsExamplesLibrary.V10
         {
             try
             {
-                Service = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
 
                 // Specify one or more campaigns.
 
@@ -34,8 +37,8 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Name = "Women's Shoes" + DateTime.UtcNow,
                         Description = "Red shoes line.",
-                        BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                        MonthlyBudget = 1000.00,
+                        BudgetType = BudgetLimitType.DailyBudgetAccelerated,
+                        DailyBudget = 50,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         DaylightSaving = true,
 
@@ -508,7 +511,7 @@ namespace BingAdsExamplesLibrary.V10
                 Campaigns = campaigns
             };
 
-            return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
+            return (await CampaignService.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
         }
 
         // Updates one or more campaigns.
@@ -521,7 +524,7 @@ namespace BingAdsExamplesLibrary.V10
                 Campaigns = campaigns
             };
 
-            await Service.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
+            await CampaignService.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
         }
 
         // Deletes one or more campaigns from the specified account.
@@ -534,7 +537,7 @@ namespace BingAdsExamplesLibrary.V10
                 CampaignIds = campaignIds
             };
 
-            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            await CampaignService.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
         }
 
         // Gets one or more campaigns for the specified campaign identifiers.
@@ -553,7 +556,7 @@ namespace BingAdsExamplesLibrary.V10
                 ReturnAdditionalFields = returnAdditionalFields
             };
 
-            return (await Service.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request)).Campaigns;
+            return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request)).Campaigns;
         }
 
         // Adds one or more ad groups to the specified campaign.
@@ -566,7 +569,7 @@ namespace BingAdsExamplesLibrary.V10
                 AdGroups = adGroups
             };
 
-            return (await Service.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
+            return (await CampaignService.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
         }
 
         // Updates one or more ad groups.
@@ -579,7 +582,7 @@ namespace BingAdsExamplesLibrary.V10
                 AdGroups = adGroups
             };
 
-            await Service.CallAsync((s, r) => s.UpdateAdGroupsAsync(r), request);
+            await CampaignService.CallAsync((s, r) => s.UpdateAdGroupsAsync(r), request);
         }
 
         // Adds one or more keywords to the specified ad group.
@@ -592,7 +595,7 @@ namespace BingAdsExamplesLibrary.V10
                 Keywords = keywords
             };
 
-            return (await Service.CallAsync((s, r) => s.AddKeywordsAsync(r), request));
+            return (await CampaignService.CallAsync((s, r) => s.AddKeywordsAsync(r), request));
         }
 
         // Updates one or more keywords.
@@ -605,7 +608,7 @@ namespace BingAdsExamplesLibrary.V10
                 Keywords = keywords
             };
 
-            await Service.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
+            await CampaignService.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
         }
 
         private async Task<IList<Keyword>> GetKeywordsByAdGroupIdAsync(
@@ -618,7 +621,7 @@ namespace BingAdsExamplesLibrary.V10
                 ReturnAdditionalFields = returnAdditionalFields
             };
 
-            return (await Service.CallAsync((s, r) => s.GetKeywordsByAdGroupIdAsync(r), request)).Keywords;
+            return (await CampaignService.CallAsync((s, r) => s.GetKeywordsByAdGroupIdAsync(r), request)).Keywords;
         }
 
         // Adds one or more ads to the specified ad group.
@@ -631,7 +634,7 @@ namespace BingAdsExamplesLibrary.V10
                 Ads = ads
             };
 
-            return (await Service.CallAsync((s, r) => s.AddAdsAsync(r), request));
+            return (await CampaignService.CallAsync((s, r) => s.AddAdsAsync(r), request));
         }
 
         /// <summary>
@@ -648,7 +651,7 @@ namespace BingAdsExamplesLibrary.V10
                 Ads = ads
             };
 
-            return (await Service.CallAsync((s, r) => s.UpdateAdsAsync(r), request));
+            return (await CampaignService.CallAsync((s, r) => s.UpdateAdsAsync(r), request));
         }
 
         /// <summary>
@@ -663,7 +666,7 @@ namespace BingAdsExamplesLibrary.V10
                 AdGroupId = adGroupId,
             };
 
-            return (await Service.CallAsync((s, r) => s.GetAdsByAdGroupIdAsync(r), request));
+            return (await CampaignService.CallAsync((s, r) => s.GetAdsByAdGroupIdAsync(r), request));
         }
 
 
