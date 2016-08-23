@@ -34,16 +34,29 @@ namespace BingAdsExamplesLibrary.V10
 
                 bool enabledForSharedBudgets = false;
 
-                // Optionally you can find out which pilot features the customer is able to use. Even if the customer 
-                // is in pilot for sitelink migrations, the accounts that it contains might not be migrated.
+                // Optionally you can find out which pilot features the customer is able to use.
                 var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
 
-                // The pilot flag value for Sitelink ad extension migration is 253.
-                // Pilot flags apply to all accounts within a given customer; however,
-                // each account goes through migration individually and has its own migration status.
-                if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 253) > 0)
+                // The pilot flag value for shared budgets is 263.
+                // Pilot flags apply to all accounts within a given customer.
+                if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 263) > 0)
                 {
                     enabledForSharedBudgets = true;
+                }
+
+                var budgetIds = new List<long?>();
+                if (enabledForSharedBudgets)
+                {
+                    var budgets = new List<Budget>();
+                    budgets.Add(new Budget
+                    {
+                        Amount = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+                        Name = "My Shared Budget " + DateTime.UtcNow,
+                    });
+
+                    //budgetIds = (List<long?>)(await AddBudgetsAsync(budgets)).BudgetIds;
+                    budgetIds = (await AddBudgetsAsync(budgets)).BudgetIds.ToList();
                 }
 
                 // Specify one or more campaigns.
@@ -53,8 +66,9 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Name = "Women's Shoes" + DateTime.UtcNow,
                         Description = "Red shoes line.",
+                        BudgetId = enabledForSharedBudgets ? budgetIds[0] : 0,
                         BudgetType = BudgetLimitType.DailyBudgetAccelerated,
-                        DailyBudget = 50,
+                        DailyBudget = enabledForSharedBudgets ? 0 : 50,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         DaylightSaving = true,
 
@@ -403,48 +417,125 @@ namespace BingAdsExamplesLibrary.V10
                 OutputKeywordsWithPartialErrors(keywords, keywordIds, keywordErrors);
                 OutputAdsWithPartialErrors(ads, adIds, adErrors);
 
-                // Here is a simple example that updates the campaign budget.
 
-                var getCampaigns = (await GetCampaignsByIdsAsync(
+                // Here is a simple example that updates the campaign budget.
+                // If the campaign has a shared budget you cannot update the Campaign budget amount,
+                // and you must instead update the amount in the Budget object. If you try to update 
+                // the budget amount of a campaign that has a shared budget, the service will return 
+                // the CampaignServiceCannotUpdateSharedBudget error code.
+
+                var getCampaigns = (await GetCampaignsByAccountIdAsync(
                     authorizationData.AccountId,
-                    new[] { (long)campaignIds[0] },
                     CampaignType.SearchAndContent | CampaignType.Shopping,
                     CampaignAdditionalField.BiddingScheme | CampaignAdditionalField.BudgetId
                 )).Campaigns;
 
                 var updateCampaigns = new List<Campaign>();
                 var updateBudgets = new List<Budget>();
-                
-                foreach(var campaign in getCampaigns)
+                var getCampaignIds = new List<long>();
+                var getBudgetIds = new List<long>();
+
+                // Increase existing budgets by 20%
+                foreach (var campaign in getCampaigns)
                 {
-                    if(campaign != null && campaign.BudgetId != null)
+                    // If the campaign has a shared budget, let's add the budget ID to the list we will update later.
+                    if (campaign != null && campaign.BudgetId > 0)
                     {
-                        var getBudgets = 1;
+                        getBudgetIds.Add((long)campaign.BudgetId);
+                    }
+                    // If the campaign has its own budget, let's add it to the list of campaigns to update later.
+                    else if(campaign != null)
+                    {
                         updateCampaigns.Add(campaign);
                     }
                 }
-                var updateCampaign = new Campaign
+
+                // Update shared budgets in Budget objects.
+                if (getBudgetIds != null)
                 {
-                    Id = campaignIds[0],
+                    getBudgetIds = getBudgetIds.Distinct().ToList();
+                    var getBudgets = (await GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
 
-                    // If you try to update the budget amount of a campaign that uses a shared budget, 
-                    // the service operation will return the CampaignServiceCannotUpdateSharedBudget error code. 
-                    // If you make other updates to the campaign without changing the budget amount, 
-                    // the error will not be returned.
+                    OutputStatusMessage("List of shared budgets BEFORE update:");
+                    foreach (var budget in getBudgets)
+                    {
+                        OutputStatusMessage("Budget:");
+                        OutputBudget(budget);
+                    }
 
-                    DailyBudget = 60,
-                };
+                    foreach (var budget in getBudgets)
+                    {
+                        if (budget != null)
+                        {
+                            // Increase budget by 20 %
+                            budget.Amount *= 1.2m;
+                            updateBudgets.Add(budget);
+                        }
+                    }
+                    await UpdateBudgetsAsync(updateBudgets);
+
+                    getBudgets = (await GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
+
+                    OutputStatusMessage("List of shared budgets AFTER update:");
+                    foreach (var budget in getBudgets)
+                    {
+                        OutputStatusMessage("Budget:");
+                        OutputBudget(budget);
+                    }
+                }
+
+                // Update unshared budgets in Campaign objects.
+                if(updateCampaigns != null)
+                {
+                    // The UpdateCampaigns operation only accepts 100 Campaign objects per call. 
+                    // To simply the example we will update the first 100.
+                    updateCampaigns = updateCampaigns.Take(100).ToList();
+
+                    OutputStatusMessage("List of campaigns with unshared budget BEFORE budget update:");
+                    foreach (var campaign in updateCampaigns)
+                    {
+                        OutputStatusMessage("Campaign:");
+                        OutputCampaign(campaign);
+
+                        // Monthly budgets are deprecated and there will be a forced migration to daily budgets in calendar year 2017. 
+                        // Shared budgets do not support the monthly budget type, so this is only applicable to unshared budgets. 
+                        // During the migration all campaign level unshared budgets will be rationalized as daily. 
+                        // The formula that will be used to convert monthly to daily budgets is: Monthly budget amount / 30.4.
+                        // Moving campaign monthly budget to daily budget is encouraged before monthly budgets are migrated. 
+
+                        if (campaign.BudgetType == BudgetLimitType.MonthlyBudgetSpendUntilDepleted)
+                        {
+                            // Increase budget by 20 %
+                            campaign.BudgetType = BudgetLimitType.DailyBudgetStandard;
+                            campaign.DailyBudget = (campaign.MonthlyBudget / 30.4) * 1.2;
+                        }
+                        else
+                        {
+                            // Increase budget by 20 %
+                            campaign.DailyBudget *= 1.2;
+                        }
+
+                        getCampaignIds.Add((long)campaign.Id);
+                    }
+
+                    await UpdateCampaignsAsync(authorizationData.AccountId, updateCampaigns);
+
+                    getCampaigns = (await GetCampaignsByIdsAsync(
+                        authorizationData.AccountId,
+                        getCampaignIds,
+                        CampaignType.SearchAndContent | CampaignType.Shopping,
+                        CampaignAdditionalField.BiddingScheme | CampaignAdditionalField.BudgetId
+                    )).Campaigns;
+
+                    OutputStatusMessage("List of campaigns with unshared budget AFTER budget update:");
+                    foreach (var campaign in getCampaigns)
+                    {
+                        OutputStatusMessage("Campaign:");
+                        OutputCampaign(campaign);
+                    }
+                }
                 
 
-                
-                await UpdateCampaignsAsync(authorizationData.AccountId, new[] { updateCampaign });
-                await GetCampaignsByIdsAsync(
-                    authorizationData.AccountId,
-                    new[] { (long)campaignIds[0] },
-                    CampaignType.SearchAndContent | CampaignType.Shopping,
-                    CampaignAdditionalField.BiddingScheme
-                );
-                
                 // Update the Text for the 3 successfully created ads, and update some UrlCustomParameters.
                 var updateAds = new Ad[] {
                     new TextAd {
@@ -508,6 +599,14 @@ namespace BingAdsExamplesLibrary.V10
 
                 await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
                 OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignIds[0]));
+
+                // This sample will attempt to delete the budget that was created above 
+                // if the customer is enabled for shared budgets.
+                if (enabledForSharedBudgets)
+                {
+                    await DeleteBudgetsAsync(new[] { (long)budgetIds[0] });
+                    OutputStatusMessage(String.Format("Deleted Budget Id {0}\n", budgetIds[0]));
+                }
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -548,6 +647,54 @@ namespace BingAdsExamplesLibrary.V10
             };
 
             return (await CustomerService.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
+        }
+
+        // Adds one or more budgets that can be shared by campaigns in the account.
+
+        private async Task<AddBudgetsResponse> AddBudgetsAsync(IList<Budget> budgets)
+        {
+            var request = new AddBudgetsRequest
+            {
+                Budgets = budgets
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.AddBudgetsAsync(r), request));
+        }
+
+        // Gets the specified budgets from the account's shared budget library.
+
+        private async Task<GetBudgetsByIdsResponse> GetBudgetsByIdsAsync(IList<long> budgetIds)
+        {
+            var request = new GetBudgetsByIdsRequest
+            {
+                BudgetIds = budgetIds
+            };
+            
+            return (await CampaignService.CallAsync((s, r) => s.GetBudgetsByIdsAsync(r), request));
+        }
+
+        // Updates one or more budgets that can be shared by campaigns in the account.
+
+        private async Task<UpdateBudgetsResponse> UpdateBudgetsAsync(IList<Budget> budgets)
+        {
+            var request = new UpdateBudgetsRequest
+            {
+                Budgets = budgets
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.UpdateBudgetsAsync(r), request));
+        }
+
+        // Deletes one or more budgets.
+
+        private async Task DeleteBudgetsAsync(IList<long> budgetIds)
+        {
+            var request = new DeleteBudgetsRequest
+            {
+                BudgetIds = budgetIds
+            };
+
+            await CampaignService.CallAsync((s, r) => s.DeleteBudgetsAsync(r), request);
         }
 
         // Adds one or more campaigns to the specified account.
@@ -606,6 +753,23 @@ namespace BingAdsExamplesLibrary.V10
             };
 
             return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request));
+        }
+
+        // Retrieves all the requested campaign types in the account.
+
+        private async Task<GetCampaignsByAccountIdResponse> GetCampaignsByAccountIdAsync(
+            long accountId,
+            CampaignType campaignType,
+            CampaignAdditionalField returnAdditionalFields)
+        {
+            var request = new GetCampaignsByAccountIdRequest
+            {
+                AccountId = accountId,
+                CampaignType = campaignType,
+                ReturnAdditionalFields = returnAdditionalFields
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByAccountIdAsync(r), request));
         }
 
         // Adds one or more ad groups to the specified campaign.

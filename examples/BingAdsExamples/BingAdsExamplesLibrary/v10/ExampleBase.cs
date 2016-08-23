@@ -51,6 +51,7 @@ namespace BingAdsExamplesLibrary.V10
             if (campaign != null)
             {
                 OutputBiddingScheme(campaign.BiddingScheme);
+                OutputStatusMessage(string.Format("BudgetId: {0}", campaign.BudgetId));
                 OutputStatusMessage(string.Format("BudgetType: {0}", campaign.BudgetType));
                 OutputStatusMessage(string.Format("CampaignType: {0}", campaign.CampaignType));
                 OutputStatusMessage(string.Format("DailyBudget: {0}", campaign.DailyBudget));
@@ -67,7 +68,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Id: {0}", campaign.Id));
                 OutputStatusMessage(string.Format("MonthlyBudget: {0}", campaign.MonthlyBudget));
                 OutputStatusMessage(string.Format("Name: {0}", campaign.Name));
-                OutputStatusMessage("Settings: \n");
+                OutputStatusMessage("Settings:");
                 if (campaign.Settings != null)
                 {
                     foreach (var setting in campaign.Settings)
@@ -75,7 +76,7 @@ namespace BingAdsExamplesLibrary.V10
                         var shoppingSetting = setting as ShoppingSetting;
                         if (shoppingSetting != null)
                         {
-                            OutputStatusMessage("ShoppingSetting: \n");
+                            OutputStatusMessage("ShoppingSetting:");
                             OutputStatusMessage(string.Format("Priority: {0}", shoppingSetting.Priority));
                             OutputStatusMessage(string.Format("SalesCountryCode: {0}", shoppingSetting.SalesCountryCode));
                             OutputStatusMessage(string.Format("StoreId: {0}", shoppingSetting.StoreId));
@@ -93,7 +94,7 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
-                OutputStatusMessage(string.Format("TimeZone: {0}", campaign.TimeZone));
+                OutputStatusMessage(string.Format("TimeZone: {0}\n", campaign.TimeZone));
             }
         }
 
@@ -1023,6 +1024,21 @@ namespace BingAdsExamplesLibrary.V10
                 var targetCpaBiddingScheme = biddingScheme as TargetCpaBiddingScheme;
                 if (targetCpaBiddingScheme != null)
                     OutputStatusMessage("BiddingScheme Type: TargetCpa");
+            }
+        }
+
+        /// <summary>
+        /// Outputs the Budget.
+        /// </summary>
+        protected void OutputBudget(Budget budget)
+        {
+            if (budget != null)
+            {
+                OutputStatusMessage(string.Format("Amount: {0}", budget.Amount));
+                OutputStatusMessage(string.Format("AssociationCount: {0}", budget.AssociationCount));
+                OutputStatusMessage(string.Format("BudgetType: {0}", budget.BudgetType));
+                OutputStatusMessage(string.Format("Id: {0}", budget.Id));
+                OutputStatusMessage(string.Format("Name: {0}\n", budget.Name));
             }
         }
 
