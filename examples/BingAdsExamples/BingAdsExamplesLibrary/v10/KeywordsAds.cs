@@ -456,11 +456,26 @@ namespace BingAdsExamplesLibrary.V10
                     getBudgetIds = getBudgetIds.Distinct().ToList();
                     var getBudgets = (await GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
 
-                    OutputStatusMessage("List of shared budgets BEFORE update:");
+                    OutputStatusMessage("List of shared budgets BEFORE update:\n");
                     foreach (var budget in getBudgets)
                     {
                         OutputStatusMessage("Budget:");
                         OutputBudget(budget);
+                    }
+
+                    OutputStatusMessage("List of campaigns that share each budget:\n");
+                    var getCampaignIdCollection = (await GetCampaignIdsByBudgetIdsAsync(getBudgetIds)).CampaignIdCollection;
+                    for(int index = 0; index < getCampaignIdCollection.Count; index++)
+                    {
+                        OutputStatusMessage(string.Format("BudgetId: {0}", getBudgetIds[index]));
+                        OutputStatusMessage("Campaign Ids:");
+                        if(getCampaignIdCollection[index] != null)
+                        {
+                            foreach (var id in getCampaignIdCollection[index].Ids)
+                            {
+                                OutputStatusMessage(string.Format("\t{0}", id));
+                            }
+                        }
                     }
 
                     foreach (var budget in getBudgets)
@@ -476,7 +491,7 @@ namespace BingAdsExamplesLibrary.V10
 
                     getBudgets = (await GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
 
-                    OutputStatusMessage("List of shared budgets AFTER update:");
+                    OutputStatusMessage("List of shared budgets AFTER update:\n");
                     foreach (var budget in getBudgets)
                     {
                         OutputStatusMessage("Budget:");
@@ -491,7 +506,7 @@ namespace BingAdsExamplesLibrary.V10
                     // To simply the example we will update the first 100.
                     updateCampaigns = updateCampaigns.Take(100).ToList();
 
-                    OutputStatusMessage("List of campaigns with unshared budget BEFORE budget update:");
+                    OutputStatusMessage("List of campaigns with unshared budget BEFORE budget update:\n");
                     foreach (var campaign in updateCampaigns)
                     {
                         OutputStatusMessage("Campaign:");
@@ -527,7 +542,7 @@ namespace BingAdsExamplesLibrary.V10
                         CampaignAdditionalField.BiddingScheme | CampaignAdditionalField.BudgetId
                     )).Campaigns;
 
-                    OutputStatusMessage("List of campaigns with unshared budget AFTER budget update:");
+                    OutputStatusMessage("List of campaigns with unshared budget AFTER budget update:\n");
                     foreach (var campaign in getCampaigns)
                     {
                         OutputStatusMessage("Campaign:");
@@ -660,9 +675,14 @@ namespace BingAdsExamplesLibrary.V10
 
             return (await CampaignService.CallAsync((s, r) => s.AddBudgetsAsync(r), request));
         }
-
-        // Gets the specified budgets from the account's shared budget library.
-
+        
+        /// <summary>
+        /// Gets the specified budgets from the account's shared budget library.
+        /// </summary>
+        /// <param name="budgetIds">The identifiers of the budgets you want to retrieve. 
+        /// If you leave BudgetIds nil or empty, then the operation will return all budgets 
+        /// that are available to be shared with campaigns in the account.</param>
+        /// <returns></returns>
         private async Task<GetBudgetsByIdsResponse> GetBudgetsByIdsAsync(IList<long> budgetIds)
         {
             var request = new GetBudgetsByIdsRequest
@@ -671,6 +691,21 @@ namespace BingAdsExamplesLibrary.V10
             };
             
             return (await CampaignService.CallAsync((s, r) => s.GetBudgetsByIdsAsync(r), request));
+        }
+
+        /// <summary>
+        /// Gets the identifiers of campaigns that share each specified budget.
+        /// </summary>
+        /// <param name="budgetIds">A list of unique budget identifiers that identify the campaign identifiers to get.</param>
+        /// <returns></returns>
+        private async Task<GetCampaignIdsByBudgetIdsResponse> GetCampaignIdsByBudgetIdsAsync(IList<long> budgetIds)
+        {
+            var request = new GetCampaignIdsByBudgetIdsRequest
+            {
+                BudgetIds = budgetIds
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.GetCampaignIdsByBudgetIdsAsync(r), request));
         }
 
         // Updates one or more budgets that can be shared by campaigns in the account.
