@@ -17,7 +17,7 @@ namespace BingAdsExamplesLibrary.V10
 
         public override string Description
         {
-            get { return "UET Tags and Conversion Goals | ConversionGoal Management V10"; }
+            get { return "UET Tags and Conversion Goals | Campaign Management V10"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -59,6 +59,7 @@ namespace BingAdsExamplesLibrary.V10
                     return;
                 }
 
+                OutputStatusMessage("List of all UET Tags:\n");
                 foreach (var uetTag in uetTags)
                 {
                     OutputUetTag(uetTag);
@@ -89,8 +90,15 @@ namespace BingAdsExamplesLibrary.V10
                     }
                 };
 
+                OutputStatusMessage("UET Tag BEFORE update:\n");
+                OutputUetTag(uetTags[0]);
+
                 await UpdateUetTagsAsync(uetTags);
 
+                uetTags = (await GetUetTagsByIdsAsync(new[] { (long)tagId })).UetTags;
+
+                OutputStatusMessage("UET Tag AFTER update:\n");
+                OutputUetTag(uetTags[0]);
 
                 // Add conversion goals that depend on the UET Tag Id retreived above.
                 // Please note that you cannot delete conversion goals. If you want to stop 

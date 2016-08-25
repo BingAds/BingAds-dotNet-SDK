@@ -2008,7 +2008,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Status: {0}", conversionGoal.Status));
                 OutputStatusMessage(string.Format("TagId: {0}", conversionGoal.TagId));
                 OutputStatusMessage(string.Format("TrackingStatus: {0}", conversionGoal.TrackingStatus));
-                OutputStatusMessage(string.Format("Type: {0}\n", conversionGoal.Type));
+                OutputStatusMessage(string.Format("Type: {0}", conversionGoal.Type));
 
                 var appInstallGoal = conversionGoal as AppInstallGoal;
                 if (appInstallGoal != null)
@@ -2021,7 +2021,7 @@ namespace BingAdsExamplesLibrary.V10
                     var durationGoal = conversionGoal as DurationGoal;
                     if (durationGoal != null)
                     {
-                        OutputStatusMessage(string.Format("MinimumDurationInSeconds: {0}", durationGoal.MinimumDurationInSeconds));
+                        OutputStatusMessage(string.Format("MinimumDurationInSeconds: {0}\n", durationGoal.MinimumDurationInSeconds));
                     }
                     else
                     {
@@ -2029,11 +2029,11 @@ namespace BingAdsExamplesLibrary.V10
                         if (eventGoal != null)
                         {
                             OutputStatusMessage(string.Format("ActionExpression: {0}", eventGoal.ActionExpression));
-                            OutputStatusMessage(string.Format("ActionOperator: {0}\n", eventGoal.ActionOperator));
+                            OutputStatusMessage(string.Format("ActionOperator: {0}", eventGoal.ActionOperator));
                             OutputStatusMessage(string.Format("CategoryExpression: {0}", eventGoal.CategoryExpression));
-                            OutputStatusMessage(string.Format("CategoryOperator: {0}\n", eventGoal.CategoryOperator));
+                            OutputStatusMessage(string.Format("CategoryOperator: {0}", eventGoal.CategoryOperator));
                             OutputStatusMessage(string.Format("LabelExpression: {0}", eventGoal.LabelExpression));
-                            OutputStatusMessage(string.Format("LabelOperator: {0}\n", eventGoal.LabelOperator));
+                            OutputStatusMessage(string.Format("LabelOperator: {0}", eventGoal.LabelOperator));
                             OutputStatusMessage(string.Format("Value: {0}", eventGoal.Value));
                             OutputStatusMessage(string.Format("ValueOperator: {0}\n", eventGoal.ValueOperator));
                         }
@@ -2042,7 +2042,7 @@ namespace BingAdsExamplesLibrary.V10
                             var pagesViewedPerVisitGoal = conversionGoal as PagesViewedPerVisitGoal;
                             if (pagesViewedPerVisitGoal != null)
                             {
-                                OutputStatusMessage(string.Format("MinimumPagesViewed: {0}", pagesViewedPerVisitGoal.MinimumPagesViewed));
+                                OutputStatusMessage(string.Format("MinimumPagesViewed: {0}\n", pagesViewedPerVisitGoal.MinimumPagesViewed));
                             }
                             else
                             {
@@ -2050,7 +2050,7 @@ namespace BingAdsExamplesLibrary.V10
                                 if (urlGoal != null)
                                 {
                                     OutputStatusMessage(string.Format("UrlExpression: {0}", urlGoal.UrlExpression));
-                                    OutputStatusMessage(string.Format("UrlOperator: {0}", urlGoal.UrlOperator));
+                                    OutputStatusMessage(string.Format("UrlOperator: {0}\n", urlGoal.UrlOperator));
                                 }
                             }
                         }
