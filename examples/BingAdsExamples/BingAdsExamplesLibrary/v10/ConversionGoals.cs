@@ -108,7 +108,7 @@ namespace BingAdsExamplesLibrary.V10
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
                             Value = 5.00m,
-                            Currency = null
+                            CurrencyCode = null
                         },
                         Scope = EntityScope.Account,
                         Status = ConversionGoalStatus.Active,
@@ -132,7 +132,7 @@ namespace BingAdsExamplesLibrary.V10
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
                             Value = 5.00m,
-                            Currency = null
+                            CurrencyCode = null
                         },
                         Scope = EntityScope.Account,
                         Status = ConversionGoalStatus.Active,
@@ -152,7 +152,7 @@ namespace BingAdsExamplesLibrary.V10
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
                             Value = 5.00m,
-                            Currency = null
+                            CurrencyCode = null
                         },
                         Scope = EntityScope.Account,
                         Status = ConversionGoalStatus.Active,
@@ -167,7 +167,7 @@ namespace BingAdsExamplesLibrary.V10
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
                             Value = 5.00m,
-                            Currency = null
+                            CurrencyCode = null
                         },
                         Scope = EntityScope.Account,
                         Status = ConversionGoalStatus.Active,
@@ -188,7 +188,7 @@ namespace BingAdsExamplesLibrary.V10
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
                             Value = 5.00m,
-                            Currency = null
+                            CurrencyCode = null
                         },
                         // Account scope is not supported for app install goals. You can
                         // set scope to Customer or don't set it for the same result.
@@ -250,7 +250,7 @@ namespace BingAdsExamplesLibrary.V10
                         {
                             Type = ConversionGoalRevenueType.VariableValue,
                             Value = 10.00m,
-                            Currency = null
+                            CurrencyCode = null
                         },
                         // The Scope cannot be updated, even if you update the goal type.
                         // You can either send the same value or leave Scope empty.
@@ -277,7 +277,7 @@ namespace BingAdsExamplesLibrary.V10
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
                             Value = 5.00m,
-                            Currency = null
+                            CurrencyCode = null
                         },
                         // You can update the value operator without changing the value.
                         Value = null,
