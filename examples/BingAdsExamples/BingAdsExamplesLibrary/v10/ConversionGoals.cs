@@ -362,7 +362,7 @@ namespace BingAdsExamplesLibrary.V10
             return (await Service.CallAsync((s, r) => s.AddConversionGoalsAsync(r), request));
         }
 
-        // Updates one or more campaigns.
+        // Updates one or more conversion goals.
 
         private async Task UpdateConversionGoalsAsync(IList<ConversionGoal> campaigns)
         {
@@ -374,7 +374,7 @@ namespace BingAdsExamplesLibrary.V10
             await Service.CallAsync((s, r) => s.UpdateConversionGoalsAsync(r), request);
         }
 
-        // Gets one or more campaigns for the specified campaign identifiers.
+        // Gets one or more conversion goals for the specified conversion goal identifiers.
 
         private async Task<GetConversionGoalsByIdsResponse> GetConversionGoalsByIdsAsync(
             IList<long> conversionGoalIds,
@@ -390,7 +390,7 @@ namespace BingAdsExamplesLibrary.V10
             return (await Service.CallAsync((s, r) => s.GetConversionGoalsByIdsAsync(r), request));
         }
 
-        // Adds one or more ad groups to the specified campaign.
+        // Adds one or more UET tags.
 
         private async Task<AddUetTagsResponse> AddUetTagsAsync(IList<UetTag> uetTags)
         {
@@ -414,7 +414,7 @@ namespace BingAdsExamplesLibrary.V10
             return (await Service.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request));
         }
 
-        // Updates one or more ad groups.
+        // Updates one or more UET tags.
 
         private async Task UpdateUetTagsAsync(IList<UetTag> uetTags)
         {
