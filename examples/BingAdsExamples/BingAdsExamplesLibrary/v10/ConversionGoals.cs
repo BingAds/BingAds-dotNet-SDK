@@ -200,7 +200,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 var addConversionGoalsResponse = await AddConversionGoalsAsync(conversionGoals);
 
-
+                // Find the conversion goals that were added successfully. 
 
                 List<long> conversionGoalIds = new List<long>();
                 foreach (var goalId in addConversionGoalsResponse.ConversionGoalIds)
@@ -213,6 +213,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 // The count of ConversionGoalIds will always be equal to the count of the conversion goals in the 
                 // AddConversionGoals request message. The list of PartialErrors can be null if there were no errors.
+
                 if (addConversionGoalsResponse.PartialErrors != null &&
                     addConversionGoalsResponse.ConversionGoalIds.Count == addConversionGoalsResponse.PartialErrors.Count)
                 {
@@ -227,8 +228,10 @@ namespace BingAdsExamplesLibrary.V10
                     ConversionGoalType.PagesViewedPerVisit |
                     ConversionGoalType.Url;
 
-                var getConversionGoals = (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
+                var getConversionGoals = 
+                    (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
 
+                OutputStatusMessage("List of conversion goals BEFORE update:\n");
                 foreach (var conversionGoal in getConversionGoals)
                 {
                     OutputConversionGoal(conversionGoal);
@@ -243,7 +246,7 @@ namespace BingAdsExamplesLibrary.V10
                         // You can change the conversion goal type e.g. in this example an event goal
                         // had been created above at index 1. Now we are using the returned identifier
                         // at index 1 to update the type from EventGoal to DurationGoal.
-                        Id = addConversionGoalsResponse.ConversionGoalIds[1],
+                        Id = conversionGoalIds[1],
                         MinimumDurationInSeconds = 120,
                         Name = "My Updated Duration Goal " + DateTime.UtcNow,
                         Revenue = new ConversionGoalRevenue
@@ -268,7 +271,7 @@ namespace BingAdsExamplesLibrary.V10
                         // You can update the operator without changing the expression.
                         CategoryExpression = "video",
                         CategoryOperator = ExpressionOperator.Equals,
-                        Id = addConversionGoalsResponse.ConversionGoalIds[0],
+                        Id = conversionGoalIds[0],
                         // You can update the operator without changing the expression.
                         LabelExpression = null,
                         LabelOperator = ExpressionOperator.Equals,
@@ -285,7 +288,7 @@ namespace BingAdsExamplesLibrary.V10
                     },
                     new PagesViewedPerVisitGoal
                     {
-                        Id = addConversionGoalsResponse.ConversionGoalIds[2],
+                        Id = conversionGoalIds[2],
                         Name = "My Updated Pages Viewed Per Visit Goal " + DateTime.UtcNow,
                         // When updating a conversion goal, if the Revenue element is nil or empty then none 
                         // of the nested properties will be updated. However, if this element is not nil or empty 
@@ -295,15 +298,19 @@ namespace BingAdsExamplesLibrary.V10
                     },
                     new UrlGoal
                     {
-                        Id = addConversionGoalsResponse.ConversionGoalIds[3],
+                        Id = conversionGoalIds[3],
                         Name = "My Updated Url Goal" + DateTime.UtcNow,
                         UrlExpression = null,
                         UrlOperator = ExpressionOperator.BeginsWith
                     }
                 };
 
-                getConversionGoals = (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
+                await UpdateConversionGoalsAsync(updateConversionGoals);
 
+                getConversionGoals = 
+                    (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
+
+                OutputStatusMessage("List of conversion goals AFTER update:\n");
                 foreach (var conversionGoal in getConversionGoals)
                 {
                     OutputConversionGoal(conversionGoal);
@@ -349,7 +356,7 @@ namespace BingAdsExamplesLibrary.V10
 
         // Updates one or more campaigns.
 
-        private async Task UpdateConversionGoalsAsync(long accountId, IList<ConversionGoal> campaigns)
+        private async Task UpdateConversionGoalsAsync(IList<ConversionGoal> campaigns)
         {
             var request = new UpdateConversionGoalsRequest
             {
