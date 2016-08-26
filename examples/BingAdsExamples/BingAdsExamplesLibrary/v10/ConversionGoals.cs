@@ -80,6 +80,9 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Optionally you can update the name and description of a UetTag with the UpdateUetTags operation.
 
+                OutputStatusMessage("UET Tag BEFORE update:\n");
+                OutputUetTag(uetTags[0]);
+
                 uetTags = new[]
                 {
                     new UetTag
@@ -89,9 +92,6 @@ namespace BingAdsExamplesLibrary.V10
                         Name = "Updated Uet Tag Name"
                     }
                 };
-
-                OutputStatusMessage("UET Tag BEFORE update:\n");
-                OutputUetTag(uetTags[0]);
 
                 await UpdateUetTagsAsync(uetTags);
 
@@ -273,14 +273,14 @@ namespace BingAdsExamplesLibrary.V10
                     },
                     new EventGoal
                     {
-                        // You can update the operator without changing the expression.
+                        // You can update the operator whether or not you include the expression.
                         ActionExpression = "play",
                         ActionOperator = ExpressionOperator.Equals,
-                        // You can update the operator without changing the expression.
+                        // You can update the operator whether or not you include the expression.
                         CategoryExpression = "video",
                         CategoryOperator = ExpressionOperator.Equals,
                         Id = conversionGoalIds[0],
-                        // You can update the operator without changing the expression.
+                        // You can update the operator whether or not you include the expression.
                         LabelExpression = null,
                         LabelOperator = ExpressionOperator.Equals,
                         Name = "My Updated Event Goal " + DateTime.UtcNow,
@@ -290,7 +290,7 @@ namespace BingAdsExamplesLibrary.V10
                             Value = 5.00m,
                             CurrencyCode = null
                         },
-                        // You can update the value operator without changing the value.
+                        // You can update the value operator whether or not you include the value.
                         Value = null,
                         ValueOperator = ValueOperator.GreaterThan,
                     },
