@@ -44,6 +44,9 @@ namespace BingAdsExamplesLibrary.V10
                     enabledForSharedBudgets = true;
                 }
 
+                // If the customer is enabled for shared budgets, let's create a new budget and
+                // share it with a new campaign.
+
                 var budgetIds = new List<long?>();
                 if (enabledForSharedBudgets)
                 {
@@ -54,8 +57,7 @@ namespace BingAdsExamplesLibrary.V10
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
                         Name = "My Shared Budget " + DateTime.UtcNow,
                     });
-
-                    //budgetIds = (List<long?>)(await AddBudgetsAsync(budgets)).BudgetIds;
+                    
                     budgetIds = (await AddBudgetsAsync(budgets)).BudgetIds.ToList();
                 }
 
@@ -66,9 +68,13 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Name = "Women's Shoes" + DateTime.UtcNow,
                         Description = "Red shoes line.",
+
+                        // You must choose to set either the shared  budget ID or daily amount.
+                        // You can set one or the other, but you may not set both.
                         BudgetId = enabledForSharedBudgets ? budgetIds[0] : 0,
-                        BudgetType = BudgetLimitType.DailyBudgetAccelerated,
                         DailyBudget = enabledForSharedBudgets ? 0 : 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         DaylightSaving = true,
 
