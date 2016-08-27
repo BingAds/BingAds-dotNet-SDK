@@ -732,7 +732,7 @@ namespace BingAdsExamplesLibrary.V10
                     // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
                     // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
-                    // to an empty string when updating the sitelink. If you are removing DestinationUrl,
+                    // to an empty string when updating the ad extension. If you are removing DestinationUrl,
                     // then FinalUrls is required.
                     // DestinationUrl = "",
 
@@ -752,8 +752,8 @@ namespace BingAdsExamplesLibrary.V10
                     // In this example we are using the campaign level tracking template.
                     TrackingUrlTemplate = null,
 
-                    // Set custom parameters that are specific to this sitelink, 
-                    // and can be used by the sitelink, ad group, campaign, or account level tracking template. 
+                    // Set custom parameters that are specific to this ad extension, 
+                    // and can be used by the ad extension, ad group, campaign, or account level tracking template. 
                     // In this example we are using the campaign level tracking template.
                     UrlCustomParameters = new CustomParameters
                     {
@@ -780,7 +780,7 @@ namespace BingAdsExamplesLibrary.V10
                     // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
 
                     // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
-                    // to an empty string when updating the sitelink. If you are removing DestinationUrl,
+                    // to an empty string when updating the ad extension. If you are removing DestinationUrl,
                     // then FinalUrls is required.
                     // DestinationUrl = "",
 
@@ -826,8 +826,8 @@ namespace BingAdsExamplesLibrary.V10
                     // In this example we are using the campaign level tracking template.
                     TrackingUrlTemplate = null,
 
-                    // Set custom parameters that are specific to this sitelink, 
-                    // and can be used by the sitelink, ad group, campaign, or account level tracking template. 
+                    // Set custom parameters that are specific to this ad extension, 
+                    // and can be used by the ad extension, ad group, campaign, or account level tracking template. 
                     // In this example we are using the campaign level tracking template.
                     UrlCustomParameters = new CustomParameters
                     {
