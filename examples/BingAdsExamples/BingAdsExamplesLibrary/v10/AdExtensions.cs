@@ -363,7 +363,7 @@ namespace BingAdsExamplesLibrary.V10
                 );
 
                 OutputStatusMessage("List of ad extensions that were updated above:\n");
-                OutputAdExtensionsWithEditorialReasons(adExtensions, adExtensionEditorialReasonCollection);
+                OutputAdExtensionsWithEditorialReasons(adExtensions, null);
 
                 // Delete the ad extension associations, ad extensions, and campaign, that were previously added. 
                 // You should remove these lines if you want to view the added entities in the 
