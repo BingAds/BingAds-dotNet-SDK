@@ -89,7 +89,7 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Description = "Updated Uet Tag Description",
                         Id = tagId,
-                        Name = "Updated Uet Tag Name"
+                        Name = "Updated Uet Tag Name " + DateTime.UtcNow,
                     }
                 };
 
@@ -364,11 +364,11 @@ namespace BingAdsExamplesLibrary.V10
 
         // Updates one or more conversion goals.
 
-        private async Task UpdateConversionGoalsAsync(IList<ConversionGoal> campaigns)
+        private async Task UpdateConversionGoalsAsync(IList<ConversionGoal> conversionGoals)
         {
             var request = new UpdateConversionGoalsRequest
             {
-                ConversionGoals = campaigns
+                ConversionGoals = conversionGoals
             };
 
             await Service.CallAsync((s, r) => s.UpdateConversionGoalsAsync(r), request);

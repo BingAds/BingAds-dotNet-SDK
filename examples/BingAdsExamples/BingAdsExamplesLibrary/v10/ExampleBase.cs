@@ -2066,9 +2066,9 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (conversionGoalRevenue != null)
             {
-                OutputStatusMessage(string.Format("Description: {0}", conversionGoalRevenue.CurrencyCode));
-                OutputStatusMessage(string.Format("TrackingNoScript: {0}", conversionGoalRevenue.Type));
-                OutputStatusMessage(string.Format("Id: {0}", conversionGoalRevenue.Value));
+                OutputStatusMessage(string.Format("CurrencyCode: {0}", conversionGoalRevenue.CurrencyCode));
+                OutputStatusMessage(string.Format("Type: {0}", conversionGoalRevenue.Type));
+                OutputStatusMessage(string.Format("Value: {0}", conversionGoalRevenue.Value));
             }
         }
 
