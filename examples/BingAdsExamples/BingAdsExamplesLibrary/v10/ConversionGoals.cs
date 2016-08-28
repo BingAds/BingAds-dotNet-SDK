@@ -350,7 +350,7 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
-        // Adds one or more conversion goals to the specified account.
+        // Adds one or more conversion goals.
 
         private async Task<AddConversionGoalsResponse> AddConversionGoalsAsync(IList<ConversionGoal> conversionGoals)
         {
@@ -360,18 +360,6 @@ namespace BingAdsExamplesLibrary.V10
             };
 
             return (await Service.CallAsync((s, r) => s.AddConversionGoalsAsync(r), request));
-        }
-
-        // Updates one or more conversion goals.
-
-        private async Task UpdateConversionGoalsAsync(IList<ConversionGoal> conversionGoals)
-        {
-            var request = new UpdateConversionGoalsRequest
-            {
-                ConversionGoals = conversionGoals
-            };
-
-            await Service.CallAsync((s, r) => s.UpdateConversionGoalsAsync(r), request);
         }
 
         // Gets one or more conversion goals for the specified conversion goal identifiers.
@@ -390,6 +378,18 @@ namespace BingAdsExamplesLibrary.V10
             return (await Service.CallAsync((s, r) => s.GetConversionGoalsByIdsAsync(r), request));
         }
 
+        // Updates one or more conversion goals.
+
+        private async Task UpdateConversionGoalsAsync(IList<ConversionGoal> conversionGoals)
+        {
+            var request = new UpdateConversionGoalsRequest
+            {
+                ConversionGoals = conversionGoals
+            };
+
+            await Service.CallAsync((s, r) => s.UpdateConversionGoalsAsync(r), request);
+        }
+        
         // Adds one or more UET tags.
 
         private async Task<AddUetTagsResponse> AddUetTagsAsync(IList<UetTag> uetTags)
