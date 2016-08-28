@@ -71,7 +71,7 @@ namespace BingAdsExamplesLibrary.V10
 
                         // You must choose to set either the shared  budget ID or daily amount.
                         // You can set one or the other, but you may not set both.
-                        BudgetId = enabledForSharedBudgets ? budgetIds[0] : 0,
+                        BudgetId = enabledForSharedBudgets ? budgetIds[0] : null,
                         DailyBudget = enabledForSharedBudgets ? 0 : 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
 
