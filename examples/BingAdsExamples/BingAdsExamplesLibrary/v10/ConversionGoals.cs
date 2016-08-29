@@ -202,7 +202,9 @@ namespace BingAdsExamplesLibrary.V10
                         // set scope to Customer or don't set it for the same result.
                         Scope = EntityScope.Customer,
                         Status = ConversionGoalStatus.Active,
-                        TagId = tagId,
+                        // The TagId is inherited from the ConversionGoal base class,
+                        // however, App Install goals do not use a UET tag.
+                        TagId = null,
                     },
                 };
 
@@ -219,15 +221,8 @@ namespace BingAdsExamplesLibrary.V10
                     }
                 }
 
-                // The count of ConversionGoalIds will always be equal to the count of the conversion goals in the 
-                // AddConversionGoals request message. The list of PartialErrors can be null if there were no errors.
-
-                if (addConversionGoalsResponse.PartialErrors != null &&
-                    addConversionGoalsResponse.ConversionGoalIds.Count == addConversionGoalsResponse.PartialErrors.Count)
-                {
-                    OutputStatusMessage("No conversion goals were successfully added.");
-                    return;
-                }
+                OutputStatusMessage("List of errors returned from AddConversionGoals (if any):\n");
+                OutputPartialErrors(addConversionGoalsResponse.PartialErrors);
 
                 var conversionGoalTypes =
                     ConversionGoalType.AppInstall |
