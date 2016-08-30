@@ -185,7 +185,7 @@ namespace BingAdsExamplesLibrary.V10
                     },
                     new AppInstallGoal
                     {
-                        // You must provide a valiid app platform and app store identifier, 
+                        // You must provide a valid app platform and app store identifier, 
                         // otherwise this goal will not be added successfully. 
                         AppPlatform = "Windows",
                         AppStoreId = "AppStoreIdGoesHere",
@@ -254,7 +254,7 @@ namespace BingAdsExamplesLibrary.V10
                         Name = "My Updated Duration Goal " + DateTime.UtcNow,
                         Revenue = new ConversionGoalRevenue
                         {
-                            Type = ConversionGoalRevenueType.VariableValue,
+                            Type = ConversionGoalRevenueType.FixedValue,
                             Value = 10.00m,
                             CurrencyCode = null
                         },
@@ -268,14 +268,23 @@ namespace BingAdsExamplesLibrary.V10
                     },
                     new EventGoal
                     {
-                        // You can update the operator whether or not you include the expression.
-                        ActionExpression = "play",
-                        ActionOperator = ExpressionOperator.Equals,
-                        // You can update the operator whether or not you include the expression.
+                        // For both add and update conversion goal operations, you must include one or more  
+                        // of the following event operator pairs: 
+                        // (ActionOperator and ActionExpression), (CategoryOperator and CategoryExpression), 
+                        // (LabelOperator and LabelExpression), (ValueOperator and Value).
+                        // Each event pair (e.g. ActionOperator and ActionExpression) is optional if you include 
+                        // one or more of the other events.
+
+                        // For example if you do not include ActionOperator and ActionExpression during update, 
+                        // any existing ActionOperator and ActionExpression settings will be deleted.
+                        ActionExpression = null,
+                        ActionOperator = null,
                         CategoryExpression = "video",
                         CategoryOperator = ExpressionOperator.Equals,
                         Id = conversionGoalIds[0],
-                        // You can update the operator whether or not you include the expression.
+                        // You cannot update the expression unless you also include the expression.
+                        // Likewise, you cannot update the operator unless you also include the expression.
+                        // The following attempt to update LabelOperator will result in an error.
                         LabelExpression = null,
                         LabelOperator = ExpressionOperator.Equals,
                         Name = "My Updated Event Goal " + DateTime.UtcNow,
@@ -285,9 +294,10 @@ namespace BingAdsExamplesLibrary.V10
                             Value = 5.00m,
                             CurrencyCode = null
                         },
-                        // You can update the value operator whether or not you include the value.
-                        Value = null,
-                        ValueOperator = ValueOperator.GreaterThan,
+                        // You must specify the previous settings for Value and ValueOperator,
+                        // unless you want them deleted during the update conversion goal operation.
+                        Value = 5.00m,
+                        ValueOperator = ValueOperator.Equals,
                     },
                     new PagesViewedPerVisitGoal
                     {
@@ -303,12 +313,16 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Id = conversionGoalIds[3],
                         Name = "My Updated Url Goal" + DateTime.UtcNow,
+                        // If not specified during update, the previous Url settings are retained.
                         UrlExpression = null,
                         UrlOperator = ExpressionOperator.BeginsWith
                     }
                 };
 
-                await UpdateConversionGoalsAsync(updateConversionGoals);
+                var updateConversionGoalsResponse = await UpdateConversionGoalsAsync(updateConversionGoals);
+
+                OutputStatusMessage("List of errors returned from UpdateConversionGoals (if any):\n");
+                OutputPartialErrors(updateConversionGoalsResponse.PartialErrors);
 
                 getConversionGoals = 
                     (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
@@ -354,7 +368,7 @@ namespace BingAdsExamplesLibrary.V10
                 ConversionGoals = conversionGoals
             };
 
-            return (await Service.CallAsync((s, r) => s.AddConversionGoalsAsync(r), request));
+            return await Service.CallAsync((s, r) => s.AddConversionGoalsAsync(r), request);
         }
 
         // Gets one or more conversion goals for the specified conversion goal identifiers.
@@ -370,19 +384,19 @@ namespace BingAdsExamplesLibrary.V10
                 ConversionGoalTypes = conversionGoalTypes
             };
 
-            return (await Service.CallAsync((s, r) => s.GetConversionGoalsByIdsAsync(r), request));
+            return await Service.CallAsync((s, r) => s.GetConversionGoalsByIdsAsync(r), request);
         }
 
         // Updates one or more conversion goals.
 
-        private async Task UpdateConversionGoalsAsync(IList<ConversionGoal> conversionGoals)
+        private async Task<UpdateConversionGoalsResponse> UpdateConversionGoalsAsync(IList<ConversionGoal> conversionGoals)
         {
             var request = new UpdateConversionGoalsRequest
             {
                 ConversionGoals = conversionGoals
             };
 
-            await Service.CallAsync((s, r) => s.UpdateConversionGoalsAsync(r), request);
+            return await Service.CallAsync((s, r) => s.UpdateConversionGoalsAsync(r), request);
         }
         
         // Adds one or more UET tags.
@@ -406,7 +420,7 @@ namespace BingAdsExamplesLibrary.V10
                 TagIds = tagIds,
             };
 
-            return (await Service.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request));
+            return await Service.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request);
         }
 
         // Updates one or more UET tags.
