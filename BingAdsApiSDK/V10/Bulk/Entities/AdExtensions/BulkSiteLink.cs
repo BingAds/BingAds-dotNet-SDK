@@ -193,7 +193,54 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
             new SimpleBulkMapping<BulkSiteLink>(StringTable.CustomParameter,
                 c => c.SiteLink.UrlCustomParameters.ToBulkString(),
                 (v, c) => c.SiteLink.UrlCustomParameters = v.ParseCustomParameters()
-            ), 
+            ),
+
+            new SimpleBulkMapping<BulkSiteLink>(StringTable.AdSchedule,
+                c => c.SiteLink.Scheduling == null ? null : c.SiteLink.Scheduling.DayTimeRanges.ToDayTimeRangesBulkString(),
+                (v, c) =>
+                {
+                    if (c.SiteLink.Scheduling == null)
+                    {
+                        c.SiteLink.Scheduling = new Schedule();
+                    }
+                    c.SiteLink.Scheduling.DayTimeRanges = v.ParseDayTimeRanges();
+                }
+                ),
+            new SimpleBulkMapping<BulkSiteLink>(StringTable.StartDate,
+                c => c.SiteLink.Scheduling == null ? null : c.SiteLink.Scheduling.StartDate.ToScheduleDateBulkString(),
+                (v, c) =>
+                {
+                    if (c.SiteLink.Scheduling == null)
+                    {
+                        c.SiteLink.Scheduling = new Schedule();
+                    }
+                    c.SiteLink.Scheduling.StartDate = v.ParseDate();
+                }
+                ),
+
+            new SimpleBulkMapping<BulkSiteLink>(StringTable.EndDate,
+                c => c.SiteLink.Scheduling == null ? null : c.SiteLink.Scheduling.EndDate.ToScheduleDateBulkString(),
+                (v, c) =>
+                {
+                    if (c.SiteLink.Scheduling == null)
+                    {
+                        c.SiteLink.Scheduling = new Schedule();
+                    }
+                    c.SiteLink.Scheduling.EndDate = v.ParseDate();
+                }
+                ),
+
+            new SimpleBulkMapping<BulkSiteLink>(StringTable.UseSearcherTimeZone,
+                c =>c.SiteLink.Scheduling == null ? null : c.SiteLink.Scheduling.UseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(),
+                (v, c) =>
+                {
+                    if (c.SiteLink.Scheduling == null)
+                    {
+                        c.SiteLink.Scheduling = new Schedule();
+                    }
+                    c.SiteLink.Scheduling.UseSearcherTimeZone = v.ParseUseSearcherTimeZone();
+                }
+                ),
         };
         
         internal override void ProcessMappingsFromRowValues(RowValues values)

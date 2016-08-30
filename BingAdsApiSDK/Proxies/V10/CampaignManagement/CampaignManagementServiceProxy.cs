@@ -2839,7 +2839,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671903(v=msads.100).aspx">Date Data Object</see> http://msdn.microsoft.com/en-us/library/bb671903(v=msads.100).aspx for details.
-    /// <para>Used by <see cref="AdGroup"/> data object.</para>
+    /// <para>Used by <see cref="AdGroup"/> and <see cref="Schedule"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4288,7 +4288,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671717(v=msads.100).aspx">Day Value Set</see> http://msdn.microsoft.com/en-us/library/bb671717(v=msads.100).aspx for details.
-    /// <para>Used by <see cref="DayTimeTargetBid"/> data object.</para>
+    /// <para>Used by <see cref="DayTime"/> and <see cref="DayTimeTargetBid"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Day", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -4322,7 +4322,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn743745(v=msads.100).aspx">Minute Value Set</see> http://msdn.microsoft.com/en-us/library/dn743745(v=msads.100).aspx for details.
-    /// <para>Used by <see cref="DayTimeTargetBid"/> data object.</para>
+    /// <para>Used by <see cref="DayTime"/> and <see cref="DayTimeTargetBid"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Minute", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -8426,6 +8426,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.Schedule SchedulingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.AdExtensionStatus> StatusField;
         
         private string TypeField;
@@ -8486,6 +8489,26 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
+        /// Determines the calendar day and time ranges when the ad extension is eligible to be shown in ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Microsoft.BingAds.V10.CampaignManagement.Schedule Scheduling
+        {
+            get
+            {
+                return this.SchedulingField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SchedulingField, value) != true))
+                {
+                    this.SchedulingField = value;
+                    this.RaisePropertyChanged("Scheduling");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The status of the ad extension. The value will always be Active because the Campaign Management service does not return deleted ad extensions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -8506,7 +8529,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The type of ad extension. For more information, see Remarks.
+        /// The type of ad extension. Add: Read-only Update: Read-only For more information, see Remarks.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Type
@@ -8541,6 +8564,139 @@ namespace Microsoft.BingAds.V10.CampaignManagement
                 {
                     this.VersionField = value;
                     this.RaisePropertyChanged("Version");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the start and end date ranges for ad extension scheduling.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt763244(v=msads.100).aspx">Schedule Data Object</see> http://msdn.microsoft.com/en-us/library/mt763244(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="AdExtension"/> and <see cref="SiteLink"/> data objects.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Schedule", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    [System.SerializableAttribute()]
+    public partial class Schedule : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.DayTime> DayTimeRangesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.Date EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.Date StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UseSearcherTimeZoneField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The list of day and time ranges. Each day and time range includes the scheduled day of week, start/end hour, and start/end minute.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.DayTime> DayTimeRanges
+        {
+            get
+            {
+                return this.DayTimeRangesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DayTimeRangesField, value) != true))
+                {
+                    this.DayTimeRangesField = value;
+                    this.RaisePropertyChanged("DayTimeRanges");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scheduled end date. The end date is inclusive. For example, if you set EndDate to 3/10/2017, the ad extensions will stop being shown at 11:59 PM on 3/10/2010.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.Date EndDate
+        {
+            get
+            {
+                return this.EndDateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.EndDateField, value) != true))
+                {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scheduled start date. The start date is inclusive. For example, if you set StartDate to 3/5/2017, the ad extensions will start being shown at 12:00 AM on 3/5/2017.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.Date StartDate
+        {
+            get
+            {
+                return this.StartDateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.StartDateField, value) != true))
+                {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered. Set this property to true if you want the ad extensions to be shown in the search user's time zone, and otherwise set it to false. Add: Optional. If you do not specify this element or leave it null, the default value of false will be set and the account time zone will be used. Update: When you update a schedule the existing settings are replaced with the new setting. Thus if you update a schedule and leave this element null, then you are effectively resetting to the default value of false.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UseSearcherTimeZone
+        {
+            get
+            {
+                return this.UseSearcherTimeZoneField;
+            }
+            set
+            {
+                if ((this.UseSearcherTimeZoneField.Equals(value) != true))
+                {
+                    this.UseSearcherTimeZoneField = value;
+                    this.RaisePropertyChanged("UseSearcherTimeZone");
                 }
             }
         }
@@ -9772,6 +9928,157 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a day of the week and time range for ad extension scheduling.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt763245(v=msads.100).aspx">DayTime Data Object</see> http://msdn.microsoft.com/en-us/library/mt763245(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="Schedule"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DayTime", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    [System.SerializableAttribute()]
+    public partial class DayTime : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Microsoft.BingAds.V10.CampaignManagement.Day DayField;
+        
+        private int EndHourField;
+        
+        private Microsoft.BingAds.V10.CampaignManagement.Minute EndMinuteField;
+        
+        private int StartHourField;
+        
+        private Microsoft.BingAds.V10.CampaignManagement.Minute StartMinuteField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The scheduled day of week.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V10.CampaignManagement.Day Day
+        {
+            get
+            {
+                return this.DayField;
+            }
+            set
+            {
+                if ((this.DayField.Equals(value) != true))
+                {
+                    this.DayField = value;
+                    this.RaisePropertyChanged("Day");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scheduled end hour.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int EndHour
+        {
+            get
+            {
+                return this.EndHourField;
+            }
+            set
+            {
+                if ((this.EndHourField.Equals(value) != true))
+                {
+                    this.EndHourField = value;
+                    this.RaisePropertyChanged("EndHour");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scheduled end minute.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V10.CampaignManagement.Minute EndMinute
+        {
+            get
+            {
+                return this.EndMinuteField;
+            }
+            set
+            {
+                if ((this.EndMinuteField.Equals(value) != true))
+                {
+                    this.EndMinuteField = value;
+                    this.RaisePropertyChanged("EndMinute");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scheduled start hour.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int StartHour
+        {
+            get
+            {
+                return this.StartHourField;
+            }
+            set
+            {
+                if ((this.StartHourField.Equals(value) != true))
+                {
+                    this.StartHourField = value;
+                    this.RaisePropertyChanged("StartHour");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scheduled start minute.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V10.CampaignManagement.Minute StartMinute
+        {
+            get
+            {
+                return this.StartMinuteField;
+            }
+            set
+            {
+                if ((this.StartMinuteField.Equals(value) != true))
+                {
+                    this.StartMinuteField = value;
+                    this.RaisePropertyChanged("StartMinute");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a site link to include in an ad. The link should take the user to content in your website that is relevant in the context of the ad.
     /// </summary>
     /// <remarks>
@@ -9810,6 +10117,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.Schedule SchedulingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrackingUrlTemplateField;
@@ -9985,6 +10295,26 @@ namespace Microsoft.BingAds.V10.CampaignManagement
                 {
                     this.FinalUrlsField = value;
                     this.RaisePropertyChanged("FinalUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Determines the calendar day and time ranges when the sitelink is eligible to be shown in ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Microsoft.BingAds.V10.CampaignManagement.Schedule Scheduling
+        {
+            get
+            {
+                return this.SchedulingField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SchedulingField, value) != true))
+                {
+                    this.SchedulingField = value;
+                    this.RaisePropertyChanged("Scheduling");
                 }
             }
         }
@@ -10462,7 +10792,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     {
         
         /// <summary>
-        /// An ad extension that contains one or more site links. For more information, see SiteLinksAdExtension.
+        /// An ad extension that contains multiple site links. For more information, see SiteLinksAdExtension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SiteLinksAdExtension = 1,
@@ -10503,6 +10833,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CalloutAdExtension = 512,
         
+        /// <summary>
+        /// An ad extension that contains one site link. For more information, see Sitelink2AdExtension.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sitelink2AdExtension = 1024,
         
@@ -10511,6 +10844,26 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StructuredSnippetAdExtension = 4096,
+    }
+    
+    /// <summary>
+    /// Defines a list of optional AdExtension elements that you can request when calling GetAdExtensionsAssociations and GetAdExtensionsByIds. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included in the AdExtension object by default.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt763243(v=msads.100).aspx">AdExtensionAdditionalField Value Set</see> http://msdn.microsoft.com/en-us/library/mt763243(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see> and <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    public enum AdExtensionAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Includes the Scheduling element in the AdExtension or SiteLink object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Scheduling = 1,
     }
     
     /// <summary>
@@ -14597,6 +14950,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         Deleted = 2,
     }
     
+    /// <summary>
+    /// Defines a Universal Event Tracking (UET) tag that you can add to your website to allow Bing Ads to collect actions people take on your website.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759552(v=msads.100).aspx">UetTag Data Object</see> http://msdn.microsoft.com/en-us/library/mt759552(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UetTag", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -14637,6 +14997,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Text to help you identify the UET tag. We recommend that you set this to the related website page name or URL.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
@@ -14654,6 +15017,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The unique Bing Ads identifier of the UET tag.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -14671,6 +15037,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The UET tag name.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -14688,6 +15057,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// If your website doesn't support JavaScript, you can use this Non-JavaScript representation of the UET tag. If you use Non-JavaScript, you can't track custom events or variable revenue.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingNoScript
         {
@@ -14705,6 +15077,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The tracking script that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingScript
         {
@@ -14722,6 +15097,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The system-determined status values of a UET tag, for example the system sets the status to Unverified if the UET tag has not yet been verified.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.UetTagTrackingStatus> TrackingStatus
         {
@@ -14751,6 +15129,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines the possible system-determined status values of a UET tag. These are the status values that can be set by the system, for example the system sets the status to Unverified if the UET tag has not yet been verified.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759560(v=msads.100).aspx">UetTagTrackingStatus Value Set</see> http://msdn.microsoft.com/en-us/library/mt759560(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="UetTag"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UetTagTrackingStatus", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     public enum UetTagTrackingStatus : int
@@ -14766,28 +15151,58 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         Inactive = 2,
     }
     
+    /// <summary>
+    /// Defines the current possible types of conversion goals.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759557(v=msads.100).aspx">ConversionGoalType Value Set</see> http://msdn.microsoft.com/en-us/library/mt759557(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="ConversionGoal"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see> and <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see> service operations.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoalType", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     public enum ConversionGoalType : int
     {
         
+        /// <summary>
+        /// Refers to a UrlGoal
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Url = 1,
         
+        /// <summary>
+        /// Refers to a DurationGoal
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Duration = 2,
         
+        /// <summary>
+        /// Refers to a PagesViewedPerVisitGoal
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PagesViewedPerVisit = 4,
         
+        /// <summary>
+        /// Refers to an EventGoal
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Event = 8,
         
+        /// <summary>
+        /// Refers to an AppInstallGoal
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstall = 16,
     }
     
+    /// <summary>
+    /// Defines the base object of a conversion goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759548(v=msads.100).aspx">ConversionGoal Data Object</see> http://msdn.microsoft.com/en-us/library/mt759548(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see> and <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -14845,6 +15260,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The conversion window is the length of time in minutes after a click that you want to track conversions. If you set this value to 43200 minutes (30 days), then conversions that happen within 30 days after a click are tracked. Past conversions aren't affected. The minimum value supported is 1 minute, although keep in mind that a shorter conversion window will reduce the number of conversions your account records. The maximum value supported is 129600 minutes (90 days).
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> ConversionWindowInMinutes
         {
@@ -14862,6 +15280,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// This determines how your conversions are recorded within your chosen conversion window.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ConversionGoalCountType> CountType
         {
@@ -14879,6 +15300,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The unique Bing Ads identifier for the conversion goal.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -14896,6 +15320,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The conversion goal name.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -14913,6 +15340,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Determines how much each conversion is worth to your business.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.ConversionGoalRevenue Revenue
         {
@@ -14930,6 +15360,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Determines if the goal applies to all accounts or only the account specified in the required CustomerAccountId header element. If you have multiple Bing Ads accounts, you can track conversions across all of those accounts. If you associate a goal with one account, conversions will be tracked for that account only.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.EntityScope> Scope
         {
@@ -14947,6 +15380,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Defines the possible user-determined status values of a conversion goal. These are the status values that a user can decide to set, for example a goal can be set to Paused if you no longer wish to track conversions for that goal.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ConversionGoalStatus> Status
         {
@@ -14964,6 +15400,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The unique Bing Ads identifier of the UET tag that you added to your website to allow Bing Ads to collect actions people take on your website.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> TagId
         {
@@ -14981,6 +15420,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Defines the possible system-determined status values of a conversion goal. These are the status values that can be set by the system, for example the system sets the status to TagUnverified if the UET tag has not yet been verified.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ConversionGoalTrackingStatus> TrackingStatus
         {
@@ -14998,6 +15440,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The type of the conversion goal. For more information about conversion goal types, see the Remarks.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType> Type
         {
@@ -15027,6 +15472,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines properties for revenue that can be tracked by a conversion goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759545(v=msads.100).aspx">ConversionGoalRevenue Data Object</see> http://msdn.microsoft.com/en-us/library/mt759545(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="ConversionGoal"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoalRevenue", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -15038,7 +15490,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CurrencyField;
+        private string CurrencyCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ConversionGoalRevenueType> TypeField;
@@ -15058,23 +15510,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The revenue currency.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Currency
+        public string CurrencyCode
         {
             get
             {
-                return this.CurrencyField;
+                return this.CurrencyCodeField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.CurrencyField, value) != true))
+                if ((object.ReferenceEquals(this.CurrencyCodeField, value) != true))
                 {
-                    this.CurrencyField = value;
-                    this.RaisePropertyChanged("Currency");
+                    this.CurrencyCodeField = value;
+                    this.RaisePropertyChanged("CurrencyCode");
                 }
             }
         }
         
+        /// <summary>
+        /// Determines how revenue is tracked. The possible types are FixedValue, NoValue (the default type), and VariableValue. If the type is FixedValue then you must specify the Value element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ConversionGoalRevenueType> Type
         {
@@ -15092,6 +15550,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The revenue value or amount. If you assign values to your conversions, you'll be able to see the total value driven by your advertising across different conversions, rather than simply the number of conversions that have happened.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> Value
         {
@@ -15121,6 +15582,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a URL conversion goal. Use this type of goal to count every time someone visits a web page as a conversion. For example you can count a conversion if someone visits the purchase confirmation page.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759549(v=msads.100).aspx">UrlGoal Data Object</see> http://msdn.microsoft.com/en-us/library/mt759549(v=msads.100).aspx for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UrlGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -15134,6 +15601,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> UrlOperatorField;
         
+        /// <summary>
+        /// The expression used to determine the page or pages the user has to visit in order to count as a conversion. If this element is specified then the UrlOperator element is also required.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string UrlExpression
         {
@@ -15151,6 +15621,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the Url element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> UrlOperator
         {
@@ -15169,6 +15642,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a duration conversion goal. Use this type of goal to count every time someone stays on a website for longer than a certain amount of time as a conversion. For example you can count a conversion if someone spent 10 minutes or longer on a blog or playing a game on the webpage.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759546(v=msads.100).aspx">DurationGoal Data Object</see> http://msdn.microsoft.com/en-us/library/mt759546(v=msads.100).aspx for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DurationGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -15179,6 +15658,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> MinimumDurationInSecondsField;
         
+        /// <summary>
+        /// The minimum amount of time in seconds that the user must spend on your website to track as a conversion. The default value is 0, and the possible range is 0 through 86,399 (1 second less than a full 24 hour day).
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> MinimumDurationInSeconds
         {
@@ -15197,6 +15679,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a pages viewed per visit conversion goal. Use this type of goal to count every time someone visits more than a specified number of pages on your website as a conversion. For example you can count a conversion if someone viewed more than 5 pages on a support site or product catalog.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759551(v=msads.100).aspx">PagesViewedPerVisitGoal Data Object</see> http://msdn.microsoft.com/en-us/library/mt759551(v=msads.100).aspx for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PagesViewedPerVisitGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -15207,6 +15695,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> MinimumPagesViewedField;
         
+        /// <summary>
+        /// The minimum number of pages the user must visit, in order to count as a conversion.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> MinimumPagesViewed
         {
@@ -15225,6 +15716,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a custom event conversion goal. Use this type of goal to count every time someone completes a specific action such as, subscribing to newsletter or downloading white paper, as a conversion.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759550(v=msads.100).aspx">EventGoal Data Object</see> http://msdn.microsoft.com/en-us/library/mt759550(v=msads.100).aspx for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EventGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -15256,6 +15753,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ValueOperator> ValueOperatorField;
         
+        /// <summary>
+        /// The type of user interaction you want to track. For example 'play' or 'pause'.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ActionExpression
         {
@@ -15273,6 +15773,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the ActionExpression element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> ActionOperator
         {
@@ -15290,6 +15793,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The category of event you want to track. For example, 'video'.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CategoryExpression
         {
@@ -15307,6 +15813,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the CategoryExpression element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> CategoryOperator
         {
@@ -15324,6 +15833,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The name of the element that caused the action. For example 'trailer' or 'behindthescenes'.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string LabelExpression
         {
@@ -15341,6 +15853,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the LabelExpression element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> LabelOperator
         {
@@ -15358,6 +15873,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A numerical value associated with that event. For example the value could be the duration of time that the video played.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> Value
         {
@@ -15375,6 +15893,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the Value element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ValueOperator> ValueOperator
         {
@@ -15393,6 +15914,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an app install conversion goal. Use this type of goal to track every time someone installs your app as a conversion.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759547(v=msads.100).aspx">AppInstallGoal Data Object</see> http://msdn.microsoft.com/en-us/library/mt759547(v=msads.100).aspx for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AppInstallGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
@@ -15441,33 +15968,69 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines how your conversions are recorded within your chosen conversion window.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759553(v=msads.100).aspx">ConversionGoalCountType Value Set</see> http://msdn.microsoft.com/en-us/library/mt759553(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="ConversionGoal"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoalCountType", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     public enum ConversionGoalCountType : int
     {
         
+        /// <summary>
+        /// All conversions that happen after an ad click will be counted. This is a common choice for sales.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         All = 0,
         
+        /// <summary>
+        /// Only one conversion that happens after an ad click will be counted. This is a common choice for leads.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unique = 1,
     }
     
+    /// <summary>
+    /// Defines the possible user-determined status values of a conversion goal. These are the status values that a user can decide to set, for example a goal can be set to Paused if you no longer wish to track conversions for that goal. For status values that can be set by the system, for example whether or not the UET tag is verified, see ConversionGoalTrackingStatus.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759554(v=msads.100).aspx">ConversionGoalStatus Value Set</see> http://msdn.microsoft.com/en-us/library/mt759554(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="ConversionGoal"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoalStatus", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     public enum ConversionGoalStatus : int
     {
         
+        /// <summary>
+        /// The conversion goal is active.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 0,
         
+        /// <summary>
+        /// The conversion goal is paused. While a conversion goal is paused, conversions will not be tracked for the corresponding goal.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 1,
         
+        /// <summary>
+        /// This status is for internal use only. Because all Get operations do not return deleted objects, you will not see an object with this status.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 2,
     }
     
+    /// <summary>
+    /// Defines the possible system-determined status values of a conversion goal. These are the status values that can be set by the system, for example the system sets the status to TagUnverified if the UET tag has not yet been verified.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759558(v=msads.100).aspx">ConversionGoalTrackingStatus Value Set</see> http://msdn.microsoft.com/en-us/library/mt759558(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="ConversionGoal"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoalTrackingStatus", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     public enum ConversionGoalTrackingStatus : int
@@ -15486,50 +16049,101 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         TagInactive = 3,
     }
     
+    /// <summary>
+    /// Defines conversion goal revenue models that you can use to track how much each conversion is worth to your business.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759556(v=msads.100).aspx">ConversionGoalRevenueType Value Set</see> http://msdn.microsoft.com/en-us/library/mt759556(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="ConversionGoalRevenue"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoalRevenueType", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     public enum ConversionGoalRevenueType : int
     {
         
+        /// <summary>
+        /// Each time it happens, the conversion has the same value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FixedValue = 0,
         
+        /// <summary>
+        /// The value of the conversion may vary for example, by purchase price. You'll need to customize your UET tag tracking code to report variable revenue. For more information, see How to report variable revenue with UET.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VariableValue = 1,
         
+        /// <summary>
+        /// Don't assign a value for the conversion.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NoValue = 2,
     }
     
+    /// <summary>
+    /// Defines the operators that can be applied to expressions within a conversion goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759561(v=msads.100).aspx">ExpressionOperator Value Set</see> http://msdn.microsoft.com/en-us/library/mt759561(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="EventGoal"/> and <see cref="UrlGoal"/> data objects.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ExpressionOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     public enum ExpressionOperator : int
     {
         
+        /// <summary>
+        /// The property should be equal to the corresponding fixed string expression.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Equals = 0,
         
+        /// <summary>
+        /// The property should begin with the corresponding fixed string expression.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BeginsWith = 1,
         
+        /// <summary>
+        /// The property should match the corresponding regular expression.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RegularExpression = 2,
         
+        /// <summary>
+        /// The property should contain the corresponding fixed string expression.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Contains = 3,
     }
     
+    /// <summary>
+    /// Defines the operators that can be applied to values within a conversion goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759562(v=msads.100).aspx">ValueOperator Value Set</see> http://msdn.microsoft.com/en-us/library/mt759562(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="EventGoal"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ValueOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     public enum ValueOperator : int
     {
         
+        /// <summary>
+        /// The property should be equal to the corresponding value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Equals = 0,
         
+        /// <summary>
+        /// The property should be less than the corresponding value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LessThan = 1,
         
+        /// <summary>
+        /// The property should be greater than the corresponding value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreaterThan = 2,
     }
@@ -18635,6 +19249,16 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "eleteAdGroupRemarketingListAssociationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupRemarketingListAssociationsResponse> DeleteAdGroupRemarketingListAssociationsAsync(Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupRemarketingListAssociationsRequest request);
         
+        /// <summary>
+        /// Gets the specified Universal Event Tracking (UET) tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUetTagsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etUetTagsByIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
@@ -18643,10 +19267,30 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "etUetTagsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsResponse GetUetTagsByIds(Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsRequest request);
         
+        /// <summary>
+        /// Gets the specified Universal Event Tracking (UET) tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUetTagsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etUetTagsByIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsRequest request);
         
+        /// <summary>
+        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTags Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddUetTags", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddUetTagsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
@@ -18655,10 +19299,30 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "ddUetTagsApiFaultDetail3Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddUetTagsResponse AddUetTags(Microsoft.BingAds.V10.CampaignManagement.AddUetTagsRequest request);
         
+        /// <summary>
+        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTags Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddUetTags", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddUetTagsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddUetTagsResponse> AddUetTagsAsync(Microsoft.BingAds.V10.CampaignManagement.AddUetTagsRequest request);
         
+        /// <summary>
+        /// Updates the specified Universal Event Tracking (UET) tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTags Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUetTags", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateUetTagsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
@@ -18667,10 +19331,30 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "pdateUetTagsApiFaultDetail3Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsResponse UpdateUetTags(Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsRequest request);
         
+        /// <summary>
+        /// Updates the specified Universal Event Tracking (UET) tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTags Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUetTags", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateUetTagsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsResponse> UpdateUetTagsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsRequest request);
         
+        /// <summary>
+        /// Gets the specified conversion goals.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetConversionGoalsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etConversionGoalsByIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
@@ -18679,10 +19363,30 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "etConversionGoalsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsResponse GetConversionGoalsByIds(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsRequest request);
         
+        /// <summary>
+        /// Gets the specified conversion goals.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetConversionGoalsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etConversionGoalsByIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsResponse> GetConversionGoalsByIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsRequest request);
         
+        /// <summary>
+        /// Gets the conversion goals that use the specified UET tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetConversionGoalsByTagIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etConversionGoalsByTagIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
@@ -18691,10 +19395,30 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "etConversionGoalsByTagIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsResponse GetConversionGoalsByTagIds(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsRequest request);
         
+        /// <summary>
+        /// Gets the conversion goals that use the specified UET tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetConversionGoalsByTagIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etConversionGoalsByTagIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsResponse> GetConversionGoalsByTagIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsRequest request);
         
+        /// <summary>
+        /// Adds new conversion goals to the account's shared conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoals Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddConversionGoalsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
@@ -18703,10 +19427,30 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "ddConversionGoalsApiFaultDetail3Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsResponse AddConversionGoals(Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsRequest request);
         
+        /// <summary>
+        /// Adds new conversion goals to the account's shared conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoals Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddConversionGoalsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsResponse> AddConversionGoalsAsync(Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsRequest request);
         
+        /// <summary>
+        /// Updates conversion goals within the account's shared conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoals Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateConversionGoalsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
@@ -18715,6 +19459,16 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "pdateConversionGoalsApiFaultDetail3Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsResponse UpdateConversionGoals(Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsRequest request);
         
+        /// <summary>
+        /// Updates conversion goals within the account's shared conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoals Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateConversionGoalsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsResponse> UpdateConversionGoalsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsRequest request);
@@ -24827,6 +25581,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public Microsoft.BingAds.V10.CampaignManagement.AdExtensionsTypeFilter AdExtensionType;
         
         /// <summary>
+        /// The list of additional elements that you want included within each returned AdExtension object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdExtensionsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -24845,7 +25605,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <param name="AccountId">The identifier of the account that owns the ad extensions.</param>
         /// <param name="AdExtensionIds">A list of ad extension identifiers. You can specify a maximum of 100 identifiers.</param>
         /// <param name="AdExtensionType">The types of ad extensions that the list of identifiers contains.</param>
-        public GetAdExtensionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdExtensionIds, Microsoft.BingAds.V10.CampaignManagement.AdExtensionsTypeFilter AdExtensionType)
+        /// <param name="ReturnAdditionalFields">The list of additional elements that you want included within each returned AdExtension object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetAdExtensionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdExtensionIds, Microsoft.BingAds.V10.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -24857,6 +25618,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             this.AccountId = AccountId;
             this.AdExtensionIds = AdExtensionIds;
             this.AdExtensionType = AdExtensionType;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -25461,6 +26223,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Collections.Generic.IList<long> EntityIds;
         
         /// <summary>
+        /// The list of additional elements that you want included within each returned AdExtension object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=4)]
+        public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdExtensionsAssociationsRequest request object.
         /// </summary>
         /// <remarks>
@@ -25480,7 +26248,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <param name="AdExtensionType">Filters the returned associations by ad extension type.</param>
         /// <param name="AssociationType">Filters the returned associations by entity type.</param>
         /// <param name="EntityIds">The list of entity identifiers by which you may request the respective ad extension associations.</param>
-        public GetAdExtensionsAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V10.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, Microsoft.BingAds.V10.CampaignManagement.AssociationType AssociationType, System.Collections.Generic.IList<long> EntityIds)
+        /// <param name="ReturnAdditionalFields">The list of additional elements that you want included within each returned AdExtension object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetAdExtensionsAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V10.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, Microsoft.BingAds.V10.CampaignManagement.AssociationType AssociationType, System.Collections.Generic.IList<long> EntityIds, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -25493,6 +26262,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             this.AdExtensionType = AdExtensionType;
             this.AssociationType = AssociationType;
             this.EntityIds = EntityIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -30885,6 +31655,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the specified Universal Event Tracking (UET) tags.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIds Request Object</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetUetTagsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -30912,13 +31689,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// A maximum of 100 identifiers of the UET tags that you want to get. If TagIds is null or empty, then you are effectively requesting all UET tags that are available for the customer.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> TagIds;
         
+        /// <summary>
+        /// Constructor for the GetUetTagsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+        /// </remarks>
         public GetUetTagsByIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetUetTagsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="TagIds">A maximum of 100 identifiers of the UET tags that you want to get. If TagIds is null or empty, then you are effectively requesting all UET tags that are available for the customer.</param>
         public GetUetTagsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -30932,6 +31725,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the specified Universal Event Tracking (UET) tags.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIds Response Object</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetUetTagsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -30941,16 +31741,36 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of UetTag objects that corresponds directly to the UET tag identifiers that you specified in the request. Items of the array may be returned as null. For each array index where a UET tag was not retrieved, the corresponding element will be null.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetUetTagsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+        /// </remarks>
         public GetUetTagsByIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetUetTagsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="UetTags">An array of UetTag objects that corresponds directly to the UET tag identifiers that you specified in the request. Items of the array may be returned as null. For each array index where a UET tag was not retrieved, the corresponding element will be null.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetUetTagsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -30959,6 +31779,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTags Request Object</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddUetTagsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -30986,13 +31813,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// An array of UetTag objects to add to the customer's shared UET tag library.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags;
         
+        /// <summary>
+        /// Constructor for the AddUetTagsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTagsRequest</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+        /// </remarks>
         public AddUetTagsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddUetTagsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTagsRequest</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="UetTags">An array of UetTag objects to add to the customer's shared UET tag library.</param>
         public AddUetTagsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags)
         {
             this.ApplicationToken = ApplicationToken;
@@ -31006,6 +31849,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTags Response Object</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddUetTagsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31018,13 +31868,30 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the AddUetTagsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTagsResponse</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+        /// </remarks>
         public AddUetTagsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddUetTagsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTagsResponse</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="UetTags"></param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public AddUetTagsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -31033,6 +31900,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates the specified Universal Event Tracking (UET) tags.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTags Request Object</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUetTagsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31060,13 +31934,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// An array of UetTag objects to update within the customer's shared UET tag library.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags;
         
+        /// <summary>
+        /// Constructor for the UpdateUetTagsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTagsRequest</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+        /// </remarks>
         public UpdateUetTagsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateUetTagsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTagsRequest</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="UetTags">An array of UetTag objects to update within the customer's shared UET tag library.</param>
         public UpdateUetTagsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags)
         {
             this.ApplicationToken = ApplicationToken;
@@ -31080,6 +31970,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates the specified Universal Event Tracking (UET) tags.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTags Response Object</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUetTagsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31089,13 +31986,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the UpdateUetTagsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTagsResponse</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+        /// </remarks>
         public UpdateUetTagsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateUetTagsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTagsResponse</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public UpdateUetTagsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -31103,6 +32016,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the specified conversion goals.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIds Request Object</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetConversionGoalsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31130,16 +32050,36 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// A maximum of 100 identifiers of the conversion goals that you want to get. If ConversionGoalIds is null or empty, then you are effectively requesting all conversion goals of the specified types for the account.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> ConversionGoalIds;
         
+        /// <summary>
+        /// One or more types of conversion goals to return.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType ConversionGoalTypes;
         
+        /// <summary>
+        /// Constructor for the GetConversionGoalsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+        /// </remarks>
         public GetConversionGoalsByIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetConversionGoalsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="ConversionGoalIds">A maximum of 100 identifiers of the conversion goals that you want to get. If ConversionGoalIds is null or empty, then you are effectively requesting all conversion goals of the specified types for the account.</param>
+        /// <param name="ConversionGoalTypes">One or more types of conversion goals to return.</param>
         public GetConversionGoalsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ConversionGoalIds, Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType ConversionGoalTypes)
         {
             this.ApplicationToken = ApplicationToken;
@@ -31154,6 +32094,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the specified conversion goals.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIds Response Object</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetConversionGoalsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31163,16 +32110,36 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of ConversionGoal objects that corresponds directly to the conversion goal identifiers that you specified in the request. Items of the array may be returned as null. For each array index where a conversion goal was not retrieved, the corresponding element will be null.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetConversionGoalsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+        /// </remarks>
         public GetConversionGoalsByIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetConversionGoalsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="ConversionGoals">An array of ConversionGoal objects that corresponds directly to the conversion goal identifiers that you specified in the request. Items of the array may be returned as null. For each array index where a conversion goal was not retrieved, the corresponding element will be null.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetConversionGoalsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -31181,6 +32148,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the conversion goals that use the specified UET tags.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIds Request Object</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetConversionGoalsByTagIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31208,16 +32182,36 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// A maximum of 100 tag identifiers that are used by the returned conversion goals.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> TagIds;
         
+        /// <summary>
+        /// One or more types of conversion goals to return.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType ConversionGoalTypes;
         
+        /// <summary>
+        /// Constructor for the GetConversionGoalsByTagIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+        /// </remarks>
         public GetConversionGoalsByTagIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetConversionGoalsByTagIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="TagIds">A maximum of 100 tag identifiers that are used by the returned conversion goals.</param>
+        /// <param name="ConversionGoalTypes">One or more types of conversion goals to return.</param>
         public GetConversionGoalsByTagIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds, Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType ConversionGoalTypes)
         {
             this.ApplicationToken = ApplicationToken;
@@ -31232,6 +32226,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the conversion goals that use the specified UET tags.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIds Response Object</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetConversionGoalsByTagIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31241,16 +32242,36 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// The list of conversion goals do not correspond directly to the tag identifiers specified in the request because there can be multiple conversion goals that use the same tag identifier specified in the request.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetConversionGoalsByTagIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+        /// </remarks>
         public GetConversionGoalsByTagIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetConversionGoalsByTagIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="ConversionGoals">The list of conversion goals do not correspond directly to the tag identifiers specified in the request because there can be multiple conversion goals that use the same tag identifier specified in the request.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetConversionGoalsByTagIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -31259,6 +32280,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds new conversion goals to the account's shared conversion goal library.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoals Request Object</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddConversionGoalsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31286,13 +32314,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// An array of ConversionGoal objects to add to the account's shared conversion goal library.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals;
         
+        /// <summary>
+        /// Constructor for the AddConversionGoalsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoalsRequest</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+        /// </remarks>
         public AddConversionGoalsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddConversionGoalsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoalsRequest</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="ConversionGoals">An array of ConversionGoal objects to add to the account's shared conversion goal library.</param>
         public AddConversionGoalsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals)
         {
             this.ApplicationToken = ApplicationToken;
@@ -31306,6 +32350,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds new conversion goals to the account's shared conversion goal library.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoals Response Object</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddConversionGoalsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31315,16 +32366,36 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// A list of unique system identifiers corresponding to the conversion goals that were added.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<System.Nullable<long>> ConversionGoalIds;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the AddConversionGoalsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoalsResponse</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+        /// </remarks>
         public AddConversionGoalsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddConversionGoalsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoalsResponse</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="ConversionGoalIds">A list of unique system identifiers corresponding to the conversion goals that were added.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public AddConversionGoalsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> ConversionGoalIds, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -31333,6 +32404,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates conversion goals within the account's shared conversion goal library.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoals Request Object</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateConversionGoalsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31360,13 +32438,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// An array of ConversionGoal objects to update within the account's shared conversion goal library.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals;
         
+        /// <summary>
+        /// Constructor for the UpdateConversionGoalsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoalsRequest</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+        /// </remarks>
         public UpdateConversionGoalsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateConversionGoalsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoalsRequest</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="ConversionGoals">An array of ConversionGoal objects to update within the account's shared conversion goal library.</param>
         public UpdateConversionGoalsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals)
         {
             this.ApplicationToken = ApplicationToken;
@@ -31380,6 +32474,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates conversion goals within the account's shared conversion goal library.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoals Response Object</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateConversionGoalsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -31389,13 +32490,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the UpdateConversionGoalsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoalsResponse</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+        /// </remarks>
         public UpdateConversionGoalsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateConversionGoalsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoalsResponse</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public UpdateConversionGoalsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -34337,71 +35454,211 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             return base.Channel.DeleteAdGroupRemarketingListAssociationsAsync(request);
         }
         
+        /// <summary>
+        /// Gets the specified Universal Event Tracking (UET) tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsResponse GetUetTagsByIds(Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsRequest request)
         {
             return base.Channel.GetUetTagsByIds(request);
         }
         
+        /// <summary>
+        /// Gets the specified Universal Event Tracking (UET) tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsRequest request)
         {
             return base.Channel.GetUetTagsByIdsAsync(request);
         }
         
+        /// <summary>
+        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTags Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.AddUetTagsResponse AddUetTags(Microsoft.BingAds.V10.CampaignManagement.AddUetTagsRequest request)
         {
             return base.Channel.AddUetTags(request);
         }
         
+        /// <summary>
+        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTags Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddUetTagsResponse> AddUetTagsAsync(Microsoft.BingAds.V10.CampaignManagement.AddUetTagsRequest request)
         {
             return base.Channel.AddUetTagsAsync(request);
         }
         
+        /// <summary>
+        /// Updates the specified Universal Event Tracking (UET) tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTags Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsResponse UpdateUetTags(Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsRequest request)
         {
             return base.Channel.UpdateUetTags(request);
         }
         
+        /// <summary>
+        /// Updates the specified Universal Event Tracking (UET) tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTags Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsResponse> UpdateUetTagsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsRequest request)
         {
             return base.Channel.UpdateUetTagsAsync(request);
         }
         
+        /// <summary>
+        /// Gets the specified conversion goals.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsResponse GetConversionGoalsByIds(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsRequest request)
         {
             return base.Channel.GetConversionGoalsByIds(request);
         }
         
+        /// <summary>
+        /// Gets the specified conversion goals.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsResponse> GetConversionGoalsByIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsRequest request)
         {
             return base.Channel.GetConversionGoalsByIdsAsync(request);
         }
         
+        /// <summary>
+        /// Gets the conversion goals that use the specified UET tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsResponse GetConversionGoalsByTagIds(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsRequest request)
         {
             return base.Channel.GetConversionGoalsByTagIds(request);
         }
         
+        /// <summary>
+        /// Gets the conversion goals that use the specified UET tags.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsResponse> GetConversionGoalsByTagIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsRequest request)
         {
             return base.Channel.GetConversionGoalsByTagIdsAsync(request);
         }
         
+        /// <summary>
+        /// Adds new conversion goals to the account's shared conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoals Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsResponse AddConversionGoals(Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsRequest request)
         {
             return base.Channel.AddConversionGoals(request);
         }
         
+        /// <summary>
+        /// Adds new conversion goals to the account's shared conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoals Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsResponse> AddConversionGoalsAsync(Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsRequest request)
         {
             return base.Channel.AddConversionGoalsAsync(request);
         }
         
+        /// <summary>
+        /// Updates conversion goals within the account's shared conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoals Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsResponse UpdateConversionGoals(Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsRequest request)
         {
             return base.Channel.UpdateConversionGoals(request);
         }
         
+        /// <summary>
+        /// Updates conversion goals within the account's shared conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoals Service Operation</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsResponse> UpdateConversionGoalsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsRequest request)
         {
             return base.Channel.UpdateConversionGoalsAsync(request);

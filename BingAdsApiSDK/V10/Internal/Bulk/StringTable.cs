@@ -69,8 +69,10 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public const string TimeZone = "Time Zone";
 
         public const string Budget = "Budget";
-
+        public const string BudgetId = "Budget Id";
         public const string BudgetType = "Budget Type";
+        public const string BudgetName = "Budget Name";
+
         public const string KeywordVariantMatchEnabled = "KeywordVariantMatchEnabled";
 
         public const string AdGroup = "Ad Group";
@@ -334,5 +336,14 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public const string StructuredSnippetAdExtension = "Structured Snippet Ad Extension";
         public const string StructuredSnippetHeader = "Structured Snippet Header";
         public const string StructuredSnippetValues = "Structured Snippet Values";
+
+        // Sitelink2 Ad Extension
+        public const string Sitelink2AdExtesnion = "Sitelink2 Ad Extension";
+        public const string CampaignSitelink2AdExtension = "Campaign Sitelink2 Ad Extension";
+        public const string AdGroupSitelink2AdExtension = "Ad Group Sitelink2 Ad Extension";
+
+        // Ad Extension Schedule
+        public const string AdSchedule = "Ad Schedule";
+        public const string UseSearcherTimeZone = "Use Searcher Time Zone";
     }
 }

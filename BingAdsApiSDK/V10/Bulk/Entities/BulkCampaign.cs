@@ -82,6 +82,11 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
         /// </summary>
         public Campaign Campaign { get; set; }
 
+        ///<summary>
+        /// The budget name for the campaign.
+        /// </summary>
+        public string BudgetName { get; set; }
+
         /// <summary>
         /// The quality score data for the campaign.
         /// </summary>
@@ -177,6 +182,16 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.BudgetType,
                 c => c.Campaign.BudgetType.ToBulkString(),
                 (v, c) => c.Campaign.BudgetType = v.ParseOptional<BudgetLimitType>()                
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BudgetId,
+                c => c.Campaign.BudgetId.ToBulkString(),
+                (v, c) => c.Campaign.BudgetId = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BudgetName,
+                c => c.BudgetName,
+                (v, c) => c.BudgetName= v
             ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.BidAdjustment,

@@ -49,6 +49,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,8 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public static readonly Regex CustomParameterSplitter = new Regex(@"(?<!\\);\s*", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
         public static readonly Regex CustomKvPattern = new Regex(@"^{_(.*?)}=(.*$)", RegexOptions.CultureInvariant | RegexOptions.Compiled);
+
+        public static readonly Regex DayTimeRangesPattern = new Regex(@"^\((Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\[(\d\d?)\:(\d\d)\-(\d\d?)\:(\d\d)\]\)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
         public static PricingModel? ParseOptionalPricingModel(this string s)
         {
@@ -172,6 +175,16 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             if (date == null)
             {
                 return null;
+            }
+
+            return string.Format("{0}/{1}/{2}", date.Month, date.Day, date.Year);
+        }
+
+        public static string ToScheduleDateBulkString(this Date date)
+        {
+            if (date == null || (date.Month == 0 && date.Day == 0 && date.Year == 0))
+            {
+                return DeleteValue;
             }
 
             return string.Format("{0}/{1}/{2}", date.Month, date.Day, date.Year);
@@ -343,6 +356,29 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                     return "45";
                 default:
                     throw new ArgumentException("Unknown minute");
+            }
+        }
+
+        public static Day ParseDay(this string s)
+        {
+            switch (s.ToLower())
+            {
+                case "sunday":
+                    return Day.Sunday;
+                case "monday":
+                    return Day.Monday;
+                case "tuesday":
+                    return Day.Tuesday;
+                case "wednesday":
+                    return Day.Wednesday;
+                case "thursday":
+                    return Day.Thursday;
+                case "friday":
+                    return Day.Friday;
+                case "saturday":
+                    return Day.Saturday;
+                default:
+                    throw new ArgumentException("Unkonwn day");
             }
         }
 
@@ -573,7 +609,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                 case "TargetCpa":
                     return new TargetCpaBiddingScheme { Type = "TargetCpa" };
                 default:
-                    throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : %s", s));
+                    throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : {0}", s));
             }
         }
 
@@ -630,6 +666,81 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             var text = string.Join(seperator, values);
 
             return text;
+        }
+
+        public static string ToDayTimeRangesBulkString(this IList<DayTime> dayTimeRanges)
+        {
+            if (dayTimeRanges == null || dayTimeRanges.Count == 0)
+            {
+                return DeleteValue;
+            }
+
+            return string.Join(";",
+                dayTimeRanges.Select(
+                    dayTime =>
+                        string.Format(CultureInfo.InvariantCulture, "({0}[{1:00}:{2:00}-{3:00}:{4:00}])", dayTime.Day,
+                            dayTime.StartHour, int.Parse(ToMinuteBulkString(dayTime.StartMinute)), dayTime.EndHour, int.Parse(ToMinuteBulkString(dayTime.EndMinute)))));
+        }
+
+        public static List<DayTime> ParseDayTimeRanges(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            return 
+                s.Split(';').Select(token =>
+                {
+                    if (string.IsNullOrWhiteSpace(token))
+                    {
+                        return null;
+                    }
+
+                    token = token.Trim();
+
+                    var match = DayTimeRangesPattern.Match(token);
+
+                    if (!match.Success)
+                    {
+                        throw new Exception(string.Format("Bad format for DayTimeRanges: {0}", s));
+                    }
+
+                    return new DayTime
+                    {
+                        Day = ParseDay(match.Groups[1].Value),
+                        StartHour = int.Parse(match.Groups[2].Value),
+                        StartMinute = ParseMinute(match.Groups[3].Value),
+                        EndHour = int.Parse(match.Groups[4].Value),
+                        EndMinute = ParseMinute(match.Groups[5].Value),
+                    };
+                }).Where(p => p != null).ToList()
+            ;
+        }
+
+        public static string ToUseSearcherTimeZoneBulkString(this bool? useSearcherTimeZone)
+        {
+            if (!useSearcherTimeZone.HasValue)
+            {
+                return "delete_value";
+            }
+            return useSearcherTimeZone.Value ? "true" : "false";
+        }
+
+        public static bool? ParseUseSearcherTimeZone(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            var result = false;
+
+            if (!bool.TryParse(s, out result))
+            {
+                throw new ArgumentException(string.Format("Unknown values for Use Searcher Time Zone: {0}", s));
+            }
+            return result;
         }
     }
 }

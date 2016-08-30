@@ -85,6 +85,8 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
             // campaign
             StringTable.TimeZone,
+            StringTable.BudgetId,
+            StringTable.BudgetName,
             StringTable.Budget,
             StringTable.BudgetType,
             StringTable.KeywordVariantMatchEnabled,
@@ -144,6 +146,8 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
             // AdExtensions common
             StringTable.Version,
+            StringTable.AdSchedule,
+            StringTable.UseSearcherTimeZone,
 
             // Site link ad extensions
             StringTable.SiteLinkExtensionOrder,

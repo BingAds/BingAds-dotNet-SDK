@@ -7032,7 +7032,7 @@ namespace Microsoft.BingAds.V10.AdInsight
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.GetBidLandscapeByAdGroupIdsResponse> GetBidLandscapeByAdGroupIdsAsync(Microsoft.BingAds.V10.AdInsight.GetBidLandscapeByAdGroupIdsRequest request);
         
         /// <summary>
-        /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
+        /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to 7 days. This operation is not based on target position, rather it returns multiple bid options that yield different estimated clicks, impressions, and cost. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx">GetBidLandscapeByKeywordIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx for details.
@@ -7050,7 +7050,7 @@ namespace Microsoft.BingAds.V10.AdInsight
         Microsoft.BingAds.V10.AdInsight.GetBidLandscapeByKeywordIdsResponse GetBidLandscapeByKeywordIds(Microsoft.BingAds.V10.AdInsight.GetBidLandscapeByKeywordIdsRequest request);
         
         /// <summary>
-        /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
+        /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to 7 days. This operation is not based on target position, rather it returns multiple bid options that yield different estimated clicks, impressions, and cost. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx">GetBidLandscapeByKeywordIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx for details.
@@ -8397,7 +8397,7 @@ namespace Microsoft.BingAds.V10.AdInsight
     }
     
     /// <summary>
-    /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
+    /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to 7 days. This operation is not based on target position, rather it returns multiple bid options that yield different estimated clicks, impressions, and cost. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx">GetBidLandscapeByKeywordIds Request Object</see> http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx for details.
@@ -8475,7 +8475,7 @@ namespace Microsoft.BingAds.V10.AdInsight
     }
     
     /// <summary>
-    /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
+    /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to 7 days. This operation is not based on target position, rather it returns multiple bid options that yield different estimated clicks, impressions, and cost. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx">GetBidLandscapeByKeywordIds Response Object</see> http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx for details.
@@ -9981,7 +9981,7 @@ namespace Microsoft.BingAds.V10.AdInsight
         }
         
         /// <summary>
-        /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
+        /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to 7 days. This operation is not based on target position, rather it returns multiple bid options that yield different estimated clicks, impressions, and cost. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx">GetBidLandscapeByKeywordIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx for details.
@@ -9996,7 +9996,7 @@ namespace Microsoft.BingAds.V10.AdInsight
         }
         
         /// <summary>
-        /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
+        /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to 7 days. This operation is not based on target position, rather it returns multiple bid options that yield different estimated clicks, impressions, and cost. You can use the landscape view of multiple bid points with estimated traffic for the same keyword to help make decisions about how to adjust your keyword bid to optimize for clicks, impressions, and cost. For example you might use the resulting data to visualize a clicks to cost curve or a bid to impressions curve.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx">GetBidLandscapeByKeywordIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt219285(v=msads.100).aspx for details.
