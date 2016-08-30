@@ -5966,6 +5966,24 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 66,
+        
+        /// <summary>
+        /// The name of the budget. Note: This column will be empty for unshared budgets.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BudgetName = 67,
+        
+        /// <summary>
+        /// The budget status. The possible values are Active and Deleted.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BudgetStatus = 68,
+        
+        /// <summary>
+        /// Indicates whether or not the campaign is currently spending from the budget mentioned in the BudgetName column. The possible values are Current and Ended.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BudgetAssociationStatus = 69,
     }
     
     /// <summary>
@@ -6694,27 +6712,51 @@ namespace Microsoft.BingAds.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 32,
         
+        /// <summary>
+        /// The title part 1 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 33,
         
+        /// <summary>
+        /// The title part 2 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 34,
         
+        /// <summary>
+        /// The path 1 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path1 = 35,
         
+        /// <summary>
+        /// The path 2 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path2 = 36,
         
+        /// <summary>
+        /// The FinalUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalURL = 37,
         
+        /// <summary>
+        /// The FinalMobileUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileURL = 38,
         
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalAppURL = 39,
         
+        /// <summary>
+        /// The text attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 40,
     }
@@ -6886,6 +6928,9 @@ namespace Microsoft.BingAds.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstall = 256,
         
+        /// <summary>
+        /// The report will include expanded text ads.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpandedText = 1024,
     }
@@ -7962,7 +8007,7 @@ namespace Microsoft.BingAds.Reporting
         AdTitle = 9,
         
         /// <summary>
-        /// The text attribute of a text ad.
+        /// The text attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 10,
@@ -8225,15 +8270,27 @@ namespace Microsoft.BingAds.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 53,
         
+        /// <summary>
+        /// The title part 1 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 54,
         
+        /// <summary>
+        /// The title part 2 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 55,
         
+        /// <summary>
+        /// The path 1 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path1 = 56,
         
+        /// <summary>
+        /// The path 2 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path2 = 57,
     }
@@ -13332,7 +13389,7 @@ namespace Microsoft.BingAds.Reporting
         Conversions = 16,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.Note: Available for accounts that are setup to use analytics with Bing Ads Universal Event Tracking. For more information, see the How do I create a conversion goal? help topic.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.Note: Available for accounts that are setup to use analytics with Bing Ads Universal Event Tracking. For more information, see the Track sales and other conversions help topic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 17,
@@ -14473,7 +14530,7 @@ namespace Microsoft.BingAds.Reporting
         AdTitle = 9,
         
         /// <summary>
-        /// The text attribute of a text ad.  Note: This column will be empty if ItemChanged is not Ad.
+        /// The text attribute of an ad.  Note: This column will be empty if ItemChanged is not Ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 10,
@@ -15028,9 +15085,15 @@ namespace Microsoft.BingAds.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 39,
         
+        /// <summary>
+        /// The title part 1 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 40,
         
+        /// <summary>
+        /// The title part 2 attribute of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 41,
     }
@@ -19494,7 +19557,7 @@ namespace Microsoft.BingAds.Reporting
         MetroArea = 10,
         
         /// <summary>
-        /// The city used to deliver the ad.
+        /// The city used to deliver the ad.   Note: The LocationType column identifies whether the user was located in, searching for, or viewing pages about the location.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 11,

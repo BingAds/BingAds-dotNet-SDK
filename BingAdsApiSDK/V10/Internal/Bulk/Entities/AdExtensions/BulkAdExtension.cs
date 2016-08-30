@@ -47,6 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using System.Collections.Generic;
 using Microsoft.BingAds.V10.Bulk.Entities;
 using Microsoft.BingAds.V10.CampaignManagement;
@@ -75,7 +76,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk.Entities
         /// <summary>
         /// The type of ad extension from the <see cref="Microsoft.BingAds.V10.CampaignManagement"/> namespace, for example a <see cref="CallAdExtension"/> object.
         /// </summary>
-        protected T AdExtension { get; set; }     
+        protected T AdExtension { get; set; }
 
         private static readonly IEnumerable<IBulkMapping<BulkAdExtensionBase<T>>> Mappings = new IBulkMapping<BulkAdExtensionBase<T>>[]
         {
@@ -98,6 +99,53 @@ namespace Microsoft.BingAds.V10.Internal.Bulk.Entities
                 c => c.AdExtension.Version.ToBulkString(),
                 (v, c) => c.AdExtension.Version = v.ParseOptional<int>()
             ), 
+
+            new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.AdSchedule,
+                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.DayTimeRanges.ToDayTimeRangesBulkString(),
+                (v, c) =>
+                {
+                    if (c.AdExtension.Scheduling == null)
+                    {
+                        c.AdExtension.Scheduling = new Schedule();
+                    }
+                    c.AdExtension.Scheduling.DayTimeRanges = v.ParseDayTimeRanges();
+                }
+                ),
+            new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.StartDate,
+                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.StartDate.ToScheduleDateBulkString(),
+                (v, c) =>
+                {
+                    if (c.AdExtension.Scheduling == null)
+                    {
+                        c.AdExtension.Scheduling = new Schedule();
+                    }
+                    c.AdExtension.Scheduling.StartDate = v.ParseDate();
+                }
+                ),
+
+            new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.EndDate,
+                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.EndDate.ToScheduleDateBulkString(),
+                (v, c) =>
+                {
+                    if (c.AdExtension.Scheduling == null)
+                    {
+                        c.AdExtension.Scheduling = new Schedule();
+                    }
+                    c.AdExtension.Scheduling.EndDate = v.ParseDate();
+                }
+                ),
+
+            new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.UseSearcherTimeZone,
+                c =>c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.UseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(),
+                (v, c) =>
+                {
+                    if (c.AdExtension.Scheduling == null)
+                    {
+                        c.AdExtension.Scheduling = new Schedule();
+                    }
+                    c.AdExtension.Scheduling.UseSearcherTimeZone = v.ParseUseSearcherTimeZone();
+                }
+                ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)

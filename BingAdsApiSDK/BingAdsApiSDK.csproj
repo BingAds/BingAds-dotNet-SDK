@@ -117,6 +117,7 @@
     <Compile Include="V10\Bulk\DownloadParameters.cs" />
     <Compile Include="V10\Bulk\DownloadStatus.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupAppAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupSitelink2AdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupStructuredSnippetAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupCalloutAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupImageAdExtension.cs" />
@@ -124,7 +125,9 @@
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAdGroupSiteLinkAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkAppAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCallAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignSitelink2AdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignStructuredSnippetAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSitelink2AdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkStructuredSnippetAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCalloutAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkCampaignAppAdExtension.cs" />
@@ -148,6 +151,7 @@
     <Compile Include="V10\Bulk\Entities\BulkAdGroup.cs" />
     <Compile Include="V10\Bulk\Entities\BulkAdGroupProductPartition.cs" />
     <Compile Include="V10\Bulk\Entities\BulkAdGroupRemarketingListAssociation.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkBudget.cs" />
     <Compile Include="V10\Bulk\Entities\BulkCampaign.cs" />
     <Compile Include="V10\Bulk\Entities\BulkCampaignProductScope.cs" />
     <Compile Include="V10\Bulk\Entities\BulkEntity.cs" />
