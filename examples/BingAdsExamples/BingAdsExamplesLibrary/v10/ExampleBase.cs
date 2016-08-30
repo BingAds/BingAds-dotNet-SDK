@@ -109,8 +109,11 @@ namespace BingAdsExamplesLibrary.V10
                 AdDistribution = AdDistribution.Search,
                 PricingModel = PricingModel.Cpc,
                 StartDate = null,
-                EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date { 
-                    Month = 12, Day = 31, Year = DateTime.UtcNow.Year 
+                EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date
+                {
+                    Month = 12,
+                    Day = 31,
+                    Year = DateTime.UtcNow.Year
                 },
                 SearchBid = new Bid { Amount = 0.09 },
                 Language = "English",
@@ -181,8 +184,8 @@ namespace BingAdsExamplesLibrary.V10
         /// <param name="campaignIds"></param>
         /// <param name="partialErrors"></param>
         protected void OutputCampaignsWithPartialErrors(
-            Campaign[] campaigns, 
-            long?[] campaignIds, 
+            Campaign[] campaigns,
+            long?[] campaignIds,
             IEnumerable<BatchError> partialErrors)
         {
             if (campaigns == null || campaignIds == null || campaigns.Length != campaignIds.Length)
@@ -242,8 +245,8 @@ namespace BingAdsExamplesLibrary.V10
         /// <param name="adGroupIds"></param>
         /// <param name="partialErrors"></param>
         protected void OutputAdGroupsWithPartialErrors(
-            AdGroup[] adGroups, 
-            long?[] adGroupIds, 
+            AdGroup[] adGroups,
+            long?[] adGroupIds,
             IEnumerable<BatchError> partialErrors)
         {
             if (adGroups == null || adGroupIds == null || adGroups.Length != adGroupIds.Length)
@@ -303,8 +306,8 @@ namespace BingAdsExamplesLibrary.V10
         /// <param name="keywordIds"></param>
         /// <param name="partialErrors"></param>
         protected void OutputKeywordsWithPartialErrors(
-            Keyword[] keywords, 
-            long?[] keywordIds, 
+            Keyword[] keywords,
+            long?[] keywordIds,
             IEnumerable<BatchError> partialErrors)
         {
             if (keywords == null || keywordIds == null || keywords.Length != keywordIds.Length)
@@ -364,8 +367,8 @@ namespace BingAdsExamplesLibrary.V10
         /// <param name="adIds"></param>
         /// <param name="partialErrors"></param>
         protected void OutputAdsWithPartialErrors(
-            IList<Ad> ads, 
-            IList<long?> adIds, 
+            IList<Ad> ads,
+            IList<long?> adIds,
             IEnumerable<BatchError> partialErrors)
         {
             if (ads == null || adIds == null || ads.Count != adIds.Count)
@@ -945,7 +948,7 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (keyword != null)
             {
-                OutputStatusMessage(string.Format("Bid.Amount: {0}", 
+                OutputStatusMessage(string.Format("Bid.Amount: {0}",
                     keyword.Bid != null ? keyword.Bid.Amount : 0)
                 );
                 OutputBiddingScheme(keyword.BiddingScheme);
@@ -1278,7 +1281,7 @@ namespace BingAdsExamplesLibrary.V10
                             OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
                         }
                     }
-                    
+
                     OutputStatusMessage("FinalUrls: ");
                     if (biddableAdGroupCriterion.FinalUrls != null)
                     {
@@ -1396,7 +1399,7 @@ namespace BingAdsExamplesLibrary.V10
         {
             return new AgeTarget
             {
-                Bids = new List<AgeTargetBid> 
+                Bids = new List<AgeTargetBid>
                 {
                     new AgeTargetBid{
                         Age = AgeRange.ThirtyFiveToFifty,
@@ -1437,9 +1440,9 @@ namespace BingAdsExamplesLibrary.V10
         {
             return new GenderTarget
             {
-                Bids = new List<GenderTargetBid> 
+                Bids = new List<GenderTargetBid>
                 {
-                    new GenderTargetBid 
+                    new GenderTargetBid
                     {
                         BidAdjustment = 10,
                         Gender = GenderType.Female,
@@ -1467,9 +1470,9 @@ namespace BingAdsExamplesLibrary.V10
         {
             return new DayTimeTarget
             {
-                Bids = new List<DayTimeTargetBid> 
+                Bids = new List<DayTimeTargetBid>
                 {
-                    new DayTimeTargetBid 
+                    new DayTimeTargetBid
                     {
                         BidAdjustment = 10,
                         Day = Day.Friday,
@@ -1505,7 +1508,7 @@ namespace BingAdsExamplesLibrary.V10
         {
             return new DeviceOSTarget
             {
-                Bids = new List<DeviceOSTargetBid> 
+                Bids = new List<DeviceOSTargetBid>
                 {
                     new DeviceOSTargetBid
                     {
@@ -1931,7 +1934,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Name: {0}", negativeKeywordList.Name));
             }
         }
-        
+
         /// <summary>
         /// Outputs the RemarketingList.
         /// </summary>
@@ -1970,6 +1973,102 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Id: {0}", adGroupRemarketingListAssociation.Id));
                 OutputStatusMessage(string.Format("RemarketingListId: {0}", adGroupRemarketingListAssociation.RemarketingListId));
                 OutputStatusMessage(string.Format("Status: {0}\n", adGroupRemarketingListAssociation.Status));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the UetTag.
+        /// </summary>
+        protected void OutputUetTag(UetTag uetTag)
+        {
+            if (uetTag != null)
+            {
+                OutputStatusMessage(string.Format("Description: {0}", uetTag.Description));
+                OutputStatusMessage(string.Format("Id: {0}", uetTag.Id));
+                OutputStatusMessage(string.Format("Name: {0}", uetTag.Name));
+                OutputStatusMessage(string.Format("TrackingNoScript: {0}", uetTag.TrackingNoScript));
+                OutputStatusMessage(string.Format("TrackingScript: {0}", uetTag.TrackingScript));
+                OutputStatusMessage(string.Format("TrackingStatus: {0}\n", uetTag.TrackingStatus));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the ConversionGoal.
+        /// </summary>
+        protected void OutputConversionGoal(ConversionGoal conversionGoal)
+        {
+            if (conversionGoal != null)
+            {
+                OutputStatusMessage(string.Format("ConversionWindowInMinutes: {0}", conversionGoal.ConversionWindowInMinutes));
+                OutputStatusMessage(string.Format("CountType: {0}", conversionGoal.CountType));
+                OutputStatusMessage(string.Format("Id: {0}", conversionGoal.Id));
+                OutputStatusMessage(string.Format("Name: {0}", conversionGoal.Name));
+                OutputConversionGoalRevenue(conversionGoal.Revenue);
+                OutputStatusMessage(string.Format("Scope: {0}", conversionGoal.Scope));
+                OutputStatusMessage(string.Format("Status: {0}", conversionGoal.Status));
+                OutputStatusMessage(string.Format("TagId: {0}", conversionGoal.TagId));
+                OutputStatusMessage(string.Format("TrackingStatus: {0}", conversionGoal.TrackingStatus));
+                OutputStatusMessage(string.Format("Type: {0}", conversionGoal.Type));
+
+                var appInstallGoal = conversionGoal as AppInstallGoal;
+                if (appInstallGoal != null)
+                {
+                    OutputStatusMessage(string.Format("AppPlatform: {0}", appInstallGoal.AppPlatform));
+                    OutputStatusMessage(string.Format("AppStoreId: {0}\n", appInstallGoal.AppStoreId));
+                }
+                else
+                {
+                    var durationGoal = conversionGoal as DurationGoal;
+                    if (durationGoal != null)
+                    {
+                        OutputStatusMessage(string.Format("MinimumDurationInSeconds: {0}\n", durationGoal.MinimumDurationInSeconds));
+                    }
+                    else
+                    {
+                        var eventGoal = conversionGoal as EventGoal;
+                        if (eventGoal != null)
+                        {
+                            OutputStatusMessage(string.Format("ActionExpression: {0}", eventGoal.ActionExpression));
+                            OutputStatusMessage(string.Format("ActionOperator: {0}", eventGoal.ActionOperator));
+                            OutputStatusMessage(string.Format("CategoryExpression: {0}", eventGoal.CategoryExpression));
+                            OutputStatusMessage(string.Format("CategoryOperator: {0}", eventGoal.CategoryOperator));
+                            OutputStatusMessage(string.Format("LabelExpression: {0}", eventGoal.LabelExpression));
+                            OutputStatusMessage(string.Format("LabelOperator: {0}", eventGoal.LabelOperator));
+                            OutputStatusMessage(string.Format("Value: {0}", eventGoal.Value));
+                            OutputStatusMessage(string.Format("ValueOperator: {0}\n", eventGoal.ValueOperator));
+                        }
+                        else
+                        {
+                            var pagesViewedPerVisitGoal = conversionGoal as PagesViewedPerVisitGoal;
+                            if (pagesViewedPerVisitGoal != null)
+                            {
+                                OutputStatusMessage(string.Format("MinimumPagesViewed: {0}\n", pagesViewedPerVisitGoal.MinimumPagesViewed));
+                            }
+                            else
+                            {
+                                var urlGoal = conversionGoal as UrlGoal;
+                                if (urlGoal != null)
+                                {
+                                    OutputStatusMessage(string.Format("UrlExpression: {0}", urlGoal.UrlExpression));
+                                    OutputStatusMessage(string.Format("UrlOperator: {0}\n", urlGoal.UrlOperator));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the ConversionGoalRevenue.
+        /// </summary>
+        protected void OutputConversionGoalRevenue(ConversionGoalRevenue conversionGoalRevenue)
+        {
+            if (conversionGoalRevenue != null)
+            {
+                OutputStatusMessage(string.Format("CurrencyCode: {0}", conversionGoalRevenue.CurrencyCode));
+                OutputStatusMessage(string.Format("Type: {0}", conversionGoalRevenue.Type));
+                OutputStatusMessage(string.Format("Value: {0}", conversionGoalRevenue.Value));
             }
         }
 
