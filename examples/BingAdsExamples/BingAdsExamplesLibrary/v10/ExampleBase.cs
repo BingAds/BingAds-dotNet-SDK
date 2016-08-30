@@ -128,6 +128,13 @@ namespace BingAdsExamplesLibrary.V10
                     adGroup.AdRotation != null ? adGroup.AdRotation.Type : null));
                 OutputStatusMessage(string.Format("BiddingModel: {0}", adGroup.BiddingModel));
                 OutputBiddingScheme(adGroup.BiddingScheme);
+                if (adGroup.EndDate != null)
+                {
+                    OutputStatusMessage(string.Format("EndDate: {0}/{1}/{2}",
+                    adGroup.EndDate.Month,
+                    adGroup.EndDate.Day,
+                    adGroup.EndDate.Year));
+                }
                 OutputStatusMessage("ForwardCompatibilityMap: ");
                 if (adGroup.ForwardCompatibilityMap != null)
                 {
@@ -429,6 +436,137 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
+        /// Set the read-only properties of an ad extension to null. This operation can be useful between calls to
+        /// GetAdExtensionsByIds and UpdateAdExtensions. The update operation would fail if you send certain read-only
+        /// fields.
+        /// </summary>
+        /// <param name="extension">The ad extension whose read-only properties you want to nullify.</param>
+        /// <returns></returns>
+        protected AdExtension SetReadOnlyAdExtensionElementsToNull(AdExtension extension)
+        {
+            if (extension == null || extension.Id == null)
+            {
+                return extension;
+            }
+            else
+            {
+                // Set to null for all extension types.
+                extension.Version = null;
+
+                var imageAdExtension = extension as ImageAdExtension;
+                if (imageAdExtension != null)
+                {
+                    if (imageAdExtension.FinalMobileUrls != null)
+                    {
+                        var urls = new List<string>();
+                        foreach (var url in imageAdExtension.FinalMobileUrls)
+                        {
+                            // When retrieving ad extensions, null strings can be returned in the list.
+                            // We only want to keep non-null strings.
+                            if (url != null)
+                            {
+                                urls.Add(url);
+                            }
+                        }
+                        imageAdExtension.FinalMobileUrls = urls;
+                    }
+                    if (imageAdExtension.FinalUrls != null)
+                    {
+                        var urls = new List<string>();
+                        foreach (var url in imageAdExtension.FinalUrls)
+                        {
+                            // When retrieving ad extensions, null strings can be returned in the list.
+                            // We only want to keep non-null strings.
+                            if (url != null)
+                            {
+                                urls.Add(url);
+                            }
+                        }
+                        imageAdExtension.FinalUrls = urls;
+                    }
+                    if (imageAdExtension.UrlCustomParameters != null && imageAdExtension.UrlCustomParameters.Parameters != null)
+                    {
+                        var customParameters = new List<CustomParameter>();
+                        foreach (var parameter in imageAdExtension.UrlCustomParameters.Parameters)
+                        {
+                            // When retrieving ad extensions, null key and value pairs can be returned in the list.
+                            // We only want to keep non-null key and value pairs.
+                            if (parameter != null && parameter.Key != null)
+                            {
+                                customParameters.Add(parameter);
+                            }
+                        }
+                        imageAdExtension.UrlCustomParameters.Parameters = customParameters;
+                    }
+                    return imageAdExtension;
+                }
+                else
+                {
+                    var locationAdExtension = extension as LocationAdExtension;
+                    if (locationAdExtension != null)
+                    {
+                        locationAdExtension.GeoCodeStatus = null;
+                        return locationAdExtension;
+                    }
+                    else
+                    {
+                        var sitelink2AdExtension = extension as Sitelink2AdExtension;
+                        if (sitelink2AdExtension != null)
+                        {
+                            if (sitelink2AdExtension.FinalMobileUrls != null)
+                            {
+                                var urls = new List<string>();
+                                foreach (var url in sitelink2AdExtension.FinalMobileUrls)
+                                {
+                                    // When retrieving ad extensions, null strings can be returned in the list.
+                                    // We only want to keep non-null strings.
+                                    if (url != null)
+                                    {
+                                        urls.Add(url);
+                                    }
+                                }
+                                sitelink2AdExtension.FinalMobileUrls = urls;
+                            }
+                            if (sitelink2AdExtension.FinalUrls != null)
+                            {
+                                var urls = new List<string>();
+                                foreach (var url in sitelink2AdExtension.FinalUrls)
+                                {
+                                    // When retrieving ad extensions, null strings can be returned in the list.
+                                    // We only want to keep non-null strings.
+                                    if (url != null)
+                                    {
+                                        urls.Add(url);
+                                    }
+                                }
+                                sitelink2AdExtension.FinalUrls = urls;
+                            }
+                            if (sitelink2AdExtension.UrlCustomParameters != null && sitelink2AdExtension.UrlCustomParameters.Parameters != null)
+                            {
+                                var customParameters = new List<CustomParameter>();
+                                foreach (var parameter in sitelink2AdExtension.UrlCustomParameters.Parameters)
+                                {
+                                    // When retrieving ad extensions, null key and value pairs can be returned in the list.
+                                    // We only want to keep non-null key and value pairs.
+                                    if (parameter != null && parameter.Key != null)
+                                    {
+                                        customParameters.Add(parameter);
+                                    }
+                                }
+                                sitelink2AdExtension.UrlCustomParameters.Parameters = customParameters;
+                            }
+                            return sitelink2AdExtension;
+                        }
+                        else
+                        {
+                            return extension;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Outputs the ad extensions with any editorial reasons
         /// </summary>
         /// <param name="adExtensions"></param>
@@ -478,31 +616,49 @@ namespace BingAdsExamplesLibrary.V10
                                 }
                                 else
                                 {
-                                    var linksAdExtension = extension as SiteLinksAdExtension;
-                                    if (linksAdExtension != null)
+                                    var siteLinksAdExtension = extension as SiteLinksAdExtension;
+                                    if (siteLinksAdExtension != null)
                                     {
-                                        OutputSiteLinksAdExtension(linksAdExtension);
+                                        OutputSiteLinksAdExtension(siteLinksAdExtension);
                                         OutputStatusMessage("\n");
                                     }
                                     else
                                     {
-                                        var calloutAdExtension = extension as CalloutAdExtension;
-                                        if (calloutAdExtension != null)
+                                        var sitelink2AdExtension = extension as Sitelink2AdExtension;
+                                        if (sitelink2AdExtension != null)
                                         {
-                                            OutputCalloutAdExtension(calloutAdExtension);
+                                            OutputSitelink2AdExtension(sitelink2AdExtension);
                                             OutputStatusMessage("\n");
                                         }
                                         else
                                         {
-                                            var reviewAdExtension = extension as ReviewAdExtension;
-                                            if (reviewAdExtension != null)
+                                            var calloutAdExtension = extension as CalloutAdExtension;
+                                            if (calloutAdExtension != null)
                                             {
-                                                OutputReviewAdExtension(reviewAdExtension);
+                                                OutputCalloutAdExtension(calloutAdExtension);
                                                 OutputStatusMessage("\n");
                                             }
                                             else
                                             {
-                                                OutputStatusMessage("Unknown extension type");
+                                                var reviewAdExtension = extension as ReviewAdExtension;
+                                                if (reviewAdExtension != null)
+                                                {
+                                                    OutputReviewAdExtension(reviewAdExtension);
+                                                    OutputStatusMessage("\n");
+                                                }
+                                                else
+                                                {
+                                                    var structuredSnippetAdExtension = extension as StructuredSnippetAdExtension;
+                                                    if (structuredSnippetAdExtension != null)
+                                                    {
+                                                        OutputStructuredSnippetAdExtension(structuredSnippetAdExtension);
+                                                        OutputStatusMessage("\n");
+                                                    }
+                                                    else
+                                                    {
+                                                        OutputStatusMessage("Unknown extension type");
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -1845,8 +2001,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the AppAdExtension
                 OutputStatusMessage(string.Format("AppPlatform: {0}", extension.AppPlatform));
                 OutputStatusMessage(string.Format("AppStoreId: {0}", extension.AppStoreId));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
@@ -1869,16 +2027,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\t{0}", finalUrl));
                     }
                 }
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
@@ -1889,7 +2037,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -1914,25 +2061,16 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the CallAdExtension
                 OutputStatusMessage(string.Format("CountryCode: {0}", extension.CountryCode));
                 OutputStatusMessage(string.Format("DevicePreference: {0}", extension.DevicePreference));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
                 OutputStatusMessage(string.Format("IsCallOnly: {0}", extension.IsCallOnly));
                 OutputStatusMessage(string.Format("IsCallTrackingEnabled: {0}", extension.IsCallTrackingEnabled));
                 OutputStatusMessage(string.Format("PhoneNumber: {0}", extension.PhoneNumber));
                 OutputStatusMessage(string.Format("RequireTollFreeTrackingNumber: {0}", extension.RequireTollFreeTrackingNumber));
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -1956,8 +2094,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the ImageAdExtension
                 OutputStatusMessage(string.Format("AlternativeText: {0}", extension.AlternativeText));
                 OutputStatusMessage(string.Format("Description: {0}", extension.Description));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
@@ -1978,15 +2118,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\t{0}", finalUrl));
                     }
                 }
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
                 OutputStatusMessage("ImageMediaIds: ");
                 if (extension.ImageMediaIds != null)
                 {
@@ -1995,7 +2126,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tId: {0}", id));
                     }
                 }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
@@ -2006,7 +2136,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -2041,8 +2170,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the LocationAdExtension
                 if (extension.Address != null)
                 {
                     OutputStatusMessage(string.Format("CityName: {0}", extension.Address.CityName));
@@ -2055,15 +2186,6 @@ namespace BingAdsExamplesLibrary.V10
                 }
 
                 OutputStatusMessage(string.Format("CompanyName: {0}", extension.CompanyName));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
                 OutputStatusMessage(string.Format("GeoCodeStatus: {0}", extension.GeoCodeStatus));
                 if (extension.GeoPoint != null)
                 {
@@ -2074,8 +2196,6 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("IconMediaId: {0}", extension.IconMediaId));
                 OutputStatusMessage(string.Format("ImageMediaId: {0}", extension.ImageMediaId));
                 OutputStatusMessage(string.Format("PhoneNumber: {0}", extension.PhoneNumber));
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
             }
         }
 
@@ -2086,19 +2206,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the CalloutAdExtension
                 OutputStatusMessage(string.Format("Callout Text: {0}", extension.Text));
             }
         }
@@ -2110,25 +2221,94 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the ReviewAdExtension
                 OutputStatusMessage(string.Format("IsExact: {0}", extension.IsExact));
                 OutputStatusMessage(string.Format("Source: {0}", extension.Source));
                 OutputStatusMessage(string.Format("Text: {0}", extension.Text));
                 OutputStatusMessage(string.Format("Url: {0}", extension.Url));
             }
         }
+
+        /// <summary>
+        /// Outputs the StructuredSnippetAdExtension.
+        /// </summary>
+        protected void OutputStructuredSnippetAdExtension(StructuredSnippetAdExtension extension)
+        {
+            if (extension != null)
+            {
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the StructuredSnippetAdExtension
+                OutputStatusMessage(string.Format("Header: {0}", extension.Header));
+                OutputStatusMessage(string.Format("Values: {0}", string.Join("; ", extension.Values)));
+            }
+        }
+
+        /// <summary>
+        /// Outputs properties of the AdExtension base class.
+        /// </summary>
+        protected void OutputAdExtension(AdExtension extension)
+        {
+            OutputStatusMessage(string.Format("Id: {0}", extension.Id));
+            OutputStatusMessage(string.Format("Type: {0}", extension.Type));
+            OutputStatusMessage("ForwardCompatibilityMap: ");
+            if (extension.ForwardCompatibilityMap != null)
+            {
+                foreach (var pair in extension.ForwardCompatibilityMap)
+                {
+                    OutputStatusMessage(string.Format("Key: {0}", pair.Key));
+                    OutputStatusMessage(string.Format("Value: {0}", pair.Value));
+                }
+            }
+            OutputStatusMessage("Scheduling: ");
+            if (extension.Scheduling != null)
+            {
+                OutputSchedule(extension.Scheduling);
+            }
+            OutputStatusMessage(string.Format("Status: {0}", extension.Status));
+            OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+        }
+
+        /// <summary>
+        /// Outputs the Schedule.
+        /// </summary>
+        protected void OutputSchedule(Schedule schedule)
+        {
+            if (schedule != null)
+            {
+                foreach (var dayTime in schedule.DayTimeRanges)
+                {
+                    OutputStatusMessage(string.Format("Day: {0}", dayTime.Day));
+                    OutputStatusMessage(string.Format("EndHour: {0}", dayTime.EndHour));
+                    OutputStatusMessage(string.Format("EndMinute: {0}", dayTime.EndMinute));
+                    OutputStatusMessage(string.Format("StartHour: {0}", dayTime.StartHour));
+                    OutputStatusMessage(string.Format("StartMinute: {0}", dayTime.StartMinute));
+                }
+                if (schedule.EndDate != null)
+                {
+                    OutputStatusMessage(string.Format("EndDate: {0}/{1}/{2}",
+                    schedule.EndDate.Month,
+                    schedule.EndDate.Day,
+                    schedule.EndDate.Year));
+                }
+                if (schedule.StartDate != null)
+                {
+                    OutputStatusMessage(string.Format("StartDate: {0}/{1}/{2}",
+                    schedule.StartDate.Month,
+                    schedule.StartDate.Day,
+                    schedule.StartDate.Year));
+                }
+                var useSearcherTimeZone = 
+                    (schedule.UseSearcherTimeZone != null && (bool)schedule.UseSearcherTimeZone) ? "True" : "False";
+                OutputStatusMessage(string.Format("UseSearcherTimeZone: {0}", useSearcherTimeZone));
+            }
+        }
+
+
 
         /// <summary>
         /// Gets an example SiteLinksAdExtension. 
@@ -2231,19 +2411,10 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (extension != null)
             {
-                OutputStatusMessage(string.Format("Id: {0}", extension.Id));
-                OutputStatusMessage(string.Format("Type: {0}", extension.Type));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (extension.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in extension.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Status: {0}", extension.Status));
-                OutputStatusMessage(string.Format("Version: {0}", extension.Version));
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the SiteLinksAdExtension
                 OutputSiteLinks(extension.SiteLinks);
             }
         }
@@ -2272,7 +2443,11 @@ namespace BingAdsExamplesLibrary.V10
                             OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
                         }
                     }
-
+                    OutputStatusMessage("Scheduling: ");
+                    if (siteLink.Scheduling != null)
+                    {
+                        OutputSchedule(siteLink.Scheduling);
+                    }
                     OutputStatusMessage("FinalUrls: ");
                     if (siteLink.FinalUrls != null)
                     {
@@ -2281,6 +2456,7 @@ namespace BingAdsExamplesLibrary.V10
                             OutputStatusMessage(string.Format("\t{0}", finalUrl));
                         }
                     }
+
                     OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", siteLink.TrackingUrlTemplate));
                     OutputStatusMessage("UrlCustomParameters: ");
                     if (siteLink.UrlCustomParameters != null && siteLink.UrlCustomParameters.Parameters != null)
@@ -2292,6 +2468,88 @@ namespace BingAdsExamplesLibrary.V10
                         }
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the Sitelink2AdExtension.
+        /// </summary>
+        protected void OutputSitelink2AdExtension(Sitelink2AdExtension extension)
+        {
+            if (extension != null)
+            {
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the Sitelink2AdExtension
+                OutputStatusMessage(string.Format("Description1: {0}", extension.Description1));
+                OutputStatusMessage(string.Format("Description2: {0}", extension.Description2));
+                OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
+                OutputStatusMessage(string.Format("DevicePreference: {0}", extension.DevicePreference));
+                OutputStatusMessage(string.Format("DisplayText: {0}", extension.DisplayText));
+                OutputStatusMessage("FinalMobileUrls: ");
+                if (extension.FinalMobileUrls != null)
+                {
+                    foreach (var url in extension.FinalMobileUrls)
+                    {
+                        // List of 10 strings will be returned, but in this example we won't output empty lines.
+                        if(url != null && url.Length > 0)
+                        {
+                            OutputStatusMessage(string.Format("\t{0}", url));
+                        }
+                    }
+                }
+
+                OutputStatusMessage("FinalUrls: ");
+                if (extension.FinalUrls != null)
+                {
+                    foreach (var url in extension.FinalUrls)
+                    {
+                        // List of 10 strings will be returned, but in this example we won't output empty lines.
+                        if (url != null && url.Length > 0)
+                        {
+                            OutputStatusMessage(string.Format("\t{0}", url));
+                        }
+                    }
+                }
+                OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
+                OutputStatusMessage("UrlCustomParameters: ");
+                if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
+                {
+                    foreach (var customParameter in extension.UrlCustomParameters.Parameters)
+                    {
+                        OutputStatusMessage(string.Format("\tKey: {0}", customParameter.Key));
+                        OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the AccountMigrationStatusesInfo.
+        /// </summary>
+        protected void OutputAccountMigrationStatusesInfo(AccountMigrationStatusesInfo accountMigrationStatusesInfo)
+        {
+            if (accountMigrationStatusesInfo != null)
+            {
+                OutputStatusMessage(string.Format("AccountId: {0}", accountMigrationStatusesInfo.AccountId));
+                foreach (var migrationStatusInfo in accountMigrationStatusesInfo.MigrationStatusInfo)
+                {
+                    OutputMigrationStatusInfo(migrationStatusInfo);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the MigrationStatusInfo.
+        /// </summary>
+        protected void OutputMigrationStatusInfo(MigrationStatusInfo migrationStatusInfo)
+        {
+            if (migrationStatusInfo != null)
+            {
+                OutputStatusMessage(string.Format("MigrationType: {0}", migrationStatusInfo.MigrationType));
+                OutputStatusMessage(string.Format("StartTimeInUtc: {0}", migrationStatusInfo.StartTimeInUtc));
+                OutputStatusMessage(string.Format("Status: {0}\n", migrationStatusInfo.Status));
             }
         }
     }
