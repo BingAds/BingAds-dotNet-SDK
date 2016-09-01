@@ -457,115 +457,15 @@ namespace BingAdsExamplesLibrary.V10
                 // Set to null for all extension types.
                 extension.Version = null;
 
-                var imageAdExtension = extension as ImageAdExtension;
-                if (imageAdExtension != null)
+                var locationAdExtension = extension as LocationAdExtension;
+                if (locationAdExtension != null)
                 {
-                    if (imageAdExtension.FinalMobileUrls != null)
-                    {
-                        var urls = new List<string>();
-                        foreach (var url in imageAdExtension.FinalMobileUrls)
-                        {
-                            // When retrieving ad extensions, null strings can be returned in the list.
-                            // We only want to keep non-null strings.
-                            if (url != null)
-                            {
-                                urls.Add(url);
-                            }
-                        }
-                        imageAdExtension.FinalMobileUrls = urls;
-                    }
-                    if (imageAdExtension.FinalUrls != null)
-                    {
-                        var urls = new List<string>();
-                        foreach (var url in imageAdExtension.FinalUrls)
-                        {
-                            // When retrieving ad extensions, null strings can be returned in the list.
-                            // We only want to keep non-null strings.
-                            if (url != null)
-                            {
-                                urls.Add(url);
-                            }
-                        }
-                        imageAdExtension.FinalUrls = urls;
-                    }
-                    if (imageAdExtension.UrlCustomParameters != null && imageAdExtension.UrlCustomParameters.Parameters != null)
-                    {
-                        var customParameters = new List<CustomParameter>();
-                        foreach (var parameter in imageAdExtension.UrlCustomParameters.Parameters)
-                        {
-                            // When retrieving ad extensions, null key and value pairs can be returned in the list.
-                            // We only want to keep non-null key and value pairs.
-                            if (parameter != null && parameter.Key != null)
-                            {
-                                customParameters.Add(parameter);
-                            }
-                        }
-                        imageAdExtension.UrlCustomParameters.Parameters = customParameters;
-                    }
-                    return imageAdExtension;
+                    locationAdExtension.GeoCodeStatus = null;
+                    return locationAdExtension;
                 }
                 else
                 {
-                    var locationAdExtension = extension as LocationAdExtension;
-                    if (locationAdExtension != null)
-                    {
-                        locationAdExtension.GeoCodeStatus = null;
-                        return locationAdExtension;
-                    }
-                    else
-                    {
-                        var sitelink2AdExtension = extension as Sitelink2AdExtension;
-                        if (sitelink2AdExtension != null)
-                        {
-                            if (sitelink2AdExtension.FinalMobileUrls != null)
-                            {
-                                var urls = new List<string>();
-                                foreach (var url in sitelink2AdExtension.FinalMobileUrls)
-                                {
-                                    // When retrieving ad extensions, null strings can be returned in the list.
-                                    // We only want to keep non-null strings.
-                                    if (url != null)
-                                    {
-                                        urls.Add(url);
-                                    }
-                                }
-                                sitelink2AdExtension.FinalMobileUrls = urls;
-                            }
-                            if (sitelink2AdExtension.FinalUrls != null)
-                            {
-                                var urls = new List<string>();
-                                foreach (var url in sitelink2AdExtension.FinalUrls)
-                                {
-                                    // When retrieving ad extensions, null strings can be returned in the list.
-                                    // We only want to keep non-null strings.
-                                    if (url != null)
-                                    {
-                                        urls.Add(url);
-                                    }
-                                }
-                                sitelink2AdExtension.FinalUrls = urls;
-                            }
-                            if (sitelink2AdExtension.UrlCustomParameters != null && sitelink2AdExtension.UrlCustomParameters.Parameters != null)
-                            {
-                                var customParameters = new List<CustomParameter>();
-                                foreach (var parameter in sitelink2AdExtension.UrlCustomParameters.Parameters)
-                                {
-                                    // When retrieving ad extensions, null key and value pairs can be returned in the list.
-                                    // We only want to keep non-null key and value pairs.
-                                    if (parameter != null && parameter.Key != null)
-                                    {
-                                        customParameters.Add(parameter);
-                                    }
-                                }
-                                sitelink2AdExtension.UrlCustomParameters.Parameters = customParameters;
-                            }
-                            return sitelink2AdExtension;
-                        }
-                        else
-                        {
-                            return extension;
-                        }
-                    }
+                    return extension;
                 }
             }
         }
