@@ -269,21 +269,17 @@ namespace BingAdsExamplesLibrary.V10
                     new EventGoal
                     {
                         // For both add and update conversion goal operations, you must include one or more  
-                        // of the following event operator pairs: 
-                        // (ActionOperator and ActionExpression), (CategoryOperator and CategoryExpression), 
-                        // (LabelOperator and LabelExpression), (ValueOperator and Value).
-                        // Each event pair (e.g. ActionOperator and ActionExpression) is optional if you include 
-                        // one or more of the other events.
-
-                        // For example if you do not include ActionOperator and ActionExpression during update, 
+                        // of the following events: 
+                        // ActionExpression, CategoryExpression, LabelExpression, or Value.
+                        
+                        // For example if you do not include ActionExpression during update, 
                         // any existing ActionOperator and ActionExpression settings will be deleted.
                         ActionExpression = null,
                         ActionOperator = null,
                         CategoryExpression = "video",
                         CategoryOperator = ExpressionOperator.Equals,
                         Id = conversionGoalIds[0],
-                        // You cannot update the expression unless you also include the expression.
-                        // Likewise, you cannot update the operator unless you also include the expression.
+                        // You cannot update the operator unless you also include the expression.
                         // The following attempt to update LabelOperator will result in an error.
                         LabelExpression = null,
                         LabelOperator = ExpressionOperator.Equals,
@@ -294,8 +290,8 @@ namespace BingAdsExamplesLibrary.V10
                             Value = 5.00m,
                             CurrencyCode = null
                         },
-                        // You must specify the previous settings for Value and ValueOperator,
-                        // unless you want them deleted during the update conversion goal operation.
+                        // You must specify the previous settings unless you want
+                        // them replaced during the update conversion goal operation.
                         Value = 5.00m,
                         ValueOperator = ValueOperator.Equals,
                     },
