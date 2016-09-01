@@ -667,7 +667,7 @@ namespace BingAdsExamplesLibrary.V10
                         },
                         new SiteLink
                         {
-                            Description1 = "People Are Doing Amazing Things With Contoso.",
+                            Description1 = "Do Amazing Things With Contoso.",
                             Description2 = "Read Our Case Studies.",
                             DisplayText = "Women's Shoe Sale 2",
 
