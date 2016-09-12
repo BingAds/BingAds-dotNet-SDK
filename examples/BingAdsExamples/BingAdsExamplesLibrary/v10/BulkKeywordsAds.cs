@@ -38,6 +38,13 @@ namespace BingAdsExamplesLibrary.V10
                 // Prepare the bulk entities that you want to upload. Each bulk entity contains the corresponding campaign management object, 
                 // and additional elements needed to read from and write to a bulk file. 
 
+                var bulkAccount = new BulkAccount
+                {
+                    // We recommend at minimum adding tracking templates at the account level, 
+                    // and then refining at lower levels e.g. campaign and ad group as needed.
+                    TrackingUrlTemplate = "http://tracker.example.com/?season={_season}&u={lpurl}"
+                };
+
                 var bulkCampaign = new BulkCampaign
                 {
                     // ClientId may be used to associate records in the bulk upload file with records in the results file. The value of this field 
@@ -74,7 +81,7 @@ namespace BingAdsExamplesLibrary.V10
                 };
 
                 // Specify one or more ad groups.
-                
+
                 var bulkAdGroup = new BulkAdGroup
                 {
                     CampaignId = campaignIdKey,
@@ -110,7 +117,7 @@ namespace BingAdsExamplesLibrary.V10
                 // In this example only the second keyword should succeed. The Text of the first keyword exceeds the limit,
                 // and the third keyword is a duplicate of the second keyword. 
 
-                var bulkKeywords = new [] {
+                var bulkKeywords = new[] {
                     new BulkKeyword{
                         AdGroupId = adGroupIdKey,
                         Keyword = new Keyword
@@ -158,11 +165,11 @@ namespace BingAdsExamplesLibrary.V10
                 // The Title of the fourth ad is empty and not valid,
                 // and the fifth ad is a duplicate of the second ad. 
 
-                var bulkTextAds = new [] {
+                var bulkTextAds = new[] {
                     new BulkTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        TextAd = new TextAd
                         {
                             Title = "Women's Shoe Sale",
                             Text = "Huge Savings on red shoes.",
@@ -213,7 +220,7 @@ namespace BingAdsExamplesLibrary.V10
                     new BulkTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        TextAd = new TextAd
                         {
                             Title = "Women's Super Shoe Sale",
                             Text = "Huge Savings on red shoes.",
@@ -264,7 +271,7 @@ namespace BingAdsExamplesLibrary.V10
                     new BulkTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        TextAd = new TextAd
                         {
                             Title = "Women's Red Shoe Sale",
                             Text = "Huge Savings on red shoes.",
@@ -315,7 +322,7 @@ namespace BingAdsExamplesLibrary.V10
                     new BulkTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        TextAd = new TextAd
                         {
                             Title = "",
                             Text = "Huge Savings on red shoes.",
@@ -366,7 +373,7 @@ namespace BingAdsExamplesLibrary.V10
                     new BulkTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        TextAd = new TextAd
                         {
                             Title = "Women's Super Shoe Sale",
                             Text = "Huge Savings on red shoes.",
@@ -416,6 +423,7 @@ namespace BingAdsExamplesLibrary.V10
                     },
                 };
 
+                uploadEntities.Add(bulkAccount);
                 uploadEntities.Add(bulkCampaign);
                 uploadEntities.Add(bulkAdGroup);
 
@@ -435,6 +443,9 @@ namespace BingAdsExamplesLibrary.V10
 
                 var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
+
+                var accountResults = downloadEntities.OfType<BulkAccount>().ToList();
+                OutputBulkAccount(accountResults[0]);
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);

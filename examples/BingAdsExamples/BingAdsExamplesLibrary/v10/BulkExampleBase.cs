@@ -2756,5 +2756,25 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
+        /// <summary>
+        /// Outputs the BulkAccount.
+        /// </summary>
+        protected void OutputBulkAccount(BulkAccount entity)
+        {
+            if (entity != null)
+            {
+                OutputStatusMessage("\nBulkAccount: \n");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.Id));
+                OutputStatusMessage(string.Format("CustomerId: {0}", entity.CustomerId));
+                OutputStatusMessage(string.Format("SyncTime: {0}", entity.SyncTime));
+                OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", entity.TrackingUrlTemplate));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
     }
 }
