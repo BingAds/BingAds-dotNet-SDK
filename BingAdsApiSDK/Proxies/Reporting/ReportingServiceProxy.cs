@@ -506,9 +506,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -526,9 +523,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdDynamicTextPerformanceReportColumn> Columns
         {
@@ -546,9 +540,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.AdDynamicTextPerformanceReportFilter Filter
         {
@@ -566,9 +557,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -586,9 +574,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -997,9 +982,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
         {
@@ -1017,9 +999,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.KeywordPerformanceReportColumn> Columns
         {
@@ -1037,9 +1016,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.KeywordPerformanceReportFilter Filter
         {
@@ -1057,9 +1033,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The top number of data rows to return in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int MaxRows
         {
@@ -1077,9 +1050,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1097,9 +1067,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of the columns to sort, and the corresponding sort order.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.KeywordPerformanceReportSort> Sort
         {
@@ -1117,9 +1084,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -1162,9 +1126,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -1182,9 +1143,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.DestinationUrlPerformanceReportColumn> Columns
         {
@@ -1202,9 +1160,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.DestinationUrlPerformanceReportFilter Filter
         {
@@ -1222,9 +1177,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1242,9 +1194,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -2589,9 +2538,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
         {
@@ -2609,9 +2555,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionByAdReportColumn> Columns
         {
@@ -2629,9 +2572,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.AdExtensionByAdReportFilter Filter
         {
@@ -2649,9 +2589,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2669,9 +2606,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -2714,9 +2648,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
         {
@@ -2734,9 +2665,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionByKeywordReportColumn> Columns
         {
@@ -2754,9 +2682,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.AdExtensionByKeywordReportFilter Filter
         {
@@ -2774,9 +2699,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2794,9 +2716,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -3036,9 +2955,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
         {
@@ -3056,9 +2972,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdExtensionDetailReportColumn> Columns
         {
@@ -3076,9 +2989,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.AdExtensionDetailReportFilter Filter
         {
@@ -3096,9 +3006,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3116,9 +3023,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -3161,9 +3065,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -3181,9 +3082,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ShareOfVoiceReportColumn> Columns
         {
@@ -3201,9 +3099,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.ShareOfVoiceReportFilter Filter
         {
@@ -3221,9 +3116,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3241,9 +3133,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -3396,9 +3285,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
         {
@@ -3416,9 +3302,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductDimensionPerformanceReportColumn> Columns
         {
@@ -3436,9 +3319,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.ProductDimensionPerformanceReportFilter Filter
         {
@@ -3456,9 +3336,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3476,9 +3353,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -3521,9 +3395,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
         {
@@ -3541,9 +3412,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductPartitionPerformanceReportColumn> Columns
         {
@@ -3561,9 +3429,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.ProductPartitionPerformanceReportFilter Filter
         {
@@ -3581,9 +3446,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3601,9 +3463,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -3646,9 +3505,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
         {
@@ -3666,9 +3522,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.ProductPartitionUnitPerformanceReportColumn> Columns
         {
@@ -3686,9 +3539,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.ProductPartitionUnitPerformanceReportFilter Filter
         {
@@ -3706,9 +3556,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3726,9 +3573,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -3771,9 +3615,6 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportAggregation Aggregation
         {
@@ -3791,9 +3632,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.CallDetailReportColumn> Columns
         {
@@ -3811,9 +3649,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.CallDetailReportFilter Filter
         {
@@ -3831,9 +3666,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for specified accounts, campaigns, or ad groups.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3851,9 +3683,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or LastSevenDays.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {

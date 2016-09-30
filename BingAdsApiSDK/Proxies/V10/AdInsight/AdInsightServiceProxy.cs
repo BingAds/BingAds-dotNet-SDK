@@ -1095,9 +1095,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// A potential new budget.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double BudgetAmount
         {
@@ -1115,9 +1112,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The type of budget relative to a list of budget points. For example, if the budget point type is Current then this object's BudgetAmount element would be equal to the corresponding campaign's daily budget.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.AdInsight.BudgetPointType BudgetPointType
         {
@@ -1135,9 +1129,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated weekly clicks for the given budget amount.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double EstimatedWeeklyClicks
         {
@@ -1155,9 +1146,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated weekly cost for the given budget amount.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double EstimatedWeeklyCost
         {
@@ -1175,9 +1163,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated weekly impressions for the given budget amount.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double EstimatedWeeklyImpressions
         {
@@ -2113,9 +2098,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The identifier of the keyword to which the suggested bid applies.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long KeywordId
         {
@@ -2133,9 +2115,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// An object that contains the keyword string and the suggested bid value for each match type.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public Microsoft.BingAds.V10.AdInsight.KeywordEstimatedBid KeywordEstimatedBid
         {
@@ -2202,9 +2181,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The keyword to which the estimates apply.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Keyword
         {
@@ -2222,9 +2198,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// A list of EstimatedBidAndTraffic data objects that contains the suggested bid value for the keyword and match type. If there is data available for the keyword, the EstimatedBidAndTraffic object will provide an estimated bid value. Otherwise, if no data is available the EstimatedBids element will be null.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.EstimatedBidAndTraffic> EstimatedBids
         {
@@ -2318,9 +2291,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated minimum number of clicks per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> MinClicksPerWeek
         {
@@ -2338,9 +2308,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated maximum number of clicks per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<double> MaxClicksPerWeek
         {
@@ -2358,9 +2325,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated average CPC.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public System.Nullable<double> AverageCPC
         {
@@ -2378,9 +2342,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated minimum number of impressions per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public System.Nullable<long> MinImpressionsPerWeek
         {
@@ -2398,9 +2359,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated maximum number of impressions per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public System.Nullable<long> MaxImpressionsPerWeek
         {
@@ -2418,9 +2376,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated CTR.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public System.Nullable<double> CTR
         {
@@ -2438,9 +2393,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated minimum cost per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Nullable<double> MinTotalCostPerWeek
         {
@@ -2458,9 +2410,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated maximum cost per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public System.Nullable<double> MaxTotalCostPerWeek
         {
@@ -2478,9 +2427,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The monetary unit of the cost estimates and suggested bid value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public Microsoft.BingAds.V10.AdInsight.Currency Currency
         {
@@ -2498,9 +2444,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The match type used to determine the estimates.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public Microsoft.BingAds.V10.AdInsight.MatchType MatchType
         {
@@ -2518,9 +2461,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The suggested bid value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public double EstimatedMinBid
         {
@@ -2922,9 +2862,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The identifier of the keyword to which the estimated position applies.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long KeywordId
         {
@@ -2942,9 +2879,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// An object that contains the keyword string and estimated position in the search results given the specified maximum bid.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public Microsoft.BingAds.V10.AdInsight.KeywordEstimatedPosition KeywordEstimatedPosition
         {
@@ -3011,9 +2945,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The keyword to which the estimates apply.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Keyword
         {
@@ -3031,9 +2962,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// An array of EstimatedPositionAndTraffic data objects that contains the position in the search results corresponding to the specified maximum bid.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.EstimatedPositionAndTraffic> EstimatedPositions
         {
@@ -3126,9 +3054,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The keyword match type used to determine the estimates.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.AdInsight.MatchType MatchType
         {
@@ -3146,9 +3071,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated minimum number of clicks per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double MinClicksPerWeek
         {
@@ -3166,9 +3088,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated maximum number of clicks per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public double MaxClicksPerWeek
         {
@@ -3186,9 +3105,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated average CPC.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public double AverageCPC
         {
@@ -3206,9 +3122,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated minimum number of impressions per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public long MinImpressionsPerWeek
         {
@@ -3226,9 +3139,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated maximum number of impressions per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public long MaxImpressionsPerWeek
         {
@@ -3246,9 +3156,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated CTR.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public double CTR
         {
@@ -3266,9 +3173,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated minimum cost per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public double MinTotalCostPerWeek
         {
@@ -3286,9 +3190,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated maximum cost per week.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public double MaxTotalCostPerWeek
         {
@@ -3306,9 +3207,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The monetary unit of the cost values, such as AverageCPC.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public Microsoft.BingAds.V10.AdInsight.Currency Currency
         {
@@ -3326,9 +3224,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The position in the search results given the specified bid.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public double EstimatedAdPosition
         {
@@ -3605,9 +3500,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The ad group identifier.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AdGroupId
         {
@@ -3625,9 +3517,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// Indicates whether all or a subset of an ad group's existing keywords were used to determine the bid landscape.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public Microsoft.BingAds.V10.AdInsight.AdGroupBidLandscapeType AdGroupBidLandscapeType
         {
@@ -3645,9 +3534,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The first date used to calculate the bid landscape. The start date is usually seven days prior to the end date.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public Microsoft.BingAds.V10.AdInsight.DayMonthAndYear StartDate
         {
@@ -3665,9 +3551,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The most recent date used to calculate the bid landscape. The end date should be approximately 2 days prior to today's date when the service is called.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public Microsoft.BingAds.V10.AdInsight.DayMonthAndYear EndDate
         {
@@ -3685,9 +3568,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The list of the total estimated clicks, cost, and impressions from StartDate to EndDate given the suggested bid.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.BidLandscapePoint> BidLandscapePoints
         {
@@ -3880,9 +3760,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The suggested bid value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double Bid
         {
@@ -3900,9 +3777,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated number of clicks.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> Clicks
         {
@@ -3920,9 +3794,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Impressions
         {
@@ -3940,9 +3811,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated number of impressions in the top or mainline ad results.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> TopImpressions
         {
@@ -3960,9 +3828,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The monetary unit of the suggested bid value and estimated performance statistics.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public Microsoft.BingAds.V10.AdInsight.Currency Currency
         {
@@ -3980,9 +3845,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The estimated cost.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public System.Nullable<double> Cost
         {
@@ -4000,9 +3862,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Nullable<double> MarginalCPC
         {
@@ -4074,9 +3933,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The keyword identifier.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long KeywordId
         {
@@ -4094,9 +3950,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The first date used to calculate the bid landscape. The start date is usually seven days prior to the end date.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.AdInsight.DayMonthAndYear StartDate
         {
@@ -4114,9 +3967,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The most recent date used to calculate the bid landscape. The end date should be approximately 2 days prior to today's date when the service is called.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public Microsoft.BingAds.V10.AdInsight.DayMonthAndYear EndDate
         {
@@ -4134,9 +3984,6 @@ namespace Microsoft.BingAds.V10.AdInsight
             }
         }
         
-        /// <summary>
-        /// The list of the total estimated clicks, cost, and impressions from StartDate to EndDate given the suggested bid.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.BidLandscapePoint> BidLandscapePoints
         {
@@ -6770,6 +6617,117 @@ namespace Microsoft.BingAds.V10.AdInsight
         }
     }
     
+    /// <summary>
+    /// Defines an object that contains a domain category with website coverage.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772350(v=msads.100).aspx">DomainCategory Data Object</see> http://msdn.microsoft.com/en-us/library/mt772350(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetDomainCategories">GetDomainCategories</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DomainCategory", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.Entity")]
+    [System.SerializableAttribute()]
+    public partial class DomainCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double BidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double CoverageField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Bid
+        {
+            get
+            {
+                return this.BidField;
+            }
+            set
+            {
+                if ((this.BidField.Equals(value) != true))
+                {
+                    this.BidField = value;
+                    this.RaisePropertyChanged("Bid");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The category name.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryName
+        {
+            get
+            {
+                return this.CategoryNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true))
+                {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// A score from 0.0 to 1.0 that indicates the percentage of pages in the requested language that belong to a particular domain out of all the pages that Bing has indexed for the same language your website's domain.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Coverage
+        {
+            get
+            {
+                return this.CoverageField;
+            }
+            set
+            {
+                if ((this.CoverageField.Equals(value) != true))
+                {
+                    this.CoverageField = value;
+                    this.RaisePropertyChanged("Coverage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service", ConfigurationName="Microsoft.BingAds.V10.AdInsight.IAdInsightService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface IAdInsightService
@@ -7298,6 +7256,38 @@ namespace Microsoft.BingAds.V10.AdInsight
         [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetAuctionInsightDat" +
             "aResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.GetAuctionInsightDataResponse> GetAuctionInsightDataAsync(Microsoft.BingAds.V10.AdInsight.GetAuctionInsightDataRequest request);
+        
+        /// <summary>
+        /// Gets the list of categories available for the website domain and language.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategories Service Operation</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of domain categories.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetDomainCategories", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetDomainCategoriesR" +
+            "esponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetDomainCategoriesA" +
+            "dApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetDomainCategoriesA" +
+            "piFaultDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesResponse GetDomainCategories(Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesRequest request);
+        
+        /// <summary>
+        /// Gets the list of categories available for the website domain and language.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategories Service Operation</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of domain categories.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetDomainCategories", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetDomainCategoriesR" +
+            "esponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesResponse> GetDomainCategoriesAsync(Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesRequest request);
     }
     
     /// <summary>
@@ -9706,6 +9696,138 @@ namespace Microsoft.BingAds.V10.AdInsight
         }
     }
     
+    /// <summary>
+    /// Gets the list of categories available for the website domain and language.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategories Request Object</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetDomainCategories">GetDomainCategories</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDomainCategoriesRequest", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service", IsWrapped=true)]
+    public partial class GetDomainCategoriesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string UserName;
+        
+        /// <summary>
+        /// The category name filter.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service", Order=0)]
+        public string CategoryName;
+        
+        /// <summary>
+        /// The website name corresponding to the pages you want your ads to target.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service", Order=1)]
+        public string DomainName;
+        
+        /// <summary>
+        /// The language of the website domain. Currently only English is supported, so you must set this element to EN.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service", Order=2)]
+        public string Language;
+        
+        /// <summary>
+        /// Constructor for the GetDomainCategoriesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategoriesRequest</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+        /// </remarks>
+        public GetDomainCategoriesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetDomainCategoriesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategoriesRequest</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="CategoryName">The category name filter.</param>
+        /// <param name="DomainName">The website name corresponding to the pages you want your ads to target.</param>
+        /// <param name="Language">The language of the website domain. Currently only English is supported, so you must set this element to EN.</param>
+        public GetDomainCategoriesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string CategoryName, string DomainName, string Language)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CategoryName = CategoryName;
+            this.DomainName = DomainName;
+            this.Language = Language;
+        }
+    }
+    
+    /// <summary>
+    /// Gets the list of categories available for the website domain and language.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategories Response Object</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetDomainCategories">GetDomainCategories</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDomainCategoriesResponse", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service", IsWrapped=true)]
+    public partial class GetDomainCategoriesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The list of domain categories.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.DomainCategory> Categories;
+        
+        /// <summary>
+        /// Constructor for the GetDomainCategoriesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategoriesResponse</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+        /// </remarks>
+        public GetDomainCategoriesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetDomainCategoriesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategoriesResponse</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="Categories">The list of domain categories.</param>
+        public GetDomainCategoriesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.DomainCategory> Categories)
+        {
+            this.TrackingId = TrackingId;
+            this.Categories = Categories;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IAdInsightServiceChannel : Microsoft.BingAds.V10.AdInsight.IAdInsightService, System.ServiceModel.IClientChannel
     {
@@ -10228,6 +10350,36 @@ namespace Microsoft.BingAds.V10.AdInsight
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.GetAuctionInsightDataResponse> GetAuctionInsightDataAsync(Microsoft.BingAds.V10.AdInsight.GetAuctionInsightDataRequest request)
         {
             return base.Channel.GetAuctionInsightDataAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets the list of categories available for the website domain and language.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategories Service Operation</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of domain categories.</returns>
+        public Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesResponse GetDomainCategories(Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesRequest request)
+        {
+            return base.Channel.GetDomainCategories(request);
+        }
+        
+        /// <summary>
+        /// Gets the list of categories available for the website domain and language.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx">GetDomainCategories Service Operation</see> http://msdn.microsoft.com/en-us/library/mt772351(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of domain categories.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesResponse> GetDomainCategoriesAsync(Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesRequest request)
+        {
+            return base.Channel.GetDomainCategoriesAsync(request);
         }
     }
 }

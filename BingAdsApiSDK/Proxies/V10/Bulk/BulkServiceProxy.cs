@@ -300,6 +300,9 @@ namespace Microsoft.BingAds.V10.Bulk
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpandedTextAds = 70368744177664,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DynamicSearchAds = 140737488355328,
     }
     
     /// <summary>

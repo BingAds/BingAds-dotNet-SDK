@@ -133,6 +133,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> BudgetIdField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LanguagesField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -485,6 +488,23 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
+        public System.Collections.Generic.IList<string> Languages
+        {
+            get
+            {
+                return this.LanguagesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguagesField, value) != true))
+                {
+                    this.LanguagesField = value;
+                    this.RaisePropertyChanged("Languages");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -724,7 +744,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     {
         
         /// <summary>
-        /// The campaign is a search and content campaign.
+        /// The campaign is a Search and Content campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchAndContent = 1,
@@ -734,6 +754,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Shopping = 2,
+        
+        /// <summary>
+        /// The campaign is a Dynamic Search Ads campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DynamicSearchAds = 4,
     }
     
     /// <summary>
@@ -748,6 +774,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     [System.Runtime.Serialization.DataContractAttribute(Name="Setting", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ShoppingSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.DynamicSearchAdsSetting))]
     public partial class Setting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -1159,7 +1186,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a shopping setting for a Bing Shopping  Campaign.
+    /// Defines the campaign level settings for a Bing Shopping Campaign.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn913132(v=msads.100).aspx">ShoppingSetting Data Object</see> http://msdn.microsoft.com/en-us/library/dn913132(v=msads.100).aspx for details.
@@ -1242,12 +1269,66 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
+    /// Defines the campaign level settings for a Dynamic Search Ads campaign.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772353(v=msads.100).aspx">DynamicSearchAdsSetting Data Object</see> http://msdn.microsoft.com/en-us/library/mt772353(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DynamicSearchAdsSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    [System.SerializableAttribute()]
+    public partial class DynamicSearchAdsSetting : Microsoft.BingAds.V10.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DomainNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LanguageField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DomainName
+        {
+            get
+            {
+                return this.DomainNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DomainNameField, value) != true))
+                {
+                    this.DomainNameField = value;
+                    this.RaisePropertyChanged("DomainName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Language
+        {
+            get
+            {
+                return this.LanguageField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageField, value) != true))
+                {
+                    this.LanguageField = value;
+                    this.RaisePropertyChanged("Language");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671765(v=msads.100).aspx">BatchError Data Object</see> http://msdn.microsoft.com/en-us/library/bb671765(v=msads.100).aspx for details.
     /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroupRemarketingListAssociations">AddAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupRemarketingListAssociations">DeleteAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdGroupRemarketingListAssociations">GetAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByAdGroupIds">GetTargetsByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByCampaignIds">GetTargetsByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroupRemarketingListAssociations">UpdateAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroupRemarketingListAssociations">AddAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddRemarketingLists">AddRemarketingLists</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupRemarketingListAssociations">DeleteAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdGroupRemarketingListAssociations">GetAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByAdGroupIds">GetTargetsByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByCampaignIds">GetTargetsByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroupRemarketingListAssociations">UpdateAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2134,6 +2215,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetId = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Languages = 4,
     }
     
     /// <summary>
@@ -5765,6 +5849,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ProductAd))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AppInstallAd))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ExpandedTextAd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.DynamicSearchAd))]
     public partial class Ad : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -6400,6 +6485,79 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
+    /// Defines an dynamic search ad that is generated automatically based on the website domain and language that you want to target.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772355(v=msads.100).aspx">DynamicSearchAd Data Object</see> http://msdn.microsoft.com/en-us/library/mt772355(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DynamicSearchAd", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    [System.SerializableAttribute()]
+    public partial class DynamicSearchAd : Microsoft.BingAds.V10.CampaignManagement.Ad
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Path1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Path2Field;
+        
+        private string TextField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Path1
+        {
+            get
+            {
+                return this.Path1Field;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.Path1Field, value) != true))
+                {
+                    this.Path1Field = value;
+                    this.RaisePropertyChanged("Path1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Path2
+        {
+            get
+            {
+                return this.Path2Field;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.Path2Field, value) != true))
+                {
+                    this.Path2Field = value;
+                    this.RaisePropertyChanged("Path2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Text
+        {
+            get
+            {
+                return this.TextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TextField, value) != true))
+                {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the editorial review status values of an ad.
     /// </summary>
     /// <remarks>
@@ -6598,6 +6756,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpandedText = 4,
+        
+        /// <summary>
+        /// Refers to a DynamicSearchAd.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DynamicSearch = 5,
     }
     
     /// <summary>
@@ -8642,7 +8806,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The scheduled end date. The end date is inclusive. For example, if you set EndDate to 3/10/2017, the ad extensions will stop being shown at 11:59 PM on 3/10/2010.
+        /// The scheduled end date. The end date is inclusive. For example, if you set EndDate to 3/10/2017, the ad extensions will stop being shown at 11:59 PM on 3/10/2017.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.Date EndDate
@@ -9867,6 +10031,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         
         private System.Collections.Generic.IList<string> ValuesField;
         
+        /// <summary>
+        /// The header that is appended with a colon ( :) and precedes the snippet values. The following are possible headers that you can specify: Amenities, Brands, Courses, Degree programs, Destinations, Featured hotels, Insurance coverage, Models, Neighborhoods, Service catalog, Shows, Styles, and Types.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Header
         {
@@ -9884,6 +10051,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The snippet values that follow after the Header: component. You can choose the values, and each value can have a maximum length of 25 characters.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<string> Values
         {
@@ -10139,9 +10309,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The site link description line 1.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description1
         {
@@ -10159,9 +10326,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The site link description line 2.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description2
         {
@@ -10179,9 +10343,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// Important: If you are currently using Destination URLs, you must eventually replace them with Final URLs. For more information, see Tracking Templates for Landing Page URLs.The URL of the webpage that users are taken to when they click the site link.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DestinationUrl
         {
@@ -10199,9 +10360,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// This element determines whether the preference is for site links to be displayed on mobile devices or all devices.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> DevicePreference
         {
@@ -10219,9 +10377,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The site-link text displayed in the ad.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string DisplayText
         {
@@ -10239,9 +10394,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.AppUrl> FinalAppUrls
         {
@@ -10259,9 +10411,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The mobile landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
         {
@@ -10279,9 +10428,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
         {
@@ -10299,9 +10445,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// Determines the calendar day and time ranges when the sitelink is eligible to be shown in ads.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V10.CampaignManagement.Schedule Scheduling
         {
@@ -10319,9 +10462,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The tracking template to use as a default for all FinalUrls and FinalMobileUrls.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
         {
@@ -10339,9 +10479,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// Your custom collection of key and value parameters for URL tracking.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.CustomParameters UrlCustomParameters
         {
@@ -12027,14 +12164,20 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     {
         
         /// <summary>
-        /// The ad group criterion represents a Bing Shopping product partition.
+        /// Represents a Bing Shopping campaign's ad group product partition criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductPartition = 2,
+        
+        /// <summary>
+        /// Represents a Dynamic Search Ads campaign's ad group webpage criterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Webpage = 4,
     }
     
     /// <summary>
-    /// Defines the base class of an ad group criterion.
+    /// Defines a criterion that you want applied to the specified ad group.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj738614(v=msads.100).aspx">AdGroupCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/jj738614(v=msads.100).aspx for details.
@@ -12203,6 +12346,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Criterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.Webpage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ProductPartition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ProductScope))]
     public partial class Criterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
@@ -12259,7 +12403,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the conditions that determine whether product ads in the ad group get served. If the conditions are met, the specified bid is used in the auction.
+    /// Defines a biddable criterion that you want applied to the specified ad group.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj689538(v=msads.100).aspx">BiddableAdGroupCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/jj689538(v=msads.100).aspx for details.
@@ -12376,7 +12520,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The mobile landing page URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -12396,7 +12540,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The landing page URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -12416,7 +12560,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// Tracking templates can be used in tandem with the URL specified in the 'Link' field for the product offer that you submitted via the Content API. The landing page URL where a user is directed after the ad is clicked is assembled by combining the feed URL with this tracking template. When you update your tracking template information outside of the feed URL i.e. in this TrackingUrlTemplate element, the feed URL doesn't need to go through editorial review and your ads will continue to serve uninterrupted.
+        /// Tracking templates are where you can specify URL tracking parameters that are used in tandem with your final URL or landing page.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -12457,7 +12601,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a negative ad group criterion that can be used to abstain from bidding on the Bing Shopping products in this ad group. You can still bid on these products in any other ad group in the same campaign, and within ad groups of lower priority campaigns.
+    /// Defines a criterion that you want to exclude from the specified ad group.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn913133(v=msads.100).aspx">NegativeAdGroupCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/dn913133(v=msads.100).aspx for details.
@@ -12499,6 +12643,41 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 2,
+    }
+    
+    /// <summary>
+    /// Defines a webpage parameter that contains a list of webpage conditions or criteria that help determine whether you want to show dynamic search ads.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772362(v=msads.100).aspx">Webpage Data Object</see> http://msdn.microsoft.com/en-us/library/mt772362(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Webpage", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class Webpage : Microsoft.BingAds.V10.CampaignManagement.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.WebpageParameter ParameterField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.WebpageParameter Parameter
+        {
+            get
+            {
+                return this.ParameterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ParameterField, value) != true))
+                {
+                    this.ParameterField = value;
+                    this.RaisePropertyChanged("Parameter");
+                }
+            }
+        }
     }
     
     /// <summary>
@@ -12604,6 +12783,213 @@ namespace Microsoft.BingAds.V10.CampaignManagement
                 }
             }
         }
+    }
+    
+    /// <summary>
+    /// Defines the conditions or criteria that determine whether you want to show dynamic search ads.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772367(v=msads.100).aspx">WebpageParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt772367(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="Webpage"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WebpageParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class WebpageParameter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.WebpageCondition> ConditionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CriterionNameField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.WebpageCondition> Conditions
+        {
+            get
+            {
+                return this.ConditionsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ConditionsField, value) != true))
+                {
+                    this.ConditionsField = value;
+                    this.RaisePropertyChanged("Conditions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CriterionName
+        {
+            get
+            {
+                return this.CriterionNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CriterionNameField, value) != true))
+                {
+                    this.CriterionNameField = value;
+                    this.RaisePropertyChanged("CriterionName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a condition or criterion that helps determine whether you want to show dynamic search ads.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772364(v=msads.100).aspx">WebpageCondition Data Object</see> http://msdn.microsoft.com/en-us/library/mt772364(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="WebpageParameter"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WebpageCondition", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class WebpageCondition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ArgumentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.WebpageConditionOperand OperandField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Argument
+        {
+            get
+            {
+                return this.ArgumentField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ArgumentField, value) != true))
+                {
+                    this.ArgumentField = value;
+                    this.RaisePropertyChanged("Argument");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.WebpageConditionOperand Operand
+        {
+            get
+            {
+                return this.OperandField;
+            }
+            set
+            {
+                if ((this.OperandField.Equals(value) != true))
+                {
+                    this.OperandField = value;
+                    this.RaisePropertyChanged("Operand");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the operands that can be applied to arguments of a webpage condition or criterion for dynamic search ads.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772365(v=msads.100).aspx">WebpageConditionOperand Value Set</see> http://msdn.microsoft.com/en-us/library/mt772365(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="WebpageCondition"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WebpageConditionOperand", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    public enum WebpageConditionOperand : int
+    {
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// The argument will match if it is a partial URL of your site that is indexed by Bing.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Url = 1,
+        
+        /// <summary>
+        /// The argument will match if exactly matches one of the categories that Bing thinks is applicable for your site.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Category = 2,
+        
+        /// <summary>
+        /// The argument will match any of your site's page titles that are indexed by Bing.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PageTitle = 3,
+        
+        /// <summary>
+        /// The argument will match any of your site's content that is indexed by Bing.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PageContent = 4,
     }
     
     /// <summary>
@@ -13159,7 +13545,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The ad group criterion of either type BiddableAdGroupCriterion or NegativeAdGroupCriterion, which contains a ProductPartition and FixedBid.
+        /// The BiddableAdGroupCriterion or NegativeAdGroupCriterion, either of which must contain a ProductPartition criterion.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V10.CampaignManagement.AdGroupCriterion AdGroupCriterion
@@ -14101,7 +14487,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a campaign criterion.
+    /// Defines a criterion that you want applied to the specified campaign.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn913126(v=msads.100).aspx">CampaignCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/dn913126(v=msads.100).aspx for details.
@@ -14187,7 +14573,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The criterion to apply to the campaign. For example use a criterion of type ProductScope to filter Bing Merchant Center catalog items.
+        /// The criterion to apply to the campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.Criterion Criterion
@@ -14279,7 +14665,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// This object is reserved for future use.
+    /// Defines a criterion that you want to exclude from the specified campaign.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn913130(v=msads.100).aspx">NegativeCampaignCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/dn913130(v=msads.100).aspx for details.
@@ -14306,10 +14692,16 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     {
         
         /// <summary>
-        /// The criterion identifies a Bing Merchant Center product filter.
+        /// The criterion identifies a Bing Shopping campaign product scope criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductScope = 1,
+        
+        /// <summary>
+        /// The criterion identifies a Dynamic Search Ads campaign webpage criterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Webpage = 2,
     }
     
     /// <summary>
@@ -14458,7 +14850,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt735047(v=msads.100).aspx">RemarketingList Data Object</see> http://msdn.microsoft.com/en-us/library/mt735047(v=msads.100).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see> service operation.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddRemarketingLists">AddRemarketingLists</see> and <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14489,13 +14881,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private long ParentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.RemarketingRule RuleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V10.CampaignManagement.EntityScope ScopeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long TagIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.RemarketingListTemplate> TemplateField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -14630,6 +15022,26 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
+        /// You can choose four types of rules so you can target different audiences. Note: Not everyone has this feature yet. If you don't, don't worry. It's coming soon.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Microsoft.BingAds.V10.CampaignManagement.RemarketingRule Rule
+        {
+            get
+            {
+                return this.RuleField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RuleField, value) != true))
+                {
+                    this.RuleField = value;
+                    this.RaisePropertyChanged("Rule");
+                }
+            }
+        }
+        
+        /// <summary>
         /// Scope defines what accounts can use this remarketing list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -14669,22 +15081,68 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// We offer four types of rules so you can target different groups of people. Note: Currently the RemarketingList object does not include the rule expressions that can be defined in the Bing Ads web application.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.RemarketingListTemplate> Template
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the base object of a remarketing rule.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772357(v=msads.100).aspx">RemarketingRule Data Object</see> http://msdn.microsoft.com/en-us/library/mt772357(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="RemarketingList"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RemarketingRule", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.PageVisitorsRule))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.PageVisitorsWhoVisitedAnotherPageRule))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.PageVisitorsWhoDidNotVisitAnotherPageRule))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.CustomEventsRule))]
+    public partial class RemarketingRule : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
             {
-                return this.TemplateField;
+                return this.extensionDataField;
             }
             set
             {
-                if ((this.TemplateField.Equals(value) != true))
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type
+        {
+            get
+            {
+                return this.TypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TypeField, value) != true))
                 {
-                    this.TemplateField = value;
-                    this.RaisePropertyChanged("Template");
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
                 }
             }
         }
@@ -14727,40 +15185,659 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the set of rules that can be used to target different groups of people with a remarketing list.
+    /// Defines a page visitors remarketing rule.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt735044(v=msads.100).aspx">RemarketingListTemplate Value Set</see> http://msdn.microsoft.com/en-us/library/mt735044(v=msads.100).aspx for details.
-    /// <para>Used by <see cref="RemarketingList"/> data object.</para>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772358(v=msads.100).aspx">PageVisitorsRule Data Object</see> http://msdn.microsoft.com/en-us/library/mt772358(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PageVisitorsRule", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class PageVisitorsRule : Microsoft.BingAds.V10.CampaignManagement.RemarketingRule
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> RuleItemGroupsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> RuleItemGroups
+        {
+            get
+            {
+                return this.RuleItemGroupsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RuleItemGroupsField, value) != true))
+                {
+                    this.RuleItemGroupsField = value;
+                    this.RaisePropertyChanged("RuleItemGroups");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a page visitors who visited another page remarketing rule.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772361(v=msads.100).aspx">PageVisitorsWhoVisitedAnotherPageRule Data Object</see> http://msdn.microsoft.com/en-us/library/mt772361(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PageVisitorsWhoVisitedAnotherPageRule", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class PageVisitorsWhoVisitedAnotherPageRule : Microsoft.BingAds.V10.CampaignManagement.RemarketingRule
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> AnotherRuleItemGroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> RuleItemGroupsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> AnotherRuleItemGroups
+        {
+            get
+            {
+                return this.AnotherRuleItemGroupsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AnotherRuleItemGroupsField, value) != true))
+                {
+                    this.AnotherRuleItemGroupsField = value;
+                    this.RaisePropertyChanged("AnotherRuleItemGroups");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> RuleItemGroups
+        {
+            get
+            {
+                return this.RuleItemGroupsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RuleItemGroupsField, value) != true))
+                {
+                    this.RuleItemGroupsField = value;
+                    this.RaisePropertyChanged("RuleItemGroups");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a page visitors who did not visit another page remarketing rule.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772356(v=msads.100).aspx">PageVisitorsWhoDidNotVisitAnotherPageRule Data Object</see> http://msdn.microsoft.com/en-us/library/mt772356(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PageVisitorsWhoDidNotVisitAnotherPageRule", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class PageVisitorsWhoDidNotVisitAnotherPageRule : Microsoft.BingAds.V10.CampaignManagement.RemarketingRule
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> ExcludeRuleItemGroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> IncludeRuleItemGroupsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> ExcludeRuleItemGroups
+        {
+            get
+            {
+                return this.ExcludeRuleItemGroupsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ExcludeRuleItemGroupsField, value) != true))
+                {
+                    this.ExcludeRuleItemGroupsField = value;
+                    this.RaisePropertyChanged("ExcludeRuleItemGroups");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> IncludeRuleItemGroups
+        {
+            get
+            {
+                return this.IncludeRuleItemGroupsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.IncludeRuleItemGroupsField, value) != true))
+                {
+                    this.IncludeRuleItemGroupsField = value;
+                    this.RaisePropertyChanged("IncludeRuleItemGroups");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a custom events remarketing rule.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772354(v=msads.100).aspx">CustomEventsRule Data Object</see> http://msdn.microsoft.com/en-us/library/mt772354(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomEventsRule", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class CustomEventsRule : Microsoft.BingAds.V10.CampaignManagement.RemarketingRule
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.StringOperator ActionOperatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.StringOperator CategoryOperatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LabelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.StringOperator LabelOperatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> ValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.NumberOperator ValueOperatorField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Action
+        {
+            get
+            {
+                return this.ActionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ActionField, value) != true))
+                {
+                    this.ActionField = value;
+                    this.RaisePropertyChanged("Action");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.StringOperator ActionOperator
+        {
+            get
+            {
+                return this.ActionOperatorField;
+            }
+            set
+            {
+                if ((this.ActionOperatorField.Equals(value) != true))
+                {
+                    this.ActionOperatorField = value;
+                    this.RaisePropertyChanged("ActionOperator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Category
+        {
+            get
+            {
+                return this.CategoryField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true))
+                {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.StringOperator CategoryOperator
+        {
+            get
+            {
+                return this.CategoryOperatorField;
+            }
+            set
+            {
+                if ((this.CategoryOperatorField.Equals(value) != true))
+                {
+                    this.CategoryOperatorField = value;
+                    this.RaisePropertyChanged("CategoryOperator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Label
+        {
+            get
+            {
+                return this.LabelField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LabelField, value) != true))
+                {
+                    this.LabelField = value;
+                    this.RaisePropertyChanged("Label");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.StringOperator LabelOperator
+        {
+            get
+            {
+                return this.LabelOperatorField;
+            }
+            set
+            {
+                if ((this.LabelOperatorField.Equals(value) != true))
+                {
+                    this.LabelOperatorField = value;
+                    this.RaisePropertyChanged("LabelOperator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Value
+        {
+            get
+            {
+                return this.ValueField;
+            }
+            set
+            {
+                if ((this.ValueField.Equals(value) != true))
+                {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.NumberOperator ValueOperator
+        {
+            get
+            {
+                return this.ValueOperatorField;
+            }
+            set
+            {
+                if ((this.ValueOperatorField.Equals(value) != true))
+                {
+                    this.ValueOperatorField = value;
+                    this.RaisePropertyChanged("ValueOperator");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an object that contains a list of remarketing list rule items.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772360(v=msads.100).aspx">RuleItemGroup Data Object</see> http://msdn.microsoft.com/en-us/library/mt772360(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="PageVisitorsRule"/>, <see cref="PageVisitorsWhoDidNotVisitAnotherPageRule"/> and <see cref="PageVisitorsWhoVisitedAnotherPageRule"/> data objects.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RuleItemGroup", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class RuleItemGroup : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItem> ItemsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItem> Items
+        {
+            get
+            {
+                return this.ItemsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ItemsField, value) != true))
+                {
+                    this.ItemsField = value;
+                    this.RaisePropertyChanged("Items");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the base class of a remarketing list rule item.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772359(v=msads.100).aspx">RuleItem Data Object</see> http://msdn.microsoft.com/en-us/library/mt772359(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="RuleItemGroup"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RuleItem", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.StringRuleItem))]
+    public partial class RuleItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type
+        {
+            get
+            {
+                return this.TypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TypeField, value) != true))
+                {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a rule expression where the operator and value both contain string data types.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772363(v=msads.100).aspx">StringRuleItem Data Object</see> http://msdn.microsoft.com/en-us/library/mt772363(v=msads.100).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StringRuleItem", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.AdCenter.Advertiser.CampaignMan" +
+        "agement.Api.DataContracts.V10")]
+    [System.SerializableAttribute()]
+    public partial class StringRuleItem : Microsoft.BingAds.V10.CampaignManagement.RuleItem
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OperandField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V10.CampaignManagement.StringOperator OperatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Operand
+        {
+            get
+            {
+                return this.OperandField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.OperandField, value) != true))
+                {
+                    this.OperandField = value;
+                    this.RaisePropertyChanged("Operand");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V10.CampaignManagement.StringOperator Operator
+        {
+            get
+            {
+                return this.OperatorField;
+            }
+            set
+            {
+                if ((this.OperatorField.Equals(value) != true))
+                {
+                    this.OperatorField = value;
+                    this.RaisePropertyChanged("Operator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.ValueField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ValueField, value) != true))
+                {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the operators that can be applied to remarketing list rule item string values.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772368(v=msads.100).aspx">StringOperator Value Set</see> http://msdn.microsoft.com/en-us/library/mt772368(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CustomEventsRule"/> and <see cref="StringRuleItem"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RemarketingListTemplate", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
-    public enum RemarketingListTemplate : int
+    [System.Runtime.Serialization.DataContractAttribute(Name="StringOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    public enum StringOperator : int
     {
         
         /// <summary>
-        /// Visitors of a page are added to your remarketing list.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        VisitorsOfAPage = 0,
+        None = 0,
         
         /// <summary>
-        /// Visitors of a page who also visited another page are added to your remarketing list.
+        /// Equals the corresponding string value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        VisitorsOfAPageAndAnotherPage = 1,
+        Equals = 1,
         
         /// <summary>
-        /// Visitors of a page who did not visit another page are added to your remarketing list.
+        /// Contain the corresponding string value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        VisitorsOfAPageButNotAnotherPage = 2,
+        Contains = 2,
         
         /// <summary>
-        /// Custom events are added to your remarketing list.
+        /// Begin with the corresponding string value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CustomEvent = 3,
+        BeginsWith = 3,
+        
+        /// <summary>
+        /// Does not end with the corresponding string value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EndsWith = 4,
+        
+        /// <summary>
+        /// Does not equal the corresponding string value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NotEquals = 5,
+        
+        /// <summary>
+        /// Does not contain the corresponding string value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoesNotContain = 6,
+        
+        /// <summary>
+        /// Does not begin with the corresponding string value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoesNotBeginWith = 7,
+        
+        /// <summary>
+        /// Does not end with the corresponding string value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoesNotEndWith = 8,
+    }
+    
+    /// <summary>
+    /// Defines the operators that can be applied to remarketing list rule item number values.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt772366(v=msads.100).aspx">NumberOperator Value Set</see> http://msdn.microsoft.com/en-us/library/mt772366(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CustomEventsRule"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NumberOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    public enum NumberOperator : int
+    {
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+        
+        /// <summary>
+        /// Equals the corresponding number value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Equals = 1,
+        
+        /// <summary>
+        /// Greater than the corresponding number value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GreaterThan = 2,
+        
+        /// <summary>
+        /// Less than the corresponding number value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LessThan = 3,
+        
+        /// <summary>
+        /// Greater than or equal to the corresponding number value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GreaterThanEqualTo = 4,
+        
+        /// <summary>
+        /// Less than or equal to the corresponding number value.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LessThanEqualTo = 5,
+    }
+    
+    /// <summary>
+    /// Defines a list of optional RemarketingList elements that you can request when calling GetRemarketingLists. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included in the RemarketingList object by default.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt735044(v=msads.100).aspx">RemarketingListAdditionalField Value Set</see> http://msdn.microsoft.com/en-us/library/mt735044(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RemarketingListAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+    public enum RemarketingListAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Includes the Rule element in the RemarketingList object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Rule = 1,
     }
     
     /// <summary>
@@ -15602,7 +16679,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> UrlOperatorField;
         
         /// <summary>
-        /// The expression used to determine the page or pages the user has to visit in order to count as a conversion. If this element is specified then the UrlOperator element is also required.
+        /// The expression used to determine the page or pages the user has to visit in order to count as a conversion. Add: Required Update: Optional
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string UrlExpression
@@ -15659,7 +16736,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private System.Nullable<int> MinimumDurationInSecondsField;
         
         /// <summary>
-        /// The minimum amount of time in seconds that the user must spend on your website to track as a conversion. The default value is 0, and the possible range is 0 through 86,399 (1 second less than a full 24 hour day).
+        /// The minimum amount of time in seconds that the user must spend on your website to track as a conversion. If you don't specify a value, the default value is 0, and the possible range is 0 through 86,399 (1 second less than a full 24 hour day).
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> MinimumDurationInSeconds
@@ -18150,7 +19227,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetMediaAssociationsResponse> GetMediaAssociationsAsync(Microsoft.BingAds.V10.CampaignManagement.GetMediaAssociationsRequest request);
         
         /// <summary>
-        /// Gets the specified criterions.
+        /// Gets ad group criterions by identifiers and types.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx">GetAdGroupCriterionsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx for details.
@@ -18168,7 +19245,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         Microsoft.BingAds.V10.CampaignManagement.GetAdGroupCriterionsByIdsResponse GetAdGroupCriterionsByIds(Microsoft.BingAds.V10.CampaignManagement.GetAdGroupCriterionsByIdsRequest request);
         
         /// <summary>
-        /// Gets the specified criterions.
+        /// Gets ad group criterions by identifiers and types.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx">GetAdGroupCriterionsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx for details.
@@ -18182,7 +19259,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetAdGroupCriterionsByIdsResponse> GetAdGroupCriterionsByIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetAdGroupCriterionsByIdsRequest request);
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Adds one or more ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx">AddAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx for details.
@@ -18200,7 +19277,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         Microsoft.BingAds.V10.CampaignManagement.AddAdGroupCriterionsResponse AddAdGroupCriterions(Microsoft.BingAds.V10.CampaignManagement.AddAdGroupCriterionsRequest request);
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Adds one or more ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx">AddAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx for details.
@@ -18214,7 +19291,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddAdGroupCriterionsResponse> AddAdGroupCriterionsAsync(Microsoft.BingAds.V10.CampaignManagement.AddAdGroupCriterionsRequest request);
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Updates one or more ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx">UpdateAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx for details.
@@ -18232,7 +19309,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupCriterionsResponse UpdateAdGroupCriterions(Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupCriterionsRequest request);
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Updates one or more ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx">UpdateAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx for details.
@@ -18246,7 +19323,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupCriterionsResponse> UpdateAdGroupCriterionsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupCriterionsRequest request);
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Deletes the specified ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx">DeleteAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx for details.
@@ -18264,7 +19341,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupCriterionsResponse DeleteAdGroupCriterions(Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupCriterionsRequest request);
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Deletes the specified ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx">DeleteAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx for details.
@@ -19089,6 +20166,18 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "etCampaignIdsByBudgetIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetCampaignIdsByBudgetIdsResponse> GetCampaignIdsByBudgetIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetCampaignIdsByBudgetIdsRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="AddRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
+            "ddRemarketingListsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
+            "ddRemarketingListsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
+            "ddRemarketingListsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse AddRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="AddRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
+            "ddRemarketingListsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse> AddRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request);
+        
         /// <summary>
         /// Gets the remarketing lists that can be associated with entities in the specified account.
         /// </summary>
@@ -19647,7 +20736,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public long AccountId;
         
         /// <summary>
-        /// The type of campaign to get. You can specify one or more types.
+        /// The type of campaign to get, for example SearchAndContent, Shopping, or DynamicSearchAds. You can specify one or more types.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public Microsoft.BingAds.V10.CampaignManagement.CampaignType CampaignType;
@@ -19675,7 +20764,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn236299(v=msads.100).aspx">GetCampaignsByAccountIdRequest</see> http://msdn.microsoft.com/en-us/library/dn236299(v=msads.100).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
-        /// <param name="CampaignType">The type of campaign to get. You can specify one or more types.</param>
+        /// <param name="CampaignType">The type of campaign to get, for example SearchAndContent, Shopping, or DynamicSearchAds. You can specify one or more types.</param>
         /// <param name="ReturnAdditionalFields">The list of additional elements that you want included within each returned Campaign object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetCampaignsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V10.CampaignManagement.CampaignType CampaignType, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields)
         {
@@ -19785,7 +20874,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Collections.Generic.IList<long> CampaignIds;
         
         /// <summary>
-        /// The type of campaigns to get. You can specify one or more types.
+        /// The type of campaign to get, for example SearchAndContent, Shopping, or DynamicSearchAds. You can specify one or more types.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=2)]
         public Microsoft.BingAds.V10.CampaignManagement.CampaignType CampaignType;
@@ -19814,7 +20903,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
         /// <param name="CampaignIds">A maximum of 100 identifiers of the campaigns to get from the specified account.</param>
-        /// <param name="CampaignType">The type of campaigns to get. You can specify one or more types.</param>
+        /// <param name="CampaignType">The type of campaign to get, for example SearchAndContent, Shopping, or DynamicSearchAds. You can specify one or more types.</param>
         /// <param name="ReturnAdditionalFields">The list of additional elements that you want included within each returned Campaign object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetCampaignsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> CampaignIds, Microsoft.BingAds.V10.CampaignManagement.CampaignType CampaignType, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields)
         {
@@ -27318,7 +28407,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the specified criterions.
+    /// Gets ad group criterions by identifiers and types.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx">GetAdGroupCriterionsByIds Request Object</see> http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx for details.
@@ -27370,7 +28459,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Nullable<long> AdGroupId;
         
         /// <summary>
-        /// The types of ad group criterion to get, for example ProductPartition. You can specify one or more types.
+        /// The types of ad group criterion to get, for example ProductPartition or Webpage. You can specify one or more types.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=3)]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType;
@@ -27394,7 +28483,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <param name="AccountId">The identifier of the account that owns the criterions to get.</param>
         /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get. You can specify a maximum of 100 IDs.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterions to get.</param>
-        /// <param name="CriterionType">The types of ad group criterion to get, for example ProductPartition. You can specify one or more types.</param>
+        /// <param name="CriterionType">The types of ad group criterion to get, for example ProductPartition or Webpage. You can specify one or more types.</param>
         public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdGroupCriterionIds, System.Nullable<long> AdGroupId, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -27412,7 +28501,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the specified criterions.
+    /// Gets ad group criterions by identifiers and types.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx">GetAdGroupCriterionsByIds Response Object</see> http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx for details.
@@ -27458,7 +28547,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    ///  This service operation is reserved for future use.
+    /// Adds one or more ad group criterions.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx">AddAdGroupCriterions Request Object</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx for details.
@@ -27504,7 +28593,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.AdGroupCriterion> AdGroupCriterions;
         
         /// <summary>
-        /// The type of ad group criterion to add. You can specify only one type.
+        /// The type of ad group criterion to add, for example Webpage. You can specify only one type.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=2)]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType;
@@ -27527,7 +28616,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account to add the criterions to.</param>
         /// <param name="AdGroupCriterions">A list of ad group criterions.</param>
-        /// <param name="CriterionType">The type of ad group criterion to add. You can specify only one type.</param>
+        /// <param name="CriterionType">The type of ad group criterion to add, for example Webpage. You can specify only one type.</param>
         public AddAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.AdGroupCriterion> AdGroupCriterions, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -27544,7 +28633,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    ///  This service operation is reserved for future use.
+    /// Adds one or more ad group criterions.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx">AddAdGroupCriterions Response Object</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx for details.
@@ -27598,7 +28687,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    ///  This service operation is reserved for future use.
+    /// Updates one or more ad group criterions.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx">UpdateAdGroupCriterions Request Object</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx for details.
@@ -27638,13 +28727,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public long AccountId;
         
         /// <summary>
-        /// The list of criterions to update. You may specify a maximum of 100 criterions.
+        /// The list of criterions to update. You may specify a maximum of 1,000 criterions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.AdGroupCriterion> AdGroupCriterions;
         
         /// <summary>
-        /// The type of ad group criterion to update, for example Product. You can specify only one type.
+        /// The type of ad group criterion to update, for example Webpage. You can specify only one type.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=2)]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType;
@@ -27666,8 +28755,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx">UpdateAdGroupCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that owns the criterions to update.</param>
-        /// <param name="AdGroupCriterions">The list of criterions to update. You may specify a maximum of 100 criterions.</param>
-        /// <param name="CriterionType">The type of ad group criterion to update, for example Product. You can specify only one type.</param>
+        /// <param name="AdGroupCriterions">The list of criterions to update. You may specify a maximum of 1,000 criterions.</param>
+        /// <param name="CriterionType">The type of ad group criterion to update, for example Webpage. You can specify only one type.</param>
         public UpdateAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.AdGroupCriterion> AdGroupCriterions, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -27684,7 +28773,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    ///  This service operation is reserved for future use.
+    /// Updates one or more ad group criterions.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx">UpdateAdGroupCriterions Response Object</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx for details.
@@ -27730,7 +28819,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    ///  This service operation is reserved for future use.
+    /// Deletes the specified ad group criterions.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx">DeleteAdGroupCriterions Request Object</see> http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx for details.
@@ -27782,7 +28871,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public long AdGroupId;
         
         /// <summary>
-        /// The type of ad group criterion to delete. You can specify only one type.
+        /// The type of ad group criterion to delete, for example Webpage. You can specify only one type.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=3)]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType;
@@ -27806,7 +28895,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <param name="AccountId">The identifier of the account that owns the criterion to delete.</param>
         /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterion to delete. You can specify a maximum on 1,000 identifiers per call.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterion to delete.</param>
-        /// <param name="CriterionType">The type of ad group criterion to delete. You can specify only one type.</param>
+        /// <param name="CriterionType">The type of ad group criterion to delete, for example Webpage. You can specify only one type.</param>
         public DeleteAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -27824,7 +28913,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    ///  This service operation is reserved for future use.
+    /// Deletes the specified ad group criterions.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx">DeleteAdGroupCriterions Response Object</see> http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx for details.
@@ -29968,7 +31057,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.CampaignCriterion> CampaignCriterions;
         
         /// <summary>
-        /// The type of campaign criterion to add, for example ProductScope. You can specify only one type.
+        /// The type of campaign criterion to add, for example ProductScope or Webpage. You can specify only one type.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType;
@@ -29990,7 +31079,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn913127(v=msads.100).aspx">AddCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913127(v=msads.100).aspx for details.
         /// </remarks>
         /// <param name="CampaignCriterions">A list of criterions that help determine whether ads in each campaign get served.</param>
-        /// <param name="CriterionType">The type of campaign criterion to add, for example ProductScope. You can specify only one type.</param>
+        /// <param name="CriterionType">The type of campaign criterion to add, for example ProductScope or Webpage. You can specify only one type.</param>
         public AddCampaignCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.CampaignCriterion> CampaignCriterions, Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -30094,13 +31183,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The list of campaign criterions to update.
+        /// The list of up to 100 campaign criterions to update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.CampaignCriterion> CampaignCriterions;
         
         /// <summary>
-        /// The type of campaign criterion to update, for example ProductScope. You can specify only one type.
+        /// The type of campaign criterion to update, for example ProductScope or Webpage. You can specify only one type.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType;
@@ -30121,8 +31210,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.100).aspx">UpdateCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="CampaignCriterions">The list of campaign criterions to update.</param>
-        /// <param name="CriterionType">The type of campaign criterion to update, for example ProductScope. You can specify only one type.</param>
+        /// <param name="CampaignCriterions">The list of up to 100 campaign criterions to update.</param>
+        /// <param name="CriterionType">The type of campaign criterion to update, for example ProductScope or Webpage. You can specify only one type.</param>
         public UpdateCampaignCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.CampaignCriterion> CampaignCriterions, Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -30224,7 +31313,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Collections.Generic.IList<long> CampaignCriterionIds;
         
         /// <summary>
-        /// The type of campaign criterion, for example ProductScope.
+        /// The type of campaign criterion, for example ProductScope or Webpage.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType;
@@ -30246,7 +31335,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn913125(v=msads.100).aspx">DeleteCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913125(v=msads.100).aspx for details.
         /// </remarks>
         /// <param name="CampaignCriterionIds">A list of unique system identifiers corresponding to the campaign criterions that you want to delete.</param>
-        /// <param name="CriterionType">The type of campaign criterion, for example ProductScope.</param>
+        /// <param name="CriterionType">The type of campaign criterion, for example ProductScope or Webpage.</param>
         public DeleteCampaignCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> CampaignCriterionIds, Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -30354,7 +31443,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public long CampaignId;
         
         /// <summary>
-        /// The types of campaign criterion to get, for example ProductScope. You can specify one or more types.
+        /// The types of campaign criterion to get, for example ProductScope or Webpage. You can specify one or more types.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=2)]
         public Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType;
@@ -30377,7 +31466,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// </remarks>
         /// <param name="CampaignCriterionIds">A list of unique identifiers that identify the campaign criterions to get. You can specify a maximum of 1,000 IDs.</param>
         /// <param name="CampaignId">The unique identifier of the campaign whose criterions you want to get.</param>
-        /// <param name="CriterionType">The types of campaign criterion to get, for example ProductScope. You can specify one or more types.</param>
+        /// <param name="CriterionType">The types of campaign criterion to get, for example ProductScope or Webpage. You can specify one or more types.</param>
         public GetCampaignCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> CampaignCriterionIds, long CampaignId, Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -31051,6 +32140,80 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddRemarketingListsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
+    public partial class AddRemarketingListsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists;
+        
+        public AddRemarketingListsRequest()
+        {
+        }
+        
+        public AddRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.RemarketingLists = RemarketingLists;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddRemarketingListsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
+    public partial class AddRemarketingListsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
+        public System.Collections.Generic.IList<System.Nullable<long>> RemarketingListIds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
+        
+        public AddRemarketingListsResponse()
+        {
+        }
+        
+        public AddRemarketingListsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> RemarketingListIds, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.RemarketingListIds = RemarketingListIds;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     /// <summary>
     /// Gets the remarketing lists that can be associated with entities in the specified account.
     /// </summary>
@@ -31086,10 +32249,16 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// A maximum of 100 identifiers of the remarketing lists to get. The CustomerAccountId request header element is required for this operation. If RemarketingListIds is null or empty, then you are effectively requesting all customer and account scoped remarketing lists for the specified account.
+        /// A maximum of 100 identifiers of the remarketing lists to get. Optional: If RemarketingListIds is null or empty, then you are effectively requesting all customer and account scoped remarketing lists for the specified account.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> RemarketingListIds;
+        
+        /// <summary>
+        /// The list of additional elements that you want included within each returned RemarketingList object.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.RemarketingListAdditionalField> ReturnAdditionalFields;
         
         /// <summary>
         /// Constructor for the GetRemarketingListsRequest request object.
@@ -31107,8 +32276,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt735049(v=msads.100).aspx">GetRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt735049(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="RemarketingListIds">A maximum of 100 identifiers of the remarketing lists to get. The CustomerAccountId request header element is required for this operation. If RemarketingListIds is null or empty, then you are effectively requesting all customer and account scoped remarketing lists for the specified account.</param>
-        public GetRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> RemarketingListIds)
+        /// <param name="RemarketingListIds">A maximum of 100 identifiers of the remarketing lists to get. Optional: If RemarketingListIds is null or empty, then you are effectively requesting all customer and account scoped remarketing lists for the specified account.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional elements that you want included within each returned RemarketingList object.</param>
+        public GetRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> RemarketingListIds, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.RemarketingListAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31118,6 +32288,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.RemarketingListIds = RemarketingListIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -34425,7 +35596,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the specified criterions.
+        /// Gets ad group criterions by identifiers and types.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx">GetAdGroupCriterionsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx for details.
@@ -34440,7 +35611,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the specified criterions.
+        /// Gets ad group criterions by identifiers and types.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx">GetAdGroupCriterionsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx for details.
@@ -34455,7 +35626,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Adds one or more ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx">AddAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx for details.
@@ -34470,7 +35641,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Adds one or more ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx">AddAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277499(v=msads.100).aspx for details.
@@ -34485,7 +35656,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Updates one or more ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx">UpdateAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx for details.
@@ -34500,7 +35671,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Updates one or more ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx">UpdateAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx for details.
@@ -34515,7 +35686,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Deletes the specified ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx">DeleteAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx for details.
@@ -34530,7 +35701,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        ///  This service operation is reserved for future use.
+        /// Deletes the specified ad group criterions.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx">DeleteAdGroupCriterions Service Operation</see> http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx for details.
@@ -35302,6 +36473,16 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetCampaignIdsByBudgetIdsResponse> GetCampaignIdsByBudgetIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetCampaignIdsByBudgetIdsRequest request)
         {
             return base.Channel.GetCampaignIdsByBudgetIdsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse AddRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request)
+        {
+            return base.Channel.AddRemarketingLists(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse> AddRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request)
+        {
+            return base.Channel.AddRemarketingListsAsync(request);
         }
         
         /// <summary>
