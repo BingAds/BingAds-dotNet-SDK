@@ -441,6 +441,7 @@ namespace BingAdsExamplesLibrary.V10
                         // If you set this to any non-null Schedule object, you are effectively replacing existing scheduling 
                         // for the ad extension. In this example, we will remove any existing scheduling by setting this element  
                         // to an empty Schedule object.
+                        // The "delete_value" keyword will be written to the corresponding columns in the bulk file.
                         locationAdExtensionResult.LocationAdExtension.Scheduling = new Schedule();
                         uploadEntities.Add(locationAdExtensionResult);
                     }
