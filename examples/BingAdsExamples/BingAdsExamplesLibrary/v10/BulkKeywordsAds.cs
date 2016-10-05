@@ -600,19 +600,28 @@ namespace BingAdsExamplesLibrary.V10
 
                 uploadEntities = new List<BulkEntity>();
 
+                foreach (var budgetResult in budgetResults)
+                {
+                    budgetResult.Status = Status.Deleted;
+                    uploadEntities.Add(budgetResult);
+                }
+
                 foreach (var campaignResult in campaignResults)
                 {
                     campaignResult.Campaign.Status = CampaignStatus.Deleted;
                     uploadEntities.Add(campaignResult);
                 }
-
+                
                 // Upload and write the output
 
                 OutputStatusMessage("\nDeleting campaign, ad group, keywords, and ads . . .\n");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
-                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
+                getBudgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(getBudgetResults);
+                getCampaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                OutputBulkCampaigns(getCampaignResults);
 
                 Reader.Dispose();
 
