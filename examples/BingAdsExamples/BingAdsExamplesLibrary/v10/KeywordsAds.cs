@@ -33,15 +33,18 @@ namespace BingAdsExamplesLibrary.V10
                 // Determine whether you are able to add shared budgets by checking the pilot flags.
 
                 bool enabledForSharedBudgets = false;
-
-                // Optionally you can find out which pilot features the customer is able to use.
                 var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
 
                 // The pilot flag value for shared budgets is 263.
                 // Pilot flags apply to all accounts within a given customer.
-                if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 263) > 0)
+                if (featurePilotFlags.Any(pilotFlag => pilotFlag == 263))
                 {
+                    OutputStatusMessage("Customer is in pilot for Shared Budget.\n");
                     enabledForSharedBudgets = true;
+                }
+                else
+                {
+                    OutputStatusMessage("Customer is not in pilot for Shared Budget.\n");
                 }
 
                 // If the customer is enabled for shared budgets, let's create a new budget and
@@ -457,7 +460,7 @@ namespace BingAdsExamplesLibrary.V10
                 }
 
                 // Update shared budgets in Budget objects.
-                if (getBudgetIds != null)
+                if (getBudgetIds.Count > 0)
                 {
                     getBudgetIds = getBudgetIds.Distinct().ToList();
                     var getBudgets = (await GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
@@ -506,7 +509,7 @@ namespace BingAdsExamplesLibrary.V10
                 }
 
                 // Update unshared budgets in Campaign objects.
-                if(updateCampaigns != null)
+                if(updateCampaigns.Count > 0)
                 {
                     // The UpdateCampaigns operation only accepts 100 Campaign objects per call. 
                     // To simply the example we will update the first 100.
@@ -556,7 +559,6 @@ namespace BingAdsExamplesLibrary.V10
                     }
                 }
                 
-
                 // Update the Text for the 3 successfully created ads, and update some UrlCustomParameters.
                 var updateAds = new Ad[] {
                     new TextAd {
@@ -593,9 +595,9 @@ namespace BingAdsExamplesLibrary.V10
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
+                var getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
                 var updateAdsResponse = await UpdateAdsAsync((long)adGroupIds[0], updateAds);
-                await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
+                getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
 
 
                 // Here is a simple example that updates the keyword bid to use the ad group bid.
@@ -610,10 +612,10 @@ namespace BingAdsExamplesLibrary.V10
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
-                await UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
-                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
-
+                var getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
+                var updateKeywordsResponse = await UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
+                getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
+                
                 // Delete the campaign, ad group, keyword, and ad that were previously added. 
                 // You should remove this line if you want to view the added entities in the 
                 // Bing Ads web application or another tool.
@@ -854,7 +856,7 @@ namespace BingAdsExamplesLibrary.V10
 
         // Updates one or more keywords.
 
-        private async Task UpdateKeywordsAsync(long adGroupId, IList<Keyword> keywords)
+        private async Task<UpdateKeywordsResponse> UpdateKeywordsAsync(long adGroupId, IList<Keyword> keywords)
         {
             var request = new UpdateKeywordsRequest
             {
@@ -862,7 +864,7 @@ namespace BingAdsExamplesLibrary.V10
                 Keywords = keywords
             };
 
-            await CampaignService.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
+            return await CampaignService.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
         }
 
         private async Task<IList<Keyword>> GetKeywordsByAdGroupIdAsync(

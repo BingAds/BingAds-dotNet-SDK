@@ -94,7 +94,7 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
                     }
                 }
-                OutputStatusMessage(string.Format("TimeZone: {0}\n", campaign.TimeZone));
+                OutputStatusMessage(string.Format("TimeZone: {0}", campaign.TimeZone));
             }
         }
 
@@ -2295,13 +2295,16 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (schedule != null)
             {
-                foreach (var dayTime in schedule.DayTimeRanges)
+                if(schedule.DayTimeRanges != null)
                 {
-                    OutputStatusMessage(string.Format("Day: {0}", dayTime.Day));
-                    OutputStatusMessage(string.Format("EndHour: {0}", dayTime.EndHour));
-                    OutputStatusMessage(string.Format("EndMinute: {0}", dayTime.EndMinute));
-                    OutputStatusMessage(string.Format("StartHour: {0}", dayTime.StartHour));
-                    OutputStatusMessage(string.Format("StartMinute: {0}", dayTime.StartMinute));
+                    foreach (var dayTime in schedule.DayTimeRanges)
+                    {
+                        OutputStatusMessage(string.Format("Day: {0}", dayTime.Day));
+                        OutputStatusMessage(string.Format("EndHour: {0}", dayTime.EndHour));
+                        OutputStatusMessage(string.Format("EndMinute: {0}", dayTime.EndMinute));
+                        OutputStatusMessage(string.Format("StartHour: {0}", dayTime.StartHour));
+                        OutputStatusMessage(string.Format("StartMinute: {0}", dayTime.StartMinute));
+                    }
                 }
                 if (schedule.EndDate != null)
                 {

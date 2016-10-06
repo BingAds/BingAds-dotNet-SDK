@@ -8,6 +8,7 @@ using Microsoft.BingAds;
 using Microsoft.BingAds.V10.Bulk;
 using Microsoft.BingAds.V10.Bulk.Entities;
 using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.CustomerManagement;
 
 namespace BingAdsExamplesLibrary.V10
 {
@@ -16,6 +17,8 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class BulkKeywordsAds : BulkExampleBase
     {
+        public static ServiceClient<ICustomerManagementService> CustomerService;
+
         public override string Description
         {
             get { return "Keywords and Ads | Bulk V10"; }
@@ -35,8 +38,43 @@ namespace BingAdsExamplesLibrary.V10
 
                 #region Add
 
-                // Prepare the bulk entities that you want to upload. Each bulk entity contains the corresponding campaign management object, 
-                // and additional elements needed to read from and write to a bulk file. 
+                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
+
+                // Determine whether you are able to add shared budgets by checking the pilot flags.
+
+                bool enabledForSharedBudgets = false;
+                var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
+
+                // The pilot flag value for shared budgets is 263.
+                // Pilot flags apply to all accounts within a given customer.
+                if (featurePilotFlags.Any(pilotFlag => pilotFlag == 263))
+                {
+                    OutputStatusMessage("Customer is in pilot for Shared Budget.\n");
+                    enabledForSharedBudgets = true;
+                }
+                else
+                {
+                    OutputStatusMessage("Customer is not in pilot for Shared Budget.\n");
+                }
+
+                // If the customer is enabled for shared budgets, let's create a new budget and
+                // share it with a new campaign.
+
+                if (enabledForSharedBudgets)
+                {
+                    var bulkBudget = new BulkBudget
+                    {
+                        ClientId = "YourClientIdGoesHere",
+                        Budget = new Budget
+                        {
+                            Amount = 50,
+                            BudgetType = BudgetLimitType.DailyBudgetStandard,
+                            Id = budgetIdKey,
+                            Name = "My Shared Budget " + DateTime.UtcNow,
+                        }
+                    };
+                    uploadEntities.Add(bulkBudget);
+                }
 
                 var bulkCampaign = new BulkCampaign
                 {
@@ -52,8 +90,13 @@ namespace BingAdsExamplesLibrary.V10
                         Id = campaignIdKey,
                         Name = "Women's Shoes " + DateTime.UtcNow,
                         Description = "Red shoes line.",
-                        BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                        MonthlyBudget = 1000.00,
+
+                        // You must choose to set either the shared  budget ID or daily amount.
+                        // You can set one or the other, but you may not set both.
+                        BudgetId = enabledForSharedBudgets ? budgetIdKey : 0,
+                        DailyBudget = enabledForSharedBudgets ? 0 : 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+
                         TimeZone = "PacificTimeUSCanadaTijuana",
 
                         // DaylightSaving is not supported in the Bulk file schema. Whether or not you specify it in a BulkCampaign,
@@ -67,6 +110,8 @@ namespace BingAdsExamplesLibrary.V10
                         // If you do not set this element, then ManualCpcBiddingScheme is used by default.
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
 
+                        Status = CampaignStatus.Paused,
+                        
                         // Used with FinalUrls shown in the text ads that we will add below.
                         TrackingUrlTemplate =
                             "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
@@ -153,7 +198,7 @@ namespace BingAdsExamplesLibrary.V10
                         },
                     },
                 };
-
+                
                 // In this example only the first 3 ads should succeed. 
                 // The Title of the fourth ad is empty and not valid,
                 // and the fifth ad is a duplicate of the second ad. 
@@ -431,10 +476,13 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Upload and write the output
 
-                OutputStatusMessage("Adding campaign, ad group, ads, and keywords...\n");
+                OutputStatusMessage("Adding campaign, budget, ad group, ads, and keywords...\n");
 
                 var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
+
+                var budgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(budgetResults);
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
@@ -452,6 +500,93 @@ namespace BingAdsExamplesLibrary.V10
 
                 #endregion Add
 
+                #region Update
+
+                // Here is a simple example that updates the campaign budget.
+                
+                var downloadParameters = new DownloadParameters
+                {
+                    Entities = BulkDownloadEntity.Budgets | BulkDownloadEntity.Campaigns,
+                    ResultFileDirectory = FileDirectory,
+                    ResultFileName = DownloadFileName,
+                    OverwriteResultFile = true,
+                    LastSyncTimeInUTC = null
+                };
+
+                // Download all campaigns and shared budgets in the account.
+                var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
+                OutputStatusMessage("Downloaded all campaigns and shared budgets in the account.\n");
+                Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
+                downloadEntities = Reader.ReadEntities().ToList();
+                var getBudgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(getBudgetResults);
+                var getCampaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                OutputBulkCampaigns(getCampaignResults);
+
+                uploadEntities = new List<BulkEntity>();
+
+                // If the campaign has a shared budget you cannot update the Campaign budget amount,
+                // and you must instead update the amount in the Budget record. If you try to update 
+                // the budget amount of a Campaign that has a shared budget, the service will return 
+                // the CampaignServiceCannotUpdateSharedBudget error code.
+
+                foreach (var entity in getBudgetResults)
+                {
+                    if (entity.Budget.Id > 0)
+                    {
+                        // Increase budget by 20 %
+                        entity.Budget.Amount *= 1.2m;
+                        uploadEntities.Add(entity);
+                    }
+                }
+
+                foreach (var entity in getCampaignResults)
+                {
+                    if (entity.Campaign.BudgetId == null || entity.Campaign.BudgetId <= 0)
+                    {
+                        // Increase existing budgets by 20%
+                        // Monthly budgets are deprecated and there will be a forced migration to daily budgets in calendar year 2017. 
+                        // Shared budgets do not support the monthly budget type, so this is only applicable to unshared budgets. 
+                        // During the migration all campaign level unshared budgets will be rationalized as daily. 
+                        // The formula that will be used to convert monthly to daily budgets is: Monthly budget amount / 30.4.
+                        // Moving campaign monthly budget to daily budget is encouraged before monthly budgets are migrated. 
+
+                        if (entity.Campaign.BudgetType == BudgetLimitType.MonthlyBudgetSpendUntilDepleted)
+                        {
+                            // Increase budget by 20 %
+                            entity.Campaign.BudgetType = BudgetLimitType.DailyBudgetStandard;
+                            entity.Campaign.DailyBudget = entity.Campaign.MonthlyBudget / 30.4 * 1.2;
+                        }
+                        else
+                        {
+                            // Increase budget by 20 %
+                            entity.Campaign.DailyBudget *= 1.2;
+                        }
+                        uploadEntities.Add(entity);
+                    }
+                }
+
+                Reader.Dispose();
+
+                if (uploadEntities.Count > 0)
+                {
+                    OutputStatusMessage("Changed local campaign budget amounts. Starting upload.\n");
+
+                    Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                    downloadEntities = Reader.ReadEntities().ToList();
+                    getBudgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                    OutputBulkBudgets(getBudgetResults);
+                    getCampaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                    OutputBulkCampaigns(getCampaignResults);
+                    Reader.Dispose();
+                }
+                else
+                {
+                    OutputStatusMessage("No campaigns or shared budgets in account.\n");
+                }
+                
+                #endregion Update
+
                 #region CleanUp
 
                 //Delete the campaign, ad group, ads, and keywords that were previously added. 
@@ -465,19 +600,28 @@ namespace BingAdsExamplesLibrary.V10
 
                 uploadEntities = new List<BulkEntity>();
 
+                foreach (var budgetResult in budgetResults)
+                {
+                    budgetResult.Status = Status.Deleted;
+                    uploadEntities.Add(budgetResult);
+                }
+
                 foreach (var campaignResult in campaignResults)
                 {
                     campaignResult.Campaign.Status = CampaignStatus.Deleted;
                     uploadEntities.Add(campaignResult);
                 }
-
+                
                 // Upload and write the output
 
-                OutputStatusMessage("\nDeleting campaign, ad group, keywords, and ads . . .\n");
+                OutputStatusMessage("\nDeleting campaign, budget, ad group, keywords, and ads . . .\n");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
-                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
+                getBudgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(getBudgetResults);
+                getCampaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                OutputBulkCampaigns(getCampaignResults);
 
                 Reader.Dispose();
 
@@ -522,6 +666,19 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
+        /// <summary>
+        /// Gets the list of pilot features that the customer is able to use.
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
+        private async Task<IList<int>> GetCustomerPilotFeaturesAsync(long customerId)
+        {
+            var request = new GetCustomerPilotFeaturesRequest
+            {
+                CustomerId = customerId
+            };
 
+            return (await CustomerService.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
+        }
     }
 }

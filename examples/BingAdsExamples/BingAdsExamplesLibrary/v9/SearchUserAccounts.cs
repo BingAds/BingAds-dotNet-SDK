@@ -53,7 +53,7 @@ namespace BingAdsExamplesLibrary.V9
                     
                     // Optionally if you are enabled for Final Urls, you can update each account with a tracking template.
                     // The pilot flag value for Final Urls is 194.
-                    if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 194) > 0)
+                    if (featurePilotFlags.Any(pilotFlag => pilotFlag == 194))
                     {
                         account.ForwardCompatibilityMap = accountFCM;
                         await UpdateAccountAsync(account);
