@@ -33,8 +33,6 @@ namespace BingAdsExamplesLibrary.V10
                 // Determine whether you are able to add shared budgets by checking the pilot flags.
 
                 bool enabledForSharedBudgets = false;
-
-                // Optionally you can find out which pilot features the customer is able to use.
                 var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
 
                 // The pilot flag value for shared budgets is 263.

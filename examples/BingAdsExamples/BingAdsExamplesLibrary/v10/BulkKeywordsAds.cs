@@ -43,8 +43,6 @@ namespace BingAdsExamplesLibrary.V10
                 // Determine whether you are able to add shared budgets by checking the pilot flags.
 
                 bool enabledForSharedBudgets = false;
-
-                // Optionally you can find out which pilot features the customer is able to use.
                 var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
 
                 // The pilot flag value for shared budgets is 263.
@@ -112,6 +110,8 @@ namespace BingAdsExamplesLibrary.V10
                         // If you do not set this element, then ManualCpcBiddingScheme is used by default.
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
 
+                        Status = CampaignStatus.Paused,
+                        
                         // Used with FinalUrls shown in the text ads that we will add below.
                         TrackingUrlTemplate =
                             "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
@@ -476,7 +476,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Upload and write the output
 
-                OutputStatusMessage("Adding campaign, ad group, ads, and keywords...\n");
+                OutputStatusMessage("Adding campaign, budget, ad group, ads, and keywords...\n");
 
                 var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
@@ -582,7 +582,7 @@ namespace BingAdsExamplesLibrary.V10
                 }
                 else
                 {
-                    OutputStatusMessage("No campaigns or shared budgets in account. \n");
+                    OutputStatusMessage("No campaigns or shared budgets in account.\n");
                 }
                 
                 #endregion Update
@@ -614,7 +614,7 @@ namespace BingAdsExamplesLibrary.V10
                 
                 // Upload and write the output
 
-                OutputStatusMessage("\nDeleting campaign, ad group, keywords, and ads . . .\n");
+                OutputStatusMessage("\nDeleting campaign, budget, ad group, keywords, and ads . . .\n");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
