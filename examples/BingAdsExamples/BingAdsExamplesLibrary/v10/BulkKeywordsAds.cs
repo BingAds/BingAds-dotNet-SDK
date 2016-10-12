@@ -198,29 +198,22 @@ namespace BingAdsExamplesLibrary.V10
                         },
                     },
                 };
-                
+
                 // In this example only the first 3 ads should succeed. 
-                // The Title of the fourth ad is empty and not valid,
+                // The TitlePart1 of the fourth ad is empty and not valid,
                 // and the fifth ad is a duplicate of the second ad. 
 
-                var bulkTextAds = new [] {
-                    new BulkTextAd
+                var bulkExpandedTextAds = new [] {
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "Women's Shoe Sale",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",
-                        
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "Fast & Easy Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -255,23 +248,16 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         },
                     },
-                    new BulkTextAd
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "Women's Super Shoe Sale",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",                       
-                        
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "Quick & Easy Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -306,23 +292,16 @@ namespace BingAdsExamplesLibrary.V10
                             },
                         },
                     },
-                    new BulkTextAd
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "Women's Red Shoe Sale",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",
-
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "Fast & Simple Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -357,23 +336,16 @@ namespace BingAdsExamplesLibrary.V10
                             },
                         },
                     },
-                    new BulkTextAd
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",                       
-                        
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "",
+                            TitlePart2 = "Fast & Easy Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",  
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -408,23 +380,16 @@ namespace BingAdsExamplesLibrary.V10
                             },
                         },
                     },
-                    new BulkTextAd
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "Women's Super Shoe Sale",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",                       
-                        
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "Quick & Easy Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -469,9 +434,9 @@ namespace BingAdsExamplesLibrary.V10
                     uploadEntities.Add(bulkKeyword);
                 }
 
-                foreach (var bulkTextAd in bulkTextAds)
+                foreach (var bulkExpandedTextAd in bulkExpandedTextAds)
                 {
-                    uploadEntities.Add(bulkTextAd);
+                    uploadEntities.Add(bulkExpandedTextAd);
                 }
 
                 // Upload and write the output
@@ -493,8 +458,8 @@ namespace BingAdsExamplesLibrary.V10
                 var keywordResults = downloadEntities.OfType<BulkKeyword>().ToList();
                 OutputBulkKeywords(keywordResults);
 
-                var textAdResults = downloadEntities.OfType<BulkTextAd>().ToList();
-                OutputBulkTextAds(textAdResults);
+                var expandedTextAdResults = downloadEntities.OfType<BulkExpandedTextAd>().ToList();
+                OutputBulkExpandedTextAds(expandedTextAdResults);
 
                 Reader.Dispose();
 
@@ -515,7 +480,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Download all campaigns and shared budgets in the account.
                 var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
-                OutputStatusMessage("Downloaded all campaigns and shared budgets in the account.\n");
+                OutputStatusMessage("\nDownloaded all campaigns and shared budgets in the account.\n");
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
                 downloadEntities = Reader.ReadEntities().ToList();
                 var getBudgetResults = downloadEntities.OfType<BulkBudget>().ToList();
@@ -570,7 +535,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 if (uploadEntities.Count > 0)
                 {
-                    OutputStatusMessage("Changed local campaign budget amounts. Starting upload.\n");
+                    OutputStatusMessage("\nChanged local campaign budget amounts. Starting upload.\n");
 
                     Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                     downloadEntities = Reader.ReadEntities().ToList();
@@ -582,9 +547,9 @@ namespace BingAdsExamplesLibrary.V10
                 }
                 else
                 {
-                    OutputStatusMessage("No campaigns or shared budgets in account.\n");
+                    OutputStatusMessage("\nNo campaigns or shared budgets in account.\n");
                 }
-                
+
                 #endregion Update
 
                 #region CleanUp
@@ -595,8 +560,8 @@ namespace BingAdsExamplesLibrary.V10
 
                 //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted.
 
-                //When you delete a BulkCampaign, the dependent entities such as BulkAdGroup, BulkKeyword, and BulkTextAd 
-                //are deleted without being specified explicitly.  
+                //When you delete a BulkCampaign, the dependent entities such as BulkAdGroup, BulkKeyword, 
+                //and BulkExpandedTextAd are deleted without being specified explicitly.  
 
                 uploadEntities = new List<BulkEntity>();
 

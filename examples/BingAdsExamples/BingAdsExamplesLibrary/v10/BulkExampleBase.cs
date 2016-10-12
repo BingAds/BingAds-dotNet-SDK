@@ -2778,6 +2778,32 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
+        /// Outputs the list of BulkExpandedTextAd.
+        /// </summary>
+        protected void OutputBulkExpandedTextAds(IEnumerable<BulkExpandedTextAd> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkExpandedTextAd: \n");
+                OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                OutputBulkPerformanceData(entity.PerformanceData);
+
+                // Output the Campaign Management TextAd Object
+                OutputExpandedTextAd(entity.ExpandedTextAd);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
         /// Outputs the list of BulkTextAd.
         /// </summary>
         protected void OutputBulkTextAds(IEnumerable<BulkTextAd> bulkEntities)

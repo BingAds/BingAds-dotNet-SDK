@@ -383,33 +383,35 @@ namespace BingAdsExamplesLibrary.V10
                 // Determine the type of ad. Prepare the corresponding attribute value to be outputed,
                 // both for successful new ads and partial errors. 
 
-                var ad = ads[index] as TextAd;
-                if (ad != null)
+                if(adIds[index] != null)
                 {
-                    attributeValues[index] = "Title:" + ad.Title;
-                }
-                else
-                {
-                    var productAd = ads[index] as ProductAd;
-                    if (productAd != null)
+                    OutputStatusMessage(String.Format("\nAd[{0}] successfully added:", index));
+                    ads[index].Id = adIds[index];
+                    var expandedTextAd = ads[index] as ExpandedTextAd;
+                    if (expandedTextAd != null)
                     {
-                        attributeValues[index] = "PromotionalText:" + productAd.PromotionalText;
+                        OutputExpandedTextAd(expandedTextAd);
                     }
                     else
                     {
-                        attributeValues[index] = "Unknown Ad Type";
+                        var textAd = ads[index] as TextAd;
+                        if (textAd != null)
+                        {
+                            OutputTextAd(textAd);
+                        }
+                        else
+                        {
+                            var productAd = ads[index] as ProductAd;
+                            if (productAd != null)
+                            {
+                                OutputProductAd(productAd);
+                            }
+                            else
+                            {
+                                OutputStatusMessage("Unknown Ad Type");
+                            }
+                        }
                     }
-                }
-
-                // The array of ad identifiers equals the size of the attempted ads. If the element 
-                // is not null, the ad at that index was added successfully and has an ad identifer. 
-
-                if (adIds[index] != null)
-                {
-                    OutputStatusMessage(String.Format("Ad[{0}] ({1}) successfully added and assigned AdId {2}",
-                        index,
-                        attributeValues[index],
-                        adIds[index]));
                 }
             }
 
@@ -418,8 +420,7 @@ namespace BingAdsExamplesLibrary.V10
                 // The index of the partial errors is equal to the index of the list
                 // specified in the call to AddAds.
 
-                OutputStatusMessage(String.Format("\nAd[{0}] ({1}) not added due to the following error:",
-                    error.Index, attributeValues[error.Index]));
+                OutputStatusMessage(String.Format("\nAd[{0}] not added due to the following error:", error.Index));
 
                 OutputStatusMessage(String.Format("\tIndex: {0}", error.Index));
                 OutputStatusMessage(String.Format("\tCode: {0}", error.Code));
@@ -437,6 +438,47 @@ namespace BingAdsExamplesLibrary.V10
             }
 
             OutputStatusMessage("\n");
+        }
+
+        /// <summary>
+        /// Outputs the list of ads
+        /// </summary>
+        /// <param name="ads"></param>
+        protected void OutputAds(IList<Ad> ads)
+        {
+            if (ads != null)
+            {
+                foreach(var ad in ads)
+                {
+                    var expandedTextAd = ad as ExpandedTextAd;
+                    if (expandedTextAd != null)
+                    {
+                        OutputExpandedTextAd(expandedTextAd);
+                    }
+                    else
+                    {
+                        var textAd = ad as TextAd;
+                        if (textAd != null)
+                        {
+                            OutputTextAd(textAd);
+                        }
+                        else
+                        {
+                            var productAd = ad as ProductAd;
+                            if (productAd != null)
+                            {
+                                OutputProductAd(productAd);
+                            }
+                            else
+                            {
+                                OutputStatusMessage("Unknown Ad Type");
+                            }
+                        }
+                    }
+
+                    OutputStatusMessage("\n");
+                }
+            }
         }
 
         /// <summary>
@@ -957,30 +999,6 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
-        /// Outputs the ProductAd.
-        /// </summary>
-        protected void OutputProductAd(ProductAd ad)
-        {
-            if (ad != null)
-            {
-                OutputStatusMessage(string.Format("DevicePreference: {0}", ad.DevicePreference));
-                OutputStatusMessage(string.Format("EditorialStatus: {0}", ad.EditorialStatus));
-                OutputStatusMessage("ForwardCompatibilityMap: ");
-                if (ad.ForwardCompatibilityMap != null)
-                {
-                    foreach (var pair in ad.ForwardCompatibilityMap)
-                    {
-                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
-                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
-                    }
-                }
-                OutputStatusMessage(string.Format("Id: {0}", ad.Id));
-                OutputStatusMessage(string.Format("PromotionalText: {0}", ad.PromotionalText));
-                OutputStatusMessage(string.Format("Status: {0}", ad.Status));
-            }
-        }
-
-        /// <summary>
         /// Gets an example TextAd. 
         /// </summary>
         protected TextAd GetExampleTextAd()
@@ -1031,15 +1049,13 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
-        /// Outputs the TextAd.
+        /// Outputs properties of the Ad base class.
         /// </summary>
-        protected void OutputTextAd(TextAd ad)
+        protected void OutputAd(Ad ad)
         {
             if (ad != null)
             {
-                OutputStatusMessage(string.Format("DestinationUrl: {0}", ad.DestinationUrl));
                 OutputStatusMessage(string.Format("DevicePreference: {0}", ad.DevicePreference));
-                OutputStatusMessage(string.Format("DisplayUrl: {0}", ad.DisplayUrl));
                 OutputStatusMessage(string.Format("EditorialStatus: {0}", ad.EditorialStatus));
                 OutputStatusMessage("FinalMobileUrls: ");
                 if (ad.FinalMobileUrls != null)
@@ -1069,8 +1085,6 @@ namespace BingAdsExamplesLibrary.V10
                 }
                 OutputStatusMessage(string.Format("Id: {0}", ad.Id));
                 OutputStatusMessage(string.Format("Status: {0}", ad.Status));
-                OutputStatusMessage(string.Format("Text: {0}", ad.Text));
-                OutputStatusMessage(string.Format("Title: {0}", ad.Title));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", ad.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (ad.UrlCustomParameters != null && ad.UrlCustomParameters.Parameters != null)
@@ -1083,6 +1097,60 @@ namespace BingAdsExamplesLibrary.V10
                 }
             }
         }
+
+        /// <summary>
+        /// Outputs the ExpandedTextAd.
+        /// </summary>
+        protected void OutputExpandedTextAd(ExpandedTextAd ad)
+        {
+            if (ad != null)
+            {
+                // Output inherited properties of the Ad base class.
+                OutputAd(ad);
+
+                // Output properties that are specific to the ExpandedTextAd
+                OutputStatusMessage(string.Format("DisplayUrl: {0}", ad.DisplayUrl));
+                OutputStatusMessage(string.Format("Path1: {0}", ad.Path1));
+                OutputStatusMessage(string.Format("Path2: {0}", ad.Path2));
+                OutputStatusMessage(string.Format("Text: {0}", ad.Text));
+                OutputStatusMessage(string.Format("TitlePart1: {0}", ad.TitlePart1));
+                OutputStatusMessage(string.Format("TitlePart2: {0}", ad.TitlePart2));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the TextAd.
+        /// </summary>
+        protected void OutputTextAd(TextAd ad)
+        {
+            if (ad != null)
+            {
+                // Output inherited properties of the Ad base class.
+                OutputAd(ad);
+
+                // Output properties that are specific to the TextAd
+                OutputStatusMessage(string.Format("DestinationUrl: {0}", ad.DestinationUrl));
+                OutputStatusMessage(string.Format("DisplayUrl: {0}", ad.DisplayUrl));
+                OutputStatusMessage(string.Format("Text: {0}", ad.Text));
+                OutputStatusMessage(string.Format("Title: {0}", ad.Title));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the ProductAd.
+        /// </summary>
+        protected void OutputProductAd(ProductAd ad)
+        {
+            if (ad != null)
+            {
+                // Output inherited properties of the Ad base class.
+                OutputAd(ad);
+
+                // Output properties that are specific to the ProductAd
+                OutputStatusMessage(string.Format("PromotionalText: {0}", ad.PromotionalText));
+            }
+        }
+
 
         /// <summary>
         /// Gets an example ProductPartition. 

@@ -163,24 +163,17 @@ namespace BingAdsExamplesLibrary.V10
                 };
 
                 // In this example only the first 3 ads should succeed. 
-                // The Title of the fourth ad is empty and not valid,
+                // The TitlePart1 of the fourth ad is empty and not valid,
                 // and the fifth ad is a duplicate of the second ad. 
 
                 var ads = new Ad[] {
-                    new TextAd 
+                    new ExpandedTextAd 
                     {
-                        Title = "Women's Shoe Sale",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",
-                        
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Fast & Easy Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -214,19 +207,12 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         }
                     },
-                    new TextAd {
-                        Title = "Women's Super Shoe Sale",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",                       
-                        
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                    new ExpandedTextAd {
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Quick & Easy Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",      
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -260,19 +246,12 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         },
                     },
-                    new TextAd {
-                        Title = "Women's Red Shoe Sale",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",
-
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                    new ExpandedTextAd {
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Fast & Simple Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -306,19 +285,12 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         },
                     },
-                    new TextAd {
-                        Title = "",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",                       
-                        
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                    new ExpandedTextAd {
+                        TitlePart1 = "",
+                        TitlePart2 = "Fast & Easy Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",    
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -352,19 +324,12 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         },
                     },
-                    new TextAd {
-                        Title = "Women's Super Shoe Sale",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",                       
-                        
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously.                
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                    new ExpandedTextAd {
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Quick & Easy Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",    
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -561,14 +526,14 @@ namespace BingAdsExamplesLibrary.V10
                 
                 // Update the Text for the 3 successfully created ads, and update some UrlCustomParameters.
                 var updateAds = new Ad[] {
-                    new TextAd {
+                    new ExpandedTextAd {
                         Id = adIds[0],
                         Text = "Huge Savings on All Red Shoes.",
                         // Set the UrlCustomParameters element to null or empty to retain any 
                         // existing custom parameters.
                         UrlCustomParameters = null,
                     },
-                    new TextAd {
+                    new ExpandedTextAd {
                         Id = adIds[1],
                         Text = "Huge Savings on All Red Shoes.",
                         // To remove all custom parameters, set the Parameters element of the 
@@ -577,7 +542,7 @@ namespace BingAdsExamplesLibrary.V10
                             Parameters = null,
                         },
                     },
-                    new TextAd {
+                    new ExpandedTextAd {
                         Id = adIds[2],
                         Text = "Huge Savings on All Red Shoes.",
                         // To remove a subset of custom parameters, specify the custom parameters that 
