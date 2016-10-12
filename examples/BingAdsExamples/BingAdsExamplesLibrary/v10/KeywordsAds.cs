@@ -4,7 +4,6 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds.V10.CampaignManagement;
-using Microsoft.BingAds.CustomerManagement;
 using Microsoft.BingAds;
 
 namespace BingAdsExamplesLibrary.V10
@@ -16,7 +15,6 @@ namespace BingAdsExamplesLibrary.V10
     public class KeywordsAds : ExampleBase
     {
         public static ServiceClient<ICampaignManagementService> CampaignService;
-        public static ServiceClient<ICustomerManagementService> CustomerService;
 
         public override string Description
         {
@@ -28,59 +26,32 @@ namespace BingAdsExamplesLibrary.V10
             try
             {
                 CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
-
-                // Determine whether you are able to add shared budgets by checking the pilot flags.
-
-                bool enabledForSharedBudgets = false;
-                var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
-
-                // The pilot flag value for shared budgets is 263.
-                // Pilot flags apply to all accounts within a given customer.
-                if (featurePilotFlags.Any(pilotFlag => pilotFlag == 263))
-                {
-                    OutputStatusMessage("Customer is in pilot for Shared Budget.\n");
-                    enabledForSharedBudgets = true;
-                }
-                else
-                {
-                    OutputStatusMessage("Customer is not in pilot for Shared Budget.\n");
-                }
-
-                // If the customer is enabled for shared budgets, let's create a new budget and
-                // share it with a new campaign.
-
+                                
                 var budgetIds = new List<long?>();
-                if (enabledForSharedBudgets)
+                var budgets = new List<Budget>();
+                budgets.Add(new Budget
                 {
-                    var budgets = new List<Budget>();
-                    budgets.Add(new Budget
-                    {
-                        Amount = 50,
-                        BudgetType = BudgetLimitType.DailyBudgetStandard,
-                        Name = "My Shared Budget " + DateTime.UtcNow,
-                    });
-                    
-                    budgetIds = (await AddBudgetsAsync(budgets)).BudgetIds.ToList();
-                }
+                    Amount = 50,
+                    BudgetType = BudgetLimitType.DailyBudgetStandard,
+                    Name = "My Shared Budget " + DateTime.UtcNow,
+                });
+
+                budgetIds = (await AddBudgetsAsync(budgets)).BudgetIds.ToList();
 
                 // Specify one or more campaigns.
 
                 var campaigns = new[]{
                     new Campaign
                     {
-                        Name = "Women's Shoes" + DateTime.UtcNow,
+                        Name = "Women's Shoes " + DateTime.UtcNow,
                         Description = "Red shoes line.",
 
                         // You must choose to set either the shared  budget ID or daily amount.
                         // You can set one or the other, but you may not set both.
-                        BudgetId = enabledForSharedBudgets ? budgetIds[0] : null,
-                        DailyBudget = enabledForSharedBudgets ? 0 : 50,
+                        BudgetId = budgetIds.Count > 0 ? budgetIds[0] : null,
+                        DailyBudget = budgetIds.Count > 0 ? 0 : 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
-
-                        TimeZone = "PacificTimeUSCanadaTijuana",
-                        DaylightSaving = true,
-
+                        
                         // You can set your campaign bid strategy to Enhanced CPC (EnhancedCpcBiddingScheme) 
                         // and then, at any time, set an individual ad group or keyword bid strategy to 
                         // Manual CPC (ManualCpcBiddingScheme).
@@ -88,7 +59,10 @@ namespace BingAdsExamplesLibrary.V10
                         // If you do not set this element, then ManualCpcBiddingScheme is used by default.
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
                         
-                        // Used with FinalUrls shown in the expanded text ads that we will add below.
+                        TimeZone = "PacificTimeUSCanadaTijuana",
+                        DaylightSaving = true,
+                                                
+                        // Used with FinalUrls shown in the text ads that we will add below.
                         TrackingUrlTemplate = 
                             "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     },
@@ -586,14 +560,13 @@ namespace BingAdsExamplesLibrary.V10
                 // Bing Ads web application or another tool.
 
                 await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
-                OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignIds[0]));
+                OutputStatusMessage(String.Format("\nDeleted CampaignId {0}\n", campaignIds[0]));
 
-                // This sample will attempt to delete the budget that was created above 
-                // if the customer is enabled for shared budgets.
-                if (enabledForSharedBudgets)
+                // This sample will attempt to delete the budget that was created above.
+                if (budgetIds.Count > 0)
                 {
                     await DeleteBudgetsAsync(new[] { (long)budgetIds[0] });
-                    OutputStatusMessage(String.Format("Deleted Budget Id {0}\n", budgetIds[0]));
+                    OutputStatusMessage(String.Format("\nDeleted Budget Id {0}\n", budgetIds[0]));
                 }
             }
             // Catch authentication exceptions
@@ -620,21 +593,6 @@ namespace BingAdsExamplesLibrary.V10
             {
                 OutputStatusMessage(ex.Message);
             }
-        }
-
-        /// <summary>
-        /// Gets the list of pilot features that the customer is able to use.
-        /// </summary>
-        /// <param name="customerId"></param>
-        /// <returns></returns>
-        private async Task<IList<int>> GetCustomerPilotFeaturesAsync(long customerId)
-        {
-            var request = new GetCustomerPilotFeaturesRequest
-            {
-                CustomerId = customerId
-            };
-
-            return (await CustomerService.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
         }
 
         // Adds one or more budgets that can be shared by campaigns in the account.

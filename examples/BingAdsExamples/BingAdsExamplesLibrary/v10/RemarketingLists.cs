@@ -44,13 +44,18 @@ namespace BingAdsExamplesLibrary.V10
                 var campaigns = new[]{
                     new Campaign
                     {
-                        Name = "Women's Shoes" + DateTime.UtcNow,
+                        Name = "Women's Shoes " + DateTime.UtcNow,
                         Description = "Red shoes line.",
-                        BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                        MonthlyBudget = 1000.00,
+
+                        // You must choose to set either the shared  budget ID or daily amount.
+                        // You can set one or the other, but you may not set both.
+                        BudgetId = null,
+                        DailyBudget = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+                        BiddingScheme = new EnhancedCpcBiddingScheme(),
+
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         DaylightSaving = true,
-                        TrackingUrlTemplate = null
                     },
                 };
                 

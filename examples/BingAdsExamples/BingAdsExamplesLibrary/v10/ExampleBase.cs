@@ -36,8 +36,8 @@ namespace BingAdsExamplesLibrary.V10
                 Id = null,
                 Name = "Women's Shoes " + DateTime.UtcNow,
                 Description = "Red shoes line.",
-                BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                MonthlyBudget = 1000.00,
+                BudgetType = BudgetLimitType.DailyBudgetStandard,
+                DailyBudget = 50.00,
                 TimeZone = "PacificTimeUSCanadaTijuana",
                 DaylightSaving = true,
             };
@@ -66,7 +66,7 @@ namespace BingAdsExamplesLibrary.V10
                     }
                 }
                 OutputStatusMessage(string.Format("Id: {0}", campaign.Id));
-                OutputStatusMessage(string.Format("MonthlyBudget: {0}", campaign.MonthlyBudget));
+                OutputStatusMessage(string.Format("MonthlyBudget (Deprecated): {0}", campaign.MonthlyBudget));
                 OutputStatusMessage(string.Format("Name: {0}", campaign.Name));
                 OutputStatusMessage("Settings:");
                 if (campaign.Settings != null)

@@ -53,10 +53,7 @@ namespace BingAdsExamplesLibrary.V10
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(String.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
-
-
-                const int campaignIdKey = -123;
-                const int adGroupIdKey = -1234;
+                
 
                 var uploadEntities = new List<BulkEntity>();
 
@@ -88,8 +85,13 @@ namespace BingAdsExamplesLibrary.V10
                         },
                         Name = "Bing Shopping Campaign " + DateTime.UtcNow,
                         Description = "Bing Shopping Campaign Example.",
-                        BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                        MonthlyBudget = 1000.00,
+
+                        // You must choose to set either the shared  budget ID or daily amount.
+                        // You can set one or the other, but you may not set both.
+                        BudgetId = null,
+                        DailyBudget = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+
                         TimeZone = "PacificTimeUSCanadaTijuana",
 
                         // DaylightSaving is not supported in the Bulk file schema. Whether or not you specify it in a BulkCampaign,

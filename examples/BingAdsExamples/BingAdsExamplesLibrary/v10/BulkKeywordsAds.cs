@@ -8,7 +8,6 @@ using Microsoft.BingAds;
 using Microsoft.BingAds.V10.Bulk;
 using Microsoft.BingAds.V10.Bulk.Entities;
 using Microsoft.BingAds.V10.CampaignManagement;
-using Microsoft.BingAds.CustomerManagement;
 
 namespace BingAdsExamplesLibrary.V10
 {
@@ -17,8 +16,6 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class BulkKeywordsAds : BulkExampleBase
     {
-        public static ServiceClient<ICustomerManagementService> CustomerService;
-
         public override string Description
         {
             get { return "Keywords and Ads | Bulk V10"; }
@@ -38,44 +35,20 @@ namespace BingAdsExamplesLibrary.V10
 
                 #region Add
 
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
+                // Let's create a new budget and share it with a new campaign.
 
-                // Determine whether you are able to add shared budgets by checking the pilot flags.
-
-                bool enabledForSharedBudgets = false;
-                var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
-
-                // The pilot flag value for shared budgets is 263.
-                // Pilot flags apply to all accounts within a given customer.
-                if (featurePilotFlags.Any(pilotFlag => pilotFlag == 263))
+                var bulkBudget = new BulkBudget
                 {
-                    OutputStatusMessage("Customer is in pilot for Shared Budget.\n");
-                    enabledForSharedBudgets = true;
-                }
-                else
-                {
-                    OutputStatusMessage("Customer is not in pilot for Shared Budget.\n");
-                }
-
-                // If the customer is enabled for shared budgets, let's create a new budget and
-                // share it with a new campaign.
-
-                if (enabledForSharedBudgets)
-                {
-                    var bulkBudget = new BulkBudget
+                    ClientId = "YourClientIdGoesHere",
+                    Budget = new Budget
                     {
-                        ClientId = "YourClientIdGoesHere",
-                        Budget = new Budget
-                        {
-                            Amount = 50,
-                            BudgetType = BudgetLimitType.DailyBudgetStandard,
-                            Id = budgetIdKey,
-                            Name = "My Shared Budget " + DateTime.UtcNow,
-                        }
-                    };
-                    uploadEntities.Add(bulkBudget);
-                }
-
+                        Amount = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+                        Id = budgetIdKey,
+                        Name = "My Shared Budget " + DateTime.UtcNow,
+                    }
+                };
+                
                 var bulkCampaign = new BulkCampaign
                 {
                     // ClientId may be used to associate records in the bulk upload file with records in the results file. The value of this field 
@@ -93,8 +66,8 @@ namespace BingAdsExamplesLibrary.V10
 
                         // You must choose to set either the shared  budget ID or daily amount.
                         // You can set one or the other, but you may not set both.
-                        BudgetId = enabledForSharedBudgets ? budgetIdKey : 0,
-                        DailyBudget = enabledForSharedBudgets ? 0 : 50,
+                        BudgetId = budgetIdKey,
+                        DailyBudget = null,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
@@ -426,6 +399,7 @@ namespace BingAdsExamplesLibrary.V10
                     },
                 };
 
+                uploadEntities.Add(bulkBudget);
                 uploadEntities.Add(bulkCampaign);
                 uploadEntities.Add(bulkAdGroup);
 
@@ -629,21 +603,6 @@ namespace BingAdsExamplesLibrary.V10
                 if (Reader != null) { Reader.Dispose(); }
                 if (Writer != null) { Writer.Dispose(); }
             }
-        }
-
-        /// <summary>
-        /// Gets the list of pilot features that the customer is able to use.
-        /// </summary>
-        /// <param name="customerId"></param>
-        /// <returns></returns>
-        private async Task<IList<int>> GetCustomerPilotFeaturesAsync(long customerId)
-        {
-            var request = new GetCustomerPilotFeaturesRequest
-            {
-                CustomerId = customerId
-            };
-
-            return (await CustomerService.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
         }
     }
 }
