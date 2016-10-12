@@ -999,19 +999,17 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
-        /// Gets an example TextAd. 
+        /// Gets an example ExpandedTextAd. 
         /// </summary>
-        protected TextAd GetExampleTextAd()
+        protected ExpandedTextAd GetExampleTextAd()
         {
-            return new TextAd
+            return new ExpandedTextAd
             {
-                Title = "Women's Shoe Sale",
-                Text = "Huge Savings on red shoes.",
-                DisplayUrl = "Contoso.com",
-
-                // If you are currently using the Destination URL, you must upgrade to Final URLs. 
-                // Here is an example of a DestinationUrl you might have used previously. 
-                // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
+                TitlePart1 = "Contoso",
+                TitlePart2 = "Fast & Easy Setup",
+                Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                Path1 = "seattle",
+                Path2 = "shoe sale",
 
                 // With FinalUrls you can separate the tracking template, custom parameters, and 
                 // landing page URLs. 
