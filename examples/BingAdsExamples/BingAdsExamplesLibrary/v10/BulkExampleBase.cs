@@ -59,8 +59,7 @@ namespace BingAdsExamplesLibrary.V10
         /// The maximum amount of time (in milliseconds) that you want to wait for the bulk download or upload.
         /// </summary>
         protected const int TimeoutInMilliseconds = 36000000;
-
-        protected const int targetIdKey = -1;
+        
         protected const int appAdExtensionIdKey = -11;
         protected const int callAdExtensionIdKey = -12;
         protected const int calloutAdExtensionIdKey = -13;
@@ -176,7 +175,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupAgeTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 AgeTarget = GetExampleAgeTarget()
             };
         }
@@ -226,7 +224,6 @@ namespace BingAdsExamplesLibrary.V10
             {
                 ClientId = "BulkAdGroupAgeTargetBid",
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 AgeTargetBid = GetExampleAgeTargetBid()
             };
         }
@@ -306,7 +303,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupDayTimeTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 DayTimeTarget = GetExampleDayTimeTarget(),
             };
         }
@@ -381,7 +377,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupDeviceOsTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 DeviceOsTarget = GetExampleDeviceOSTarget(),
             };
         }
@@ -456,7 +451,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupGenderTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 GenderTarget = GetExampleGenderTarget()
             };
         }
@@ -578,7 +572,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupLocationTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 IntentOption = IntentOption.PeopleIn,
                 CityTarget = GetExampleCityTarget(),
                 CountryTarget = GetExampleCountryTarget(),
@@ -739,7 +732,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupNegativeLocationTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 CityTarget = GetExampleCityTarget(),
                 CountryTarget = GetExampleCountryTarget(),
                 MetroAreaTarget = GetExampleMetroAreaTarget(),
@@ -911,7 +903,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupRadiusTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 RadiusTarget = GetExampleRadiusTarget(),
             };
         }
@@ -1027,7 +1018,6 @@ namespace BingAdsExamplesLibrary.V10
         protected BulkAdGroupTarget GetExampleBulkAdGroupTarget()
         {
             var Target = GetExampleTarget();
-            Target.Id = targetIdKey;
 
             return new BulkAdGroupTarget
             {
@@ -1256,7 +1246,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignAgeTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 AgeTarget = GetExampleAgeTarget(),
             };
         }
@@ -1459,7 +1448,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignDayTimeTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 DayTimeTarget = GetExampleDayTimeTarget(),
             };
         }
@@ -1532,7 +1520,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignDeviceOsTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 DeviceOsTarget = GetExampleDeviceOSTarget(),
             };
         }
@@ -1605,7 +1592,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignGenderTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 GenderTarget = GetExampleGenderTarget(),
             };
         }
@@ -1764,7 +1750,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignLocationTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 IntentOption = IntentOption.PeopleIn,
                 CityTarget = GetExampleCityTarget(),
                 CountryTarget = GetExampleCountryTarget(),
@@ -1958,7 +1943,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignNegativeLocationTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 CityTarget = GetExampleCityTarget(),
                 CountryTarget = GetExampleCountryTarget(),
                 MetroAreaTarget = GetExampleMetroAreaTarget(),
@@ -2126,7 +2110,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignRadiusTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 RadiusTarget = GetExampleRadiusTarget(),
             };
         }
@@ -2342,7 +2325,6 @@ namespace BingAdsExamplesLibrary.V10
         protected BulkCampaignTarget GetExampleBulkCampaignTarget()
         {
             var Target = GetExampleTarget();
-            Target.Id = targetIdKey;
 
             return new BulkCampaignTarget
             {
