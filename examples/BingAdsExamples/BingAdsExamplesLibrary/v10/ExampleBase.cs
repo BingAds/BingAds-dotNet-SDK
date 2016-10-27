@@ -1001,7 +1001,7 @@ namespace BingAdsExamplesLibrary.V10
         /// <summary>
         /// Gets an example ExpandedTextAd. 
         /// </summary>
-        protected ExpandedTextAd GetExampleTextAd()
+        protected ExpandedTextAd GetExampleExpandedTextAd()
         {
             return new ExpandedTextAd
             {
@@ -1084,6 +1084,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Id: {0}", ad.Id));
                 OutputStatusMessage(string.Format("Status: {0}", ad.Status));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", ad.TrackingUrlTemplate));
+                OutputStatusMessage(string.Format("Type: {0}", ad.Type));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (ad.UrlCustomParameters != null && ad.UrlCustomParameters.Parameters != null)
                 {

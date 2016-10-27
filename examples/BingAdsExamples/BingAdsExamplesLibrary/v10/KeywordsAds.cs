@@ -163,7 +163,7 @@ namespace BingAdsExamplesLibrary.V10
                 };
 
                 // In this example only the first 3 ads should succeed. 
-                // The TitlePart1 of the fourth ad is empty and not valid,
+                // The TitlePart2 of the fourth ad is empty and not valid,
                 // and the fifth ad is a duplicate of the second ad. 
 
                 var ads = new Ad[] {
@@ -286,8 +286,8 @@ namespace BingAdsExamplesLibrary.V10
                         },
                     },
                     new ExpandedTextAd {
-                        TitlePart1 = "",
-                        TitlePart2 = "Fast & Easy Setup",
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "",
                         Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
                         Path1 = "seattle",
                         Path2 = "shoe sale",    

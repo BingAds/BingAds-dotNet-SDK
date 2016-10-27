@@ -2766,14 +2766,14 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
-        /// Gets an example BulkTextAd that can be written as a Text Ad record in a Bulk file. 
+        /// Gets an example BulkExpandedTextAd that can be written as an Expanded Text Ad record in a Bulk file. 
         /// </summary>
-        protected BulkTextAd GetExampleBulkTextAd()
+        protected BulkExpandedTextAd GetExampleBulkExpandedTextAd()
         {
-            return new BulkTextAd
+            return new BulkExpandedTextAd
             {
                 AdGroupId = adGroupIdKey,
-                TextAd = GetExampleTextAd(),
+                ExpandedTextAd = GetExampleExpandedTextAd(),
             };
         }
 
@@ -2793,7 +2793,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 OutputBulkPerformanceData(entity.PerformanceData);
 
-                // Output the Campaign Management TextAd Object
+                // Output the Campaign Management ExpandedTextAd Object
                 OutputExpandedTextAd(entity.ExpandedTextAd);
 
                 if (entity.HasErrors)
