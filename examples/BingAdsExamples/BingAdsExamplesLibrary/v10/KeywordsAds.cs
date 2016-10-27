@@ -88,7 +88,7 @@ namespace BingAdsExamplesLibrary.V10
                         // If you do not set this element, then ManualCpcBiddingScheme is used by default.
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
                         
-                        // Used with FinalUrls shown in the text ads that we will add below.
+                        // Used with FinalUrls shown in the expanded text ads that we will add below.
                         TrackingUrlTemplate = 
                             "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     },
