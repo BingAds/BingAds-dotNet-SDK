@@ -2766,15 +2766,41 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
-        /// Gets an example BulkTextAd that can be written as a Text Ad record in a Bulk file. 
+        /// Gets an example BulkExpandedTextAd that can be written as an Expanded Text Ad record in a Bulk file. 
         /// </summary>
-        protected BulkTextAd GetExampleBulkTextAd()
+        protected BulkExpandedTextAd GetExampleBulkExpandedTextAd()
         {
-            return new BulkTextAd
+            return new BulkExpandedTextAd
             {
                 AdGroupId = adGroupIdKey,
-                TextAd = GetExampleTextAd(),
+                ExpandedTextAd = GetExampleExpandedTextAd(),
             };
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkExpandedTextAd.
+        /// </summary>
+        protected void OutputBulkExpandedTextAds(IEnumerable<BulkExpandedTextAd> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkExpandedTextAd: \n");
+                OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                OutputBulkPerformanceData(entity.PerformanceData);
+
+                // Output the Campaign Management ExpandedTextAd Object
+                OutputExpandedTextAd(entity.ExpandedTextAd);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
         }
 
         /// <summary>
