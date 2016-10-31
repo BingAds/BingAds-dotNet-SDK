@@ -35,9 +35,20 @@ namespace BingAdsExamplesLibrary.V10
 
                 #region Add
 
-                // Prepare the bulk entities that you want to upload. Each bulk entity contains the corresponding campaign management object, 
-                // and additional elements needed to read from and write to a bulk file. 
+                // Let's create a new budget and share it with a new campaign.
 
+                var bulkBudget = new BulkBudget
+                {
+                    ClientId = "YourClientIdGoesHere",
+                    Budget = new Budget
+                    {
+                        Amount = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+                        Id = budgetIdKey,
+                        Name = "My Shared Budget " + DateTime.UtcNow,
+                    }
+                };
+                
                 var bulkCampaign = new BulkCampaign
                 {
                     // ClientId may be used to associate records in the bulk upload file with records in the results file. The value of this field 
@@ -52,8 +63,13 @@ namespace BingAdsExamplesLibrary.V10
                         Id = campaignIdKey,
                         Name = "Women's Shoes " + DateTime.UtcNow,
                         Description = "Red shoes line.",
-                        BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                        MonthlyBudget = 1000.00,
+
+                        // You must choose to set either the shared  budget ID or daily amount.
+                        // You can set one or the other, but you may not set both.
+                        BudgetId = budgetIdKey,
+                        DailyBudget = null,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+
                         TimeZone = "PacificTimeUSCanadaTijuana",
 
                         // DaylightSaving is not supported in the Bulk file schema. Whether or not you specify it in a BulkCampaign,
@@ -67,7 +83,9 @@ namespace BingAdsExamplesLibrary.V10
                         // If you do not set this element, then ManualCpcBiddingScheme is used by default.
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
 
-                        // Used with FinalUrls shown in the text ads that we will add below.
+                        Status = CampaignStatus.Paused,
+                        
+                        // Used with FinalUrls shown in the expanded text ads that we will add below.
                         TrackingUrlTemplate =
                             "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     }
@@ -155,27 +173,20 @@ namespace BingAdsExamplesLibrary.V10
                 };
 
                 // In this example only the first 3 ads should succeed. 
-                // The Title of the fourth ad is empty and not valid,
+                // The TitlePart2 of the fourth ad is empty and not valid,
                 // and the fifth ad is a duplicate of the second ad. 
 
-                var bulkTextAds = new [] {
-                    new BulkTextAd
+                var bulkExpandedTextAds = new [] {
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "Women's Shoe Sale",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",
-                        
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "Fast & Easy Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -210,23 +221,16 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         },
                     },
-                    new BulkTextAd
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "Women's Super Shoe Sale",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",                       
-                        
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "Quick & Easy Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -261,23 +265,16 @@ namespace BingAdsExamplesLibrary.V10
                             },
                         },
                     },
-                    new BulkTextAd
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "Women's Red Shoe Sale",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",
-
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "Fast & Simple Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -312,23 +309,16 @@ namespace BingAdsExamplesLibrary.V10
                             },
                         },
                     },
-                    new BulkTextAd
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",                       
-                        
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",  
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -363,23 +353,16 @@ namespace BingAdsExamplesLibrary.V10
                             },
                         },
                     },
-                    new BulkTextAd
+                    new BulkExpandedTextAd
                     {
                         AdGroupId = adGroupIdKey,
-                        TextAd = new TextAd 
+                        ExpandedTextAd = new ExpandedTextAd
                         {
-                            Title = "Women's Super Shoe Sale",
-                            Text = "Huge Savings on red shoes.",
-                            DisplayUrl = "Contoso.com",                       
-                        
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                            // to an empty string when updating the ad. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
+                            TitlePart1 = "Contoso",
+                            TitlePart2 = "Quick & Easy Setup",
+                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                            Path1 = "seattle",
+                            Path2 = "shoe sale",
 
                             // With FinalUrls you can separate the tracking template, custom parameters, and 
                             // landing page URLs. 
@@ -416,6 +399,7 @@ namespace BingAdsExamplesLibrary.V10
                     },
                 };
 
+                uploadEntities.Add(bulkBudget);
                 uploadEntities.Add(bulkCampaign);
                 uploadEntities.Add(bulkAdGroup);
 
@@ -424,17 +408,20 @@ namespace BingAdsExamplesLibrary.V10
                     uploadEntities.Add(bulkKeyword);
                 }
 
-                foreach (var bulkTextAd in bulkTextAds)
+                foreach (var bulkExpandedTextAd in bulkExpandedTextAds)
                 {
-                    uploadEntities.Add(bulkTextAd);
+                    uploadEntities.Add(bulkExpandedTextAd);
                 }
 
                 // Upload and write the output
 
-                OutputStatusMessage("Adding campaign, ad group, ads, and keywords...\n");
+                OutputStatusMessage("Adding campaign, budget, ad group, ads, and keywords...\n");
 
                 var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
+
+                var budgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(budgetResults);
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
@@ -445,12 +432,99 @@ namespace BingAdsExamplesLibrary.V10
                 var keywordResults = downloadEntities.OfType<BulkKeyword>().ToList();
                 OutputBulkKeywords(keywordResults);
 
-                var textAdResults = downloadEntities.OfType<BulkTextAd>().ToList();
-                OutputBulkTextAds(textAdResults);
+                var expandedTextAdResults = downloadEntities.OfType<BulkExpandedTextAd>().ToList();
+                OutputBulkExpandedTextAds(expandedTextAdResults);
 
                 Reader.Dispose();
 
                 #endregion Add
+
+                #region Update
+
+                // Here is a simple example that updates the campaign budget.
+                
+                var downloadParameters = new DownloadParameters
+                {
+                    Entities = BulkDownloadEntity.Budgets | BulkDownloadEntity.Campaigns,
+                    ResultFileDirectory = FileDirectory,
+                    ResultFileName = DownloadFileName,
+                    OverwriteResultFile = true,
+                    LastSyncTimeInUTC = null
+                };
+
+                // Download all campaigns and shared budgets in the account.
+                var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
+                OutputStatusMessage("\nDownloaded all campaigns and shared budgets in the account.\n");
+                Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
+                downloadEntities = Reader.ReadEntities().ToList();
+                var getBudgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(getBudgetResults);
+                var getCampaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                OutputBulkCampaigns(getCampaignResults);
+
+                uploadEntities = new List<BulkEntity>();
+
+                // If the campaign has a shared budget you cannot update the Campaign budget amount,
+                // and you must instead update the amount in the Budget record. If you try to update 
+                // the budget amount of a Campaign that has a shared budget, the service will return 
+                // the CampaignServiceCannotUpdateSharedBudget error code.
+
+                foreach (var entity in getBudgetResults)
+                {
+                    if (entity.Budget.Id > 0)
+                    {
+                        // Increase budget by 20 %
+                        entity.Budget.Amount *= 1.2m;
+                        uploadEntities.Add(entity);
+                    }
+                }
+
+                foreach (var entity in getCampaignResults)
+                {
+                    if (entity.Campaign.BudgetId == null || entity.Campaign.BudgetId <= 0)
+                    {
+                        // Increase existing budgets by 20%
+                        // Monthly budgets are deprecated and there will be a forced migration to daily budgets in calendar year 2017. 
+                        // Shared budgets do not support the monthly budget type, so this is only applicable to unshared budgets. 
+                        // During the migration all campaign level unshared budgets will be rationalized as daily. 
+                        // The formula that will be used to convert monthly to daily budgets is: Monthly budget amount / 30.4.
+                        // Moving campaign monthly budget to daily budget is encouraged before monthly budgets are migrated. 
+
+                        if (entity.Campaign.BudgetType == BudgetLimitType.MonthlyBudgetSpendUntilDepleted)
+                        {
+                            // Increase budget by 20 %
+                            entity.Campaign.BudgetType = BudgetLimitType.DailyBudgetStandard;
+                            entity.Campaign.DailyBudget = entity.Campaign.MonthlyBudget / 30.4 * 1.2;
+                        }
+                        else
+                        {
+                            // Increase budget by 20 %
+                            entity.Campaign.DailyBudget *= 1.2;
+                        }
+                        uploadEntities.Add(entity);
+                    }
+                }
+
+                Reader.Dispose();
+
+                if (uploadEntities.Count > 0)
+                {
+                    OutputStatusMessage("\nChanged local campaign budget amounts. Starting upload.\n");
+
+                    Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                    downloadEntities = Reader.ReadEntities().ToList();
+                    getBudgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                    OutputBulkBudgets(getBudgetResults);
+                    getCampaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                    OutputBulkCampaigns(getCampaignResults);
+                    Reader.Dispose();
+                }
+                else
+                {
+                    OutputStatusMessage("\nNo campaigns or shared budgets in account.\n");
+                }
+
+                #endregion Update
 
                 #region CleanUp
 
@@ -460,24 +534,33 @@ namespace BingAdsExamplesLibrary.V10
 
                 //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted.
 
-                //When you delete a BulkCampaign, the dependent entities such as BulkAdGroup, BulkKeyword, and BulkTextAd 
-                //are deleted without being specified explicitly.  
+                //When you delete a BulkCampaign, the dependent entities such as BulkAdGroup, BulkKeyword, 
+                //and BulkExpandedTextAd are deleted without being specified explicitly.  
 
                 uploadEntities = new List<BulkEntity>();
+
+                foreach (var budgetResult in budgetResults)
+                {
+                    budgetResult.Status = Status.Deleted;
+                    uploadEntities.Add(budgetResult);
+                }
 
                 foreach (var campaignResult in campaignResults)
                 {
                     campaignResult.Campaign.Status = CampaignStatus.Deleted;
                     uploadEntities.Add(campaignResult);
                 }
-
+                
                 // Upload and write the output
 
-                OutputStatusMessage("\nDeleting campaign, ad group, keywords, and ads . . .\n");
+                OutputStatusMessage("\nDeleting campaign, budget, ad group, keywords, and ads . . .\n");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
-                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
+                getBudgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(getBudgetResults);
+                getCampaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                OutputBulkCampaigns(getCampaignResults);
 
                 Reader.Dispose();
 
@@ -521,7 +604,5 @@ namespace BingAdsExamplesLibrary.V10
                 if (Writer != null) { Writer.Dispose(); }
             }
         }
-
-
     }
 }

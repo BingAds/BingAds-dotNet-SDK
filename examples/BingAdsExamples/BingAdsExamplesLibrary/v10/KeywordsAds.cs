@@ -4,7 +4,6 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds.V10.CampaignManagement;
-using Microsoft.BingAds.CustomerManagement;
 using Microsoft.BingAds;
 
 namespace BingAdsExamplesLibrary.V10
@@ -16,7 +15,6 @@ namespace BingAdsExamplesLibrary.V10
     public class KeywordsAds : ExampleBase
     {
         public static ServiceClient<ICampaignManagementService> CampaignService;
-        public static ServiceClient<ICustomerManagementService> CustomerService;
 
         public override string Description
         {
@@ -28,56 +26,32 @@ namespace BingAdsExamplesLibrary.V10
             try
             {
                 CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
-
-                // Determine whether you are able to add shared budgets by checking the pilot flags.
-
-                bool enabledForSharedBudgets = false;
-
-                // Optionally you can find out which pilot features the customer is able to use.
-                var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
-
-                // The pilot flag value for shared budgets is 263.
-                // Pilot flags apply to all accounts within a given customer.
-                if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 263) > 0)
-                {
-                    enabledForSharedBudgets = true;
-                }
-
-                // If the customer is enabled for shared budgets, let's create a new budget and
-                // share it with a new campaign.
-
+                                
                 var budgetIds = new List<long?>();
-                if (enabledForSharedBudgets)
+                var budgets = new List<Budget>();
+                budgets.Add(new Budget
                 {
-                    var budgets = new List<Budget>();
-                    budgets.Add(new Budget
-                    {
-                        Amount = 50,
-                        BudgetType = BudgetLimitType.DailyBudgetStandard,
-                        Name = "My Shared Budget " + DateTime.UtcNow,
-                    });
-                    
-                    budgetIds = (await AddBudgetsAsync(budgets)).BudgetIds.ToList();
-                }
+                    Amount = 50,
+                    BudgetType = BudgetLimitType.DailyBudgetStandard,
+                    Name = "My Shared Budget " + DateTime.UtcNow,
+                });
+
+                budgetIds = (await AddBudgetsAsync(budgets)).BudgetIds.ToList();
 
                 // Specify one or more campaigns.
 
                 var campaigns = new[]{
                     new Campaign
                     {
-                        Name = "Women's Shoes" + DateTime.UtcNow,
+                        Name = "Women's Shoes " + DateTime.UtcNow,
                         Description = "Red shoes line.",
 
                         // You must choose to set either the shared  budget ID or daily amount.
                         // You can set one or the other, but you may not set both.
-                        BudgetId = enabledForSharedBudgets ? budgetIds[0] : null,
-                        DailyBudget = enabledForSharedBudgets ? 0 : 50,
+                        BudgetId = budgetIds.Count > 0 ? budgetIds[0] : null,
+                        DailyBudget = budgetIds.Count > 0 ? 0 : 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
-
-                        TimeZone = "PacificTimeUSCanadaTijuana",
-                        DaylightSaving = true,
-
+                        
                         // You can set your campaign bid strategy to Enhanced CPC (EnhancedCpcBiddingScheme) 
                         // and then, at any time, set an individual ad group or keyword bid strategy to 
                         // Manual CPC (ManualCpcBiddingScheme).
@@ -85,6 +59,9 @@ namespace BingAdsExamplesLibrary.V10
                         // If you do not set this element, then ManualCpcBiddingScheme is used by default.
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
                         
+                        TimeZone = "PacificTimeUSCanadaTijuana",
+                        DaylightSaving = true,
+                                                
                         // Used with FinalUrls shown in the text ads that we will add below.
                         TrackingUrlTemplate = 
                             "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
@@ -160,24 +137,17 @@ namespace BingAdsExamplesLibrary.V10
                 };
 
                 // In this example only the first 3 ads should succeed. 
-                // The Title of the fourth ad is empty and not valid,
+                // The TitlePart2 of the fourth ad is empty and not valid,
                 // and the fifth ad is a duplicate of the second ad. 
 
                 var ads = new Ad[] {
-                    new TextAd 
+                    new ExpandedTextAd 
                     {
-                        Title = "Women's Shoe Sale",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",
-                        
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Fast & Easy Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -211,19 +181,12 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         }
                     },
-                    new TextAd {
-                        Title = "Women's Super Shoe Sale",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",                       
-                        
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                    new ExpandedTextAd {
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Quick & Easy Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",      
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -257,19 +220,12 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         },
                     },
-                    new TextAd {
-                        Title = "Women's Red Shoe Sale",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",
-
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                    new ExpandedTextAd {
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Fast & Simple Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -303,19 +259,12 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         },
                     },
-                    new TextAd {
-                        Title = "",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",                       
-                        
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                    new ExpandedTextAd {
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",    
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -349,19 +298,12 @@ namespace BingAdsExamplesLibrary.V10
                             }
                         },
                     },
-                    new TextAd {
-                        Title = "Women's Super Shoe Sale",
-                        Text = "Huge Savings on red shoes.",
-                        DisplayUrl = "Contoso.com",                       
-                        
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously.                
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls for existing ads, you can set DestinationUrl
-                        // to an empty string when updating the ad. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
+                    new ExpandedTextAd {
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Quick & Easy Setup",
+                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",    
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -457,7 +399,7 @@ namespace BingAdsExamplesLibrary.V10
                 }
 
                 // Update shared budgets in Budget objects.
-                if (getBudgetIds != null)
+                if (getBudgetIds.Count > 0)
                 {
                     getBudgetIds = getBudgetIds.Distinct().ToList();
                     var getBudgets = (await GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
@@ -506,7 +448,7 @@ namespace BingAdsExamplesLibrary.V10
                 }
 
                 // Update unshared budgets in Campaign objects.
-                if(updateCampaigns != null)
+                if(updateCampaigns.Count > 0)
                 {
                     // The UpdateCampaigns operation only accepts 100 Campaign objects per call. 
                     // To simply the example we will update the first 100.
@@ -556,17 +498,16 @@ namespace BingAdsExamplesLibrary.V10
                     }
                 }
                 
-
                 // Update the Text for the 3 successfully created ads, and update some UrlCustomParameters.
                 var updateAds = new Ad[] {
-                    new TextAd {
+                    new ExpandedTextAd {
                         Id = adIds[0],
                         Text = "Huge Savings on All Red Shoes.",
                         // Set the UrlCustomParameters element to null or empty to retain any 
                         // existing custom parameters.
                         UrlCustomParameters = null,
                     },
-                    new TextAd {
+                    new ExpandedTextAd {
                         Id = adIds[1],
                         Text = "Huge Savings on All Red Shoes.",
                         // To remove all custom parameters, set the Parameters element of the 
@@ -575,7 +516,7 @@ namespace BingAdsExamplesLibrary.V10
                             Parameters = null,
                         },
                     },
-                    new TextAd {
+                    new ExpandedTextAd {
                         Id = adIds[2],
                         Text = "Huge Savings on All Red Shoes.",
                         // To remove a subset of custom parameters, specify the custom parameters that 
@@ -593,9 +534,9 @@ namespace BingAdsExamplesLibrary.V10
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
+                var getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
                 var updateAdsResponse = await UpdateAdsAsync((long)adGroupIds[0], updateAds);
-                await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
+                getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
 
 
                 // Here is a simple example that updates the keyword bid to use the ad group bid.
@@ -610,23 +551,22 @@ namespace BingAdsExamplesLibrary.V10
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
-                await UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
-                await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
-
+                var getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
+                var updateKeywordsResponse = await UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
+                getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
+                
                 // Delete the campaign, ad group, keyword, and ad that were previously added. 
                 // You should remove this line if you want to view the added entities in the 
                 // Bing Ads web application or another tool.
 
                 await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
-                OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignIds[0]));
+                OutputStatusMessage(String.Format("\nDeleted CampaignId {0}\n", campaignIds[0]));
 
-                // This sample will attempt to delete the budget that was created above 
-                // if the customer is enabled for shared budgets.
-                if (enabledForSharedBudgets)
+                // This sample will attempt to delete the budget that was created above.
+                if (budgetIds.Count > 0)
                 {
                     await DeleteBudgetsAsync(new[] { (long)budgetIds[0] });
-                    OutputStatusMessage(String.Format("Deleted Budget Id {0}\n", budgetIds[0]));
+                    OutputStatusMessage(String.Format("\nDeleted Budget Id {0}\n", budgetIds[0]));
                 }
             }
             // Catch authentication exceptions
@@ -653,21 +593,6 @@ namespace BingAdsExamplesLibrary.V10
             {
                 OutputStatusMessage(ex.Message);
             }
-        }
-
-        /// <summary>
-        /// Gets the list of pilot features that the customer is able to use.
-        /// </summary>
-        /// <param name="customerId"></param>
-        /// <returns></returns>
-        private async Task<IList<int>> GetCustomerPilotFeaturesAsync(long customerId)
-        {
-            var request = new GetCustomerPilotFeaturesRequest
-            {
-                CustomerId = customerId
-            };
-
-            return (await CustomerService.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
         }
 
         // Adds one or more budgets that can be shared by campaigns in the account.
@@ -854,7 +779,7 @@ namespace BingAdsExamplesLibrary.V10
 
         // Updates one or more keywords.
 
-        private async Task UpdateKeywordsAsync(long adGroupId, IList<Keyword> keywords)
+        private async Task<UpdateKeywordsResponse> UpdateKeywordsAsync(long adGroupId, IList<Keyword> keywords)
         {
             var request = new UpdateKeywordsRequest
             {
@@ -862,7 +787,7 @@ namespace BingAdsExamplesLibrary.V10
                 Keywords = keywords
             };
 
-            await CampaignService.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
+            return await CampaignService.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
         }
 
         private async Task<IList<Keyword>> GetKeywordsByAdGroupIdAsync(

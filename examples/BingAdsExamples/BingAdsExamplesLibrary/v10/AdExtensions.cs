@@ -55,7 +55,7 @@ namespace BingAdsExamplesLibrary.V10
                 // The pilot flag value for Sitelink ad extension migration is 253.
                 // Pilot flags apply to all accounts within a given customer; however,
                 // each account goes through migration individually and has its own migration status.
-                if (featurePilotFlags.SingleOrDefault(pilotFlag => pilotFlag == 253) > 0)
+                if (featurePilotFlags.Any(pilotFlag => pilotFlag == 253))
                 {
                     // Account migration status below will be either NotStarted, InProgress, or Completed.
                     OutputStatusMessage("Customer is in pilot for Sitelink migration.\n");
@@ -77,10 +77,9 @@ namespace BingAdsExamplesLibrary.V10
                 {
                     OutputAccountMigrationStatusesInfo(accountMigrationStatusesInfo);
 
-                    if (accountMigrationStatusesInfo.MigrationStatusInfo.SingleOrDefault(
+                    if (accountMigrationStatusesInfo.MigrationStatusInfo.Any(
                         statusInfo =>
-                        statusInfo.Status == MigrationStatus.Completed && SITELINK_MIGRATION.CompareTo(statusInfo.MigrationType) == 0)
-                        != null)
+                        statusInfo.Status == MigrationStatus.Completed && SITELINK_MIGRATION.CompareTo(statusInfo.MigrationType) == 0))
                     {
                         sitelinkMigrationIsCompleted = true;
                     }
@@ -93,11 +92,16 @@ namespace BingAdsExamplesLibrary.V10
                 var campaigns = new[] {
                     new Campaign
                     {
-                        Id = null,
                         Name = "Women's Shoes " + DateTime.UtcNow,
                         Description = "Red shoes line.",
-                        BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                        MonthlyBudget = 1000.00,
+
+                        // You must choose to set either the shared  budget ID or daily amount.
+                        // You can set one or the other, but you may not set both.
+                        BudgetId = null,
+                        DailyBudget = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+                        BiddingScheme = new EnhancedCpcBiddingScheme(),
+
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         DaylightSaving = true,
 
@@ -407,6 +411,15 @@ namespace BingAdsExamplesLibrary.V10
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
+            }
+            // Catch Customer Management service exceptions
+            catch (FaultException<Microsoft.BingAds.CustomerManagement.AdApiFaultDetail> ex)
+            {
+                OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
+            }
+            catch (FaultException<Microsoft.BingAds.CustomerManagement.ApiFault> ex)
+            {
+                OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             catch (Exception ex)
             {
@@ -844,7 +857,6 @@ namespace BingAdsExamplesLibrary.V10
                     },
                 }
             };
-            
         }
     }
 }

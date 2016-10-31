@@ -4,6 +4,8 @@ using Microsoft.BingAds.V10.Bulk;
 using Microsoft.BingAds.V10.Bulk.Entities;
 using Microsoft.BingAds.V10.CampaignManagement;
 using System.Threading.Tasks;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities;
+using Microsoft.BingAds.V10.Internal.Bulk.Entities.AdExtensions;
 
 namespace BingAdsExamplesLibrary.V10
 {
@@ -57,8 +59,7 @@ namespace BingAdsExamplesLibrary.V10
         /// The maximum amount of time (in milliseconds) that you want to wait for the bulk download or upload.
         /// </summary>
         protected const int TimeoutInMilliseconds = 36000000;
-
-        protected const int targetIdKey = -1;
+        
         protected const int appAdExtensionIdKey = -11;
         protected const int callAdExtensionIdKey = -12;
         protected const int calloutAdExtensionIdKey = -13;
@@ -66,7 +67,10 @@ namespace BingAdsExamplesLibrary.V10
         protected const int locationAdExtensionIdKey = -15;
         protected const int reviewAdExtensionIdKey = -16;
         protected const int siteLinksAdExtensionIdKey = -17;
-        protected const int negativeKeywordListIdKey = -18;
+        protected const int sitelink2AdExtensionIdKey = -17;
+        protected const int structuredSnippetAdExtensionIdKey = -18;
+        protected const int negativeKeywordListIdKey = -19;
+        protected const int budgetIdKey = -20;
         protected const int campaignIdKey = -111;
         protected const int adGroupIdKey = -1111;
         protected const int negativeKeywordIdKey = -11111;
@@ -171,7 +175,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupAgeTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 AgeTarget = GetExampleAgeTarget()
             };
         }
@@ -221,7 +224,6 @@ namespace BingAdsExamplesLibrary.V10
             {
                 ClientId = "BulkAdGroupAgeTargetBid",
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 AgeTargetBid = GetExampleAgeTargetBid()
             };
         }
@@ -301,7 +303,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupDayTimeTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 DayTimeTarget = GetExampleDayTimeTarget(),
             };
         }
@@ -376,7 +377,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupDeviceOsTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 DeviceOsTarget = GetExampleDeviceOSTarget(),
             };
         }
@@ -451,7 +451,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupGenderTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 GenderTarget = GetExampleGenderTarget()
             };
         }
@@ -573,7 +572,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupLocationTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 IntentOption = IntentOption.PeopleIn,
                 CityTarget = GetExampleCityTarget(),
                 CountryTarget = GetExampleCountryTarget(),
@@ -734,7 +732,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupNegativeLocationTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 CityTarget = GetExampleCityTarget(),
                 CountryTarget = GetExampleCountryTarget(),
                 MetroAreaTarget = GetExampleMetroAreaTarget(),
@@ -906,7 +903,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkAdGroupRadiusTarget
             {
                 AdGroupId = adGroupIdKey,
-                TargetId = targetIdKey,
                 RadiusTarget = GetExampleRadiusTarget(),
             };
         }
@@ -1022,7 +1018,6 @@ namespace BingAdsExamplesLibrary.V10
         protected BulkAdGroupTarget GetExampleBulkAdGroupTarget()
         {
             var Target = GetExampleTarget();
-            Target.Id = targetIdKey;
 
             return new BulkAdGroupTarget
             {
@@ -1197,6 +1192,28 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
+        /// Outputs the list of BulkBudget.
+        /// </summary>
+        protected void OutputBulkBudgets(IEnumerable<BulkBudget> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkBudget: \n");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management Budget Object
+                OutputBudget(entity.Budget);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
         /// Outputs the list of BulkCampaign.
         /// </summary>
         protected void OutputBulkCampaigns(IEnumerable<BulkCampaign> bulkEntities)
@@ -1229,7 +1246,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignAgeTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 AgeTarget = GetExampleAgeTarget(),
             };
         }
@@ -1432,7 +1448,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignDayTimeTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 DayTimeTarget = GetExampleDayTimeTarget(),
             };
         }
@@ -1505,7 +1520,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignDeviceOsTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 DeviceOsTarget = GetExampleDeviceOSTarget(),
             };
         }
@@ -1578,7 +1592,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignGenderTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 GenderTarget = GetExampleGenderTarget(),
             };
         }
@@ -1737,7 +1750,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignLocationTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 IntentOption = IntentOption.PeopleIn,
                 CityTarget = GetExampleCityTarget(),
                 CountryTarget = GetExampleCountryTarget(),
@@ -1931,7 +1943,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignNegativeLocationTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 CityTarget = GetExampleCityTarget(),
                 CountryTarget = GetExampleCountryTarget(),
                 MetroAreaTarget = GetExampleMetroAreaTarget(),
@@ -2099,7 +2110,6 @@ namespace BingAdsExamplesLibrary.V10
             return new BulkCampaignRadiusTarget
             {
                 CampaignId = campaignIdKey,
-                TargetId = targetIdKey,
                 RadiusTarget = GetExampleRadiusTarget(),
             };
         }
@@ -2207,12 +2217,114 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
+        /// Outputs the list of BulkAdGroupAdExtensionAssociation
+        /// </summary>
+        protected void OutputBulkAdGroupAdExtensionAssociation(IEnumerable<BulkAdGroupAdExtensionAssociation> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                var bulkAdGroupAppAdExtension = entity as BulkAdGroupAppAdExtension;
+                if (bulkAdGroupAppAdExtension != null)
+                    OutputStatusMessage("\nBulkAdGroupAppAdExtension:\n");
+                var bulkAdGroupCalloutAdExtension = entity as BulkAdGroupCalloutAdExtension;
+                if (bulkAdGroupCalloutAdExtension != null)
+                    OutputStatusMessage("\nBulkAdGroupCalloutAdExtension:\n");
+                var bulkAdGroupImageAdExtension = entity as BulkAdGroupImageAdExtension;
+                if (bulkAdGroupImageAdExtension != null)
+                    OutputStatusMessage("\nBulkAdGroupImageAdExtension:\n");
+                var bulkAdGroupReviewAdExtension = entity as BulkAdGroupReviewAdExtension;
+                if (bulkAdGroupReviewAdExtension != null)
+                    OutputStatusMessage("\nBulkAdGroupReviewAdExtension:\n");
+                var bulkAdGroupSiteLinkAdExtension = entity as BulkAdGroupSiteLinkAdExtension;
+                if (bulkAdGroupSiteLinkAdExtension != null)
+                    OutputStatusMessage("\nBulkAdGroupSiteLinkAdExtension:\n");
+                var bulkAdGroupSitelink2AdExtension = entity as BulkAdGroupSitelink2AdExtension;
+                if (bulkAdGroupSitelink2AdExtension != null)
+                    OutputStatusMessage("\nBulkAdGroupSitelink2AdExtension:\n");
+                var bulkAdGroupStructuredSnippetAdExtension = entity as BulkAdGroupStructuredSnippetAdExtension;
+                if (bulkAdGroupStructuredSnippetAdExtension != null)
+                    OutputStatusMessage("\nBulkAdGroupStructuredSnippetAdExtension:\n");
+
+                // Output the properties specific to BulkAdGroupAdExtensionAssociation
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+
+                // Output the properties shared by all BulkAdExtensionAssociation
+                OutputBulkAdExtensionAssociation(entity);
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkCampaignAdExtensionAssociation
+        /// </summary>
+        protected void OutputBulkCampaignAdExtensionAssociations(IEnumerable<BulkCampaignAdExtensionAssociation> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                var bulkCampaignAppAdExtension = entity as BulkCampaignAppAdExtension;
+                if (bulkCampaignAppAdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignAppAdExtension:\n");
+                var bulkCampaignCallAdExtension = entity as BulkCampaignCallAdExtension;
+                if (bulkCampaignCallAdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignCallAdExtension:\n");
+                var bulkCampaignCalloutAdExtension = entity as BulkCampaignCalloutAdExtension;
+                if (bulkCampaignCalloutAdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignCalloutAdExtension:\n");
+                var bulkCampaignImageAdExtension = entity as BulkCampaignImageAdExtension;
+                if (bulkCampaignImageAdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignImageAdExtension:\n");
+                var bulkCampaignLocationAdExtension = entity as BulkCampaignLocationAdExtension;
+                if (bulkCampaignLocationAdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignLocationAdExtension:\n");
+                var bulkCampaignReviewAdExtension = entity as BulkCampaignReviewAdExtension;
+                if (bulkCampaignReviewAdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignReviewAdExtension:\n");
+                var bulkCampaignSiteLinkAdExtension = entity as BulkCampaignSiteLinkAdExtension;
+                if (bulkCampaignSiteLinkAdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignSiteLinkAdExtension:\n");
+                var bulkCampaignSitelink2AdExtension = entity as BulkCampaignSitelink2AdExtension;
+                if (bulkCampaignSitelink2AdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignSitelink2AdExtension:\n");
+                var bulkCampaignStructuredSnippetAdExtension = entity as BulkCampaignStructuredSnippetAdExtension;
+                if (bulkCampaignStructuredSnippetAdExtension != null)
+                    OutputStatusMessage("\nBulkCampaignStructuredSnippetAdExtension:\n");
+
+                // Output the properties specific to BulkCampaignAdExtensionAssociation
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+
+                // Output the properties shared by all BulkAdExtensionAssociation
+                OutputBulkAdExtensionAssociation(entity);
+            }
+        }
+
+        /// <summary>
+        /// Outputs the properties shared by all BulkAdExtensionAssociation
+        /// </summary>
+        protected void OutputBulkAdExtensionAssociation(BulkAdExtensionAssociation entity)
+        {
+            if (entity.AdExtensionIdToEntityIdAssociation != null)
+            {
+                OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
+                OutputStatusMessage(string.Format("EntityId (Campaign Id): {0}", entity.AdExtensionIdToEntityIdAssociation.EntityId));
+            }
+            OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+            OutputStatusMessage(string.Format("EditorialStatus: {0}", entity.EditorialStatus));
+            OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+            OutputStatusMessage(string.Format("Status: {0}", entity.Status));
+
+            OutputBulkPerformanceData(entity.PerformanceData);
+
+            if (entity.HasErrors)
+            {
+                OutputBulkErrors(entity.Errors);
+            }
+        }
+
+        /// <summary>
         /// Gets an example BulkCampaignTarget that can be written as a one or more campaign target records in a Bulk file.
         /// </summary>
         protected BulkCampaignTarget GetExampleBulkCampaignTarget()
         {
             var Target = GetExampleTarget();
-            Target.Id = targetIdKey;
 
             return new BulkCampaignTarget
             {
@@ -2612,15 +2724,83 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
-        /// Gets an example BulkTextAd that can be written as a Text Ad record in a Bulk file. 
+        /// Outputs the list of BulkSitelink2AdExtension.
         /// </summary>
-        protected BulkTextAd GetExampleBulkTextAd()
+        protected void OutputBulkSitelink2AdExtensions(IEnumerable<BulkSitelink2AdExtension> bulkEntities)
         {
-            return new BulkTextAd
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkSitelink2AdExtension: \n");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management Sitelink2AdExtension Object
+                OutputSitelink2AdExtension(entity.Sitelink2AdExtension);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkStructuredSnippetAdExtension.
+        /// </summary>
+        protected void OutputBulkStructuredSnippetAdExtensions(IEnumerable<BulkStructuredSnippetAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkStructuredSnippetAdExtension: \n");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management StructuredSnippetAdExtension Object
+                OutputStructuredSnippetAdExtension(entity.StructuredSnippetAdExtension);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets an example BulkExpandedTextAd that can be written as an Expanded Text Ad record in a Bulk file. 
+        /// </summary>
+        protected BulkExpandedTextAd GetExampleBulkExpandedTextAd()
+        {
+            return new BulkExpandedTextAd
             {
                 AdGroupId = adGroupIdKey,
-                TextAd = GetExampleTextAd(),
+                ExpandedTextAd = GetExampleExpandedTextAd(),
             };
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkExpandedTextAd.
+        /// </summary>
+        protected void OutputBulkExpandedTextAds(IEnumerable<BulkExpandedTextAd> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkExpandedTextAd: \n");
+                OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                OutputBulkPerformanceData(entity.PerformanceData);
+
+                // Output the Campaign Management ExpandedTextAd Object
+                OutputExpandedTextAd(entity.ExpandedTextAd);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
         }
 
         /// <summary>

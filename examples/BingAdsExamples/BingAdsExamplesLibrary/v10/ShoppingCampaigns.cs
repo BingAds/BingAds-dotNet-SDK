@@ -65,14 +65,15 @@ namespace BingAdsExamplesLibrary.V10
                         },
                         Name = "Bing Shopping Campaign " + DateTime.UtcNow,
                         Description = "Bing Shopping Campaign Example.",
-                        BudgetType = BudgetLimitType.MonthlyBudgetSpendUntilDepleted,
-                        MonthlyBudget = 1000.00,
+
+                        // You must choose to set either the shared  budget ID or daily amount.
+                        // You can set one or the other, but you may not set both.
+                        BudgetId = null,
+                        DailyBudget = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         DaylightSaving = true,
-
-                        // Used with FinalUrls shown in the product partitions that we will add below.
-                        TrackingUrlTemplate =
-                            "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     }
                 };
 
