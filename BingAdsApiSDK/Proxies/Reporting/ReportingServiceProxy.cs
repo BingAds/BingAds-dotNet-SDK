@@ -6757,6 +6757,9 @@ namespace Microsoft.BingAds.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstall = 256,
         
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DynamicSearchAd = 512,
+        
         /// <summary>
         /// The report will include expanded text ads.
         /// </summary>

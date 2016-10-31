@@ -6728,6 +6728,81 @@ namespace Microsoft.BingAds.V10.AdInsight
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MetricData", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.Entity")]
+    [System.SerializableAttribute()]
+    public partial class MetricData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MetricDetailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MetricTypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MetricDetail
+        {
+            get
+            {
+                return this.MetricDetailField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MetricDetailField, value) != true))
+                {
+                    this.MetricDetailField = value;
+                    this.RaisePropertyChanged("MetricDetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MetricType
+        {
+            get
+            {
+                return this.MetricTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MetricTypeField, value) != true))
+                {
+                    this.MetricTypeField = value;
+                    this.RaisePropertyChanged("MetricType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service", ConfigurationName="Microsoft.BingAds.V10.AdInsight.IAdInsightService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface IAdInsightService
@@ -7288,6 +7363,18 @@ namespace Microsoft.BingAds.V10.AdInsight
         [System.ServiceModel.OperationContractAttribute(Action="GetDomainCategories", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/GetDomainCategoriesR" +
             "esponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesResponse> GetDomainCategoriesAsync(Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="PutMetricData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/PutMetricDataRespons" +
+            "e")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/PutMetricDataAdApiFa" +
+            "ultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/PutMetricDataApiFaul" +
+            "tDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V10.AdInsight.PutMetricDataResponse PutMetricData(Microsoft.BingAds.V10.AdInsight.PutMetricDataRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="PutMetricData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service/IAdInsightService/PutMetricDataRespons" +
+            "e")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.PutMetricDataResponse> PutMetricDataAsync(Microsoft.BingAds.V10.AdInsight.PutMetricDataRequest request);
     }
     
     /// <summary>
@@ -9828,6 +9915,72 @@ namespace Microsoft.BingAds.V10.AdInsight
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PutMetricDataRequest", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service", IsWrapped=true)]
+    public partial class PutMetricDataRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.MetricData> Metrics;
+        
+        public PutMetricDataRequest()
+        {
+        }
+        
+        public PutMetricDataRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.AdInsight.MetricData> Metrics)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Metrics = Metrics;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PutMetricDataResponse", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service", IsWrapped=true)]
+    public partial class PutMetricDataResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service")]
+        public string TrackingId;
+        
+        public PutMetricDataResponse()
+        {
+        }
+        
+        public PutMetricDataResponse(string TrackingId)
+        {
+            this.TrackingId = TrackingId;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IAdInsightServiceChannel : Microsoft.BingAds.V10.AdInsight.IAdInsightService, System.ServiceModel.IClientChannel
     {
@@ -10380,6 +10533,16 @@ namespace Microsoft.BingAds.V10.AdInsight
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesResponse> GetDomainCategoriesAsync(Microsoft.BingAds.V10.AdInsight.GetDomainCategoriesRequest request)
         {
             return base.Channel.GetDomainCategoriesAsync(request);
+        }
+        
+        public Microsoft.BingAds.V10.AdInsight.PutMetricDataResponse PutMetricData(Microsoft.BingAds.V10.AdInsight.PutMetricDataRequest request)
+        {
+            return base.Channel.PutMetricData(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V10.AdInsight.PutMetricDataResponse> PutMetricDataAsync(Microsoft.BingAds.V10.AdInsight.PutMetricDataRequest request)
+        {
+            return base.Channel.PutMetricDataAsync(request);
         }
     }
 }

@@ -1328,7 +1328,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671765(v=msads.100).aspx">BatchError Data Object</see> http://msdn.microsoft.com/en-us/library/bb671765(v=msads.100).aspx for details.
     /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroupRemarketingListAssociations">AddAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddRemarketingLists">AddRemarketingLists</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupRemarketingListAssociations">DeleteAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdGroupRemarketingListAssociations">GetAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByAdGroupIds">GetTargetsByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByCampaignIds">GetTargetsByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroupRemarketingListAssociations">UpdateAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroupRemarketingListAssociations">AddAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddRemarketingLists">AddRemarketingLists</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupRemarketingListAssociations">DeleteAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteRemarketingLists">DeleteRemarketingLists</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdGroupRemarketingListAssociations">GetAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByAdGroupIds">GetTargetsByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetTargetsByCampaignIds">GetTargetsByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroupRemarketingListAssociations">UpdateAdGroupRemarketingListAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateRemarketingLists">UpdateRemarketingLists</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4494,7 +4494,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The name of the device to target. The following are the possible device names that you can specify.
+        /// The name of the device to target.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string DeviceName
@@ -14850,7 +14850,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt735047(v=msads.100).aspx">RemarketingList Data Object</see> http://msdn.microsoft.com/en-us/library/mt735047(v=msads.100).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddRemarketingLists">AddRemarketingLists</see> and <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddRemarketingLists">AddRemarketingLists</see>, <see cref="CampaignManagementServiceClient.GetRemarketingLists">GetRemarketingLists</see> and <see cref="CampaignManagementServiceClient.UpdateRemarketingLists">UpdateRemarketingLists</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14872,13 +14872,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MembershipDurationField;
+        private System.Nullable<int> MembershipDurationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long ParentIdField;
+        private System.Nullable<long> ParentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V10.CampaignManagement.RemarketingRule RuleField;
@@ -14887,7 +14887,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private Microsoft.BingAds.V10.CampaignManagement.EntityScope ScopeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long TagIdField;
+        private System.Nullable<long> TagIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -14965,7 +14965,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// When you create a remarketing list, you can specify how far back in time Bing Ads should look for actions that match your remarketing list definition in order to add people to your list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MembershipDuration
+        public System.Nullable<int> MembershipDuration
         {
             get
             {
@@ -15005,7 +15005,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// The Bing Ads identifier of the account or customer. If the Scope is set to Account, this is the account ID, and otherwise it is the customer ID.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long ParentId
+        public System.Nullable<long> ParentId
         {
             get
             {
@@ -15065,7 +15065,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// The Bing Ads identifier of the Universal Event Tracking (UET) tag that is used with the remarketing list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long TagId
+        public System.Nullable<long> TagId
         {
             get
             {
@@ -20177,6 +20177,30 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="AddRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddRemarketingListsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse> AddRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
+            "pdateRemarketingListsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
+            "pdateRemarketingListsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
+            "pdateRemarketingListsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsResponse UpdateRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
+            "pdateRemarketingListsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsResponse> UpdateRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
+            "eleteRemarketingListsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
+            "eleteRemarketingListsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
+            "eleteRemarketingListsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsResponse DeleteRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
+            "eleteRemarketingListsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsResponse> DeleteRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsRequest request);
         
         /// <summary>
         /// Gets the remarketing lists that can be associated with entities in the specified account.
@@ -32214,6 +32238,146 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateRemarketingListsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
+    public partial class UpdateRemarketingListsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists;
+        
+        public UpdateRemarketingListsRequest()
+        {
+        }
+        
+        public UpdateRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.RemarketingLists = RemarketingLists;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateRemarketingListsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
+    public partial class UpdateRemarketingListsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
+        
+        public UpdateRemarketingListsResponse()
+        {
+        }
+        
+        public UpdateRemarketingListsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteRemarketingListsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
+    public partial class DeleteRemarketingListsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
+        public System.Collections.Generic.IList<long> RemarketingListIds;
+        
+        public DeleteRemarketingListsRequest()
+        {
+        }
+        
+        public DeleteRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> RemarketingListIds)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.RemarketingListIds = RemarketingListIds;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteRemarketingListsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
+    public partial class DeleteRemarketingListsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
+        
+        public DeleteRemarketingListsResponse()
+        {
+        }
+        
+        public DeleteRemarketingListsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     /// <summary>
     /// Gets the remarketing lists that can be associated with entities in the specified account.
     /// </summary>
@@ -36483,6 +36647,26 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse> AddRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request)
         {
             return base.Channel.AddRemarketingListsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsResponse UpdateRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsRequest request)
+        {
+            return base.Channel.UpdateRemarketingLists(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsResponse> UpdateRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsRequest request)
+        {
+            return base.Channel.UpdateRemarketingListsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsResponse DeleteRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsRequest request)
+        {
+            return base.Channel.DeleteRemarketingLists(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsResponse> DeleteRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsRequest request)
+        {
+            return base.Channel.DeleteRemarketingListsAsync(request);
         }
         
         /// <summary>
