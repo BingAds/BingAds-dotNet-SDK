@@ -32,8 +32,9 @@ namespace BingAdsExamplesLibrary.V10
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
                 // In this example we will download all ads and keywords in the account.
-                var entities = BulkDownloadEntity.Ads |
-                    BulkDownloadEntity.Keywords;
+                var entities = BulkDownloadEntity.Campaigns |
+                    BulkDownloadEntity.AdGroups | 
+                    BulkDownloadEntity.Ads;
 
                 // DownloadParameters is used for Option A below.
                 var downloadParameters = new DownloadParameters

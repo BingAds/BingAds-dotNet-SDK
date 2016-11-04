@@ -2546,20 +2546,6 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
-        /// Gets an example BulkCampaignProductScope that can be written as a Campaign Product Scope record in a Bulk file. 
-        /// </summary>
-        protected BulkCampaignProductScope GetExampleBulkCampaignProductScope()
-        {
-            var campaignCriterion = GetExampleCampaignCriterionWithProductScope();
-            campaignCriterion.Id = campaignIdKey;
-
-            return new BulkCampaignProductScope
-            {
-                CampaignCriterion = campaignCriterion,
-            };
-        }
-
-        /// <summary>
         /// Outputs the list of BulkCampaignProductScope.
         /// </summary>
         protected void OutputBulkCampaignProductScopes(IEnumerable<BulkCampaignProductScope> bulkEntities)
@@ -2581,20 +2567,6 @@ namespace BingAdsExamplesLibrary.V10
 
                 OutputStatusMessage("\n");
             }
-        }
-
-        /// <summary>
-        /// Gets an example BulkAdGroupProductPartition that can be written as an AdGroup Product Partition record in a Bulk file. 
-        /// </summary>
-        protected BulkAdGroupProductPartition GetExampleBulkAdGroupProductPartition()
-        {
-            var adGroupCriterion = GetExampleAdGroupCriterionWithProductPartition();
-            adGroupCriterion.AdGroupId = adGroupIdKey;
-
-            return new BulkAdGroupProductPartition
-            {
-                AdGroupCriterion = adGroupCriterion,
-            };
         }
 
         /// <summary>
