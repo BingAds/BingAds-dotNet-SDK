@@ -134,7 +134,7 @@ namespace BingAdsExamplesLibrary.V10
                                     Operand = WebpageConditionOperand.PageContent,
                                 }
                             },
-                            //CriterionName = "Ad Group Webpage Positive Page Content Criterion"
+                            CriterionName = "Ad Group Webpage Positive Page Content Criterion"
                         },
                     },
                     // DestinationUrl is not supported with Webpage criterion.
@@ -167,11 +167,9 @@ namespace BingAdsExamplesLibrary.V10
 
                 // To discover the categories that you can use for Webpage criterion (positive or negative), 
                 // use the GetDomainCategories operation with the Ad Insight service.
-
-                // Blocking BUG: https://msasg.visualstudio.com/web/wi.aspx?pcguid=19422243-19b9-4d85-9ca6-bc961861d287&id=549793
+                
                 var getDomainCategoriesResponse = await GetDomainCategoriesAsync(DOMAIN_NAME, LANGUAGE);
-                //var categories = getDomainCategoriesResponse.Categories;
-                var categories = new List<DomainCategory>();
+                var categories = getDomainCategoriesResponse.Categories;
 
                 // If any categories are available let's use one as a condition.
                 if (categories.Count > 0)
@@ -221,17 +219,18 @@ namespace BingAdsExamplesLibrary.V10
                             {
                                 new WebpageCondition
                                 {
-                                    Argument = "contoso.com",
+                                    Argument = DOMAIN_NAME,
                                     Operand = WebpageConditionOperand.Url,
                                 }
                             },
-                            //CriterionName = "Ad Group Webpage Negative Url Criterion"
+                            // If you do not specify any name, then it will be set to a concatenated list of conditions. 
+                            CriterionName = null
                         }
                     }
                 };
                 adGroupCriterions.Add(adGroupWebpageNegativeUrl);
 
-                OutputStatusMessage("\nAdding Ad Group Webpage Criterion . . . \n");
+                OutputStatusMessage("Adding Ad Group Webpage Criterion . . . \n");
                 OutputAdGroupCriterions(adGroupCriterions);
                 AddAdGroupCriterionsResponse addAdGroupCriterionsResponse =
                     await AddAdGroupCriterionsAsync(adGroupCriterions, CriterionType.Webpage);
@@ -263,13 +262,13 @@ namespace BingAdsExamplesLibrary.V10
                                     Operand = WebpageConditionOperand.Url,
                                 }
                             },
-                            CriterionName = "Campaign Webpage Negative Criterion"
+                            CriterionName = "Campaign Negative Webpage Url Criterion"
                         }
                     }
                 };
                 campaignCriterions.Add(campaignWebpageNegative);
 
-                OutputStatusMessage("\nAdding Campaign Webpage Criterion . . . \n");
+                OutputStatusMessage("Adding Campaign Webpage Criterion . . . \n");
                 OutputCampaignCriterions(campaignCriterions);
                 AddCampaignCriterionsResponse addCampaignCriterionsResponse =
                     await AddCampaignCriterionsAsync(campaignCriterions, CampaignCriterionType.Webpage);
@@ -352,10 +351,11 @@ namespace BingAdsExamplesLibrary.V10
                     }
                 };
 
-                // You cannot update the Webpage conditions. 
+                // You can update the Webpage criterion name but cannot update the conditions. 
+                // To update the conditions you must delete the criterion and add a new criterion.
                 // This update attempt will return an error.
 
-                var updateCriterion = new Webpage
+                var updateCriterionAttemptFailure = new Webpage
                 {
                     Parameter = new WebpageParameter
                     {
@@ -367,37 +367,37 @@ namespace BingAdsExamplesLibrary.V10
                                 Operand = WebpageConditionOperand.PageContent,
                             }
                         },
-                        CriterionName = "Ad Group Webpage Positive Page Content Criterion"
+                        CriterionName = "Update Attempt Failure"
                     },
                 };
-                
+
+                var updateCriterionAttemptSuccess = new Webpage
+                {
+                    Parameter = new WebpageParameter
+                    {
+                        CriterionName = "Update Attempt Success"
+                    },
+                };
+
                 foreach (var adGroupCriterion in adGroupCriterions)
                 {
                     var biddableAdGroupCriterion = adGroupCriterion as BiddableAdGroupCriterion;
                     if (biddableAdGroupCriterion != null)
                     {
                         ((BiddableAdGroupCriterion)(adGroupCriterion)).CriterionBid = updateBid;
-
-                        // Succeeds
-                        ((Webpage)((BiddableAdGroupCriterion)(adGroupCriterion)).Criterion).Parameter.Conditions = null;
-
-                        // Succeeds
-                        //((Webpage)((BiddableAdGroupCriterion)(adGroupCriterion)).Criterion).Parameter = null;
-
-                        // Fails with CampaignServiceAdGroupCriterionInvalidConditionType
-                        //((BiddableAdGroupCriterion)(adGroupCriterion)).Criterion = null;
+                        ((BiddableAdGroupCriterion)(adGroupCriterion)).Criterion = updateCriterionAttemptSuccess;
                     }
                     else
                     {
                         var negativeAdGroupCriterion = adGroupCriterion as NegativeAdGroupCriterion;
                         if (negativeAdGroupCriterion != null)
                         {
-                            ((NegativeAdGroupCriterion)(adGroupCriterion)).Criterion = updateCriterion;
+                            ((NegativeAdGroupCriterion)(adGroupCriterion)).Criterion = updateCriterionAttemptFailure;
                         }
                     }
                 }                
 
-                OutputStatusMessage("\nUpdating Ad Group Webpage Criterion . . . \n");
+                OutputStatusMessage("Updating Ad Group Webpage Criterion . . . \n");
                 OutputAdGroupCriterions(adGroupCriterions);
                 UpdateAdGroupCriterionsResponse updateAdGroupCriterionsResponse =
                     await UpdateAdGroupCriterionsAsync(adGroupCriterions, CriterionType.Webpage);

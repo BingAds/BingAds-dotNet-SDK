@@ -1104,7 +1104,7 @@ namespace BingAdsExamplesLibrary.V10
             
             foreach (long? id in ids)
             {
-                OutputStatusMessage("" + id + "\n");
+                OutputStatusMessage("" + id);
             }
         }
 
