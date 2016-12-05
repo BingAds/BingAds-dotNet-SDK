@@ -26,6 +26,123 @@ namespace BingAdsExamplesLibrary.V10
             {
                 Service = new ServiceClient<ICampaignManagementService>(authorizationData);
 
+                // Before you can track conversions or target audiences using a remarketing list, 
+                // you need to create a UET tag in Bing Ads (web application or API) and then 
+                // add the UET tag tracking code to every page of your website. For more information, please see 
+                // Universal Event Tracking at https://msdn.microsoft.com/library/bing-ads-universal-event-tracking-guide.aspx.
+
+                // First you should call the GetUetTagsByIds operation to check whether a tag has already been created. 
+                // You can leave the TagIds element null or empty to request all UET tags available for the customer.
+
+                var uetTags = (await GetUetTagsByIdsAsync(null)).UetTags;
+
+                // If you do not already have a UET tag that can be used, or if you need another UET tag, 
+                // call the AddUetTags service operation to create a new UET tag. If the call is successful, 
+                // the tracking script that you should add to your website is included in a corresponding 
+                // UetTag within the response message. 
+
+                if (uetTags == null || uetTags.Count < 1)
+                {
+                    var uetTag = new UetTag
+                    {
+                        Description = "My First Uet Tag",
+                        Name = "New Uet Tag",
+                    };
+                    uetTags = (await AddUetTagsAsync(new[] { uetTag })).UetTags;
+                }
+
+                if (uetTags == null || uetTags.Count < 1)
+                {
+                    OutputStatusMessage(
+                        string.Format("You do not have any UET tags registered for CustomerId {0}.\n", authorizationData.CustomerId)
+                    );
+                    return;
+                }
+
+                OutputStatusMessage("List of all UET Tags:\n");
+                foreach (var uetTag in uetTags)
+                {
+                    OutputUetTag(uetTag);
+                }
+
+                // After you retreive the tracking script from the AddUetTags or GetUetTagsByIds operation, 
+                // the next step is to add the UET tag tracking code to your website. We recommend that you, 
+                // or your website administrator, add it to your entire website in either the head or body sections. 
+                // If your website has a master page, then that is the best place to add it because you add it once 
+                // and it is included on all pages. For more information, please see 
+                // Universal Event Tracking at https://msdn.microsoft.com/library/bing-ads-universal-event-tracking-guide.aspx.
+                
+                // We will use the same UET tag for the remainder of this example.
+                var tagId = uetTags[0].Id;
+
+                // Add a remarketing list that depend on the UET Tag Id retreived above.
+
+                var addRemarketingList = new RemarketingList
+                {
+                    Description = "New remarketing list example",
+                    MembershipDuration = 30,
+                    Name = "My Remarketing List " + DateTime.UtcNow,
+                    ParentId = 123,
+                    Rule = new CustomEventsRule
+                    {
+                        // The type of user interaction you want to track.
+                        Action = "play",
+                        ActionOperator = StringOperator.Contains,
+                        // The category of event you want to track. 
+                        Category = "video",
+                        CategoryOperator = StringOperator.Contains,
+                        // The name of the element that caused the action.
+                        Label = "trailer",
+                        LabelOperator = StringOperator.Contains,
+                        // A numerical value associated with that event. 
+                        // Could be length of the video played etc.
+                        Value = 5.00m,
+                        ValueOperator = NumberOperator.Equals,
+                    },
+                    Scope = EntityScope.Account,
+                    TagId = tagId
+                };
+
+                var addRemarketingListsResponse = await AddRemarketingListsAsync(new[] { addRemarketingList });
+
+                var updateRemarketingList = new RemarketingList
+                {
+                    Description = "Update remarketing list example",
+                    Id = addRemarketingListsResponse.RemarketingListIds[0],
+                    MembershipDuration = 30,
+                    Name = "My Remarketing List " + DateTime.UtcNow,
+                    ParentId = 123,
+                    Rule = new CustomEventsRule
+                    {
+                        // For both add and update conversion goal operations, you must include one or more  
+                        // of the following events: 
+                        // ActionExpression, CategoryExpression, LabelExpression, or Value.
+
+                        // For example if you do not include Action during update, 
+                        // any existing ActionOperator and Action settings will be deleted.
+                        Action = null,
+                        //ActionOperator = null,
+                        Category = "video",
+                        CategoryOperator = StringOperator.Equals,
+                        // You cannot update the operator unless you also include the expression.
+                        // The following attempt to update LabelOperator will result in an error.
+                        Label = null,
+                        LabelOperator = StringOperator.Equals,
+                        // You must specify the previous settings unless you want
+                        // them replaced during the update conversion goal operation.
+                        Value = 5.00m,
+                        ValueOperator = NumberOperator.Equals,
+                    },
+                    // The Scope cannot be updated, even if you update the rule type.
+                    // You can either send the same value or leave Scope empty.
+                    Scope = EntityScope.Account,
+                    // You can update the tag as needed. In this example we will explicitly use the same UET tag.
+                    // To keep the UET tag unchanged, you can also leave this element nil or empty.
+                    TagId = tagId,
+                };
+
+                var updateRemarketingListsResponse = await UpdateRemarketingListsAsync(new[] { updateRemarketingList });
+
                 // To discover all remarketing lists that the user can associate with ad groups in the current account (per CustomerAccountId header), 
                 // set RemarketingListIds to null when calling the GetRemarketingLists operation.
 
@@ -192,43 +309,44 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
-        // Adds one or more campaigns to the specified account.
+        // Adds one or more UET tags.
 
-        private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
+        private async Task<AddUetTagsResponse> AddUetTagsAsync(IList<UetTag> uetTags)
         {
-            var request = new AddCampaignsRequest
+            var request = new AddUetTagsRequest
             {
-                AccountId = accountId,
-                Campaigns = campaigns
+                UetTags = uetTags,
             };
 
-            return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
+            return (await Service.CallAsync((s, r) => s.AddUetTagsAsync(r), request));
         }
 
-        // Deletes one or more campaigns from the specified account.
+        // Gets one or more UET Tags.
 
-        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
+        private async Task<GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(IList<long> tagIds)
         {
-            var request = new DeleteCampaignsRequest
+            var request = new GetUetTagsByIdsRequest
             {
-                AccountId = accountId,
-                CampaignIds = campaignIds
+                TagIds = tagIds,
             };
 
-            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            return await Service.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request);
         }
 
-        // Adds one or more ad groups to the specified campaign.
-
-        private async Task<AddAdGroupsResponse> AddAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
+        /// <summary>
+        /// Adds remarketing lists. 
+        /// </summary>
+        /// <param name="remarketingListIds">The remarketing lists that you want to add.</param>
+        /// <returns></returns>
+        private async Task<AddRemarketingListsResponse> AddRemarketingListsAsync(IList<RemarketingList> remarketingLists)
         {
-            var request = new AddAdGroupsRequest
+            var request = new AddRemarketingListsRequest
             {
-                CampaignId = campaignId,
-                AdGroups = adGroups
+
+                RemarketingLists = remarketingLists,
             };
 
-            return (await Service.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
+            return (await Service.CallAsync((s, r) => s.AddRemarketingListsAsync(r), request));
         }
 
         /// <summary>
@@ -246,6 +364,22 @@ namespace BingAdsExamplesLibrary.V10
             };
 
             return (await Service.CallAsync((s, r) => s.GetRemarketingListsAsync(r), request));
+        }
+
+        /// <summary>
+        /// Updates remarketing lists. 
+        /// </summary>
+        /// <param name="remarketingListIds">The remarketing lists that you want to update.</param>
+        /// <returns></returns>
+        private async Task<UpdateRemarketingListsResponse> UpdateRemarketingListsAsync(IList<RemarketingList> remarketingLists)
+        {
+            var request = new UpdateRemarketingListsRequest
+            {
+
+                RemarketingLists = remarketingLists,
+            };
+
+            return (await Service.CallAsync((s, r) => s.UpdateRemarketingListsAsync(r), request));
         }
 
         /// <summary>
@@ -310,6 +444,45 @@ namespace BingAdsExamplesLibrary.V10
             };
 
             return (await Service.CallAsync((s, r) => s.UpdateAdGroupRemarketingListAssociationsAsync(r), request));
+        }
+
+        // Adds one or more campaigns to the specified account.
+
+        private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
+        {
+            var request = new AddCampaignsRequest
+            {
+                AccountId = accountId,
+                Campaigns = campaigns
+            };
+
+            return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
+        }
+
+        // Deletes one or more campaigns from the specified account.
+
+        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
+        {
+            var request = new DeleteCampaignsRequest
+            {
+                AccountId = accountId,
+                CampaignIds = campaignIds
+            };
+
+            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+        }
+
+        // Adds one or more ad groups to the specified campaign.
+
+        private async Task<AddAdGroupsResponse> AddAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
+        {
+            var request = new AddAdGroupsRequest
+            {
+                CampaignId = campaignId,
+                AdGroups = adGroups
+            };
+
+            return (await Service.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
         }
     }
 }
