@@ -9,7 +9,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V10
 {
     /// <summary>
-    /// This example demonstrates how to associate remarketing lists to a new ad group.
+    /// This example demonstrates how to associate remarketing lists with a new ad group.
     /// </summary>
     public class RemarketingLists : ExampleBase
     {
@@ -462,15 +462,10 @@ namespace BingAdsExamplesLibrary.V10
 
                 var updateRemarketingListsResponse = await UpdateRemarketingListsAsync(updateRemarketingLists);
 
-                // To discover all remarketing lists that the user can associate with ad groups in the current account (per CustomerAccountId header), 
-                // set RemarketingListIds to null when calling the GetRemarketingLists operation.
-
-                var remarketingLists = (await GetRemarketingListsAsync(null, RemarketingListAdditionalField.Rule)).RemarketingLists;
-
+                
                 // You must already have at least one remarketing list for the remainder of this example. 
-                // The Bing Ads API does not support remarketing list add, update, or delete operations.
 
-                if (remarketingLists.Count < 1)
+                if (addRemarketingListsResponse.RemarketingListIds.Count < 1)
                 {
                     return;
                 }
@@ -540,6 +535,13 @@ namespace BingAdsExamplesLibrary.V10
                 var adGroupRemarketingListAssociations = new List<AdGroupRemarketingListAssociation>();
 
                 // This example associates all of the remarketing lists with the new ad group.
+
+                var getRemarketingListIds = new List<long>();
+                foreach (var listId in addRemarketingListsResponse.RemarketingListIds)
+                {
+                    getRemarketingListIds.Add((long)listId);
+                }
+                var remarketingLists = (await GetRemarketingListsAsync(getRemarketingListIds, RemarketingListAdditionalField.Rule)).RemarketingLists;
 
                 foreach (var remarketingList in remarketingLists)
                 {
