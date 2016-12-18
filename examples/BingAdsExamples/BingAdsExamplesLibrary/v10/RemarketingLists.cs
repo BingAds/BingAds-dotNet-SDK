@@ -355,7 +355,6 @@ namespace BingAdsExamplesLibrary.V10
 
                 var addRemarketingListsResponse = await AddRemarketingListsAsync(addRemarketingLists);
                 
-
                 var updateRemarketingLists = new [] {
                     new RemarketingList
                     {
