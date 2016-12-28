@@ -226,7 +226,7 @@ namespace BingAdsExamplesLibrary.V10
                             // If you do not specify any name, then it will be set to a concatenated list of conditions. 
                             CriterionName = null
                         }
-                    }
+                    },
                 };
                 adGroupCriterions.Add(adGroupWebpageNegativeUrl);
 
