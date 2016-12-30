@@ -47,6 +47,8 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System.Reflection;
+
 namespace Microsoft.BingAds.V10.Internal.Bulk
 {
     internal class StringTable
@@ -345,5 +347,19 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         // Ad Extension Schedule
         public const string AdSchedule = "Ad Schedule";
         public const string UseSearcherTimeZone = "Use Searcher Time Zone";
+
+        // Dynamic Search Ad
+        public const string DynamicSearchAd = "Dynamic Search Ad";
+        public const string CampaignNegativeDynamicSearchAdTarget = "Campaign Negative Dynamic Search Ad Target";
+        public const string AdGroupNegativeDynamicSearchAdTarget = "Ad Group Negative Dynamic Search Ad Target";
+        public const string AdGroupDynamicSearchAdTarget = "Ad Group Dynamic Search Ad Target";
+
+        public const string DomainLanguage = "Domain Language";
+        public const string DynamicAdTargetCondition1 = "Dynamic Ad Target Condition 1";
+        public const string DynamicAdTargetCondition2 = "Dynamic Ad Target Condition 2";
+        public const string DynamicAdTargetCondition3 = "Dynamic Ad Target Condition 3";
+        public const string DynamicAdTargetValue1 = "Dynamic Ad Target Value 1";
+        public const string DynamicAdTargetValue2 = "Dynamic Ad Target Value 2";
+        public const string DynamicAdTargetValue3 = "Dynamic Ad Target Value 3";
     }
 }

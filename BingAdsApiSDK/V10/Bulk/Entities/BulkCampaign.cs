@@ -62,6 +62,7 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
     /// <para>
     /// Represents a campaign that can be read or written in a bulk file. 
     /// This class exposes the <see cref="BulkCampaign.Campaign"/> property that can be read and written as fields of the Campaign record in a bulk file. 
+    /// You must set the BudgetType property, otherwise the DailyBudget or MonthlyBudget will not be written to the Budget field of the bulk file.
     /// </para>
     /// <para>For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=620239">Campaign</see>. </para>
     /// </summary>
@@ -111,6 +112,20 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
             return (ShoppingSetting) shoppingSettings[0];
         }
 
+        private DynamicSearchAdsSetting GetDynamicSearchAdsSetting()
+        {
+            if (Campaign.Settings == null) return null;
+
+            var dynamicSearchAdsSettingSettings = Campaign.Settings.Where(setting => setting is DynamicSearchAdsSetting).ToList();
+
+            if (dynamicSearchAdsSettingSettings.Count != 1)
+            {
+                throw new ArgumentException("Can only have 1 DynamicSearchAdsSetting in Campaign Settings");
+            }
+
+            return (DynamicSearchAdsSetting)dynamicSearchAdsSettingSettings[0];
+        }
+
         private static readonly IBulkMapping<BulkCampaign>[] Mappings =
         {
             // NOTE: Put this mapping before other mapping which need to access CampaignType and Settings
@@ -148,6 +163,17 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
                             new ShoppingSetting
                             {
                                 Type = typeof (ShoppingSetting).Name,
+                            },
+                        };
+                    }
+
+                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
+                    {
+                        c.Campaign.Settings = new List<Setting>
+                        {
+                            new DynamicSearchAdsSetting
+                            {
+                                Type = typeof (DynamicSearchAdsSetting).Name,
                             },
                         };
                     }
@@ -284,6 +310,52 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
                 c => c.Campaign.BiddingScheme.ToBiddingSchemeBulkString(),
                 (v, c) => c.Campaign.BiddingScheme = v.ParseBiddingScheme()
             ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.Website,
+                c =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
+                    {
+                        var dynamicSearchAdsSetting = c.GetDynamicSearchAdsSetting();
+
+                        return dynamicSearchAdsSetting == null ? null : dynamicSearchAdsSetting.DomainName;
+                    }
+
+                    return null;
+                },
+                (v, c) =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
+                    {
+                        var dynamicSearchAdsSetting = c.GetDynamicSearchAdsSetting();
+
+                        dynamicSearchAdsSetting.DomainName = v;
+                    }
+                }
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.DomainLanguage,
+                c =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
+                    {
+                        var dynamicSearchAdsSetting = c.GetDynamicSearchAdsSetting();
+
+                        return dynamicSearchAdsSetting == null ? null : dynamicSearchAdsSetting.Language;
+                    }
+
+                    return null;
+                },
+                (v, c) =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
+                    {
+                        var dynamicSearchAdsSetting = c.GetDynamicSearchAdsSetting();
+
+                        dynamicSearchAdsSetting.Language = v;
+                    }
+                }
+            )
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

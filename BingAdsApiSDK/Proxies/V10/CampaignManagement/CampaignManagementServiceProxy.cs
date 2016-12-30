@@ -429,7 +429,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The campaign type determines whether the campaign is a Bing Shopping campaign or a Search &amp; Content campaign.
+        /// The campaign type determines whether the campaign is a Bing Shopping campaign, Dynamic Search Ads campaign, or Search &amp; Content campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CampaignType> CampaignType
@@ -449,7 +449,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The setting will vary by campaign type. For example if the CampaignType element is Shopping, then one of the objects in this element's list is a ShoppingSetting.
+        /// The setting will vary by campaign type. The contract specifies a list; however, currently a maximum of one setting is supported. If the CampaignType element is SearchAndContent, then this element must be nil or empty. If the CampaignType element is Shopping, this list will include a ShoppingSetting object. If the CampaignType element is DynamicSearchAds, this list will include a DynamicSearchAdsSetting object.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.Setting> Settings
@@ -2417,7 +2417,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// Determines the ad rotation type.
+        /// Determines how often you'd like the ads in your ad group to show in relation to one another. If you have multiple ads within an ad group, your ads will rotate because no more than one ad from your account can show at a time.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.AdRotation AdRotation
@@ -2437,7 +2437,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// Determines whether the ad group bids on keyword matches or site placement matches. The default is Keyword.
+        /// Determines whether the ad group bids on keyword matches or site placement matches.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.BiddingModel> BiddingModel
@@ -2457,7 +2457,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The bid strategy type for how you want to manage your bids. For ad groups you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. If you do not set this element, then InheritFromParentBiddingScheme is used by default.
+        /// The bid strategy type for how you want to manage your bids.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V10.CampaignManagement.BiddingScheme BiddingScheme
@@ -2497,7 +2497,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The date that the ads in the ad group will expire. If you do not specify an end date, the ads will not expire.
+        /// The date that the ads in the ad group will expire.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.Date EndDate
@@ -2557,7 +2557,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The language of the ads and keywords in the ad group. For possible values, see Common Market Values.
+        /// The language of the ads and keywords in the ad group.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Language
@@ -2577,7 +2577,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The name of the ad group. The name must be unique among all active ad groups within the campaign. The name can contain a maximum of 128 characters.
+        /// The name of the ad group.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
@@ -2617,7 +2617,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The search networks where you want your ads to display. The default is OwnedAndOperatedAndSyndicatedSearch.
+        /// The search networks where you want your ads to display.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.Network> Network
@@ -2637,7 +2637,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// You can specify a pricing model based on cost per click (CPC) or cost per 1000 impressions (CPM).
+        /// Currently the only supported pricing model in Bing Ads is based on cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.PricingModel> PricingModel
@@ -2657,7 +2657,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The targeting setting that is applicable for all remarketing lists that are associated with this ad group. Each remarketing list can be associated with multiple ad groups, and each ad group's remarketing targeting setting is applied independently for delivery. You can set the remarketing targeting setting to one of the following RemarketingTargetingSetting values. TargetAndBid: Show ads only to people included in the remarketing list, with the option to change the bid amount. Ads in this ad group will only show to people included in the remarketing list.
+        /// The targeting setting that is applicable for all remarketing lists that are associated with this ad group. Each remarketing list can be associated with multiple ad groups, and each ad group's remarketing targeting setting is applied independently for delivery.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.RemarketingTargetingSetting> RemarketingTargetingSetting
@@ -6062,7 +6062,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The tracking template to use as a default for all FinalUrls and FinalMobileUrls.
+        /// The tracking template to use as a default for all landing page URLs.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -6485,7 +6485,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an dynamic search ad that is generated automatically based on the website domain and language that you want to target.
+    /// Defines a dynamic search ad. With a dynamic search ads campaign, the ad title and display URL are generated automatically based on the website domain and language that you want to target.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt772355(v=msads.100).aspx">DynamicSearchAd Data Object</see> http://msdn.microsoft.com/en-us/library/mt772355(v=msads.100).aspx for details.
@@ -12520,7 +12520,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The mobile landing page URL.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -12540,7 +12540,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The landing page URL.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -12968,25 +12968,25 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         Unknown = 0,
         
         /// <summary>
-        /// The argument will match if it is a partial URL of your site that is indexed by Bing.
+        /// Set a condition that the argument must match any of your site's URLs that are indexed by Bing.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Url = 1,
         
         /// <summary>
-        /// The argument will match if exactly matches one of the categories that Bing thinks is applicable for your site.
+        /// Set a condition that the argument must match one of the categories that Bing thinks is applicable for your site.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Category = 2,
         
         /// <summary>
-        /// The argument will match any of your site's page titles that are indexed by Bing.
+        /// Set a condition that the argument must match any of your site's page titles that are indexed by Bing.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PageTitle = 3,
         
         /// <summary>
-        /// The argument will match any of your site's content that is indexed by Bing.
+        /// Set a condition that the argument must match any of your site's content that is indexed by Bing.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PageContent = 4,
@@ -14748,6 +14748,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The amount to spend daily across all campaigns that share the budget.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> Amount
         {
@@ -14765,6 +14768,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The number of Campaign objects that currently share this budget.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> AssociationCount
         {
@@ -14782,6 +14788,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The budget type determines the pace at which the budget is spent throughout the day.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.BudgetLimitType> BudgetType
         {
@@ -14799,6 +14808,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The unique Bing Ads identifier of the budget.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -14816,6 +14828,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The name of the budget. The name must be unique among all budgets within the account. The name can contain a maximum of 255 characters.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -14884,7 +14899,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private Microsoft.BingAds.V10.CampaignManagement.RemarketingRule RuleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.V10.CampaignManagement.EntityScope ScopeField;
+        private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.EntityScope> ScopeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> TagIdField;
@@ -14901,9 +14916,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The description of the remarketing list. The description can contain a maximum of 1,024 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
@@ -14921,9 +14933,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
         {
@@ -14941,9 +14950,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The Bing Ads identifier of the remarketing list.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -14961,9 +14967,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// When you create a remarketing list, you can specify how far back in time Bing Ads should look for actions that match your remarketing list definition in order to add people to your list.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> MembershipDuration
         {
@@ -14981,9 +14984,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The name of the remarketing list. The name can contain a maximum of 128 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -15001,9 +15001,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The Bing Ads identifier of the account or customer. If the Scope is set to Account, this is the account ID, and otherwise it is the customer ID.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ParentId
         {
@@ -15021,9 +15018,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// You can choose four types of rules so you can target different audiences. Note: Not everyone has this feature yet. If you don't, don't worry. It's coming soon.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V10.CampaignManagement.RemarketingRule Rule
         {
@@ -15041,11 +15035,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// Scope defines what accounts can use this remarketing list.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.V10.CampaignManagement.EntityScope Scope
+        public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.EntityScope> Scope
         {
             get
             {
@@ -15061,9 +15052,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The Bing Ads identifier of the Universal Event Tracking (UET) tag that is used with the remarketing list.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> TagId
         {
@@ -15505,7 +15493,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an object that contains a list of remarketing list rule items.
+    /// Defines an object that contains a list of remarketing list rule items that apply to the same visited page.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt772360(v=msads.100).aspx">RuleItemGroup Data Object</see> http://msdn.microsoft.com/en-us/library/mt772360(v=msads.100).aspx for details.
@@ -15630,7 +15618,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a rule expression where the operator and value both contain string data types.
+    /// Defines a rule expression that depends on the string values of the Url or Referrer Url.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt772363(v=msads.100).aspx">StringRuleItem Data Object</see> http://msdn.microsoft.com/en-us/library/mt772363(v=msads.100).aspx for details.
@@ -15867,6 +15855,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsExcludedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> RemarketingListIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -15884,9 +15875,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The Bing Ads identifier of the ad group associated with the remarketing list.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AdGroupId
         {
@@ -15904,9 +15892,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The percentage you want to increase/decrease the bid amount for the remarketing list.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BidAdjustment
         {
@@ -15924,9 +15909,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The Bing Ads identifier for the association between an ad group and remarketing list.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -15944,9 +15926,23 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The Bing Ads identifier of the remarketing list associated with the ad group.
-        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> IsExcluded
+        {
+            get
+            {
+                return this.IsExcludedField;
+            }
+            set
+            {
+                if ((this.IsExcludedField.Equals(value) != true))
+                {
+                    this.IsExcludedField = value;
+                    this.RaisePropertyChanged("IsExcluded");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> RemarketingListId
         {
@@ -15964,9 +15960,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The association status. You can set the status to Active or Paused. If not specified, the default status value is Active.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.AdGroupRemarketingListAssociationStatus> Status
         {
@@ -16074,9 +16067,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// Text to help you identify the UET tag. We recommend that you set this to the related website page name or URL.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
@@ -16094,9 +16084,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The unique Bing Ads identifier of the UET tag.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -16114,9 +16101,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The UET tag name.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -16134,9 +16118,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// If your website doesn't support JavaScript, you can use this Non-JavaScript representation of the UET tag. If you use Non-JavaScript, you can't track custom events or variable revenue.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingNoScript
         {
@@ -16154,9 +16135,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The tracking script that you can add to your website to allow Bing Ads to collect actions people take on your website.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingScript
         {
@@ -16174,9 +16152,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The system-determined status values of a UET tag, for example the system sets the status to Unverified if the UET tag has not yet been verified.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.UetTagTrackingStatus> TrackingStatus
         {
@@ -16588,7 +16563,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The revenue currency.
+        /// The currency type that you want the conversion goal revenue to be reported.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CurrencyCode
@@ -16735,9 +16710,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> MinimumDurationInSecondsField;
         
-        /// <summary>
-        /// The minimum amount of time in seconds that the user must spend on your website to track as a conversion. If you don't specify a value, the default value is 0, and the possible range is 0 through 86,399 (1 second less than a full 24 hour day).
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> MinimumDurationInSeconds
         {
@@ -16830,9 +16802,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ValueOperator> ValueOperatorField;
         
-        /// <summary>
-        /// The type of user interaction you want to track. For example 'play' or 'pause'.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ActionExpression
         {
@@ -16850,9 +16819,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The operator that can be applied to the value of the ActionExpression element.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> ActionOperator
         {
@@ -16870,9 +16836,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The category of event you want to track. For example, 'video'.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CategoryExpression
         {
@@ -16890,9 +16853,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The operator that can be applied to the value of the CategoryExpression element.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> CategoryOperator
         {
@@ -16910,9 +16870,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The name of the element that caused the action. For example 'trailer' or 'behindthescenes'.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string LabelExpression
         {
@@ -16930,9 +16887,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The operator that can be applied to the value of the LabelExpression element.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> LabelOperator
         {
@@ -16950,9 +16904,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// A numerical value associated with that event. For example the value could be the duration of time that the video played.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> Value
         {
@@ -16970,9 +16921,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The operator that can be applied to the value of the Value element.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ValueOperator> ValueOperator
         {
@@ -17245,7 +17193,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddCampaignsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddCampaignsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddCampaignsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddCampaignsResponse AddCampaigns(Microsoft.BingAds.V10.CampaignManagement.AddCampaignsRequest request);
         
         /// <summary>
@@ -17277,7 +17225,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etCampaignsByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etCampaignsByAccountIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etCampaignsByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetCampaignsByAccountIdResponse GetCampaignsByAccountId(Microsoft.BingAds.V10.CampaignManagement.GetCampaignsByAccountIdRequest request);
         
         /// <summary>
@@ -17309,7 +17257,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etCampaignsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etCampaignsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etCampaignsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetCampaignsByIdsResponse GetCampaignsByIds(Microsoft.BingAds.V10.CampaignManagement.GetCampaignsByIdsRequest request);
         
         /// <summary>
@@ -17341,7 +17289,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteCampaignsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteCampaignsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteCampaignsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteCampaignsResponse DeleteCampaigns(Microsoft.BingAds.V10.CampaignManagement.DeleteCampaignsRequest request);
         
         /// <summary>
@@ -17373,7 +17321,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateCampaignsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateCampaignsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateCampaignsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateCampaignsResponse UpdateCampaigns(Microsoft.BingAds.V10.CampaignManagement.UpdateCampaignsRequest request);
         
         /// <summary>
@@ -17405,7 +17353,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etNegativeSitesByCampaignIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etNegativeSitesByCampaignIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etNegativeSitesByCampaignIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetNegativeSitesByCampaignIdsResponse GetNegativeSitesByCampaignIds(Microsoft.BingAds.V10.CampaignManagement.GetNegativeSitesByCampaignIdsRequest request);
         
         /// <summary>
@@ -17437,7 +17385,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
             "etNegativeSitesToCampaignsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
-            "etNegativeSitesToCampaignsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etNegativeSitesToCampaignsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.SetNegativeSitesToCampaignsResponse SetNegativeSitesToCampaigns(Microsoft.BingAds.V10.CampaignManagement.SetNegativeSitesToCampaignsRequest request);
         
         /// <summary>
@@ -17459,7 +17407,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etConfigValueAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etConfigValueApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etConfigValueApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetConfigValueResponse GetConfigValue(Microsoft.BingAds.V10.CampaignManagement.GetConfigValueRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="GetConfigValue", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
@@ -17481,7 +17429,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etBSCCountriesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etBSCCountriesApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etBSCCountriesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetBSCCountriesResponse GetBSCCountries(Microsoft.BingAds.V10.CampaignManagement.GetBSCCountriesRequest request);
         
         /// <summary>
@@ -17513,7 +17461,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddAdGroupsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddAdGroupsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddAdGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddAdGroupsResponse AddAdGroups(Microsoft.BingAds.V10.CampaignManagement.AddAdGroupsRequest request);
         
         /// <summary>
@@ -17545,7 +17493,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteAdGroupsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteAdGroupsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteAdGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupsResponse DeleteAdGroups(Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupsRequest request);
         
         /// <summary>
@@ -17577,7 +17525,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdGroupsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdGroupsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdGroupsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdGroupsByIdsResponse GetAdGroupsByIds(Microsoft.BingAds.V10.CampaignManagement.GetAdGroupsByIdsRequest request);
         
         /// <summary>
@@ -17609,7 +17557,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdGroupsByCampaignIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdGroupsByCampaignIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdGroupsByCampaignIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdGroupsByCampaignIdResponse GetAdGroupsByCampaignId(Microsoft.BingAds.V10.CampaignManagement.GetAdGroupsByCampaignIdRequest request);
         
         /// <summary>
@@ -17641,7 +17589,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateAdGroupsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateAdGroupsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateAdGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupsResponse UpdateAdGroups(Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupsRequest request);
         
         /// <summary>
@@ -17673,7 +17621,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etNegativeSitesByAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etNegativeSitesByAdGroupIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etNegativeSitesByAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetNegativeSitesByAdGroupIdsResponse GetNegativeSitesByAdGroupIds(Microsoft.BingAds.V10.CampaignManagement.GetNegativeSitesByAdGroupIdsRequest request);
         
         /// <summary>
@@ -17705,7 +17653,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
             "etNegativeSitesToAdGroupsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
-            "etNegativeSitesToAdGroupsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etNegativeSitesToAdGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.SetNegativeSitesToAdGroupsResponse SetNegativeSitesToAdGroups(Microsoft.BingAds.V10.CampaignManagement.SetNegativeSitesToAdGroupsRequest request);
         
         /// <summary>
@@ -17737,7 +17685,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteTargetsFromLibraryAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteTargetsFromLibraryApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteTargetsFromLibraryApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteTargetsFromLibraryResponse DeleteTargetsFromLibrary(Microsoft.BingAds.V10.CampaignManagement.DeleteTargetsFromLibraryRequest request);
         
         /// <summary>
@@ -17769,7 +17717,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etTargetsInfoFromLibraryAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etTargetsInfoFromLibraryApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etTargetsInfoFromLibraryApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetTargetsInfoFromLibraryResponse GetTargetsInfoFromLibrary(Microsoft.BingAds.V10.CampaignManagement.GetTargetsInfoFromLibraryRequest request);
         
         /// <summary>
@@ -17801,7 +17749,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
             "etTargetToAdGroupAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
-            "etTargetToAdGroupApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etTargetToAdGroupApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.SetTargetToAdGroupResponse SetTargetToAdGroup(Microsoft.BingAds.V10.CampaignManagement.SetTargetToAdGroupRequest request);
         
         /// <summary>
@@ -17833,7 +17781,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteTargetFromAdGroupAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteTargetFromAdGroupApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteTargetFromAdGroupApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteTargetFromAdGroupResponse DeleteTargetFromAdGroup(Microsoft.BingAds.V10.CampaignManagement.DeleteTargetFromAdGroupRequest request);
         
         /// <summary>
@@ -17865,7 +17813,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
             "etTargetToCampaignAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
-            "etTargetToCampaignApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etTargetToCampaignApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.SetTargetToCampaignResponse SetTargetToCampaign(Microsoft.BingAds.V10.CampaignManagement.SetTargetToCampaignRequest request);
         
         /// <summary>
@@ -17897,7 +17845,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteTargetFromCampaignAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteTargetFromCampaignApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteTargetFromCampaignApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteTargetFromCampaignResponse DeleteTargetFromCampaign(Microsoft.BingAds.V10.CampaignManagement.DeleteTargetFromCampaignRequest request);
         
         /// <summary>
@@ -17929,7 +17877,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddTargetsToLibraryAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddTargetsToLibraryApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddTargetsToLibraryApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddTargetsToLibraryResponse AddTargetsToLibrary(Microsoft.BingAds.V10.CampaignManagement.AddTargetsToLibraryRequest request);
         
         /// <summary>
@@ -17961,7 +17909,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateTargetsInLibraryAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateTargetsInLibraryApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateTargetsInLibraryApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateTargetsInLibraryResponse UpdateTargetsInLibrary(Microsoft.BingAds.V10.CampaignManagement.UpdateTargetsInLibraryRequest request);
         
         /// <summary>
@@ -17993,7 +17941,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etTargetsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etTargetsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etTargetsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetTargetsByIdsResponse GetTargetsByIds(Microsoft.BingAds.V10.CampaignManagement.GetTargetsByIdsRequest request);
         
         /// <summary>
@@ -18025,7 +17973,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etTargetsByAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etTargetsByAdGroupIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etTargetsByAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetTargetsByAdGroupIdsResponse GetTargetsByAdGroupIds(Microsoft.BingAds.V10.CampaignManagement.GetTargetsByAdGroupIdsRequest request);
         
         /// <summary>
@@ -18057,7 +18005,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etTargetsByCampaignIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etTargetsByCampaignIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etTargetsByCampaignIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetTargetsByCampaignIdsResponse GetTargetsByCampaignIds(Microsoft.BingAds.V10.CampaignManagement.GetTargetsByCampaignIdsRequest request);
         
         /// <summary>
@@ -18075,6 +18023,38 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetTargetsByCampaignIdsResponse> GetTargetsByCampaignIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetTargetsByCampaignIdsRequest request);
         
         /// <summary>
+        /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrl Service Operation</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetGeoLocationsFileUrl", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
+            "etGeoLocationsFileUrlResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
+            "etGeoLocationsFileUrlAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
+            "etGeoLocationsFileUrlApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V10.CampaignManagement.GetGeoLocationsFileUrlResponse GetGeoLocationsFileUrl(Microsoft.BingAds.V10.CampaignManagement.GetGeoLocationsFileUrlRequest request);
+        
+        /// <summary>
+        /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrl Service Operation</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetGeoLocationsFileUrl", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
+            "etGeoLocationsFileUrlResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetGeoLocationsFileUrlResponse> GetGeoLocationsFileUrlAsync(Microsoft.BingAds.V10.CampaignManagement.GetGeoLocationsFileUrlRequest request);
+        
+        /// <summary>
         /// Adds one or more ads to an ad group.
         /// </summary>
         /// <remarks>
@@ -18089,7 +18069,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddAdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddAdsEditorialApiFaultDetail3Fault", Name="EditorialApiFaultDetail")]
+            "ddAdsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddAdsResponse AddAds(Microsoft.BingAds.V10.CampaignManagement.AddAdsRequest request);
         
         /// <summary>
@@ -18121,7 +18101,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteAdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteAdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteAdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteAdsResponse DeleteAds(Microsoft.BingAds.V10.CampaignManagement.DeleteAdsRequest request);
         
         /// <summary>
@@ -18153,7 +18133,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdsByEditorialStatusAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdsByEditorialStatusApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdsByEditorialStatusApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdsByEditorialStatusResponse GetAdsByEditorialStatus(Microsoft.BingAds.V10.CampaignManagement.GetAdsByEditorialStatusRequest request);
         
         /// <summary>
@@ -18185,7 +18165,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdsByIdsResponse GetAdsByIds(Microsoft.BingAds.V10.CampaignManagement.GetAdsByIdsRequest request);
         
         /// <summary>
@@ -18217,7 +18197,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdsByAdGroupIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdsByAdGroupIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdsByAdGroupIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdsByAdGroupIdResponse GetAdsByAdGroupId(Microsoft.BingAds.V10.CampaignManagement.GetAdsByAdGroupIdRequest request);
         
         /// <summary>
@@ -18249,7 +18229,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateAdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateAdsEditorialApiFaultDetail3Fault", Name="EditorialApiFaultDetail")]
+            "pdateAdsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateAdsResponse UpdateAds(Microsoft.BingAds.V10.CampaignManagement.UpdateAdsRequest request);
         
         /// <summary>
@@ -18281,7 +18261,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddKeywordsEditorialApiFaultDetail3Fault", Name="EditorialApiFaultDetail")]
+            "ddKeywordsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddKeywordsResponse AddKeywords(Microsoft.BingAds.V10.CampaignManagement.AddKeywordsRequest request);
         
         /// <summary>
@@ -18313,7 +18293,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteKeywordsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteKeywordsResponse DeleteKeywords(Microsoft.BingAds.V10.CampaignManagement.DeleteKeywordsRequest request);
         
         /// <summary>
@@ -18345,7 +18325,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etKeywordsByEditorialStatusAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etKeywordsByEditorialStatusApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etKeywordsByEditorialStatusApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetKeywordsByEditorialStatusResponse GetKeywordsByEditorialStatus(Microsoft.BingAds.V10.CampaignManagement.GetKeywordsByEditorialStatusRequest request);
         
         /// <summary>
@@ -18377,7 +18357,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etKeywordsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etKeywordsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etKeywordsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetKeywordsByIdsResponse GetKeywordsByIds(Microsoft.BingAds.V10.CampaignManagement.GetKeywordsByIdsRequest request);
         
         /// <summary>
@@ -18409,7 +18389,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etKeywordsByAdGroupIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etKeywordsByAdGroupIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etKeywordsByAdGroupIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetKeywordsByAdGroupIdResponse GetKeywordsByAdGroupId(Microsoft.BingAds.V10.CampaignManagement.GetKeywordsByAdGroupIdRequest request);
         
         /// <summary>
@@ -18441,7 +18421,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateKeywordsEditorialApiFaultDetail3Fault", Name="EditorialApiFaultDetail")]
+            "pdateKeywordsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateKeywordsResponse UpdateKeywords(Microsoft.BingAds.V10.CampaignManagement.UpdateKeywordsRequest request);
         
         /// <summary>
@@ -18473,7 +18453,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ppealEditorialRejectionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ppealEditorialRejectionsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ppealEditorialRejectionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AppealEditorialRejectionsResponse AppealEditorialRejections(Microsoft.BingAds.V10.CampaignManagement.AppealEditorialRejectionsRequest request);
         
         /// <summary>
@@ -18505,7 +18485,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddSitePlacementsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddSitePlacementsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddSitePlacementsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddSitePlacementsResponse AddSitePlacements(Microsoft.BingAds.V10.CampaignManagement.AddSitePlacementsRequest request);
         
         /// <summary>
@@ -18537,7 +18517,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteSitePlacementsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteSitePlacementsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteSitePlacementsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteSitePlacementsResponse DeleteSitePlacements(Microsoft.BingAds.V10.CampaignManagement.DeleteSitePlacementsRequest request);
         
         /// <summary>
@@ -18569,7 +18549,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etSitePlacementsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etSitePlacementsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etSitePlacementsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetSitePlacementsByIdsResponse GetSitePlacementsByIds(Microsoft.BingAds.V10.CampaignManagement.GetSitePlacementsByIdsRequest request);
         
         /// <summary>
@@ -18601,7 +18581,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etSitePlacementsByAdGroupIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etSitePlacementsByAdGroupIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etSitePlacementsByAdGroupIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetSitePlacementsByAdGroupIdResponse GetSitePlacementsByAdGroupId(Microsoft.BingAds.V10.CampaignManagement.GetSitePlacementsByAdGroupIdRequest request);
         
         /// <summary>
@@ -18633,7 +18613,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateSitePlacementsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateSitePlacementsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateSitePlacementsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateSitePlacementsResponse UpdateSitePlacements(Microsoft.BingAds.V10.CampaignManagement.UpdateSitePlacementsRequest request);
         
         /// <summary>
@@ -18665,7 +18645,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etPlacementDetailsForUrlsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etPlacementDetailsForUrlsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etPlacementDetailsForUrlsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetPlacementDetailsForUrlsResponse GetPlacementDetailsForUrls(Microsoft.BingAds.V10.CampaignManagement.GetPlacementDetailsForUrlsRequest request);
         
         /// <summary>
@@ -18697,7 +18677,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etEditorialReasonsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etEditorialReasonsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etEditorialReasonsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetEditorialReasonsByIdsResponse GetEditorialReasonsByIds(Microsoft.BingAds.V10.CampaignManagement.GetEditorialReasonsByIdsRequest request);
         
         /// <summary>
@@ -18729,7 +18709,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAccountMigrationStatusesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAccountMigrationStatusesApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAccountMigrationStatusesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAccountMigrationStatusesResponse GetAccountMigrationStatuses(Microsoft.BingAds.V10.CampaignManagement.GetAccountMigrationStatusesRequest request);
         
         /// <summary>
@@ -18761,7 +18741,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddAdExtensionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddAdExtensionsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddAdExtensionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddAdExtensionsResponse AddAdExtensions(Microsoft.BingAds.V10.CampaignManagement.AddAdExtensionsRequest request);
         
         /// <summary>
@@ -18793,7 +18773,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdExtensionsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdExtensionsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdExtensionsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdExtensionsByIdsResponse GetAdExtensionsByIds(Microsoft.BingAds.V10.CampaignManagement.GetAdExtensionsByIdsRequest request);
         
         /// <summary>
@@ -18825,7 +18805,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateAdExtensionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateAdExtensionsEditorialApiFaultDetail3Fault", Name="EditorialApiFaultDetail")]
+            "pdateAdExtensionsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateAdExtensionsResponse UpdateAdExtensions(Microsoft.BingAds.V10.CampaignManagement.UpdateAdExtensionsRequest request);
         
         /// <summary>
@@ -18857,7 +18837,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteAdExtensionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteAdExtensionsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteAdExtensionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteAdExtensionsResponse DeleteAdExtensions(Microsoft.BingAds.V10.CampaignManagement.DeleteAdExtensionsRequest request);
         
         /// <summary>
@@ -18889,7 +18869,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdExtensionsEditorialReasonsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdExtensionsEditorialReasonsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdExtensionsEditorialReasonsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdExtensionsEditorialReasonsResponse GetAdExtensionsEditorialReasons(Microsoft.BingAds.V10.CampaignManagement.GetAdExtensionsEditorialReasonsRequest request);
         
         /// <summary>
@@ -18921,7 +18901,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
             "etAdExtensionsAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
-            "etAdExtensionsAssociationsEditorialApiFaultDetail3Fault", Name="EditorialApiFaultDetail")]
+            "etAdExtensionsAssociationsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.SetAdExtensionsAssociationsResponse SetAdExtensionsAssociations(Microsoft.BingAds.V10.CampaignManagement.SetAdExtensionsAssociationsRequest request);
         
         /// <summary>
@@ -18953,7 +18933,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdExtensionsAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdExtensionsAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdExtensionsAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdExtensionsAssociationsResponse GetAdExtensionsAssociations(Microsoft.BingAds.V10.CampaignManagement.GetAdExtensionsAssociationsRequest request);
         
         /// <summary>
@@ -18985,7 +18965,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteAdExtensionsAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteAdExtensionsAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteAdExtensionsAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteAdExtensionsAssociationsResponse DeleteAdExtensionsAssociations(Microsoft.BingAds.V10.CampaignManagement.DeleteAdExtensionsAssociationsRequest request);
         
         /// <summary>
@@ -19017,7 +18997,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdExtensionIdsByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdExtensionIdsByAccountIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdExtensionIdsByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdExtensionIdsByAccountIdResponse GetAdExtensionIdsByAccountId(Microsoft.BingAds.V10.CampaignManagement.GetAdExtensionIdsByAccountIdRequest request);
         
         /// <summary>
@@ -19049,7 +19029,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddMediaAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddMediaApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddMediaApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddMediaResponse AddMedia(Microsoft.BingAds.V10.CampaignManagement.AddMediaRequest request);
         
         /// <summary>
@@ -19081,7 +19061,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteMediaAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteMediaApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteMediaApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteMediaResponse DeleteMedia(Microsoft.BingAds.V10.CampaignManagement.DeleteMediaRequest request);
         
         /// <summary>
@@ -19113,7 +19093,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etMediaByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etMediaByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etMediaByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetMediaByIdsResponse GetMediaByIds(Microsoft.BingAds.V10.CampaignManagement.GetMediaByIdsRequest request);
         
         /// <summary>
@@ -19145,7 +19125,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etMediaMetaDataByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etMediaMetaDataByAccountIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etMediaMetaDataByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetMediaMetaDataByAccountIdResponse GetMediaMetaDataByAccountId(Microsoft.BingAds.V10.CampaignManagement.GetMediaMetaDataByAccountIdRequest request);
         
         /// <summary>
@@ -19177,7 +19157,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etMediaMetaDataByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etMediaMetaDataByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etMediaMetaDataByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetMediaMetaDataByIdsResponse GetMediaMetaDataByIds(Microsoft.BingAds.V10.CampaignManagement.GetMediaMetaDataByIdsRequest request);
         
         /// <summary>
@@ -19209,7 +19189,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etMediaAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etMediaAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etMediaAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetMediaAssociationsResponse GetMediaAssociations(Microsoft.BingAds.V10.CampaignManagement.GetMediaAssociationsRequest request);
         
         /// <summary>
@@ -19241,7 +19221,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdGroupCriterionsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdGroupCriterionsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdGroupCriterionsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdGroupCriterionsByIdsResponse GetAdGroupCriterionsByIds(Microsoft.BingAds.V10.CampaignManagement.GetAdGroupCriterionsByIdsRequest request);
         
         /// <summary>
@@ -19273,7 +19253,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddAdGroupCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddAdGroupCriterionsEditorialApiFaultDetail3Fault", Name="EditorialApiFaultDetail")]
+            "ddAdGroupCriterionsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddAdGroupCriterionsResponse AddAdGroupCriterions(Microsoft.BingAds.V10.CampaignManagement.AddAdGroupCriterionsRequest request);
         
         /// <summary>
@@ -19305,7 +19285,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateAdGroupCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateAdGroupCriterionsEditorialApiFaultDetail3Fault", Name="EditorialApiFaultDetail")]
+            "pdateAdGroupCriterionsEditorialApiFaultDetail2Fault", Name="EditorialApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupCriterionsResponse UpdateAdGroupCriterions(Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupCriterionsRequest request);
         
         /// <summary>
@@ -19337,7 +19317,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteAdGroupCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteAdGroupCriterionsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteAdGroupCriterionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupCriterionsResponse DeleteAdGroupCriterions(Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupCriterionsRequest request);
         
         /// <summary>
@@ -19369,7 +19349,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "pplyProductPartitionActionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "pplyProductPartitionActionsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pplyProductPartitionActionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.ApplyProductPartitionActionsResponse ApplyProductPartitionActions(Microsoft.BingAds.V10.CampaignManagement.ApplyProductPartitionActionsRequest request);
         
         /// <summary>
@@ -19401,7 +19381,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etBMCStoresByCustomerIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etBMCStoresByCustomerIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etBMCStoresByCustomerIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetBMCStoresByCustomerIdResponse GetBMCStoresByCustomerId(Microsoft.BingAds.V10.CampaignManagement.GetBMCStoresByCustomerIdRequest request);
         
         /// <summary>
@@ -19433,7 +19413,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddNegativeKeywordsToEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddNegativeKeywordsToEntitiesApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddNegativeKeywordsToEntitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddNegativeKeywordsToEntitiesResponse AddNegativeKeywordsToEntities(Microsoft.BingAds.V10.CampaignManagement.AddNegativeKeywordsToEntitiesRequest request);
         
         /// <summary>
@@ -19465,7 +19445,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etNegativeKeywordsByEntityIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etNegativeKeywordsByEntityIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etNegativeKeywordsByEntityIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetNegativeKeywordsByEntityIdsResponse GetNegativeKeywordsByEntityIds(Microsoft.BingAds.V10.CampaignManagement.GetNegativeKeywordsByEntityIdsRequest request);
         
         /// <summary>
@@ -19497,7 +19477,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteNegativeKeywordsFromEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteNegativeKeywordsFromEntitiesApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteNegativeKeywordsFromEntitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteNegativeKeywordsFromEntitiesResponse DeleteNegativeKeywordsFromEntities(Microsoft.BingAds.V10.CampaignManagement.DeleteNegativeKeywordsFromEntitiesRequest request);
         
         /// <summary>
@@ -19529,7 +19509,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etSharedEntitiesByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etSharedEntitiesByAccountIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etSharedEntitiesByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetSharedEntitiesByAccountIdResponse GetSharedEntitiesByAccountId(Microsoft.BingAds.V10.CampaignManagement.GetSharedEntitiesByAccountIdRequest request);
         
         /// <summary>
@@ -19561,7 +19541,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddSharedEntityAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddSharedEntityApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddSharedEntityApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddSharedEntityResponse AddSharedEntity(Microsoft.BingAds.V10.CampaignManagement.AddSharedEntityRequest request);
         
         /// <summary>
@@ -19593,7 +19573,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etListItemsBySharedListAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etListItemsBySharedListApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etListItemsBySharedListApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetListItemsBySharedListResponse GetListItemsBySharedList(Microsoft.BingAds.V10.CampaignManagement.GetListItemsBySharedListRequest request);
         
         /// <summary>
@@ -19625,7 +19605,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddListItemsToSharedListAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddListItemsToSharedListApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddListItemsToSharedListApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddListItemsToSharedListResponse AddListItemsToSharedList(Microsoft.BingAds.V10.CampaignManagement.AddListItemsToSharedListRequest request);
         
         /// <summary>
@@ -19657,7 +19637,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateSharedEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateSharedEntitiesApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateSharedEntitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateSharedEntitiesResponse UpdateSharedEntities(Microsoft.BingAds.V10.CampaignManagement.UpdateSharedEntitiesRequest request);
         
         /// <summary>
@@ -19689,7 +19669,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteListItemsFromSharedListAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteListItemsFromSharedListApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteListItemsFromSharedListApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteListItemsFromSharedListResponse DeleteListItemsFromSharedList(Microsoft.BingAds.V10.CampaignManagement.DeleteListItemsFromSharedListRequest request);
         
         /// <summary>
@@ -19721,7 +19701,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
             "etSharedEntityAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/S" +
-            "etSharedEntityAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etSharedEntityAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.SetSharedEntityAssociationsResponse SetSharedEntityAssociations(Microsoft.BingAds.V10.CampaignManagement.SetSharedEntityAssociationsRequest request);
         
         /// <summary>
@@ -19753,7 +19733,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteSharedEntityAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteSharedEntityAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteSharedEntityAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteSharedEntityAssociationsResponse DeleteSharedEntityAssociations(Microsoft.BingAds.V10.CampaignManagement.DeleteSharedEntityAssociationsRequest request);
         
         /// <summary>
@@ -19785,7 +19765,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etSharedEntityAssociationsBySharedEntityIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etSharedEntityAssociationsBySharedEntityIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etSharedEntityAssociationsBySharedEntityIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetSharedEntityAssociationsBySharedEntityIdsResponse GetSharedEntityAssociationsBySharedEntityIds(Microsoft.BingAds.V10.CampaignManagement.GetSharedEntityAssociationsBySharedEntityIdsRequest request);
         
         /// <summary>
@@ -19817,7 +19797,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etSharedEntityAssociationsByEntityIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etSharedEntityAssociationsByEntityIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etSharedEntityAssociationsByEntityIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetSharedEntityAssociationsByEntityIdsResponse GetSharedEntityAssociationsByEntityIds(Microsoft.BingAds.V10.CampaignManagement.GetSharedEntityAssociationsByEntityIdsRequest request);
         
         /// <summary>
@@ -19849,7 +19829,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteSharedEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteSharedEntitiesApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteSharedEntitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteSharedEntitiesResponse DeleteSharedEntities(Microsoft.BingAds.V10.CampaignManagement.DeleteSharedEntitiesRequest request);
         
         /// <summary>
@@ -19871,7 +19851,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etCampaignSizesByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etCampaignSizesByAccountIdApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etCampaignSizesByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetCampaignSizesByAccountIdResponse GetCampaignSizesByAccountId(Microsoft.BingAds.V10.CampaignManagement.GetCampaignSizesByAccountIdRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="GetCampaignSizesByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
@@ -19893,7 +19873,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddCampaignCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddCampaignCriterionsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddCampaignCriterionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddCampaignCriterionsResponse AddCampaignCriterions(Microsoft.BingAds.V10.CampaignManagement.AddCampaignCriterionsRequest request);
         
         /// <summary>
@@ -19925,7 +19905,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateCampaignCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateCampaignCriterionsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateCampaignCriterionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateCampaignCriterionsResponse UpdateCampaignCriterions(Microsoft.BingAds.V10.CampaignManagement.UpdateCampaignCriterionsRequest request);
         
         /// <summary>
@@ -19957,7 +19937,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteCampaignCriterionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteCampaignCriterionsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteCampaignCriterionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteCampaignCriterionsResponse DeleteCampaignCriterions(Microsoft.BingAds.V10.CampaignManagement.DeleteCampaignCriterionsRequest request);
         
         /// <summary>
@@ -19989,7 +19969,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etCampaignCriterionsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etCampaignCriterionsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etCampaignCriterionsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetCampaignCriterionsByIdsResponse GetCampaignCriterionsByIds(Microsoft.BingAds.V10.CampaignManagement.GetCampaignCriterionsByIdsRequest request);
         
         /// <summary>
@@ -20021,7 +20001,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddBudgetsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddBudgetsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddBudgetsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddBudgetsResponse AddBudgets(Microsoft.BingAds.V10.CampaignManagement.AddBudgetsRequest request);
         
         /// <summary>
@@ -20053,7 +20033,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateBudgetsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateBudgetsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateBudgetsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateBudgetsResponse UpdateBudgets(Microsoft.BingAds.V10.CampaignManagement.UpdateBudgetsRequest request);
         
         /// <summary>
@@ -20085,7 +20065,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteBudgetsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteBudgetsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteBudgetsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteBudgetsResponse DeleteBudgets(Microsoft.BingAds.V10.CampaignManagement.DeleteBudgetsRequest request);
         
         /// <summary>
@@ -20117,7 +20097,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etBudgetsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etBudgetsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etBudgetsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetBudgetsByIdsResponse GetBudgetsByIds(Microsoft.BingAds.V10.CampaignManagement.GetBudgetsByIdsRequest request);
         
         /// <summary>
@@ -20149,7 +20129,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etCampaignIdsByBudgetIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etCampaignIdsByBudgetIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etCampaignIdsByBudgetIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetCampaignIdsByBudgetIdsResponse GetCampaignIdsByBudgetIds(Microsoft.BingAds.V10.CampaignManagement.GetCampaignIdsByBudgetIdsRequest request);
         
         /// <summary>
@@ -20166,38 +20146,98 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             "etCampaignIdsByBudgetIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetCampaignIdsByBudgetIdsResponse> GetCampaignIdsByBudgetIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetCampaignIdsByBudgetIdsRequest request);
         
+        /// <summary>
+        /// Adds one or more remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddRemarketingListsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddRemarketingListsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddRemarketingListsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddRemarketingListsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse AddRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request);
         
+        /// <summary>
+        /// Adds one or more remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddRemarketingListsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse> AddRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request);
         
+        /// <summary>
+        /// Updates the specified remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateRemarketingListsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateRemarketingListsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateRemarketingListsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateRemarketingListsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsResponse UpdateRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsRequest request);
         
+        /// <summary>
+        /// Updates the specified remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateRemarketingListsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsResponse> UpdateRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsRequest request);
         
+        /// <summary>
+        /// Deletes the specified remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteRemarketingListsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteRemarketingListsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteRemarketingListsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteRemarketingListsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsResponse DeleteRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsRequest request);
         
+        /// <summary>
+        /// Deletes the specified remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteRemarketingLists", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteRemarketingListsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsResponse> DeleteRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsRequest request);
@@ -20217,7 +20257,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etRemarketingListsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etRemarketingListsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etRemarketingListsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetRemarketingListsResponse GetRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.GetRemarketingListsRequest request);
         
         /// <summary>
@@ -20249,7 +20289,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddAdGroupRemarketingListAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddAdGroupRemarketingListAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddAdGroupRemarketingListAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddAdGroupRemarketingListAssociationsResponse AddAdGroupRemarketingListAssociations(Microsoft.BingAds.V10.CampaignManagement.AddAdGroupRemarketingListAssociationsRequest request);
         
         /// <summary>
@@ -20281,7 +20321,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateAdGroupRemarketingListAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateAdGroupRemarketingListAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateAdGroupRemarketingListAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupRemarketingListAssociationsResponse UpdateAdGroupRemarketingListAssociations(Microsoft.BingAds.V10.CampaignManagement.UpdateAdGroupRemarketingListAssociationsRequest request);
         
         /// <summary>
@@ -20313,7 +20353,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etAdGroupRemarketingListAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etAdGroupRemarketingListAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etAdGroupRemarketingListAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetAdGroupRemarketingListAssociationsResponse GetAdGroupRemarketingListAssociations(Microsoft.BingAds.V10.CampaignManagement.GetAdGroupRemarketingListAssociationsRequest request);
         
         /// <summary>
@@ -20345,7 +20385,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
             "eleteAdGroupRemarketingListAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/D" +
-            "eleteAdGroupRemarketingListAssociationsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "eleteAdGroupRemarketingListAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupRemarketingListAssociationsResponse DeleteAdGroupRemarketingListAssociations(Microsoft.BingAds.V10.CampaignManagement.DeleteAdGroupRemarketingListAssociationsRequest request);
         
         /// <summary>
@@ -20377,7 +20417,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etUetTagsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etUetTagsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etUetTagsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsResponse GetUetTagsByIds(Microsoft.BingAds.V10.CampaignManagement.GetUetTagsByIdsRequest request);
         
         /// <summary>
@@ -20409,7 +20449,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddUetTagsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddUetTagsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddUetTagsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddUetTagsResponse AddUetTags(Microsoft.BingAds.V10.CampaignManagement.AddUetTagsRequest request);
         
         /// <summary>
@@ -20441,7 +20481,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateUetTagsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateUetTagsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateUetTagsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsResponse UpdateUetTags(Microsoft.BingAds.V10.CampaignManagement.UpdateUetTagsRequest request);
         
         /// <summary>
@@ -20473,7 +20513,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etConversionGoalsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etConversionGoalsByIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etConversionGoalsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsResponse GetConversionGoalsByIds(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByIdsRequest request);
         
         /// <summary>
@@ -20505,7 +20545,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
             "etConversionGoalsByTagIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/G" +
-            "etConversionGoalsByTagIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "etConversionGoalsByTagIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsResponse GetConversionGoalsByTagIds(Microsoft.BingAds.V10.CampaignManagement.GetConversionGoalsByTagIdsRequest request);
         
         /// <summary>
@@ -20537,7 +20577,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
             "ddConversionGoalsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/A" +
-            "ddConversionGoalsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "ddConversionGoalsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsResponse AddConversionGoals(Microsoft.BingAds.V10.CampaignManagement.AddConversionGoalsRequest request);
         
         /// <summary>
@@ -20569,7 +20609,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
             "pdateConversionGoalsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/ICampaignManagementService/U" +
-            "pdateConversionGoalsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "pdateConversionGoalsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsResponse UpdateConversionGoals(Microsoft.BingAds.V10.CampaignManagement.UpdateConversionGoalsRequest request);
         
         /// <summary>
@@ -23854,6 +23894,146 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             this.TrackingId = TrackingId;
             this.PartialErrors = PartialErrors;
             this.Targets = Targets;
+        }
+    }
+    
+    /// <summary>
+    /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrl Request Object</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetGeoLocationsFileUrl">GetGeoLocationsFileUrl</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetGeoLocationsFileUrlRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
+    public partial class GetGeoLocationsFileUrlRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string UserName;
+        
+        /// <summary>
+        /// The version of the location file that you want to download.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
+        public string Version;
+        
+        /// <summary>
+        /// The language and locale of the geographical location code descriptions. The supported language locale values are zh-Hant (Traditional Chinese), en (English), fr (French), de (German), it (Italian), pt-BR (Brazilian Portuguese), and es (Spanish).
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
+        public string LanguageLocale;
+        
+        /// <summary>
+        /// Constructor for the GetGeoLocationsFileUrlRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrlRequest</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+        /// </remarks>
+        public GetGeoLocationsFileUrlRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetGeoLocationsFileUrlRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrlRequest</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="Version">The version of the location file that you want to download.</param>
+        /// <param name="LanguageLocale">The language and locale of the geographical location code descriptions. The supported language locale values are zh-Hant (Traditional Chinese), en (English), fr (French), de (German), it (Italian), pt-BR (Brazilian Portuguese), and es (Spanish).</param>
+        public GetGeoLocationsFileUrlRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string Version, string LanguageLocale)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Version = Version;
+            this.LanguageLocale = LanguageLocale;
+        }
+    }
+    
+    /// <summary>
+    /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrl Response Object</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetGeoLocationsFileUrl">GetGeoLocationsFileUrl</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetGeoLocationsFileUrlResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
+    public partial class GetGeoLocationsFileUrlResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The file URL that you can use to download the geographical location targeting codes for the version, language, and locale that you requested.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
+        public string FileUrl;
+        
+        /// <summary>
+        /// The date and time that the provided file URL will expire.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
+        public System.Nullable<System.DateTime> FileUrlExpiryTimeUtc;
+        
+        /// <summary>
+        /// The date and time that the geographical locations file for the specified version, language, and locale was last updated.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=2)]
+        public System.DateTime LastModifiedTimeUtc;
+        
+        /// <summary>
+        /// Constructor for the GetGeoLocationsFileUrlResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrlResponse</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+        /// </remarks>
+        public GetGeoLocationsFileUrlResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetGeoLocationsFileUrlResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrlResponse</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="FileUrl">The file URL that you can use to download the geographical location targeting codes for the version, language, and locale that you requested.</param>
+        /// <param name="FileUrlExpiryTimeUtc">The date and time that the provided file URL will expire.</param>
+        /// <param name="LastModifiedTimeUtc">The date and time that the geographical locations file for the specified version, language, and locale was last updated.</param>
+        public GetGeoLocationsFileUrlResponse(string TrackingId, string FileUrl, System.Nullable<System.DateTime> FileUrlExpiryTimeUtc, System.DateTime LastModifiedTimeUtc)
+        {
+            this.TrackingId = TrackingId;
+            this.FileUrl = FileUrl;
+            this.FileUrlExpiryTimeUtc = FileUrlExpiryTimeUtc;
+            this.LastModifiedTimeUtc = LastModifiedTimeUtc;
         }
     }
     
@@ -32164,6 +32344,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds one or more remarketing lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingLists Request Object</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddRemarketingLists">AddRemarketingLists</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddRemarketingListsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -32191,13 +32378,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// An array of remarketing lists to add. The maximum size of the array is 100.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists;
         
+        /// <summary>
+        /// Constructor for the AddRemarketingListsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+        /// </remarks>
         public AddRemarketingListsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddRemarketingListsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="RemarketingLists">An array of remarketing lists to add. The maximum size of the array is 100.</param>
         public AddRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists)
         {
             this.ApplicationToken = ApplicationToken;
@@ -32211,6 +32414,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds one or more remarketing lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingLists Response Object</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddRemarketingLists">AddRemarketingLists</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddRemarketingListsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -32220,16 +32430,36 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// A list of unique system identifiers corresponding to the remarketing lists that were added.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<System.Nullable<long>> RemarketingListIds;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the AddRemarketingListsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingListsResponse</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+        /// </remarks>
         public AddRemarketingListsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddRemarketingListsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingListsResponse</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="RemarketingListIds">A list of unique system identifiers corresponding to the remarketing lists that were added.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public AddRemarketingListsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> RemarketingListIds, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -32238,6 +32468,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates the specified remarketing lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingLists Request Object</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateRemarketingLists">UpdateRemarketingLists</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateRemarketingListsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -32265,13 +32502,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// An array of remarketing lists to update. The maximum size of the array is 100.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists;
         
+        /// <summary>
+        /// Constructor for the UpdateRemarketingListsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+        /// </remarks>
         public UpdateRemarketingListsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateRemarketingListsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="RemarketingLists">An array of remarketing lists to update. The maximum size of the array is 100.</param>
         public UpdateRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists)
         {
             this.ApplicationToken = ApplicationToken;
@@ -32285,6 +32538,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates the specified remarketing lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingLists Response Object</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateRemarketingLists">UpdateRemarketingLists</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateRemarketingListsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -32294,13 +32554,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the UpdateRemarketingListsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingListsResponse</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+        /// </remarks>
         public UpdateRemarketingListsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateRemarketingListsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingListsResponse</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public UpdateRemarketingListsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -32308,6 +32584,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes the specified remarketing lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingLists Request Object</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteRemarketingLists">DeleteRemarketingLists</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteRemarketingListsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -32335,13 +32618,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
+        /// <summary>
+        /// An array of remarketing lists identifiers to delete. The maximum size of the array is 100.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> RemarketingListIds;
         
+        /// <summary>
+        /// Constructor for the DeleteRemarketingListsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+        /// </remarks>
         public DeleteRemarketingListsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteRemarketingListsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="RemarketingListIds">An array of remarketing lists identifiers to delete. The maximum size of the array is 100.</param>
         public DeleteRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> RemarketingListIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -32355,6 +32654,13 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes the specified remarketing lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingLists Response Object</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteRemarketingLists">DeleteRemarketingLists</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteRemarketingListsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v10", IsWrapped=true)]
@@ -32364,13 +32670,29 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the DeleteRemarketingListsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingListsResponse</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+        /// </remarks>
         public DeleteRemarketingListsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteRemarketingListsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingListsResponse</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public DeleteRemarketingListsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -32412,15 +32734,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// A maximum of 100 identifiers of the remarketing lists to get. Optional: If RemarketingListIds is null or empty, then you are effectively requesting all customer and account scoped remarketing lists for the specified account.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> RemarketingListIds;
         
-        /// <summary>
-        /// The list of additional elements that you want included within each returned RemarketingList object.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.RemarketingListAdditionalField> ReturnAdditionalFields;
         
@@ -32440,8 +32756,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt735049(v=msads.100).aspx">GetRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt735049(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="RemarketingListIds">A maximum of 100 identifiers of the remarketing lists to get. Optional: If RemarketingListIds is null or empty, then you are effectively requesting all customer and account scoped remarketing lists for the specified account.</param>
-        /// <param name="ReturnAdditionalFields">The list of additional elements that you want included within each returned RemarketingList object.</param>
+        /// <param name="RemarketingListIds"></param>
+        /// <param name="ReturnAdditionalFields"></param>
         public GetRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> RemarketingListIds, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.RemarketingListAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -32791,6 +33107,12 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Collections.Generic.IList<long> AdGroupIds;
         
         /// <summary>
+        /// Determines whether or not the service should return ad group remarketing list exclusions for the specified ad group identifiers.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
+        public System.Nullable<bool> ReturnExclusions;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupRemarketingListAssociationsRequest request object.
         /// </summary>
         /// <remarks>
@@ -32807,7 +33129,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt735050(v=msads.100).aspx">GetAdGroupRemarketingListAssociationsRequest</see> http://msdn.microsoft.com/en-us/library/mt735050(v=msads.100).aspx for details.
         /// </remarks>
         /// <param name="AdGroupIds">A list of unique ad group identifiers that identify the ad group remarketing list associations to get. You can specify a maximum of 10 ad group IDs. The ad group IDs must be within the same account that you specified in the required CustomerAccountId header element.</param>
-        public GetAdGroupRemarketingListAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupIds)
+        /// <param name="ReturnExclusions">Determines whether or not the service should return ad group remarketing list exclusions for the specified ad group identifiers.</param>
+        public GetAdGroupRemarketingListAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupIds, System.Nullable<bool> ReturnExclusions)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -32817,6 +33140,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.AdGroupIds = AdGroupIds;
+            this.ReturnExclusions = ReturnExclusions;
         }
     }
     
@@ -33024,9 +33348,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// A maximum of 100 identifiers of the UET tags that you want to get. If TagIds is null or empty, then you are effectively requesting all UET tags that are available for the customer.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> TagIds;
         
@@ -33046,7 +33367,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx">GetUetTagsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759542(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="TagIds">A maximum of 100 identifiers of the UET tags that you want to get. If TagIds is null or empty, then you are effectively requesting all UET tags that are available for the customer.</param>
+        /// <param name="TagIds"></param>
         public GetUetTagsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -33269,9 +33590,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// An array of UetTag objects to update within the customer's shared UET tag library.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags;
         
@@ -33291,7 +33609,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx">UpdateUetTagsRequest</see> http://msdn.microsoft.com/en-us/library/mt759543(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="UetTags">An array of UetTag objects to update within the customer's shared UET tag library.</param>
+        /// <param name="UetTags"></param>
         public UpdateUetTagsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags)
         {
             this.ApplicationToken = ApplicationToken;
@@ -34677,6 +34995,36 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetTargetsByCampaignIdsResponse> GetTargetsByCampaignIdsAsync(Microsoft.BingAds.V10.CampaignManagement.GetTargetsByCampaignIdsRequest request)
         {
             return base.Channel.GetTargetsByCampaignIdsAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrl Service Operation</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V10.CampaignManagement.GetGeoLocationsFileUrlResponse GetGeoLocationsFileUrl(Microsoft.BingAds.V10.CampaignManagement.GetGeoLocationsFileUrlRequest request)
+        {
+            return base.Channel.GetGeoLocationsFileUrl(request);
+        }
+        
+        /// <summary>
+        /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx">GetGeoLocationsFileUrl Service Operation</see> http://msdn.microsoft.com/en-us/library/mt791775(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.GetGeoLocationsFileUrlResponse> GetGeoLocationsFileUrlAsync(Microsoft.BingAds.V10.CampaignManagement.GetGeoLocationsFileUrlRequest request)
+        {
+            return base.Channel.GetGeoLocationsFileUrlAsync(request);
         }
         
         /// <summary>
@@ -36639,31 +36987,91 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             return base.Channel.GetCampaignIdsByBudgetIdsAsync(request);
         }
         
+        /// <summary>
+        /// Adds one or more remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse AddRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request)
         {
             return base.Channel.AddRemarketingLists(request);
         }
         
+        /// <summary>
+        /// Adds one or more remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx">AddRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790574(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsResponse> AddRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.AddRemarketingListsRequest request)
         {
             return base.Channel.AddRemarketingListsAsync(request);
         }
         
+        /// <summary>
+        /// Updates the specified remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsResponse UpdateRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsRequest request)
         {
             return base.Channel.UpdateRemarketingLists(request);
         }
         
+        /// <summary>
+        /// Updates the specified remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsResponse> UpdateRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.UpdateRemarketingListsRequest request)
         {
             return base.Channel.UpdateRemarketingListsAsync(request);
         }
         
+        /// <summary>
+        /// Deletes the specified remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsResponse DeleteRemarketingLists(Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsRequest request)
         {
             return base.Channel.DeleteRemarketingLists(request);
         }
         
+        /// <summary>
+        /// Deletes the specified remarketing lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx">DeleteRemarketingLists Service Operation</see> http://msdn.microsoft.com/en-us/library/mt790575(v=msads.100).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsResponse> DeleteRemarketingListsAsync(Microsoft.BingAds.V10.CampaignManagement.DeleteRemarketingListsRequest request)
         {
             return base.Channel.DeleteRemarketingListsAsync(request);

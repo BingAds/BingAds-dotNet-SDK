@@ -264,7 +264,16 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
             // Structured Snippet Ad Extension
             StringTable.StructuredSnippetHeader,
-            StringTable.StructuredSnippetValues
+            StringTable.StructuredSnippetValues,
+
+            // Dynamic Search Ad
+            StringTable.DomainLanguage,
+            StringTable.DynamicAdTargetCondition1,
+            StringTable.DynamicAdTargetCondition2,
+            StringTable.DynamicAdTargetCondition3,
+            StringTable.DynamicAdTargetValue1,
+            StringTable.DynamicAdTargetValue2,
+            StringTable.DynamicAdTargetValue3        
         };
 
         /// <summary>

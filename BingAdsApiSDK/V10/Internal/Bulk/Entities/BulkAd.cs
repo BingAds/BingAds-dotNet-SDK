@@ -61,6 +61,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk.Entities
     /// <seealso cref="BulkTextAd"/>
     /// <seealso cref="BulkAppInstallAd"/>
     /// <seealso cref="BulkExpandedTextAd"/>
+    /// <seealso cref="BulkDynamicSearchAd"/>
     public abstract class BulkAd<T> : SingleRecordBulkEntity
         where T: Ad, new()
     {

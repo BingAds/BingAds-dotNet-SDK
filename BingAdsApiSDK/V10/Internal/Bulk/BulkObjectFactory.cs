@@ -132,7 +132,12 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                 {StringTable.Sitelink2AdExtesnion,          new EntityInfo(() => new BulkSitelink2AdExtension())},
                 {StringTable.CampaignSitelink2AdExtension,  new EntityInfo(() => new BulkCampaignSitelink2AdExtension())},
                 {StringTable.AdGroupSitelink2AdExtension,   new EntityInfo(() => new BulkAdGroupSitelink2AdExtension())}, 
-                {StringTable.Budget,                        new EntityInfo(() => new BulkBudget())}   
+                {StringTable.Budget,                        new EntityInfo(() => new BulkBudget())},
+
+                {StringTable.DynamicSearchAd,               new EntityInfo(() => new BulkDynamicSearchAd())},
+                {StringTable.AdGroupDynamicSearchAdTarget,  new EntityInfo(() => new BulkAdGroupDynamicSearchAdTarget())},
+                {StringTable.AdGroupNegativeDynamicSearchAdTarget, new EntityInfo(() => new BulkAdGroupNegativeDynamicSearchAdTarget())},
+                {StringTable.CampaignNegativeDynamicSearchAdTarget, new EntityInfo(() => new BulkCampaignNegativeDynamicSearchAdTarget())}     
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

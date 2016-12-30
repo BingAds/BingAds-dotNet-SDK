@@ -142,6 +142,7 @@
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkReviewAdExtension.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSiteLink.cs" />
     <Compile Include="V10\Bulk\Entities\AdExtensions\BulkSiteLinkAdExtension.cs" />
+    <Compile Include="V10\Bulk\Entities\Ads\BulkDynamicSearchAd.cs" />
     <Compile Include="V10\Bulk\Entities\Ads\BulkProductAd.cs" />
     <Compile Include="V10\Bulk\Entities\Ads\BulkAppInstallAd.cs" />
     <Compile Include="V10\Bulk\Entities\Ads\BulkExpandedTextAd.cs" />
@@ -149,6 +150,9 @@
     <Compile Include="V10\Bulk\Entities\BidSuggestionData.cs" />
     <Compile Include="V10\Bulk\Entities\BulkAccount.cs" />
     <Compile Include="V10\Bulk\Entities\BulkAdGroup.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkCampaignNegativeDynamicSearchAdTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkAdGroupNegativeDynamicSearchAdTarget.cs" />
+    <Compile Include="V10\Bulk\Entities\BulkAdGroupDynamicSearchAdTarget.cs" />
     <Compile Include="V10\Bulk\Entities\BulkAdGroupProductPartition.cs" />
     <Compile Include="V10\Bulk\Entities\BulkAdGroupRemarketingListAssociation.cs" />
     <Compile Include="V10\Bulk\Entities\BulkBudget.cs" />
@@ -243,6 +247,7 @@
     <Compile Include="V10\Internal\Bulk\Entities\MultiRecordBulkEntity.cs" />
     <Compile Include="V10\Internal\Bulk\Entities\NegativeKeywords\BulkEntityNegativeKeyword.cs" />
     <Compile Include="V10\Internal\Bulk\Entities\NegativeKeywords\BulkNegativeKeyword.cs" />
+    <Compile Include="V10\Internal\Bulk\Entities\WebpageConditionHelper.cs" />
     <Compile Include="V10\Internal\Bulk\Entities\ProductConditionHelper.cs" />
     <Compile Include="V10\Internal\Bulk\Entities\SingleRecordBulkEntity.cs" />
     <Compile Include="V10\Internal\Bulk\Entities\Targets\Age\BulkAgeTarget.cs" />

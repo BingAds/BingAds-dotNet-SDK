@@ -1532,7 +1532,7 @@ namespace Microsoft.BingAds.V10.Bulk
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/DownloadCampaig" +
             "nsByAccountIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/DownloadCampaig" +
-            "nsByAccountIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "nsByAccountIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.Bulk.DownloadCampaignsByAccountIdsResponse DownloadCampaignsByAccountIds(Microsoft.BingAds.V10.Bulk.DownloadCampaignsByAccountIdsRequest request);
         
         /// <summary>
@@ -1564,7 +1564,7 @@ namespace Microsoft.BingAds.V10.Bulk
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/DownloadCampaig" +
             "nsByCampaignIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/DownloadCampaig" +
-            "nsByCampaignIdsApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "nsByCampaignIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.Bulk.DownloadCampaignsByCampaignIdsResponse DownloadCampaignsByCampaignIds(Microsoft.BingAds.V10.Bulk.DownloadCampaignsByCampaignIdsRequest request);
         
         /// <summary>
@@ -1596,7 +1596,7 @@ namespace Microsoft.BingAds.V10.Bulk
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/GetBulkDownload" +
             "StatusAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/GetBulkDownload" +
-            "StatusApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "StatusApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.Bulk.GetBulkDownloadStatusResponse GetBulkDownloadStatus(Microsoft.BingAds.V10.Bulk.GetBulkDownloadStatusRequest request);
         
         /// <summary>
@@ -1628,7 +1628,7 @@ namespace Microsoft.BingAds.V10.Bulk
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/GetBulkUploadUr" +
             "lAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/GetBulkUploadUr" +
-            "lApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "lApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.Bulk.GetBulkUploadUrlResponse GetBulkUploadUrl(Microsoft.BingAds.V10.Bulk.GetBulkUploadUrlRequest request);
         
         /// <summary>
@@ -1660,7 +1660,7 @@ namespace Microsoft.BingAds.V10.Bulk
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/GetBulkUploadSt" +
             "atusAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V10.Bulk.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v10/IBulkService/GetBulkUploadSt" +
-            "atusApiFaultDetail3Fault", Name="ApiFaultDetail")]
+            "atusApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V10.Bulk.GetBulkUploadStatusResponse GetBulkUploadStatus(Microsoft.BingAds.V10.Bulk.GetBulkUploadStatusRequest request);
         
         /// <summary>

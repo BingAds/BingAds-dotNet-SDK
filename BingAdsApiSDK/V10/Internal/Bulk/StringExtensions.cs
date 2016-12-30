@@ -253,7 +253,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             }
 
             return bid.Amount.ToBulkString();
-        }
+        } 
 
         public static Bid ParseAdGroupBid(this string s)
         {
@@ -263,6 +263,26 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             }
 
             return new Bid {Amount = s.Parse<double>()};
+        }
+
+        public static string ToAdGroupCriterionBidBulkString(this Bid bid)
+        {
+            if (bid == null || bid.Amount == null)
+            {
+                return null;
+            }
+
+            return bid.Amount.ToBulkString();
+        }
+
+        public static Bid ParseAdGroupCriterionBid(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            return new Bid { Amount = s.Parse<double>() };
         }
 
         public static string ToKeywordBidBulkString(this Bid bid)
@@ -741,6 +761,31 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                 throw new ArgumentException(string.Format("Unknown values for Use Searcher Time Zone: {0}", s));
             }
             return result;
+        }
+
+        public static string ToCriterionNameBulkString(this WebpageParameter webpageParameter)
+        {
+            if (webpageParameter == null || webpageParameter.CriterionName == null)
+            {
+                return null;
+            }
+
+            if (webpageParameter.CriterionName.Length == 0)
+            {
+                return DeleteValue;
+            }
+
+            return webpageParameter.CriterionName;
+        }
+
+        public static string ParseCriterionName(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            return s;
         }
     }
 }

@@ -4519,7 +4519,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 6,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 7,
@@ -4567,7 +4567,7 @@ namespace Microsoft.BingAds.Reporting
         CostPerConversion = 14,
         
         /// <summary>
-        /// The number of low-quality clicks. Low-quality clicks are clicks that exhibit a low likelihood of commercial intent and for which customers are not billed.Only ads that use the CPC pricing model contribute to this number.The following are some of the reasons that a click can be considered of low quality:The click has characteristics of low or unclear commercial intent.The click exhibits patterns of unusual activity.The click originates from spiders, robots, questionable sources, or test servers.The click should be filtered out for other reasons.
+        /// Clicks that exhibit a low likelihood of commercial intent. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicks = 15,
@@ -4621,19 +4621,19 @@ namespace Microsoft.BingAds.Reporting
         DeviceOS = 23,
         
         /// <summary>
-        /// The percentage of time your ads were displayed to users who searched by keywords that matched your keywords and targeting selections.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 24,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because of a budget shortfall.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 25,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your ads ranked too low in the auction. You can improve your competitive position by increasing your bid, improving your quality score, or both.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 26,
@@ -4799,6 +4799,18 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 53,
+        
+        /// <summary>
+        /// Clicks that are filtered by general methods, such as blacklists and activity-based detection, and that exhibit a low likelihood of commercial intent. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityGeneralClicks = 54,
+        
+        /// <summary>
+        /// Invalid clicks that use sophisticated means to appear valid. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualitySophisticatedClicks = 55,
     }
     
     /// <summary>
@@ -5455,7 +5467,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 9,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 10,
@@ -5503,7 +5515,7 @@ namespace Microsoft.BingAds.Reporting
         CostPerConversion = 17,
         
         /// <summary>
-        /// The number of low-quality clicks. Low-quality clicks are clicks that exhibit a low likelihood of commercial intent and for which customers are not billed.Only ads that use the CPC pricing model contribute to this number.The following are some of the reasons that a click can be considered of low quality:The click has characteristics of low or unclear commercial intent.The click exhibits patterns of unusual activity.The click originates from spiders, robots, questionable sources, or test servers.The click should be filtered out for other reasons.
+        /// Clicks that exhibit a low likelihood of commercial intent. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicks = 18,
@@ -5557,19 +5569,19 @@ namespace Microsoft.BingAds.Reporting
         DeviceOS = 26,
         
         /// <summary>
-        /// The percentage of time your ads were displayed to users who searched by keywords that matched your keywords and targeting selections.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 27,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because of a budget shortfall.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 28,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your ads ranked too low in the auction. You can improve your competitive position by increasing your bid, improving your quality score, or both.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 29,
@@ -5813,6 +5825,18 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetAssociationStatus = 69,
+        
+        /// <summary>
+        /// Clicks that are filtered by general methods, such as blacklists and activity-based detection, and that exhibit a low likelihood of commercial intent. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityGeneralClicks = 70,
+        
+        /// <summary>
+        /// Invalid clicks that use sophisticated means to appear valid. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualitySophisticatedClicks = 71,
     }
     
     /// <summary>
@@ -6446,7 +6470,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 16,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
@@ -6542,25 +6566,25 @@ namespace Microsoft.BingAds.Reporting
         KeywordStatus = 32,
         
         /// <summary>
-        /// The title part 1 attribute of an ad.
+        /// The title part 1 attribute of an ad.Note: The column name in the downloaded report is Title Part 1, not TitlePart1.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 33,
         
         /// <summary>
-        /// The title part 2 attribute of an ad.
+        /// The title part 2 attribute of an ad.Note: The column name in the downloaded report is Title Part 2, not TitlePart2.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 34,
         
         /// <summary>
-        /// The path 1 attribute of an ad.
+        /// The path 1 attribute of an ad.Note: The column name in the downloaded report is Path 1, not Path1.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path1 = 35,
         
         /// <summary>
-        /// The path 2 attribute of an ad.
+        /// The path 2 attribute of an ad.Note: The column name in the downloaded report is Path 2, not Path2.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path2 = 36,
@@ -6757,6 +6781,9 @@ namespace Microsoft.BingAds.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstall = 256,
         
+        /// <summary>
+        /// The report will include dynamic search ads.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicSearchAd = 512,
         
@@ -7193,7 +7220,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 11,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
@@ -7271,19 +7298,19 @@ namespace Microsoft.BingAds.Reporting
         DeviceOS = 24,
         
         /// <summary>
-        /// The percentage of time your ads were displayed to users who searched by keywords that matched your keywords and targeting selections.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 25,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because of a budget shortfall.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 26,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your ads ranked too low in the auction. You can improve your competitive position by increasing your bid, improving your quality score, or both.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 27,
@@ -7869,7 +7896,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 14,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 15,
@@ -8103,25 +8130,25 @@ namespace Microsoft.BingAds.Reporting
         AdGroupStatus = 53,
         
         /// <summary>
-        /// The title part 1 attribute of an ad.
+        /// The title part 1 attribute of an ad.Note: The column name in the downloaded report is Title Part 1, not TitlePart1.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 54,
         
         /// <summary>
-        /// The title part 2 attribute of an ad.
+        /// The title part 2 attribute of an ad.Note: The column name in the downloaded report is Title Part 2, not TitlePart2.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 55,
         
         /// <summary>
-        /// The path 1 attribute of an ad.
+        /// The path 1 attribute of an ad.Note: The column name in the downloaded report is Path 1, not Path1.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path1 = 56,
         
         /// <summary>
-        /// The path 2 attribute of an ad.
+        /// The path 2 attribute of an ad.Note: The column name in the downloaded report is Path 2, not Path2.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path2 = 57,
@@ -9096,7 +9123,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 17,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 18,
@@ -9907,7 +9934,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 12,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
@@ -11142,7 +11169,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 11,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
@@ -11739,7 +11766,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 16,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
@@ -12318,7 +12345,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 15,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 16,
@@ -12773,7 +12800,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 10,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 11,
@@ -14756,7 +14783,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 12,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
@@ -14918,13 +14945,13 @@ namespace Microsoft.BingAds.Reporting
         AdStatus = 39,
         
         /// <summary>
-        /// The title part 1 attribute of an ad.
+        /// The title part 1 attribute of an ad.Note: The column name in the downloaded report is Title Part 1, not TitlePart1.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 40,
         
         /// <summary>
-        /// The title part 2 attribute of an ad.
+        /// The title part 2 attribute of an ad.Note: The column name in the downloaded report is Title Part 2, not TitlePart2.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 41,
@@ -15200,7 +15227,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 12,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
@@ -15684,7 +15711,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 13,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
@@ -16062,7 +16089,7 @@ namespace Microsoft.BingAds.Reporting
         DeviceOS = 16,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
@@ -16585,7 +16612,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 13,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
@@ -16615,19 +16642,19 @@ namespace Microsoft.BingAds.Reporting
         AveragePosition = 18,
         
         /// <summary>
-        /// The percentage of time your ads were displayed to users who searched by keywords that matched your keywords and targeting selections.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 19,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because of a budget shortfall.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 20,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your ads ranked too low in the auction. You can improve your competitive position by increasing your bid, improving your quality score, or both.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 21,
@@ -17052,7 +17079,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 13,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
@@ -17622,7 +17649,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 35,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 36,
@@ -17692,6 +17719,36 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 47,
+        
+        /// <summary>
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionSharePercent = 48,
+        
+        /// <summary>
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToBudgetPercent = 49,
+        
+        /// <summary>
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToRankPercent = 50,
+        
+        /// <summary>
+        /// Shows you how much other advertisers are bidding on average on similar products as your current target.Use this information as a benchmark to compare your bidding strategy for a product group against that of other advertisers advertising similar products. If the benchmark bid is significantly higher than your bid, you might consider raising your bid.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BenchmarkBid = 51,
+        
+        /// <summary>
+        /// Shows you how other product ads for similar products are performing on average based on how often people who see the ad end up clicking on it.If the benchmark CTR is significantly higher than the CTR for your product group, you might consider raising your bid for that product group, or improving the product information, particularly product images and titles.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BenchmarkCtr = 52,
     }
     
     /// <summary>
@@ -17988,7 +18045,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 16,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
@@ -18142,6 +18199,36 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 42,
+        
+        /// <summary>
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionSharePercent = 43,
+        
+        /// <summary>
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToBudgetPercent = 44,
+        
+        /// <summary>
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.Note: You may not include this column with Hourly or HourOfDay aggregation, and if specified the service will return code 2053. The value of this column is empty if the data is not available.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionLostToRankPercent = 45,
+        
+        /// <summary>
+        /// Shows you how much other advertisers are bidding on average on similar products as your current target.Use this information as a benchmark to compare your bidding strategy for a product group against that of other advertisers advertising similar products. If the benchmark bid is significantly higher than your bid, you might consider raising your bid.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BenchmarkBid = 46,
+        
+        /// <summary>
+        /// Shows you how other product ads for similar products are performing on average based on how often people who see the ad end up clicking on it.If the benchmark CTR is significantly higher than the CTR for your product group, you might consider raising your bid for that product group, or improving the product information, particularly product images and titles.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BenchmarkCtr = 47,
     }
     
     /// <summary>
@@ -18432,7 +18519,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 15,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 16,
@@ -18735,7 +18822,7 @@ namespace Microsoft.BingAds.Reporting
         Duration = 5,
         
         /// <summary>
-        /// The call status.
+        /// The call status.Note: This column is deprecated and will be removed in a future API version. Bing Ads stopped charging for manual calls to a tracked number on March 12, 2014, and the CallStatus value is empty for any dates since.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CallStatus = 6,
@@ -18747,7 +18834,7 @@ namespace Microsoft.BingAds.Reporting
         PhoneSpend = 7,
         
         /// <summary>
-        /// The name of the call type.
+        /// The name of the call type.Note: This column is deprecated and will be removed in a future API version. Bing Ads stopped charging for manual calls to a tracked number on March 12, 2014, and the CallTypeName value is empty for any dates since.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CallTypeName = 8,
@@ -19083,7 +19170,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 13,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
@@ -19413,7 +19500,7 @@ namespace Microsoft.BingAds.Reporting
         Impressions = 14,
         
         /// <summary>
-        /// The number of times that the ads in the account were clicked.
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 15,
