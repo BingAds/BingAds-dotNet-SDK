@@ -34,6 +34,7 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V10.RemarketingLists(),
             new BingAdsExamplesLibrary.V10.BulkShoppingCampaigns(),
             new BingAdsExamplesLibrary.V10.ShoppingCampaigns(),
+            new BingAdsExamplesLibrary.V10.GeographicalLocations(),
             new BingAdsExamplesLibrary.V10.BulkTargets(),
             new BingAdsExamplesLibrary.V10.Targets(),
             new BingAdsExamplesLibrary.V10.BulkNegativeSites(),
@@ -42,7 +43,6 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V9.CustomerSignup(),
             new BingAdsExamplesLibrary.V9.ManageClient(),
             new BingAdsExamplesLibrary.V9.ReportRequests(),
-            new BingAdsExamplesLibrary.GeographicalLocations(),
         };
 
         private static long?[,] _accountCustomerIds;

@@ -19,7 +19,7 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class GeographicalLocations : ExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> Service;
+        public static ServiceClient<ICampaignManagementService> CampaignService;
 
         // The full path to the geographical locations file.
 
@@ -50,6 +50,8 @@ namespace BingAdsExamplesLibrary.V10
 
             try
             {
+                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+
                 var getGeoLocationsFileUrlResponse = await GetGeoLocationsFileUrlAsync(Version, LanguageLocale);
 
                 // Going forward you should track the date and time of the previous download,  
@@ -67,7 +69,7 @@ namespace BingAdsExamplesLibrary.V10
                 // Download the file if it was modified since the previous download.
                 if (DateTime.Compare(previousSyncTimeUtc, lastModifiedTimeUtc) < 0)
                 {
-                    DownloadFile(fileUrl);
+                    DownloadFile(fileUrl, LocalFile);
                 }
 
             }
@@ -113,7 +115,7 @@ namespace BingAdsExamplesLibrary.V10
                 LanguageLocale = languageLocale
             };
 
-            return (await Service.CallAsync((s, r) => s.GetGeoLocationsFileUrlAsync(r), request));
+            return (await CampaignService.CallAsync((s, r) => s.GetGeoLocationsFileUrlAsync(r), request));
         }
 
 
@@ -139,7 +141,7 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         responseStream.CopyTo(fileStream);
                     }
-                    OutputStatusMessage(string.Format("Downloaded the geographical locations to {0}.\n", LocalFile));
+                    OutputStatusMessage(string.Format("Downloaded the geographical locations to {0}.\n", localFile));
                 }
             }
             catch (WebException e)
