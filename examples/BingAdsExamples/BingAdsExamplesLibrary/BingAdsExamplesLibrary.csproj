@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExampleBase.cs" />
-    <Compile Include="GeographicalLocations.cs" />
+    <Compile Include="v10\GeographicalLocations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="v10\AdExtensions.cs" />
     <Compile Include="v10\BudgetOpportunities.cs" />
