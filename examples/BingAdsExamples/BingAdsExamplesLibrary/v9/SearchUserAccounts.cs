@@ -34,12 +34,6 @@ namespace BingAdsExamplesLibrary.V9
 
                 var accounts = await SearchAccountsByUserIdAsync(user.Id);
 
-                // Optionally if you are enabled for Final Urls, you can update each account with a tracking template.
-                var accountFCM = new List<KeyValuePair<string, string>>();
-                accountFCM.Add(new KeyValuePair<string, string>(
-                    "TrackingUrlTemplate",
-                    "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
-                
                 OutputStatusMessage("The user can access the following Bing Ads accounts: \n");
                 foreach (var account in accounts)
                 {
@@ -47,19 +41,21 @@ namespace BingAdsExamplesLibrary.V9
 
                     // Optionally you can find out which pilot features the customer is able to use. 
                     // Each account could belong to a different customer, so use the customer ID in each account.
-                    var featurePilotFlags = await GetCustomerPilotFeaturesAsync((long)account.ParentCustomerId);
+                    var featurePilotFlags = await GetCustomerPilotFeaturesAsync(account.ParentCustomerId);
                     OutputStatusMessage("Customer Pilot flags:");
                     OutputStatusMessage(string.Join("; ", featurePilotFlags.Select(flag => string.Format("{0}", flag))));
+
+                    // Optionally you can update each account with a tracking template.
+                    var accountFCM = new List<KeyValuePair<string, string>>();
+                    accountFCM.Add(new KeyValuePair<string, string>(
+                        "TrackingUrlTemplate",
+                        "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
                     
-                    // Optionally if you are enabled for Final Urls, you can update each account with a tracking template.
-                    // The pilot flag value for Final Urls is 194.
-                    if (featurePilotFlags.Any(pilotFlag => pilotFlag == 194))
-                    {
-                        account.ForwardCompatibilityMap = accountFCM;
-                        await UpdateAccountAsync(account);
-                        OutputStatusMessage(string.Format("Updated the account with a TrackingUrlTemplate: {0}\n", 
-                            accountFCM.ToArray().SingleOrDefault(keyValuePair => keyValuePair.Key == "TrackingUrlTemplate").Value));
-                    }
+                    account.ForwardCompatibilityMap = accountFCM;
+                    await UpdateAccountAsync(account);
+                    OutputStatusMessage(string.Format("Updated the account with a TrackingUrlTemplate: {0}\n", 
+                        accountFCM.ToArray().SingleOrDefault(keyValuePair => keyValuePair.Key == "TrackingUrlTemplate").Value));
+                    
                 }
             }
             // Catch authentication exceptions
