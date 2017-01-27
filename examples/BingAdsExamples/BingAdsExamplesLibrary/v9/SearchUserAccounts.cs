@@ -46,15 +46,16 @@ namespace BingAdsExamplesLibrary.V9
                     OutputStatusMessage(string.Join("; ", featurePilotFlags.Select(flag => string.Format("{0}", flag))));
 
                     // Optionally you can update each account with a tracking template.
-                    var accountFCM = new List<KeyValuePair<string, string>>();
-                    accountFCM.Add(new KeyValuePair<string, string>(
-                        "TrackingUrlTemplate",
-                        "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
                     
-                    account.ForwardCompatibilityMap = accountFCM;
-                    await UpdateAccountAsync(account);
-                    OutputStatusMessage(string.Format("Updated the account with a TrackingUrlTemplate: {0}\n", 
-                        accountFCM.ToArray().SingleOrDefault(keyValuePair => keyValuePair.Key == "TrackingUrlTemplate").Value));
+                    //var accountFCM = new List<KeyValuePair<string, string>>();
+                    //accountFCM.Add(new KeyValuePair<string, string>(
+                    //    "TrackingUrlTemplate",
+                    //    "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
+                    
+                    //account.ForwardCompatibilityMap = accountFCM;
+                    //await UpdateAccountAsync(account);
+                    //OutputStatusMessage(string.Format("Updated the account with a TrackingUrlTemplate: {0}\n", 
+                    //    accountFCM.ToArray().SingleOrDefault(keyValuePair => keyValuePair.Key == "TrackingUrlTemplate").Value));
                     
                 }
             }
