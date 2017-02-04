@@ -12,12 +12,10 @@ using Microsoft.BingAds.V10.CampaignManagement;
 namespace BingAdsExamplesLibrary.V10
 {
     /// <summary>
-    /// This example demonstrates how to how to associate remarketing lists with a new ad group using the BulkServiceManager class.
+    /// This example demonstrates how to associate remarketing lists with a new ad group.
     /// </summary>
     public class BulkRemarketingLists : BulkExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> CampaignService;
-
         public override string Description
         {
             get { return "Bulk Remarketing List Associations | Bulk V10"; }
@@ -27,366 +25,43 @@ namespace BingAdsExamplesLibrary.V10
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
-
                 BulkService = new BulkServiceManager(authorizationData);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(String.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
-                // Before you can track conversions or target audiences using a remarketing list, 
-                // you need to create a UET tag in Bing Ads (web application or API) and then 
-                // add the UET tag tracking code to every page of your website. For more information, please see 
-                // Universal Event Tracking at https://msdn.microsoft.com/library/bing-ads-universal-event-tracking-guide.aspx.
-
-                // First you should call the GetUetTagsByIds operation to check whether a tag has already been created. 
-                // You can leave the TagIds element null or empty to request all UET tags available for the customer.
-
-                var uetTags = (await GetUetTagsByIdsAsync(null)).UetTags;
-
-                // If you do not already have a UET tag that can be used, or if you need another UET tag, 
-                // call the AddUetTags service operation to create a new UET tag. If the call is successful, 
-                // the tracking script that you should add to your website is included in a corresponding 
-                // UetTag within the response message. 
-
-                if (uetTags == null || uetTags.Count < 1)
+                var downloadParameters = new DownloadParameters
                 {
-                    var uetTag = new UetTag
-                    {
-                        Description = "My First Uet Tag",
-                        Name = "New Uet Tag",
-                    };
-                    uetTags = (await AddUetTagsAsync(new[] { uetTag })).UetTags;
-                }
+                    Entities = BulkDownloadEntity.RemarketingLists,
+                    ResultFileDirectory = FileDirectory,
+                    ResultFileName = DownloadFileName,
+                    OverwriteResultFile = true,
+                    LastSyncTimeInUTC = null
+                };
 
-                if (uetTags == null || uetTags.Count < 1)
+                var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
+                OutputStatusMessage("Downloaded all remarketing lists that the current user can associate with ad groups.\n");
+                Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
+                var downloadEntities = Reader.ReadEntities().ToList();
+
+                var remarketingListResults = downloadEntities.OfType<BulkRemarketingList>().ToList();
+                OutputBulkRemarketingLists(remarketingListResults);
+
+                Reader.Dispose();
+
+                // You must already have at least one remarketing list. 
+                if (remarketingListResults.Count < 1)
                 {
-                    OutputStatusMessage(
-                        string.Format("You do not have any UET tags registered for CustomerId {0}.\n", authorizationData.CustomerId)
-                    );
+                    OutputStatusMessage("You do not have any remarketing lists that the current user can associate with ad groups.\n");
                     return;
                 }
 
-                OutputStatusMessage("List of all UET Tags:\n");
-                foreach (var uetTag in uetTags)
-                {
-                    OutputUetTag(uetTag);
-                }
+                var uploadEntities = new List<BulkEntity>();
 
-                // After you retreive the tracking script from the AddUetTags or GetUetTagsByIds operation, 
-                // the next step is to add the UET tag tracking code to your website. We recommend that you, 
-                // or your website administrator, add it to your entire website in either the head or body sections. 
-                // If your website has a master page, then that is the best place to add it because you add it once 
-                // and it is included on all pages. For more information, please see 
-                // Universal Event Tracking at https://msdn.microsoft.com/library/bing-ads-universal-event-tracking-guide.aspx.
-
-                // We will use the same UET tag for the remainder of this example.
-                var tagId = uetTags[0].Id;
-                
                 #region Add
 
                 // Prepare the bulk entities that you want to upload.  
-
-                var uploadEntities = new List<BulkEntity>();
-
-                // Add a remarketing list that depend on the UET Tag Id retreived above.
-
-                var bulkRemarketingLists = new[] {
-                    new BulkRemarketingList
-                    {
-                        ClientId = "List with CustomEventsRule",
-                        RemarketingList = new RemarketingList
-                        {
-                            Description = "New list with CustomEventsRule",
-                            Id = -1,
-                            MembershipDuration = 30,
-                            Name = "Remarketing List with CustomEventsRule " + DateTime.UtcNow,
-                            ParentId = authorizationData.AccountId,
-                            Rule = new CustomEventsRule
-                            {
-                                // The type of user interaction you want to track.
-                                Action = "play",
-                                ActionOperator = StringOperator.Contains,
-                                // The category of event you want to track. 
-                                Category = "video",
-                                CategoryOperator = StringOperator.Contains,
-                                // The name of the element that caused the action.
-                                Label = "trailer",
-                                LabelOperator = StringOperator.Contains,
-                                // A numerical value associated with that event. 
-                                // Could be length of the video played etc.
-                                Value = 5.00m,
-                                ValueOperator = NumberOperator.Equals,
-                            },
-                            Scope = EntityScope.Account,
-                            TagId = tagId
-                        },
-                    },
-                    new BulkRemarketingList
-                    {
-                        ClientId = "List with PageVisitorsRule",
-                        RemarketingList = new RemarketingList
-                        {
-                            Description = "New list with PageVisitorsRule",
-                            Id = -2,
-                            MembershipDuration = 30,
-                            Name = "Remarketing List with PageVisitorsRule " + DateTime.UtcNow,
-                            ParentId = authorizationData.AccountId,
-                            // The rule definition is translated to the following logical expression: 
-                            // ((Url Contains X) and (ReferrerUrl DoesNotContain Z)) or ((Url DoesNotBeginWith Y)) 
-                            // or ((ReferrerUrl Equals Z))
-                            Rule = new PageVisitorsRule
-                            {
-                                RuleItemGroups = new []
-                                {
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.Contains,
-                                                Value = "X"
-                                            },
-                                            new StringRuleItem
-                                            {
-                                                Operand = "ReferrerUrl",
-                                                Operator = StringOperator.DoesNotContain,
-                                                Value = "Z"
-                                            },
-                                        }
-                                    },
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.DoesNotBeginWith,
-                                                Value = "Y"
-                                            },
-                                        }
-                                    },
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "ReferrerUrl",
-                                                Operator = StringOperator.Equals,
-                                                Value = "Z"
-                                            },
-                                        }
-                                    },
-                                },
-                            },
-                            Scope = EntityScope.Account,
-                            TagId = tagId
-                        },
-                    },
-                    new BulkRemarketingList
-                    {
-                        ClientId = "List with PageVisitorsWhoDidNotVisitAnotherPageRule",
-                        RemarketingList = new RemarketingList
-                        {
-                            Description = "New list with PageVisitorsWhoDidNotVisitAnotherPageRule",
-                            Id = -3,
-                            MembershipDuration = 30,
-                            Name = "Remarketing List with PageVisitorsWhoDidNotVisitAnotherPageRule " + DateTime.UtcNow,
-                            ParentId = authorizationData.AccountId,
-                            // The rule definition is translated to the following logical expression: 
-                            // (((Url Contains X) and (ReferrerUrl DoesNotContain Z)) or ((Url DoesNotBeginWith Y)) 
-                            // or ((ReferrerUrl Equals Z))) 
-                            // and not (((Url BeginsWith A) and (ReferrerUrl BeginsWith B)) or ((Url Contains C)))
-                            Rule = new PageVisitorsWhoDidNotVisitAnotherPageRule
-                            {
-                                ExcludeRuleItemGroups = new []
-                                {
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.BeginsWith,
-                                                Value = "A"
-                                            },
-                                            new StringRuleItem
-                                            {
-                                                Operand = "ReferrerUrl",
-                                                Operator = StringOperator.BeginsWith,
-                                                Value = "B"
-                                            },
-                                        }
-                                    },
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.Contains,
-                                                Value = "C"
-                                            },
-                                        }
-                                    },
-                                },
-                                IncludeRuleItemGroups = new []
-                                {
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.Contains,
-                                                Value = "X"
-                                            },
-                                            new StringRuleItem
-                                            {
-                                                Operand = "ReferrerUrl",
-                                                Operator = StringOperator.DoesNotContain,
-                                                Value = "Z"
-                                            },
-                                        }
-                                    },
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.DoesNotBeginWith,
-                                                Value = "Y"
-                                            },
-                                        }
-                                    },
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "ReferrerUrl",
-                                                Operator = StringOperator.Equals,
-                                                Value = "Z"
-                                            },
-                                        }
-                                    },
-                                },
-                            },
-                            Scope = EntityScope.Account,
-                            TagId = tagId
-                        },
-                    },
-                    new BulkRemarketingList
-                    {
-                        ClientId = "List with PageVisitorsWhoVisitedAnotherPageRule",
-                        RemarketingList = new RemarketingList
-                        {
-                            Description = "New list with PageVisitorsWhoVisitedAnotherPageRule",
-                            Id = -4,
-                            MembershipDuration = 30,
-                            Name = "Remarketing List with PageVisitorsWhoVisitedAnotherPageRule " + DateTime.UtcNow,
-                            ParentId = authorizationData.AccountId,
-                            // The rule definition is translated to the following logical expression: 
-                            // (((Url Contains X) and (ReferrerUrl NotEquals Z)) or ((Url DoesNotBeginWith Y)) or 
-                            // ((ReferrerUrl Equals Z))) 
-                            // and (((Url BeginsWith A) and (ReferrerUrl BeginsWith B)) or ((Url Contains C)))
-                            Rule = new PageVisitorsWhoVisitedAnotherPageRule
-                            {
-                                AnotherRuleItemGroups = new []
-                                {
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.BeginsWith,
-                                                Value = "A"
-                                            },
-                                            new StringRuleItem
-                                            {
-                                                Operand = "ReferrerUrl",
-                                                Operator = StringOperator.BeginsWith,
-                                                Value = "B"
-                                            },
-                                        }
-                                    },
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.Contains,
-                                                Value = "C"
-                                            },
-                                        }
-                                    },
-                                },
-                                RuleItemGroups = new []
-                                {
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.Contains,
-                                                Value = "X"
-                                            },
-                                            new StringRuleItem
-                                            {
-                                                Operand = "ReferrerUrl",
-                                                Operator = StringOperator.DoesNotContain,
-                                                Value = "Z"
-                                            },
-                                        }
-                                    },
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "Url",
-                                                Operator = StringOperator.DoesNotBeginWith,
-                                                Value = "Y"
-                                            },
-                                        }
-                                    },
-                                    new RuleItemGroup
-                                    {
-                                        Items = new []
-                                        {
-                                            new StringRuleItem
-                                            {
-                                                Operand = "ReferrerUrl",
-                                                Operator = StringOperator.Equals,
-                                                Value = "Z"
-                                            },
-                                        }
-                                    },
-                                },
-                            },
-                            Scope = EntityScope.Account,
-                            TagId = tagId
-                        },
-                    },
-                };
 
                 var bulkCampaign = new BulkCampaign
                 {
@@ -457,23 +132,24 @@ namespace BingAdsExamplesLibrary.V10
 
                 // This example associates all of the remarketing lists with the new ad group.
 
-                foreach (var bulkRemarketingList in bulkRemarketingLists)
+                foreach (var remarketingList in remarketingListResults)
                 {
-                    uploadEntities.Add(bulkRemarketingList);
-
-                    var BulkAdGroupRemarketingListAssociation = new BulkAdGroupRemarketingListAssociation
+                    if (remarketingList.RemarketingList != null && remarketingList.RemarketingList.Id != null)
                     {
-                        ClientId = "MyBulkAdGroupRemarketingListAssociation " + bulkRemarketingList.ClientId,
-                        AdGroupRemarketingListAssociation = new AdGroupRemarketingListAssociation
+                        var BulkAdGroupRemarketingListAssociation = new BulkAdGroupRemarketingListAssociation
                         {
-                            AdGroupId = adGroupIdKey,
-                            BidAdjustment = 20.00,
-                            RemarketingListId = (long)bulkRemarketingList.RemarketingList.Id,
-                            Status = AdGroupRemarketingListAssociationStatus.Paused
-                        },
-                    };
+                            ClientId = "MyBulkAdGroupRemarketingListAssociation " + remarketingList.RemarketingList.Id,
+                            AdGroupRemarketingListAssociation = new AdGroupRemarketingListAssociation
+                            {
+                                AdGroupId = adGroupIdKey,
+                                BidAdjustment = 20.00,
+                                RemarketingListId = (long)remarketingList.RemarketingList.Id,
+                                Status = AdGroupRemarketingListAssociationStatus.Paused
+                            },
+                        };
 
-                    uploadEntities.Add(BulkAdGroupRemarketingListAssociation);
+                        uploadEntities.Add(BulkAdGroupRemarketingListAssociation);
+                    }
                 }
 
                 // Upload and write the output
@@ -481,10 +157,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage("\nAdding campaign, ad group, and ad group remarketing list associations...\n");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
-                var downloadEntities = Reader.ReadEntities().ToList();
-
-                var remarketingListResults = downloadEntities.OfType<BulkRemarketingList>().ToList();
-                OutputBulkRemarketingLists(remarketingListResults);
+                downloadEntities = Reader.ReadEntities().ToList();
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
@@ -498,7 +171,7 @@ namespace BingAdsExamplesLibrary.V10
                 Reader.Dispose();
 
                 #endregion Add
-                
+
                 #region CleanUp
 
                 // Delete the campaign, ad group, and ad group remarketing list associations that were previously added.
@@ -568,30 +241,6 @@ namespace BingAdsExamplesLibrary.V10
                 if (Reader != null) { Reader.Dispose(); }
                 if (Writer != null) { Writer.Dispose(); }
             }
-        }
-
-        // Adds one or more UET tags.
-
-        private async Task<AddUetTagsResponse> AddUetTagsAsync(IList<UetTag> uetTags)
-        {
-            var request = new AddUetTagsRequest
-            {
-                UetTags = uetTags,
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddUetTagsAsync(r), request));
-        }
-
-        // Gets one or more UET Tags.
-
-        private async Task<GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(IList<long> tagIds)
-        {
-            var request = new GetUetTagsByIdsRequest
-            {
-                TagIds = tagIds,
-            };
-
-            return await CampaignService.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request);
         }
     }
 }
