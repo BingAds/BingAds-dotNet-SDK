@@ -217,7 +217,7 @@ namespace BingAdsExamplesLibrary.V10
                 // The index of the partial errors is equal to the index of the list
                 // specified in the call to AddCampaigns.
 
-                OutputStatusMessage(string.Format("\nCampaign[{0}] (Name:{1}) not added due to the following error:",
+                OutputStatusMessage(string.Format("Campaign[{0}] (Name:{1}) not added due to the following error:",
                     error.Index, campaigns[error.Index].Name));
 
                 OutputStatusMessage(string.Format("\tIndex: {0}", error.Index));
@@ -278,7 +278,7 @@ namespace BingAdsExamplesLibrary.V10
                 // The index of the partial errors is equal to the index of the list
                 // specified in the call to AddAdGroups.
 
-                OutputStatusMessage(string.Format("\nAdGroup[{0}] (Name:{1}) not added due to the following error:",
+                OutputStatusMessage(string.Format("AdGroup[{0}] (Name:{1}) not added due to the following error:",
                     error.Index, adGroups[error.Index].Name));
 
                 OutputStatusMessage(string.Format("\tIndex: {0}", error.Index));
@@ -339,7 +339,7 @@ namespace BingAdsExamplesLibrary.V10
                 // The index of the partial errors is equal to the index of the list
                 // specified in the call to AddKeywords.
 
-                OutputStatusMessage(string.Format("\nKeyword[{0}] (Text:{1}) not added due to the following error:",
+                OutputStatusMessage(string.Format("Keyword[{0}] (Text:{1}) not added due to the following error:",
                     error.Index, keywords[error.Index].Text));
 
                 OutputStatusMessage(string.Format("\tIndex: {0}", error.Index));
@@ -383,7 +383,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 if(adIds[index] != null)
                 {
-                    OutputStatusMessage(string.Format("\nAd[{0}] successfully added:", index));
+                    OutputStatusMessage(string.Format("Ad[{0}] successfully added:\n", index));
                     ads[index].Id = adIds[index];
                     var expandedTextAd = ads[index] as ExpandedTextAd;
                     if (expandedTextAd != null)
@@ -786,8 +786,9 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Output properties that are specific to the BiddableAdGroupCriterion
                 OutputCriterionBid(criterion.CriterionBid);
-                OutputStatusMessage(string.Format("IsExact: {0}", criterion.DestinationUrl));
-                OutputStatusMessage(string.Format("Source: {0}", criterion.EditorialStatus));
+                
+                OutputStatusMessage(string.Format("DestinationUrl: {0}", criterion.DestinationUrl));
+                OutputStatusMessage(string.Format("EditorialStatus: {0}", criterion.EditorialStatus));
                 OutputStatusMessage("FinalMobileUrls: ");
                 if (criterion.FinalMobileUrls != null)
                 {
@@ -805,8 +806,6 @@ namespace BingAdsExamplesLibrary.V10
                         OutputStatusMessage(string.Format("\t{0}", finalUrl));
                     }
                 }
-                OutputStatusMessage(string.Format("Id: {0}", criterion.Id));
-                OutputStatusMessage(string.Format("Status: {0}", criterion.Status));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", criterion.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (criterion.UrlCustomParameters != null && criterion.UrlCustomParameters.Parameters != null)
@@ -841,8 +840,8 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (criterion != null)
             {
-                OutputStatusMessage(string.Format("AdGroupId: {0}", criterion.BidAdjustment));
-                OutputStatusMessage(string.Format("AdGroupId: {0}", criterion.CampaignId));
+                OutputStatusMessage(string.Format("BidAdjustment: {0}", criterion.BidAdjustment));
+                OutputStatusMessage(string.Format("CampaignId: {0}", criterion.CampaignId));
                 OutputCriterion(criterion.Criterion);
                 OutputStatusMessage("ForwardCompatibilityMap: ");
                 if (criterion.ForwardCompatibilityMap != null)
@@ -854,7 +853,7 @@ namespace BingAdsExamplesLibrary.V10
                     }
                 }
                 OutputStatusMessage(string.Format("Id: {0}", criterion.Id));
-                OutputStatusMessage(string.Format("AdGroupCriterion Type: {0}", criterion.Type));
+                OutputStatusMessage(string.Format("CampaignCriterion Type: {0}", criterion.Type));
             }
         }
 

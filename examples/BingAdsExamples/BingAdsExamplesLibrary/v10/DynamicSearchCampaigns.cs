@@ -137,8 +137,10 @@ namespace BingAdsExamplesLibrary.V10
                             CriterionName = "Ad Group Webpage Positive Page Content Criterion"
                         },
                     },
-                    // DestinationUrl is not supported with Webpage criterion.
+                    // DestinationUrl and FinalUrls are not supported with Webpage criterion. 
+                    // The Final URL is dynamically created at the ad level.
                     DestinationUrl = null,
+                    FinalUrls = null,
 
                     // You could use a tracking template which would override the campaign level
                     // tracking template. Tracking templates defined for lower level entities 
@@ -152,15 +154,15 @@ namespace BingAdsExamplesLibrary.V10
                     UrlCustomParameters = new CustomParameters
                     {
                         Parameters = new[] {
-                                new CustomParameter(){
-                                    Key = "promoCode",
-                                    Value = "PROMO1"
-                                },
-                                new CustomParameter(){
-                                    Key = "season",
-                                    Value = "summer"
-                                },
-                            }
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
                     }
                 };
                 adGroupCriterions.Add(adGroupWebpagePositivePageContent);
@@ -235,7 +237,7 @@ namespace BingAdsExamplesLibrary.V10
                 AddAdGroupCriterionsResponse addAdGroupCriterionsResponse =
                     await AddAdGroupCriterionsAsync(adGroupCriterions, CriterionType.Webpage);
                 long?[] adGroupCriterionIds = addAdGroupCriterionsResponse.AdGroupCriterionIds.ToArray();
-                OutputStatusMessage("\nNew Ad Group Criterion Ids:\n");
+                OutputStatusMessage("New Ad Group Criterion Ids:\n");
                 OutputIds(adGroupCriterionIds);
                 BatchErrorCollection[] adGroupCriterionErrors =
                     addAdGroupCriterionsResponse.NestedPartialErrors.ToArray();
@@ -291,16 +293,10 @@ namespace BingAdsExamplesLibrary.V10
                         Path1 = "seattle",
                         Path2 = "shoe sale",
 
-                        // With FinalUrls you can separate the tracking template, custom parameters, and 
-                        // landing page URLs. 
-                        FinalUrls = new[] {
-                            "http://www.contoso.com/womenshoesale"
-                        },
-                        // Final Mobile URLs can also be used if you want to direct the user to a different page 
-                        // for mobile devices.
-                        FinalMobileUrls = new[] {
-                            "http://mobile.contoso.com/womenshoesale"
-                        }, 
+                        // You cannot set FinalUrls. The Final URL will be a dynamically selected landing page.
+                        // The final URL is distinct from the path that customers will see and click on in your ad.
+                        FinalUrls = null,
+
                         // You could use a tracking template which would override the campaign level
                         // tracking template. Tracking templates defined for lower level entities 
                         // override those set for higher level entities.
@@ -308,7 +304,7 @@ namespace BingAdsExamplesLibrary.V10
                         TrackingUrlTemplate = null,
 
                         // Set custom parameters that are specific to this ad, 
-                        // and can be used by the ad, ad group, campaign, or account level tracking template. 
+                        // and can be used by the ad, webpage, ad group, campaign, or account level tracking template. 
                         // In this example we are using the campaign level tracking template.
                         UrlCustomParameters = new CustomParameters {
                             Parameters = new[] {
@@ -330,16 +326,28 @@ namespace BingAdsExamplesLibrary.V10
                 Microsoft.BingAds.V10.CampaignManagement.BatchError[] adErrors = 
                     addAdsResponse.PartialErrors.ToArray();
                 OutputAdsWithPartialErrors(ads, adIds, adErrors);
-                
+
+                // Retrieve the Webpage criterion for the campaign.
+                var getCampaignCriterionsByIdsResponse = await GetCampaignCriterionsByIdsAsync(
+                    (long)campaignIds[0],
+                    null,
+                    CampaignCriterionType.Webpage
+                );
+
+                OutputStatusMessage("Retrieving the Campaign Webpage Criterions that we added . . . \n");
+                campaignCriterions = getCampaignCriterionsByIdsResponse.CampaignCriterions.ToList();
+                OutputCampaignCriterions(campaignCriterions);
 
                 // Retrieve the Webpage criterion for the ad group and then test some update scenarios.
                 var getAdGroupCriterionsByIdsResponse = await GetAdGroupCriterionsByIdsAsync(
                     (long)adGroupIds[0],
                     null,
                     CriterionType.Webpage
-                    );
-                                
+                );
+
+                OutputStatusMessage("Retrieving the Ad Group Webpage Criterions that we added . . . \n");
                 adGroupCriterions = getAdGroupCriterionsByIdsResponse.AdGroupCriterions.ToList();
+                OutputAdGroupCriterions(adGroupCriterions);
                 
                 // You can update the bid for BiddableAdGroupCriterion
 
@@ -403,7 +411,7 @@ namespace BingAdsExamplesLibrary.V10
                     await UpdateAdGroupCriterionsAsync(adGroupCriterions, CriterionType.Webpage);
                 adGroupCriterionErrors =
                     updateAdGroupCriterionsResponse.NestedPartialErrors.ToArray();
-                OutputStatusMessage("\nUpdateAdGroupCriterions Errors:\n");
+                OutputStatusMessage("UpdateAdGroupCriterions Errors:\n");
                 OutputBatchErrorCollections(adGroupCriterionErrors);
 
                 // Delete the campaign, ad group, criterion, and ad that were previously added. 
@@ -453,6 +461,23 @@ namespace BingAdsExamplesLibrary.V10
             };
 
             return (await CampaignService.CallAsync((s, r) => s.AddCampaignCriterionsAsync(r), request));
+        }
+
+        // Gets one or more campaign criterion.
+
+        private async Task<GetCampaignCriterionsByIdsResponse> GetCampaignCriterionsByIdsAsync(
+            long campaignId,
+            IList<long> campaignCriterionIds,
+            CampaignCriterionType criterionType)
+        {
+            var request = new GetCampaignCriterionsByIdsRequest
+            {
+                CampaignId = campaignId,
+                CriterionType = criterionType,
+                CampaignCriterionIds = campaignCriterionIds
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.GetCampaignCriterionsByIdsAsync(r), request));
         }
 
         // Adds one or more ad group criterion.
