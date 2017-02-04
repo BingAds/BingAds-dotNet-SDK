@@ -1923,9 +1923,10 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("MembershipDuration: {0}", remarketingList.MembershipDuration));
                 OutputStatusMessage(string.Format("Name: {0}", remarketingList.Name));
                 OutputStatusMessage(string.Format("ParentId: {0}", remarketingList.ParentId));
-                OutputRemarketingRule(remarketingList.Rule);
                 OutputStatusMessage(string.Format("Scope: {0}", remarketingList.Scope));
-                OutputStatusMessage(string.Format("TagId: {0}\n", remarketingList.TagId));
+                OutputStatusMessage(string.Format("TagId: {0}", remarketingList.TagId));
+                OutputRemarketingRule(remarketingList.Rule);
+                OutputStatusMessage("\n");
             }
         }
 
@@ -1960,12 +1961,12 @@ namespace BingAdsExamplesLibrary.V10
                         var pageVisitorsWhoDidNotVisitAnotherPageRule = remarketingRule as PageVisitorsWhoDidNotVisitAnotherPageRule;
                         if (pageVisitorsWhoDidNotVisitAnotherPageRule != null)
                         {
-                            if (pageVisitorsRule.RuleItemGroups != null)
+                            if (pageVisitorsWhoDidNotVisitAnotherPageRule.ExcludeRuleItemGroups != null)
                             {
                                 OutputStatusMessage("ExcludeRuleItemGroups: ");
                                 OutputRuleItemGroups(pageVisitorsWhoDidNotVisitAnotherPageRule.ExcludeRuleItemGroups);
                             }
-                            if (pageVisitorsRule.RuleItemGroups != null)
+                            if (pageVisitorsWhoDidNotVisitAnotherPageRule.IncludeRuleItemGroups != null)
                             {
                                 OutputStatusMessage("IncludeRuleItemGroups: ");
                                 OutputRuleItemGroups(pageVisitorsWhoDidNotVisitAnotherPageRule.IncludeRuleItemGroups);
@@ -1976,12 +1977,12 @@ namespace BingAdsExamplesLibrary.V10
                             var pageVisitorsWhoVisitedAnotherPageRule = remarketingRule as PageVisitorsWhoVisitedAnotherPageRule;
                             if (pageVisitorsWhoVisitedAnotherPageRule != null)
                             {
-                                if (pageVisitorsRule.RuleItemGroups != null)
+                                if (pageVisitorsWhoVisitedAnotherPageRule.AnotherRuleItemGroups != null)
                                 {
                                     OutputStatusMessage("AnotherRuleItemGroups: ");
                                     OutputRuleItemGroups(pageVisitorsWhoVisitedAnotherPageRule.AnotherRuleItemGroups);
                                 }
-                                if (pageVisitorsRule.RuleItemGroups != null)
+                                if (pageVisitorsWhoVisitedAnotherPageRule.RuleItemGroups != null)
                                 {
                                     OutputStatusMessage("RuleItemGroups: ");
                                     OutputRuleItemGroups(pageVisitorsWhoVisitedAnotherPageRule.RuleItemGroups);
@@ -2014,9 +2015,10 @@ namespace BingAdsExamplesLibrary.V10
 
                             if (stringRuleItem != null)
                             {
-                                OutputStatusMessage(string.Format("Operand: {0}", stringRuleItem.Operand));
-                                OutputStatusMessage(string.Format("Operator: {0}", stringRuleItem.Operator));
-                                OutputStatusMessage(string.Format("Value: {0}", stringRuleItem.Value));
+                                OutputStatusMessage("\tRuleItem:");
+                                OutputStatusMessage(string.Format("\tOperand: {0}", stringRuleItem.Operand));
+                                OutputStatusMessage(string.Format("\tOperator: {0}", stringRuleItem.Operator));
+                                OutputStatusMessage(string.Format("\tValue: {0}\n", stringRuleItem.Value));
                             }
                             else
                             {

@@ -17,7 +17,7 @@ namespace BingAdsExamplesLibrary.V10
 
         public override string Description
         {
-            get { return "Remarketing List Associations | Campaign Management V10"; }
+            get { return "Remarketing Lists | Campaign Management V10"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -557,7 +557,7 @@ namespace BingAdsExamplesLibrary.V10
 
                         adGroupRemarketingListAssociations.Add(adGroupRemarketingListAssociation);
 
-                        OutputStatusMessage("\nAssociating the following remarketing list with the ad group.\n");
+                        OutputStatusMessage(string.Format("Associating the following remarketing list with AdGroup Id {0}.\n", (long)adGroupIds[0]));
                         OutputRemarketingList(remarketingList);
                     }
                 }
@@ -568,7 +568,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 foreach (var adGroupRemarketingListAssociation in getAdGroupRemarketingListAssociationsResponse.AdGroupRemarketingListAssociations)
                 {
-                    OutputStatusMessage("\nThe following ad group remarketing list association was added.\n");
+                    OutputStatusMessage("The following ad group remarketing list association was added.\n");
                     OutputAdGroupRemarketingListAssociation(adGroupRemarketingListAssociation);
                 }
 
