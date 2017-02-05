@@ -20,7 +20,6 @@ namespace BingAdsWpfApp
     {
         private static readonly ExampleBase[] _examples =
         {
-            new BingAdsExamplesLibrary.V10.DynamicSearchCampaigns(),
             new BingAdsExamplesLibrary.V10.BudgetOpportunities(),
             new BingAdsExamplesLibrary.V10.BulkServiceManagerDemo(),
             new BingAdsExamplesLibrary.V10.BulkAdExtensions(),
@@ -35,6 +34,7 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V10.RemarketingLists(),
             new BingAdsExamplesLibrary.V10.BulkShoppingCampaigns(),
             new BingAdsExamplesLibrary.V10.ShoppingCampaigns(),
+            new BingAdsExamplesLibrary.V10.DynamicSearchCampaigns(),
             new BingAdsExamplesLibrary.V10.GeographicalLocations(),
             new BingAdsExamplesLibrary.V10.BulkTargets(),
             new BingAdsExamplesLibrary.V10.Targets(),
