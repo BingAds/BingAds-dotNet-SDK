@@ -17,7 +17,7 @@ namespace BingAdsExamplesLibrary.V10
         public static ServiceClient<IAdInsightService> AdInsightService;
         public static ServiceClient<ICampaignManagementService> CampaignService;
 
-        public const string DOMAIN_NAME = "booking.com";
+        public const string DOMAIN_NAME = "contoso.com";
         public const string LANGUAGE = "EN";
         
         public override string Description
