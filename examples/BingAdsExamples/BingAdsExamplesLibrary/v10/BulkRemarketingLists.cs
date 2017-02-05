@@ -12,7 +12,7 @@ using Microsoft.BingAds.V10.CampaignManagement;
 namespace BingAdsExamplesLibrary.V10
 {
     /// <summary>
-    /// This example demonstrates how to add ads and keywords to a new ad group using the BulkServiceManager class.
+    /// This example demonstrates how to associate remarketing lists with a new ad group.
     /// </summary>
     public class BulkRemarketingLists : BulkExampleBase
     {
@@ -50,8 +50,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 Reader.Dispose();
 
-                // You must already have at least one remarketing list. The Bing Ads API does not support
-                // remarketing list add, update, or delete operations.
+                // You must already have at least one remarketing list. 
                 if (remarketingListResults.Count < 1)
                 {
                     OutputStatusMessage("You do not have any remarketing lists that the current user can associate with ad groups.\n");
@@ -243,7 +242,5 @@ namespace BingAdsExamplesLibrary.V10
                 if (Writer != null) { Writer.Dispose(); }
             }
         }
-
-
     }
 }

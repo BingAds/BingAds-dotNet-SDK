@@ -9,7 +9,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V10
 {
     /// <summary>
-    /// This example demonstrates how to associate remarketing lists to a new ad group.
+    /// This example demonstrates how to associate remarketing lists with a new ad group.
     /// </summary>
     public class RemarketingLists : ExampleBase
     {
@@ -17,7 +17,7 @@ namespace BingAdsExamplesLibrary.V10
 
         public override string Description
         {
-            get { return "Remarketing List Associations | Campaign Management V10"; }
+            get { return "Remarketing Lists | Campaign Management V10"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -26,15 +26,446 @@ namespace BingAdsExamplesLibrary.V10
             {
                 Service = new ServiceClient<ICampaignManagementService>(authorizationData);
 
-                // To discover all remarketing lists that the user can associate with ad groups in the current account (per CustomerAccountId header), 
-                // set RemarketingListIds to null when calling the GetRemarketingLists operation.
+                // Before you can track conversions or target audiences using a remarketing list, 
+                // you need to create a UET tag in Bing Ads (web application or API) and then 
+                // add the UET tag tracking code to every page of your website. For more information, please see 
+                // Universal Event Tracking at https://msdn.microsoft.com/library/bing-ads-universal-event-tracking-guide.aspx.
 
-                var remarketingLists = (await GetRemarketingListsAsync(null)).RemarketingLists;
+                // First you should call the GetUetTagsByIds operation to check whether a tag has already been created. 
+                // You can leave the TagIds element null or empty to request all UET tags available for the customer.
 
+                var uetTags = (await GetUetTagsByIdsAsync(null)).UetTags;
+
+                // If you do not already have a UET tag that can be used, or if you need another UET tag, 
+                // call the AddUetTags service operation to create a new UET tag. If the call is successful, 
+                // the tracking script that you should add to your website is included in a corresponding 
+                // UetTag within the response message. 
+
+                if (uetTags == null || uetTags.Count < 1)
+                {
+                    var uetTag = new UetTag
+                    {
+                        Description = "My First Uet Tag",
+                        Name = "New Uet Tag",
+                    };
+                    uetTags = (await AddUetTagsAsync(new[] { uetTag })).UetTags;
+                }
+
+                if (uetTags == null || uetTags.Count < 1)
+                {
+                    OutputStatusMessage(
+                        string.Format("You do not have any UET tags registered for CustomerId {0}.\n", authorizationData.CustomerId)
+                    );
+                    return;
+                }
+
+                OutputStatusMessage("List of all UET Tags:\n");
+                foreach (var uetTag in uetTags)
+                {
+                    OutputUetTag(uetTag);
+                }
+
+                // After you retreive the tracking script from the AddUetTags or GetUetTagsByIds operation, 
+                // the next step is to add the UET tag tracking code to your website. We recommend that you, 
+                // or your website administrator, add it to your entire website in either the head or body sections. 
+                // If your website has a master page, then that is the best place to add it because you add it once 
+                // and it is included on all pages. For more information, please see 
+                // Universal Event Tracking at https://msdn.microsoft.com/library/bing-ads-universal-event-tracking-guide.aspx.
+                
+                // We will use the same UET tag for the remainder of this example.
+                var tagId = uetTags[0].Id;
+
+                // Add a remarketing list that depend on the UET Tag Id retreived above.
+
+                var addRemarketingLists = new[] {
+                    new RemarketingList
+                    {
+                        Description = "New list with CustomEventsRule",
+                        MembershipDuration = 30,
+                        Name = "Remarketing List with CustomEventsRule " + DateTime.UtcNow,
+                        ParentId = authorizationData.AccountId,
+                        Rule = new CustomEventsRule
+                        {
+                            // The type of user interaction you want to track.
+                            Action = "play",
+                            ActionOperator = StringOperator.Contains,
+                            // The category of event you want to track. 
+                            Category = "video",
+                            CategoryOperator = StringOperator.Contains,
+                            // The name of the element that caused the action.
+                            Label = "trailer",
+                            LabelOperator = StringOperator.Contains,
+                            // A numerical value associated with that event. 
+                            // Could be length of the video played etc.
+                            Value = 5.00m,
+                            ValueOperator = NumberOperator.Equals,
+                        },
+                        Scope = EntityScope.Account,
+                        TagId = tagId
+                    },
+                    new RemarketingList
+                    {
+                        Description = "New list with PageVisitorsRule",
+                        MembershipDuration = 30,
+                        Name = "Remarketing List with PageVisitorsRule " + DateTime.UtcNow,
+                        ParentId = authorizationData.AccountId,
+                        // The rule definition is translated to the following logical expression: 
+                        // ((Url Contains X) and (ReferrerUrl DoesNotContain Z)) or ((Url DoesNotBeginWith Y)) 
+                        // or ((ReferrerUrl Equals Z))
+                        Rule = new PageVisitorsRule
+                        {
+                            RuleItemGroups = new []
+                            {
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.Contains,
+                                            Value = "X"
+                                        },
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.DoesNotContain,
+                                            Value = "Z"
+                                        },
+                                    }
+                                },
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.DoesNotBeginWith,
+                                            Value = "Y"
+                                        },
+                                    }
+                                },
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.Equals,
+                                            Value = "Z"
+                                        },
+                                    }
+                                },
+                            },
+                        },
+                        Scope = EntityScope.Account,
+                        TagId = tagId
+                    },
+                    new RemarketingList
+                    {
+                        Description = "New list with PageVisitorsWhoDidNotVisitAnotherPageRule",
+                        MembershipDuration = 30,
+                        Name = "Remarketing List with PageVisitorsWhoDidNotVisitAnotherPageRule " + DateTime.UtcNow,
+                        ParentId = authorizationData.AccountId,
+                        // The rule definition is translated to the following logical expression: 
+                        // (((Url Contains X) and (ReferrerUrl DoesNotContain Z)) or ((Url DoesNotBeginWith Y)) 
+                        // or ((ReferrerUrl Equals Z))) 
+                        // and not (((Url BeginsWith A) and (ReferrerUrl BeginsWith B)) or ((Url Contains C)))
+                        Rule = new PageVisitorsWhoDidNotVisitAnotherPageRule
+                        {
+                            ExcludeRuleItemGroups = new []
+                            {
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.BeginsWith,
+                                            Value = "A"
+                                        },
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.BeginsWith,
+                                            Value = "B"
+                                        },
+                                    }
+                                },
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.Contains,
+                                            Value = "C"
+                                        },
+                                    }
+                                },
+                            },
+                            IncludeRuleItemGroups = new []
+                            {
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.Contains,
+                                            Value = "X"
+                                        },
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.DoesNotContain,
+                                            Value = "Z"
+                                        },
+                                    }
+                                },
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.DoesNotBeginWith,
+                                            Value = "Y"
+                                        },
+                                    }
+                                },
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.Equals,
+                                            Value = "Z"
+                                        },
+                                    }
+                                },
+                            },
+                        },
+                        Scope = EntityScope.Account,
+                        TagId = tagId
+                    },
+                    new RemarketingList
+                    {
+                        Description = "New list with PageVisitorsWhoVisitedAnotherPageRule",
+                        MembershipDuration = 30,
+                        Name = "Remarketing List with PageVisitorsWhoVisitedAnotherPageRule " + DateTime.UtcNow,
+                        ParentId = authorizationData.AccountId,
+                        // The rule definition is translated to the following logical expression: 
+                        // (((Url Contains X) and (ReferrerUrl NotEquals Z)) or ((Url DoesNotBeginWith Y)) or 
+                        // ((ReferrerUrl Equals Z))) 
+                        // and (((Url BeginsWith A) and (ReferrerUrl BeginsWith B)) or ((Url Contains C)))
+                        Rule = new PageVisitorsWhoVisitedAnotherPageRule
+                        {
+                            AnotherRuleItemGroups = new []
+                            {
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.BeginsWith,
+                                            Value = "A"
+                                        },
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.BeginsWith,
+                                            Value = "B"
+                                        },
+                                    }
+                                },
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.Contains,
+                                            Value = "C"
+                                        },
+                                    }
+                                },
+                            },
+                            RuleItemGroups = new []
+                            {
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.Contains,
+                                            Value = "X"
+                                        },
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.DoesNotContain,
+                                            Value = "Z"
+                                        },
+                                    }
+                                },
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.DoesNotBeginWith,
+                                            Value = "Y"
+                                        },
+                                    }
+                                },
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.Equals,
+                                            Value = "Z"
+                                        },
+                                    }
+                                },
+                            },
+                        },
+                        Scope = EntityScope.Account,
+                        TagId = tagId
+                    },
+                };
+
+                var addRemarketingListsResponse = await AddRemarketingListsAsync(addRemarketingLists);
+                
+                var updateRemarketingLists = new [] {
+                    new RemarketingList
+                    {
+                        Id = addRemarketingListsResponse.RemarketingListIds[0],
+                        // The ParentId cannot be updated, even if you update the rule type.
+                        // You can either send the same value or leave ParentId empty.
+                        ParentId = authorizationData.AccountId,
+                        Rule = new CustomEventsRule
+                        {
+                            // For both add and update remarketing list operations, you must include one or more  
+                            // of the following events: 
+                            // Action, Category, Label, or Value.
+
+                            // For example if you do not include Action during update, 
+                            // any existing ActionOperator and Action settings will be deleted.
+                            Action = null,
+                            //ActionOperator = null,
+                            Category = "video",
+                            CategoryOperator = StringOperator.Equals,
+                            // You cannot update the operator unless you also include the expression.
+                            // The following attempt to update LabelOperator will result in an error.
+                            Label = null,
+                            LabelOperator = StringOperator.Equals,
+                            // You must specify the previous settings unless you want
+                            // them replaced during the update conversion goal operation.
+                            Value = 5.00m,
+                            ValueOperator = NumberOperator.Equals,
+                        },
+                        // The Scope cannot be updated, even if you update the rule type.
+                        // You can either send the same value or leave Scope empty.
+                        Scope = EntityScope.Account,
+                        // You can update the tag as needed. In this example we will explicitly use the same UET tag.
+                        // To keep the UET tag unchanged, you can also leave this element nil or empty.
+                        TagId = tagId,
+                    },
+                    new RemarketingList
+                    {
+                        // You can change the remarketing rule type e.g. in this example a remarketing list
+                        // with the PageVisitorsRule had been created above at index 1. 
+                        // Now we are using the returned identifier at index 1 to update the type from 
+                        // PageVisitorsRule to PageVisitorsWhoDidNotVisitAnotherPageRule.
+                        Id = addRemarketingListsResponse.RemarketingListIds[1],
+                        Rule = new PageVisitorsWhoDidNotVisitAnotherPageRule
+                        {
+                            // If you want to keep any of the previous rule items, 
+                            // then you must explicitly set them again during update.
+                            ExcludeRuleItemGroups = new []
+                            {
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.Contains,
+                                            Value = "C"
+                                        },
+                                    }
+                                },
+                            },
+                            // If you leave the entire list of rule item groups null,
+                            // then previous settings will be retained. 
+                            IncludeRuleItemGroups = null,
+                        },
+                    },
+                    new RemarketingList
+                    {
+                        Id = addRemarketingListsResponse.RemarketingListIds[2],
+                        Rule = new PageVisitorsRule
+                        {
+                            // If you want to keep any of the previous rule items, 
+                            // then you must explicitly set them again during update.
+                            RuleItemGroups = new []
+                            {
+                                new RuleItemGroup
+                                {
+                                    Items = new []
+                                    {
+                                        new StringRuleItem
+                                        {
+                                            Operand = "Url",
+                                            Operator = StringOperator.Contains,
+                                            Value = "X"
+                                        },
+                                        new StringRuleItem
+                                        {
+                                            Operand = "ReferrerUrl",
+                                            Operator = StringOperator.DoesNotContain,
+                                            Value = "Z"
+                                        },
+                                    }
+                                },
+                            },
+                        },
+                    },
+                    new RemarketingList
+                    {
+                        Id = addRemarketingListsResponse.RemarketingListIds[3],
+                        MembershipDuration = 20,
+                        // If not specified during update, the previous rule settings are retained.
+                        Rule = null,
+                    },
+                };
+
+                var updateRemarketingListsResponse = await UpdateRemarketingListsAsync(updateRemarketingLists);
+
+                
                 // You must already have at least one remarketing list for the remainder of this example. 
-                // The Bing Ads API does not support remarketing list add, update, or delete operations.
 
-                if (remarketingLists.Count < 1)
+                if (addRemarketingListsResponse.RemarketingListIds.Count < 1)
                 {
                     return;
                 }
@@ -105,6 +536,13 @@ namespace BingAdsExamplesLibrary.V10
 
                 // This example associates all of the remarketing lists with the new ad group.
 
+                var getRemarketingListIds = new List<long>();
+                foreach (var listId in addRemarketingListsResponse.RemarketingListIds)
+                {
+                    getRemarketingListIds.Add((long)listId);
+                }
+                var remarketingLists = (await GetRemarketingListsAsync(getRemarketingListIds, RemarketingListAdditionalField.Rule)).RemarketingLists;
+
                 foreach (var remarketingList in remarketingLists)
                 {
                     if (remarketingList.Id != null)
@@ -119,7 +557,7 @@ namespace BingAdsExamplesLibrary.V10
 
                         adGroupRemarketingListAssociations.Add(adGroupRemarketingListAssociation);
 
-                        OutputStatusMessage("\nAssociating the following remarketing list with the ad group.\n");
+                        OutputStatusMessage(string.Format("Associating the following remarketing list with AdGroup Id {0}.\n", (long)adGroupIds[0]));
                         OutputRemarketingList(remarketingList);
                     }
                 }
@@ -130,7 +568,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 foreach (var adGroupRemarketingListAssociation in getAdGroupRemarketingListAssociationsResponse.AdGroupRemarketingListAssociations)
                 {
-                    OutputStatusMessage("\nThe following ad group remarketing list association was added.\n");
+                    OutputStatusMessage("The following ad group remarketing list association was added.\n");
                     OutputAdGroupRemarketingListAssociation(adGroupRemarketingListAssociation);
                 }
 
@@ -192,43 +630,44 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
-        // Adds one or more campaigns to the specified account.
+        // Adds one or more UET tags.
 
-        private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
+        private async Task<AddUetTagsResponse> AddUetTagsAsync(IList<UetTag> uetTags)
         {
-            var request = new AddCampaignsRequest
+            var request = new AddUetTagsRequest
             {
-                AccountId = accountId,
-                Campaigns = campaigns
+                UetTags = uetTags,
             };
 
-            return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
+            return (await Service.CallAsync((s, r) => s.AddUetTagsAsync(r), request));
         }
 
-        // Deletes one or more campaigns from the specified account.
+        // Gets one or more UET Tags.
 
-        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
+        private async Task<GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(IList<long> tagIds)
         {
-            var request = new DeleteCampaignsRequest
+            var request = new GetUetTagsByIdsRequest
             {
-                AccountId = accountId,
-                CampaignIds = campaignIds
+                TagIds = tagIds,
             };
 
-            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+            return await Service.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request);
         }
 
-        // Adds one or more ad groups to the specified campaign.
-
-        private async Task<AddAdGroupsResponse> AddAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
+        /// <summary>
+        /// Adds remarketing lists. 
+        /// </summary>
+        /// <param name="remarketingListIds">The remarketing lists that you want to add.</param>
+        /// <returns></returns>
+        private async Task<AddRemarketingListsResponse> AddRemarketingListsAsync(IList<RemarketingList> remarketingLists)
         {
-            var request = new AddAdGroupsRequest
+            var request = new AddRemarketingListsRequest
             {
-                CampaignId = campaignId,
-                AdGroups = adGroups
+
+                RemarketingLists = remarketingLists,
             };
 
-            return (await Service.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
+            return (await Service.CallAsync((s, r) => s.AddRemarketingListsAsync(r), request));
         }
 
         /// <summary>
@@ -237,15 +676,33 @@ namespace BingAdsExamplesLibrary.V10
         /// </summary>
         /// <param name="remarketingListIds">The unique identifiers for the remarketing lists that you want to get.</param>
         /// <returns></returns>
-        private async Task<GetRemarketingListsResponse> GetRemarketingListsAsync(IList<long> remarketingListIds)
+        private async Task<GetRemarketingListsResponse> GetRemarketingListsAsync(
+            IList<long> remarketingListIds,
+            RemarketingListAdditionalField returnAdditionalFields)
         {
             var request = new GetRemarketingListsRequest
             {
-                
                 RemarketingListIds = remarketingListIds,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await Service.CallAsync((s, r) => s.GetRemarketingListsAsync(r), request));
+        }
+
+        /// <summary>
+        /// Updates remarketing lists. 
+        /// </summary>
+        /// <param name="remarketingListIds">The remarketing lists that you want to update.</param>
+        /// <returns></returns>
+        private async Task<UpdateRemarketingListsResponse> UpdateRemarketingListsAsync(IList<RemarketingList> remarketingLists)
+        {
+            var request = new UpdateRemarketingListsRequest
+            {
+
+                RemarketingLists = remarketingLists,
+            };
+
+            return (await Service.CallAsync((s, r) => s.UpdateRemarketingListsAsync(r), request));
         }
 
         /// <summary>
@@ -310,6 +767,45 @@ namespace BingAdsExamplesLibrary.V10
             };
 
             return (await Service.CallAsync((s, r) => s.UpdateAdGroupRemarketingListAssociationsAsync(r), request));
+        }
+
+        // Adds one or more campaigns to the specified account.
+
+        private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
+        {
+            var request = new AddCampaignsRequest
+            {
+                AccountId = accountId,
+                Campaigns = campaigns
+            };
+
+            return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
+        }
+
+        // Deletes one or more campaigns from the specified account.
+
+        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
+        {
+            var request = new DeleteCampaignsRequest
+            {
+                AccountId = accountId,
+                CampaignIds = campaignIds
+            };
+
+            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
+        }
+
+        // Adds one or more ad groups to the specified campaign.
+
+        private async Task<AddAdGroupsResponse> AddAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
+        {
+            var request = new AddAdGroupsRequest
+            {
+                CampaignId = campaignId,
+                AdGroups = adGroups
+            };
+
+            return (await Service.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
         }
     }
 }

@@ -1924,7 +1924,109 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Name: {0}", remarketingList.Name));
                 OutputStatusMessage(string.Format("ParentId: {0}", remarketingList.ParentId));
                 OutputStatusMessage(string.Format("Scope: {0}", remarketingList.Scope));
-                OutputStatusMessage(string.Format("TagId: {0}\n", remarketingList.TagId));
+                OutputStatusMessage(string.Format("TagId: {0}", remarketingList.TagId));
+                OutputRemarketingRule(remarketingList.Rule);
+                OutputStatusMessage("\n");
+            }
+        }
+
+        /// <summary>
+        /// Outputs the RemarketingRule.
+        /// </summary>
+        protected void OutputRemarketingRule(RemarketingRule remarketingRule)
+        {
+            if (remarketingRule != null)
+            {
+                OutputStatusMessage(string.Format("Type: {0}", remarketingRule.Type));
+
+                var customEventsRule = remarketingRule as CustomEventsRule;
+
+                if (customEventsRule != null)
+                {
+                    OutputStatusMessage(string.Format("Action: {0}", customEventsRule.Action));
+                }
+                else
+                {
+                    var pageVisitorsRule = remarketingRule as PageVisitorsRule;
+                    if (pageVisitorsRule != null)
+                    {
+                        if (pageVisitorsRule.RuleItemGroups != null)
+                        {
+                            OutputStatusMessage("RuleItemGroups: ");
+                            OutputRuleItemGroups(pageVisitorsRule.RuleItemGroups);
+                        }
+                    }
+                    else
+                    {
+                        var pageVisitorsWhoDidNotVisitAnotherPageRule = remarketingRule as PageVisitorsWhoDidNotVisitAnotherPageRule;
+                        if (pageVisitorsWhoDidNotVisitAnotherPageRule != null)
+                        {
+                            if (pageVisitorsWhoDidNotVisitAnotherPageRule.ExcludeRuleItemGroups != null)
+                            {
+                                OutputStatusMessage("ExcludeRuleItemGroups: ");
+                                OutputRuleItemGroups(pageVisitorsWhoDidNotVisitAnotherPageRule.ExcludeRuleItemGroups);
+                            }
+                            if (pageVisitorsWhoDidNotVisitAnotherPageRule.IncludeRuleItemGroups != null)
+                            {
+                                OutputStatusMessage("IncludeRuleItemGroups: ");
+                                OutputRuleItemGroups(pageVisitorsWhoDidNotVisitAnotherPageRule.IncludeRuleItemGroups);
+                            }
+                        }
+                        else
+                        {
+                            var pageVisitorsWhoVisitedAnotherPageRule = remarketingRule as PageVisitorsWhoVisitedAnotherPageRule;
+                            if (pageVisitorsWhoVisitedAnotherPageRule != null)
+                            {
+                                if (pageVisitorsWhoVisitedAnotherPageRule.AnotherRuleItemGroups != null)
+                                {
+                                    OutputStatusMessage("AnotherRuleItemGroups: ");
+                                    OutputRuleItemGroups(pageVisitorsWhoVisitedAnotherPageRule.AnotherRuleItemGroups);
+                                }
+                                if (pageVisitorsWhoVisitedAnotherPageRule.RuleItemGroups != null)
+                                {
+                                    OutputStatusMessage("RuleItemGroups: ");
+                                    OutputRuleItemGroups(pageVisitorsWhoVisitedAnotherPageRule.RuleItemGroups);
+                                }
+                            }
+                            else
+                            {
+                                OutputStatusMessage("Unknown remarketing rule type.");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of RuleItemGroup.
+        /// </summary>
+        protected void OutputRuleItemGroups(IList<RuleItemGroup> ruleItemGroups)
+        {
+            if (ruleItemGroups != null)
+            {
+                foreach(var ruleItemGroup in ruleItemGroups)
+                {
+                    if (ruleItemGroup.Items != null)
+                    {
+                        foreach (var ruleItem in ruleItemGroup.Items)
+                        {
+                            var stringRuleItem = ruleItem as StringRuleItem;
+
+                            if (stringRuleItem != null)
+                            {
+                                OutputStatusMessage("\tRuleItem:");
+                                OutputStatusMessage(string.Format("\tOperand: {0}", stringRuleItem.Operand));
+                                OutputStatusMessage(string.Format("\tOperator: {0}", stringRuleItem.Operator));
+                                OutputStatusMessage(string.Format("\tValue: {0}\n", stringRuleItem.Value));
+                            }
+                            else
+                            {
+                                OutputStatusMessage("Unknown remarketing rule item type.");
+                            }
+                        }
+                    }
+                }
             }
         }
 
