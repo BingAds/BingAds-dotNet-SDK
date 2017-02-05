@@ -768,7 +768,7 @@ namespace BingAdsExamplesLibrary.V10
                         // In this example we are using the campaign level tracking template.
                         TrackingUrlTemplate = null,
 
-                        // Set custom parameters that are specific to this webpage criterion, 
+                        // Set custom parameters that are specific to this criterion, 
                         // and can be used by the criterion, ad group, campaign, or account level tracking template. 
                         // In this example we are using the campaign level tracking template.
                         UrlCustomParameters = new CustomParameters
