@@ -58,7 +58,7 @@ namespace BingAdsExamplesLibrary.V10
                         BudgetType = Microsoft.BingAds.V10.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
                         
                         // You can set your campaign bid strategy to Enhanced CPC (EnhancedCpcBiddingScheme) 
-                        // and then, at any time, set an individual ad group or keyword bid strategy to 
+                        // and then, at any time, set an individual ad group bid strategy to 
                         // Manual CPC (ManualCpcBiddingScheme).
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
 
