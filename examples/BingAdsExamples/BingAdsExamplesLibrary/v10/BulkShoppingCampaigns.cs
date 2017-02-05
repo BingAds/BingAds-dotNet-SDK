@@ -98,6 +98,9 @@ namespace BingAdsExamplesLibrary.V10
                         // the value is not written to the Bulk file, and by default DaylightSaving is set to true.
                         DaylightSaving = true,
 
+                        // Used with CustomParameters defined in lower level entities such as ad group criterion.
+                        TrackingUrlTemplate =
+                            "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     }
                 };
 
@@ -799,8 +802,34 @@ namespace BingAdsExamplesLibrary.V10
                                 Amount = bidAmount
                             }
                         },
-                        
-                        DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
+
+                        // This destination URL is used if specified; otherwise, the destination URL is determined 
+                        // by the corresponding value of the 'Link' that you specified for the product offer 
+                        // in your Bing Merchant Center catalog.
+                        DestinationUrl = null,
+
+                        // You could use a tracking template which would override the campaign level
+                        // tracking template. Tracking templates defined for lower level entities 
+                        // override those set for higher level entities.
+                        // In this example we are using the campaign level tracking template.
+                        TrackingUrlTemplate = null,
+
+                        // Set custom parameters that are specific to this criterion, 
+                        // and can be used by the criterion, ad group, campaign, or account level tracking template. 
+                        // In this example we are using the campaign level tracking template.
+                        UrlCustomParameters = new CustomParameters
+                        {
+                            Parameters = new[] {
+                                new CustomParameter(){
+                                    Key = "promoCode",
+                                    Value = "PROMO1"
+                                },
+                                new CustomParameter(){
+                                    Key = "season",
+                                    Value = "summer"
+                                },
+                            }
+                        }
                     };
                 }
 
@@ -944,6 +973,14 @@ namespace BingAdsExamplesLibrary.V10
                     OutputStatusMessage(String.Format("{0}Bid Amount: {1}",
                         "".PadLeft(treeLevel, '\t'),
                         ((FixedBid)(biddableAdGroupCriterion.CriterionBid)).Bid.Amount)
+                    );
+                    OutputStatusMessage(String.Format("{0}DestinationUrl: {1}",
+                        "".PadLeft(treeLevel, '\t'),
+                        biddableAdGroupCriterion.DestinationUrl)
+                    );
+                    OutputStatusMessage(String.Format("{0}TrackingUrlTemplate: {1}",
+                        "".PadLeft(treeLevel, '\t'),
+                        biddableAdGroupCriterion.TrackingUrlTemplate)
                     );
                 }
                 else

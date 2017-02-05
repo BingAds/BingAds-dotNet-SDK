@@ -81,7 +81,7 @@ namespace BingAdsExamplesLibrary.V10
                 AddNegativeKeywordsToEntitiesResponse addNegativeKeywordsToEntitiesResponse =
                     await AddNegativeKeywordsToEntitiesAsync(entityNegativeKeywords);
                 OutputNegativeKeywordIds(addNegativeKeywordsToEntitiesResponse.NegativeKeywordIds);
-                OutputNestedPartialErrors(addNegativeKeywordsToEntitiesResponse.NestedPartialErrors);
+                OutputBatchErrorCollections(addNegativeKeywordsToEntitiesResponse.NestedPartialErrors);
                 if (addNegativeKeywordsToEntitiesResponse.NestedPartialErrors == null
                     || addNegativeKeywordsToEntitiesResponse.NestedPartialErrors.Count == 0)
                 {
@@ -90,7 +90,7 @@ namespace BingAdsExamplesLibrary.V10
                 }
                 else
                 {
-                    OutputNestedPartialErrors(addNegativeKeywordsToEntitiesResponse.NestedPartialErrors);
+                    OutputBatchErrorCollections(addNegativeKeywordsToEntitiesResponse.NestedPartialErrors);
                 }
 
                 GetNegativeKeywordsByEntityIdsResponse getNegativeKeywordsByEntityIdsResponse =
@@ -119,7 +119,7 @@ namespace BingAdsExamplesLibrary.V10
                 else
                 {
                     OutputStatusMessage("Attempt to DeleteNegativeKeywordsFromEntities without NegativeKeyword identifier partially fails by design.");
-                    OutputNestedPartialErrors(nestedPartialErrors);
+                    OutputBatchErrorCollections(nestedPartialErrors);
                 }
 
                 // Delete the negative keywords with identifiers that were returned above.
@@ -131,7 +131,7 @@ namespace BingAdsExamplesLibrary.V10
                 }
                 else
                 {
-                    OutputNestedPartialErrors(nestedPartialErrors);
+                    OutputBatchErrorCollections(nestedPartialErrors);
                 }
 
                 // Negative keywords can also be added and deleted from a shared negative keyword list. 

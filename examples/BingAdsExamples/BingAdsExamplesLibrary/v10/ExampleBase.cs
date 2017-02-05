@@ -202,7 +202,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 if (campaignIds[index] != null)
                 {
-                    OutputStatusMessage(String.Format("Campaign[{0}] (Name:{1}) successfully added and assigned CampaignId {2}",
+                    OutputStatusMessage(string.Format("Campaign[{0}] (Name:{1}) successfully added and assigned CampaignId {2}",
                         index,
                         campaigns[index].Name,
                         campaignIds[index]));
@@ -217,21 +217,21 @@ namespace BingAdsExamplesLibrary.V10
                 // The index of the partial errors is equal to the index of the list
                 // specified in the call to AddCampaigns.
 
-                OutputStatusMessage(String.Format("\nCampaign[{0}] (Name:{1}) not added due to the following error:",
+                OutputStatusMessage(string.Format("Campaign[{0}] (Name:{1}) not added due to the following error:",
                     error.Index, campaigns[error.Index].Name));
 
-                OutputStatusMessage(String.Format("\tIndex: {0}", error.Index));
-                OutputStatusMessage(String.Format("\tCode: {0}", error.Code));
-                OutputStatusMessage(String.Format("\tErrorCode: {0}", error.ErrorCode));
-                OutputStatusMessage(String.Format("\tMessage: {0}", error.Message));
+                OutputStatusMessage(string.Format("\tIndex: {0}", error.Index));
+                OutputStatusMessage(string.Format("\tCode: {0}", error.Code));
+                OutputStatusMessage(string.Format("\tErrorCode: {0}", error.ErrorCode));
+                OutputStatusMessage(string.Format("\tMessage: {0}", error.Message));
 
                 // In the case of an EditorialError, more details are available
                 if (error.Type == "EditorialError" && error.ErrorCode == "CampaignServiceEditorialValidationError")
                 {
-                    OutputStatusMessage(String.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
-                    OutputStatusMessage(String.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
-                    OutputStatusMessage(String.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
-                    OutputStatusMessage(String.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
+                    OutputStatusMessage(string.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
+                    OutputStatusMessage(string.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
+                    OutputStatusMessage(string.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
+                    OutputStatusMessage(string.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
                 }
             }
 
@@ -263,7 +263,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 if (adGroupIds[index] != null)
                 {
-                    OutputStatusMessage(String.Format("AdGroup[{0}] (Name:{1}) successfully added and assigned AdGroupId {2}",
+                    OutputStatusMessage(string.Format("AdGroup[{0}] (Name:{1}) successfully added and assigned AdGroupId {2}",
                         index,
                         adGroups[index].Name,
                         adGroupIds[index]));
@@ -278,21 +278,21 @@ namespace BingAdsExamplesLibrary.V10
                 // The index of the partial errors is equal to the index of the list
                 // specified in the call to AddAdGroups.
 
-                OutputStatusMessage(String.Format("\nAdGroup[{0}] (Name:{1}) not added due to the following error:",
+                OutputStatusMessage(string.Format("AdGroup[{0}] (Name:{1}) not added due to the following error:",
                     error.Index, adGroups[error.Index].Name));
 
-                OutputStatusMessage(String.Format("\tIndex: {0}", error.Index));
-                OutputStatusMessage(String.Format("\tCode: {0}", error.Code));
-                OutputStatusMessage(String.Format("\tErrorCode: {0}", error.ErrorCode));
-                OutputStatusMessage(String.Format("\tMessage: {0}", error.Message));
+                OutputStatusMessage(string.Format("\tIndex: {0}", error.Index));
+                OutputStatusMessage(string.Format("\tCode: {0}", error.Code));
+                OutputStatusMessage(string.Format("\tErrorCode: {0}", error.ErrorCode));
+                OutputStatusMessage(string.Format("\tMessage: {0}", error.Message));
 
                 // In the case of an EditorialError, more details are available
                 if (error.Type == "EditorialError" && error.ErrorCode == "CampaignServiceEditorialValidationError")
                 {
-                    OutputStatusMessage(String.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
-                    OutputStatusMessage(String.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
-                    OutputStatusMessage(String.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
-                    OutputStatusMessage(String.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
+                    OutputStatusMessage(string.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
+                    OutputStatusMessage(string.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
+                    OutputStatusMessage(string.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
+                    OutputStatusMessage(string.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
                 }
             }
 
@@ -324,7 +324,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 if (keywordIds[index] != null)
                 {
-                    OutputStatusMessage(String.Format("Keyword[{0}] (Text:{1}) successfully added and assigned KeywordId {2}",
+                    OutputStatusMessage(string.Format("Keyword[{0}] (Text:{1}) successfully added and assigned KeywordId {2}",
                         index,
                         keywords[index].Text,
                         keywordIds[index]));
@@ -339,21 +339,21 @@ namespace BingAdsExamplesLibrary.V10
                 // The index of the partial errors is equal to the index of the list
                 // specified in the call to AddKeywords.
 
-                OutputStatusMessage(String.Format("\nKeyword[{0}] (Text:{1}) not added due to the following error:",
+                OutputStatusMessage(string.Format("Keyword[{0}] (Text:{1}) not added due to the following error:",
                     error.Index, keywords[error.Index].Text));
 
-                OutputStatusMessage(String.Format("\tIndex: {0}", error.Index));
-                OutputStatusMessage(String.Format("\tCode: {0}", error.Code));
-                OutputStatusMessage(String.Format("\tErrorCode: {0}", error.ErrorCode));
-                OutputStatusMessage(String.Format("\tMessage: {0}", error.Message));
+                OutputStatusMessage(string.Format("\tIndex: {0}", error.Index));
+                OutputStatusMessage(string.Format("\tCode: {0}", error.Code));
+                OutputStatusMessage(string.Format("\tErrorCode: {0}", error.ErrorCode));
+                OutputStatusMessage(string.Format("\tMessage: {0}", error.Message));
 
                 // In the case of an EditorialError, more details are available
                 if (error.Type == "EditorialError" && error.ErrorCode == "CampaignServiceEditorialValidationError")
                 {
-                    OutputStatusMessage(String.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
-                    OutputStatusMessage(String.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
-                    OutputStatusMessage(String.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
-                    OutputStatusMessage(String.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
+                    OutputStatusMessage(string.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
+                    OutputStatusMessage(string.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
+                    OutputStatusMessage(string.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
+                    OutputStatusMessage(string.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
                 }
             }
 
@@ -376,8 +376,6 @@ namespace BingAdsExamplesLibrary.V10
                 return;
             }
 
-            var attributeValues = new string[ads.Count];
-
             for (var index = 0; index < ads.Count; index++)
             {
                 // Determine the type of ad. Prepare the corresponding attribute value to be outputed,
@@ -385,7 +383,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 if(adIds[index] != null)
                 {
-                    OutputStatusMessage(String.Format("\nAd[{0}] successfully added:", index));
+                    OutputStatusMessage(string.Format("Ad[{0}] successfully added:\n", index));
                     ads[index].Id = adIds[index];
                     var expandedTextAd = ads[index] as ExpandedTextAd;
                     if (expandedTextAd != null)
@@ -408,7 +406,15 @@ namespace BingAdsExamplesLibrary.V10
                             }
                             else
                             {
-                                OutputStatusMessage("Unknown Ad Type");
+                                var dynamicSearchAd = ads[index] as DynamicSearchAd;
+                                if (dynamicSearchAd != null)
+                                {
+                                    OutputDynamicSearchAd(dynamicSearchAd);
+                                }
+                                else
+                                {
+                                    OutputStatusMessage("Unknown Ad Type");
+                                }
                             }
                         }
                     }
@@ -420,20 +426,20 @@ namespace BingAdsExamplesLibrary.V10
                 // The index of the partial errors is equal to the index of the list
                 // specified in the call to AddAds.
 
-                OutputStatusMessage(String.Format("\nAd[{0}] not added due to the following error:", error.Index));
+                OutputStatusMessage(string.Format("\nAd[{0}] not added due to the following error:", error.Index));
 
-                OutputStatusMessage(String.Format("\tIndex: {0}", error.Index));
-                OutputStatusMessage(String.Format("\tCode: {0}", error.Code));
-                OutputStatusMessage(String.Format("\tErrorCode: {0}", error.ErrorCode));
-                OutputStatusMessage(String.Format("\tMessage: {0}", error.Message));
+                OutputStatusMessage(string.Format("\tIndex: {0}", error.Index));
+                OutputStatusMessage(string.Format("\tCode: {0}", error.Code));
+                OutputStatusMessage(string.Format("\tErrorCode: {0}", error.ErrorCode));
+                OutputStatusMessage(string.Format("\tMessage: {0}", error.Message));
 
                 // In the case of an EditorialError, more details are available
                 if (error.Type == "EditorialError" && error.ErrorCode == "CampaignServiceEditorialValidationError")
                 {
-                    OutputStatusMessage(String.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
-                    OutputStatusMessage(String.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
-                    OutputStatusMessage(String.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
-                    OutputStatusMessage(String.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
+                    OutputStatusMessage(string.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
+                    OutputStatusMessage(string.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
+                    OutputStatusMessage(string.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
+                    OutputStatusMessage(string.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
                 }
             }
 
@@ -490,7 +496,7 @@ namespace BingAdsExamplesLibrary.V10
         /// <returns></returns>
         protected AdExtension SetReadOnlyAdExtensionElementsToNull(AdExtension extension)
         {
-            if (extension == null || extension.Id == null)
+            if (extension == null)
             {
                 return extension;
             }
@@ -524,7 +530,7 @@ namespace BingAdsExamplesLibrary.V10
 
             foreach (var extension in adExtensions)
             {
-                if (extension == null || extension.Id == null)
+                if (extension == null)
                 {
                     OutputStatusMessage("Extension is null or invalid.");
                 }
@@ -644,6 +650,302 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
+        /// Outputs the AdGroupCriterion.
+        /// </summary>
+        protected void OutputAdGroupCriterion(AdGroupCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("AdGroupId: {0}", criterion.AdGroupId));
+                OutputCriterion(criterion.Criterion);
+                OutputStatusMessage(string.Format("Id: {0}", criterion.Id));
+                OutputStatusMessage(string.Format("Status: {0}", criterion.Status));
+                OutputStatusMessage(string.Format("AdGroupCriterion Type: {0}", criterion.Type));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the Criterion.
+        /// </summary>
+        protected void OutputCriterion(Criterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("Criterion Type: {0}", criterion.Type));
+                var productPartition = criterion as ProductPartition;
+                if (productPartition != null)
+                {
+                    OutputProductPartition(productPartition);
+                }
+                else
+                {
+                    var productScope = criterion as ProductScope;
+                    if (productScope != null)
+                    {
+                        OutputProductScope(productScope);
+                    }
+                    else
+                    {
+                        var webpage = criterion as Webpage;
+                        if (webpage != null)
+                        {
+                            OutputWebpage(webpage);
+                        }
+                    }
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Outputs the ProductPartition.
+        /// </summary>
+        protected void OutputProductPartition(ProductPartition productPartition)
+        {
+            if (productPartition != null)
+            {
+                OutputStatusMessage(string.Format("ParentCriterionId: {0}", productPartition.ParentCriterionId));
+                OutputStatusMessage(string.Format("PartitionType: {0}", productPartition.PartitionType));
+                if (productPartition.Condition != null)
+                {
+                    OutputStatusMessage(string.Format("Condition: "));
+                    OutputStatusMessage(string.Format("\tOperand: {0}", productPartition.Condition.Operand));
+                    OutputStatusMessage(string.Format("\tAttribute: {0}", productPartition.Condition.Attribute));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the ProductScope.
+        /// </summary>
+        protected void OutputProductScope(ProductScope productScope)
+        {
+            if (productScope != null)
+            {
+                OutputStatusMessage(string.Format("Product Conditions:"));
+                foreach (var condition in productScope.Conditions)
+                {
+                    OutputStatusMessage(string.Format("Operand: {0}", condition.Operand));
+                    OutputStatusMessage(string.Format("Attribute: {0}", condition.Attribute));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the Webpage.
+        /// </summary>
+        protected void OutputWebpage(Webpage webpage)
+        {
+            if (webpage != null && webpage.Parameter != null && webpage.Parameter.Conditions != null)
+            {
+                OutputStatusMessage(string.Format("Webpage CriterionName: {0}", webpage.Parameter.CriterionName));
+                OutputStatusMessage(string.Format("Webpage Conditions:"));
+                foreach (var condition in webpage.Parameter.Conditions)
+                {
+                    OutputStatusMessage(string.Format("\tOperand: {0}", condition.Operand));
+                    OutputStatusMessage(string.Format("\tArgument: {0}", condition.Argument));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the CriterionBid.
+        /// </summary>
+        protected void OutputCriterionBid(CriterionBid criterionBid)
+        {
+            if (criterionBid != null)
+            {
+                OutputStatusMessage(string.Format("CriterionBid Type: {0}", criterionBid.Type));
+                var fixedBid = criterionBid as FixedBid;
+                if (fixedBid != null)
+                {
+                    OutputFixedBid(fixedBid);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the FixedBid.
+        /// </summary>
+        protected void OutputFixedBid(FixedBid fixedBid)
+        {
+            if (fixedBid != null && fixedBid.Bid != null)
+            {
+                OutputStatusMessage(string.Format("Bid Amount: {0}", fixedBid.Bid.Amount));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the BiddableAdGroupCriterion.
+        /// </summary>
+        protected void OutputBiddableAdGroupCriterion(BiddableAdGroupCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                // Output inherited properties of the AdGroupCriterion base class.
+                OutputAdGroupCriterion(criterion);
+
+                // Output properties that are specific to the BiddableAdGroupCriterion
+                OutputCriterionBid(criterion.CriterionBid);
+                
+                OutputStatusMessage(string.Format("DestinationUrl: {0}", criterion.DestinationUrl));
+                OutputStatusMessage(string.Format("EditorialStatus: {0}", criterion.EditorialStatus));
+                OutputStatusMessage("FinalMobileUrls: ");
+                if (criterion.FinalMobileUrls != null)
+                {
+                    foreach (var finalMobileUrl in criterion.FinalMobileUrls)
+                    {
+                        OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
+                    }
+                }
+
+                OutputStatusMessage("FinalUrls: ");
+                if (criterion.FinalUrls != null)
+                {
+                    foreach (var finalUrl in criterion.FinalUrls)
+                    {
+                        OutputStatusMessage(string.Format("\t{0}", finalUrl));
+                    }
+                }
+                OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", criterion.TrackingUrlTemplate));
+                OutputStatusMessage("UrlCustomParameters: ");
+                if (criterion.UrlCustomParameters != null && criterion.UrlCustomParameters.Parameters != null)
+                {
+                    foreach (var customParameter in criterion.UrlCustomParameters.Parameters)
+                    {
+                        OutputStatusMessage(string.Format("\tKey: {0}", customParameter.Key));
+                        OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the NegativeAdGroupCriterion.
+        /// </summary>
+        protected void OutputNegativeAdGroupCriterion(NegativeAdGroupCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                // Output inherited properties of the AdGroupCriterion base class.
+                OutputAdGroupCriterion(criterion);
+
+                // There aren't any properties that are specific to the NegativeAdGroupCriterion
+            }
+        }
+
+        /// <summary>
+        /// Outputs the CampaignCriterion.
+        /// </summary>
+        protected void OutputCampaignCriterion(CampaignCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("BidAdjustment: {0}", criterion.BidAdjustment));
+                OutputStatusMessage(string.Format("CampaignId: {0}", criterion.CampaignId));
+                OutputCriterion(criterion.Criterion);
+                OutputStatusMessage("ForwardCompatibilityMap: ");
+                if (criterion.ForwardCompatibilityMap != null)
+                {
+                    foreach (var pair in criterion.ForwardCompatibilityMap)
+                    {
+                        OutputStatusMessage(string.Format("Key: {0}", pair.Key));
+                        OutputStatusMessage(string.Format("Value: {0}", pair.Value));
+                    }
+                }
+                OutputStatusMessage(string.Format("Id: {0}", criterion.Id));
+                OutputStatusMessage(string.Format("CampaignCriterion Type: {0}", criterion.Type));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the NegativeCampaignCriterion.
+        /// </summary>
+        protected void OutputNegativeCampaignCriterion(NegativeCampaignCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                // Output inherited properties of the CampaignCriterion base class.
+                OutputCampaignCriterion(criterion);
+
+                // There aren't any properties that are specific to the NegativeCampaignCriterion
+            }
+        }
+
+        /// <summary>
+        /// Outputs the ad group criterions.
+        /// </summary>
+        /// <param name="criterions"></param>
+        protected void OutputAdGroupCriterions(IEnumerable<AdGroupCriterion> criterions)
+        {
+            foreach (var criterion in criterions)
+            {
+                if (criterion == null)
+                {
+                    OutputStatusMessage("Criterion is null or invalid.");
+                }
+                else
+                {
+                    var biddableAdGroupCriterion = criterion as BiddableAdGroupCriterion;
+                    if (biddableAdGroupCriterion != null)
+                    {
+                        OutputBiddableAdGroupCriterion(biddableAdGroupCriterion);
+                        OutputStatusMessage("\n");
+                    }
+                    else
+                    {
+                        var negativeAdGroupCriterion = criterion as NegativeAdGroupCriterion;
+                        if (negativeAdGroupCriterion != null)
+                        {
+                            OutputNegativeAdGroupCriterion(negativeAdGroupCriterion);
+                            OutputStatusMessage("\n");
+                        }
+                        else
+                        {
+                            OutputStatusMessage("Unknown ad group criterion type");
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the campaign criterions.
+        /// </summary>
+        /// <param name="criterions"></param>
+        protected void OutputCampaignCriterions(IEnumerable<CampaignCriterion> criterions)
+        {
+            foreach (var criterion in criterions)
+            {
+                if (criterion == null)
+                {
+                    OutputStatusMessage("Criterion is null or invalid.");
+                }
+                else
+                {
+                    var campaignCriterion = criterion as CampaignCriterion;
+                    if (campaignCriterion != null)
+                    {
+                        OutputCampaignCriterion(campaignCriterion);
+                        OutputStatusMessage("\n");
+                    }
+                    else
+                    {
+                        var negativeCampaignCriterion = criterion as NegativeCampaignCriterion;
+                        if (negativeCampaignCriterion != null)
+                        {
+                            OutputNegativeCampaignCriterion(negativeCampaignCriterion);
+                            OutputStatusMessage("\n");
+                        }
+                        else
+                        {
+                            OutputStatusMessage("Unknown campaign criterion type");
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Outputs the negative keyword identifiers added to each campaign or ad group entity. 
         /// The IdCollection items are returned by calling AddNegativeKeywordsToEntities. 
         /// </summary>
@@ -657,10 +959,10 @@ namespace BingAdsExamplesLibrary.V10
 
             for (int index = 0; index < idCollections.Count; index++)
             {
-                OutputStatusMessage(String.Format("NegativeKeyword Ids at entity index {0}:\n", index));
+                OutputStatusMessage(string.Format("NegativeKeyword Ids at entity index {0}:\n", index));
                 foreach (var id in idCollections[index].Ids)
                 {
-                    OutputStatusMessage(String.Format("\tId: {0}\n", id));
+                    OutputStatusMessage(string.Format("\tId: {0}\n", id));
                 }
             }
         }
@@ -680,8 +982,8 @@ namespace BingAdsExamplesLibrary.V10
             OutputStatusMessage("EntityNegativeKeyword item:\n");
             foreach (EntityNegativeKeyword entityNegativeKeyword in entityNegativeKeywords)
             {
-                OutputStatusMessage(String.Format("\tEntityId: {0}", entityNegativeKeyword.EntityId));
-                OutputStatusMessage(String.Format("\tEntityType: {0}\n", entityNegativeKeyword.EntityType));
+                OutputStatusMessage(string.Format("\tEntityId: {0}", entityNegativeKeyword.EntityId));
+                OutputStatusMessage(string.Format("\tEntityType: {0}\n", entityNegativeKeyword.EntityType));
                 OutputNegativeKeywords(entityNegativeKeyword.NegativeKeywords);
             }
         }
@@ -700,9 +1002,9 @@ namespace BingAdsExamplesLibrary.V10
             OutputStatusMessage("NegativeKeyword item:\n");
             foreach (var negativeKeyword in negativeKeywords)
             {
-                OutputStatusMessage(String.Format("\tText: {0}", negativeKeyword.Text));
-                OutputStatusMessage(String.Format("\tId: {0}", negativeKeyword.Id));
-                OutputStatusMessage(String.Format("\tMatchType: {0}\n", negativeKeyword.MatchType));
+                OutputStatusMessage(string.Format("\tText: {0}", negativeKeyword.Text));
+                OutputStatusMessage(string.Format("\tId: {0}", negativeKeyword.Id));
+                OutputStatusMessage(string.Format("\tMatchType: {0}\n", negativeKeyword.MatchType));
             }
         }
 
@@ -732,7 +1034,7 @@ namespace BingAdsExamplesLibrary.V10
                     // Determine if the corresponding index has a valid identifier
                     if (sharedListItemIds[index] > 0)
                     {
-                        OutputStatusMessage(String.Format("NegativeKeyword[{0}] ({1}) successfully added to NegativeKeywordList ({2}) and assigned Negative Keyword Id {3}.",
+                        OutputStatusMessage(string.Format("NegativeKeyword[{0}] ({1}) successfully added to NegativeKeywordList ({2}) and assigned Negative Keyword Id {3}.",
                                   index,
                                   ((NegativeKeyword)(sharedListItems[index])).Text,
                                   sharedListId,
@@ -761,7 +1063,7 @@ namespace BingAdsExamplesLibrary.V10
                 {
                     if (sharedEntities[index].Id != null)
                     {
-                        OutputStatusMessage(String.Format("SharedEntity[{0}] ({1}) has SharedEntity Id {2}.\n",
+                        OutputStatusMessage(string.Format("SharedEntity[{0}] ({1}) has SharedEntity Id {2}.\n",
                             index,
                             sharedEntities[index].Name,
                             sharedEntities[index].Id));
@@ -784,88 +1086,108 @@ namespace BingAdsExamplesLibrary.V10
             OutputStatusMessage("SharedEntityAssociation item:\n");
             foreach (SharedEntityAssociation sharedEntityAssociation in associations)
             {
-                OutputStatusMessage(String.Format("\tEntityId: {0}", sharedEntityAssociation.EntityId));
-                OutputStatusMessage(String.Format("\tEntityType: {0}", sharedEntityAssociation.EntityType));
-                OutputStatusMessage(String.Format("\tSharedEntityId: {0}", sharedEntityAssociation.SharedEntityId));
-                OutputStatusMessage(String.Format("\tSharedEntityType: {0}\n", sharedEntityAssociation.SharedEntityType));
+                OutputStatusMessage(string.Format("\tEntityId: {0}", sharedEntityAssociation.EntityId));
+                OutputStatusMessage(string.Format("\tEntityType: {0}", sharedEntityAssociation.EntityType));
+                OutputStatusMessage(string.Format("\tSharedEntityId: {0}", sharedEntityAssociation.SharedEntityId));
+                OutputStatusMessage(string.Format("\tSharedEntityType: {0}\n", sharedEntityAssociation.SharedEntityType));
+            }
+        }
+
+        protected void OutputIds(IList<long?> ids)
+        {
+            if (ids == null || ids.Count == 0)
+            {
+                OutputStatusMessage("None\n");
+                return;
+            }
+            
+            foreach (long? id in ids)
+            {
+                OutputStatusMessage("" + id);
             }
         }
 
         /// <summary>
-        /// Outputs a list of BatchError objects that represent partial errors while managing negative keywords.
+        /// Outputs a list of BatchError objects that represent partial errors from a service operation.
         /// </summary>
         /// <param name="partialErrors"></param>
         protected void OutputPartialErrors(IList<BatchError> partialErrors)
         {
             if (partialErrors == null || partialErrors.Count == 0)
             {
+                OutputStatusMessage("None\n");
+                return;
+            }
+            
+            foreach (BatchError error in partialErrors)
+            {
+                OutputBatchError(error);
+            }
+        }
+
+        /// <summary>
+        /// Outputs a list of BatchErrorCollection objects.
+        /// </summary>
+        /// <param name="batchErrorCollections"></param>
+        protected void OutputBatchErrorCollections(IList<BatchErrorCollection> batchErrorCollections)
+        {
+            if (batchErrorCollections == null || batchErrorCollections.Count == 0)
+            {
+                OutputStatusMessage("None\n");
                 return;
             }
 
-            OutputStatusMessage("BatchError (PartialErrors) item:\n");
-            foreach (BatchError error in partialErrors)
+            foreach (BatchErrorCollection collection in batchErrorCollections)
             {
-                OutputStatusMessage(String.Format("\tIndex: {0}", error.Index));
-                OutputStatusMessage(String.Format("\tCode: {0}", error.Code));
-                OutputStatusMessage(String.Format("\tErrorCode: {0}", error.ErrorCode));
-                OutputStatusMessage(String.Format("\tMessage: {0}\n", error.Message));
-
-                // In the case of an EditorialError, more details are available
-                if (error.Type == "EditorialError" && error.ErrorCode == "CampaignServiceEditorialValidationError")
+                // The top level list index corresponds to the campaign or ad group index identifier.
+                if (collection != null)
                 {
-                    OutputStatusMessage(String.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
-                    OutputStatusMessage(String.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
-                    OutputStatusMessage(String.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
-                    OutputStatusMessage(String.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
+                    OutputStatusMessage("BatchErrorCollection:\n");
+                    if (collection.Code != null)
+                    {
+                        OutputStatusMessage(string.Format("\tIndex: {0}", collection.Index));
+                        OutputStatusMessage(string.Format("\tCode: {0}", collection.Code));
+                        OutputStatusMessage(string.Format("\tErrorCode: {0}", collection.ErrorCode));
+                        OutputStatusMessage(string.Format("\tMessage: {0}\n", collection.Message));
+                    }
+
+                    // The nested list of batch errors can include any errors specific to the item 
+                    // that you attempted to add or remove from the campaign or ad group.
+                    if(collection.BatchErrors != null)
+                    {
+                        foreach (BatchError error in collection.BatchErrors)
+                        {
+                            OutputBatchError(error);
+                        }
+                    }
                 }
             }
         }
 
         /// <summary>
-        /// Outputs a list of BatchErrorCollection objects that represent partial errors while managing 
-        /// negative keywords.
+        /// Outputs a BatchError object.
         /// </summary>
-        /// <param name="nestedPartialErrors"></param>
-        protected void OutputNestedPartialErrors(IList<BatchErrorCollection> nestedPartialErrors)
+        /// <param name="batchError"></param>
+        protected void OutputBatchError(BatchError batchError)
         {
-            if (nestedPartialErrors == null || nestedPartialErrors.Count == 0)
+            if (batchError == null)
             {
                 return;
             }
 
-            OutputStatusMessage("BatchErrorCollection (NestedPartialErrors) item:\n");
-            foreach (BatchErrorCollection collection in nestedPartialErrors)
+            OutputStatusMessage("BatchError:\n");
+            OutputStatusMessage(string.Format("\tIndex: {0}", batchError.Index));
+            OutputStatusMessage(string.Format("\tCode: {0}", batchError.Code));
+            OutputStatusMessage(string.Format("\tErrorCode: {0}", batchError.ErrorCode));
+            OutputStatusMessage(string.Format("\tMessage: {0}\n", batchError.Message));
+
+            // In the case of an EditorialError, more details are available
+            if (batchError.Type == "EditorialError" && batchError.ErrorCode == "CampaignServiceEditorialValidationError")
             {
-                // The top level list index corresponds to the campaign or ad group index identifier.
-                if (collection != null)
-                {
-                    if (collection.Code != null)
-                    {
-                        OutputStatusMessage(String.Format("\tIndex: {0}", collection.Index));
-                        OutputStatusMessage(String.Format("\tCode: {0}", collection.Code));
-                        OutputStatusMessage(String.Format("\tErrorCode: {0}", collection.ErrorCode));
-                        OutputStatusMessage(String.Format("\tMessage: {0}\n", collection.Message));
-                    }
-
-                    // The nested list of batch errors would include any errors specific to the negative keywords 
-                    // that you attempted to add or remove from the campaign or ad group.
-                    foreach (BatchError error in collection.BatchErrors)
-                    {
-                        OutputStatusMessage(String.Format("\tIndex: {0}", error.Index));
-                        OutputStatusMessage(String.Format("\tCode: {0}", error.Code));
-                        OutputStatusMessage(String.Format("\tErrorCode: {0}", error.ErrorCode));
-                        OutputStatusMessage(String.Format("\tMessage: {0}\n", error.Message));
-
-                        // In the case of an EditorialError, more details are available
-                        if (error.Type == "EditorialError" && error.ErrorCode == "CampaignServiceEditorialValidationError")
-                        {
-                            OutputStatusMessage(String.Format("\tDisapprovedText: {0}", ((EditorialError)(error)).DisapprovedText));
-                            OutputStatusMessage(String.Format("\tLocation: {0}", ((EditorialError)(error)).Location));
-                            OutputStatusMessage(String.Format("\tPublisherCountry: {0}", ((EditorialError)(error)).PublisherCountry));
-                            OutputStatusMessage(String.Format("\tReasonCode: {0}\n", ((EditorialError)(error)).ReasonCode));
-                        }
-                    }
-                }
+                OutputStatusMessage(string.Format("\tDisapprovedText: {0}", ((EditorialError)(batchError)).DisapprovedText));
+                OutputStatusMessage(string.Format("\tLocation: {0}", ((EditorialError)(batchError)).Location));
+                OutputStatusMessage(string.Format("\tPublisherCountry: {0}", ((EditorialError)(batchError)).PublisherCountry));
+                OutputStatusMessage(string.Format("\tReasonCode: {0}\n", ((EditorialError)(batchError)).ReasonCode));
             }
         }
 
@@ -1098,6 +1420,24 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
+        /// Outputs the DynamicSearchAd.
+        /// </summary>
+        protected void OutputDynamicSearchAd(DynamicSearchAd ad)
+        {
+            if (ad != null)
+            {
+                // Output inherited properties of the Ad base class.
+                OutputAd(ad);
+
+                // Output properties that are specific to the DynamicSearchAd
+                OutputStatusMessage(string.Format("Path1: {0}", ad.Path1));
+                OutputStatusMessage(string.Format("Path2: {0}", ad.Path2));
+                OutputStatusMessage(string.Format("Text: {0}", ad.Text));
+            }
+        }
+
+
+        /// <summary>
         /// Outputs the ExpandedTextAd.
         /// </summary>
         protected void OutputExpandedTextAd(ExpandedTextAd ad)
@@ -1149,81 +1489,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("PromotionalText: {0}", ad.PromotionalText));
             }
         }
-
-
-        /// <summary>
-        /// Gets an example ProductPartition. 
-        /// </summary>
-        protected ProductPartition GetExampleProductPartition()
-        {
-            return new ProductPartition
-            {
-                // This is an example of a root node, because it does not have a parent.
-                ParentCriterionId = null,
-                Condition = new ProductCondition
-                {
-                    Operand = "All",
-                    Attribute = null
-                },
-                PartitionType = ProductPartitionType.Unit
-            };
-        }
-
-        /// <summary>
-        /// Outputs the ProductPartition.
-        /// </summary>
-        protected void OutputProductPartition(ProductPartition productPartition)
-        {
-            if (productPartition != null)
-            {
-                OutputStatusMessage(string.Format("ParentCriterionId: {0}", productPartition.ParentCriterionId));
-                OutputStatusMessage(string.Format("PartitionType: {0}", productPartition.PartitionType));
-                if (productPartition.Condition != null)
-                {
-                    OutputStatusMessage(string.Format("Condition: "));
-                    OutputStatusMessage(string.Format("\tOperand: {0}", productPartition.Condition.Operand));
-                    OutputStatusMessage(string.Format("\tAttribute: {0}", productPartition.Condition.Attribute));
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets an example FixedBid. 
-        /// </summary>
-        protected FixedBid GetExampleFixedBid()
-        {
-            return new FixedBid
-            {
-                Bid = new Bid()
-                {
-                    Amount = 0.35
-                },
-            };
-        }
-
-        /// <summary>
-        /// Outputs the FixedBid.
-        /// </summary>
-        protected void OutputFixedBid(FixedBid fixedBid)
-        {
-            if (fixedBid != null && fixedBid.Bid != null)
-            {
-                OutputStatusMessage(string.Format("Bid Amount: {0}", fixedBid.Bid.Amount));
-            }
-        }
-
-        /// <summary>
-        /// Gets an example CampaignCriterion that contains ProductPartition. 
-        /// </summary>
-        protected AdGroupCriterion GetExampleAdGroupCriterionWithProductPartition()
-        {
-            return new BiddableAdGroupCriterion
-            {
-                Criterion = GetExampleProductPartition(),
-                CriterionBid = GetExampleFixedBid(),
-            };
-        }
-
+        
         /// <summary>
         /// Outputs the AdGroupCriterion that contains a ProductPartition.
         /// </summary>
@@ -1277,60 +1543,13 @@ namespace BingAdsExamplesLibrary.V10
                     var negativeAdGroupCriterion = adGroupCriterion as NegativeAdGroupCriterion;
                     if (negativeAdGroupCriterion != null)
                     {
+                        OutputNegativeAdGroupCriterion(negativeAdGroupCriterion);
                     }
                 }
 
                 // Output the Campaign Management ProductPartition Object
                 OutputProductPartition((ProductPartition)adGroupCriterion.Criterion);
             }
-        }
-
-        /// <summary>
-        /// Gets an example ProductScope. 
-        /// </summary>
-        protected ProductScope GetExampleProductScope()
-        {
-            return new ProductScope
-            {
-                Conditions = new ProductCondition[] {
-                    new ProductCondition {
-                        Operand = "Condition",
-                        Attribute = "New"
-                    },
-                    new ProductCondition {
-                        Operand = "CustomLabel0",
-                        Attribute = "MerchantDefinedCustomLabel"
-                    },
-                }
-            };
-        }
-
-        /// <summary>
-        /// Outputs the ProductScope.
-        /// </summary>
-        protected void OutputProductScope(ProductScope productScope)
-        {
-            if (productScope != null)
-            {
-                OutputStatusMessage(string.Format("Product Conditions: \n"));
-                foreach (var condition in productScope.Conditions)
-                {
-                    OutputStatusMessage(string.Format("Operand: {0}", condition.Operand));
-                    OutputStatusMessage(string.Format("Attribute: {0}", condition.Attribute));
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets an example CampaignCriterion that contains ProductScope. 
-        /// </summary>
-        protected CampaignCriterion GetExampleCampaignCriterionWithProductScope()
-        {
-            return new CampaignCriterion
-            {
-                BidAdjustment = 0,
-                Criterion = GetExampleProductScope(),
-            };
         }
 
         /// <summary>

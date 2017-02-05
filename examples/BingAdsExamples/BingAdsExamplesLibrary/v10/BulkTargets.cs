@@ -216,8 +216,7 @@ namespace BingAdsExamplesLibrary.V10
                         }
                     }
                 };
-
-
+                
                 // Upload the entities created above.
 
                 uploadEntities.Add(bulkCampaign);

@@ -62,6 +62,7 @@
     <Compile Include="v10\BulkShoppingCampaigns.cs" />
     <Compile Include="v10\BulkTargets.cs" />
     <Compile Include="v10\ConversionGoals.cs" />
+    <Compile Include="v10\DynamicSearchCampaigns.cs" />
     <Compile Include="v10\ExampleBase.cs" />
     <Compile Include="v10\KeywordsAds.cs" />
     <Compile Include="v10\NegativeKeywords.cs" />
