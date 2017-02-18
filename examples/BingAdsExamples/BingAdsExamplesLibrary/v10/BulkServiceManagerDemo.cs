@@ -3,9 +3,12 @@ using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V10.Bulk;
 using Microsoft.BingAds;
+using Microsoft.BingAds.V10.Bulk;
+using Microsoft.BingAds.V10.Bulk.Entities;
+using Microsoft.BingAds.V10.CampaignManagement;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace BingAdsExamplesLibrary.V10
 {
@@ -17,7 +20,7 @@ namespace BingAdsExamplesLibrary.V10
     {
         public override string Description
         {
-            get { return "Bulk Service Manager Download Demo | Bulk V10"; }
+            get { return "Bulk Service Manager Upload and Download Demo | Bulk V10"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -30,6 +33,30 @@ namespace BingAdsExamplesLibrary.V10
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(String.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
+
+                #region Upload
+
+                // In this example we'll upload a new campaign and then delete it. 
+
+                var uploadEntities = new List<BulkEntity>();
+                uploadEntities.Add(GetExampleBulkCampaign());
+
+                OutputStatusMessage("Uploading a campaign with UploadEntitiesAsync . . .");
+                var resultEntities = await UploadEntitiesAsync(uploadEntities, progress);
+
+                uploadEntities = new List<BulkEntity>();
+                foreach(var campaignResult in resultEntities.OfType<BulkCampaign>().ToList())
+                {
+                    campaignResult.Campaign.Status = CampaignStatus.Deleted;
+                    uploadEntities.Add(campaignResult);
+                }
+
+                OutputStatusMessage("Deleting a campaign with UploadEntitiesAsync . . .");
+                resultEntities = await UploadEntitiesAsync(uploadEntities, progress);
+
+                #endregion Upload
+
+                #region Download
 
                 // In this example we will download all campaigns, ad groups, and ads in the account.
                 var entities = BulkDownloadEntity.Campaigns |
@@ -66,8 +93,12 @@ namespace BingAdsExamplesLibrary.V10
                 // return results. The BulkServiceManager abstracts the details of checking for result file 
                 // completion, and you don't have to write any code for results polling.
 
-                OutputStatusMessage("Awaiting Background Completion . . .");
+                OutputStatusMessage("Awaiting Background Completion with DownloadFileAsync . . .");
                 await BackgroundCompletionAsync(downloadParameters, progress);
+
+                // Alternatively we can use DownloadEntitiesAsync if we want to work with the entities in memory.
+                OutputStatusMessage("Awaiting Background Completion with DownloadEntitiesAsync . . .");
+                var downloadEntities = await DownloadEntitiesAsync(downloadParameters, progress);
 
                 // Option B - Submit and Download with BulkServiceManager
                 // Submit the download request and then use the BulkDownloadOperation result to 
@@ -91,7 +122,8 @@ namespace BingAdsExamplesLibrary.V10
                 // If you do not download the bulk file within two days, you must request it again.
                 //OutputStatusMessage("Awaiting Download Results . . .");
                 //await DownloadResultsAsync(requestId, authorizationData);
-                
+
+                #endregion Download
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -127,6 +159,70 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
+        /// <summary>
+        /// Writes the specified entities to a local temporary file prior to upload.  
+        /// </summary>
+        /// <param name="uploadEntities"></param>
+        /// <returns></returns>
+        protected async Task<List<BulkEntity>> UploadEntitiesAsync(
+            IEnumerable<BulkEntity> uploadEntities,
+            Progress<BulkOperationProgressInfo> progress)
+        {
+            // The system temp directory will be used if another working directory is not specified. If you are 
+            // using a hosted service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
+            // You can specify a different working directory for each BulkServiceManager instance.
+
+            BulkService.WorkingDirectory = FileDirectory;
+                        
+            var entityUploadParameters = new EntityUploadParameters
+            {
+                Entities = uploadEntities,
+                OverwriteResultFile = true,
+                ResultFileDirectory = FileDirectory,
+                ResultFileName = ResultFileName,
+                ResponseMode = ResponseMode.ErrorsAndResults
+            };
+
+            // The UploadEntitiesAsync method returns IEnumerable<BulkEntity>, so the result file will not
+            // be accessible e.g. for CleanupTempFiles until you enumerate the result e.g. via ToList().
+
+            var resultEntities = (await BulkService.UploadEntitiesAsync(entityUploadParameters)).ToList();
+
+            // The CleanupTempFiles method removes all files (not sub-directories) within the working directory, 
+            // whether or not the files were created by this BulkServiceManager instance. 
+
+            BulkService.CleanupTempFiles();
+
+            return resultEntities;
+        }
+
+        /// <summary>
+        /// Writes the specified entities to a local temporary file after download. 
+        /// </summary>
+        /// <param name="downloadParameters"></param>
+        /// <returns></returns>
+        protected async Task<List<BulkEntity>> DownloadEntitiesAsync(
+            DownloadParameters downloadParameters,
+            Progress<BulkOperationProgressInfo> progress)
+        {
+            // The system temp directory will be used if another working directory is not specified. If you are 
+            // using a hosted service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
+            // You can specify a different working directory for each BulkServiceManager instance.
+
+            BulkService.WorkingDirectory = FileDirectory;
+
+            // The DownloadEntitiesAsync method returns IEnumerable<BulkEntity>, so the download file will not
+            // be accessible e.g. for CleanupTempFiles until you enumerate the result e.g. via ToList().
+
+            var resultEntities = (await BulkService.DownloadEntitiesAsync(downloadParameters)).ToList();
+
+            // The CleanupTempFiles method removes all files (not sub-directories) within the working directory, 
+            // whether or not the files were created by this BulkServiceManager instance. 
+
+            BulkService.CleanupTempFiles();
+
+            return resultEntities;
+        }
 
         /// <summary>
         /// You can submit a download or upload request and the BulkServiceManager will automatically
