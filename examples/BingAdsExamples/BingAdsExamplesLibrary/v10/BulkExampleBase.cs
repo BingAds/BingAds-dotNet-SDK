@@ -1173,22 +1173,70 @@ namespace BingAdsExamplesLibrary.V10
         }
 
         /// <summary>
-        /// Gets an example BulkCampaign that can be written as a Campaign record in a Bulk file. 
+        /// Gets an example bulk campaign
         /// </summary>
-        protected BulkCampaign GetExampleBulkCampaign()
+        /// <returns></returns>
+        protected BulkEntity GetExampleBulkCampaign()
         {
-
-            var campaign = GetExampleCampaign();
-            campaign.Id = campaignIdKey;
-
-            return new BulkCampaign
+            // Map properties in the Bulk file to the BulkAdGroup
+            var bulkCampaign = new BulkCampaign
             {
-                // ClientId may be used to associate records in the bulk upload file with records in the results file. The value of this field 
-                // is not used or stored by the server; it is simply copied from the uploaded record to the corresponding result record.
-                // Note: This bulk file Client Id is not related to an application Client Id for OAuth. 
-                ClientId = "YourClientIdGoesHere",
-                Campaign = campaign,
+                // 'Parent Id' column header in the Bulk file
+                // This is not required for upload because the parent account identifier is set 
+                // with the CustomerAccountId header element in the Bulk upload service request.
+                // AccountId = OptionalAccountIdHere,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // Campaign object of the Campaign Management service.
+                Campaign = new Campaign
+                {
+                    // 'Bid Strategy Type' column header in the Bulk file
+                    BiddingScheme = new EnhancedCpcBiddingScheme(),
+                    // 'Budget Id' column header in the Bulk file
+                    BudgetId = null,
+                    // 'Budget Type' column header in the Bulk file
+                    BudgetType = BudgetLimitType.DailyBudgetStandard,
+                    // 'Campaign Type' column header in the Bulk file
+                    CampaignType = CampaignType.SearchAndContent,
+                    // 'Budget' column header in the Bulk file
+                    DailyBudget = 50,
+                    // 'Description' column header in the Bulk file
+                    Description = "Red shoes line.",
+                    // 'Id' column header in the Bulk file
+                    Id = campaignIdKey,
+                    // 'Language' column header in the Bulk file
+                    Languages = null,
+                    // 'Name' column header in the Bulk file
+                    Name = "Women's Shoes " + DateTime.UtcNow,
+                    // 'Bid Adjustment' column header in the Bulk file
+                    NativeBidAdjustment = null,
+                    // 'Status' column header in the Bulk file
+                    Status = CampaignStatus.Paused,
+                    // 'Time Zone' column header in the Bulk file
+                    TimeZone = "PacificTimeUSCanadaTijuana",
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate =
+                        "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}",
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                }
             };
+
+            return bulkCampaign;
         }
 
         /// <summary>
