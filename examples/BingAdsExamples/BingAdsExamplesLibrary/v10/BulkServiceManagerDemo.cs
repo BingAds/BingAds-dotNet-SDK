@@ -97,6 +97,8 @@ namespace BingAdsExamplesLibrary.V10
                 await BackgroundCompletionAsync(downloadParameters, progress);
 
                 // Alternatively we can use DownloadEntitiesAsync if we want to work with the entities in memory.
+                // If you enable this option the result file from BackgroundCompletionAsync will also be deleted
+                // if written to the same working directory.
                 OutputStatusMessage("Awaiting Background Completion with DownloadEntitiesAsync . . .");
                 var downloadEntities = await DownloadEntitiesAsync(downloadParameters, progress);
 
@@ -169,7 +171,7 @@ namespace BingAdsExamplesLibrary.V10
             Progress<BulkOperationProgressInfo> progress)
         {
             // The system temp directory will be used if another working directory is not specified. If you are 
-            // using a hosted service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
+            // using a cloud service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
             // You can specify a different working directory for each BulkServiceManager instance.
 
             BulkService.WorkingDirectory = FileDirectory;
@@ -184,7 +186,7 @@ namespace BingAdsExamplesLibrary.V10
             };
 
             // The UploadEntitiesAsync method returns IEnumerable<BulkEntity>, so the result file will not
-            // be accessible e.g. for CleanupTempFiles until you enumerate the result e.g. via ToList().
+            // be accessible e.g. for CleanupTempFiles until you iterate over the result e.g. via ToList().
 
             var resultEntities = (await BulkService.UploadEntitiesAsync(entityUploadParameters)).ToList();
 
@@ -206,13 +208,13 @@ namespace BingAdsExamplesLibrary.V10
             Progress<BulkOperationProgressInfo> progress)
         {
             // The system temp directory will be used if another working directory is not specified. If you are 
-            // using a hosted service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
+            // using a cloud service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
             // You can specify a different working directory for each BulkServiceManager instance.
 
             BulkService.WorkingDirectory = FileDirectory;
 
             // The DownloadEntitiesAsync method returns IEnumerable<BulkEntity>, so the download file will not
-            // be accessible e.g. for CleanupTempFiles until you enumerate the result e.g. via ToList().
+            // be accessible e.g. for CleanupTempFiles until you iterate over the result e.g. via ToList().
 
             var resultEntities = (await BulkService.DownloadEntitiesAsync(downloadParameters)).ToList();
 
