@@ -1847,57 +1847,30 @@ namespace Microsoft.BingAds.CustomerManagement
     public enum PaymentMethodType : int
     {
         
-        /// <summary>
-        /// The payments are made with a credit card.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CreditCard = 1,
         
-        /// <summary>
-        /// An invoice is sent to the customer requesting payment.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Invoice = 2,
         
-        /// <summary>
-        /// The payments are made with a check.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Check = 3,
         
-        /// <summary>
-        /// The payments are made with an electronic funds transfer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ElectronicFundsTransfer = 4,
         
-        /// <summary>
-        /// A payment service that allows customers to pay for their Bing Ads transactions online. A verified PayPal account is needed, meaning that it needs a valid payment method backing it up for it to be used within Bing Ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PayPal = 5,
         
-        /// <summary>
-        /// The ELV value represents the SEPA payment method. SEPA is a form of a direct debit in Europe. With SEPA Bing Ads validates a customer's bank account by making a small deposit that needs to be verified in Bing Ads. This process takes some time but helps ensure the security of a customer's SEPA account. SEPA is currently only supported in Germany and activity must be billed in EUR currency. SEPA is only allowed to be used to fund prepay accounts.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ELV = 6,
         
-        /// <summary>
-        /// Meant to signal when a customer is funding a prepay account by making payment via a check or a bank transfer. When using such a payment method customers must include their Bing Ads account number for us to process the payment.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfflinePaymentMethod = 7,
         
-        /// <summary>
-        /// Virtual Bank Account is a form of payment used widely in Taiwan. Bing Ads allows customers to use VBA to fund their prepay accounts by giving them the ability to print a payment slip that they can use to make payment at various locations in Taiwan (e.g. Post offices and banks). This payment method is only supported in Taiwan and activity must be billed in TWD currency.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VBA = 8,
         
-        /// <summary>
-        /// Boleto is a form of payment used widely in Brazil. Bing Ads allows customers to use Boleto to fund their prepay accounts by giving them the ability to print a payment slip that they can use to make payment at various locations in Brazil (e.g. Post offices and banks). This payment method is only supported in Brazil and activity must be billed in BRL currency.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Boleto = 9,
     }
@@ -2729,7 +2702,7 @@ namespace Microsoft.BingAds.CustomerManagement
         }
         
         /// <summary>
-        /// For internal use only.
+        /// For internal use only. If this element is set when calling SignupCustomer an error will be returned. If this element is set when calling UpdateCustomer the element will be ignored.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public System.Nullable<Microsoft.BingAds.CustomerManagement.ServiceLevel> ServiceLevel
@@ -2769,7 +2742,7 @@ namespace Microsoft.BingAds.CustomerManagement
         }
         
         /// <summary>
-        /// A time-stamp value that the system uses internally to reconcile updates when you call the UpdateCustomer or the DeleteCustomer.
+        /// A time-stamp value that the system uses internally to reconcile updates when you call the UpdateCustomer and DeleteCustomer operations.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public byte[] TimeStamp
@@ -3985,9 +3958,6 @@ namespace Microsoft.BingAds.CustomerManagement
     public enum LCID : int
     {
         
-        /// <summary>
-        /// Arabic (Saudi Arabia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicSaudiArabia = 1025,
         
@@ -4033,219 +4003,114 @@ namespace Microsoft.BingAds.CustomerManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicYemen = 9217,
         
-        /// <summary>
-        /// Chinese (Taiwan)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseTaiwan = 1028,
         
-        /// <summary>
-        /// Danish (Denmark)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DanishDenmark = 1030,
         
-        /// <summary>
-        /// German (Germany)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanGermany = 1031,
         
-        /// <summary>
-        /// English (United States)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishUS = 1033,
         
-        /// <summary>
-        /// Spanish (Spain)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishSpain = 1034,
         
-        /// <summary>
-        /// Finnish (Finland)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinnishFinland = 1035,
         
-        /// <summary>
-        /// French (France)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrenchFrance = 1036,
         
-        /// <summary>
-        /// Hebrew (Israel)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HebrewIsrael = 1037,
         
-        /// <summary>
-        /// Italian (Italy)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ItalianItaly = 1040,
         
-        /// <summary>
-        /// Korean (Korea)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KoreanKorea = 1042,
         
-        /// <summary>
-        /// Dutch (Netherlands)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DutchNetherlands = 1043,
         
-        /// <summary>
-        /// Norwegian (Norway)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NorwegianNorway = 1044,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PortugueseBrazil = 1046,
         
-        /// <summary>
-        /// Russian (Russia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RussianRussia = 1049,
         
-        /// <summary>
-        /// Swedish (Sweden)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwedishSweden = 1053,
         
-        /// <summary>
-        /// English (Thailand)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishThailand = 1054,
         
-        /// <summary>
-        /// English (Indonesia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIndonesia = 1057,
         
-        /// <summary>
-        /// English (Vietnam)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishVietnam = 1066,
         
-        /// <summary>
-        /// German (Switzerland)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanSwitzerland = 2055,
         
-        /// <summary>
-        /// English (United Kingdom)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishUK = 2057,
         
-        /// <summary>
-        /// Spanish (Mexico)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishMexico = 2058,
         
-        /// <summary>
-        /// Chinese (Hong Kong)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseHongKong = 3076,
         
-        /// <summary>
-        /// German (Austria)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanAustria = 3079,
         
-        /// <summary>
-        /// English (Australia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishAustralia = 3081,
         
-        /// <summary>
-        /// French (Canada)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrenchCanada = 3084,
         
-        /// <summary>
-        /// English (Canada)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishCanada = 4105,
         
-        /// <summary>
-        /// English (New Zealand)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishNewZealand = 5129,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIreland = 6153,
         
-        /// <summary>
-        /// Spanish (Venezuela)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishVenezuela = 8202,
         
-        /// <summary>
-        /// Spanish (Colombia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishColombia = 9226,
         
-        /// <summary>
-        /// Spanish (Peru)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishPeru = 10250,
         
-        /// <summary>
-        /// Spanish (Argentina)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishArgentina = 11274,
         
-        /// <summary>
-        /// English (Philippines)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishPhilippines = 13321,
         
-        /// <summary>
-        /// Spanish (Chile)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishChile = 13322,
         
-        /// <summary>
-        /// English (India)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIndia = 16393,
         
-        /// <summary>
-        /// English (Malaysia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishMalaysia = 17417,
         
-        /// <summary>
-        /// English (Singapore)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishSingapore = 18441,
     }
@@ -5323,9 +5188,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the client account to manage.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ClientAccountId
         {
@@ -5343,9 +5205,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The number of the client account to manage.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ClientAccountNumber
         {
@@ -5363,9 +5222,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the customer who manages or is requesting to manage the client account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ManagingCustomerId
         {
@@ -5383,9 +5239,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The number of the customer who manages or is requesting to manage the client account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ManagingCustomerNumber
         {
@@ -5403,9 +5256,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Optional message from the requestor providing context and details about the client link invitation.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Note
         {
@@ -5423,9 +5273,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The friendly name that can be used to reference this client link.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public string Name
         {
@@ -5443,9 +5290,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The email of the user who created the client link request.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public string InviterEmail
         {
@@ -5463,9 +5307,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the parent customer of the user who created the client link request.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public string InviterName
         {
@@ -5483,9 +5324,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The phone number of the user who created the client link request.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public string InviterPhone
         {
@@ -5503,9 +5341,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether the owner of the client account or the managing customer is responsible for billing payments.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public bool IsBillToClient
         {
@@ -5523,9 +5358,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date when the status would update. For an accepted link request the status would transition towards Active on this date, and for an unlink request the status would transition towards Inactive on this date.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public System.Nullable<System.DateTime> StartDate
         {
@@ -5543,9 +5375,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines the life cycle status of the client link, for example whether the client link has been accepted or declined.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
         public System.Nullable<Microsoft.BingAds.CustomerManagement.ClientLinkStatus> Status
         {
@@ -5563,9 +5392,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether or not to send email notification of the client link invitation to the primary user of the client account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public bool SuppressNotification
         {
@@ -5583,9 +5409,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date and time that the client link was last updated. The value is in Coordinated Universal Time (UTC).
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public System.DateTime LastModifiedDateTime
         {
@@ -5603,9 +5426,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the last user to update the client link's information.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public long LastModifiedByUserId
         {
@@ -5640,9 +5460,6 @@ namespace Microsoft.BingAds.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
         {

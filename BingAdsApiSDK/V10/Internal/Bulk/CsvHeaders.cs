@@ -254,7 +254,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             StringTable.RemarketingListId,
             StringTable.RemarketingList,
             StringTable.RemarketingTargetingSetting,
-            StringTable.AdGroupRemarketingListAssociation,
+            StringTable.RemarketingRule,
 
             // Expanded Text Ad
             StringTable.TitlePart1,

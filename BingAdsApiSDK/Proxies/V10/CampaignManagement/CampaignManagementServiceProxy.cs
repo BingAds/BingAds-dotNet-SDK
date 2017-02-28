@@ -229,7 +229,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The description of the campaign. The description can contain a maximum of 1,000 characters.
+        /// The description of the campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
@@ -369,7 +369,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The time zone where the campaign operates. For possible values, see Common Market Values.
+        /// The time zone where the campaign operates.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TimeZone
@@ -449,7 +449,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The setting will vary by campaign type. The contract specifies a list; however, currently a maximum of one setting is supported. If the CampaignType element is SearchAndContent, then this element must be nil or empty. If the CampaignType element is Shopping, this list will include a ShoppingSetting object. If the CampaignType element is DynamicSearchAds, this list will include a DynamicSearchAdsSetting object.
+        /// The settings will vary by campaign type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.Setting> Settings
@@ -488,6 +488,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The languages of the ads and keywords in the campaign.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
         public System.Collections.Generic.IList<string> Languages
         {
@@ -2216,6 +2219,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetId = 2,
         
+        /// <summary>
+        /// Includes the Languages element in the Campaign object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Languages = 4,
     }
@@ -9133,7 +9139,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// This element determines whether the preference is for the click to call phone number to be displayed on mobile devices or all devices.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> DevicePreference
@@ -9153,7 +9159,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// A Boolean value that determines whether the phone number is the only clickable item in the ad. If true and the ad is displayed on a hi-fi mobile device, all otherwise clickable items such as addresses, the display URL, and site links will be disabled.
+        /// The option to show both your phone number and website, or just your phone number, to people seeing your ads on a smartphone. You might want to show only your phone number if your business requires that you talk to each customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> IsCallOnly
@@ -9173,7 +9179,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// A Boolean value that determines whether call tracking is enabled for the call ad extension.
+        /// Determines whether call tracking is enabled for the call ad extension.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> IsCallTrackingEnabled
@@ -9193,7 +9199,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// The phone number to include in the ad. The phone number is clickable on hi-fi mobile devices.
+        /// The clickable phone number to include in the ad. The phone number can contain a maximum of 35 characters and must be valid for the specified country.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string PhoneNumber
@@ -9213,7 +9219,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         }
         
         /// <summary>
-        /// A Boolean value that determines whether a toll-free tracking number should be created for call tracking. This element can only be set if IsCallTrackingEnabled is also true.
+        /// You can either use your own phone number or use a Bing Ads forwarding phone number. A Bing Ads forwarding phone number is a unique phone number that is routed to your business phone number. With a Bing Ads forwarding number, you can track all calls from your ad so that you can analyze the ad's performance. This element determines whether a toll-free Bing Ads forwarding phone number should be created for call tracking. This element can only be set if IsCallTrackingEnabled is also true.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> RequireTollFreeTrackingNumber
@@ -15118,6 +15124,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The type of the remarketing rule. For more information about remarketing rule types, see the Remarks.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type
         {
@@ -15189,6 +15198,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> RuleItemGroupsField;
         
+        /// <summary>
+        /// The list of rule item groups that you want applied to the remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> RuleItemGroups
         {
@@ -15227,6 +15239,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> RuleItemGroupsField;
         
+        /// <summary>
+        /// The list of rule item groups related to other pages the audience visited.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> AnotherRuleItemGroups
         {
@@ -15244,6 +15259,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The list of rule item groups related to pages the audience visited.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> RuleItemGroups
         {
@@ -15282,6 +15300,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> IncludeRuleItemGroupsField;
         
+        /// <summary>
+        /// The list of rule item groups that you want applied as exclusions to the remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> ExcludeRuleItemGroups
         {
@@ -15299,6 +15320,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The list of rule item groups that you want applied to the remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RuleItemGroup> IncludeRuleItemGroups
         {
@@ -15355,6 +15379,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V10.CampaignManagement.NumberOperator ValueOperatorField;
         
+        /// <summary>
+        /// The type of user interaction you want to track. For example 'play' or 'pause'.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Action
         {
@@ -15372,6 +15399,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the Action element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.StringOperator ActionOperator
         {
@@ -15389,6 +15419,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The category of event you want to track. For example, 'video'.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Category
         {
@@ -15406,6 +15439,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the Category element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.StringOperator CategoryOperator
         {
@@ -15423,6 +15459,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The name of the element that caused the action. For example 'trailer' or 'behindthescenes'.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Label
         {
@@ -15440,6 +15479,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the Label element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.StringOperator LabelOperator
         {
@@ -15457,6 +15499,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A positive integer value associated with that event. For example the value could be the duration of time that the video played.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> Value
         {
@@ -15474,6 +15519,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The operator that can be applied to the value of the Value element.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V10.CampaignManagement.NumberOperator ValueOperator
         {
@@ -16653,9 +16701,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> UrlOperatorField;
         
-        /// <summary>
-        /// The expression used to determine the page or pages the user has to visit in order to count as a conversion. Add: Required Update: Optional
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string UrlExpression
         {
@@ -16673,9 +16718,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The operator that can be applied to the value of the Url element.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.ExpressionOperator> UrlOperator
         {
@@ -16744,9 +16786,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> MinimumPagesViewedField;
         
-        /// <summary>
-        /// The minimum number of pages the user must visit, in order to count as a conversion.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> MinimumPagesViewed
         {
@@ -17143,7 +17182,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the operators that can be applied to values within a conversion goal.
+    /// Defines the operators that can be applied to values within a conversion event goal.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt759562(v=msads.100).aspx">ValueOperator Value Set</see> http://msdn.microsoft.com/en-us/library/mt759562(v=msads.100).aspx for details.
@@ -28651,7 +28690,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public long AccountId;
         
         /// <summary>
-        /// A list of unique identifiers that identify the criterions to get. You can specify a maximum of 100 IDs.
+        /// A list of unique identifiers that identify the criterions to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<long> AdGroupCriterionIds;
@@ -28663,7 +28702,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public System.Nullable<long> AdGroupId;
         
         /// <summary>
-        /// The types of ad group criterion to get, for example ProductPartition or Webpage. You can specify one or more types.
+        /// The type of ad group criterions to get, for example ProductPartition or Webpage. You can specify one type per request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=3)]
         public System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType;
@@ -28685,9 +28724,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx">GetAdGroupCriterionsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn277520(v=msads.100).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that owns the criterions to get.</param>
-        /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get. You can specify a maximum of 100 IDs.</param>
+        /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterions to get.</param>
-        /// <param name="CriterionType">The types of ad group criterion to get, for example ProductPartition or Webpage. You can specify one or more types.</param>
+        /// <param name="CriterionType">The type of ad group criterions to get, for example ProductPartition or Webpage. You can specify one type per request.</param>
         public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdGroupCriterionIds, System.Nullable<long> AdGroupId, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -28931,7 +28970,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public long AccountId;
         
         /// <summary>
-        /// The list of criterions to update. You may specify a maximum of 1,000 criterions.
+        /// The list of criterions to update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.AdGroupCriterion> AdGroupCriterions;
@@ -28959,7 +28998,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx">UpdateAdGroupCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn277527(v=msads.100).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that owns the criterions to update.</param>
-        /// <param name="AdGroupCriterions">The list of criterions to update. You may specify a maximum of 1,000 criterions.</param>
+        /// <param name="AdGroupCriterions">The list of criterions to update.</param>
         /// <param name="CriterionType">The type of ad group criterion to update, for example Webpage. You can specify only one type.</param>
         public UpdateAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.AdGroupCriterion> AdGroupCriterions, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType)
         {
@@ -29063,7 +29102,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public long AccountId;
         
         /// <summary>
-        /// A list of unique identifiers that identify the criterion to delete. You can specify a maximum on 1,000 identifiers per call.
+        /// A list of unique identifiers that identify the criterion to delete.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public System.Collections.Generic.IList<long> AdGroupCriterionIds;
@@ -29097,7 +29136,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx">DeleteAdGroupCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn236302(v=msads.100).aspx for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that owns the criterion to delete.</param>
-        /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterion to delete. You can specify a maximum on 1,000 identifiers per call.</param>
+        /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterion to delete.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterion to delete.</param>
         /// <param name="CriterionType">The type of ad group criterion to delete, for example Webpage. You can specify only one type.</param>
         public DeleteAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId, System.Nullable<Microsoft.BingAds.V10.CampaignManagement.CriterionType> CriterionType)
@@ -31387,7 +31426,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The list of up to 100 campaign criterions to update.
+        /// The list of campaign criterions to update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.CampaignCriterion> CampaignCriterions;
@@ -31414,7 +31453,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn913121(v=msads.100).aspx">UpdateCampaignCriterionsRequest</see> http://msdn.microsoft.com/en-us/library/dn913121(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="CampaignCriterions">The list of up to 100 campaign criterions to update.</param>
+        /// <param name="CampaignCriterions">The list of campaign criterions to update.</param>
         /// <param name="CriterionType">The type of campaign criterion to update, for example ProductScope or Webpage. You can specify only one type.</param>
         public UpdateCampaignCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.CampaignCriterion> CampaignCriterions, Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType)
         {
@@ -31635,7 +31674,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// A list of unique identifiers that identify the campaign criterions to get. You can specify a maximum of 1,000 IDs.
+        /// A list of unique identifiers that identify the campaign criterions to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> CampaignCriterionIds;
@@ -31647,7 +31686,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         public long CampaignId;
         
         /// <summary>
-        /// The types of campaign criterion to get, for example ProductScope or Webpage. You can specify one or more types.
+        /// The type of campaign criterions to get, for example ProductScope or Webpage. You can specify one type per request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=2)]
         public Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType;
@@ -31668,9 +31707,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn913135(v=msads.100).aspx">GetCampaignCriterionsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/dn913135(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="CampaignCriterionIds">A list of unique identifiers that identify the campaign criterions to get. You can specify a maximum of 1,000 IDs.</param>
+        /// <param name="CampaignCriterionIds">A list of unique identifiers that identify the campaign criterions to get.</param>
         /// <param name="CampaignId">The unique identifier of the campaign whose criterions you want to get.</param>
-        /// <param name="CriterionType">The types of campaign criterion to get, for example ProductScope or Webpage. You can specify one or more types.</param>
+        /// <param name="CriterionType">The type of campaign criterions to get, for example ProductScope or Webpage. You can specify one type per request.</param>
         public GetCampaignCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> CampaignCriterionIds, long CampaignId, Microsoft.BingAds.V10.CampaignManagement.CampaignCriterionType CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -32502,9 +32541,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// An array of remarketing lists to update. The maximum size of the array is 100.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists;
         
@@ -32524,7 +32560,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx">UpdateRemarketingListsRequest</see> http://msdn.microsoft.com/en-us/library/mt790576(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="RemarketingLists">An array of remarketing lists to update. The maximum size of the array is 100.</param>
+        /// <param name="RemarketingLists"></param>
         public UpdateRemarketingListsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.RemarketingList> RemarketingLists)
         {
             this.ApplicationToken = ApplicationToken;
@@ -33469,9 +33505,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// An array of UetTag objects to add to the customer's shared UET tag library.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags;
         
@@ -33491,7 +33524,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx">AddUetTagsRequest</see> http://msdn.microsoft.com/en-us/library/mt759506(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="UetTags">An array of UetTag objects to add to the customer's shared UET tag library.</param>
+        /// <param name="UetTags"></param>
         public AddUetTagsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.UetTag> UetTags)
         {
             this.ApplicationToken = ApplicationToken;
@@ -33703,15 +33736,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// A maximum of 100 identifiers of the conversion goals that you want to get. If ConversionGoalIds is null or empty, then you are effectively requesting all conversion goals of the specified types for the account.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> ConversionGoalIds;
         
-        /// <summary>
-        /// One or more types of conversion goals to return.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType ConversionGoalTypes;
         
@@ -33731,8 +33758,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx">GetConversionGoalsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759540(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="ConversionGoalIds">A maximum of 100 identifiers of the conversion goals that you want to get. If ConversionGoalIds is null or empty, then you are effectively requesting all conversion goals of the specified types for the account.</param>
-        /// <param name="ConversionGoalTypes">One or more types of conversion goals to return.</param>
+        /// <param name="ConversionGoalIds"></param>
+        /// <param name="ConversionGoalTypes"></param>
         public GetConversionGoalsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ConversionGoalIds, Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType ConversionGoalTypes)
         {
             this.ApplicationToken = ApplicationToken;
@@ -33835,15 +33862,9 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// A maximum of 100 tag identifiers that are used by the returned conversion goals.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<long> TagIds;
         
-        /// <summary>
-        /// One or more types of conversion goals to return.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=1)]
         public Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType ConversionGoalTypes;
         
@@ -33863,8 +33884,8 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx">GetConversionGoalsByTagIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt759541(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="TagIds">A maximum of 100 tag identifiers that are used by the returned conversion goals.</param>
-        /// <param name="ConversionGoalTypes">One or more types of conversion goals to return.</param>
+        /// <param name="TagIds"></param>
+        /// <param name="ConversionGoalTypes"></param>
         public GetConversionGoalsByTagIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds, Microsoft.BingAds.V10.CampaignManagement.ConversionGoalType ConversionGoalTypes)
         {
             this.ApplicationToken = ApplicationToken;
@@ -33967,9 +33988,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// An array of ConversionGoal objects to add to the account's shared conversion goal library.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals;
         
@@ -33989,7 +34007,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx">AddConversionGoalsRequest</see> http://msdn.microsoft.com/en-us/library/mt759539(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="ConversionGoals">An array of ConversionGoal objects to add to the account's shared conversion goal library.</param>
+        /// <param name="ConversionGoals"></param>
         public AddConversionGoalsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals)
         {
             this.ApplicationToken = ApplicationToken;
@@ -34091,9 +34109,6 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10")]
         public string UserName;
         
-        /// <summary>
-        /// An array of ConversionGoal objects to update within the account's shared conversion goal library.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v10", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals;
         
@@ -34113,7 +34128,7 @@ namespace Microsoft.BingAds.V10.CampaignManagement
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx">UpdateConversionGoalsRequest</see> http://msdn.microsoft.com/en-us/library/mt759544(v=msads.100).aspx for details.
         /// </remarks>
-        /// <param name="ConversionGoals">An array of ConversionGoal objects to update within the account's shared conversion goal library.</param>
+        /// <param name="ConversionGoals"></param>
         public UpdateConversionGoalsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V10.CampaignManagement.ConversionGoal> ConversionGoals)
         {
             this.ApplicationToken = ApplicationToken;

@@ -110,18 +110,23 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
 
             new SimpleBulkMapping<BulkRemarketingList>(StringTable.MembershipDuration,
                 c => c.RemarketingList.MembershipDuration.ToBulkString(),
-                (v, c) => c.RemarketingList.MembershipDuration = v.Parse<int>()
+                (v, c) => c.RemarketingList.MembershipDuration = v.ParseOptional<int>()
             ),
 
             new SimpleBulkMapping<BulkRemarketingList>(StringTable.Scope,
                 c => c.RemarketingList.Scope.ToBulkString(),
-                (v, c) => c.RemarketingList.Scope = v.Parse<EntityScope>()
+                (v, c) => c.RemarketingList.Scope = v.ParseOptional<EntityScope>()
             ),
 
             new SimpleBulkMapping<BulkRemarketingList>(StringTable.TagId,
                 c => c.RemarketingList.TagId.ToBulkString(),
-                (v, c) => c.RemarketingList.TagId = v.Parse<long>()
+                (v, c) => c.RemarketingList.TagId = v.ParseOptional<long>()
             ),
+
+            new SimpleBulkMapping<BulkRemarketingList>(StringTable.RemarketingRule,
+                c => c.RemarketingList.Rule.ToRemarketingRuleBulkString(),
+                (v, c) => c.RemarketingList.Rule = v.ParseRemarketingRule()
+            ), 
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

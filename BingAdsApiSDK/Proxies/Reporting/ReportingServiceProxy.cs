@@ -1418,7 +1418,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    ///  The GeographicalLocationReportRequest and corresponding programming elements are deprecated, and instead you should use the GeoLocationPerformanceReportRequest.
+    /// Defines a geographical location report request. Use this report to see which locations your traffic is coming from. You can then validate whether your location targeting strategy is successful, and identify opportunities to improve. The report also identifies the physical location of the user and the intended geographical location of the user's search query, for example a user in Seattle searching for services in Portland.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn393955(v=msads.90).aspx">GeographicalLocationReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn393955(v=msads.90).aspx for details.
@@ -1441,6 +1441,9 @@ namespace Microsoft.BingAds.Reporting
         
         private Microsoft.BingAds.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -1458,6 +1461,9 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.GeographicalLocationReportColumn> Columns
         {
@@ -1475,6 +1481,9 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.GeographicalLocationReportFilter Filter
         {
@@ -1492,6 +1501,9 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1509,6 +1521,9 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.Reporting.ReportTime Time
         {
@@ -4711,7 +4726,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 38,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 39,
@@ -4795,7 +4810,7 @@ namespace Microsoft.BingAds.Reporting
         AverageDurationPerVisit = 52,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 53,
@@ -5431,7 +5446,7 @@ namespace Microsoft.BingAds.Reporting
         TimePeriod = 3,
         
         /// <summary>
-        /// The current delivery status.
+        /// The current entity status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Status = 4,
@@ -5707,7 +5722,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 49,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 50,
@@ -5803,7 +5818,7 @@ namespace Microsoft.BingAds.Reporting
         CustomParameters = 65,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 66,
@@ -6542,7 +6557,7 @@ namespace Microsoft.BingAds.Reporting
         Language = 28,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 29,
@@ -6590,13 +6605,13 @@ namespace Microsoft.BingAds.Reporting
         Path2 = 36,
         
         /// <summary>
-        /// The FinalUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The Final URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalURL = 37,
         
         /// <summary>
-        /// The FinalMobileUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The Final Mobile URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileURL = 38,
@@ -7172,7 +7187,7 @@ namespace Microsoft.BingAds.Reporting
         TimePeriod = 3,
         
         /// <summary>
-        /// The current delivery status.
+        /// The current entity status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Status = 4,
@@ -7460,7 +7475,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 51,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 52,
@@ -7544,19 +7559,19 @@ namespace Microsoft.BingAds.Reporting
         AverageDurationPerVisit = 65,
         
         /// <summary>
-        /// The current TrackingUrlTemplate element of the AdGroup.
+        /// The current tracking template for the ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 66,
         
         /// <summary>
-        /// The current UrlCustomParameters element of the AdGroup.
+        /// The current custom parameters set for the ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 67,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 68,
@@ -8016,7 +8031,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 34,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 35,
@@ -8082,25 +8097,25 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerAssist = 45,
         
         /// <summary>
-        /// The current TrackingUrlTemplate element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The current tracking template of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 46,
         
         /// <summary>
-        /// The current UrlCustomParameters element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The current custom parameters set of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 47,
         
         /// <summary>
-        /// The FinalUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The Final URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalURL = 48,
         
         /// <summary>
-        /// The FinalMobileUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The Final Mobile URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileURL = 49,
@@ -8112,7 +8127,7 @@ namespace Microsoft.BingAds.Reporting
         FinalAppURL = 50,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 51,
@@ -8454,7 +8469,7 @@ namespace Microsoft.BingAds.Reporting
         ComponentCTR = 17,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 18,
@@ -9291,7 +9306,7 @@ namespace Microsoft.BingAds.Reporting
         CampaignStatus = 45,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 46,
@@ -9315,7 +9330,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 49,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 50,
@@ -9393,25 +9408,25 @@ namespace Microsoft.BingAds.Reporting
         AverageDurationPerVisit = 62,
         
         /// <summary>
-        /// The current TrackingUrlTemplate element of the Keyword.
+        /// The current tracking template of the keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 63,
         
         /// <summary>
-        /// The current UrlCustomParameters element of the Keyword.
+        /// The current custom parameter set of the keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 64,
         
         /// <summary>
-        /// The FinalUrls element of the Keyword.
+        /// The Final URL of the keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalURL = 65,
         
         /// <summary>
-        /// The FinalMobileUrls element of the Keyword.
+        /// The Final Mobile URL of the keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileURL = 66,
@@ -9423,7 +9438,7 @@ namespace Microsoft.BingAds.Reporting
         FinalAppURL = 67,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc.
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. Your application should support possible future values including MaxClicks, MaxConversions, and TargetCpa. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 68,
@@ -10024,7 +10039,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 27,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 28,
@@ -10078,25 +10093,25 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerAssist = 36,
         
         /// <summary>
-        /// The current TrackingUrlTemplate element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The current tracking template of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 37,
         
         /// <summary>
-        /// The current UrlCustomParameters element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The current custom parameter set of the ad, keyword, or criterion. Each custom parameter is a key and value pair. The list of custom parameters is semicolon-delimited and each key is enclosed by braces and a leading underscore, for example {_key1}=value1;{_key2}=value2.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 38,
         
         /// <summary>
-        /// The FinalUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The Final URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalURL = 39,
         
         /// <summary>
-        /// The FinalMobileUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The Final Mobile URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileURL = 40,
@@ -10108,7 +10123,7 @@ namespace Microsoft.BingAds.Reporting
         FinalAppURL = 41,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 42,
@@ -10170,9 +10185,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The end date of a date range.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.Date CustomDateRangeEnd
         {
@@ -10190,9 +10202,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// The start date of a date range.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.Reporting.Date CustomDateRangeStart
         {
@@ -10210,9 +10219,6 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
-        /// <summary>
-        /// A predefined date range.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.Reporting.BudgetSummaryReportTimePeriod> PredefinedTime
         {
@@ -10641,7 +10647,7 @@ namespace Microsoft.BingAds.Reporting
         EstimatedConversionRate = 18,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 19,
@@ -10660,7 +10666,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    ///  The GeographicalLocationReportRequest and corresponding programming elements are deprecated, and instead you should use the GeoLocationPerformanceReportRequest.
+    /// Defines the criteria to use to filter the geographical location report data.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn393954(v=msads.90).aspx">GeographicalLocationReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn393954(v=msads.90).aspx for details.
@@ -10697,6 +10703,9 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
+        /// <summary>
+        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -10714,6 +10723,9 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
+        /// <summary>
+        /// The report will include data for only the specified countries/regions where the user that clicked the ad is located.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> CountryCode
         {
@@ -10731,6 +10743,9 @@ namespace Microsoft.BingAds.Reporting
             }
         }
         
+        /// <summary>
+        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
         {
@@ -10761,7 +10776,7 @@ namespace Microsoft.BingAds.Reporting
     }
     
     /// <summary>
-    ///  The GeographicalLocationReportRequest and corresponding programming elements are deprecated, and instead you should use the GeoLocationPerformanceReportRequest.
+    /// Defines the attributes and performance statistics columns that you can include in the GeographicalLocationReportRequest.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/dn411634(v=msads.90).aspx">GeographicalLocationReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn411634(v=msads.90).aspx for details.
@@ -10772,135 +10787,267 @@ namespace Microsoft.BingAds.Reporting
     public enum GeographicalLocationReportColumn : int
     {
         
+        /// <summary>
+        /// The account name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
+        /// <summary>
+        /// The Bing Ads assigned number of an account.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
+        /// <summary>
+        /// The Bing Ads assigned identifier of an account.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
+        /// <summary>
+        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
+        /// <summary>
+        /// The campaign name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
+        /// <summary>
+        /// The Bing Ads assigned identifier of a campaign.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
+        /// <summary>
+        /// The ad group name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
+        /// <summary>
+        /// The Bing Ads assigned identifier of an ad group.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
+        /// <summary>
+        /// The country used to deliver the ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
         
+        /// <summary>
+        /// The state used to deliver the ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         State = 9,
         
+        /// <summary>
+        /// The metro area used to deliver the ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
         
+        /// <summary>
+        /// The account currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 11,
         
+        /// <summary>
+        /// The ad distribution attribute of an ad group.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 12,
         
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 13,
         
+        /// <summary>
+        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
         
+        /// <summary>
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) * 100.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 15,
         
+        /// <summary>
+        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 16,
         
+        /// <summary>
+        /// The cost per click (CPC) summed for each click.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 17,
         
+        /// <summary>
+        /// The average position of the ad on a webpage.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 18,
         
+        /// <summary>
+        /// The average of the cost-per-thousand impressions of the ads.The value will be 0 (zero) if the corresponding ad groups do not specify the Content ad distribution medium.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 19,
         
+        /// <summary>
+        /// The radius target bid name. The name of the geographic radius where the user was physically located when they clicked the ad.The Radius attribute column contains the distance of the radius.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProximityTargetLocation = 20,
         
+        /// <summary>
+        /// The radius of a radius target bid. The geographic radius where the user was physically located when they clicked the ad.The ProximityTargetLocation attribute column contains the address or landmark name of the radius.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Radius = 21,
         
+        /// <summary>
+        /// The ad group language.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
         
+        /// <summary>
+        /// The city used to deliver the ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 23,
         
+        /// <summary>
+        /// The name of a country if the user's geographical intent can be determined. The country is set if the user's intent is a country or sub geography of the country, and not necessarily if they are physically located in the country.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCountry = 24,
         
+        /// <summary>
+        /// The name of a state if the user's geographical intent can be determined. The state is set if the user's intent is a state or sub geography of the state, and not necessarily if they are physically located in the state.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentState = 25,
         
+        /// <summary>
+        /// The name of a city if the user's geographical intent can be determined. The city is set if the user's intent is a city, and not necessarily if they are physically located in the city. For example, the user's search query was rental cars in Portland.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCity = 26,
         
+        /// <summary>
+        /// The name of a metro area if the user's geographical intent can be determined. The metro area is set if the user's intent is a metro area or city within the metro area, and not necessarily if they are physically located in the metro area.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 27,
         
+        /// <summary>
+        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 28,
         
+        /// <summary>
+        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Match Type and Bid Values.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 29,
         
+        /// <summary>
+        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 30,
         
+        /// <summary>
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 31,
         
+        /// <summary>
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 32,
         
+        /// <summary>
+        /// The operating system of the device reported in the DeviceType column.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 33,
         
+        /// <summary>
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 34,
         
+        /// <summary>
+        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 35,
         
+        /// <summary>
+        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) * 100.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 36,
         
+        /// <summary>
+        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. The extended costs correspond to the optional taxcost, shippingcost, and nonadvertisingcost parameters of a Bing Ads campaign analytics tracking script.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExtendedCost = 37,
         
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 38,
         
+        /// <summary>
+        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 39,
         
+        /// <summary>
+        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 40,
         
+        /// <summary>
+        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 41,
         
+        /// <summary>
+        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 42,
         
+        /// <summary>
+        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 43,
     }
@@ -11253,7 +11400,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 25,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 26,
@@ -11313,7 +11460,7 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerAssist = 35,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 36,
@@ -11844,25 +11991,25 @@ namespace Microsoft.BingAds.Reporting
         Language = 29,
         
         /// <summary>
-        /// The current TrackingUrlTemplate element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The current tracking template of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 30,
         
         /// <summary>
-        /// The current UrlCustomParameters element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The current custom parameter set of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 31,
         
         /// <summary>
-        /// The FinalUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The Final URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalURL = 32,
         
         /// <summary>
-        /// The FinalMobileUrls element of the Ad, Keyword, or BiddableAdGroupCriterion.
+        /// The Final Mobile URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileURL = 33,
@@ -11874,7 +12021,7 @@ namespace Microsoft.BingAds.Reporting
         FinalAppURL = 34,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 35,
@@ -11898,7 +12045,7 @@ namespace Microsoft.BingAds.Reporting
         AdStatus = 38,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc.
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. Your application should support possible future values including MaxClicks, MaxConversions, and TargetCpa. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 39,
@@ -12435,7 +12582,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 30,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 31,
@@ -12495,7 +12642,7 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerAssist = 40,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 41,
@@ -12884,7 +13031,7 @@ namespace Microsoft.BingAds.Reporting
         DeviceType = 24,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 25,
@@ -13302,7 +13449,7 @@ namespace Microsoft.BingAds.Reporting
         DeviceOS = 25,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 26,
@@ -13522,7 +13669,7 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerConversion = 15,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 16,
@@ -13928,7 +14075,7 @@ namespace Microsoft.BingAds.Reporting
         ReturnOnAdSpend = 26,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 27,
@@ -14867,7 +15014,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
@@ -14921,7 +15068,7 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerAssist = 35,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 36,
@@ -15311,7 +15458,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
@@ -15365,7 +15512,7 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerAssist = 35,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 36,
@@ -15777,7 +15924,7 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerConversion = 24,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 25,
@@ -16065,7 +16212,7 @@ namespace Microsoft.BingAds.Reporting
         AdExtensionVersion = 12,
         
         /// <summary>
-        /// The human readable ad extension property value. For this report only one property is available for each type of ad extension. The following are the possible property values corresponding to each AdExtensionTypeId: If the AdExtensionTypeId is 10, this AdExtensionPropertyValue is the DisplayText element of a SiteLink.
+        /// The human readable ad extension property value. For this report only one property is available for each type of ad extension. The following are the possible property values corresponding to each AdExtensionTypeId: If the AdExtensionTypeId is 10, this AdExtensionPropertyValue is the display text of a sitelink ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionPropertyValue = 13,
@@ -16149,7 +16296,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
@@ -16197,7 +16344,7 @@ namespace Microsoft.BingAds.Reporting
         RevenuePerAssist = 34,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 35,
@@ -16750,7 +16897,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 37,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 38,
@@ -16774,7 +16921,7 @@ namespace Microsoft.BingAds.Reporting
         KeywordStatus = 41,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc.
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. Your application should support possible future values including MaxClicks, MaxConversions, and TargetCpa. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 42,
@@ -17139,7 +17286,7 @@ namespace Microsoft.BingAds.Reporting
         CampaignStatus = 23,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 24,
@@ -17181,7 +17328,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 30,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 31,
@@ -17469,7 +17616,7 @@ namespace Microsoft.BingAds.Reporting
         CampaignStatus = 5,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 6,
@@ -17749,6 +17896,18 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkCtr = 52,
+        
+        /// <summary>
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopVsOther = 53,
+        
+        /// <summary>
+        /// The ad distribution attribute of an ad group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDistribution = 54,
     }
     
     /// <summary>
@@ -18105,7 +18264,7 @@ namespace Microsoft.BingAds.Reporting
         CampaignStatus = 26,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 27,
@@ -18129,7 +18288,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 30,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 31,
@@ -18189,13 +18348,13 @@ namespace Microsoft.BingAds.Reporting
         AdStatus = 40,
         
         /// <summary>
-        /// The current TrackingUrlTemplate element of the BiddableAdGroupCriterion.
+        /// The current tracking template of the criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 41,
         
         /// <summary>
-        /// The current UrlCustomParameters element of the BiddableAdGroupCriterion.
+        /// The current custom parameter set of the criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 42,
@@ -18229,6 +18388,12 @@ namespace Microsoft.BingAds.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkCtr = 47,
+        
+        /// <summary>
+        /// The ad distribution attribute of an ad group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDistribution = 48,
     }
     
     /// <summary>
@@ -18579,7 +18744,7 @@ namespace Microsoft.BingAds.Reporting
         CampaignStatus = 25,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 26,
@@ -18603,7 +18768,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
@@ -18651,13 +18816,13 @@ namespace Microsoft.BingAds.Reporting
         AdStatus = 37,
         
         /// <summary>
-        /// The current TrackingUrlTemplate element of the BiddableAdGroupCriterion.
+        /// The current tracking template of the criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 38,
         
         /// <summary>
-        /// The current UrlCustomParameters element of the BiddableAdGroupCriterion.
+        /// The current custom parameter set of the criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 39,
@@ -18876,7 +19041,7 @@ namespace Microsoft.BingAds.Reporting
         AdGroupId = 14,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 15,
@@ -19200,7 +19365,7 @@ namespace Microsoft.BingAds.Reporting
         AverageCpm = 18,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 19,
@@ -19572,7 +19737,7 @@ namespace Microsoft.BingAds.Reporting
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknownNote: Bing Ads began tracking TopVsOther data on March 14, 2013. Data that was processed prior to the feature launch is marked as Unknown.
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
@@ -19662,7 +19827,7 @@ namespace Microsoft.BingAds.Reporting
         MostSpecificLocation = 41,
         
         /// <summary>
-        /// The account lifecycle status.
+        /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 42,
@@ -20004,7 +20169,7 @@ namespace Microsoft.BingAds.Reporting
         private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.OperationError> OperationErrorsField;
         
         /// <summary>
-        /// An array of BatchError objects that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
+        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.BatchError> BatchErrors
@@ -20024,7 +20189,7 @@ namespace Microsoft.BingAds.Reporting
         }
         
         /// <summary>
-        /// An array of OperationError objects that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
+        /// An array of operation errors that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.OperationError> OperationErrors
@@ -20061,7 +20226,7 @@ namespace Microsoft.BingAds.Reporting
         private System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdApiError> ErrorsField;
         
         /// <summary>
-        /// An array of AdApiError data objects that contains the details that explain why the service operation failed.
+        /// An array of AdApiError objects that contains the details that explain why the service operation failed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.Reporting.AdApiError> Errors

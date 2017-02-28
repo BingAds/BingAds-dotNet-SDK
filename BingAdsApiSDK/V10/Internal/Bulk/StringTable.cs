@@ -324,6 +324,7 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public const string TagId = "UET Tag Id";
         public const string RemarketingListId = "Remarketing List Id";
         public const string RemarketingTargetingSetting = "Remarketing Targeting Setting";
+        public const string RemarketingRule = "Remarketing Rule";
 
         // Expanded Text Ad
         public const string ExpandedTextAd = "Expanded Text Ad";
