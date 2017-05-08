@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 10.4
+// Bing Ads .NET SDK ver. 11.5
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -111,6 +111,48 @@ namespace Microsoft.BingAds.Internal
                     SandboxUrl = "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/BulkService.svc"
                 }
             },
+            {
+                typeof (V11.CustomerBilling.ICustomerBillingService), new ServiceInfo
+                {
+                    ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/Billing/v11/CustomerBillingService.svc",
+                    SandboxUrl = null
+                }
+            },
+            {
+                typeof (V11.CustomerManagement.ICustomerManagementService), new ServiceInfo
+                {
+                    ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v11/CustomerManagementService.svc",
+                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/v11/CustomerManagementService.svc"
+                }
+            },
+            {
+                typeof (V11.Reporting.IReportingService), new ServiceInfo
+                {
+                    ProductionUrl = "https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/v11/ReportingService.svc",
+                    SandboxUrl = "https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/v11/ReportingService.svc"
+                }
+            },
+            {
+                typeof (V11.AdInsight.IAdInsightService), new ServiceInfo
+                {
+                    ProductionUrl = "https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/V11/AdInsightService.svc",
+                    SandboxUrl = "https://adinsight.api.sandbox.bingads.microsoft.com/Api/Advertiser/AdInsight/V11/AdInsightService.svc"
+                }
+            },
+            {
+                typeof (V11.CampaignManagement.ICampaignManagementService), new ServiceInfo
+                {
+                    ProductionUrl = "https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/CampaignManagementService.svc",
+                    SandboxUrl = "https://campaign.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/CampaignManagementService.svc"
+                }
+            },
+            {
+                typeof (V11.Bulk.IBulkService), new ServiceInfo
+                {
+                    ProductionUrl = "https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/BulkService.svc",
+                    SandboxUrl = "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/BulkService.svc"
+                }
+            },
         };
 
         private static readonly Type[] ServiceTypes;
@@ -128,7 +170,10 @@ namespace Microsoft.BingAds.Internal
             {
                 typeof (ICustomerBillingService), typeof (ICustomerManagementService),
                 typeof (IReportingService), typeof (IAdInsightServiceV10), typeof (IBulkServiceV10),
-                typeof (ICampaignManagementServiceV10)
+                typeof (ICampaignManagementServiceV10), typeof(V11.CustomerBilling.ICustomerBillingService), 
+                typeof (V11.CustomerManagement.ICustomerManagementService), typeof(V11.Reporting.IReportingService),
+                typeof (V11.Bulk.IBulkService), typeof(V11.CampaignManagement.ICampaignManagementService),
+                typeof (V11.AdInsight.IAdInsightService)
             };
 
             ConfigurationNamesByInterfaceTypes = new Dictionary<Type, string>();
