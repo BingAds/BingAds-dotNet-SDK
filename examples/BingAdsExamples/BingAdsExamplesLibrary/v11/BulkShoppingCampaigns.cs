@@ -6,11 +6,11 @@ using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V10.Bulk;
-using Microsoft.BingAds.V10.Bulk.Entities;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.Bulk;
+using Microsoft.BingAds.V11.Bulk.Entities;
+using Microsoft.BingAds.V11.CampaignManagement;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to apply product conditions for Bing Shopping Campaigns
@@ -18,11 +18,9 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class BulkShoppingCampaigns : BulkExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> CampaignService;
-
         public override string Description
         {
-            get { return "Bing Shopping Campaigns | Bulk V10"; }
+            get { return "Bing Shopping Campaigns | Bulk V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -39,7 +37,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId
 
-                IList<BMCStore> stores = await GetBMCStoresByCustomerIdAsync();
+                IList<BMCStore> stores = (await GetBMCStoresByCustomerIdAsync())?.BMCStores;
                 if (stores == null)
                 {
                     OutputStatusMessage(
@@ -48,7 +46,7 @@ namespace BingAdsExamplesLibrary.V10
                     return;
                 }
 
-                BulkService = new BulkServiceManager(authorizationData);
+                BulkServiceManager = new BulkServiceManager(authorizationData);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
@@ -94,10 +92,6 @@ namespace BingAdsExamplesLibrary.V10
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
 
-                        // DaylightSaving is not supported in the Bulk file schema. Whether or not you specify it in a BulkCampaign,
-                        // the value is not written to the Bulk file, and by default DaylightSaving is set to true.
-                        DaylightSaving = true,
-
                         // Used with CustomParameters defined in lower level entities such as ad group criterion.
                         TrackingUrlTemplate =
                             "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
@@ -112,10 +106,10 @@ namespace BingAdsExamplesLibrary.V10
 
                 var bulkCampaignProductScope = new BulkCampaignProductScope
                 {
-                    CampaignCriterion = new CampaignCriterion()
+                    BiddableCampaignCriterion = new BiddableCampaignCriterion()
                     {
                         CampaignId = campaignIdKey,
-                        BidAdjustment = null,  // Reserved for future use
+                        CriterionBid = null,  // Not applicable for product scope
                         Criterion = new ProductScope()
                         {
                             Conditions = new ProductCondition[] {
@@ -143,10 +137,9 @@ namespace BingAdsExamplesLibrary.V10
                         Id = adGroupIdKey,
                         Name = "Product Categories",
                         AdDistribution = AdDistribution.Search,
-                        BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -232,10 +225,7 @@ namespace BingAdsExamplesLibrary.V10
                 var updatedRoot = GetNodeByClientId(applyBulkProductPartitionActionsResults, "root");
                 var bid = new FixedBid
                 {
-                    Bid = new Bid
-                    {
-                        Amount = 0.45
-                    }
+                    Amount = 0.45
                 };
                 ((BiddableAdGroupCriterion)(updatedRoot.AdGroupCriterion)).CriterionBid = bid;
 
@@ -535,21 +525,21 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Bulk service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -578,13 +568,6 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
         
-        private async Task<IList<BMCStore>> GetBMCStoresByCustomerIdAsync()
-        {
-            var request = new GetBMCStoresByCustomerIdRequest();
-
-            return (await CampaignService.CallAsync((s, r) => s.GetBMCStoresByCustomerIdAsync(r), request)).BMCStores;
-        }
-
         /// <summary>
         /// Uploads a list of BulkAdGroupProductPartition objects that must represent
         /// a product partition tree for one ad group. You can include BulkAdGroupProductPartition records for more than one
@@ -613,7 +596,7 @@ namespace BingAdsExamplesLibrary.V10
             Writer.Dispose();
 
             var bulkFilePath =
-                await BulkService.UploadFileAsync(fileUploadParameters);
+                await BulkServiceManager.UploadFileAsync(fileUploadParameters);
             Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
 
             var downloadEntities = Reader.ReadEntities().ToList();
@@ -636,14 +619,14 @@ namespace BingAdsExamplesLibrary.V10
         {
             var downloadParameters = new DownloadParameters
             {
-                Entities = BulkDownloadEntity.AdGroupProductPartitions,
+                DownloadEntities = new[] { DownloadEntity.AdGroupProductPartitions },
                 ResultFileDirectory = FileDirectory,
                 ResultFileName = DownloadFileName,
                 OverwriteResultFile = true,
                 LastSyncTimeInUTC = null
             };
 
-            var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
+            var bulkFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters);
             Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
             var downloadEntities = Reader.ReadEntities().ToList();
             var bulkAdGroupProductPartitionResults = downloadEntities.OfType<BulkAdGroupProductPartition>().ToList();
@@ -797,10 +780,7 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         CriterionBid = new FixedBid()
                         {
-                            Bid = new Bid()
-                            {
-                                Amount = bidAmount
-                            }
+                            Amount = bidAmount
                         },
 
                         // This destination URL is used if specified; otherwise, the destination URL is determined 
@@ -972,7 +952,7 @@ namespace BingAdsExamplesLibrary.V10
                 {
                     OutputStatusMessage(string.Format("{0}Bid Amount: {1}",
                         "".PadLeft(treeLevel, '\t'),
-                        ((FixedBid)(biddableAdGroupCriterion.CriterionBid)).Bid.Amount)
+                        ((FixedBid)(biddableAdGroupCriterion.CriterionBid)).Amount)
                     );
                     OutputStatusMessage(string.Format("{0}DestinationUrl: {1}",
                         "".PadLeft(treeLevel, '\t'),

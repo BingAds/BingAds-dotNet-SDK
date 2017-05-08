@@ -5,11 +5,11 @@ using System.Net;
 using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.BingAds.Reporting;
+using Microsoft.BingAds.V11.Reporting;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamplesLibrary.V9
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to request and retrieve performance reports
@@ -17,7 +17,7 @@ namespace BingAdsExamplesLibrary.V9
     /// </summary>
     public class ReportRequests : ExampleBase
     {
-        public static ReportingServiceManager ReportingService;
+        public static ReportingServiceManager ReportingServiceManager;
 
         /// <summary>
         /// The directory for the report file.
@@ -42,15 +42,15 @@ namespace BingAdsExamplesLibrary.V9
 
         public override string Description
         {
-            get { return "Report Requests | Reporting V9"; }
+            get { return "Report Requests | Reporting V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                ReportingService = new ReportingServiceManager(authorizationData);
-                ReportingService.StatusPollIntervalInMilliseconds = 5000;
+                ReportingServiceManager = new ReportingServiceManager(authorizationData);
+                ReportingServiceManager.StatusPollIntervalInMilliseconds = 5000;
 
                 // You can submit one of the example reports, or build your own.
 
@@ -109,11 +109,11 @@ namespace BingAdsExamplesLibrary.V9
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Reporting service exceptions
-            catch (FaultException<Microsoft.BingAds.Reporting.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Reporting.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(String.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.Reporting.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Reporting.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(String.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(String.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -145,7 +145,7 @@ namespace BingAdsExamplesLibrary.V9
             var tokenSource = new CancellationTokenSource();
             tokenSource.CancelAfter(TimeoutInMilliseconds);
 
-            var resultFilePath = await ReportingService.DownloadFileAsync(reportingDownloadParameters, tokenSource.Token);
+            var resultFilePath = await ReportingServiceManager.DownloadFileAsync(reportingDownloadParameters, tokenSource.Token);
             OutputStatusMessage(string.Format("Download result file: {0}\n", resultFilePath));
         }
 
@@ -162,7 +162,7 @@ namespace BingAdsExamplesLibrary.V9
             var tokenSource = new CancellationTokenSource();
             tokenSource.CancelAfter(TimeoutInMilliseconds);
 
-            var reportingDownloadOperation = await ReportingService.SubmitDownloadAsync(reportRequest);
+            var reportingDownloadOperation = await ReportingServiceManager.SubmitDownloadAsync(reportRequest);
 
             ReportingOperationStatus reportingOperationStatus = await reportingDownloadOperation.TrackAsync(tokenSource.Token);
             
@@ -287,11 +287,11 @@ namespace BingAdsExamplesLibrary.V9
                     KeywordPerformanceReportColumn.AverageCpc,
                     KeywordPerformanceReportColumn.Spend,
                     KeywordPerformanceReportColumn.QualityScore,
-                    KeywordPerformanceReportColumn.LandingPageRelevance,
-                    KeywordPerformanceReportColumn.LandingPageUserExperience,
+                    KeywordPerformanceReportColumn.AdRelevance,
+                    KeywordPerformanceReportColumn.LandingPageExperience,
                     KeywordPerformanceReportColumn.Revenue,
                     KeywordPerformanceReportColumn.Assists,
-                    KeywordPerformanceReportColumn.KeywordRelevance,
+                    KeywordPerformanceReportColumn.ExpectedCtr,
                     KeywordPerformanceReportColumn.DeliveredMatchType,
                     KeywordPerformanceReportColumn.AveragePosition,
                     KeywordPerformanceReportColumn.Conversions,
@@ -384,11 +384,11 @@ namespace BingAdsExamplesLibrary.V9
                     CampaignPerformanceReportColumn.DeviceType,
                     CampaignPerformanceReportColumn.BidMatchType,
                     CampaignPerformanceReportColumn.QualityScore,
-                    CampaignPerformanceReportColumn.LandingPageRelevance,
-                    CampaignPerformanceReportColumn.LandingPageUserExperience,
+                    CampaignPerformanceReportColumn.AdRelevance,
+                    CampaignPerformanceReportColumn.LandingPageExperience,
                     CampaignPerformanceReportColumn.Revenue,
                     CampaignPerformanceReportColumn.Assists,
-                    CampaignPerformanceReportColumn.KeywordRelevance,
+                    CampaignPerformanceReportColumn.ExpectedCtr,
                     CampaignPerformanceReportColumn.DeliveredMatchType,
                     CampaignPerformanceReportColumn.AveragePosition,
                     CampaignPerformanceReportColumn.Conversions,
@@ -476,11 +476,11 @@ namespace BingAdsExamplesLibrary.V9
                     AdGroupPerformanceReportColumn.DeviceType,
                     AdGroupPerformanceReportColumn.BidMatchType,
                     AdGroupPerformanceReportColumn.QualityScore,
-                    AdGroupPerformanceReportColumn.LandingPageRelevance,
-                    AdGroupPerformanceReportColumn.LandingPageUserExperience,
+                    AdGroupPerformanceReportColumn.AdRelevance,
+                    AdGroupPerformanceReportColumn.LandingPageExperience,
                     AdGroupPerformanceReportColumn.Revenue,
                     AdGroupPerformanceReportColumn.Assists,
-                    AdGroupPerformanceReportColumn.KeywordRelevance,
+                    AdGroupPerformanceReportColumn.ExpectedCtr,
                     AdGroupPerformanceReportColumn.DeliveredMatchType,
                     AdGroupPerformanceReportColumn.AveragePosition,
                     AdGroupPerformanceReportColumn.Conversions,

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to add ads and keywords to a new ad group, 
@@ -14,11 +14,9 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class KeywordsAds : ExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> CampaignService;
-
         public override string Description
         {
-            get { return "Keywords and Ads | Campaign Management V10"; }
+            get { return "Keywords and Ads | Campaign Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -60,7 +58,6 @@ namespace BingAdsExamplesLibrary.V10
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
                         
                         TimeZone = "PacificTimeUSCanadaTijuana",
-                        DaylightSaving = true,
                                                 
                         // Used with FinalUrls shown in the text ads that we will add below.
                         TrackingUrlTemplate = 
@@ -75,10 +72,9 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Name = "Women's Red Shoe Sale",
                         AdDistribution = AdDistribution.Search,
-                        BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
                             Month = 12,
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
@@ -344,38 +340,36 @@ namespace BingAdsExamplesLibrary.V10
                 AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
+                OutputIds(campaignIds);
+                OutputPartialErrors(campaignErrors);
 
                 AddAdGroupsResponse addAdGroupsResponse = await AddAdGroupsAsync((long)campaignIds[0], adGroups);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
+                OutputIds(adGroupIds);
+                OutputPartialErrors(adGroupErrors);
 
                 AddKeywordsResponse addKeywordsResponse = await AddKeywordsAsync((long)adGroupIds[0], keywords);
                 long?[] keywordIds = addKeywordsResponse.KeywordIds.ToArray();
                 BatchError[] keywordErrors = addKeywordsResponse.PartialErrors.ToArray();
+                OutputIds(keywordIds);
+                OutputPartialErrors(keywordErrors);
 
                 AddAdsResponse addAdsResponse = await AddAdsAsync((long)adGroupIds[0], ads);
                 long?[] adIds = addAdsResponse.AdIds.ToArray();
                 BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
-
-                
-                // Output the new assigned entity identifiers, as well as any partial errors
-
-                OutputCampaignsWithPartialErrors(campaigns, campaignIds, campaignErrors);
-                OutputAdGroupsWithPartialErrors(adGroups, adGroupIds, adGroupErrors);
-                OutputKeywordsWithPartialErrors(keywords, keywordIds, keywordErrors);
-                OutputAdsWithPartialErrors(ads, adIds, adErrors);
-
+                OutputIds(adIds);
+                OutputPartialErrors(adErrors);
 
                 // Here is a simple example that updates the campaign budget.
                 // If the campaign has a shared budget you cannot update the Campaign budget amount,
                 // and you must instead update the amount in the Budget object. If you try to update 
                 // the budget amount of a campaign that has a shared budget, the service will return 
                 // the CampaignServiceCannotUpdateSharedBudget error code.
-
+                
                 var getCampaigns = (await GetCampaignsByAccountIdAsync(
                     authorizationData.AccountId,
-                    CampaignType.SearchAndContent | CampaignType.Shopping,
-                    CampaignAdditionalField.BiddingScheme | CampaignAdditionalField.BudgetId
+                    AllCampaignTypes
                 )).Campaigns;
 
                 var updateCampaigns = new List<Campaign>();
@@ -394,28 +388,12 @@ namespace BingAdsExamplesLibrary.V10
                     // If the campaign has its own budget, let's add it to the list of campaigns to update later.
                     else if(campaign != null)
                     {
+                        // Increase budget by 20 %
                         var updateCampaign = new Campaign
                         {
+                            DailyBudget = campaign.DailyBudget * 1.2,
                             Id = campaign.Id,
                         };
-
-                        // Monthly budgets are deprecated and there will be a forced migration to daily budgets in calendar year 2017. 
-                        // Shared budgets do not support the monthly budget type, so this is only applicable to unshared budgets. 
-                        // During the migration all campaign level unshared budgets will be rationalized as daily. 
-                        // The formula that will be used to convert monthly to daily budgets is: Monthly budget amount / 30.4.
-                        // Moving campaign monthly budget to daily budget is encouraged before monthly budgets are migrated. 
-
-                        if (campaign.BudgetType == BudgetLimitType.MonthlyBudgetSpendUntilDepleted)
-                        {
-                            // Increase budget by 20 %
-                            updateCampaign.BudgetType = BudgetLimitType.DailyBudgetStandard;
-                            updateCampaign.DailyBudget = (campaign.MonthlyBudget / 30.4) * 1.2;
-                        }
-                        else
-                        {
-                            // Increase budget by 20 %
-                            updateCampaign.DailyBudget = campaign.DailyBudget * 1.2;
-                        }
 
                         updateCampaigns.Add(updateCampaign);
                     }
@@ -489,8 +467,7 @@ namespace BingAdsExamplesLibrary.V10
                     getCampaigns = (await GetCampaignsByIdsAsync(
                         authorizationData.AccountId,
                         getCampaignIds,
-                        CampaignType.SearchAndContent | CampaignType.Shopping,
-                        CampaignAdditionalField.BiddingScheme | CampaignAdditionalField.BudgetId
+                        CampaignType.SearchAndContent | CampaignType.Shopping | CampaignType.DynamicSearchAds
                     )).Campaigns;
 
                     OutputStatusMessage("List of campaigns with unshared budget AFTER budget update:\n");
@@ -537,13 +514,19 @@ namespace BingAdsExamplesLibrary.V10
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                var getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
+                var getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync(
+                    (long)adGroupIds[0],
+                    AllAdTypes
+                    );
                 var updateAdsResponse = await UpdateAdsAsync((long)adGroupIds[0], updateAds);
-                getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync((long)adGroupIds[0]);
+                getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync(
+                    (long)adGroupIds[0],
+                    AllAdTypes
+                    );
 
 
                 // Here is a simple example that updates the keyword bid to use the ad group bid.
-                
+
                 var updateKeyword = new Keyword
                 {
                     // Set Bid.Amount null (new empty Bid) to use the ad group bid.
@@ -554,9 +537,9 @@ namespace BingAdsExamplesLibrary.V10
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                var getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
+                var getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
                 var updateKeywordsResponse = await UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
-                getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], KeywordAdditionalField.BiddingScheme);
+                getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
                 
                 // Delete the campaign, ad group, keyword, and ad that were previously added. 
                 // You should remove this line if you want to view the added entities in the 
@@ -578,16 +561,16 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -597,260 +580,5 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(ex.Message);
             }
         }
-
-        // Adds one or more budgets that can be shared by campaigns in the account.
-
-        private async Task<AddBudgetsResponse> AddBudgetsAsync(IList<Budget> budgets)
-        {
-            var request = new AddBudgetsRequest
-            {
-                Budgets = budgets
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddBudgetsAsync(r), request));
-        }
-        
-        /// <summary>
-        /// Gets the specified budgets from the account's shared budget library.
-        /// </summary>
-        /// <param name="budgetIds">The identifiers of the budgets you want to retrieve. 
-        /// If you leave BudgetIds nil or empty, then the operation will return all budgets 
-        /// that are available to be shared with campaigns in the account.</param>
-        /// <returns></returns>
-        private async Task<GetBudgetsByIdsResponse> GetBudgetsByIdsAsync(IList<long> budgetIds)
-        {
-            var request = new GetBudgetsByIdsRequest
-            {
-                BudgetIds = budgetIds
-            };
-            
-            return (await CampaignService.CallAsync((s, r) => s.GetBudgetsByIdsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Gets the identifiers of campaigns that share each specified budget.
-        /// </summary>
-        /// <param name="budgetIds">A list of unique budget identifiers that identify the campaign identifiers to get.</param>
-        /// <returns></returns>
-        private async Task<GetCampaignIdsByBudgetIdsResponse> GetCampaignIdsByBudgetIdsAsync(IList<long> budgetIds)
-        {
-            var request = new GetCampaignIdsByBudgetIdsRequest
-            {
-                BudgetIds = budgetIds
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetCampaignIdsByBudgetIdsAsync(r), request));
-        }
-
-        // Updates one or more budgets that can be shared by campaigns in the account.
-
-        private async Task<UpdateBudgetsResponse> UpdateBudgetsAsync(IList<Budget> budgets)
-        {
-            var request = new UpdateBudgetsRequest
-            {
-                Budgets = budgets
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.UpdateBudgetsAsync(r), request));
-        }
-
-        // Deletes one or more budgets.
-
-        private async Task DeleteBudgetsAsync(IList<long> budgetIds)
-        {
-            var request = new DeleteBudgetsRequest
-            {
-                BudgetIds = budgetIds
-            };
-
-            await CampaignService.CallAsync((s, r) => s.DeleteBudgetsAsync(r), request);
-        }
-
-        // Adds one or more campaigns to the specified account.
-
-        private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
-        {
-            var request = new AddCampaignsRequest
-            {
-                AccountId = accountId,
-                Campaigns = campaigns
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
-        }
-
-        // Updates one or more campaigns.
-
-        private async Task UpdateCampaignsAsync(long accountId, IList<Campaign> campaigns)
-        {
-            var request = new UpdateCampaignsRequest
-            {
-                AccountId = accountId,
-                Campaigns = campaigns
-            };
-
-            await CampaignService.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
-        }
-
-        // Deletes one or more campaigns from the specified account.
-
-        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
-        {
-            var request = new DeleteCampaignsRequest
-            {
-                AccountId = accountId,
-                CampaignIds = campaignIds
-            };
-
-            await CampaignService.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
-        }
-
-        // Gets one or more campaigns for the specified campaign identifiers.
-
-        private async Task<GetCampaignsByIdsResponse> GetCampaignsByIdsAsync(
-            long accountId, 
-            IList<long> campaignIds,
-            CampaignType campaignType,
-            CampaignAdditionalField returnAdditionalFields)
-        {
-            var request = new GetCampaignsByIdsRequest
-            {
-                AccountId = accountId,
-                CampaignIds = campaignIds,
-                CampaignType = campaignType,
-                ReturnAdditionalFields = returnAdditionalFields
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request));
-        }
-
-        // Retrieves all the requested campaign types in the account.
-
-        private async Task<GetCampaignsByAccountIdResponse> GetCampaignsByAccountIdAsync(
-            long accountId,
-            CampaignType campaignType,
-            CampaignAdditionalField returnAdditionalFields)
-        {
-            var request = new GetCampaignsByAccountIdRequest
-            {
-                AccountId = accountId,
-                CampaignType = campaignType,
-                ReturnAdditionalFields = returnAdditionalFields
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByAccountIdAsync(r), request));
-        }
-
-        // Adds one or more ad groups to the specified campaign.
-
-        private async Task<AddAdGroupsResponse> AddAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
-        {
-            var request = new AddAdGroupsRequest
-            {
-                CampaignId = campaignId,
-                AdGroups = adGroups
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
-        }
-
-        // Updates one or more ad groups.
-
-        private async Task UpdateAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
-        {
-            var request = new UpdateAdGroupsRequest
-            {
-                CampaignId = campaignId,
-                AdGroups = adGroups
-            };
-
-            await CampaignService.CallAsync((s, r) => s.UpdateAdGroupsAsync(r), request);
-        }
-
-        // Adds one or more keywords to the specified ad group.
-
-        private async Task<AddKeywordsResponse> AddKeywordsAsync(long adGroupId, IList<Keyword> keywords)
-        {
-            var request = new AddKeywordsRequest
-            {
-                AdGroupId = adGroupId,
-                Keywords = keywords
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddKeywordsAsync(r), request));
-        }
-
-        // Updates one or more keywords.
-
-        private async Task<UpdateKeywordsResponse> UpdateKeywordsAsync(long adGroupId, IList<Keyword> keywords)
-        {
-            var request = new UpdateKeywordsRequest
-            {
-                AdGroupId = adGroupId,
-                Keywords = keywords
-            };
-
-            return await CampaignService.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
-        }
-
-        private async Task<IList<Keyword>> GetKeywordsByAdGroupIdAsync(
-            long adGroupId, 
-            KeywordAdditionalField returnAdditionalFields)
-        {
-            var request = new GetKeywordsByAdGroupIdRequest
-            {
-                AdGroupId = adGroupId,
-                ReturnAdditionalFields = returnAdditionalFields
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetKeywordsByAdGroupIdAsync(r), request)).Keywords;
-        }
-
-        // Adds one or more ads to the specified ad group.
-
-        private async Task<AddAdsResponse> AddAdsAsync(long adGroupId, IList<Ad> ads)
-        {
-            var request = new AddAdsRequest
-            {
-                AdGroupId = adGroupId,
-                Ads = ads
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddAdsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Updates the ads.
-        /// </summary>
-        /// <param name="adGroupId">The identifier of the ad group that contains the ads.</param>
-        /// <param name="ads">The ads that you want to update.</param>
-        /// <returns></returns>
-        private async Task<UpdateAdsResponse> UpdateAdsAsync(long adGroupId, IList<Ad> ads)
-        {
-            var request = new UpdateAdsRequest
-            {
-                AdGroupId = adGroupId,
-                Ads = ads
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.UpdateAdsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Gets the ads in the specified ad group.
-        /// </summary>
-        /// <param name="adGroupId">The identifier of the ad group that contains the ads.</param>
-        /// <returns></returns>
-        private async Task<GetAdsByAdGroupIdResponse> GetAdsByAdGroupIdAsync(long adGroupId)
-        {
-            var request = new GetAdsByAdGroupIdRequest
-            {
-                AdGroupId = adGroupId,
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetAdsByAdGroupIdAsync(r), request));
-        }
-
-
     }
 }

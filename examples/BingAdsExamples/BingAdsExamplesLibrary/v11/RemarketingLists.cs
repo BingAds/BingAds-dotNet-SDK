@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to associate remarketing lists with a new ad group.
@@ -17,14 +17,14 @@ namespace BingAdsExamplesLibrary.V10
 
         public override string Description
         {
-            get { return "Remarketing Lists | Campaign Management V10"; }
+            get { return "Remarketing Lists | Campaign Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                Service = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // Before you can track conversions or target audiences using a remarketing list, 
                 // you need to create a UET tag in Bing Ads (web application or API) and then 
@@ -34,7 +34,7 @@ namespace BingAdsExamplesLibrary.V10
                 // First you should call the GetUetTagsByIds operation to check whether a tag has already been created. 
                 // You can leave the TagIds element null or empty to request all UET tags available for the customer.
 
-                var uetTags = (await GetUetTagsByIdsAsync(null)).UetTags;
+                var uetTags = (await GetUetTagsByIdsAsync(null))?.UetTags;
 
                 // If you do not already have a UET tag that can be used, or if you need another UET tag, 
                 // call the AddUetTags service operation to create a new UET tag. If the call is successful, 
@@ -77,7 +77,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Add a remarketing list that depend on the UET Tag Id retreived above.
 
-                var addRemarketingLists = new[] {
+                var addAudiences = new[] {
                     new RemarketingList
                     {
                         Description = "New list with CustomEventsRule",
@@ -353,12 +353,23 @@ namespace BingAdsExamplesLibrary.V10
                     },
                 };
 
-                var addRemarketingListsResponse = await AddRemarketingListsAsync(addRemarketingLists);
-                
-                var updateRemarketingLists = new [] {
+                // RemarketingList extends the Audience base class. 
+                // We manage remarketing lists with Audience operations.
+                 
+                var addAudiencesResponse = await AddAudiencesAsync(addAudiences);
+                var audienceIds = addAudiencesResponse.AudienceIds;
+
+                // You must already have at least one remarketing list for the remainder of this example. 
+
+                if (audienceIds.Count < 1)
+                {
+                    return;
+                }
+
+                var updateAudiences = new [] {
                     new RemarketingList
                     {
-                        Id = addRemarketingListsResponse.RemarketingListIds[0],
+                        Id = audienceIds[0],
                         // The ParentId cannot be updated, even if you update the rule type.
                         // You can either send the same value or leave ParentId empty.
                         ParentId = authorizationData.AccountId,
@@ -396,7 +407,7 @@ namespace BingAdsExamplesLibrary.V10
                         // with the PageVisitorsRule had been created above at index 1. 
                         // Now we are using the returned identifier at index 1 to update the type from 
                         // PageVisitorsRule to PageVisitorsWhoDidNotVisitAnotherPageRule.
-                        Id = addRemarketingListsResponse.RemarketingListIds[1],
+                        Id = audienceIds[1],
                         Rule = new PageVisitorsWhoDidNotVisitAnotherPageRule
                         {
                             // If you want to keep any of the previous rule items, 
@@ -423,7 +434,7 @@ namespace BingAdsExamplesLibrary.V10
                     },
                     new RemarketingList
                     {
-                        Id = addRemarketingListsResponse.RemarketingListIds[2],
+                        Id = audienceIds[2],
                         Rule = new PageVisitorsRule
                         {
                             // If you want to keep any of the previous rule items, 
@@ -453,23 +464,17 @@ namespace BingAdsExamplesLibrary.V10
                     },
                     new RemarketingList
                     {
-                        Id = addRemarketingListsResponse.RemarketingListIds[3],
+                        Id = audienceIds[3],
                         MembershipDuration = 20,
                         // If not specified during update, the previous rule settings are retained.
                         Rule = null,
                     },
                 };
 
-                var updateRemarketingListsResponse = await UpdateRemarketingListsAsync(updateRemarketingLists);
-
-                
-                // You must already have at least one remarketing list for the remainder of this example. 
-
-                if (addRemarketingListsResponse.RemarketingListIds.Count < 1)
-                {
-                    return;
-                }
-
+                var updateAudiencesResponse = await UpdateAudiencesAsync(updateAudiences);
+                OutputStatusMessage("Updated audiences. List of errors (if applicable):\n");
+                OutputPartialErrors(updateAudiencesResponse.PartialErrors);
+                                
                 // Add an ad group in a campaign. The ad group will later be associated with remarketing lists. 
 
                 var campaigns = new[]{
@@ -486,7 +491,6 @@ namespace BingAdsExamplesLibrary.V10
                         BiddingScheme = new EnhancedCpcBiddingScheme(),
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
-                        DaylightSaving = true,
                     },
                 };
                 
@@ -495,7 +499,6 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Name = "Women's Red Shoe Sale",
                         AdDistribution = AdDistribution.Search,
-                        BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
                         EndDate = new Date {
@@ -518,91 +521,126 @@ namespace BingAdsExamplesLibrary.V10
                 AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-                OutputCampaignsWithPartialErrors(campaigns, campaignIds, campaignErrors);
+                OutputIds(campaignIds);
+                OutputPartialErrors(campaignErrors);
 
                 AddAdGroupsResponse addAdGroupsResponse = await AddAdGroupsAsync((long)campaignIds[0], adGroups);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
-                OutputAdGroupsWithPartialErrors(adGroups, adGroupIds, adGroupErrors);
+                OutputIds(adGroupIds);
+                OutputPartialErrors(adGroupErrors);
 
                 // If the campaign or ad group add operations failed then we cannot continue this example. 
 
-                if (addAdGroupsResponse.AdGroupIds == null || addAdGroupsResponse.AdGroupIds.Count < 1)
+                if (adGroupIds == null || adGroupIds.Length < 1)
                 {
                     return;
                 }
 
-                var adGroupRemarketingListAssociations = new List<AdGroupRemarketingListAssociation>();
+                var adGroupRemarketingListAssociations = new List<AdGroupCriterion>();
 
                 // This example associates all of the remarketing lists with the new ad group.
 
-                var getRemarketingListIds = new List<long>();
-                foreach (var listId in addRemarketingListsResponse.RemarketingListIds)
+                var getAudienceIds = new List<long>();
+                foreach (var listId in audienceIds)
                 {
-                    getRemarketingListIds.Add((long)listId);
+                    getAudienceIds.Add((long)listId);
                 }
-                var remarketingLists = (await GetRemarketingListsAsync(getRemarketingListIds, RemarketingListAdditionalField.Rule)).RemarketingLists;
+                var remarketingLists = (await GetAudiencesByIdsAsync(
+                    getAudienceIds, 
+                    AudienceType.RemarketingList)).Audiences;
 
                 foreach (var remarketingList in remarketingLists)
                 {
                     if (remarketingList.Id != null)
                     {
-                        var adGroupRemarketingListAssociation = new AdGroupRemarketingListAssociation
+                        var biddableAdGroupCriterion = new BiddableAdGroupCriterion
                         {
                             AdGroupId = (long)adGroupIds[0],
-                            BidAdjustment = 20.00,
-                            RemarketingListId = (long)remarketingList.Id,
-                            Status = AdGroupRemarketingListAssociationStatus.Paused
+                            Criterion = new AudienceCriterion
+                            {
+                                AudienceId = (long)remarketingList.Id,
+                                AudienceType = AudienceType.RemarketingList,
+                            },
+                            CriterionBid = new BidMultiplier
+                            {
+                                Multiplier = 20.00,
+                            },
+                            Status = AdGroupCriterionStatus.Active,
                         };
 
-                        adGroupRemarketingListAssociations.Add(adGroupRemarketingListAssociation);
+                        adGroupRemarketingListAssociations.Add(biddableAdGroupCriterion);
 
                         OutputStatusMessage(string.Format("Associating the following remarketing list with AdGroup Id {0}.\n", (long)adGroupIds[0]));
-                        OutputRemarketingList(remarketingList);
+                        OutputRemarketingList((RemarketingList)remarketingList);
                     }
                 }
 
-                var addAdGroupRemarketingListAssociationsResponse = await AddAdGroupRemarketingListAssociationsAsync(adGroupRemarketingListAssociations);
+                var addAdGroupCriterionsResponse = await AddAdGroupCriterionsAsync(
+                    adGroupRemarketingListAssociations,
+                    AdGroupCriterionType.Audience);
 
-                var getAdGroupRemarketingListAssociationsResponse = await GetAdGroupRemarketingListAssociationsAsync(new[] { (long)adGroupIds[0] });
+                var adGroupCriterionIds = new List<long>();
+                foreach (long id in addAdGroupCriterionsResponse.AdGroupCriterionIds)
+                {
+                    adGroupCriterionIds.Add(id);
+                }
+                
+                var getAdGroupCriterionsByIdsResponse = await GetAdGroupCriterionsByIdsAsync(
+                    (long)adGroupIds[0],
+                    adGroupCriterionIds,
+                    AdGroupCriterionType.RemarketingList);
 
-                foreach (var adGroupRemarketingListAssociation in getAdGroupRemarketingListAssociationsResponse.AdGroupRemarketingListAssociations)
+                foreach (var adGroupRemarketingListAssociation in getAdGroupCriterionsByIdsResponse.AdGroupCriterions)
                 {
                     OutputStatusMessage("The following ad group remarketing list association was added.\n");
-                    OutputAdGroupRemarketingListAssociation(adGroupRemarketingListAssociation);
+                    OutputAdGroupCriterions(new[] { adGroupRemarketingListAssociation });
                 }
 
                 // You can store the association IDs which can be used to update or delete associations later. 
 
-                var associationIds = addAdGroupRemarketingListAssociationsResponse.AssociationIds;
+                var nullableAdGroupCriterionIds = addAdGroupCriterionsResponse.AdGroupCriterionIds;
                 
                 // If the associations were added and retrieved successfully let's practice updating and deleting one of them.
 
-                if (associationIds != null && associationIds.Count > 0)
+                if (nullableAdGroupCriterionIds != null && nullableAdGroupCriterionIds.Count > 0)
                 {
-                    var updateAdGroupRemarketingListAssociation = new AdGroupRemarketingListAssociation
+                    var updateAdGroupRemarketingListAssociation = new BiddableAdGroupCriterion
                     {
                         AdGroupId = (long)adGroupIds[0],
-                        BidAdjustment = 10.00,
-                        Id = associationIds[0],
-                        Status = AdGroupRemarketingListAssociationStatus.Active,
+                        Criterion = new AudienceCriterion
+                        {
+                            AudienceType = AudienceType.RemarketingList,
+                        },
+                        CriterionBid = new BidMultiplier
+                        {
+                            Multiplier = 10.00,
+                        },
+                        Id = nullableAdGroupCriterionIds[0],
+                        Status = AdGroupCriterionStatus.Active,
                     };
 
-                    var updateAdGroupRemarketingListAssociationsResponse = 
-                        await UpdateAdGroupRemarketingListAssociationsAsync(new AdGroupRemarketingListAssociation[] { updateAdGroupRemarketingListAssociation});
+                    var updateAdGroupCriterionsResponse = await UpdateAdGroupCriterionsAsync(
+                        new BiddableAdGroupCriterion[] { updateAdGroupRemarketingListAssociation},
+                        AdGroupCriterionType.Audience
+                    );
                     
-                    var deleteAdGroupRemarketingListAssociationsResponse =
-                        await DeleteAdGroupRemarketingListAssociationsAsync(new AdGroupRemarketingListAssociation[] { updateAdGroupRemarketingListAssociation });
-
+                    var deleteAdGroupCriterionsResponse = await DeleteAdGroupCriterionsAsync(
+                        (long)adGroupIds[0],
+                        adGroupCriterionIds,
+                        AdGroupCriterionType.Audience
+                    );
                 }
 
                 // Delete the campaign, ad group, and ad group remarketing list associations that were previously added. 
-                // The remarketing lists will not be deleted.
-                // You should remove this line if you want to view the added entities in the 
-                // Bing Ads web application or another tool.
-
-                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
+                
+                var deleteCampaignsResponse = (await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] }));
                 OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", campaignIds[0]));
+
+                // Delete the remarketing list.
+
+                var deleteAudiencesResponse = (await DeleteAudiencesAsync(new[] { (long)audienceIds[0] }));
+                OutputStatusMessage(string.Format("Deleted Audience Id {0}\n", audienceIds[0]));
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -610,16 +648,16 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -630,182 +668,5 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
-        // Adds one or more UET tags.
-
-        private async Task<AddUetTagsResponse> AddUetTagsAsync(IList<UetTag> uetTags)
-        {
-            var request = new AddUetTagsRequest
-            {
-                UetTags = uetTags,
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddUetTagsAsync(r), request));
-        }
-
-        // Gets one or more UET Tags.
-
-        private async Task<GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(IList<long> tagIds)
-        {
-            var request = new GetUetTagsByIdsRequest
-            {
-                TagIds = tagIds,
-            };
-
-            return await Service.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request);
-        }
-
-        /// <summary>
-        /// Adds remarketing lists. 
-        /// </summary>
-        /// <param name="remarketingListIds">The remarketing lists that you want to add.</param>
-        /// <returns></returns>
-        private async Task<AddRemarketingListsResponse> AddRemarketingListsAsync(IList<RemarketingList> remarketingLists)
-        {
-            var request = new AddRemarketingListsRequest
-            {
-
-                RemarketingLists = remarketingLists,
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddRemarketingListsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Retrieves remarketing lists. If RemarketingListIds is null or empty,
-        /// the service will return all remarketing lists that the current authenticated user can access.
-        /// </summary>
-        /// <param name="remarketingListIds">The unique identifiers for the remarketing lists that you want to get.</param>
-        /// <returns></returns>
-        private async Task<GetRemarketingListsResponse> GetRemarketingListsAsync(
-            IList<long> remarketingListIds,
-            RemarketingListAdditionalField returnAdditionalFields)
-        {
-            var request = new GetRemarketingListsRequest
-            {
-                RemarketingListIds = remarketingListIds,
-                ReturnAdditionalFields = returnAdditionalFields
-            };
-
-            return (await Service.CallAsync((s, r) => s.GetRemarketingListsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Updates remarketing lists. 
-        /// </summary>
-        /// <param name="remarketingListIds">The remarketing lists that you want to update.</param>
-        /// <returns></returns>
-        private async Task<UpdateRemarketingListsResponse> UpdateRemarketingListsAsync(IList<RemarketingList> remarketingLists)
-        {
-            var request = new UpdateRemarketingListsRequest
-            {
-
-                RemarketingLists = remarketingLists,
-            };
-
-            return (await Service.CallAsync((s, r) => s.UpdateRemarketingListsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Associates the specified ad groups with the respective remarketing lists.
-        /// </summary>
-        /// <param name="adGroupRemarketingListAssociations"></param>
-        /// <returns></returns>
-        private async Task<AddAdGroupRemarketingListAssociationsResponse> AddAdGroupRemarketingListAssociationsAsync(
-           IList<AdGroupRemarketingListAssociation> adGroupRemarketingListAssociations)
-        {
-            var request = new AddAdGroupRemarketingListAssociationsRequest
-            {
-                AdGroupRemarketingListAssociations = adGroupRemarketingListAssociations,
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddAdGroupRemarketingListAssociationsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Deletes one or more ad group remarketing list associations.
-        /// </summary>
-        /// <param name="adGroupRemarketingListAssociations"></param>
-        /// <returns></returns>
-        private async Task<DeleteAdGroupRemarketingListAssociationsResponse> DeleteAdGroupRemarketingListAssociationsAsync(
-          IList<AdGroupRemarketingListAssociation> adGroupRemarketingListAssociations)
-        {
-            var request = new DeleteAdGroupRemarketingListAssociationsRequest
-            {
-                AdGroupRemarketingListAssociations = adGroupRemarketingListAssociations,
-            };
-
-            return (await Service.CallAsync((s, r) => s.DeleteAdGroupRemarketingListAssociationsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Gets the ad group remarketing list associations.
-        /// </summary>
-        /// <param name="adGroupIds"></param>
-        /// <returns></returns>
-        private async Task<GetAdGroupRemarketingListAssociationsResponse> GetAdGroupRemarketingListAssociationsAsync(
-          IList<long> adGroupIds)
-        {
-            var request = new GetAdGroupRemarketingListAssociationsRequest
-            {
-                AdGroupIds = adGroupIds
-            };
-
-            return (await Service.CallAsync((s, r) => s.GetAdGroupRemarketingListAssociationsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Updates one or more ad group remarketing list associations.
-        /// </summary>
-        /// <param name="adGroupRemarketingListAssociations"></param>
-        /// <returns></returns>
-        private async Task<UpdateAdGroupRemarketingListAssociationsResponse> UpdateAdGroupRemarketingListAssociationsAsync(
-           IList<AdGroupRemarketingListAssociation> adGroupRemarketingListAssociations)
-        {
-            var request = new UpdateAdGroupRemarketingListAssociationsRequest
-            {
-                AdGroupRemarketingListAssociations = adGroupRemarketingListAssociations,
-            };
-
-            return (await Service.CallAsync((s, r) => s.UpdateAdGroupRemarketingListAssociationsAsync(r), request));
-        }
-
-        // Adds one or more campaigns to the specified account.
-
-        private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
-        {
-            var request = new AddCampaignsRequest
-            {
-                AccountId = accountId,
-                Campaigns = campaigns
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
-        }
-
-        // Deletes one or more campaigns from the specified account.
-
-        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
-        {
-            var request = new DeleteCampaignsRequest
-            {
-                AccountId = accountId,
-                CampaignIds = campaignIds
-            };
-
-            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
-        }
-
-        // Adds one or more ad groups to the specified campaign.
-
-        private async Task<AddAdGroupsResponse> AddAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
-        {
-            var request = new AddAdGroupsRequest
-            {
-                CampaignId = campaignId,
-                AdGroups = adGroups
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
-        }
     }
 }

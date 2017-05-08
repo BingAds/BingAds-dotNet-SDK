@@ -5,11 +5,11 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V10.Bulk;
-using Microsoft.BingAds.V10.Bulk.Entities;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.Bulk;
+using Microsoft.BingAds.V11.Bulk.Entities;
+using Microsoft.BingAds.V11.CampaignManagement;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to associate remarketing lists with a new ad group.
@@ -18,14 +18,14 @@ namespace BingAdsExamplesLibrary.V10
     {
         public override string Description
         {
-            get { return "Bulk Remarketing List Associations | Bulk V10"; }
+            get { return "Bulk Remarketing List Associations | Bulk V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                BulkService = new BulkServiceManager(authorizationData);
+                BulkServiceManager = new BulkServiceManager(authorizationData);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
@@ -33,14 +33,14 @@ namespace BingAdsExamplesLibrary.V10
 
                 var downloadParameters = new DownloadParameters
                 {
-                    Entities = BulkDownloadEntity.RemarketingLists,
+                    DownloadEntities = new[] { DownloadEntity.RemarketingLists },
                     ResultFileDirectory = FileDirectory,
                     ResultFileName = DownloadFileName,
                     OverwriteResultFile = true,
                     LastSyncTimeInUTC = null
                 };
 
-                var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
+                var bulkFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters);
                 OutputStatusMessage("Downloaded all remarketing lists that the current user can associate with ad groups.\n");
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
                 var downloadEntities = Reader.ReadEntities().ToList();
@@ -80,10 +80,6 @@ namespace BingAdsExamplesLibrary.V10
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
 
-                        // DaylightSaving is not supported in the Bulk file schema. Whether or not you specify it in a BulkCampaign,
-                        // the value is not written to the Bulk file, and by default DaylightSaving is set to true.
-                        DaylightSaving = true,
-
                         TrackingUrlTemplate = null
                     }
                 };
@@ -106,11 +102,10 @@ namespace BingAdsExamplesLibrary.V10
                         Id = adGroupIdKey,
                         Name = "Women's Red Shoe Sale",
                         AdDistribution = AdDistribution.Search,
-                        BiddingModel = BiddingModel.Keyword,
                         BiddingScheme = new InheritFromParentBiddingScheme(),
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -136,19 +131,30 @@ namespace BingAdsExamplesLibrary.V10
                 {
                     if (remarketingList.RemarketingList != null && remarketingList.RemarketingList.Id != null)
                     {
-                        var BulkAdGroupRemarketingListAssociation = new BulkAdGroupRemarketingListAssociation
+                        var bulkAdGroupRemarketingListAssociation = new BulkAdGroupRemarketingListAssociation
                         {
                             ClientId = "MyBulkAdGroupRemarketingListAssociation " + remarketingList.RemarketingList.Id,
-                            AdGroupRemarketingListAssociation = new AdGroupRemarketingListAssociation
+                            BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                             {
                                 AdGroupId = adGroupIdKey,
-                                BidAdjustment = 20.00,
-                                RemarketingListId = (long)remarketingList.RemarketingList.Id,
-                                Status = AdGroupRemarketingListAssociationStatus.Paused
+                                Criterion = new AudienceCriterion
+                                {
+                                    AudienceId = (long)remarketingList.RemarketingList.Id,
+                                    AudienceType = AudienceType.RemarketingList,
+                                },
+                                CriterionBid = new BidMultiplier
+                                {
+                                    Multiplier = 20.00,
+                                },
+                                Status = AdGroupCriterionStatus.Paused,
                             },
+                            // Read-only properties
+                            AdGroupName = null,
+                            CampaignName = null,
+                            RemarketingListName = null,
                         };
 
-                        uploadEntities.Add(BulkAdGroupRemarketingListAssociation);
+                        uploadEntities.Add(bulkAdGroupRemarketingListAssociation);
                     }
                 }
 
@@ -210,11 +216,11 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Bulk service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));

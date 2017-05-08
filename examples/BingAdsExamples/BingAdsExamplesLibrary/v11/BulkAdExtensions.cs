@@ -3,39 +3,34 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V10.Bulk;
-using Microsoft.BingAds.V10.Bulk.Entities;
-using Microsoft.BingAds.V10.CampaignManagement;
-using Microsoft.BingAds.CustomerManagement;
+using Microsoft.BingAds.V11.Bulk;
+using Microsoft.BingAds.V11.Bulk.Entities;
+using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V11.CustomerManagement;
 
-using Microsoft.BingAds.V10.Internal.Bulk.Entities;
-using Microsoft.BingAds.V10.Internal.Bulk.Entities.AdExtensions;
+using Microsoft.BingAds.V11.Internal.Bulk.Entities;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to add and update ad extensions using the BulkServiceManager class.
     /// </summary>
     public class BulkAdExtensions : BulkExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> CampaignService;
-        public static ServiceClient<ICustomerManagementService> CustomerService;
-
         private const string SITELINK_MIGRATION = "SiteLinkAdExtension";
 
         public override string Description
         {
-            get { return "AdExtensions | Bulk V10"; }
+            get { return "AdExtensions | Bulk V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                BulkService = new BulkServiceManager(authorizationData);
+                BulkServiceManager = new BulkServiceManager(authorizationData);
                 CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
                 CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
@@ -57,7 +52,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Optionally you can find out which pilot features the customer is able to use. Even if the customer 
                 // is in pilot for sitelink migrations, the accounts that it contains might not be migrated.
-                var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
+                var featurePilotFlags = (await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId))?.FeaturePilotFlags;
 
                 // The pilot flag value for Sitelink ad extension migration is 253.
                 // Pilot flags apply to all accounts within a given customer; however,
@@ -78,7 +73,7 @@ namespace BingAdsExamplesLibrary.V10
                 var accountMigrationStatusesInfos = (await GetAccountMigrationStatusesAsync(
                     new long[] { authorizationData.AccountId },
                     SITELINK_MIGRATION
-                )).ToArray();
+                ))?.MigrationStatuses?.ToArray();
 
                 foreach (var accountMigrationStatusesInfo in accountMigrationStatusesInfos)
                 {
@@ -125,10 +120,6 @@ namespace BingAdsExamplesLibrary.V10
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         Status = CampaignStatus.Paused,
-
-                        // DaylightSaving is not supported in the Bulk file schema. Whether or not you specify it in a BulkCampaign,
-                        // the value is not written to the Bulk file, and by default DaylightSaving is set to true.
-                        DaylightSaving = true,
 
                         // Used with FinalUrls shown in the sitelinks that we will add below.
                         TrackingUrlTemplate =
@@ -211,7 +202,7 @@ namespace BingAdsExamplesLibrary.V10
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date
+                            EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
                             {
                                 Month = 12,
                                 Day = 31,
@@ -241,7 +232,7 @@ namespace BingAdsExamplesLibrary.V10
                         CompanyName = "Contoso Shoes",
                         IconMediaId = null,
                         ImageMediaId = null,
-                        Address = new Microsoft.BingAds.V10.CampaignManagement.Address
+                        Address = new Microsoft.BingAds.V11.CampaignManagement.Address
                         {
                             StreetAddress = "1234 Washington Place",
                             StreetAddress2 = "Suite 1210",
@@ -269,7 +260,7 @@ namespace BingAdsExamplesLibrary.V10
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date
+                            EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
                             {
                                 Month = 12,
                                 Day = 31,
@@ -471,14 +462,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 #region CleanUp
 
-                //Delete the campaign and ad extensions that were previously added. 
-                //You should remove this region if you want to view the added entities in the 
-                //Bing Ads web application or another tool.
-
-                //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted. 
-
-                //When you delete a BulkCampaign or BulkCallAdExtension, dependent entities such as BulkCampaignCallAdExtension 
-                //are deleted without being specified explicitly.  
+                // Delete the campaign and ad extensions that were previously added.
 
                 uploadEntities = new List<BulkEntity>();
 
@@ -599,35 +583,35 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Bulk service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -655,36 +639,6 @@ namespace BingAdsExamplesLibrary.V10
                 if (Writer != null) { Writer.Dispose(); }
             }
             #endregion CatchExceptions 
-        }
-
-        // Gets the account's migration statuses.
-
-        private async Task<IEnumerable<AccountMigrationStatusesInfo>> GetAccountMigrationStatusesAsync(
-            long[] accountIds,
-            string migrationType)
-        {
-            var request = new GetAccountMigrationStatusesRequest
-            {
-                AccountIds = accountIds,
-                MigrationType = migrationType
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetAccountMigrationStatusesAsync(r), request)).MigrationStatuses;
-        }
-
-        /// <summary>
-        /// Gets the list of pilot features that the customer is able to use.
-        /// </summary>
-        /// <param name="customerId"></param>
-        /// <returns></returns>
-        private async Task<IList<int>> GetCustomerPilotFeaturesAsync(long customerId)
-        {
-            var request = new GetCustomerPilotFeaturesRequest
-            {
-                CustomerId = customerId
-            };
-
-            return (await CustomerService.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
         }
 
         // Gets example BulkSiteLinkAdExtension and BulkCampaignSiteLinkAdExtension objects. You can use 
@@ -921,7 +875,7 @@ namespace BingAdsExamplesLibrary.V10
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                            EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
                                 Month = 12,
                                 Day = 31,
                                 Year = DateTime.UtcNow.Year + 1

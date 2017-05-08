@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.BingAds.V10.Bulk;
 using Microsoft.BingAds.V10.Bulk.Entities;

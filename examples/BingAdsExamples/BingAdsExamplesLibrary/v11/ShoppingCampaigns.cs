@@ -8,34 +8,32 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds;
 
 using System.IO;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to apply product conditions for Bing Shopping Campaigns.
     /// </summary>
     public class ShoppingCampaigns : ExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> Service;
-
         public override string Description
         {
-            get { return "Bing Shopping Campaigns | Campaign Management V10"; }
+            get { return "Bing Shopping Campaigns | Campaign Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                Service = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId
 
-                IList<BMCStore> stores = await GetBMCStoresByCustomerIdAsync();
+                IList<BMCStore> stores = (await GetBMCStoresByCustomerIdAsync())?.BMCStores;
                 if (stores == null)
                 {
                     OutputStatusMessage(
@@ -73,7 +71,6 @@ namespace BingAdsExamplesLibrary.V10
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
-                        DaylightSaving = true,
 
                         // Used with CustomParameters defined in lower level entities such as ad group criterion.
                         TrackingUrlTemplate =
@@ -84,7 +81,8 @@ namespace BingAdsExamplesLibrary.V10
                 AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-                OutputCampaignsWithPartialErrors(campaigns, campaignIds, campaignErrors);
+                OutputIds(campaignIds);
+                OutputPartialErrors(campaignErrors);
                 long campaignId = (long)campaignIds[0];
                 
                 /* Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
@@ -93,10 +91,10 @@ namespace BingAdsExamplesLibrary.V10
                  * of up to 7 ProductCondition. You'll also be able to specify more specific product conditions for each ad group.
                  */
 
-                var campaignCriterions = new CampaignCriterion[] {
-                    new CampaignCriterion() {
+                var campaignCriterions = new BiddableCampaignCriterion[] {
+                    new BiddableCampaignCriterion() {
                         CampaignId = campaignId,
-                        BidAdjustment = null,  // Reserved for future use
+                        CriterionBid = null,  // Not applicable for product scope
                         Criterion = new ProductScope() {
                             Conditions = new ProductCondition[] {
                                 new ProductCondition {
@@ -116,7 +114,7 @@ namespace BingAdsExamplesLibrary.V10
                     campaignCriterions,
                     CampaignCriterionType.ProductScope)
                 );
-
+                
                 #endregion ManageCampaign
 
                 #region ManageAdGroup
@@ -128,10 +126,9 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Name = "Product Categories",
                         AdDistribution = AdDistribution.Search,
-                        BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
                             Month = 12,
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
@@ -143,7 +140,8 @@ namespace BingAdsExamplesLibrary.V10
                 AddAdGroupsResponse addAdGroupsResponse = await AddAdGroupsAsync((long)campaignId, adGroups);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
-                OutputAdGroupsWithPartialErrors(adGroups, adGroupIds, adGroupErrors);
+                OutputIds(adGroupIds);
+                OutputPartialErrors(adGroupErrors);
                 long adGroupId = (long)adGroupIds[0];
 
                 #region BidAllProducts
@@ -163,11 +161,11 @@ namespace BingAdsExamplesLibrary.V10
                 var adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
                     adGroupId,
                     null,
-                    CriterionType.ProductPartition
+                    AdGroupCriterionType.ProductPartition
                 );
 
                 OutputStatusMessage("The ad group's product partition only has a tree root node: \n");
-                OutputProductPartitions(adGroupCriterions);
+                OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
 
                 /*
                  * Let's update the bid of the root Unit we just added.
@@ -178,10 +176,7 @@ namespace BingAdsExamplesLibrary.V10
                     Id = applyProductPartitionActionsResponse.AdGroupCriterionIds[0],
                     CriterionBid = new FixedBid
                     {
-                        Bid = new Bid
-                        {
-                            Amount = 0.45
-                        }
+                        Amount = 0.45
                     }
                 };
 
@@ -194,11 +189,11 @@ namespace BingAdsExamplesLibrary.V10
                 adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
                     adGroupId,
                     null,
-                    CriterionType.ProductPartition
+                    AdGroupCriterionType.ProductPartition
                 );
 
                 OutputStatusMessage("Updated the bid for the tree root node: \n");
-                OutputProductPartitions(adGroupCriterions);
+                OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
 
                 #endregion BidAllProducts
 
@@ -221,9 +216,9 @@ namespace BingAdsExamplesLibrary.V10
                 adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
                     adGroupId,
                     null,
-                    CriterionType.ProductPartition
+                    AdGroupCriterionType.ProductPartition
                 );
-                var existingRoot = GetRootNode(adGroupCriterions);
+                var existingRoot = GetRootNode(adGroupCriterions?.AdGroupCriterions);
                 if (existingRoot != null)
                 {
                     helper.DeletePartition(existingRoot);
@@ -310,7 +305,7 @@ namespace BingAdsExamplesLibrary.V10
                 adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
                     adGroupId,
                     null,
-                    CriterionType.ProductPartition
+                    AdGroupCriterionType.ProductPartition
                 );
 
                 /*
@@ -337,7 +332,7 @@ namespace BingAdsExamplesLibrary.V10
                  */
 
                 OutputStatusMessage("The product partition group tree now has 9 nodes: \n");
-                OutputProductPartitions(adGroupCriterions);
+                OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
 
                 #endregion InitializeTree
 
@@ -404,7 +399,7 @@ namespace BingAdsExamplesLibrary.V10
                 adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
                     adGroupId,
                     null,
-                    CriterionType.ProductPartition
+                    AdGroupCriterionType.ProductPartition
                 );
 
                 /*
@@ -439,7 +434,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(
                     "The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1): \n"
                 );
-                OutputProductPartitions(adGroupCriterions);
+                OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
 
                 #endregion UpdateTree
 
@@ -467,7 +462,8 @@ namespace BingAdsExamplesLibrary.V10
                 AddAdsResponse addAdsResponse = await AddAdsAsync((long)adGroupIds[0], ads);
                 long?[] adIds = addAdsResponse.AdIds.ToArray();
                 BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
-                OutputAdsWithPartialErrors(ads, adIds, adErrors);
+                OutputIds(adIds);
+                OutputPartialErrors(adErrors);
 
                 #endregion ManageAds
 
@@ -478,7 +474,7 @@ namespace BingAdsExamplesLibrary.V10
                  * Bing Ads web application or another tool.
                  */
 
-                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignId });
+                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignId });
                 OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", campaignId));
 
                 #endregion CleanUp
@@ -489,16 +485,16 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -508,118 +504,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(ex.Message);
             }
         }
-
-        // Gets one or more Bing Merchant Center stores registered with the customer.
-
-        private async Task<IList<BMCStore>> GetBMCStoresByCustomerIdAsync()
-        {
-            var request = new GetBMCStoresByCustomerIdRequest();
-
-            return (await Service.CallAsync((s, r) => s.GetBMCStoresByCustomerIdAsync(r), request)).BMCStores;
-        }
-
-        // Adds one or more campaigns to the specified account.
-
-        private async Task<AddCampaignsResponse> AddCampaignsAsync(
-            long accountId,
-            IList<Campaign> campaigns)
-        {
-            var request = new AddCampaignsRequest
-            {
-                AccountId = accountId,
-                Campaigns = campaigns
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
-        }
-
-        // Deletes one or more campaigns from the specified account.
-
-        private async Task DeleteCampaignsAsync(
-            long accountId,
-            IList<long> campaignIds)
-        {
-            var request = new DeleteCampaignsRequest
-            {
-                AccountId = accountId,
-                CampaignIds = campaignIds
-            };
-
-            await Service.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
-        }
-
-        // Adds one or more campaign criterions.
-
-        private async Task<AddCampaignCriterionsResponse> AddCampaignCriterionsAsync(
-            IList<CampaignCriterion> campaignCriterions,
-            CampaignCriterionType campaignCriterionType)
-        {
-            var request = new AddCampaignCriterionsRequest
-            {
-                CampaignCriterions = campaignCriterions,
-                CriterionType = campaignCriterionType
-
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddCampaignCriterionsAsync(r), request));
-        }
-
-        // Adds one or more ad groups to the specified campaign.
-
-        private async Task<AddAdGroupsResponse> AddAdGroupsAsync(
-            long campaignId,
-            IList<AdGroup> adGroups)
-        {
-            var request = new AddAdGroupsRequest
-            {
-                CampaignId = campaignId,
-                AdGroups = adGroups
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
-        }
-
-        // Adds one or more ads to the specified ad group.
-
-        private async Task<AddAdsResponse> AddAdsAsync(
-            long adGroupId,
-            IList<Ad> ads)
-        {
-            var request = new AddAdsRequest
-            {
-                AdGroupId = adGroupId,
-                Ads = ads
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddAdsAsync(r), request));
-        }
-
-        private async Task<ApplyProductPartitionActionsResponse> ApplyProductPartitionActionsAsync(
-            IList<AdGroupCriterionAction> criterionActions)
-        {
-            var request = new ApplyProductPartitionActionsRequest
-            {
-                CriterionActions = criterionActions
-            };
-
-            return (await Service.CallAsync((s, r) => s.ApplyProductPartitionActionsAsync(r), request));
-        }
-
-        private async Task<IList<AdGroupCriterion>> GetAdGroupCriterionsByIdsAsync(
-            long adGroupId,
-            IList<long> adGroupCriterionIds,
-            CriterionType criterionType)
-        {
-            var request = new GetAdGroupCriterionsByIdsRequest
-            {
-                AdGroupId = adGroupId,
-                CriterionType = criterionType,
-                AdGroupCriterionIds = adGroupCriterionIds
-            };
-
-            return (await Service.CallAsync((s, r) => s.GetAdGroupCriterionsByIdsAsync(r), request)).AdGroupCriterions;
-        }
-
+        
         /// <summary>
         /// Returns the root node of a tree. This operation assumes that a complete 
         /// product partition tree is provided for one ad group. The node that has
@@ -751,10 +636,7 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         CriterionBid = new FixedBid()
                         {
-                            Bid = new Bid()
-                            {
-                                Amount = bidAmount
-                            }
+                            Amount = bidAmount
                         },
 
                         // This destination URL is used if specified; otherwise, the destination URL is determined 
@@ -925,7 +807,7 @@ namespace BingAdsExamplesLibrary.V10
                 {
                     OutputStatusMessage(string.Format("{0}Bid Amount: {1}",
                         "".PadLeft(treeLevel, '\t'),
-                        ((FixedBid)(biddableAdGroupCriterion.CriterionBid)).Bid.Amount)
+                        ((FixedBid)(biddableAdGroupCriterion.CriterionBid)).Amount)
                     );
                     OutputStatusMessage(string.Format("{0}DestinationUrl: {1}",
                         "".PadLeft(treeLevel, '\t'),
