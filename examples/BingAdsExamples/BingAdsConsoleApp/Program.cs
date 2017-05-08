@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.CustomerManagement;
+using Microsoft.BingAds.V11.CustomerManagement;
 using BingAdsConsoleApp.Properties;
 using System.Security.Cryptography;
 using BingAdsExamplesLibrary;
@@ -17,30 +17,31 @@ namespace BingAdsConsoleApp
         // Uncomment any examples that you want to run. 
         private static readonly ExampleBase[] _examples =
         {
-            //new BingAdsExamplesLibrary.V10.BidOpportunities(),
-            //new BingAdsExamplesLibrary.V10.BudgetOpportunities(),
-            //new BingAdsExamplesLibrary.V10.BulkServiceManagerDemo(),
-            //new BingAdsExamplesLibrary.V10.BulkAdExtensions(),
-            //new BingAdsExamplesLibrary.V10.AdExtensions(),
-            //new BingAdsExamplesLibrary.V10.BulkKeywordsAds(),
-            //new BingAdsExamplesLibrary.V10.KeywordsAds(),
-            //new BingAdsExamplesLibrary.V10.BulkNegativeKeywords(),
-            //new BingAdsExamplesLibrary.V10.NegativeKeywords(),
-            //new BingAdsExamplesLibrary.V10.BulkProductPartitionUpdateBid(),
-            //new BingAdsExamplesLibrary.V10.ConversionGoals(),
-            //new BingAdsExamplesLibrary.V10.BulkRemarketingLists(),
-            //new BingAdsExamplesLibrary.V10.RemarketingLists(),
-            //new BingAdsExamplesLibrary.V10.BulkShoppingCampaigns(),
-            //new BingAdsExamplesLibrary.V10.ShoppingCampaigns(),
-            //new BingAdsExamplesLibrary.V10.BulkTargets(),
-            //new BingAdsExamplesLibrary.V10.Targets(),
-            //new BingAdsExamplesLibrary.V10.BulkNegativeSites(),
-            //new BingAdsExamplesLibrary.GeographicalLocations(),
-            new BingAdsExamplesLibrary.V9.SearchUserAccounts(),
-            //new BingAdsExamplesLibrary.V9.InviteUser(),
-            //new BingAdsExamplesLibrary.V9.CustomerSignup(),
-            //new BingAdsExamplesLibrary.V9.ManageClient(),
-            //new BingAdsExamplesLibrary.V9.ReportRequests(),
+            /*
+            new BingAdsExamplesLibrary.V11.BudgetOpportunities(),
+            new BingAdsExamplesLibrary.V11.BudgetOpportunities(),
+            new BingAdsExamplesLibrary.V11.BulkServiceManagerDemo(),
+            new BingAdsExamplesLibrary.V11.BulkAdExtensions(),
+            new BingAdsExamplesLibrary.V11.AdExtensions(),
+            new BingAdsExamplesLibrary.V11.BulkKeywordsAds(),
+            new BingAdsExamplesLibrary.V11.KeywordsAds(),
+            new BingAdsExamplesLibrary.V11.BulkNegativeKeywords(),
+            new BingAdsExamplesLibrary.V11.NegativeKeywords(),
+            new BingAdsExamplesLibrary.V11.BulkProductPartitionUpdateBid(),
+            new BingAdsExamplesLibrary.V11.ConversionGoals(),
+            new BingAdsExamplesLibrary.V11.BulkRemarketingLists(),
+            new BingAdsExamplesLibrary.V11.RemarketingLists(),
+            new BingAdsExamplesLibrary.V11.BulkShoppingCampaigns(),
+            new BingAdsExamplesLibrary.V11.ShoppingCampaigns(),
+            new BingAdsExamplesLibrary.V11.BulkNegativeSites(),
+            new BingAdsExamplesLibrary.V11.BulkTargetCriterions(),
+            new BingAdsExamplesLibrary.V11.GeographicalLocations(),
+            new BingAdsExamplesLibrary.V11.ReportRequests(),
+            new BingAdsExamplesLibrary.V11.InviteUser(),
+            new BingAdsExamplesLibrary.V11.CustomerSignup(),
+            new BingAdsExamplesLibrary.V11.ManageClient(),
+            */
+            new BingAdsExamplesLibrary.V11.SearchUserAccounts(),
 
         };
 

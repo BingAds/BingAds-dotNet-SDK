@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -179,15 +179,15 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Add a target to the library and associate it with the campaign.
                 var campaignTargetId = (await AddTargetsToLibraryAsync(new[] { campaignTarget }))[0];
-                OutputStatusMessage(String.Format("Added Target Id: {0}\n", campaignTargetId));
+                OutputStatusMessage(string.Format("Added Target Id: {0}\n", campaignTargetId));
                 await SetTargetToCampaignAsync(campaignId, campaignTargetId);
-                OutputStatusMessage(String.Format("Associated CampaignId {0} with TargetId {1}.\n", campaignId, campaignTargetId));
+                OutputStatusMessage(string.Format("Associated CampaignId {0} with TargetId {1}.\n", campaignId, campaignTargetId));
                 
                 // Add a target to the library and associate it with the ad group.
                 var adGroupTargetId = (await AddTargetsToLibraryAsync(new[] { adGroupTarget }))[0];
-                OutputStatusMessage(String.Format("Added Target Id: {0}\n", adGroupTargetId));
+                OutputStatusMessage(string.Format("Added Target Id: {0}\n", adGroupTargetId));
                 await SetTargetToAdGroupAsync(adGroupId, adGroupTargetId);
-                OutputStatusMessage(String.Format("Associated AdGroupId {0} with TargetId {1}.\n", adGroupId, adGroupTargetId));
+                OutputStatusMessage(string.Format("Associated AdGroupId {0} with TargetId {1}.\n", adGroupId, adGroupTargetId));
 
                 // Get and print the targets with the GetTargetsByIds operation
                 OutputStatusMessage("Get Campaign and AdGroup targets: \n");
@@ -339,7 +339,7 @@ namespace BingAdsExamplesLibrary.V10
                 await DeleteTargetFromAdGroupAsync(adGroupId);
 
                 await DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignId });
-                OutputStatusMessage(String.Format("Deleted CampaignId {0}\n", campaignId));
+                OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", campaignId));
 
                 // DeleteCampaigns deletes the association between the campaign and target, but does not 
                 // delete the target from the customer library. 
@@ -347,10 +347,10 @@ namespace BingAdsExamplesLibrary.V10
                 // You must specify an array with exactly one item.
 
                 await DeleteTargetsFromLibraryAsync(new[] { campaignTargetId });
-                OutputStatusMessage(String.Format("Deleted TargetId {0}\n", campaignTargetId));
+                OutputStatusMessage(string.Format("Deleted TargetId {0}\n", campaignTargetId));
 
                 await DeleteTargetsFromLibraryAsync(new[] { adGroupTargetId });
-                OutputStatusMessage(String.Format("Deleted TargetId {0}\n", adGroupTargetId));
+                OutputStatusMessage(string.Format("Deleted TargetId {0}\n", adGroupTargetId));
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -425,7 +425,7 @@ namespace BingAdsExamplesLibrary.V10
 
             foreach (var id in campaignIds)
             {
-                OutputStatusMessage(String.Format("Campaign successfully added and assigned CampaignId {0}\n", id));
+                OutputStatusMessage(string.Format("Campaign successfully added and assigned CampaignId {0}\n", id));
             }
         }
 
@@ -439,7 +439,7 @@ namespace BingAdsExamplesLibrary.V10
 
             foreach (var id in adGroupIds)
             {
-                OutputStatusMessage(String.Format("AdGroup successfully added and assigned AdGroupId {0}\n", id));
+                OutputStatusMessage(string.Format("AdGroup successfully added and assigned AdGroupId {0}\n", id));
             }
         }
 
@@ -556,8 +556,8 @@ namespace BingAdsExamplesLibrary.V10
 
             foreach (var info in targetsInfo)
             {
-                OutputStatusMessage(String.Format("Target Id: {0}", info.Id));
-                OutputStatusMessage(String.Format("Target Name: {0}\n", info.Name));
+                OutputStatusMessage(string.Format("Target Id: {0}", info.Id));
+                OutputStatusMessage(string.Format("Target Name: {0}\n", info.Name));
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace BingAdsExamplesLibrary.V10
                 BulkService = new BulkServiceManager(authorizationData);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
-                    OutputStatusMessage(String.Format("{0} % Complete",
+                    OutputStatusMessage(string.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
                 #region Add

@@ -5,11 +5,11 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V10.Bulk;
-using Microsoft.BingAds.V10.Bulk.Entities;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.Bulk;
+using Microsoft.BingAds.V11.Bulk.Entities;
+using Microsoft.BingAds.V11.CampaignManagement;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to add ads and keywords to a new ad group using the BulkServiceManager class.
@@ -18,14 +18,14 @@ namespace BingAdsExamplesLibrary.V10
     {
         public override string Description
         {
-            get { return "Keywords and Ads | Bulk V10"; }
+            get { return "Keywords and Ads | Bulk V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                BulkService = new BulkServiceManager(authorizationData);
+                BulkServiceManager = new BulkServiceManager(authorizationData);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
@@ -71,11 +71,7 @@ namespace BingAdsExamplesLibrary.V10
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
-
-                        // DaylightSaving is not supported in the Bulk file schema. Whether or not you specify it in a BulkCampaign,
-                        // the value is not written to the Bulk file, and by default DaylightSaving is set to true.
-                        DaylightSaving = true,
-
+                        
                         // You can set your campaign bid strategy to Enhanced CPC (EnhancedCpcBiddingScheme) 
                         // and then, at any time, set an individual ad group or keyword bid strategy to 
                         // Manual CPC (ManualCpcBiddingScheme).
@@ -101,10 +97,9 @@ namespace BingAdsExamplesLibrary.V10
                         Id = adGroupIdKey,
                         Name = "Women's Red Shoe Sale",
                         AdDistribution = AdDistribution.Search,
-                        BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -445,7 +440,7 @@ namespace BingAdsExamplesLibrary.V10
                 
                 var downloadParameters = new DownloadParameters
                 {
-                    Entities = BulkDownloadEntity.Budgets | BulkDownloadEntity.Campaigns,
+                    DownloadEntities = new[] { DownloadEntity.Budgets, DownloadEntity.Campaigns },
                     ResultFileDirectory = FileDirectory,
                     ResultFileName = DownloadFileName,
                     OverwriteResultFile = true,
@@ -453,7 +448,7 @@ namespace BingAdsExamplesLibrary.V10
                 };
 
                 // Download all campaigns and shared budgets in the account.
-                var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
+                var bulkFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters);
                 OutputStatusMessage("\nDownloaded all campaigns and shared budgets in the account.\n");
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
                 downloadEntities = Reader.ReadEntities().ToList();
@@ -484,23 +479,8 @@ namespace BingAdsExamplesLibrary.V10
                     if (entity.Campaign.BudgetId == null || entity.Campaign.BudgetId <= 0)
                     {
                         // Increase existing budgets by 20%
-                        // Monthly budgets are deprecated and there will be a forced migration to daily budgets in calendar year 2017. 
-                        // Shared budgets do not support the monthly budget type, so this is only applicable to unshared budgets. 
-                        // During the migration all campaign level unshared budgets will be rationalized as daily. 
-                        // The formula that will be used to convert monthly to daily budgets is: Monthly budget amount / 30.4.
-                        // Moving campaign monthly budget to daily budget is encouraged before monthly budgets are migrated. 
+                        entity.Campaign.DailyBudget *= 1.2;
 
-                        if (entity.Campaign.BudgetType == BudgetLimitType.MonthlyBudgetSpendUntilDepleted)
-                        {
-                            // Increase budget by 20 %
-                            entity.Campaign.BudgetType = BudgetLimitType.DailyBudgetStandard;
-                            entity.Campaign.DailyBudget = entity.Campaign.MonthlyBudget / 30.4 * 1.2;
-                        }
-                        else
-                        {
-                            // Increase budget by 20 %
-                            entity.Campaign.DailyBudget *= 1.2;
-                        }
                         uploadEntities.Add(entity);
                     }
                 }
@@ -572,11 +552,11 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Bulk service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));

@@ -3,28 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to manage UET tags and conversion goals.
     /// </summary>
     public class ConversionGoals : ExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> Service;
-
         public override string Description
         {
-            get { return "UET Tags and Conversion Goals | Campaign Management V10"; }
+            get { return "UET Tags and Conversion Goals | Campaign Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                Service = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // Before you can track conversions or target audiences using a remarketing list, 
                 // you need to create a UET tag in Bing Ads (web application or API) and then 
@@ -335,16 +333,16 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch ConversionGoal Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -353,82 +351,6 @@ namespace BingAdsExamplesLibrary.V10
             {
                 OutputStatusMessage(ex.Message);
             }
-        }
-
-        // Adds one or more conversion goals.
-
-        private async Task<AddConversionGoalsResponse> AddConversionGoalsAsync(IList<ConversionGoal> conversionGoals)
-        {
-            var request = new AddConversionGoalsRequest
-            {
-                ConversionGoals = conversionGoals
-            };
-
-            return await Service.CallAsync((s, r) => s.AddConversionGoalsAsync(r), request);
-        }
-
-        // Gets one or more conversion goals for the specified conversion goal identifiers.
-
-        private async Task<GetConversionGoalsByIdsResponse> GetConversionGoalsByIdsAsync(
-            IList<long> conversionGoalIds,
-            ConversionGoalType conversionGoalTypes
-            )
-        {
-            var request = new GetConversionGoalsByIdsRequest
-            {
-                ConversionGoalIds = conversionGoalIds,
-                ConversionGoalTypes = conversionGoalTypes
-            };
-
-            return await Service.CallAsync((s, r) => s.GetConversionGoalsByIdsAsync(r), request);
-        }
-
-        // Updates one or more conversion goals.
-
-        private async Task<UpdateConversionGoalsResponse> UpdateConversionGoalsAsync(IList<ConversionGoal> conversionGoals)
-        {
-            var request = new UpdateConversionGoalsRequest
-            {
-                ConversionGoals = conversionGoals
-            };
-
-            return await Service.CallAsync((s, r) => s.UpdateConversionGoalsAsync(r), request);
-        }
-        
-        // Adds one or more UET tags.
-
-        private async Task<AddUetTagsResponse> AddUetTagsAsync(IList<UetTag> uetTags)
-        {
-            var request = new AddUetTagsRequest
-            {
-                UetTags = uetTags,
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddUetTagsAsync(r), request));
-        }
-
-        // Gets one or more UET Tags.
-
-        private async Task<GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(IList<long> tagIds)
-        {
-            var request = new GetUetTagsByIdsRequest
-            {
-                TagIds = tagIds,
-            };
-
-            return await Service.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request);
-        }
-
-        // Updates one or more UET tags.
-
-        private async Task UpdateUetTagsAsync(IList<UetTag> uetTags)
-        {
-            var request = new UpdateUetTagsRequest
-            {
-                UetTags = uetTags
-            };
-
-            await Service.CallAsync((s, r) => s.UpdateUetTagsAsync(r), request);
         }
     }
 }

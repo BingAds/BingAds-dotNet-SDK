@@ -6,11 +6,11 @@ using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V10.Bulk;
-using Microsoft.BingAds.V10.Bulk.Entities;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.Bulk;
+using Microsoft.BingAds.V11.Bulk.Entities;
+using Microsoft.BingAds.V11.CampaignManagement;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to apply product conditions for Bing Shopping Campaigns
@@ -18,18 +18,16 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class BulkProductPartitionUpdateBid : BulkExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> CampaignService;
-
         public override string Description
         {
-            get { return "Product Partition Bid Update | Bulk V10"; }
+            get { return "Product Partition Bid Update | Bulk V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                BulkService = new BulkServiceManager(authorizationData);
+                BulkServiceManager = new BulkServiceManager(authorizationData);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
@@ -37,7 +35,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 var downloadParameters = new DownloadParameters
                 {
-                    Entities = BulkDownloadEntity.AdGroupProductPartitions,
+                    DownloadEntities = new[] { DownloadEntity.AdGroupProductPartitions },
                     ResultFileDirectory = FileDirectory,
                     ResultFileName = DownloadFileName,
                     OverwriteResultFile = true,
@@ -45,7 +43,7 @@ namespace BingAdsExamplesLibrary.V10
                 };
 
                 // Download all product partitions across all ad groups in the account.
-                var bulkFilePath = await BulkService.DownloadFileAsync(downloadParameters);
+                var bulkFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters);
                 OutputStatusMessage("Downloaded all product partitions across all ad groups in the account.\n");
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
                 var downloadEntities = Reader.ReadEntities().ToList().OfType<BulkAdGroupProductPartition>().ToList();
@@ -62,7 +60,7 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         // Increase all bids by some predetermined amount or percentage. 
                         // Implement your own logic to update bids by varying amounts.
-                        ((FixedBid)((BiddableAdGroupCriterion)((BulkAdGroupProductPartition)entity).AdGroupCriterion).CriterionBid).Bid.Amount += .01;
+                        ((FixedBid)((BiddableAdGroupCriterion)((BulkAdGroupProductPartition)entity).AdGroupCriterion).CriterionBid).Amount += .01;
                         uploadEntities.Add(entity);
                     }
                 }
@@ -92,21 +90,21 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Bulk service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));

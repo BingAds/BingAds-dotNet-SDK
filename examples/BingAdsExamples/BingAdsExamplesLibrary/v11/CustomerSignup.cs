@@ -3,29 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.CustomerManagement;
+using Microsoft.BingAds.V11.CustomerManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamplesLibrary.V9
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how a reseller can call SignupCustomer to create a new customer and account.
     /// </summary>
     public class CustomerSignup : ExampleBase
     {
-        public static ServiceClient<ICustomerManagementService> Service;
-
         public override string Description
         {
-            get { return "Create new customer for reseller | Customer Management V9"; }
+            get { return "Create new customer for reseller | Customer Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                Service = new ServiceClient<ICustomerManagementService>(authorizationData);
+                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
 
                 var getUserResponse = await GetUserAsync(null);
                 var user = getUserResponse.User;
@@ -103,10 +101,11 @@ namespace BingAdsExamplesLibrary.V9
                     // that require a customer identifier, this is the identifier that you set the CustomerId SOAP header to.
                     ParentCustomerId = (long)user.CustomerId,
 
+                    // The list of key and value strings for tax information.
                     // The TaxId (VAT identifier) is optional. If specified, The VAT identifier must be valid 
                     // in the country that you specified in the BusinessAddress element. Without a VAT registration 
                     // number or exemption certificate, taxes might apply based on your business location.
-                    TaxId = null,
+                    TaxInformation = null,
 
                     // The default time-zone value to use for campaigns in this account.
                     // If not specified, the time zone will be set to PacificTimeUSCanadaTijuana by default.
@@ -145,11 +144,11 @@ namespace BingAdsExamplesLibrary.V9
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
@@ -157,44 +156,6 @@ namespace BingAdsExamplesLibrary.V9
             {
                 OutputStatusMessage(ex.Message);
             }
-        }
-
-        /// <summary>
-        /// Gets a Bing Ads user and user roles by the specified Bing Ads user identifier.
-        /// </summary>
-        /// <param name="userId">The identifier of the user to get. If null, this operation returns the User object 
-        /// corresponding to the current authenticated user of the global customer management ServiceClient.</param>
-        /// <returns>The GetUserResponse object corresponding to the specified Bing Ads user identifier.</returns>
-        private async Task<GetUserResponse> GetUserAsync(long? userId)
-        {
-            var request = new GetUserRequest
-            {
-                UserId = userId
-            };
-
-            return (await Service.CallAsync((s, r) => s.GetUserAsync(r), request));
-        }
-
-        /// <summary>
-        /// Creates a new child customer and account that rolls up to the reseller's billing invoice.
-        /// </summary>
-        /// <param name="customer">The new child customer.</param>
-        /// <param name="account">The account within the new customer.</param>
-        /// <param name="parentCustomerId">The customer identifier of the reseller that will manage this customer.</param>
-        /// <returns></returns>
-        private async Task<SignupCustomerResponse> SignupCustomerAsync(
-            Customer customer, 
-            Account account,
-            long? parentCustomerId)
-        {
-            var request = new SignupCustomerRequest
-            {
-                Customer = customer,
-                Account = account,
-                ParentCustomerId = parentCustomerId,
-            };
-
-            return (await Service.CallAsync((s, r) => s.SignupCustomerAsync(r), request));
         }
     }
 }

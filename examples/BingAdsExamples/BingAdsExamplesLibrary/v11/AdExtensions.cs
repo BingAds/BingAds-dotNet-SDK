@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V10.CampaignManagement;
-using Microsoft.BingAds.CustomerManagement;
+using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V11.CustomerManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to add, get, and delete extensions for an account’s ad extension library, 
@@ -23,14 +23,11 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class AdExtensions : ExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> CampaignService;
-        public static ServiceClient<ICustomerManagementService> CustomerService;
-
         private const string SITELINK_MIGRATION = "SiteLinkAdExtension";
 
         public override string Description
         {
-            get { return "Ad Extensions | Campaign Management V10"; }
+            get { return "Ad Extensions | Campaign Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -51,8 +48,8 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Optionally you can find out which pilot features the customer is able to use. Even if the customer 
                 // is in pilot for sitelink migrations, the accounts that it contains might not be migrated.
-                var featurePilotFlags = await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId);
-
+                var featurePilotFlags = (await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId))?.FeaturePilotFlags.ToArray();
+                
                 // The pilot flag value for Sitelink ad extension migration is 253.
                 // Pilot flags apply to all accounts within a given customer; however,
                 // each account goes through migration individually and has its own migration status.
@@ -72,7 +69,7 @@ namespace BingAdsExamplesLibrary.V10
                 var accountMigrationStatusesInfos = (await GetAccountMigrationStatusesAsync(
                     new long[] { authorizationData.AccountId },
                     SITELINK_MIGRATION
-                )).ToArray();
+                ))?.MigrationStatuses.ToArray();
 
                 foreach (var accountMigrationStatusesInfo in accountMigrationStatusesInfos)
                 {
@@ -104,7 +101,6 @@ namespace BingAdsExamplesLibrary.V10
                         BiddingScheme = new EnhancedCpcBiddingScheme(),
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
-                        DaylightSaving = true,
 
                         // Used with FinalUrls shown in the sitelinks that we will add below.
                         TrackingUrlTemplate =
@@ -114,6 +110,8 @@ namespace BingAdsExamplesLibrary.V10
 
                 AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
+                OutputIds(campaignIds);
+                OutputPartialErrors(addCampaignsResponse?.PartialErrors);
 
                 // Specify the extensions.
 
@@ -179,7 +177,7 @@ namespace BingAdsExamplesLibrary.V10
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                            EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
                                 Month = 12,
                                 Day = 31,
                                 Year = DateTime.UtcNow.Year + 1
@@ -193,14 +191,14 @@ namespace BingAdsExamplesLibrary.V10
                     //new ImageAdExtension
                     //{
                     //    AlternativeText = "Image Extension Alt Text",
-                    //    ImageMediaIds = new long[] { await AddImageAsync(authorizationData) }
+                    //    ImageMediaIds = new long[] { (await AddMediaAsync(GetImageMedia())).MediaIds[0] }
                     //},
                     new LocationAdExtension {
                         PhoneNumber = "206-555-0100",
                         CompanyName = "Contoso Shoes",
                         IconMediaId = null,
                         ImageMediaId = null,
-                        Address = new Microsoft.BingAds.V10.CampaignManagement.Address {
+                        Address = new Microsoft.BingAds.V11.CampaignManagement.Address {
                             StreetAddress = "1234 Washington Place",
                             StreetAddress2 = "Suite 1210",
                             CityName = "Woodinville",
@@ -226,7 +224,7 @@ namespace BingAdsExamplesLibrary.V10
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                            EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
                                 Month = 12,
                                 Day = 31,
                                 Year = DateTime.UtcNow.Year + 1
@@ -254,10 +252,12 @@ namespace BingAdsExamplesLibrary.V10
 
 
                 // Add all extensions to the account's ad extension library
-                var adExtensionIdentities = await AddAdExtensionsAsync(
+                var addAdExtensionsResponse = (await AddAdExtensionsAsync(
                     authorizationData.AccountId,
                     adExtensions
-                );
+                ));
+                var adExtensionIdentities = addAdExtensionsResponse?.AdExtensionIdentities;
+                OutputBatchErrorCollections(addAdExtensionsResponse?.NestedPartialErrors);
 
                 OutputStatusMessage("Added ad extensions.\n");
 
@@ -292,12 +292,15 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage("Set ad extension associations.\n");
 
                 // Get editorial rejection reasons for the respective ad extension and entity associations.
-                var adExtensionEditorialReasonCollection =
-                    (AdExtensionEditorialReasonCollection[])await GetAdExtensionsEditorialReasons(
+                var getAdExtensionsEditorialReasonsResponse =
+                    (await GetAdExtensionsEditorialReasonsAsync(
                         authorizationData.AccountId,
                         adExtensionIdToEntityIdAssociations,
                         AssociationType.Campaign
-                    );
+                    ));
+                var adExtensionEditorialReasonCollection =
+                    (AdExtensionEditorialReasonCollection[])getAdExtensionsEditorialReasonsResponse?.EditorialReasons;
+                OutputPartialErrors(getAdExtensionsEditorialReasonsResponse?.PartialErrors);
 
                 // If migration has been completed, then you should request the Sitelink2AdExtension objects.
                 // You can always request both types; however, before migration only the deprecated SiteLinksAdExtension
@@ -313,12 +316,13 @@ namespace BingAdsExamplesLibrary.V10
                     AdExtensionsTypeFilter.StructuredSnippetAdExtension;
 
                 // Get all ad extensions added above.
-                adExtensions = (AdExtension[]) await GetAdExtensionsByIdsAsync(
+                var getAdExtensionsByIdsResponse = (await GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     adExtensionIds,
-                    adExtensionsTypeFilter,
-                    AdExtensionAdditionalField.Scheduling
-                );
+                    adExtensionsTypeFilter
+                ));
+                adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
+                OutputPartialErrors(getAdExtensionsByIdsResponse?.PartialErrors);
 
                 OutputStatusMessage("List of ad extensions that were added above:\n");
                 OutputAdExtensionsWithEditorialReasons(adExtensions, adExtensionEditorialReasonCollection);
@@ -327,12 +331,18 @@ namespace BingAdsExamplesLibrary.V10
 
                 adExtensionsTypeFilter = AdExtensionsTypeFilter.LocationAdExtension;
 
-                adExtensions = (AdExtension[])await GetAdExtensionsByIdsAsync(
+                getAdExtensionsByIdsResponse = (await GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     adExtensionIds,
-                    adExtensionsTypeFilter,
-                    AdExtensionAdditionalField.Scheduling
-                    );
+                    adExtensionsTypeFilter
+                ));
+                adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
+
+                // In this example partial errors will be returned for indices where the ad extensions 
+                // are not location ad extensions because we only requested AdExtensionsTypeFilter.LocationAdExtension.
+                // This is an example, and ideally you would only send the required ad extension IDs.
+
+                OutputPartialErrors(getAdExtensionsByIdsResponse?.PartialErrors);
 
                 var updateExtensions = new List<AdExtension>();
                 var updateExtensionIds = new List<long>();
@@ -359,23 +369,22 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage("Removing scheduling from the location ad extensions..\n");
                 await UpdateAdExtensionsAsync(authorizationData.AccountId, updateExtensions);
 
-                // Get only the location extension to output the result.
-                adExtensions = (AdExtension[])await GetAdExtensionsByIdsAsync(
+                // Get only the location extensions to output the result.
+
+                getAdExtensionsByIdsResponse = (await GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     updateExtensionIds,
-                    adExtensionsTypeFilter,
-                    AdExtensionAdditionalField.Scheduling
-                );
+                    adExtensionsTypeFilter
+                ));
+                adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
+                OutputPartialErrors(getAdExtensionsByIdsResponse?.PartialErrors);
 
                 OutputStatusMessage("List of ad extensions that were updated above:\n");
                 OutputAdExtensionsWithEditorialReasons(adExtensions, null);
 
-                // Delete the ad extension associations, ad extensions, and campaign, that were previously added. 
-                // You should remove these lines if you want to view the added entities in the 
-                // Bing Ads web application or another tool.
-
-                // Remove the specified associations from the respective campaigns or ad groups. 
+                // Delete the ad extension associations, ad extensions, and campaign, that were previously added.  
                 // At this point the ad extensions are still available in the account's ad extensions library. 
+
                 await DeleteAdExtensionsAssociationsAsync(
                     authorizationData.AccountId,
                     adExtensionIdToEntityIdAssociations,
@@ -383,7 +392,8 @@ namespace BingAdsExamplesLibrary.V10
                 );
                 OutputStatusMessage("Deleted ad extension associations.\n");
 
-                // Deletes the ad extensions from the account’s ad extension library.
+                // Delete the ad extensions from the account’s ad extension library.
+
                 await DeleteAdExtensionsAsync(
                     authorizationData.AccountId,
                     adExtensionIds
@@ -399,26 +409,26 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
@@ -428,32 +438,7 @@ namespace BingAdsExamplesLibrary.V10
             }
         }
 
-        // Adds one or more campaigns to the specified account.
-
-        private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
-        {
-            var request = new AddCampaignsRequest
-            {
-                AccountId = accountId,
-                Campaigns = campaigns
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
-        }
-
-        // Deletes one or more campaigns from the specified account.
-        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
-        {
-            var request = new DeleteCampaignsRequest
-            {
-                AccountId = accountId,
-                CampaignIds = campaignIds
-            };
-
-            await CampaignService.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
-        }
-
-        private async Task<long> AddImageAsync(AuthorizationData authorizationData)
+        private IList<Media> GetImageMedia()
         {
             var media = new List<Media>();
             var image = new Image();
@@ -472,10 +457,9 @@ namespace BingAdsExamplesLibrary.V10
                 Media = media
             };
 
-            var Service = new ServiceClient<ICampaignManagementService>(authorizationData);
-            return (await Service.CallAsync((s, r) => s.AddMediaAsync(r), request)).MediaIds[0];
+            return media;
         }
-
+        
         public string GetImage15x10Data()
         {
             var png = new System.Drawing.Bitmap("blankimageadextension.png");
@@ -487,142 +471,10 @@ namespace BingAdsExamplesLibrary.V10
                 return base64String;
             }
         }
-
-        // Adds one or more ad extensions to the account's ad extension library.
-
-        private async Task<IList<AdExtensionIdentity>> AddAdExtensionsAsync(long accountId, IList<AdExtension> adExtensions)
-        {
-            var request = new AddAdExtensionsRequest
-            {
-                AccountId = accountId,
-                AdExtensions = adExtensions
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddAdExtensionsAsync(r), request)).AdExtensionIdentities;
-        }
-
-        // Deletes one or more ad extensions from the account’s ad extension library.
-
-        private async Task DeleteAdExtensionsAsync(long accountId, IList<long> adExtensionIds)
-        {
-            var request = new DeleteAdExtensionsRequest
-            {
-                AccountId = accountId,
-                AdExtensionIds = adExtensionIds
-            };
-
-            await CampaignService.CallAsync((s, r) => s.DeleteAdExtensionsAsync(r), request);
-        }
-
-        // Updates one or more ad extensions within the account's ad extension library.
-
-        private async Task<UpdateAdExtensionsResponse> UpdateAdExtensionsAsync(long accountId, IList<AdExtension> adExtensions)
-        {
-            var request = new UpdateAdExtensionsRequest
-            {
-                AccountId = accountId,
-                AdExtensions = adExtensions
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.UpdateAdExtensionsAsync(r), request));
-        }
-
-
-        // Associates one or more extensions with the corresponding campaign or ad group entities.
-
-        private async Task SetAdExtensionsAssociationsAsync(long accountId, IList<AdExtensionIdToEntityIdAssociation> associations, AssociationType associationType)
-        {
-            var request = new SetAdExtensionsAssociationsRequest
-            {
-                AccountId = accountId,
-                AdExtensionIdToEntityIdAssociations = associations,
-                AssociationType = associationType
-            };
-
-            await CampaignService.CallAsync((s, r) => s.SetAdExtensionsAssociationsAsync(r), request);
-        }
-
-        // Removes the specified association from the respective campaigns or ad groups.
-
-        private async Task DeleteAdExtensionsAssociationsAsync(long accountId, IList<AdExtensionIdToEntityIdAssociation> associations, AssociationType associationType)
-        {
-            var request = new DeleteAdExtensionsAssociationsRequest
-            {
-                AccountId = accountId,
-                AdExtensionIdToEntityIdAssociations = associations,
-                AssociationType = associationType
-            };
-
-            await CampaignService.CallAsync((s, r) => s.DeleteAdExtensionsAssociationsAsync(r), request);
-        }
-
-        // Gets the specified ad extensions from the account's extension library.
-
-        private async Task<IEnumerable<AdExtension>> GetAdExtensionsByIdsAsync(
-            long accountId, 
-            IList<long> adExtensionIds, 
-            AdExtensionsTypeFilter adExtensionsTypeFilter,
-            AdExtensionAdditionalField returnAdditionalFields)
-        {
-            var request = new GetAdExtensionsByIdsRequest
-            {
-                AccountId = accountId,
-                AdExtensionIds = adExtensionIds,
-                AdExtensionType = adExtensionsTypeFilter,
-                ReturnAdditionalFields = returnAdditionalFields
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetAdExtensionsByIdsAsync(r), request)).AdExtensions;
-        }
-
-        // Gets the reasons why the specified extension failed editorial when 
-        // in the context of an associated campaign or ad group.
-
-        private async Task<IList<AdExtensionEditorialReasonCollection>> GetAdExtensionsEditorialReasons(
-            long accountId,
-            IList<AdExtensionIdToEntityIdAssociation> associations,
-            AssociationType associationType)
-        {
-            var request = new GetAdExtensionsEditorialReasonsRequest
-            {
-                AccountId = accountId,
-                AdExtensionIdToEntityIdAssociations = associations,
-                AssociationType = associationType
-            };
-
-            return (await CampaignService.CallAsync(
-                (s, r) => s.GetAdExtensionsEditorialReasonsAsync(r), request)).EditorialReasons;
-        }
-
-        // Gets the account's migration statuses.
-
-        private async Task<IEnumerable<AccountMigrationStatusesInfo>> GetAccountMigrationStatusesAsync(
-            long[] accountIds,
-            string migrationType)
-        {
-            var request = new GetAccountMigrationStatusesRequest
-            {
-                AccountIds = accountIds,
-                MigrationType = migrationType
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetAccountMigrationStatusesAsync(r), request)).MigrationStatuses;
-        }
-
-        /// <summary>
-        /// Gets the list of pilot features that the customer is able to use.
-        /// </summary>
-        /// <param name="customerId"></param>
-        /// <returns></returns>
-        private async Task<IList<int>> GetCustomerPilotFeaturesAsync(long customerId)
-        {
-            var request = new GetCustomerPilotFeaturesRequest
-            {
-                CustomerId = customerId
-            };
-
-            return (await CustomerService.CallAsync((s, r) => s.GetCustomerPilotFeaturesAsync(r), request)).FeaturePilotFlags.ToArray();
-        }
+        
+        
+        
+        
 
         // Gets an example SiteLinksAdExtension object. You can use this type of ad extension if your account
         // has not yet been migrated to Sitelink2AdExtension.
@@ -827,7 +679,7 @@ namespace BingAdsExamplesLibrary.V10
                             },
                         },
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V10.CampaignManagement.Date {
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
                             Month = 12,
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1

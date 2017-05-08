@@ -8,10 +8,10 @@ using System.Net;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to download the comma separated value (CSV) file that contains geographical location information 
@@ -19,8 +19,6 @@ namespace BingAdsExamplesLibrary.V10
     /// </summary>
     public class GeographicalLocations : ExampleBase
     {
-        public static ServiceClient<ICampaignManagementService> CampaignService;
-
         // The full path to the geographical locations file.
 
         private const string LocalFile = @"c:\geolocations\geolocations.csv";
@@ -37,7 +35,7 @@ namespace BingAdsExamplesLibrary.V10
 
         public override string Description
         {
-            get { return "Geographical Locations | Campaign Management V10"; }
+            get { return "Geographical Locations | Campaign Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -56,7 +54,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 // Going forward you should track the date and time of the previous download,  
                 // and compare it with the last modified time provided by the service.
-                var previousSyncTimeUtc = new DateTime(2016, 11, 29, 0, 0, 0, DateTimeKind.Utc);
+                var previousSyncTimeUtc = new DateTime(2017, 5, 1, 0, 0, 0, DateTimeKind.Utc);
 
                 var fileUrl = getGeoLocationsFileUrlResponse.FileUrl;
                 var fileUrlExpiryTimeUtc = getGeoLocationsFileUrlResponse.FileUrlExpiryTimeUtc;
@@ -79,16 +77,16 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -103,22 +101,7 @@ namespace BingAdsExamplesLibrary.V10
                 if (responseStream != null) responseStream.Close();
             }
         }
-
-        /// <summary>
-        /// Gets the file URL that you can use to download geographical location targeting codes.
-        /// </summary>
-        private async Task<GetGeoLocationsFileUrlResponse> GetGeoLocationsFileUrlAsync(string version, string languageLocale)
-        {
-            var request = new GetGeoLocationsFileUrlRequest
-            {
-                Version = version,
-                LanguageLocale = languageLocale
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetGeoLocationsFileUrlAsync(r), request));
-        }
-
-
+                
         private void DownloadFile(string fileUrl, string localFile)
         {
             Stream responseStream = null;

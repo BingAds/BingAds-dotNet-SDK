@@ -4,13 +4,13 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V10.Bulk;
-using Microsoft.BingAds.V10.Bulk.Entities;
-using Microsoft.BingAds.V10.CampaignManagement;
+using Microsoft.BingAds.V11.Bulk;
+using Microsoft.BingAds.V11.Bulk.Entities;
+using Microsoft.BingAds.V11.CampaignManagement;
 using System.Threading;
 using System.Collections.Generic;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates multiple ways to download entities such as keywords, 
@@ -20,15 +20,15 @@ namespace BingAdsExamplesLibrary.V10
     {
         public override string Description
         {
-            get { return "Bulk Service Manager Upload and Download Demo | Bulk V10"; }
+            get { return "Bulk Service Manager Upload and Download Demo | Bulk V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                BulkService = new BulkServiceManager(authorizationData);
-                BulkService.StatusPollIntervalInMilliseconds = 5000;
+                BulkServiceManager = new BulkServiceManager(authorizationData);
+                BulkServiceManager.StatusPollIntervalInMilliseconds = 5000;
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
@@ -59,9 +59,11 @@ namespace BingAdsExamplesLibrary.V10
                 #region Download
 
                 // In this example we will download all campaigns, ad groups, and ads in the account.
-                var entities = BulkDownloadEntity.Campaigns |
-                    BulkDownloadEntity.AdGroups | 
-                    BulkDownloadEntity.Ads;
+                var entities = new[] {
+                    DownloadEntity.Campaigns,
+                    DownloadEntity.AdGroups,
+                    DownloadEntity.Ads
+                };
 
                 // DownloadParameters is used for Option A below.
                 var downloadParameters = new DownloadParameters
@@ -69,7 +71,7 @@ namespace BingAdsExamplesLibrary.V10
                     CampaignIds = null,
                     DataScope = DataScope.EntityData | DataScope.EntityPerformanceData,
                     PerformanceStatsDateRange = new PerformanceStatsDateRange { PredefinedTime = ReportTimePeriod.LastFourWeeks },
-                    Entities = entities,
+                    DownloadEntities = entities,
                     FileType = FileType,
                     LastSyncTimeInUTC = null,
                     ResultFileDirectory = FileDirectory,
@@ -83,7 +85,7 @@ namespace BingAdsExamplesLibrary.V10
                     CampaignIds = null,
                     DataScope = DataScope.EntityData | DataScope.EntityPerformanceData,
                     PerformanceStatsDateRange = new PerformanceStatsDateRange { PredefinedTime = ReportTimePeriod.LastFourWeeks },
-                    Entities = entities,
+                    DownloadEntities = entities,
                     FileType = FileType,
                     LastSyncTimeInUTC = null
                 };
@@ -133,11 +135,11 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Bulk service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(String.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.Bulk.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.Bulk.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(String.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(String.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -174,7 +176,7 @@ namespace BingAdsExamplesLibrary.V10
             // using a cloud service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
             // You can specify a different working directory for each BulkServiceManager instance.
 
-            BulkService.WorkingDirectory = FileDirectory;
+            BulkServiceManager.WorkingDirectory = FileDirectory;
                         
             var entityUploadParameters = new EntityUploadParameters
             {
@@ -188,12 +190,12 @@ namespace BingAdsExamplesLibrary.V10
             // The UploadEntitiesAsync method returns IEnumerable<BulkEntity>, so the result file will not
             // be accessible e.g. for CleanupTempFiles until you iterate over the result e.g. via ToList().
 
-            var resultEntities = (await BulkService.UploadEntitiesAsync(entityUploadParameters)).ToList();
+            var resultEntities = (await BulkServiceManager.UploadEntitiesAsync(entityUploadParameters)).ToList();
 
             // The CleanupTempFiles method removes all files (not sub-directories) within the working directory, 
             // whether or not the files were created by this BulkServiceManager instance. 
 
-            BulkService.CleanupTempFiles();
+            BulkServiceManager.CleanupTempFiles();
 
             return resultEntities;
         }
@@ -211,17 +213,17 @@ namespace BingAdsExamplesLibrary.V10
             // using a cloud service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
             // You can specify a different working directory for each BulkServiceManager instance.
 
-            BulkService.WorkingDirectory = FileDirectory;
+            BulkServiceManager.WorkingDirectory = FileDirectory;
 
             // The DownloadEntitiesAsync method returns IEnumerable<BulkEntity>, so the download file will not
             // be accessible e.g. for CleanupTempFiles until you iterate over the result e.g. via ToList().
 
-            var resultEntities = (await BulkService.DownloadEntitiesAsync(downloadParameters)).ToList();
+            var resultEntities = (await BulkServiceManager.DownloadEntitiesAsync(downloadParameters)).ToList();
 
             // The CleanupTempFiles method removes all files (not sub-directories) within the working directory, 
             // whether or not the files were created by this BulkServiceManager instance. 
 
-            BulkService.CleanupTempFiles();
+            BulkServiceManager.CleanupTempFiles();
 
             return resultEntities;
         }
@@ -242,7 +244,7 @@ namespace BingAdsExamplesLibrary.V10
             var tokenSource = new CancellationTokenSource();
             tokenSource.CancelAfter(TimeoutInMilliseconds);
 
-            var resultFilePath = await BulkService.DownloadFileAsync(downloadParameters, progress, tokenSource.Token);
+            var resultFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters, progress, tokenSource.Token);
             OutputStatusMessage(string.Format("Download result file: {0}\n", resultFilePath));
         }
 
@@ -255,7 +257,7 @@ namespace BingAdsExamplesLibrary.V10
         /// <returns></returns>
         private async Task SubmitAndDownloadAsync(SubmitDownloadParameters submitDownloadParameters)
         {
-            var bulkDownloadOperation = await BulkService.SubmitDownloadAsync(submitDownloadParameters);
+            var bulkDownloadOperation = await BulkServiceManager.SubmitDownloadAsync(submitDownloadParameters);
 
             // You may optionally cancel the TrackAsync operation after a specified time interval. 
             var tokenSource = new CancellationTokenSource();

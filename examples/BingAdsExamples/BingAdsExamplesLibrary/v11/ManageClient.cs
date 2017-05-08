@@ -4,11 +4,11 @@ using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.CustomerManagement;
+using Microsoft.BingAds.V11.CustomerManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamplesLibrary.V9
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example demonstrates how to use agency credentials to invite a client, 
@@ -18,13 +18,11 @@ namespace BingAdsExamplesLibrary.V9
     /// </summary>
     public class ManageClient : ExampleBase
     {
-        public static ServiceClient<ICustomerManagementService> Service;
-
         private const int ClientAccountId = 0; //<ClientAccountIdGoesHere>;
         
         public override string Description
         {
-            get { return "Manage Client | Customer Management V9"; }
+            get { return "Manage Client | Customer Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -40,7 +38,7 @@ namespace BingAdsExamplesLibrary.V9
                 OutputStatusMessage("Login as a client Super Admin user to accept a client link invitation.\n");
 
 
-                Service = new ServiceClient<ICustomerManagementService>(authorizationData);
+                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
 
                 UpdateClientLinksResponse updateClientLinksResponse = null;
 
@@ -67,10 +65,10 @@ namespace BingAdsExamplesLibrary.V9
 
                 // Search for client links that match the specified criteria.
 
-                var clientLinks = await SearchClientLinksAsync(
+                var clientLinks = (await SearchClientLinksAsync(
                     new[] { ordering },
                     pageInfo,
-                    new[] { predicate });
+                    new[] { predicate }))?.ClientLinks;
 
                 // Determine whether the agency is already managing the specified client account. 
                 // If a link exists with status either Active, LinkInProgress, LinkPending, 
@@ -136,7 +134,11 @@ namespace BingAdsExamplesLibrary.V9
                             break;
                     }
 
+
                     // Print errors if any occurred when updating the client link.
+                    OutputCustomerNestedPartialErrors(updateClientLinksResponse?.PartialErrors);
+                    OutputCustomerPartialErrors(updateClientLinksResponse?.OperationErrors);
+
                     if (updateClientLinksResponse != null)
                     {
                         PrintPartialErrors(updateClientLinksResponse.OperationErrors,
@@ -171,12 +173,12 @@ namespace BingAdsExamplesLibrary.V9
 
                 // Get and print the current client link
 
-                clientLinks = await SearchClientLinksAsync(
+                clientLinks = (await SearchClientLinksAsync(
                         new[] { ordering },
                         pageInfo,
-                        new[] { predicate });
+                        new[] { predicate }))?.ClientLinks;
 
-                PrintClientLinks(clientLinks);
+                OutputClientLinks(clientLinks);
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -184,11 +186,11 @@ namespace BingAdsExamplesLibrary.V9
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
@@ -197,77 +199,10 @@ namespace BingAdsExamplesLibrary.V9
                 OutputStatusMessage(ex.Message);
             }
         }
+        
+        
 
-        // Searches client links for the customer of the current authenticated user,
-        // filtered by the search criteria.
-
-        private async Task<IList<ClientLink>> SearchClientLinksAsync(
-           IList<OrderBy> ordering,
-           Paging pageInfo,
-           IList<Predicate> predicates)
-        {
-            var request = new SearchClientLinksRequest
-            {
-                Ordering = ordering,
-                PageInfo = pageInfo,
-                Predicates = predicates
-            };
-
-            return (await Service.CallAsync((s, r) => s.SearchClientLinksAsync(r), request)).ClientLinks;
-        }
-
-        // Initiates the client link process to manage the account of another customer. 
-        // Sends an invitation from an agency to a potential client.
-
-        private async Task<AddClientLinksResponse> AddClientLinksAsync(IList<ClientLink> clientLinks)
-        {
-            var request = new AddClientLinksRequest
-            {
-                ClientLinks = clientLinks
-            };
-
-            return (await Service.CallAsync((s, r) => s.AddClientLinksAsync(r), request));
-        }
-
-        // Using agency credentials, updates the status of the specified client links.
-
-        private async Task<UpdateClientLinksResponse> UpdateClientLinksAsync(IList<ClientLink> clientLinks)
-        {
-            var request = new UpdateClientLinksRequest
-            {
-                ClientLinks = clientLinks
-            };
-
-            return (await Service.CallAsync((s, r) => s.UpdateClientLinksAsync(r), request));
-        }
-
-        // Prints a list of client links.
-
-        private void PrintClientLinks(IEnumerable<ClientLink> clientLinks)
-        {
-            if (clientLinks == null)
-            {
-                return;
-            }
-
-            foreach (ClientLink clientLink in clientLinks)
-            {
-                OutputStatusMessage(string.Format("Status: {0}", clientLink.Status));
-                OutputStatusMessage(string.Format("ClientAccountId: {0}", clientLink.ClientAccountId));
-                OutputStatusMessage(string.Format("ClientAccountNumber: {0}", clientLink.ClientAccountNumber));
-                OutputStatusMessage(string.Format("ManagingAgencyCustomerId: {0}", clientLink.ManagingCustomerId));
-                OutputStatusMessage(string.Format("ManagingCustomerNumber: {0}", clientLink.ManagingCustomerNumber));
-                OutputStatusMessage(string.Format(clientLink.IsBillToClient ? "IsBillToClient: True" : "IsBillToClient: False"));
-                OutputStatusMessage(string.Format("InviterEmail: {0}", clientLink.InviterEmail));
-                OutputStatusMessage(string.Format("InviterName: {0}", clientLink.InviterName));
-                OutputStatusMessage(string.Format("InviterPhone: {0}", clientLink.InviterPhone));
-                OutputStatusMessage(string.Format("LastModifiedByUserId: {0}", clientLink.LastModifiedByUserId));
-                OutputStatusMessage(string.Format("LastModifiedDateTime: {0}", clientLink.LastModifiedDateTime));
-                OutputStatusMessage(string.Format("Name: {0}", clientLink.Name));
-                OutputStatusMessage(string.Format("Note: {0}", clientLink.Note));
-                OutputStatusMessage("");
-            }
-        }
+        
 
         // Print errors if any occurred when adding or updating the client link.
 

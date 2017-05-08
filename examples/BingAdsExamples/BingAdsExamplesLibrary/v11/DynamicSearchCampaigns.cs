@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V10.CampaignManagement;
-using Microsoft.BingAds.V10.AdInsight;
+using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V11.AdInsight;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V10
+namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
     /// This example uses the Bing Ads Campaign Management service to setup a Dynamic Search Ads (DSA) campaign.
     /// </summary>
     public class DynamicSearchCampaigns : ExampleBase
     {
-        public static ServiceClient<IAdInsightService> AdInsightService;
-        public static ServiceClient<ICampaignManagementService> CampaignService;
-
         public const string DOMAIN_NAME = "contoso.com";
         public const string LANGUAGE = "EN";
         
         public override string Description
         {
-            get { return "Dynamic Search Ads (DSA) Campaigns | Campaign Management V10"; }
+            get { return "Dynamic Search Ads (DSA) Campaigns | Campaign Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -55,7 +52,7 @@ namespace BingAdsExamplesLibrary.V10
                         // You can set one or the other, but you may not set both.
                         BudgetId = null,
                         DailyBudget = 50,
-                        BudgetType = Microsoft.BingAds.V10.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
+                        BudgetType = Microsoft.BingAds.V11.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
                         
                         // You can set your campaign bid strategy to Enhanced CPC (EnhancedCpcBiddingScheme) 
                         // and then, at any time, set an individual ad group bid strategy to 
@@ -63,7 +60,6 @@ namespace BingAdsExamplesLibrary.V10
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
 
                         TimeZone = "PacificTimeUSCanadaTijuana",
-                        DaylightSaving = true,
                                                 
                         // Used with CustomParameters defined in lower level entities such as ads.
                         TrackingUrlTemplate =
@@ -73,9 +69,10 @@ namespace BingAdsExamplesLibrary.V10
 
                 AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
-                Microsoft.BingAds.V10.CampaignManagement.BatchError[] campaignErrors = 
+                Microsoft.BingAds.V11.CampaignManagement.BatchError[] campaignErrors = 
                     addCampaignsResponse.PartialErrors.ToArray();
-                OutputCampaignsWithPartialErrors(campaigns, campaignIds, campaignErrors);
+                OutputIds(campaignIds);
+                OutputPartialErrors(campaignErrors);
 
                 // Next, create a new AdGroup within the dynamic search ads campaign. 
 
@@ -84,7 +81,6 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         Name = "Women's Red Shoe Sale",
                         AdDistribution = AdDistribution.Search,
-                        BiddingModel = BiddingModel.Keyword,
                         PricingModel = PricingModel.Cpc,
                         StartDate = null,
                         EndDate = new Date {
@@ -103,9 +99,10 @@ namespace BingAdsExamplesLibrary.V10
 
                 AddAdGroupsResponse addAdGroupsResponse = await AddAdGroupsAsync((long)campaignIds[0], adGroups);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
-                Microsoft.BingAds.V10.CampaignManagement.BatchError[] adGroupErrors = 
+                Microsoft.BingAds.V11.CampaignManagement.BatchError[] adGroupErrors = 
                     addAdGroupsResponse.PartialErrors.ToArray();
-                OutputAdGroupsWithPartialErrors(adGroups, adGroupIds, adGroupErrors);
+                OutputIds(adGroupIds);
+                OutputPartialErrors(adGroupErrors);
 
                 // You can add one or more Webpage criterion to each ad group that helps determine 
                 // whether or not to serve dynamic search ads.
@@ -117,10 +114,7 @@ namespace BingAdsExamplesLibrary.V10
                     AdGroupId = (long)adGroupIds[0],
                     CriterionBid = new FixedBid
                     {
-                        Bid = new Bid
-                        {
-                            Amount = 0.50
-                        }
+                        Amount = 0.50
                     },
                     Criterion = new Webpage
                     {
@@ -181,10 +175,7 @@ namespace BingAdsExamplesLibrary.V10
                         AdGroupId = (long)adGroupIds[0],
                         CriterionBid = new FixedBid
                         {
-                            Bid = new Bid
-                            {
-                                Amount = 0.50
-                            }
+                            Amount = 0.50
                         },
                         Criterion = new Webpage
                         {
@@ -235,7 +226,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage("Adding Ad Group Webpage Criterion . . . \n");
                 OutputAdGroupCriterions(adGroupCriterions);
                 AddAdGroupCriterionsResponse addAdGroupCriterionsResponse =
-                    await AddAdGroupCriterionsAsync(adGroupCriterions, CriterionType.Webpage);
+                    await AddAdGroupCriterionsAsync(adGroupCriterions, AdGroupCriterionType.Webpage);
                 long?[] adGroupCriterionIds = addAdGroupCriterionsResponse.AdGroupCriterionIds.ToArray();
                 OutputStatusMessage("New Ad Group Criterion Ids:\n");
                 OutputIds(adGroupCriterionIds);
@@ -323,9 +314,10 @@ namespace BingAdsExamplesLibrary.V10
 
                 AddAdsResponse addAdsResponse = await AddAdsAsync((long)adGroupIds[0], ads);
                 long?[] adIds = addAdsResponse.AdIds.ToArray();
-                Microsoft.BingAds.V10.CampaignManagement.BatchError[] adErrors = 
+                Microsoft.BingAds.V11.CampaignManagement.BatchError[] adErrors = 
                     addAdsResponse.PartialErrors.ToArray();
-                OutputAdsWithPartialErrors(ads, adIds, adErrors);
+                OutputIds(adIds);
+                OutputPartialErrors(adErrors);
 
                 // Retrieve the Webpage criterion for the campaign.
                 var getCampaignCriterionsByIdsResponse = await GetCampaignCriterionsByIdsAsync(
@@ -342,7 +334,7 @@ namespace BingAdsExamplesLibrary.V10
                 var getAdGroupCriterionsByIdsResponse = await GetAdGroupCriterionsByIdsAsync(
                     (long)adGroupIds[0],
                     null,
-                    CriterionType.Webpage
+                    AdGroupCriterionType.Webpage
                 );
 
                 OutputStatusMessage("Retrieving the Ad Group Webpage Criterions that we added . . . \n");
@@ -353,10 +345,7 @@ namespace BingAdsExamplesLibrary.V10
 
                 var updateBid = new FixedBid
                 {
-                    Bid = new Bid
-                    {
-                        Amount = 0.75
-                    }
+                    Amount = 0.75
                 };
 
                 // You can update the Webpage criterion name but cannot update the conditions. 
@@ -408,7 +397,7 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage("Updating Ad Group Webpage Criterion . . . \n");
                 OutputAdGroupCriterions(adGroupCriterions);
                 UpdateAdGroupCriterionsResponse updateAdGroupCriterionsResponse =
-                    await UpdateAdGroupCriterionsAsync(adGroupCriterions, CriterionType.Webpage);
+                    await UpdateAdGroupCriterionsAsync(adGroupCriterions, AdGroupCriterionType.Webpage);
                 adGroupCriterionErrors =
                     updateAdGroupCriterionsResponse.NestedPartialErrors.ToArray();
                 OutputStatusMessage("UpdateAdGroupCriterions Errors:\n");
@@ -428,16 +417,16 @@ namespace BingAdsExamplesLibrary.V10
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V10.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -446,250 +435,6 @@ namespace BingAdsExamplesLibrary.V10
             {
                 OutputStatusMessage(ex.Message);
             }
-        }
-
-        // Adds one or more campaign criterion.
-
-        private async Task<AddCampaignCriterionsResponse> AddCampaignCriterionsAsync(
-            IList<CampaignCriterion> campaignCriterions,
-            CampaignCriterionType criterionType)
-        {
-            var request = new AddCampaignCriterionsRequest
-            {
-                CampaignCriterions = campaignCriterions,
-                CriterionType = criterionType
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddCampaignCriterionsAsync(r), request));
-        }
-
-        // Gets one or more campaign criterion.
-
-        private async Task<GetCampaignCriterionsByIdsResponse> GetCampaignCriterionsByIdsAsync(
-            long campaignId,
-            IList<long> campaignCriterionIds,
-            CampaignCriterionType criterionType)
-        {
-            var request = new GetCampaignCriterionsByIdsRequest
-            {
-                CampaignId = campaignId,
-                CriterionType = criterionType,
-                CampaignCriterionIds = campaignCriterionIds
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetCampaignCriterionsByIdsAsync(r), request));
-        }
-
-        // Adds one or more ad group criterion.
-
-        private async Task<AddAdGroupCriterionsResponse> AddAdGroupCriterionsAsync(
-            IList<AdGroupCriterion> adGroupCriterions,
-            CriterionType criterionType)
-        {
-            var request = new AddAdGroupCriterionsRequest
-            {
-                AdGroupCriterions = adGroupCriterions,
-                CriterionType = criterionType
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddAdGroupCriterionsAsync(r), request));
-        }
-
-        // Gets one or more ad group criterion.
-
-        private async Task<GetAdGroupCriterionsByIdsResponse> GetAdGroupCriterionsByIdsAsync(
-            long adGroupId,
-            IList<long> adGroupCriterionIds,
-            CriterionType criterionType)
-        {
-            var request = new GetAdGroupCriterionsByIdsRequest
-            {
-                AdGroupId = adGroupId,
-                CriterionType = criterionType,
-                AdGroupCriterionIds = adGroupCriterionIds
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetAdGroupCriterionsByIdsAsync(r), request));
-        }
-
-        // Updates one or more ad group criterion.
-
-        private async Task<UpdateAdGroupCriterionsResponse> UpdateAdGroupCriterionsAsync(
-            IList<AdGroupCriterion> adGroupCriterions,
-            CriterionType criterionType)
-        {
-            var request = new UpdateAdGroupCriterionsRequest
-            {
-                AdGroupCriterions = adGroupCriterions,
-                CriterionType = criterionType
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.UpdateAdGroupCriterionsAsync(r), request));
-        }
-
-        // Adds one or more campaigns to the specified account.
-
-        private async Task<AddCampaignsResponse> AddCampaignsAsync(long accountId, IList<Campaign> campaigns)
-        {
-            var request = new AddCampaignsRequest
-            {
-                AccountId = accountId,
-                Campaigns = campaigns
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
-        }
-
-        // Updates one or more campaigns.
-
-        private async Task UpdateCampaignsAsync(long accountId, IList<Campaign> campaigns)
-        {
-            var request = new UpdateCampaignsRequest
-            {
-                AccountId = accountId,
-                Campaigns = campaigns
-            };
-
-            await CampaignService.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request);
-        }
-
-        // Deletes one or more campaigns from the specified account.
-
-        private async Task DeleteCampaignsAsync(long accountId, IList<long> campaignIds)
-        {
-            var request = new DeleteCampaignsRequest
-            {
-                AccountId = accountId,
-                CampaignIds = campaignIds
-            };
-
-            await CampaignService.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request);
-        }
-
-        // Gets one or more campaigns for the specified campaign identifiers.
-
-        private async Task<GetCampaignsByIdsResponse> GetCampaignsByIdsAsync(
-            long accountId,
-            IList<long> campaignIds,
-            CampaignType campaignType,
-            CampaignAdditionalField returnAdditionalFields)
-        {
-            var request = new GetCampaignsByIdsRequest
-            {
-                AccountId = accountId,
-                CampaignIds = campaignIds,
-                CampaignType = campaignType,
-                ReturnAdditionalFields = returnAdditionalFields
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request));
-        }
-
-        // Retrieves all the requested campaign types in the account.
-
-        private async Task<GetCampaignsByAccountIdResponse> GetCampaignsByAccountIdAsync(
-            long accountId,
-            CampaignType campaignType,
-            CampaignAdditionalField returnAdditionalFields)
-        {
-            var request = new GetCampaignsByAccountIdRequest
-            {
-                AccountId = accountId,
-                CampaignType = campaignType,
-                ReturnAdditionalFields = returnAdditionalFields
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetCampaignsByAccountIdAsync(r), request));
-        }
-
-        // Adds one or more ad groups to the specified campaign.
-
-        private async Task<AddAdGroupsResponse> AddAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
-        {
-            var request = new AddAdGroupsRequest
-            {
-                CampaignId = campaignId,
-                AdGroups = adGroups
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
-        }
-
-        // Updates one or more ad groups.
-
-        private async Task UpdateAdGroupsAsync(long campaignId, IList<AdGroup> adGroups)
-        {
-            var request = new UpdateAdGroupsRequest
-            {
-                CampaignId = campaignId,
-                AdGroups = adGroups
-            };
-
-            await CampaignService.CallAsync((s, r) => s.UpdateAdGroupsAsync(r), request);
-        }
-                
-        // Adds one or more ads to the specified ad group.
-
-        private async Task<AddAdsResponse> AddAdsAsync(long adGroupId, IList<Ad> ads)
-        {
-            var request = new AddAdsRequest
-            {
-                AdGroupId = adGroupId,
-                Ads = ads
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.AddAdsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Updates the ads.
-        /// </summary>
-        /// <param name="adGroupId">The identifier of the ad group that contains the ads.</param>
-        /// <param name="ads">The ads that you want to update.</param>
-        /// <returns></returns>
-        private async Task<UpdateAdsResponse> UpdateAdsAsync(long adGroupId, IList<Ad> ads)
-        {
-            var request = new UpdateAdsRequest
-            {
-                AdGroupId = adGroupId,
-                Ads = ads
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.UpdateAdsAsync(r), request));
-        }
-
-        /// <summary>
-        /// Gets the ads in the specified ad group.
-        /// </summary>
-        /// <param name="adGroupId">The identifier of the ad group that contains the ads.</param>
-        /// <returns></returns>
-        private async Task<GetAdsByAdGroupIdResponse> GetAdsByAdGroupIdAsync(long adGroupId)
-        {
-            var request = new GetAdsByAdGroupIdRequest
-            {
-                AdGroupId = adGroupId,
-            };
-
-            return (await CampaignService.CallAsync((s, r) => s.GetAdsByAdGroupIdAsync(r), request));
-        }
-
-        /// <summary>
-        /// Gets the categories that you can use for Webpage criterion.
-        /// </summary>
-        /// <param name="domainName">The website name corresponding to the pages you want your ads to target.</param>
-        /// <param name="language">The language of the website domain.</param>
-        /// <returns></returns>
-        private async Task<GetDomainCategoriesResponse> GetDomainCategoriesAsync(
-            string domainName,
-            string language)
-        {
-            var request = new GetDomainCategoriesRequest
-            {
-                DomainName = domainName,
-                Language = language
-            };
-
-            return (await AdInsightService.CallAsync((s, r) => s.GetDomainCategoriesAsync(r), request));
-        }
+        }        
     }
 }

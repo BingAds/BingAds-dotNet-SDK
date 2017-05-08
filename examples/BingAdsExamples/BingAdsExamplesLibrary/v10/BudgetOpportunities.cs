@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -127,20 +127,20 @@ namespace BingAdsExamplesLibrary.V10
                     {
                         OutputBudgetPoint(budgetPoint);
                     }
-                    OutputStatusMessage(String.Format("BudgetType: {0}", budgetOpportunity.BudgetType));
-                    OutputStatusMessage(String.Format("CampaignId: {0}", budgetOpportunity.CampaignId));
-                    OutputStatusMessage(String.Format("CurrentBudget: {0}", budgetOpportunity.CurrentBudget));
-                    OutputStatusMessage(String.Format("IncreaseInClicks: {0}", budgetOpportunity.IncreaseInClicks));
-                    OutputStatusMessage(String.Format("IncreaseInImpressions: {0}", budgetOpportunity.IncreaseInImpressions));
-                    OutputStatusMessage(String.Format("OpportunityKey: {0}", budgetOpportunity.OpportunityKey));
-                    OutputStatusMessage(String.Format("PercentageIncreaseInClicks: {0}", budgetOpportunity.PercentageIncreaseInClicks));
-                    OutputStatusMessage(String.Format("PercentageIncreaseInImpressions: {0}", budgetOpportunity.PercentageIncreaseInImpressions));
-                    OutputStatusMessage(String.Format("RecommendedBudget: {0}", budgetOpportunity.RecommendedBudget));
+                    OutputStatusMessage(string.Format("BudgetType: {0}", budgetOpportunity.BudgetType));
+                    OutputStatusMessage(string.Format("CampaignId: {0}", budgetOpportunity.CampaignId));
+                    OutputStatusMessage(string.Format("CurrentBudget: {0}", budgetOpportunity.CurrentBudget));
+                    OutputStatusMessage(string.Format("IncreaseInClicks: {0}", budgetOpportunity.IncreaseInClicks));
+                    OutputStatusMessage(string.Format("IncreaseInImpressions: {0}", budgetOpportunity.IncreaseInImpressions));
+                    OutputStatusMessage(string.Format("OpportunityKey: {0}", budgetOpportunity.OpportunityKey));
+                    OutputStatusMessage(string.Format("PercentageIncreaseInClicks: {0}", budgetOpportunity.PercentageIncreaseInClicks));
+                    OutputStatusMessage(string.Format("PercentageIncreaseInImpressions: {0}", budgetOpportunity.PercentageIncreaseInImpressions));
+                    OutputStatusMessage(string.Format("RecommendedBudget: {0}", budgetOpportunity.RecommendedBudget));
                 }
             }
             else
             {
-                OutputStatusMessage(String.Format("There are no budget opportunities for CampaignId: {0}", campaignId));
+                OutputStatusMessage(string.Format("There are no budget opportunities for CampaignId: {0}", campaignId));
             }
         }
 
@@ -152,11 +152,11 @@ namespace BingAdsExamplesLibrary.V10
         {
             if (budgetPoint != null)
             {
-                OutputStatusMessage(String.Format("BudgetAmount: {0}", budgetPoint.BudgetAmount));
-                OutputStatusMessage(String.Format("BudgetPointType: {0}", budgetPoint.BudgetPointType));
-                OutputStatusMessage(String.Format("EstimatedWeeklyClicks: {0}", budgetPoint.EstimatedWeeklyClicks));
-                OutputStatusMessage(String.Format("EstimatedWeeklyCost: {0}", budgetPoint.EstimatedWeeklyCost));
-                OutputStatusMessage(String.Format("EstimatedWeeklyImpressions: {0}", budgetPoint.EstimatedWeeklyImpressions));
+                OutputStatusMessage(string.Format("BudgetAmount: {0}", budgetPoint.BudgetAmount));
+                OutputStatusMessage(string.Format("BudgetPointType: {0}", budgetPoint.BudgetPointType));
+                OutputStatusMessage(string.Format("EstimatedWeeklyClicks: {0}", budgetPoint.EstimatedWeeklyClicks));
+                OutputStatusMessage(string.Format("EstimatedWeeklyCost: {0}", budgetPoint.EstimatedWeeklyCost));
+                OutputStatusMessage(string.Format("EstimatedWeeklyImpressions: {0}", budgetPoint.EstimatedWeeklyImpressions));
             }
         }
     }
