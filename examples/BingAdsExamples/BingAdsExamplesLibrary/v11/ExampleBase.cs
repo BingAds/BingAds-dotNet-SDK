@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.V11.AdInsight;
 using Microsoft.BingAds.V11.CampaignManagement;
 using BatchError = Microsoft.BingAds.V11.CampaignManagement.BatchError;
+using Criterion = Microsoft.BingAds.V11.CampaignManagement.Criterion;
+using Keyword = Microsoft.BingAds.V11.CampaignManagement.Keyword;
+using NegativeKeyword = Microsoft.BingAds.V11.CampaignManagement.NegativeKeyword;
 using Microsoft.BingAds.V11.CustomerManagement;
 using Microsoft.BingAds;
 
@@ -42,6 +45,22 @@ namespace BingAdsExamplesLibrary.V11
             AdType.Product,
             AdType.Text
         };
+
+        protected static CampaignCriterionType AllTargetCampaignCriterionTypes = CampaignCriterionType.Age |
+                                    CampaignCriterionType.DayTime |
+                                    CampaignCriterionType.Device |
+                                    CampaignCriterionType.Gender |
+                                    CampaignCriterionType.Location |
+                                    CampaignCriterionType.LocationIntent |
+                                    CampaignCriterionType.Radius;
+
+        protected static AdGroupCriterionType AllTargetAdGroupCriterionTypes = AdGroupCriterionType.Age |
+                                    AdGroupCriterionType.DayTime |
+                                    AdGroupCriterionType.Device |
+                                    AdGroupCriterionType.Gender |
+                                    AdGroupCriterionType.Location |
+                                    AdGroupCriterionType.LocationIntent |
+                                    AdGroupCriterionType.Radius;
 
         /// <summary>
         /// Initializes a new instance of the ExampleBase class, and sets the default output status message.
@@ -469,35 +488,39 @@ namespace BingAdsExamplesLibrary.V11
             if (criterion != null)
             {
                 OutputStatusMessage(string.Format("Criterion Type: {0}", criterion.Type));
+
                 var productPartition = criterion as ProductPartition;
-                if (productPartition != null)
-                {
-                    OutputProductPartition(productPartition);
-                }
-                else
-                {
-                    var productScope = criterion as ProductScope;
-                    if (productScope != null)
-                    {
-                        OutputProductScope(productScope);
-                    }
-                    else
-                    {
-                        var webpage = criterion as Webpage;
-                        if (webpage != null)
-                        {
-                            OutputWebpage(webpage);
-                        }
-                        else
-                        {
-                            var audienceCriterion = criterion as AudienceCriterion;
-                            if (audienceCriterion != null)
-                            {
-                                OutputAudienceCriterion(audienceCriterion);
-                            }
-                        }
-                    }
-                }
+                if (productPartition != null) OutputProductPartition((ProductPartition)criterion);
+
+                var productScope = criterion as ProductScope;
+                if (productScope != null) OutputProductScope((ProductScope)criterion);
+
+                var webpage = criterion as Webpage;
+                if (webpage != null) OutputWebpage((Webpage)criterion);
+
+                var audienceCriterion = criterion as AudienceCriterion;
+                if (audienceCriterion != null) OutputAudienceCriterion((AudienceCriterion)criterion);
+
+                var ageCriterion = criterion as AgeCriterion;
+                if (ageCriterion != null) OutputAgeCriterion((AgeCriterion)criterion);
+
+                var dayTimeCriterion = criterion as DayTimeCriterion;
+                if (dayTimeCriterion != null) OutputDayTimeCriterion((DayTimeCriterion)criterion);
+
+                var deviceCriterion = criterion as DeviceCriterion;
+                if (deviceCriterion != null) OutputDeviceCriterion((DeviceCriterion)criterion);
+
+                var genderCriterion = criterion as GenderCriterion;
+                if (genderCriterion != null) OutputGenderCriterion((GenderCriterion)criterion);
+
+                var locationCriterion = criterion as LocationCriterion;
+                if (locationCriterion != null) OutputLocationCriterion((LocationCriterion)criterion);
+
+                var locationIntentCriterion = criterion as LocationIntentCriterion;
+                if (locationIntentCriterion != null) OutputLocationIntentCriterion((LocationIntentCriterion)criterion);
+
+                var radiusCriterion = criterion as RadiusCriterion;
+                if (radiusCriterion != null) OutputRadiusCriterion((RadiusCriterion)criterion);
             }
         }
         
@@ -551,6 +574,94 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
+
+        /// <summary>
+        /// Outputs the AgeCriterion.
+        /// </summary>
+        protected void OutputAgeCriterion(AgeCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("AgeRange: {0}", criterion.AgeRange));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the DayTimeCriterion.
+        /// </summary>
+        protected void OutputDayTimeCriterion(DayTimeCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("Day: {0}", criterion.Day));
+                OutputStatusMessage(string.Format("FromHour: {0}", criterion.FromHour));
+                OutputStatusMessage(string.Format("FromMinute: {0}", criterion.FromMinute));
+                OutputStatusMessage(string.Format("ToHour: {0}", criterion.ToHour));
+                OutputStatusMessage(string.Format("ToMinute: {0}", criterion.ToMinute));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the DeviceCriterion.
+        /// </summary>
+        protected void OutputDeviceCriterion(DeviceCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("DeviceName: {0}", criterion.DeviceName));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the GenderCriterion.
+        /// </summary>
+        protected void OutputGenderCriterion(GenderCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("GenderType: {0}", criterion.GenderType));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the LocationCriterion.
+        /// </summary>
+        protected void OutputLocationCriterion(LocationCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("DisplayName: {0}", criterion.DisplayName));
+                OutputStatusMessage(string.Format("LocationId: {0}", criterion.LocationId));
+                OutputStatusMessage(string.Format("LocationType: {0}", criterion.LocationType));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the LocationIntentCriterion.
+        /// </summary>
+        protected void OutputLocationIntentCriterion(LocationIntentCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("IntentOption: {0}", criterion.IntentOption));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the RadiusCriterion.
+        /// </summary>
+        protected void OutputRadiusCriterion(RadiusCriterion criterion)
+        {
+            if (criterion != null)
+            {
+                OutputStatusMessage(string.Format("LatitudeDegrees: {0}", criterion.LatitudeDegrees));
+                OutputStatusMessage(string.Format("LongitudeDegrees: {0}", criterion.LongitudeDegrees));
+                OutputStatusMessage(string.Format("Name: {0}", criterion.Name));
+                OutputStatusMessage(string.Format("Radius: {0}", criterion.Radius));
+                OutputStatusMessage(string.Format("RadiusUnit: {0}", criterion.RadiusUnit));
+            }
+        }
+
 
         /// <summary>
         /// Outputs the CriterionBid.
@@ -762,10 +873,10 @@ namespace BingAdsExamplesLibrary.V11
                 }
                 else
                 {
-                    var campaignCriterion = criterion as CampaignCriterion;
-                    if (campaignCriterion != null)
+                    var biddableCampaignCriterion = criterion as BiddableCampaignCriterion;
+                    if (biddableCampaignCriterion != null)
                     {
-                        OutputCampaignCriterion(campaignCriterion);
+                        OutputBiddableCampaignCriterion(biddableCampaignCriterion);
                         OutputStatusMessage("\n");
                     }
                     else
@@ -2337,6 +2448,16 @@ namespace BingAdsExamplesLibrary.V11
                 (s, r) => s.GetAdExtensionsEditorialReasonsAsync(r), request));
         }
 
+        protected async Task<GetAdGroupsByCampaignIdResponse> GetAdGroupsByCampaignIdAsync(long campaignId)
+        {
+            var request = new GetAdGroupsByCampaignIdRequest
+            {
+                CampaignId = campaignId,
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.GetAdGroupsByCampaignIdAsync(r), request));
+        }
+
         protected async Task<GetAdsByAdGroupIdResponse> GetAdsByAdGroupIdAsync(
             long adGroupId,
             IList<AdType> adTypes)
@@ -2629,6 +2750,19 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return (await CampaignService.CallAsync((s, r) => s.UpdateBudgetsAsync(r), request));
+        }
+
+        protected async Task<UpdateCampaignCriterionsResponse> UpdateCampaignCriterionsAsync(
+            IList<CampaignCriterion> campaignCriterions,
+            CampaignCriterionType criterionType)
+        {
+            var request = new UpdateCampaignCriterionsRequest
+            {
+                CampaignCriterions = campaignCriterions,
+                CriterionType = criterionType
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.UpdateCampaignCriterionsAsync(r), request));
         }
 
         protected async Task<UpdateCampaignsResponse> UpdateCampaignsAsync(long accountId, IList<Campaign> campaigns)

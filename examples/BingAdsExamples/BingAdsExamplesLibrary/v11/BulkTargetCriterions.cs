@@ -36,7 +36,7 @@ namespace BingAdsExamplesLibrary.V11
         
         public override string Description
         {
-            get { return "Target Criterions | Bulk V11"; }
+            get { return "Target Criterions | Bulk V10 to V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)

@@ -38,6 +38,7 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V11.ShoppingCampaigns(),
             new BingAdsExamplesLibrary.V11.DynamicSearchCampaigns(),
             new BingAdsExamplesLibrary.V11.BulkTargetCriterions(),
+            new BingAdsExamplesLibrary.V11.TargetCriterions(),
             new BingAdsExamplesLibrary.V11.GeographicalLocations(),
             new BingAdsExamplesLibrary.V11.BulkNegativeSites(),
             new BingAdsExamplesLibrary.V11.SearchUserAccounts(),
