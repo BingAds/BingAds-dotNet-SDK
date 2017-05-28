@@ -94,6 +94,7 @@
     <Compile Include="v11\ReportRequests.cs" />
     <Compile Include="v11\SearchUserAccounts.cs" />
     <Compile Include="v11\ShoppingCampaigns.cs" />
+    <Compile Include="v11\TargetCriterions.cs" />
     <Compile Include="v9\CustomerSignup.cs" />
     <Compile Include="v9\ExampleBase.cs" />
     <Compile Include="v9\InviteUser.cs" />

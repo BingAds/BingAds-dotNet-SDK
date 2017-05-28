@@ -530,20 +530,7 @@ namespace BingAdsExamplesLibrary.V11
                     //    Year = DateTime.Now.Year
                     //    },
 
-                    CustomDateRangeStart = new Date
-                    {
-                        Month = 1,
-                        Day = 1,
-                        Year = 2016
-                    },
-                    CustomDateRangeEnd = new Date
-                    {
-                        Month = 1,
-                        Day = 3,
-                        Year = 2016
-                    },
-
-                    //PredefinedTime = ReportTimePeriod.Yesterday
+                    PredefinedTime = ReportTimePeriod.Yesterday
                 },
 
                 // If you specify a filter, results may differ from data you see in the Bing Ads web application
