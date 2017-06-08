@@ -5,6 +5,8 @@ using Microsoft.BingAds.V11.AdInsight;
 using Microsoft.BingAds.V11.CampaignManagement;
 using BatchError = Microsoft.BingAds.V11.CampaignManagement.BatchError;
 using Criterion = Microsoft.BingAds.V11.CampaignManagement.Criterion;
+using DeviceCriterion = Microsoft.BingAds.V11.CampaignManagement.DeviceCriterion;
+using LocationCriterion = Microsoft.BingAds.V11.CampaignManagement.LocationCriterion;
 using Keyword = Microsoft.BingAds.V11.CampaignManagement.Keyword;
 using NegativeKeyword = Microsoft.BingAds.V11.CampaignManagement.NegativeKeyword;
 using Microsoft.BingAds.V11.CustomerManagement;
