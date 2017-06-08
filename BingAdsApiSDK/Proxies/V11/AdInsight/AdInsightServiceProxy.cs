@@ -2780,7 +2780,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt219349(v=msads.110).aspx">MatchType Value Set</see> http://msdn.microsoft.com/en-us/library/mt219349(v=msads.110).aspx for details.
-    /// <para>Used by <see cref="EstimatedBidAndTraffic"/>, <see cref="EstimatedPositionAndTraffic"/>, <see cref="KeywordAndMatchType"/> and <see cref="KeywordKPI"/> data objects.</para>
+    /// <para>Used by <see cref="EstimatedBidAndTraffic"/>, <see cref="EstimatedPositionAndTraffic"/>, <see cref="Keyword"/>, <see cref="KeywordAndMatchType"/>, <see cref="KeywordKPI"/> and <see cref="NegativeKeyword"/> data objects.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> and <see cref="AdInsightServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6797,6 +6797,2365 @@ namespace Microsoft.BingAds.V11.AdInsight
         }
     }
     
+    /// <summary>
+    /// Defines an object that contains a keyword idea category.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784426(v=msads.110).aspx">KeywordIdeaCategory Data Object</see> http://msdn.microsoft.com/en-us/library/mt784426(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeaCategories">GetKeywordIdeaCategories</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordIdeaCategory", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class KeywordIdeaCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long CategoryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The Bing Ads identifier of the keyword idea category.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long CategoryId
+        {
+            get
+            {
+                return this.CategoryIdField;
+            }
+            set
+            {
+                if ((this.CategoryIdField.Equals(value) != true))
+                {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The name of the keyword idea category.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryName
+        {
+            get
+            {
+                return this.CategoryNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true))
+                {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Determines which properties of the KeywordIdea object you want returned when calling the GetKeywordIdeas operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784414(v=msads.110).aspx">KeywordIdeaAttribute Value Set</see> http://msdn.microsoft.com/en-us/library/mt784414(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordIdeaAttribute", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Common")]
+    public enum KeywordIdeaAttribute : int
+    {
+        
+        /// <summary>
+        /// Include the ad group identifier.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 0,
+        
+        /// <summary>
+        /// Include the ad group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 1,
+        
+        /// <summary>
+        /// Include the keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Keyword = 2,
+        
+        /// <summary>
+        /// Include the source.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Source = 3,
+        
+        /// <summary>
+        /// Include the monthly search counts.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MonthlySearchCounts = 4,
+        
+        /// <summary>
+        /// Include the suggested bid.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SuggestedBid = 5,
+        
+        /// <summary>
+        /// Include the competition.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Competition = 6,
+        
+        /// <summary>
+        /// Include the relevance.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Relevance = 7,
+        
+        /// <summary>
+        /// Include the ad impression share.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdImpressionShare = 8,
+    }
+    
+    /// <summary>
+    /// This is the base class from which keyword idea search parameter objects derive.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784423(v=msads.110).aspx">SearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784423(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.QuerySearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.UrlSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.CategorySearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.SearchVolumeSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.SuggestedBidSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.IdeaTextSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ExcludeAccountKeywordsSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ImpressionShareSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.LocationSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.NetworkSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.DeviceSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.LanguageSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.CompetitionSearchParameter))]
+    public partial class SearchParameter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The query search parameter that you can use as a seed for new keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784421(v=msads.110).aspx">QuerySearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784421(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QuerySearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class QuerySearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> QueriesField;
+        
+        /// <summary>
+        /// Up to 200 words or phrases that describe what you're advertising.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> Queries
+        {
+            get
+            {
+                return this.QueriesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.QueriesField, value) != true))
+                {
+                    this.QueriesField = value;
+                    this.RaisePropertyChanged("Queries");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The URL search parameter that you can use as a seed for new keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784420(v=msads.110).aspx">UrlSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784420(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UrlSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class UrlSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        /// <summary>
+        /// The URL of your website or a page on your website.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url
+        {
+            get
+            {
+                return this.UrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.UrlField, value) != true))
+                {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The keyword category search parameter that you can use as a seed for new keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784408(v=msads.110).aspx">CategorySearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784408(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CategorySearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class CategorySearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long CategoryIdField;
+        
+        /// <summary>
+        /// The Bing Ads identifier for the keyword category.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long CategoryId
+        {
+            get
+            {
+                return this.CategoryIdField;
+            }
+            set
+            {
+                if ((this.CategoryIdField.Equals(value) != true))
+                {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The search volume search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784402(v=msads.110).aspx">SearchVolumeSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784402(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SearchVolumeSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class SearchVolumeSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> MaximumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> MinimumField;
+        
+        /// <summary>
+        /// The maximum search volume that you want for keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Maximum
+        {
+            get
+            {
+                return this.MaximumField;
+            }
+            set
+            {
+                if ((this.MaximumField.Equals(value) != true))
+                {
+                    this.MaximumField = value;
+                    this.RaisePropertyChanged("Maximum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Minimum
+        {
+            get
+            {
+                return this.MinimumField;
+            }
+            set
+            {
+                if ((this.MinimumField.Equals(value) != true))
+                {
+                    this.MinimumField = value;
+                    this.RaisePropertyChanged("Minimum");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The suggested bid search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784413(v=msads.110).aspx">SuggestedBidSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784413(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SuggestedBidSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class SuggestedBidSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> MaximumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> MinimumField;
+        
+        /// <summary>
+        /// The maximum suggested bid that you want for keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Maximum
+        {
+            get
+            {
+                return this.MaximumField;
+            }
+            set
+            {
+                if ((this.MaximumField.Equals(value) != true))
+                {
+                    this.MaximumField = value;
+                    this.RaisePropertyChanged("Maximum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Minimum
+        {
+            get
+            {
+                return this.MinimumField;
+            }
+            set
+            {
+                if ((this.MinimumField.Equals(value) != true))
+                {
+                    this.MinimumField = value;
+                    this.RaisePropertyChanged("Minimum");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The idea text search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784393(v=msads.110).aspx">IdeaTextSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784393(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IdeaTextSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class IdeaTextSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.Keyword> ExcludedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.Keyword> IncludedField;
+        
+        /// <summary>
+        /// The list of keywords that you explicitly want excluded from the list of returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.Keyword> Excluded
+        {
+            get
+            {
+                return this.ExcludedField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ExcludedField, value) != true))
+                {
+                    this.ExcludedField = value;
+                    this.RaisePropertyChanged("Excluded");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of keywords that you explicitly want included in the list of returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.Keyword> Included
+        {
+            get
+            {
+                return this.IncludedField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.IncludedField, value) != true))
+                {
+                    this.IncludedField = value;
+                    this.RaisePropertyChanged("Included");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The exclude account keywords search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784395(v=msads.110).aspx">ExcludeAccountKeywordsSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784395(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExcludeAccountKeywordsSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class ExcludeAccountKeywordsSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ExcludeAccountKeywordsField;
+        
+        /// <summary>
+        /// Determines whether or not to exclude existing account keywords from the returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ExcludeAccountKeywords
+        {
+            get
+            {
+                return this.ExcludeAccountKeywordsField;
+            }
+            set
+            {
+                if ((this.ExcludeAccountKeywordsField.Equals(value) != true))
+                {
+                    this.ExcludeAccountKeywordsField = value;
+                    this.RaisePropertyChanged("ExcludeAccountKeywords");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The impression share search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784410(v=msads.110).aspx">ImpressionShareSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784410(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImpressionShareSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class ImpressionShareSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> MaximumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> MinimumField;
+        
+        /// <summary>
+        /// The maximum impression share that you want for keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Maximum
+        {
+            get
+            {
+                return this.MaximumField;
+            }
+            set
+            {
+                if ((this.MaximumField.Equals(value) != true))
+                {
+                    this.MaximumField = value;
+                    this.RaisePropertyChanged("Maximum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Minimum
+        {
+            get
+            {
+                return this.MinimumField;
+            }
+            set
+            {
+                if ((this.MinimumField.Equals(value) != true))
+                {
+                    this.MinimumField = value;
+                    this.RaisePropertyChanged("Minimum");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The location search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784400(v=msads.110).aspx">LocationSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784400(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocationSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class LocationSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.LocationCriterion> LocationsField;
+        
+        /// <summary>
+        /// The location criterion list for the returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.LocationCriterion> Locations
+        {
+            get
+            {
+                return this.LocationsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LocationsField, value) != true))
+                {
+                    this.LocationsField = value;
+                    this.RaisePropertyChanged("Locations");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The network search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784412(v=msads.110).aspx">NetworkSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784412(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NetworkSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class NetworkSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.NetworkCriterion NetworkField;
+        
+        /// <summary>
+        /// The network criterion for the returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.NetworkCriterion Network
+        {
+            get
+            {
+                return this.NetworkField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NetworkField, value) != true))
+                {
+                    this.NetworkField = value;
+                    this.RaisePropertyChanged("Network");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The device search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784409(v=msads.110).aspx">DeviceSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784409(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class DeviceSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.DeviceCriterion DeviceField;
+        
+        /// <summary>
+        /// The device criterion for the returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.DeviceCriterion Device
+        {
+            get
+            {
+                return this.DeviceField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DeviceField, value) != true))
+                {
+                    this.DeviceField = value;
+                    this.RaisePropertyChanged("Device");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The language search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784411(v=msads.110).aspx">LanguageSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784411(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LanguageSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class LanguageSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.LanguageCriterion> LanguagesField;
+        
+        /// <summary>
+        /// The language criterion list for the returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.LanguageCriterion> Languages
+        {
+            get
+            {
+                return this.LanguagesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguagesField, value) != true))
+                {
+                    this.LanguagesField = value;
+                    this.RaisePropertyChanged("Languages");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The competition search parameter filter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784424(v=msads.110).aspx">CompetitionSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt784424(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompetitionSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class CompetitionSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.CompetitionLevel> CompetitionLevelsField;
+        
+        /// <summary>
+        /// The competition levels that you want for the returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.CompetitionLevel> CompetitionLevels
+        {
+            get
+            {
+                return this.CompetitionLevelsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CompetitionLevelsField, value) != true))
+                {
+                    this.CompetitionLevelsField = value;
+                    this.RaisePropertyChanged("CompetitionLevels");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a keyword with match type.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784405(v=msads.110).aspx">Keyword Data Object</see> http://msdn.microsoft.com/en-us/library/mt784405(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="IdeaTextSearchParameter"/>, <see cref="KeywordEstimate"/> and <see cref="KeywordEstimator"/> data objects.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Keyword", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Common")]
+    [System.SerializableAttribute()]
+    public partial class Keyword : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.MatchType MatchTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The Bing Ads identifier of the keyword.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.MatchType MatchType
+        {
+            get
+            {
+                return this.MatchTypeField;
+            }
+            set
+            {
+                if ((this.MatchTypeField.Equals(value) != true))
+                {
+                    this.MatchTypeField = value;
+                    this.RaisePropertyChanged("MatchType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The keyword text.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Text
+        {
+            get
+            {
+                return this.TextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TextField, value) != true))
+                {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The location criterion that you can include when requesting keyword ideas or traffic estimates.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784404(v=msads.110).aspx">LocationCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/mt784404(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="LocationSearchParameter"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocationCriterion", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Criterions")]
+    [System.SerializableAttribute()]
+    public partial class LocationCriterion : Microsoft.BingAds.V11.AdInsight.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long LocationIdField;
+        
+        /// <summary>
+        /// The Bing Ads identifier of the location that you want to target.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long LocationId
+        {
+            get
+            {
+                return this.LocationIdField;
+            }
+            set
+            {
+                if ((this.LocationIdField.Equals(value) != true))
+                {
+                    this.LocationIdField = value;
+                    this.RaisePropertyChanged("LocationId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// This is the base class from which keyword planner criterion objects derive.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784425(v=msads.110).aspx">Criterion Data Object</see> http://msdn.microsoft.com/en-us/library/mt784425(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignEstimator"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Criterion", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Criterions")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.LanguageCriterion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.NetworkCriterion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.DeviceCriterion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.LocationCriterion))]
+    public partial class Criterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The language criterion that you can include when requesting keyword ideas or traffic estimates.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784399(v=msads.110).aspx">LanguageCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/mt784399(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="LanguageSearchParameter"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LanguageCriterion", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Criterions")]
+    [System.SerializableAttribute()]
+    public partial class LanguageCriterion : Microsoft.BingAds.V11.AdInsight.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LanguageField;
+        
+        /// <summary>
+        /// The language that you require.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Language
+        {
+            get
+            {
+                return this.LanguageField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageField, value) != true))
+                {
+                    this.LanguageField = value;
+                    this.RaisePropertyChanged("Language");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The network criterion that you can include when requesting keyword ideas or traffic estimates.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784401(v=msads.110).aspx">NetworkCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/mt784401(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="NetworkSearchParameter"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NetworkCriterion", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Criterions")]
+    [System.SerializableAttribute()]
+    public partial class NetworkCriterion : Microsoft.BingAds.V11.AdInsight.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.NetworkType NetworkField;
+        
+        /// <summary>
+        /// The network that you want to target.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.NetworkType Network
+        {
+            get
+            {
+                return this.NetworkField;
+            }
+            set
+            {
+                if ((this.NetworkField.Equals(value) != true))
+                {
+                    this.NetworkField = value;
+                    this.RaisePropertyChanged("Network");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The device criterion that you can include when requesting keyword ideas or traffic estimates.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784403(v=msads.110).aspx">DeviceCriterion Data Object</see> http://msdn.microsoft.com/en-us/library/mt784403(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="DeviceSearchParameter"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceCriterion", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Criterions")]
+    [System.SerializableAttribute()]
+    public partial class DeviceCriterion : Microsoft.BingAds.V11.AdInsight.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeviceNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeviceName
+        {
+            get
+            {
+                return this.DeviceNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DeviceNameField, value) != true))
+                {
+                    this.DeviceNameField = value;
+                    this.RaisePropertyChanged("DeviceName");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the possible search networks on which an ad can display.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784417(v=msads.110).aspx">NetworkType Value Set</see> http://msdn.microsoft.com/en-us/library/mt784417(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="NetworkCriterion"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NetworkType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Common")]
+    public enum NetworkType : int
+    {
+        
+        /// <summary>
+        /// Indicates that you want keyword ideas or traffic estimates for ads on owned and operated networks, as well as syndicated search networks.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OwnedAndOperatedAndSyndicatedSearch = 0,
+        
+        /// <summary>
+        /// Indicates that you want keyword ideas or traffic estimates for ads on only owned and operated networks.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OwnedAndOperatedOnly = 2,
+        
+        /// <summary>
+        /// Indicates that you want keyword ideas or traffic estimates for ads on only syndicated search networks.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SyndicatedSearchOnly = 3,
+    }
+    
+    /// <summary>
+    /// Competition levels are defined by the number of advertisers bidding on this keyword, relative to all other keywords across Bing Ads.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784418(v=msads.110).aspx">CompetitionLevel Value Set</see> http://msdn.microsoft.com/en-us/library/mt784418(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CompetitionSearchParameter"/> and <see cref="KeywordIdea"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompetitionLevel", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Common")]
+    public enum CompetitionLevel : int
+    {
+        
+        /// <summary>
+        /// The competition level is low.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Low = 1,
+        
+        /// <summary>
+        /// The competition level is medium.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Medium = 2,
+        
+        /// <summary>
+        /// The competition level is high.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        High = 3,
+    }
+    
+    /// <summary>
+    /// Defines an object that contains a suggested keyword with historical statistics, like monthly search volume, competition, suggested minimum bid, and ad impression share.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784422(v=msads.110).aspx">KeywordIdea Data Object</see> http://msdn.microsoft.com/en-us/library/mt784422(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordIdea", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class KeywordIdea : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> AdGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdGroupNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AdImpressionShareField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.CompetitionLevel CompetitionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeywordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> MonthlySearchCountsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double RelevanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.SourceType SourceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SuggestedBidField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The Bing Ads identifier of the ad group that contains the keyword.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> AdGroupId
+        {
+            get
+            {
+                return this.AdGroupIdField;
+            }
+            set
+            {
+                if ((this.AdGroupIdField.Equals(value) != true))
+                {
+                    this.AdGroupIdField = value;
+                    this.RaisePropertyChanged("AdGroupId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The name of the ad group that contains the keyword.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdGroupName
+        {
+            get
+            {
+                return this.AdGroupNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdGroupNameField, value) != true))
+                {
+                    this.AdGroupNameField = value;
+                    this.RaisePropertyChanged("AdGroupName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Ad impression share is the number of impressions you've received divided by the total number of searches for the location and network you're targeting that matched the keyword exactly in the last calendar month.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double AdImpressionShare
+        {
+            get
+            {
+                return this.AdImpressionShareField;
+            }
+            set
+            {
+                if ((this.AdImpressionShareField.Equals(value) != true))
+                {
+                    this.AdImpressionShareField = value;
+                    this.RaisePropertyChanged("AdImpressionShare");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The number of advertisers bidding on this keyword, relative to all other keywords across Bing Ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.CompetitionLevel Competition
+        {
+            get
+            {
+                return this.CompetitionField;
+            }
+            set
+            {
+                if ((this.CompetitionField.Equals(value) != true))
+                {
+                    this.CompetitionField = value;
+                    this.RaisePropertyChanged("Competition");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The suggested keyword.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Keyword
+        {
+            get
+            {
+                return this.KeywordField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeywordField, value) != true))
+                {
+                    this.KeywordField = value;
+                    this.RaisePropertyChanged("Keyword");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The number of times this keyword was used as a search term for each month within the date range and targeting settings you've selected.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> MonthlySearchCounts
+        {
+            get
+            {
+                return this.MonthlySearchCountsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MonthlySearchCountsField, value) != true))
+                {
+                    this.MonthlySearchCountsField = value;
+                    this.RaisePropertyChanged("MonthlySearchCounts");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The keyword relevance score.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Relevance
+        {
+            get
+            {
+                return this.RelevanceField;
+            }
+            set
+            {
+                if ((this.RelevanceField.Equals(value) != true))
+                {
+                    this.RelevanceField = value;
+                    this.RaisePropertyChanged("Relevance");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The source or seed for the keyword.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.SourceType Source
+        {
+            get
+            {
+                return this.SourceField;
+            }
+            set
+            {
+                if ((this.SourceField.Equals(value) != true))
+                {
+                    this.SourceField = value;
+                    this.RaisePropertyChanged("Source");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The suggested minimum bid for this keyword. We create this suggestion using the location and network criterion you included, along with the average cost-per-click (CPC) advertisers are paying for this keyword. This amount is only an estimate and your actual CPC may vary.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double SuggestedBid
+        {
+            get
+            {
+                return this.SuggestedBidField;
+            }
+            set
+            {
+                if ((this.SuggestedBidField.Equals(value) != true))
+                {
+                    this.SuggestedBidField = value;
+                    this.RaisePropertyChanged("SuggestedBid");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the source or seed for the keyword idea.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784415(v=msads.110).aspx">SourceType Value Set</see> http://msdn.microsoft.com/en-us/library/mt784415(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="KeywordIdea"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SourceType", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Common")]
+    public enum SourceType : int
+    {
+        
+        /// <summary>
+        /// The keyword idea source is unknown.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// The keyword idea source is a seed that you provided such as the query search parameter.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Seed = 1,
+        
+        /// <summary>
+        /// The keyword idea is sourced from a provided keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SuggestionFromKeyword = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SuggestionFromUrl = 3,
+        
+        /// <summary>
+        /// The keyword idea is sourced from a provided category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SuggestionFromCategory = 4,
+    }
+    
+    /// <summary>
+    /// Contains campaign filter criteria and a nested list of ad group and keyword level filter criteria for traffic estimates.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784392(v=msads.110).aspx">CampaignEstimator Data Object</see> http://msdn.microsoft.com/en-us/library/mt784392(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordTrafficEstimates">GetKeywordTrafficEstimates</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignEstimator", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class CampaignEstimator : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.AdGroupEstimator> AdGroupEstimatorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> CampaignIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.Criterion> CriteriaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> DailyBudgetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.NegativeKeyword> NegativeKeywordsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The list of ad group estimators with your ad group and keyword level filter criteria for traffic estimates.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.AdGroupEstimator> AdGroupEstimators
+        {
+            get
+            {
+                return this.AdGroupEstimatorsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdGroupEstimatorsField, value) != true))
+                {
+                    this.AdGroupEstimatorsField = value;
+                    this.RaisePropertyChanged("AdGroupEstimators");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The campaign identifier.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> CampaignId
+        {
+            get
+            {
+                return this.CampaignIdField;
+            }
+            set
+            {
+                if ((this.CampaignIdField.Equals(value) != true))
+                {
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of campaign level criteria for traffic estimates.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.Criterion> Criteria
+        {
+            get
+            {
+                return this.CriteriaField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CriteriaField, value) != true))
+                {
+                    this.CriteriaField = value;
+                    this.RaisePropertyChanged("Criteria");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The daily budget filter criteria for all keyword traffic estimates in the campaign.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> DailyBudget
+        {
+            get
+            {
+                return this.DailyBudgetField;
+            }
+            set
+            {
+                if ((this.DailyBudgetField.Equals(value) != true))
+                {
+                    this.DailyBudgetField = value;
+                    this.RaisePropertyChanged("DailyBudget");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of negative keyword filter criteria for all keyword traffic estimates in the campaign.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.NegativeKeyword> NegativeKeywords
+        {
+            get
+            {
+                return this.NegativeKeywordsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NegativeKeywordsField, value) != true))
+                {
+                    this.NegativeKeywordsField = value;
+                    this.RaisePropertyChanged("NegativeKeywords");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Contains a list of keyword estimators with your keyword level filter criteria for traffic estimates.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784407(v=msads.110).aspx">AdGroupEstimator Data Object</see> http://msdn.microsoft.com/en-us/library/mt784407(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignEstimator"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupEstimator", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class AdGroupEstimator : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> AdGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordEstimator> KeywordEstimatorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double MaxCpcField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The ad group identifier.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> AdGroupId
+        {
+            get
+            {
+                return this.AdGroupIdField;
+            }
+            set
+            {
+                if ((this.AdGroupIdField.Equals(value) != true))
+                {
+                    this.AdGroupIdField = value;
+                    this.RaisePropertyChanged("AdGroupId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of keyword estimators with your keyword level filter criteria for traffic estimates.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordEstimator> KeywordEstimators
+        {
+            get
+            {
+                return this.KeywordEstimatorsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeywordEstimatorsField, value) != true))
+                {
+                    this.KeywordEstimatorsField = value;
+                    this.RaisePropertyChanged("KeywordEstimators");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The maximum cost per click filter criteria for all keyword estimates in the ad group.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double MaxCpc
+        {
+            get
+            {
+                return this.MaxCpcField;
+            }
+            set
+            {
+                if ((this.MaxCpcField.Equals(value) != true))
+                {
+                    this.MaxCpcField = value;
+                    this.RaisePropertyChanged("MaxCpc");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a negative keyword with match type.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784419(v=msads.110).aspx">NegativeKeyword Data Object</see> http://msdn.microsoft.com/en-us/library/mt784419(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignEstimator"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NegativeKeyword", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.Common")]
+    [System.SerializableAttribute()]
+    public partial class NegativeKeyword : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.MatchType MatchTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The Bing Ads identifier of the negative keyword.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.MatchType MatchType
+        {
+            get
+            {
+                return this.MatchTypeField;
+            }
+            set
+            {
+                if ((this.MatchTypeField.Equals(value) != true))
+                {
+                    this.MatchTypeField = value;
+                    this.RaisePropertyChanged("MatchType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The negative keyword text.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Text
+        {
+            get
+            {
+                return this.TextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TextField, value) != true))
+                {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Contains a keyword estimators with your keyword level filter criteria for traffic estimates.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784398(v=msads.110).aspx">KeywordEstimator Data Object</see> http://msdn.microsoft.com/en-us/library/mt784398(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdGroupEstimator"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordEstimator", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class KeywordEstimator : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.Keyword KeywordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> MaxCpcField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The keyword used for traffic estimates.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.Keyword Keyword
+        {
+            get
+            {
+                return this.KeywordField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeywordField, value) != true))
+                {
+                    this.KeywordField = value;
+                    this.RaisePropertyChanged("Keyword");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The maximum cost per click filter criteria for the keyword.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> MaxCpc
+        {
+            get
+            {
+                return this.MaxCpcField;
+            }
+            set
+            {
+                if ((this.MaxCpcField.Equals(value) != true))
+                {
+                    this.MaxCpcField = value;
+                    this.RaisePropertyChanged("MaxCpc");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Contains a nested list of suggested keywords for the campaign's ad groups with minimum and maximum traffic estimates. Traffic estimates include averge CPC, average position, clicks, CTR, impressions, and total cost.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784406(v=msads.110).aspx">CampaignEstimate Data Object</see> http://msdn.microsoft.com/en-us/library/mt784406(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordTrafficEstimates">GetKeywordTrafficEstimates</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignEstimate", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class CampaignEstimate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.AdGroupEstimate> AdGroupEstimatesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> CampaignIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.AdGroupEstimate> AdGroupEstimates
+        {
+            get
+            {
+                return this.AdGroupEstimatesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdGroupEstimatesField, value) != true))
+                {
+                    this.AdGroupEstimatesField = value;
+                    this.RaisePropertyChanged("AdGroupEstimates");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> CampaignId
+        {
+            get
+            {
+                return this.CampaignIdField;
+            }
+            set
+            {
+                if ((this.CampaignIdField.Equals(value) != true))
+                {
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Contains a list of suggested keywords for the ad group with minimum and maximum traffic estimates. Traffic estimates include averge CPC, average position, clicks, CTR, impressions, and total cost.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784396(v=msads.110).aspx">AdGroupEstimate Data Object</see> http://msdn.microsoft.com/en-us/library/mt784396(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignEstimate"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupEstimate", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class AdGroupEstimate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> AdGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordEstimate> KeywordEstimatesField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> AdGroupId
+        {
+            get
+            {
+                return this.AdGroupIdField;
+            }
+            set
+            {
+                if ((this.AdGroupIdField.Equals(value) != true))
+                {
+                    this.AdGroupIdField = value;
+                    this.RaisePropertyChanged("AdGroupId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordEstimate> KeywordEstimates
+        {
+            get
+            {
+                return this.KeywordEstimatesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeywordEstimatesField, value) != true))
+                {
+                    this.KeywordEstimatesField = value;
+                    this.RaisePropertyChanged("KeywordEstimates");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// A suggested keyword with minimum and maximum traffic estimates. Traffic estimates include averge CPC, average position, clicks, CTR, impressions, and total cost.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784394(v=msads.110).aspx">KeywordEstimate Data Object</see> http://msdn.microsoft.com/en-us/library/mt784394(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdGroupEstimate"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordEstimate", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class KeywordEstimate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.Keyword KeywordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.TrafficEstimate MaximumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.TrafficEstimate MinimumField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.Keyword Keyword
+        {
+            get
+            {
+                return this.KeywordField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeywordField, value) != true))
+                {
+                    this.KeywordField = value;
+                    this.RaisePropertyChanged("Keyword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.TrafficEstimate Maximum
+        {
+            get
+            {
+                return this.MaximumField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MaximumField, value) != true))
+                {
+                    this.MaximumField = value;
+                    this.RaisePropertyChanged("Maximum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.TrafficEstimate Minimum
+        {
+            get
+            {
+                return this.MinimumField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MinimumField, value) != true))
+                {
+                    this.MinimumField = value;
+                    this.RaisePropertyChanged("Minimum");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an object that contains traffic estimates based on the campaign, ad group, and keyword criteria you specified when calling GetKeywordTrafficEstimates.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784416(v=msads.110).aspx">TrafficEstimate Data Object</see> http://msdn.microsoft.com/en-us/library/mt784416(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="KeywordEstimate"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TrafficEstimate", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity")]
+    [System.SerializableAttribute()]
+    public partial class TrafficEstimate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AverageCpcField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AveragePositionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ClicksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double CtrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ImpressionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TotalCostField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The estimated average CPC.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double AverageCpc
+        {
+            get
+            {
+                return this.AverageCpcField;
+            }
+            set
+            {
+                if ((this.AverageCpcField.Equals(value) != true))
+                {
+                    this.AverageCpcField = value;
+                    this.RaisePropertyChanged("AverageCpc");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated average CPC.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double AveragePosition
+        {
+            get
+            {
+                return this.AveragePositionField;
+            }
+            set
+            {
+                if ((this.AveragePositionField.Equals(value) != true))
+                {
+                    this.AveragePositionField = value;
+                    this.RaisePropertyChanged("AveragePosition");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated number of clicks per week.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Clicks
+        {
+            get
+            {
+                return this.ClicksField;
+            }
+            set
+            {
+                if ((this.ClicksField.Equals(value) != true))
+                {
+                    this.ClicksField = value;
+                    this.RaisePropertyChanged("Clicks");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated CTR.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Ctr
+        {
+            get
+            {
+                return this.CtrField;
+            }
+            set
+            {
+                if ((this.CtrField.Equals(value) != true))
+                {
+                    this.CtrField = value;
+                    this.RaisePropertyChanged("Ctr");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated number of impressions per week.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Impressions
+        {
+            get
+            {
+                return this.ImpressionsField;
+            }
+            set
+            {
+                if ((this.ImpressionsField.Equals(value) != true))
+                {
+                    this.ImpressionsField = value;
+                    this.RaisePropertyChanged("Impressions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated total cost per week.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double TotalCost
+        {
+            get
+            {
+                return this.TotalCostField;
+            }
+            set
+            {
+                if ((this.TotalCostField.Equals(value) != true))
+                {
+                    this.TotalCostField = value;
+                    this.RaisePropertyChanged("TotalCost");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", ConfigurationName="Microsoft.BingAds.V11.AdInsight.IAdInsightService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface IAdInsightService
@@ -7369,6 +9728,102 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.OperationContractAttribute(Action="PutMetricData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/PutMetricDataRes" +
             "ponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.PutMetricDataResponse> PutMetricDataAsync(Microsoft.BingAds.V11.AdInsight.PutMetricDataRequest request);
+        
+        /// <summary>
+        /// Gets the list of keyword idea categories.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategories Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of keyword idea categories.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordIdeaCategories", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeaCa" +
+            "tegoriesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeaCa" +
+            "tegoriesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeaCa" +
+            "tegoriesApiFaultDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesResponse GetKeywordIdeaCategories(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesRequest request);
+        
+        /// <summary>
+        /// Gets the list of keyword idea categories.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategories Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of keyword idea categories.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordIdeaCategories", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeaCa" +
+            "tegoriesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesResponse> GetKeywordIdeaCategoriesAsync(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesRequest request);
+        
+        /// <summary>
+        /// Gets the list of keyword ideas.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeas Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of keyword ideas.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordIdeas", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeasR" +
+            "esponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeasA" +
+            "dApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeasA" +
+            "piFaultDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasResponse GetKeywordIdeas(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasRequest request);
+        
+        /// <summary>
+        /// Gets the list of keyword ideas.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeas Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of keyword ideas.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordIdeas", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeasR" +
+            "esponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasResponse> GetKeywordIdeasAsync(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasRequest request);
+        
+        /// <summary>
+        /// Gets a list of keyword traffic estimates based on your criteria and filters.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of campaign estimates. Within each campaign estimate is a nested list of keyword traffic estimates for each ad group.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordTrafficEstimates", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordTraffi" +
+            "cEstimatesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordTraffi" +
+            "cEstimatesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordTraffi" +
+            "cEstimatesApiFaultDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesResponse GetKeywordTrafficEstimates(Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesRequest request);
+        
+        /// <summary>
+        /// Gets a list of keyword traffic estimates based on your criteria and filters.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of campaign estimates. Within each campaign estimate is a nested list of keyword traffic estimates for each ad group.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetKeywordTrafficEstimates", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordTraffi" +
+            "cEstimatesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesResponse> GetKeywordTrafficEstimatesAsync(Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesRequest request);
     }
     
     /// <summary>
@@ -9975,6 +12430,362 @@ namespace Microsoft.BingAds.V11.AdInsight
         }
     }
     
+    /// <summary>
+    /// Gets the list of keyword idea categories.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategories Request Object</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeaCategories">GetKeywordIdeaCategories</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordIdeaCategoriesRequest", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", IsWrapped=true)]
+    public partial class GetKeywordIdeaCategoriesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string UserName;
+        
+        /// <summary>
+        /// Constructor for the GetKeywordIdeaCategoriesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategoriesRequest</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetKeywordIdeaCategoriesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetKeywordIdeaCategoriesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategoriesRequest</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetKeywordIdeaCategoriesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+        }
+    }
+    
+    /// <summary>
+    /// Gets the list of keyword idea categories.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategories Response Object</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeaCategories">GetKeywordIdeaCategories</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordIdeaCategoriesResponse", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", IsWrapped=true)]
+    public partial class GetKeywordIdeaCategoriesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The list of keyword idea categories.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordIdeaCategory> KeywordIdeaCategories;
+        
+        /// <summary>
+        /// Constructor for the GetKeywordIdeaCategoriesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategoriesResponse</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetKeywordIdeaCategoriesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetKeywordIdeaCategoriesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategoriesResponse</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="KeywordIdeaCategories">The list of keyword idea categories.</param>
+        public GetKeywordIdeaCategoriesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordIdeaCategory> KeywordIdeaCategories)
+        {
+            this.TrackingId = TrackingId;
+            this.KeywordIdeaCategories = KeywordIdeaCategories;
+        }
+    }
+    
+    /// <summary>
+    /// Gets the list of keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeas Request Object</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordIdeasRequest", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", IsWrapped=true)]
+    public partial class GetKeywordIdeasRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string UserName;
+        
+        /// <summary>
+        /// Determines whether you want new keyword ideas, or if you only want keyword attributes for the set of keywords that you specified in the SearchParameters list. If you set this element false, the QuerySearchParameter object must be included in the SearchParameters list.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", Order=0)]
+        public System.Nullable<bool> ExpandIdeas;
+        
+        /// <summary>
+        /// The keyword idea attributes that you want included in the response e.g., Competition, MonthlySearchCounts, and SuggestedBid.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordIdeaAttribute> IdeaAttributes;
+        
+        /// <summary>
+        /// The search parameters define your criteria and filters for the requested keyword ideas.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", Order=2)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.SearchParameter> SearchParameters;
+        
+        /// <summary>
+        /// Constructor for the GetKeywordIdeasRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeasRequest</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetKeywordIdeasRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetKeywordIdeasRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeasRequest</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="ExpandIdeas">Determines whether you want new keyword ideas, or if you only want keyword attributes for the set of keywords that you specified in the SearchParameters list. If you set this element false, the QuerySearchParameter object must be included in the SearchParameters list.</param>
+        /// <param name="IdeaAttributes">The keyword idea attributes that you want included in the response e.g., Competition, MonthlySearchCounts, and SuggestedBid.</param>
+        /// <param name="SearchParameters">The search parameters define your criteria and filters for the requested keyword ideas.</param>
+        public GetKeywordIdeasRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Nullable<bool> ExpandIdeas, System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordIdeaAttribute> IdeaAttributes, System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.SearchParameter> SearchParameters)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.ExpandIdeas = ExpandIdeas;
+            this.IdeaAttributes = IdeaAttributes;
+            this.SearchParameters = SearchParameters;
+        }
+    }
+    
+    /// <summary>
+    /// Gets the list of keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeas Response Object</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordIdeasResponse", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", IsWrapped=true)]
+    public partial class GetKeywordIdeasResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The list of keyword ideas.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordIdea> KeywordIdeas;
+        
+        /// <summary>
+        /// Constructor for the GetKeywordIdeasResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeasResponse</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetKeywordIdeasResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetKeywordIdeasResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeasResponse</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="KeywordIdeas">The list of keyword ideas.</param>
+        public GetKeywordIdeasResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordIdea> KeywordIdeas)
+        {
+            this.TrackingId = TrackingId;
+            this.KeywordIdeas = KeywordIdeas;
+        }
+    }
+    
+    /// <summary>
+    /// Gets a list of keyword traffic estimates based on your criteria and filters.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Request Object</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordTrafficEstimates">GetKeywordTrafficEstimates</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordTrafficEstimatesRequest", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", IsWrapped=true)]
+    public partial class GetKeywordTrafficEstimatesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string UserName;
+        
+        /// <summary>
+        /// Defines your campaign, ad group, and keyword level criteria and filters for the requested keyword traffic estimates.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.CampaignEstimator> CampaignEstimators;
+        
+        /// <summary>
+        /// Constructor for the GetKeywordTrafficEstimatesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimatesRequest</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetKeywordTrafficEstimatesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetKeywordTrafficEstimatesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimatesRequest</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignEstimators">Defines your campaign, ad group, and keyword level criteria and filters for the requested keyword traffic estimates.</param>
+        public GetKeywordTrafficEstimatesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.CampaignEstimator> CampaignEstimators)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignEstimators = CampaignEstimators;
+        }
+    }
+    
+    /// <summary>
+    /// Gets a list of keyword traffic estimates based on your criteria and filters.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Response Object</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordTrafficEstimates">GetKeywordTrafficEstimates</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetKeywordTrafficEstimatesResponse", WrapperNamespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", IsWrapped=true)]
+    public partial class GetKeywordTrafficEstimatesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The list of campaign estimates. Within each campaign estimate is a nested list of keyword traffic estimates for each ad group.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.CampaignEstimate> CampaignEstimates;
+        
+        /// <summary>
+        /// Constructor for the GetKeywordTrafficEstimatesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimatesResponse</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetKeywordTrafficEstimatesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetKeywordTrafficEstimatesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimatesResponse</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="CampaignEstimates">The list of campaign estimates. Within each campaign estimate is a nested list of keyword traffic estimates for each ad group.</param>
+        public GetKeywordTrafficEstimatesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.CampaignEstimate> CampaignEstimates)
+        {
+            this.TrackingId = TrackingId;
+            this.CampaignEstimates = CampaignEstimates;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IAdInsightServiceChannel : Microsoft.BingAds.V11.AdInsight.IAdInsightService, System.ServiceModel.IClientChannel
     {
@@ -10537,6 +13348,96 @@ namespace Microsoft.BingAds.V11.AdInsight
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.PutMetricDataResponse> PutMetricDataAsync(Microsoft.BingAds.V11.AdInsight.PutMetricDataRequest request)
         {
             return base.Channel.PutMetricDataAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets the list of keyword idea categories.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategories Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of keyword idea categories.</returns>
+        public Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesResponse GetKeywordIdeaCategories(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesRequest request)
+        {
+            return base.Channel.GetKeywordIdeaCategories(request);
+        }
+        
+        /// <summary>
+        /// Gets the list of keyword idea categories.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx">GetKeywordIdeaCategories Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784427(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of keyword idea categories.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesResponse> GetKeywordIdeaCategoriesAsync(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesRequest request)
+        {
+            return base.Channel.GetKeywordIdeaCategoriesAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets the list of keyword ideas.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeas Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of keyword ideas.</returns>
+        public Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasResponse GetKeywordIdeas(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasRequest request)
+        {
+            return base.Channel.GetKeywordIdeas(request);
+        }
+        
+        /// <summary>
+        /// Gets the list of keyword ideas.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeas Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of keyword ideas.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasResponse> GetKeywordIdeasAsync(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasRequest request)
+        {
+            return base.Channel.GetKeywordIdeasAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets a list of keyword traffic estimates based on your criteria and filters.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of campaign estimates. Within each campaign estimate is a nested list of keyword traffic estimates for each ad group.</returns>
+        public Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesResponse GetKeywordTrafficEstimates(Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesRequest request)
+        {
+            return base.Channel.GetKeywordTrafficEstimates(request);
+        }
+        
+        /// <summary>
+        /// Gets a list of keyword traffic estimates based on your criteria and filters.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of campaign estimates. Within each campaign estimate is a nested list of keyword traffic estimates for each ad group.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesResponse> GetKeywordTrafficEstimatesAsync(Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesRequest request)
+        {
+            return base.Channel.GetKeywordTrafficEstimatesAsync(request);
         }
     }
 }

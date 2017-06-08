@@ -1376,7 +1376,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     {
         
         /// <summary>
-        /// You have created a new order and submitted it for approval. This process can take up to 48 hours.
+        /// This value is deprecated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PendingSystemReview = 0,
@@ -1394,7 +1394,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         Active = 2,
         
         /// <summary>
-        /// You have declined an order created by Bing Ads, or the order you created has been declined. Submit a new order, or contact your Bing Ads account manager or contact support.
+        /// You have declined an order created by Bing Ads, or the order you created has been declined. Submit a new order, contact your Bing Ads account manager, or contact support.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Declined = 3,

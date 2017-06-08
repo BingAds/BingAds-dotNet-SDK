@@ -326,6 +326,9 @@ namespace Microsoft.BingAds.V11.Bulk
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignProductScopes = 31,
         
+        /// <summary>
+        /// Include Campaign Review Ad Extension records in the download that each represent the association relationship between a campaign and a review ad extension. For Review Ad Extension records, you should include the ReviewAdExtensions value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignReviewAdExtensions = 32,
         
@@ -464,6 +467,9 @@ namespace Microsoft.BingAds.V11.Bulk
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignPriceAdExtensions = 56,
         
+        /// <summary>
+        /// Include Ad Group Price Ad Extension records in the download that each represent the association relationship between an ad group and a price ad extension. For Price Ad Extension records, you should include the PriceAdExtensions value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupPriceAdExtensions = 57,
         
@@ -477,7 +483,7 @@ namespace Microsoft.BingAds.V11.Bulk
         AdGroupLabels = 60,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdLabels = 61,
+        TextAdLabels = 61,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordLabels = 62,
@@ -541,6 +547,69 @@ namespace Microsoft.BingAds.V11.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeAudienceAssociations = 72,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductAdLabels = 73,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppInstallAdLabels = 74,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExpandedTextAdLabels = 75,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DynamicSearchAdLabels = 76,
+        
+        /// <summary>
+        /// Include Account Location Ad Extension records in the download that represents the association relationship between an account and a location ad extension. For Location Ad Extension records, you should include the LocationAdExtensions value in the download request.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountLocationAdExtensions = 77,
+        
+        /// <summary>
+        /// Include Account Image Ad Extension records in the download that represents the association relationship between an account and an image ad extension. For Image Ad Extension records, you should include the ImageAdExtensions value in the download request.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountImageAdExtensions = 78,
+        
+        /// <summary>
+        /// Include Account App Ad Extension records in the download that each represent the association relationship between an account and an app ad extension. For App Ad Extension records, you should include the AppAdExtensions value in the download request.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountAppAdExtensions = 79,
+        
+        /// <summary>
+        /// Include Account Price Ad Extension records in the download that represents the association relationship between an account and a price ad extension. For Price Ad Extension records, you should include the PriceAdExtensions value in the download request.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountPriceAdExtensions = 80,
+        
+        /// <summary>
+        /// Include Account Review Ad Extension records in the download that each represent the association relationship between an account and a review ad extension. For Review Ad Extension records, you should include the ReviewAdExtensions value in the download request.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountReviewAdExtensions = 81,
+        
+        /// <summary>
+        /// Include Account Callout Ad Extension records in the download that represents the association relationship between an account and a callout ad extension. For Callout Ad Extension records, you should include the CalloutAdExtensions value in the download request.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountCalloutAdExtensions = 82,
+        
+        /// <summary>
+        /// Include Account Sitelink2 Ad Extension records in the download that represents the association relationship between an account and a sitelink2 ad extension. For Sitelink2 Ad Extension records, you should include the Sitelink2AdExtensions value in the download request.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountSitelink2AdExtensions = 83,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountActionLinkAdExtensions = 84,
+        
+        /// <summary>
+        /// Include Account Structured Snippet Ad Extension records in the download that represents the association relationship between an account and a structured snippet ad extension. For Structured Snippet Ad Extension records, you should include the StructuredSnippetAdExtensions value in the download request.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStructuredSnippetAdExtensions = 85,
     }
     
     /// <summary>

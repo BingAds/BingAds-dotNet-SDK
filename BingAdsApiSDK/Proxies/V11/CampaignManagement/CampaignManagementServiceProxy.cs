@@ -145,7 +145,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The bid strategy type for how you want to manage your bids.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CampaignManagement.BiddingScheme BiddingScheme
         {
             get
@@ -425,7 +425,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The unique Bing Ads identifier of the Budget that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -445,7 +445,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The languages of the ads and keywords in the campaign.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -546,7 +546,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt179361(v=msads.110).aspx">CustomParameters Data Object</see> http://msdn.microsoft.com/en-us/library/mt179361(v=msads.110).aspx for details.
-    /// <para>Used by <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="SiteLink"/> and <see cref="Sitelink2AdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/>, <see cref="SiteLink"/> and <see cref="Sitelink2AdExtension"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1010,7 +1010,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt179360(v=msads.110).aspx">CustomParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt179360(v=msads.110).aspx for details.
-    /// <para>Used by <see cref="CustomParameters"/> and <see cref="PriceAdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="CustomParameters"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2176,7 +2176,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// A list of URLs of the websites on which you do not want your ads displayed. You can specify a maximum of 2,500 URLs. Each URL must specify the domain name, and can specify one subdomain name and a maximum of two directories. Duplicate URLs in the list are not added.
+        /// A list of URLs of the websites on which you do not want your ads displayed. You can specify a maximum of 2,500 URLs. Each URL must specify the domain name e.g., contoso.com which can include up to two subdomains and two subdirectories. For example a.b.contoso.com/1/2 is a valid URL whereas a.b.c.contoso.com/1/2 (too many subdomains) and a.b.contoso.com/1/2/3 (too many subdirectories) are not. Duplicate URLs in the list are not added.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> NegativeSites
@@ -2336,7 +2336,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The bid strategy type for how you want to manage your bids.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CampaignManagement.BiddingScheme BiddingScheme
         {
             get
@@ -2536,7 +2536,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The targeting setting that is applicable for all remarketing lists that are associated with this ad group. Each remarketing list can be associated with multiple ad groups, and each ad group's remarketing targeting setting is applied independently for delivery.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.RemarketingTargetingSetting> RemarketingTargetingSetting
         {
             get
@@ -3127,7 +3127,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// A list of URLs of the websites on which you do not want your ads displayed. You can specify a maximum of 2,500 URLs. Each URL must specify the domain name, and can specify one subdomain name and a maximum of two directories. Duplicate URLs in the list are not added.
+        /// A list of URLs of the websites on which you do not want your ads displayed. You can specify a maximum of 2,500 URLs. Each URL must specify the domain name e.g., contoso.com which can include up to two subdomains and two subdirectories. For example a.b.contoso.com/1/2 is a valid URL whereas a.b.c.contoso.com/1/2 (too many subdomains) and a.b.contoso.com/1/2/3 (too many subdirectories) are not. Duplicate URLs in the list are not added.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> NegativeSites
@@ -4214,7 +4214,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The bid strategy type for how you want to manage your bids.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CampaignManagement.BiddingScheme BiddingScheme
         {
             get
@@ -5446,7 +5446,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// Determines the calendar day and time ranges when the ad extension is eligible to be shown in ads.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CampaignManagement.Schedule Scheduling
         {
             get
@@ -6819,9 +6819,11 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         
         private System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.PriceTableRow> TableRowsField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrackingUrlTemplateField;
         
-        private System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.CustomParameter> UrlCustomParametersField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.CampaignManagement.CustomParameters UrlCustomParametersField;
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Language
@@ -6874,7 +6876,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
         {
             get
@@ -6891,8 +6893,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.CustomParameter> UrlCustomParameters
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.CampaignManagement.CustomParameters UrlCustomParameters
         {
             get
             {
@@ -7353,7 +7355,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CampaignManagement.Schedule Scheduling
         {
             get
@@ -7793,6 +7795,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         
         private string DescriptionField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
         
         private System.Collections.Generic.IList<string> FinalUrlsField;
@@ -7804,6 +7807,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private Microsoft.BingAds.V11.CampaignManagement.PriceQualifier PriceQualifierField;
         
         private Microsoft.BingAds.V11.CampaignManagement.PriceUnit PriceUnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TermsAndConditionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TermsAndConditionsUrlField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -7860,7 +7869,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The mobile landing page URL.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
         {
             get
@@ -7977,6 +7986,40 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TermsAndConditions
+        {
+            get
+            {
+                return this.TermsAndConditionsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TermsAndConditionsField, value) != true))
+                {
+                    this.TermsAndConditionsField = value;
+                    this.RaisePropertyChanged("TermsAndConditions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TermsAndConditionsUrl
+        {
+            get
+            {
+                return this.TermsAndConditionsUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TermsAndConditionsUrlField, value) != true))
+                {
+                    this.TermsAndConditionsUrlField = value;
+                    this.RaisePropertyChanged("TermsAndConditionsUrl");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -8024,6 +8067,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 3,
+        
+        /// <summary>
+        /// The price of the PriceAdExtension is prefixed with price qualifier text Average, for example Average $9.99.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Average = 4,
     }
     
     /// <summary>
@@ -8076,6 +8125,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 6,
+        
+        /// <summary>
+        /// The Per Night price unit text will be appended to the price of the PriceAdExtension, for example $9.99 Per Night.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PerNight = 7,
     }
     
     /// <summary>
@@ -13294,7 +13349,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> TagIdField;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CampaignManagement.RemarketingRule Rule
         {
             get
@@ -20218,7 +20273,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public long AdGroupId;
         
         /// <summary>
-        /// An array of ads to add to the specified ad group. The maximum number of ads that you can add to an ad group is 50.
+        /// An array of up to 50 ads that you want added to the ad group.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Ad> Ads;
@@ -20240,7 +20295,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277506(v=msads.110).aspx">AddAdsRequest</see> http://msdn.microsoft.com/en-us/library/dn277506(v=msads.110).aspx for details.
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group to add the ads to.</param>
-        /// <param name="Ads">An array of ads to add to the specified ad group. The maximum number of ads that you can add to an ad group is 50.</param>
+        /// <param name="Ads">An array of up to 50 ads that you want added to the ad group.</param>
         public AddAdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Ad> Ads)
         {
             this.ApplicationToken = ApplicationToken;
