@@ -57,6 +57,7 @@ namespace BingAdsExamplesLibrary.V11
                 var reportRequest = GetAccountPerformanceReportRequest(authorizationData.AccountId);
                 //var reportRequest = GetAdGroupPerformanceReportRequest(authorizationData.AccountId);
                 //var reportRequest = GetAudiencePerformanceReportRequest(authorizationData.AccountId);
+                //var reportRequest = GetBudgetSummaryReportRequest(authorizationData.AccountId);
                 //var reportRequest = GetCampaignPerformanceReportRequest(authorizationData.AccountId);
                 //var reportRequest = GetKeywordPerformanceReportRequest(authorizationData.AccountId);
                 //var reportRequest = GetProductDimensionPerformanceReportRequest(authorizationData.AccountId);
@@ -559,6 +560,67 @@ namespace BingAdsExamplesLibrary.V11
                     AccountPerformanceReportColumn.Ctr,
                     AccountPerformanceReportColumn.AverageCpc,
                     AccountPerformanceReportColumn.Spend,
+                },
+
+            };
+
+            return report;
+        }
+
+        private ReportRequest GetBudgetSummaryReportRequest(long accountId)
+        {
+            var report = new BudgetSummaryReportRequest
+            {
+                Format = ReportFormat.Csv,
+                Language = ReportLanguage.English,
+                ReportName = "My Budget Summary Report",
+                ReturnOnlyCompleteData = false,
+                
+                Scope = new AccountThroughCampaignReportScope
+                {
+                    AccountIds = new[] { accountId }
+                },
+
+                Time = new BudgetSummaryReportTime
+                {
+                    // You may either use a custom date range or predefined time.
+
+                    //CustomDateRangeStart = new Date
+                    //    {
+                    //        Month = DateTime.Now.Month,
+                    //        Day = DateTime.Now.Day,
+                    //        Year = DateTime.Now.Year - 1
+                    //    },
+                    //CustomDateRangeEnd = new Date
+                    //    {
+                    //    Month = DateTime.Now.Month,
+                    //    Day = DateTime.Now.Day,
+                    //    Year = DateTime.Now.Year
+                    //    },
+
+                    PredefinedTime = BudgetSummaryReportTimePeriod.ThisMonth
+                },
+
+                // If you specify a filter, results may differ from data you see in the Bing Ads web application
+                //Filter = new AccountPerformanceReportFilter
+                //{
+                //    DeviceType = DeviceTypeReportFilter.Computer |
+                //                 DeviceTypeReportFilter.SmartPhone
+                //},
+
+                // Specify the attribute and data report columns. 
+                Columns = new[]
+                {
+                    BudgetSummaryReportColumn.Date,
+                    BudgetSummaryReportColumn.MonthlyBudget,
+                    BudgetSummaryReportColumn.DailySpend,
+                    BudgetSummaryReportColumn.MonthToDateSpend,
+                    BudgetSummaryReportColumn.AccountId,
+                    BudgetSummaryReportColumn.AccountName,
+                    BudgetSummaryReportColumn.AccountNumber,
+                    BudgetSummaryReportColumn.CampaignId,
+                    BudgetSummaryReportColumn.CampaignName,
+                    BudgetSummaryReportColumn.CurrencyCode,
                 },
 
             };
