@@ -600,14 +600,7 @@ namespace BingAdsExamplesLibrary.V11
 
                     PredefinedTime = BudgetSummaryReportTimePeriod.ThisMonth
                 },
-
-                // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new AccountPerformanceReportFilter
-                //{
-                //    DeviceType = DeviceTypeReportFilter.Computer |
-                //                 DeviceTypeReportFilter.SmartPhone
-                //},
-
+                
                 // Specify the attribute and data report columns. 
                 Columns = new[]
                 {
