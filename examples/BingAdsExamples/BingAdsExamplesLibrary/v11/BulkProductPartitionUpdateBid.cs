@@ -13,7 +13,7 @@ using Microsoft.BingAds.V11.CampaignManagement;
 namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
-    /// This example demonstrates how to apply product conditions for Bing Shopping Campaigns
+    /// This example demonstrates how to update product partitions for Bing Shopping Campaigns
     /// using the BulkServiceManager class.
     /// </summary>
     public class BulkProductPartitionUpdateBid : BulkExampleBase
@@ -45,23 +45,36 @@ namespace BingAdsExamplesLibrary.V11
                 // Download all product partitions across all ad groups in the account.
                 var bulkFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters);
                 OutputStatusMessage("Downloaded all product partitions across all ad groups in the account.\n");
+
                 Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
-                var downloadEntities = Reader.ReadEntities().ToList().OfType<BulkAdGroupProductPartition>().ToList();
-                OutputBulkAdGroupProductPartitions(downloadEntities);
+                var bulkAdGroupProductPartitions = Reader.ReadEntities().ToList().OfType<BulkAdGroupProductPartition>().ToList();
+                OutputBulkAdGroupProductPartitions(bulkAdGroupProductPartitions);
                 
                 var uploadEntities = new List<BulkEntity>();
 
                 // Within the downloaded records, find all product partition leaf nodes that have bids.
-                foreach (var entity in downloadEntities)
+
+                foreach (var bulkAdGroupProductPartition in bulkAdGroupProductPartitions)
                 {
-                    var biddableAdGroupCriterion = ((BulkAdGroupProductPartition)entity).AdGroupCriterion as BiddableAdGroupCriterion;
-                    if (biddableAdGroupCriterion != null &&
-                        (((ProductPartition)(entity.AdGroupCriterion.Criterion)).PartitionType == ProductPartitionType.Unit))
+                    var biddableAdGroupCriterion = (bulkAdGroupProductPartition).AdGroupCriterion as BiddableAdGroupCriterion;
+                    if (biddableAdGroupCriterion != null && 
+                        (((ProductPartition)biddableAdGroupCriterion.Criterion).PartitionType == ProductPartitionType.Unit))
                     {
-                        // Increase all bids by some predetermined amount or percentage. 
-                        // Implement your own logic to update bids by varying amounts.
-                        ((FixedBid)((BiddableAdGroupCriterion)((BulkAdGroupProductPartition)entity).AdGroupCriterion).CriterionBid).Amount += .01;
-                        uploadEntities.Add(entity);
+                        // We will increase all bids by some predetermined amount or percentage as an example.
+                        // For best performance, only upload the properties that you want to update.
+
+                        uploadEntities.Add(new BulkAdGroupProductPartition
+                        {
+                            AdGroupCriterion = new BiddableAdGroupCriterion
+                            {
+                                AdGroupId = bulkAdGroupProductPartition.AdGroupCriterion.AdGroupId,
+                                CriterionBid = new FixedBid
+                                {
+                                    Amount = ((FixedBid)biddableAdGroupCriterion.CriterionBid).Amount + 0.01
+                                },
+                                Id = bulkAdGroupProductPartition.AdGroupCriterion.Id,
+                            }
+                        });
                     }
                 }
 
@@ -72,8 +85,8 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage("Changed local bid of all product partitions. Starting upload.\n");
 
                     Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
-                    downloadEntities = Reader.ReadEntities().ToList().OfType<BulkAdGroupProductPartition>().ToList();
-                    OutputBulkAdGroupProductPartitions(downloadEntities);
+                    bulkAdGroupProductPartitions = Reader.ReadEntities().ToList().OfType<BulkAdGroupProductPartition>().ToList();
+                    OutputBulkAdGroupProductPartitions(bulkAdGroupProductPartitions);
                     Reader.Dispose();
                 }
                 else

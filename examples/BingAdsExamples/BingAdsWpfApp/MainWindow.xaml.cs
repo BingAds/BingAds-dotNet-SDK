@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace BingAdsWpfApp
         private static readonly ExampleBase[] _examples =
         {
             // Current examples
-
+            new BingAdsExamplesLibrary.V11.BulkAdGroupUpdate(),
             new BingAdsExamplesLibrary.V11.BudgetOpportunities(),
             new BingAdsExamplesLibrary.V11.BulkServiceManagerDemo(),
             new BingAdsExamplesLibrary.V11.BulkAdExtensions(),
