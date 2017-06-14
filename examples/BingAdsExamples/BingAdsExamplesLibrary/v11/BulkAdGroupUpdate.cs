@@ -133,9 +133,10 @@ namespace BingAdsExamplesLibrary.V11
 
                 #endregion Upload
 
+
                 #region Entities
 
-                // We can make the same update without ever reading or writing a local file.
+                // We can make the same update without explicitly reading or writing a local file.
                 // When working with entities a file is downloaded to the temp directory,
                 // although you don't need to manage it.
 

@@ -21,7 +21,7 @@ namespace BingAdsWpfApp
         private static readonly ExampleBase[] _examples =
         {
             // Current examples
-            new BingAdsExamplesLibrary.V11.BulkAdGroupUpdate(),
+            
             new BingAdsExamplesLibrary.V11.BudgetOpportunities(),
             new BingAdsExamplesLibrary.V11.BulkServiceManagerDemo(),
             new BingAdsExamplesLibrary.V11.BulkAdExtensions(),
@@ -30,6 +30,7 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V11.KeywordsAds(),
             new BingAdsExamplesLibrary.V11.BulkNegativeKeywords(),
             new BingAdsExamplesLibrary.V11.NegativeKeywords(),
+            new BingAdsExamplesLibrary.V11.BulkAdGroupUpdate(),
             new BingAdsExamplesLibrary.V11.BulkProductPartitionUpdateBid(),
             new BingAdsExamplesLibrary.V11.ConversionGoals(),
             new BingAdsExamplesLibrary.V11.BulkRemarketingLists(),
