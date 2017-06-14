@@ -3699,7 +3699,9 @@ namespace BingAdsExamplesLibrary.V11
                             Attribute = null,
                             // 'Product Condition 1' column header in the Bulk file
                             Operand = "All",
-                        }
+                        },
+                        // 'Parent Criterion Id' column header in the Bulk file
+                        ParentCriterionId = null
                     },
                     CriterionBid = new FixedBid
                     {

@@ -72,6 +72,7 @@
     <Compile Include="v11\AdExtensions.cs" />
     <Compile Include="v11\BudgetOpportunities.cs" />
     <Compile Include="v11\BulkAdExtensions.cs" />
+    <Compile Include="v11\BulkAdGroupUpdate.cs" />
     <Compile Include="v11\BulkExampleBase.cs" />
     <Compile Include="v11\BulkKeywordsAds.cs" />
     <Compile Include="v11\BulkNegativeKeywords.cs" />
