@@ -100,8 +100,8 @@ namespace BingAdsExamplesLibrary.V11
                             criterionType: CampaignCriterionType.Targets
                         );
 
-                        // If the campaign used to shared target criterions with another campaign or ad group,
-                        // and the add operation resulted in new targer criterion identifiers for this campaign,
+                        // If the campaign used to share target criterions with another campaign or ad group,
+                        // and the add operation resulted in new target criterion identifiers for this campaign,
                         // then we need to get the new criterion IDs.
 
                         // Otherwise we only need to capture the new criterion IDs.
@@ -166,7 +166,7 @@ namespace BingAdsExamplesLibrary.V11
                                 criterionType: AdGroupCriterionType.Targets
                             );
 
-                            // If the ad group used to shared target criterions with another campaign or ad group,
+                            // If the ad group used to share target criterions with another campaign or ad group,
                             // and the update operation resulted in new target criterion identifiers for this ad group,
                             // then we need to get the new criterion IDs.
 
