@@ -62,12 +62,14 @@ namespace BingAdsExamplesLibrary.V11
                         criterionType: AllTargetCampaignCriterionTypes))?.CampaignCriterions.ToList();
 
                     // When you first create a campaign or ad group using the Bing Ads API, it will not have any 
-                    // criterions. Effectively the brand new campaign and ad group target all ages, days, hours, 
-                    // devices, genders, and locations. As a best practice you should consider at minimum 
+                    // criterions. Effectively, the brand new campaign and ad group target all ages, days, hours, 
+                    // devices, genders, and locations. As a best practice, you should consider at a minimum 
                     // adding a campaign location criterion corresponding to the customer market country.
 
                     if (campaignCriterions == null || campaignCriterions.Count <= 0)
                     {
+                        campaignCriterions = new List<CampaignCriterion>();
+
                         campaignCriterions.Add(new BiddableCampaignCriterion
                         {
                             CampaignId = campaignId,
