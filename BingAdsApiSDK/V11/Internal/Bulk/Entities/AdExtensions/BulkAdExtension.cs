@@ -110,7 +110,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk.Entities
                     }
                     c.AdExtension.Scheduling.DayTimeRanges = v.ParseDayTimeRanges();
                 }
-                ),
+            ),
             new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.StartDate,
                 c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.StartDate.ToScheduleDateBulkString(),
                 (v, c) =>
@@ -121,7 +121,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk.Entities
                     }
                     c.AdExtension.Scheduling.StartDate = v.ParseDate();
                 }
-                ),
+            ),
 
             new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.EndDate,
                 c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.EndDate.ToScheduleDateBulkString(),
@@ -133,7 +133,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk.Entities
                     }
                     c.AdExtension.Scheduling.EndDate = v.ParseDate();
                 }
-                ),
+            ),
 
             new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.UseSearcherTimeZone,
                 c =>c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.UseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(),
@@ -145,7 +145,12 @@ namespace Microsoft.BingAds.V11.Internal.Bulk.Entities
                     }
                     c.AdExtension.Scheduling.UseSearcherTimeZone = v.ParseUseSearcherTimeZone();
                 }
-                ),
+            ),
+
+            new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.DevicePreference,
+                c => c.AdExtension.DevicePreference.ToDevicePreferenceBulkString(),
+                (v, c) => c.AdExtension.DevicePreference = v.ParseDevicePreference()
+            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)

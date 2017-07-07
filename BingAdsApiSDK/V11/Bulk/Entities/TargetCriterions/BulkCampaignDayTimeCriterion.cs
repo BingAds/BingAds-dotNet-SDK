@@ -56,7 +56,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BulkCampaignDayTimeCriterion.CampaignCriterion"/> property with DayTimeCriterion that can be read and written as fields of the Campaign DayTime Criterion record in a bulk file. 
+    /// This class exposes the <see cref="BiddableCampaignCriterion"/> property with DayTimeCriterion that can be read and written as fields of the Campaign DayTime Criterion record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign DayTime Criterion</see>. </para>
     /// </summary>
@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// <summary>
         /// Defines a Biddable Campaign Criterion.
         /// </summary>
-        public BiddableCampaignCriterion CampaignCriterion { get; set; }
+        public BiddableCampaignCriterion BiddableCampaignCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the Campaign.
@@ -80,18 +80,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkCampaignDayTimeCriterion>[] Mappings =
         {
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.Status,
-                c => c.CampaignCriterion.Status.ToBulkString(),
-                (v, c) => c.CampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
+                c => c.BiddableCampaignCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.Id,
-                c => c.CampaignCriterion.Id.ToBulkString(),
-                (v, c) => c.CampaignCriterion.Id = v.ParseOptional<long>()
+                c => c.BiddableCampaignCriterion.Id.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Id = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.ParentId,
-                c => c.CampaignCriterion.CampaignId.ToBulkString(true),
-                (v, c) => c.CampaignCriterion.CampaignId = v.Parse<long>()
+                c => c.BiddableCampaignCriterion.CampaignId.ToBulkString(true),
+                (v, c) => c.BiddableCampaignCriterion.CampaignId = v.Parse<long>()
             ),
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.Campaign,
                 c => c.CampaignName,
@@ -101,7 +101,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.BidAdjustment,
                 c =>
                 {
-                    var criterion = c.CampaignCriterion as BiddableCampaignCriterion;
+                    var criterion = c.BiddableCampaignCriterion as BiddableCampaignCriterion;
 
                     if (criterion == null) return null;
 
@@ -111,7 +111,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var criterion = c.CampaignCriterion as BiddableCampaignCriterion;
+                    var criterion = c.BiddableCampaignCriterion as BiddableCampaignCriterion;
 
                     if (criterion == null) return;
 
@@ -130,13 +130,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.Target,
                 c =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     return dayTimeCriterion?.Day.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     if (dayTimeCriterion != null && v.ParseOptional<Day>() != null)
                     {
@@ -148,13 +148,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.FromHour,
                 c =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     return dayTimeCriterion?.FromHour.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     if (dayTimeCriterion != null && v.ParseOptional<int>() != null)
                     {
@@ -166,13 +166,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.FromMinute,
                 c =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     return dayTimeCriterion?.FromMinute.ToMinuteBulkString();
                 },
                 (v, c) =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     if (dayTimeCriterion != null && v.ParseOptional<Minute>() != null)
                     {
@@ -184,13 +184,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.ToHour,
                 c =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     return dayTimeCriterion?.ToHour.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     if (dayTimeCriterion != null && v.ParseOptional<int>() != null)
                     {
@@ -202,13 +202,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignDayTimeCriterion>(StringTable.ToMinute,
                 c =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     return dayTimeCriterion?.ToMinute.ToMinuteBulkString();
                 },
                 (v, c) =>
                 {
-                    var dayTimeCriterion = c.CampaignCriterion.Criterion as DayTimeCriterion;
+                    var dayTimeCriterion = c.BiddableCampaignCriterion.Criterion as DayTimeCriterion;
 
                     if (dayTimeCriterion != null && v.ParseOptional<Minute>() != null)
                     {
@@ -220,14 +220,14 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(CampaignCriterion, typeof(BiddableCampaignCriterion).Name);
+            ValidatePropertyNotNull(BiddableCampaignCriterion, typeof(BiddableCampaignCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            CampaignCriterion = new BiddableCampaignCriterion
+            BiddableCampaignCriterion = new BiddableCampaignCriterion
             {
                 Criterion = new DayTimeCriterion()
                 {

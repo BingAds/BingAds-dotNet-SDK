@@ -314,6 +314,8 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
         // AutoBidding
         public const string BidStrategyType = "Bid Strategy Type";
+        public const string BidStrategyMaxCpc = "Bid Strategy MaxCpc";
+        public const string BidStrategyTargetCpa = "Bid Strategy TargetCpa";
 
         // Remarketing
         public const string RemarketingList = "Remarketing List";

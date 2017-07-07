@@ -56,7 +56,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BulkCampaignRadiusCriterion.CampaignCriterion"/> property with RadiusCriterion that can be read and written as fields of the Campaign Radius Criterion record in a bulk file. 
+    /// This class exposes the <see cref="BiddableCampaignCriterion"/> property with RadiusCriterion that can be read and written as fields of the Campaign Radius Criterion record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Radius Criterion</see>. </para>
     /// </summary>
@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// <summary>
         /// Defines a Biddable Campaign Criterion.
         /// </summary>
-        public BiddableCampaignCriterion CampaignCriterion { get; set; }
+        public BiddableCampaignCriterion BiddableCampaignCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the Campaign.
@@ -80,18 +80,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkCampaignRadiusCriterion>[] Mappings =
         {
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Status,
-                c => c.CampaignCriterion.Status.ToBulkString(),
-                (v, c) => c.CampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
+                c => c.BiddableCampaignCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Id,
-                c => c.CampaignCriterion.Id.ToBulkString(),
-                (v, c) => c.CampaignCriterion.Id = v.ParseOptional<long>()
+                c => c.BiddableCampaignCriterion.Id.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Id = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.ParentId,
-                c => c.CampaignCriterion.CampaignId.ToBulkString(true),
-                (v, c) => c.CampaignCriterion.CampaignId = v.Parse<long>()
+                c => c.BiddableCampaignCriterion.CampaignId.ToBulkString(true),
+                (v, c) => c.BiddableCampaignCriterion.CampaignId = v.Parse<long>()
             ),
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Campaign,
                 c => c.CampaignName,
@@ -101,7 +101,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.BidAdjustment,
                 c =>
                 {
-                    var criterion = c.CampaignCriterion as BiddableCampaignCriterion;
+                    var criterion = c.BiddableCampaignCriterion as BiddableCampaignCriterion;
 
                     if (criterion == null) return null;
 
@@ -111,7 +111,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var criterion = c.CampaignCriterion as BiddableCampaignCriterion;
+                    var criterion = c.BiddableCampaignCriterion as BiddableCampaignCriterion;
 
                     if (criterion == null) return;
 
@@ -130,13 +130,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Name,
                 c =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.Name;
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null)
                     {
@@ -148,13 +148,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Radius,
                 c =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.Radius.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null && v.ParseOptional<long>() != null)
                     {
@@ -166,13 +166,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Unit,
                 c =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.RadiusUnit.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null && v.ParseOptional<DistanceUnit>() != null)
                     {
@@ -184,13 +184,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Latitude,
                 c =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.LatitudeDegrees.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null && v.ParseOptional<double>() != null)
                     {
@@ -202,13 +202,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Longitude,
                 c =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.LongitudeDegrees.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.CampaignCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableCampaignCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null && v.ParseOptional<double>() != null)
                     {
@@ -220,14 +220,14 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(CampaignCriterion, typeof(BiddableCampaignCriterion).Name);
+            ValidatePropertyNotNull(BiddableCampaignCriterion, typeof(BiddableCampaignCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            CampaignCriterion = new BiddableCampaignCriterion
+            BiddableCampaignCriterion = new BiddableCampaignCriterion
             {
                 Criterion = new RadiusCriterion()
                 {

@@ -4960,7 +4960,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The page size and the number of results to return in the specified page. The maximum size is 100.
+        /// The page size and the number of results to return in the specified page. The maximum size is 1,000.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Size

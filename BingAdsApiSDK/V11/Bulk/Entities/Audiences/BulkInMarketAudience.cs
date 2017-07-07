@@ -47,8 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
 using Microsoft.BingAds.V11.Internal.Bulk;
 using Microsoft.BingAds.V11.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V11.Internal.Bulk.Entities;
@@ -59,66 +57,78 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a text ad. 
-    /// This class exposes the <see cref="BulkTextAd.TextAd"/> property that can be read and written as fields of the Text Ad record in a bulk file. 
+    /// Represents a in market audience that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkInMarketAudience.InMarketAudience"/> property that can be read and written as fields of the In Market Audience record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Text Ad</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">In Market Audience</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkTextAd : BulkAd<TextAd>
+    public class BulkInMarketAudience : SingleRecordBulkEntity
     {
         /// <summary>
-        /// <para>
-        /// The text ad. 
-        /// </para>
+        /// The in market audience.
         /// </summary>
-        public TextAd TextAd
+        public InMarketAudience InMarketAudience { get; set; }
+
+        /// <summary>
+        /// The status of the in market audience.
+        /// The value is Active if the in market audience is available to be associated with an ad group. 
+        /// The value is Deleted if the in market audience is deleted, or should be deleted in a subsequent upload operation. 
+        /// Corresponds to the 'Status' field in the bulk file. 
+        /// </summary>
+        public Status? Status { get; set; }
+
+        private static readonly IBulkMapping<BulkInMarketAudience>[] Mappings =
         {
-            get { return Ad; }
-            set { Ad = value; }
-        }
-
-        private static readonly IBulkMapping<BulkTextAd>[] Mappings =
-        {            
-            new SimpleBulkMapping<BulkTextAd>(StringTable.Title,
-                c => c.TextAd.Title,
-                (v, c) => c.TextAd.Title = v
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Status,
+                c => c.Status.ToBulkString(),
+                (v, c) => c.Status = v.ParseOptional<Status>()
             ),
 
-            new SimpleBulkMapping<BulkTextAd>(StringTable.Text,
-                c => c.TextAd.Text,
-                (v, c) => c.TextAd.Text = v
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Id,
+                c => c.InMarketAudience.Id.ToBulkString(),
+                (v, c) => c.InMarketAudience.Id = v.ParseOptional<long>()
             ),
 
-            new SimpleBulkMapping<BulkTextAd>(StringTable.DisplayUrl,
-                c => c.TextAd.DisplayUrl,
-                (v, c) => c.TextAd.DisplayUrl = v
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.ParentId,
+                c => c.InMarketAudience.ParentId.ToBulkString(),
+                (v, c) => c.InMarketAudience.ParentId = v.Parse<long>()
             ),
 
-            new SimpleBulkMapping<BulkTextAd>(StringTable.DestinationUrl,
-                c => c.TextAd.DestinationUrl.ToOptionalBulkString(),
-                (v, c) => c.TextAd.DestinationUrl = v.GetValueOrEmptyString()
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Audience,
+                c => c.InMarketAudience.Name,
+                (v, c) => c.InMarketAudience.Name = v
+            ),
+
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Description,
+                c => c.InMarketAudience.Description,
+                (v, c) => c.InMarketAudience.Description = v
+            ),
+
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.MembershipDuration,
+                c => c.InMarketAudience.MembershipDuration.ToBulkString(),
+                (v, c) => c.InMarketAudience.MembershipDuration = v.ParseOptional<int>()
+            ),
+
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Scope,
+                c => c.InMarketAudience.Scope.ToBulkString(),
+                (v, c) => c.InMarketAudience.Scope = v.ParseOptional<EntityScope>()
             ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            TextAd = new TextAd { Type = AdType.Text };
-
-            base.ProcessMappingsFromRowValues(values);
+            InMarketAudience = new InMarketAudience { };
 
             values.ConvertToEntity(this, Mappings);
         }
 
-
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(TextAd, "TextAd");
-
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+            ValidatePropertyNotNull(InMarketAudience, "InMarketAudience");
 
             this.ConvertToValues(values, Mappings);
         }

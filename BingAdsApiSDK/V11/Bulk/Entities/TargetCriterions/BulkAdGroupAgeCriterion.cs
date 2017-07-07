@@ -56,7 +56,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BulkAdGroupAgeCriterion.AdGroupCriterion"/> property with AgeCriterion that can be read and written as fields of the Ad Group Age Criterion record in a bulk file. 
+    /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property with AgeCriterion that can be read and written as fields of the Ad Group Age Criterion record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Age Criterion</see>. </para>
     /// </summary>
@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// <summary>
         /// Defines a Biddable Ad Group Criterion.
         /// </summary>
-        public BiddableAdGroupCriterion AdGroupCriterion { get; set; }
+        public BiddableAdGroupCriterion BiddableAdGroupCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the ad group.
@@ -86,18 +86,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkAdGroupAgeCriterion>[] Mappings =
         {
             new SimpleBulkMapping<BulkAdGroupAgeCriterion>(StringTable.Status,
-                c => c.AdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
+                c => c.BiddableAdGroupCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupAgeCriterion>(StringTable.Id,
-                c => c.AdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Id = v.ParseOptional<long>()
+                c => c.BiddableAdGroupCriterion.Id.ToBulkString(),
+                (v, c) => c.BiddableAdGroupCriterion.Id = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupAgeCriterion>(StringTable.ParentId,
-                c => c.AdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.AdGroupCriterion.AdGroupId = v.Parse<long>()
+                c => c.BiddableAdGroupCriterion.AdGroupId.ToBulkString(true),
+                (v, c) => c.BiddableAdGroupCriterion.AdGroupId = v.Parse<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupAgeCriterion>(StringTable.Campaign,
@@ -113,7 +113,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupAgeCriterion>(StringTable.BidAdjustment,
                 c =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
 
                     if (criterion == null) return null;
 
@@ -123,7 +123,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
 
                     if (criterion == null) return;
 
@@ -142,13 +142,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupAgeCriterion>(StringTable.Target,
                 c =>
                 {
-                    var ageCriterion = c.AdGroupCriterion.Criterion as AgeCriterion;
+                    var ageCriterion = c.BiddableAdGroupCriterion.Criterion as AgeCriterion;
 
                     return ageCriterion?.AgeRange.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var ageCriterion = c.AdGroupCriterion.Criterion as AgeCriterion;
+                    var ageCriterion = c.BiddableAdGroupCriterion.Criterion as AgeCriterion;
 
                     if (ageCriterion != null && v.ParseOptional<AgeRange>() != null)
                     {
@@ -160,14 +160,14 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(AdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
+            ValidatePropertyNotNull(BiddableAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            AdGroupCriterion = new BiddableAdGroupCriterion
+            BiddableAdGroupCriterion = new BiddableAdGroupCriterion
             {
                 Criterion = new AgeCriterion()
                 {

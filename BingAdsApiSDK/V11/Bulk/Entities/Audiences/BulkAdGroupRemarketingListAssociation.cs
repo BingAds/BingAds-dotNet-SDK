@@ -57,7 +57,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents an AdGroupRemarketingListAssociation that can be read or written in a bulk file. 
+    /// Represents an Ad Group Remarketing List Association that can be read or written in a bulk file. 
     /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property that can be read and written as fields of the Ad Group Remarketing List Association record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Remarketing List Association</see> </para>
@@ -84,6 +84,11 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// Corresponds to the 'Ad Group' field in the bulk file.
         /// </summary>
         public string AdGroupName { get; set; }
+
+        /// <summary>
+        /// The historical performance data for the remarketing list association.
+        /// </summary>
+        public PerformanceData PerformanceData { get; private set; }
 
         /// <summary>
         /// The name of the Remarketing List
@@ -172,6 +177,11 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             ValidatePropertyNotNull(BiddableAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
+            
+            if (!excludeReadonlyData)
+            {
+                PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
+            }
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
@@ -190,6 +200,8 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             };
 
             values.ConvertToEntity(this, Mappings);
+
+            PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);
         }
     }
 }

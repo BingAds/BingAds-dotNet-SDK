@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds.V11.Internal.Bulk.Mappings;
 
 // ReSharper disable once CheckNamespace

@@ -205,6 +205,11 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 (v, c) => c.Campaign.TimeZone = v
             ),
 
+            new SimpleBulkMapping<BulkCampaign>(StringTable.Language,
+                c => c.Campaign.Languages.WriteCampaignLanguages(";"),
+                (v, c) => c.Campaign.Languages = v.ParseCampaignLanguages()
+            ),
+
             new SimpleBulkMapping<BulkCampaign>(StringTable.BudgetType,
                 c => c.Campaign.BudgetType.ToBulkString(),
                 (v, c) => c.Campaign.BudgetType = v.ParseOptional<BudgetLimitType>()                
@@ -292,7 +297,30 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                         shoppingSetting.SalesCountryCode = v;
                     }
                 }
-            ), 
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.LocalInventoryAdsEnabled,
+                c =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        var shoppingSetting = c.GetShoppingSetting();
+
+                        return shoppingSetting == null ? null : shoppingSetting.LocalInventoryAdsEnabled.ToString();
+                    }
+
+                    return null;
+                },
+                (v, c) =>
+                {
+                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    {
+                        var shoppingSetting = c.GetShoppingSetting();
+
+                        shoppingSetting.LocalInventoryAdsEnabled = v.ParseOptional<bool>();
+                    }
+                }
+            ),
 
             new ComplexBulkMapping<BulkCampaign>(BudgetToCsv, CsvToBudget),
             
@@ -306,11 +334,8 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 (v, c) => c.Campaign.UrlCustomParameters = v.ParseCustomParameters()
             ),
 
-            new SimpleBulkMapping<BulkCampaign>(StringTable.BidStrategyType,
-                c => c.Campaign.BiddingScheme.ToBiddingSchemeBulkString(),
-                (v, c) => c.Campaign.BiddingScheme = v.ParseBiddingScheme()
-            ),
-
+            new ComplexBulkMapping<BulkCampaign>(BiddingSchemeToCsv, CsvToBiddingScheme),
+                        
             new SimpleBulkMapping<BulkCampaign>(StringTable.Website,
                 c =>
                 {
@@ -421,6 +446,97 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             }
 
             values[StringTable.Budget] = c.Campaign.DailyBudget.ToBulkString();
+        }
+
+        private static void CsvToBiddingScheme(RowValues values, BulkCampaign c)
+        {
+            string bidStrategyTypeRowValue;
+            
+            BiddingScheme biddingScheme;
+
+            if (!values.TryGetValue(StringTable.BidStrategyType, out bidStrategyTypeRowValue) || (biddingScheme = bidStrategyTypeRowValue.ParseBiddingScheme()) == null)
+            {
+                return;
+            }
+
+            string maxCpcRowValue;
+            string targetCpaRowValue;
+
+            values.TryGetValue(StringTable.BidStrategyMaxCpc, out maxCpcRowValue);
+            values.TryGetValue(StringTable.BidStrategyTargetCpa, out targetCpaRowValue);
+
+            var maxCpcValue = maxCpcRowValue.ParseBid();
+            var targetCpaValue = targetCpaRowValue.ParseOptional<double>();
+
+            var maxClicksBiddingScheme = biddingScheme as MaxClicksBiddingScheme;
+            if (maxClicksBiddingScheme != null)
+            {
+                c.Campaign.BiddingScheme = new MaxClicksBiddingScheme
+                {
+                    MaxCpc = maxCpcValue,
+                    Type = "MaxClicks",
+                };
+            }
+            else
+            {
+                var maxConversionsBiddingScheme = biddingScheme as MaxConversionsBiddingScheme;
+                if (maxConversionsBiddingScheme != null)
+                {
+                    c.Campaign.BiddingScheme = new MaxConversionsBiddingScheme
+                    {
+                        MaxCpc = maxCpcValue,
+                        Type = "MaxConversions",
+                    };
+                }
+                else
+                {
+                    var targetCpaBiddingScheme = biddingScheme as TargetCpaBiddingScheme;
+                    if (targetCpaBiddingScheme != null)
+                    {
+                        c.Campaign.BiddingScheme = new TargetCpaBiddingScheme
+                        {
+                            MaxCpc = maxCpcValue,
+                            TargetCpa = targetCpaValue,
+                            Type = "TargetCpa",
+                        };
+                    }
+                }
+            }
+        }
+
+        private static void BiddingSchemeToCsv(BulkCampaign c, RowValues values)
+        {
+            var biddingScheme = c.Campaign.BiddingScheme;
+
+            if (biddingScheme == null)
+            {
+                return;
+            }
+
+            values[StringTable.BidStrategyType] = biddingScheme.ToBiddingSchemeBulkString();
+
+            var maxClicksBiddingScheme = biddingScheme as MaxClicksBiddingScheme;
+            if (maxClicksBiddingScheme != null)
+            {
+                values[StringTable.BidStrategyMaxCpc] = maxClicksBiddingScheme.MaxCpc.ToBidBulkString();
+            }
+            else
+            {
+                var maxConversionsBiddingScheme = c.Campaign.BiddingScheme as MaxConversionsBiddingScheme;
+                if (maxConversionsBiddingScheme != null)
+                {
+                    values[StringTable.BidStrategyMaxCpc] = maxConversionsBiddingScheme.MaxCpc.ToBidBulkString();
+                }
+                else
+                {
+                    var targetCpaBiddingScheme = c.Campaign.BiddingScheme as TargetCpaBiddingScheme;
+                    if (targetCpaBiddingScheme != null)
+                    {
+                        values[StringTable.BidStrategyMaxCpc] = targetCpaBiddingScheme.MaxCpc.ToBidBulkString();
+                        values[StringTable.BidStrategyTargetCpa] = targetCpaBiddingScheme.TargetCpa.ToBulkString();
+                    }
+                }
+            }                
         }
     }
 }

@@ -64,15 +64,15 @@ namespace Microsoft.BingAds.V11.Internal.Bulk.Entities
 
             for (int i = 1; i <= MaxNumberOfConditions; i++)
             {
-                string webpagetCondition;
+                string webpageCondition;
                 string webpageValue;
 
-                values.TryGetValue(conditionHeaderPrefix + i, out webpagetCondition);
+                values.TryGetValue(conditionHeaderPrefix + i, out webpageCondition);
                 values.TryGetValue(valueHeaderPrefix + i, out webpageValue);
 
-                if (!string.IsNullOrEmpty(webpagetCondition) || !string.IsNullOrEmpty(webpageValue))
+                if (!string.IsNullOrEmpty(webpageCondition) || !string.IsNullOrEmpty(webpageValue))
                 {
-                    conditions.Add(new WebpageCondition { Operand = webpagetCondition.Parse<WebpageConditionOperand>(), Argument = webpageValue });
+                    conditions.Add(new WebpageCondition { Operand = webpageCondition.Parse<WebpageConditionOperand>(), Argument = webpageValue });
                 }
             }
         }

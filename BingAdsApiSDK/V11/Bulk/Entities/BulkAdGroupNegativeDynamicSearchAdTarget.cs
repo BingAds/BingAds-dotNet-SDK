@@ -71,7 +71,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// <summary>
         /// Defines an Ad Group Criterion.
         /// </summary>
-        public AdGroupCriterion AdGroupCriterion { get; set; }
+        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the ad group.
@@ -88,18 +88,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkAdGroupNegativeDynamicSearchAdTarget>[] Mappings =
         {
             new SimpleBulkMapping<BulkAdGroupNegativeDynamicSearchAdTarget>(StringTable.Status,
-                c => c.AdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
+                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
+                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupNegativeDynamicSearchAdTarget>(StringTable.Id,
-                c => c.AdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Id = v.ParseOptional<long>()
+                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
+                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupNegativeDynamicSearchAdTarget>(StringTable.ParentId,
-                c => c.AdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.AdGroupCriterion.AdGroupId = v.Parse<long>()
+                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
+                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupNegativeDynamicSearchAdTarget>(StringTable.Campaign,
@@ -115,7 +115,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new ComplexBulkMapping<BulkAdGroupNegativeDynamicSearchAdTarget>(
                 (c, v) =>
                 {
-                    var webpage = c.AdGroupCriterion.Criterion as Webpage;
+                    var webpage = c.NegativeAdGroupCriterion.Criterion as Webpage;
 
                     if (webpage == null)
                     {
@@ -133,7 +133,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var webpage = c.AdGroupCriterion.Criterion as Webpage;
+                    var webpage = c.NegativeAdGroupCriterion.Criterion as Webpage;
 
                     if (webpage == null)
                     {
@@ -152,13 +152,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupNegativeDynamicSearchAdTarget>(StringTable.Name,
                 c =>
                 {
-                    var webpage = c.AdGroupCriterion.Criterion as Webpage;
+                    var webpage = c.NegativeAdGroupCriterion.Criterion as Webpage;
 
                     return webpage != null ? webpage.Parameter.ToCriterionNameBulkString() : null;
                 },
                 (v, c) =>
                 {
-                    var webpage = c.AdGroupCriterion.Criterion as Webpage;
+                    var webpage = c.NegativeAdGroupCriterion.Criterion as Webpage;
 
                     if (webpage != null && webpage.Parameter != null)
                     {
@@ -170,14 +170,14 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(AdGroupCriterion, typeof(AdGroupCriterion).Name);
+            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(AdGroupCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            AdGroupCriterion = new NegativeAdGroupCriterion()
+            NegativeAdGroupCriterion = new NegativeAdGroupCriterion()
             {
                 Criterion = new Webpage()
                 {

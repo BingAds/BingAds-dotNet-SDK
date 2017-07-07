@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Collections.Generic;
 using Microsoft.BingAds.V11.Internal.Bulk;
 using Microsoft.BingAds.V11.Internal.Bulk.Mappings;
@@ -55,68 +54,111 @@ using Microsoft.BingAds.V11.Internal.Bulk.Entities;
 using Microsoft.BingAds.V11.CampaignManagement;
 
 // ReSharper disable once CheckNamespace
+
 namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a text ad. 
-    /// This class exposes the <see cref="BulkTextAd.TextAd"/> property that can be read and written as fields of the Text Ad record in a bulk file. 
+    /// Represents a price ad extension. 
+    /// This class exposes the <see cref="BulkPriceAdExtension.PriceAdExtension"/> property that can be read and written 
+    /// as fields of the Price Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Text Ad</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Price Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkTextAd : BulkAd<TextAd>
+    public class BulkPriceAdExtension : BulkAdExtensionBase<PriceAdExtension>
     {
         /// <summary>
-        /// <para>
-        /// The text ad. 
-        /// </para>
+        /// The price ad extension.
         /// </summary>
-        public TextAd TextAd
+        public PriceAdExtension PriceAdExtension
         {
-            get { return Ad; }
-            set { Ad = value; }
+            get { return AdExtension; }
+            set { AdExtension = value; }
         }
 
-        private static readonly IBulkMapping<BulkTextAd>[] Mappings =
-        {            
-            new SimpleBulkMapping<BulkTextAd>(StringTable.Title,
-                c => c.TextAd.Title,
-                (v, c) => c.TextAd.Title = v
+        private static readonly IBulkMapping<BulkPriceAdExtension>[] Mappings =
+        {
+            new SimpleBulkMapping<BulkPriceAdExtension>(StringTable.Language,
+                c => c.PriceAdExtension.Language,
+                (v, c) => c.PriceAdExtension.Language = v),
+
+            new SimpleBulkMapping<BulkPriceAdExtension>(StringTable.PriceExtensionType,
+                c => c.PriceAdExtension.PriceExtensionType.ToBulkString(),
+                (v, c) =>
+                {
+                    var extension = c.PriceAdExtension as PriceAdExtension;
+
+                    if (extension == null) return;
+
+                    PriceExtensionType? priceExtensionType = v.ParseOptional<PriceExtensionType>();
+                    if (priceExtensionType != null)
+                    {
+                        c.PriceAdExtension.PriceExtensionType = (PriceExtensionType)priceExtensionType;
+                    }
+                }
+            ),
+            
+            new SimpleBulkMapping<BulkPriceAdExtension>(StringTable.TrackingTemplate,
+                c => c.PriceAdExtension.TrackingUrlTemplate.ToOptionalBulkString(),
+                (v, c) => c.PriceAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
-            new SimpleBulkMapping<BulkTextAd>(StringTable.Text,
-                c => c.TextAd.Text,
-                (v, c) => c.TextAd.Text = v
+            new SimpleBulkMapping<BulkPriceAdExtension>(StringTable.CustomParameter,
+                c => c.PriceAdExtension.UrlCustomParameters.ToBulkString(),
+                (v, c) => c.PriceAdExtension.UrlCustomParameters = v.ParseCustomParameters()
             ),
 
-            new SimpleBulkMapping<BulkTextAd>(StringTable.DisplayUrl,
-                c => c.TextAd.DisplayUrl,
-                (v, c) => c.TextAd.DisplayUrl = v
-            ),
-
-            new SimpleBulkMapping<BulkTextAd>(StringTable.DestinationUrl,
-                c => c.TextAd.DestinationUrl.ToOptionalBulkString(),
-                (v, c) => c.TextAd.DestinationUrl = v.GetValueOrEmptyString()
+            new ComplexBulkMapping<BulkPriceAdExtension>(
+                PriceTableRowsToRowValues,
+                RowValuesToPriceTableRows
             ),
         };
 
+        private static void RowValuesToPriceTableRows(RowValues values, BulkPriceAdExtension c)
+        {
+            var priceAdExtension = c.PriceAdExtension;
+
+            priceAdExtension.TableRows = new List<PriceTableRow>();
+            
+            PriceTableRowHelper.AddPriceTableRowsFromRowValues(values, priceAdExtension.TableRows);
+        }
+
+        private static void PriceTableRowsToRowValues(BulkPriceAdExtension c, RowValues values)
+        {
+            if (c.PriceAdExtension == null)
+            {
+                return;
+            }
+
+            var priceAdExtension = c.PriceAdExtension;
+
+            if (priceAdExtension.TableRows == null)
+            {
+                return;
+            }
+
+            PriceTableRowHelper.AddRowValuesFromPriceTableRows(priceAdExtension.TableRows, values);
+        }
+
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            TextAd = new TextAd { Type = AdType.Text };
+            PriceAdExtension = new PriceAdExtension
+            {
+                Type = "PriceAdExtension",
+            };
 
             base.ProcessMappingsFromRowValues(values);
 
             values.ConvertToEntity(this, Mappings);
         }
 
-
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(TextAd, "TextAd");
+            ValidatePropertyNotNull(PriceAdExtension, "PriceAdExtension");
 
             base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 

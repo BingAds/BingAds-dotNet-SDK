@@ -173,6 +173,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         //Image ad extension
         public const string AltText = "Alternative Text";
         public const string MediaIds = "Media Ids";
+        public const string AccountImageAdExtension = "Account Image Ad Extension";
         public const string CampaignImageAdExtension = "Campaign Image Ad Extension";
         public const string AdGroupImageAdExtension = "Ad Group Image Ad Extension";
 
@@ -197,6 +198,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string GeoCodeStatus = "Geo Code Status";
         public const string IconMediaId = "Map Icon";
         public const string ImageMediaId = "Business Icon";
+        public const string AccountLocationAdExtension = "Account Location Ad Extension";
         public const string CampaignLocationAdExtension = "Campaign Location Ad Extension";
 
         // Call ad extensions
@@ -209,15 +211,6 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         // Editorial rejection reasons
         public const string PublisherCountries = "Publisher Countries";
 
-        // Product Target
-        public const string ProductTargetType = "Ad Group Product Target";
-        public const string ProductCondition1 = "Product Condition 1";
-        public const string ProductCondition2 = "Product Condition 2";
-        public const string ProductCondition3 = "Product Condition 3";
-        public const string ProductValue1 = "Product Value 1";
-        public const string ProductValue2 = "Product Value 2";
-        public const string ProductValue3 = "Product Value 3";
-
         // BTE types
         public const string KeywordFirstPageBidType = "Keyword First Page Bid";
         public const string KeywordMainLineBidType = "Keyword Main Line Bid";
@@ -225,10 +218,16 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
         // Product ad extension
         public const string CampaignProductAdExtension = "Campaign Product Ad Extension";
+        public const string ProductCondition1 = "Product Condition 1";
+        public const string ProductCondition2 = "Product Condition 2";
+        public const string ProductCondition3 = "Product Condition 3";
         public const string ProductCondition4 = "Product Condition 4";
         public const string ProductCondition5 = "Product Condition 5";
         public const string ProductCondition6 = "Product Condition 6";
         public const string ProductCondition7 = "Product Condition 7";
+        public const string ProductValue1 = "Product Value 1";
+        public const string ProductValue2 = "Product Value 2";
+        public const string ProductValue3 = "Product Value 3";
         public const string ProductValue4 = "Product Value 4";
         public const string ProductValue5 = "Product Value 5";
         public const string ProductValue6 = "Product Value 6";
@@ -239,6 +238,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string AppAdExtension = "App Ad Extension";
         public const string AppPlatform = "App Platform";
         public const string AppStoreId = "App Id";
+        public const string AccountAppAdExtension = "Account App Ad Extension";
         public const string CampaignAppAdExtension = "Campaign App Ad Extension";
         public const string AdGroupAppAdExtension = "Ad Group App Ad Extension";
         public const string IsTrackingEnabled = "Tracking Enabled";
@@ -291,6 +291,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string ParentAdGroupCriterionId = "Parent Criterion Id";
         public const string CampaignType = "Campaign Type";
         public const string CampaignPriority = "Priority";
+        public const string LocalInventoryAdsEnabled = "LocalInventoryAdsEnabled";
 
         // Upgrade URL
         public const string FinalUrl = "Final Url";
@@ -300,25 +301,123 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
         // Review Ad Extension
         public const string ReviewAdExtension = "Review Ad Extension";
+        public const string AccountReviewAdExtension = "Account Review Ad Extension";
         public const string CampaignReviewAdExtension = "Campaign Review Ad Extension";
         public const string AdGroupReviewAdExtension = "Ad Group Review Ad Extension";
         public const string IsExact = "Is Exact";
         public const string Source = "Source";
         public const string Url = "Url";
 
+        // Price Ad Extension
+        public const string PriceAdExtension = "Price Ad Extension";
+        public const string AccountPriceAdExtension = "Account Price Ad Extension";
+        public const string CampaignPriceAdExtension = "Campaign Price Ad Extension";
+        public const string AdGroupPriceAdExtension = "Ad Group Price Ad Extension";
+        public const string PriceExtensionType = "Price Extension Type";
+        public const string Header1 = "Header 1";
+        public const string Header2 = "Header 2";  
+        public const string Header3 = "Header 3";
+        public const string Header4 = "Header 4";
+        public const string Header5 = "Header 5";
+        public const string Header6 = "Header 6";
+        public const string Header7 = "Header 7";
+        public const string Header8 = "Header 8";
+        public const string PriceDescription1 = "Price Description 1";
+        public const string PriceDescription2 = "Price Description 2";
+        public const string PriceDescription3 = "Price Description 3";
+        public const string PriceDescription4 = "Price Description 4";
+        public const string PriceDescription5 = "Price Description 5";
+        public const string PriceDescription6 = "Price Description 6";
+        public const string PriceDescription7 = "Price Description 7";
+        public const string PriceDescription8 = "Price Description 8";
+        public const string FinalUrl1 = "Final Url 1";
+        public const string FinalUrl2 = "Final Url 2";
+        public const string FinalUrl3 = "Final Url 3";
+        public const string FinalUrl4 = "Final Url 4";
+        public const string FinalUrl5 = "Final Url 5";
+        public const string FinalUrl6 = "Final Url 6";
+        public const string FinalUrl7 = "Final Url 7";
+        public const string FinalUrl8 = "Final Url 8";
+        public const string FinalMobileUrl1 = "Final Mobile Url 1";
+        public const string FinalMobileUrl2 = "Final Mobile Url 2";
+        public const string FinalMobileUrl3 = "Final Mobile Url 3";
+        public const string FinalMobileUrl4 = "Final Mobile Url 4";
+        public const string FinalMobileUrl5 = "Final Mobile Url 5";
+        public const string FinalMobileUrl6 = "Final Mobile Url 6";
+        public const string FinalMobileUrl7 = "Final Mobile Url 7";
+        public const string FinalMobileUrl8 = "Final Mobile Url 8";
+        public const string Price1 = "Price 1"; 
+        public const string Price2 = "Price 2";
+        public const string Price3 = "Price 3";
+        public const string Price4 = "Price 4";
+        public const string Price5 = "Price 5";
+        public const string Price6 = "Price 6";
+        public const string Price7 = "Price 7";
+        public const string Price8 = "Price 8";
+        public const string CurrencyCode1 = "Currency Code 1";
+        public const string CurrencyCode2 = "Currency Code 2";
+        public const string CurrencyCode3 = "Currency Code 3";
+        public const string CurrencyCode4 = "Currency Code 4";
+        public const string CurrencyCode5 = "Currency Code 5";
+        public const string CurrencyCode6 = "Currency Code 6";
+        public const string CurrencyCode7 = "Currency Code 7";
+        public const string CurrencyCode8 = "Currency Code 8";
+        public const string PriceUnit1 = "Price Unit 1";
+        public const string PriceUnit2 = "Price Unit 2";
+        public const string PriceUnit3 = "Price Unit 3";
+        public const string PriceUnit4 = "Price Unit 4";
+        public const string PriceUnit5 = "Price Unit 5";
+        public const string PriceUnit6 = "Price Unit 6";
+        public const string PriceUnit7 = "Price Unit 7";
+        public const string PriceUnit8 = "Price Unit 8";
+        public const string PriceQualifier1 = "Price Qualifier 1";
+        public const string PriceQualifier2 = "Price Qualifier 2";
+        public const string PriceQualifier3 = "Price Qualifier 3";
+        public const string PriceQualifier4 = "Price Qualifier 4";
+        public const string PriceQualifier5 = "Price Qualifier 5";
+        public const string PriceQualifier6 = "Price Qualifier 6";
+        public const string PriceQualifier7 = "Price Qualifier 7";
+        public const string PriceQualifier8 = "Price Qualifier 8";
+        public const string TermsAndConditions1 = "Terms And Conditions 1";
+        public const string TermsAndConditions2 = "Terms And Conditions 2";
+        public const string TermsAndConditions3 = "Terms And Conditions 3";
+        public const string TermsAndConditions4 = "Terms And Conditions 4";
+        public const string TermsAndConditions5 = "Terms And Conditions 5";
+        public const string TermsAndConditions6 = "Terms And Conditions 6";
+        public const string TermsAndConditions7 = "Terms And Conditions 7";
+        public const string TermsAndConditions8 = "Terms And Conditions 8";
+        public const string TermsAndConditionsUrl1 = "Terms And Conditions Url 1";
+        public const string TermsAndConditionsUrl2 = "Terms And Conditions Url 2";
+        public const string TermsAndConditionsUrl3 = "Terms And Conditions Url 3";
+        public const string TermsAndConditionsUrl4 = "Terms And Conditions Url 4";
+        public const string TermsAndConditionsUrl5 = "Terms And Conditions Url 5";
+        public const string TermsAndConditionsUrl6 = "Terms And Conditions Url 6";
+        public const string TermsAndConditionsUrl7 = "Terms And Conditions Url 7";
+        public const string TermsAndConditionsUrl8 = "Terms And Conditions Url 8";
+
         // Callout Ad Extension
         public const string CalloutAdExtension = "Callout Ad Extension";
+        public const string AccountCalloutAdExtension = "Account Callout Ad Extension";
         public const string CampaignCalloutAdExtension = "Campaign Callout Ad Extension";
         public const string AdGroupCalloutAdExtension = "Ad Group Callout Ad Extension";
         public const string CalloutText = "Callout Text";
 
         // AutoBidding
         public const string BidStrategyType = "Bid Strategy Type";
+        public const string BidStrategyMaxCpc = "Bid Strategy MaxCpc";
+        public const string BidStrategyTargetCpa = "Bid Strategy TargetCpa";
 
-        // Remarketing
-        public const string RemarketingList = "Remarketing List";
+        // Audience
         public const string Audience = "Audience";
+        public const string RemarketingList = "Remarketing List";
         public const string AdGroupRemarketingListAssociation = "Ad Group Remarketing List Association";
+        public const string AdGroupNegativeRemarketingListAssociation = "Ad Group Negative Remarketing List Association";
+        public const string CustomAudience = "Custom Audience";
+        public const string AdGroupCustomAudienceAssociation = "Ad Group Custom Audience Association";
+        public const string AdGroupNegativeCustomAudienceAssociation = "Ad Group Negative Custom Audience Association";
+        public const string InMarketAudience = "In Market Audience";
+        public const string AdGroupInMarketAudienceAssociation = "Ad Group In Market Audience Association";
+        public const string AdGroupNegativeInMarketAudienceAssociation = "Ad Group Negative In Market Audience Association";
         public const string Description = "Description";
         public const string MembershipDuration = "Membership Duration";
         public const string Scope = "Scope";
@@ -335,6 +434,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string Path2 = "Path 2";
 
         // Structured Snippet Ad Extension
+        public const string AccountStructuredSnippetAdExtension = "Account Structured Snippet Ad Extension";
         public const string CampaignStructuredSnippetAdExtension = "Campaign Structured Snippet Ad Extension";
         public const string AdGroupStructuredSnippetAdExtension = "Ad Group Structured Snippet Ad Extension";
         public const string StructuredSnippetAdExtension = "Structured Snippet Ad Extension";
@@ -343,6 +443,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
         // Sitelink2 Ad Extension
         public const string Sitelink2AdExtesnion = "Sitelink2 Ad Extension";
+        public const string AccountSitelink2AdExtension = "Account Sitelink2 Ad Extension";
         public const string CampaignSitelink2AdExtension = "Campaign Sitelink2 Ad Extension";
         public const string AdGroupSitelink2AdExtension = "Ad Group Sitelink2 Ad Extension";
 

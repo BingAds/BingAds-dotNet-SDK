@@ -339,6 +339,31 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             return new Bid {Amount = s.Parse<double>()};
         }
 
+        public static string ToBidBulkString(this Bid bid)
+        {
+            if (bid == null)
+            {
+                return null;
+            }
+
+            if (bid.Amount == null)
+            {
+                return DeleteValue;
+            }
+
+            return bid.Amount.ToBulkString();
+        }
+
+        public static Bid ParseBid(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return new Bid() { Amount = null };
+            }
+
+            return new Bid { Amount = s.Parse<double>() };
+        }
+
         public static long? ParseDevicePreference(this string s)
         {
             if (string.IsNullOrEmpty(s))
@@ -370,6 +395,37 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             }
 
             throw new ArgumentException("Unknown device preference");
+        }
+
+        public static string ToAdFormatPreference(this string adFormatPreference)
+        {
+
+            if (string.IsNullOrEmpty(adFormatPreference))
+            {
+                return null;
+            }
+            else if ("True".Equals(adFormatPreference))
+            {
+                return "Native";
+            }
+            else if ("False".Equals(adFormatPreference))
+            {
+                return "All";
+            }
+            throw new ArgumentException(string.Format("Unsupported value for Native Preference : {0}", adFormatPreference));
+        }
+
+        public static string ParseAdFormatPreference(this string s)
+        {
+            if (string.IsNullOrEmpty(s) || s.Equals("All"))
+            {
+                return "False";
+            }
+            else if (s.Equals("Native"))
+            {
+                return "True";
+            }
+            throw new ArgumentException(string.Format("Unsupported value for Native Preference : {0}", s));
         }
 
         public static Minute ParseMinute(this string s)
@@ -482,6 +538,35 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             return urls;
         }
 
+        public static string WriteCampaignLanguages(this IList<string> languages, string seperator)
+        {
+            if (languages == null)
+            {
+                return null;
+            }
+
+            if (languages.Count == 0)
+            {
+                return DeleteValue;
+            }
+
+            var text = string.Join(seperator, languages);
+
+            return text;
+        }
+
+        public static IList<string> ParseCampaignLanguages(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
+            var languages = s.Split(new string[] { ";" }, StringSplitOptions.None).ToList();
+            
+            return languages;
+        }
+
         public static string ToBulkString(this CustomParameters parameters)
         {
             if (parameters == null)
@@ -585,35 +670,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
             return bulkString;
         }
-
-        public static string ToNativePreferenceBulkString(this IList<KeyValuePair<string, string>> parameters)
-        {
-            if (parameters == null)
-                return null;
-
-            foreach (var keyValuePair in parameters)
-            {
-                if (keyValuePair.Key.Equals("NativePreference"))
-                {
-                    var value = keyValuePair.Value.ToLower();
-
-                    if (value.Equals("true"))
-                    {
-                        return "Native";
-                    } 
-                    else if (value.Equals("false"))
-                    {
-                        return "All";
-                    }
-                    else
-                    {
-                        throw new ArgumentException(string.Format("Unkonwn value for Native Preference : {0}", value));
-                    }
-                }
-            }
-            return null;
-        }
-		
+        		
         public static BiddingScheme ParseBiddingScheme(this string s)
         {
             if (string.IsNullOrEmpty(s))

@@ -71,7 +71,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// <summary>
         /// Defines an Ad Group Criterion.
         /// </summary>
-        public AdGroupCriterion AdGroupCriterion { get; set; }
+        public BiddableAdGroupCriterion BiddableAdGroupCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the ad group.
@@ -93,18 +93,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkAdGroupDynamicSearchAdTarget>[] Mappings =
         {
             new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.Status,
-                c => c.AdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
+                c => c.BiddableAdGroupCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.Id,
-                c => c.AdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Id = v.ParseOptional<long>()
+                c => c.BiddableAdGroupCriterion.Id.ToBulkString(),
+                (v, c) => c.BiddableAdGroupCriterion.Id = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.ParentId,
-                c => c.AdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.AdGroupCriterion.AdGroupId = v.Parse<long>()
+                c => c.BiddableAdGroupCriterion.AdGroupId.ToBulkString(true),
+                (v, c) => c.BiddableAdGroupCriterion.AdGroupId = v.Parse<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.Campaign,
@@ -120,11 +120,9 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.Bid,
                 c =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
+                    if (c.BiddableAdGroupCriterion != null)
                     {
-                        var fixedBid = criterion.CriterionBid as FixedBid;
+                        var fixedBid = c.BiddableAdGroupCriterion.CriterionBid as FixedBid;
 
                         if (fixedBid == null)
                         {
@@ -138,11 +136,9 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
+                    if (c.BiddableAdGroupCriterion != null)
                     {
-                        criterion.CriterionBid = v.ParseAdGroupCriterionFixedBid();
+                        c.BiddableAdGroupCriterion.CriterionBid = v.ParseAdGroupCriterionFixedBid();
                     }
                 }
             ),
@@ -150,22 +146,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.TrackingTemplate,
                 c =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
+                    if (c.BiddableAdGroupCriterion != null)
                     {
-                        return criterion.TrackingUrlTemplate.ToOptionalBulkString();
+                        return c.BiddableAdGroupCriterion.TrackingUrlTemplate.ToOptionalBulkString();
                     }
 
                     return null;
                 },
                 (v, c) =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
+                    if (c.BiddableAdGroupCriterion != null)
                     {
-                        criterion.TrackingUrlTemplate = v.GetValueOrEmptyString();
+                        c.BiddableAdGroupCriterion.TrackingUrlTemplate = v.GetValueOrEmptyString();
                     }
                 }
             ),
@@ -173,22 +165,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.CustomParameter,
                 c =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
+                    if (c.BiddableAdGroupCriterion != null)
                     {
-                        return criterion.UrlCustomParameters.ToBulkString();
+                        return c.BiddableAdGroupCriterion.UrlCustomParameters.ToBulkString();
                     }
 
                     return null;
                 },
                 (v, c) =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
+                    if (c.BiddableAdGroupCriterion != null)
                     {
-                        criterion.UrlCustomParameters = v.ParseCustomParameters();
+                        c.BiddableAdGroupCriterion.UrlCustomParameters = v.ParseCustomParameters();
                     }
                 }
             ),
@@ -196,7 +184,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new ComplexBulkMapping<BulkAdGroupDynamicSearchAdTarget>(
                 (c, v) =>
                 {
-                    var webpage = c.AdGroupCriterion.Criterion as Webpage;
+                    var webpage = c.BiddableAdGroupCriterion.Criterion as Webpage;
 
                     if (webpage == null)
                     {
@@ -214,7 +202,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var webpage = c.AdGroupCriterion.Criterion as Webpage;
+                    var webpage = c.BiddableAdGroupCriterion.Criterion as Webpage;
 
                     if (webpage == null)
                     {
@@ -233,13 +221,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.Name,
                 c =>
                 {
-                    var webpage = c.AdGroupCriterion.Criterion as Webpage;
+                    var webpage = c.BiddableAdGroupCriterion.Criterion as Webpage;
 
                     return webpage != null ? webpage.Parameter.ToCriterionNameBulkString() : null;
                 },
                 (v, c) =>
                 {
-                    var webpage = c.AdGroupCriterion.Criterion as Webpage;
+                    var webpage = c.BiddableAdGroupCriterion.Criterion as Webpage;
 
                     if (webpage != null && webpage.Parameter != null)
                     {
@@ -251,7 +239,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(AdGroupCriterion, typeof(AdGroupCriterion).Name);
+            ValidatePropertyNotNull(BiddableAdGroupCriterion, typeof(AdGroupCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
 
@@ -263,7 +251,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            AdGroupCriterion = new BiddableAdGroupCriterion
+            BiddableAdGroupCriterion = new BiddableAdGroupCriterion
             {
                 Criterion = new Webpage()
                 {

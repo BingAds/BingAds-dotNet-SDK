@@ -1257,7 +1257,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671765(v=msads.110).aspx">BatchError Data Object</see> http://msdn.microsoft.com/en-us/library/bb671765(v=msads.110).aspx for details.
     /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4748,7 +4748,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/jj622172(v=msads.110).aspx">EntityType Value Set</see> http://msdn.microsoft.com/en-us/library/jj622172(v=msads.110).aspx for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see> and <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see> and <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityType", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
@@ -5235,7 +5235,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// The date and time when the migration began.
+        /// The date and time when the migration began. The value is in Coordinated Universal Time (UTC).
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> StartTimeInUtc
@@ -5321,6 +5321,125 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Completed = 3,
+    }
+    
+    /// <summary>
+    /// Maps an account level property name to a string value.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803286(v=msads.110).aspx">AccountProperty Data Object</see> http://msdn.microsoft.com/en-us/library/mt803286(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see> and <see cref="CampaignManagementServiceClient.SetAccountProperties">SetAccountProperties</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountProperty", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class AccountProperty : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.CampaignManagement.AccountPropertyName NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The name of the account property.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.CampaignManagement.AccountPropertyName Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((this.NameField.Equals(value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The value of the named account property.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.ValueField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ValueField, value) != true))
+                {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the name of account level properties.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803298(v=msads.110).aspx">AccountPropertyName Value Set</see> http://msdn.microsoft.com/en-us/library/mt803298(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="AccountProperty"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountPropertyName", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum AccountPropertyName : int
+    {
+        
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+        
+        /// <summary>
+        /// Used to get or set the account's tracking template.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TrackingUrlTemplate = 1,
+        
+        /// <summary>
+        /// Used to get or set the property that determines whether MSCLKID auto-tagging is enabled for the account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MSCLKIDAutoTaggingEnabled = 2,
     }
     
     /// <summary>
@@ -7986,6 +8105,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TermsAndConditions
         {
@@ -8003,6 +8125,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TermsAndConditionsUrl
         {
@@ -11052,7 +11177,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the possible age range values that you can use to target ads to users.
+    /// Defines the possible age range values that you can use to target ads to People.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/bb671742(v=msads.110).aspx">AgeRange Value Set</see> http://msdn.microsoft.com/en-us/library/bb671742(v=msads.110).aspx for details.
@@ -11064,19 +11189,19 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Users 17 years of age and younger.
+        /// People 17 years of age and younger.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ZeroToSeventeen = 0,
         
         /// <summary>
-        /// Users from the ages of 18 through 24 years.
+        /// People from the ages of 18 through 24 years.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EighteenToTwentyFour = 1,
         
         /// <summary>
-        /// Users from the ages of 25 through 34 years.
+        /// People from the ages of 25 through 34 years.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TwentyFiveToThirtyFour = 2,
@@ -11085,16 +11210,22 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         ThirtyFiveToFourtyNine = 3,
         
         /// <summary>
-        /// Users from the ages of 50 through 64 years.
+        /// People from the ages of 50 through 64 years.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FiftyToSixtyFour = 4,
         
         /// <summary>
-        /// Users 65 years of age and older.
+        /// People 65 years of age and older.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SixtyFiveAndAbove = 5,
+        
+        /// <summary>
+        /// People from the ages of 13 through 17 years.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ThirteenToSeventeen = 6,
     }
     
     /// <summary>
@@ -14422,6 +14553,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstall = 16,
+        
+        /// <summary>
+        /// Refers to an OfflineConversion
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OfflineConversion = 32,
     }
     
     /// <summary>
@@ -14440,6 +14577,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.PagesViewedPerVisitGoal))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.EventGoal))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AppInstallGoal))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.OfflineConversionGoal))]
     public partial class ConversionGoal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -15161,6 +15299,20 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
+    /// Defines an offline conversion goal. Use this type of goal if you have lead generation as an objective. Lead generation is when potential customers fill out a form or quote of interest, and then the sale is completed offline in person or over the phone (for example, car purchases, insurance quotes, mortgages, etc.).
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803297(v=msads.110).aspx">OfflineConversionGoal Data Object</see> http://msdn.microsoft.com/en-us/library/mt803297(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OfflineConversionGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class OfflineConversionGoal : Microsoft.BingAds.V11.CampaignManagement.ConversionGoal
+    {
+    }
+    
+    /// <summary>
     /// Defines how your conversions are recorded within your chosen conversion window.
     /// </summary>
     /// <remarks>
@@ -15338,6 +15490,450 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreaterThan = 2,
+    }
+    
+    /// <summary>
+    /// Defines an offline conversion that you send to Bing Ads.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803296(v=msads.110).aspx">OfflineConversion Data Object</see> http://msdn.microsoft.com/en-us/library/mt803296(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OfflineConversion", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class OfflineConversion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConversionCurrencyCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConversionNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ConversionTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> ConversionValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MicrosoftClickIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ConversionCurrencyCode
+        {
+            get
+            {
+                return this.ConversionCurrencyCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ConversionCurrencyCodeField, value) != true))
+                {
+                    this.ConversionCurrencyCodeField = value;
+                    this.RaisePropertyChanged("ConversionCurrencyCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ConversionName
+        {
+            get
+            {
+                return this.ConversionNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ConversionNameField, value) != true))
+                {
+                    this.ConversionNameField = value;
+                    this.RaisePropertyChanged("ConversionName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ConversionTime
+        {
+            get
+            {
+                return this.ConversionTimeField;
+            }
+            set
+            {
+                if ((this.ConversionTimeField.Equals(value) != true))
+                {
+                    this.ConversionTimeField = value;
+                    this.RaisePropertyChanged("ConversionTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> ConversionValue
+        {
+            get
+            {
+                return this.ConversionValueField;
+            }
+            set
+            {
+                if ((this.ConversionValueField.Equals(value) != true))
+                {
+                    this.ConversionValueField = value;
+                    this.RaisePropertyChanged("ConversionValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MicrosoftClickId
+        {
+            get
+            {
+                return this.MicrosoftClickIdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MicrosoftClickIdField, value) != true))
+                {
+                    this.MicrosoftClickIdField = value;
+                    this.RaisePropertyChanged("MicrosoftClickId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Labels let you organize campaigns, ad groups, ads, and keywords into groups based on whatever is important to you. You can then filter and run reports on your labels to get the data that is most meaningful to you.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803293(v=msads.110).aspx">Label Data Object</see> http://msdn.microsoft.com/en-us/library/mt803293(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Label", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class Label : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ColorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The label color as a hexadecimal code.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ColorCode
+        {
+            get
+            {
+                return this.ColorCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColorCodeField, value) != true))
+                {
+                    this.ColorCodeField = value;
+                    this.RaisePropertyChanged("ColorCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The label description.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description
+        {
+            get
+            {
+                return this.DescriptionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true))
+                {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The system-generated identifier of the label.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The label name.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a paging object that you can use to request labels and label associations in batches.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803295(v=msads.110).aspx">Paging Data Object</see> http://msdn.microsoft.com/en-us/library/mt803295(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see> and <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Paging", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class Paging : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IndexField;
+        
+        private int SizeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The zero-based results page index. For example to request the first page of results, set this value to 0 (zero).
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Index
+        {
+            get
+            {
+                return this.IndexField;
+            }
+            set
+            {
+                if ((this.IndexField.Equals(value) != true))
+                {
+                    this.IndexField = value;
+                    this.RaisePropertyChanged("Index");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The page size and the number of results to return in the specified page. The maximum size is 1,000.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Size
+        {
+            get
+            {
+                return this.SizeField;
+            }
+            set
+            {
+                if ((this.SizeField.Equals(value) != true))
+                {
+                    this.SizeField = value;
+                    this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the relationship between a label and campaign, ad group, ad, or keyword entity.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803292(v=msads.110).aspx">LabelAssociation Data Object</see> http://msdn.microsoft.com/en-us/library/mt803292(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see> and <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LabelAssociation", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class LabelAssociation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private long EntityIdField;
+        
+        private long LabelIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of an entity associated with the label.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long EntityId
+        {
+            get
+            {
+                return this.EntityIdField;
+            }
+            set
+            {
+                if ((this.EntityIdField.Equals(value) != true))
+                {
+                    this.EntityIdField = value;
+                    this.RaisePropertyChanged("EntityId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the label.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long LabelId
+        {
+            get
+            {
+                return this.LabelIdField;
+            }
+            set
+            {
+                if ((this.LabelIdField.Equals(value) != true))
+                {
+                    this.LabelIdField = value;
+                    this.RaisePropertyChanged("LabelId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -16348,6 +16944,70 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountMigrationStatuses", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
             "etAccountMigrationStatusesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetAccountMigrationStatusesResponse> GetAccountMigrationStatusesAsync(Microsoft.BingAds.V11.CampaignManagement.GetAccountMigrationStatusesRequest request);
+        
+        /// <summary>
+        /// Sets account level properties by name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountProperties Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="SetAccountProperties", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/S" +
+            "etAccountPropertiesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/S" +
+            "etAccountPropertiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/S" +
+            "etAccountPropertiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.SetAccountPropertiesResponse SetAccountProperties(Microsoft.BingAds.V11.CampaignManagement.SetAccountPropertiesRequest request);
+        
+        /// <summary>
+        /// Sets account level properties by name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountProperties Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="SetAccountProperties", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/S" +
+            "etAccountPropertiesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.SetAccountPropertiesResponse> SetAccountPropertiesAsync(Microsoft.BingAds.V11.CampaignManagement.SetAccountPropertiesRequest request);
+        
+        /// <summary>
+        /// Gets account level properties by name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountProperties Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetAccountProperties", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etAccountPropertiesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etAccountPropertiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etAccountPropertiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.GetAccountPropertiesResponse GetAccountProperties(Microsoft.BingAds.V11.CampaignManagement.GetAccountPropertiesRequest request);
+        
+        /// <summary>
+        /// Gets account level properties by name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountProperties Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetAccountProperties", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etAccountPropertiesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetAccountPropertiesResponse> GetAccountPropertiesAsync(Microsoft.BingAds.V11.CampaignManagement.GetAccountPropertiesRequest request);
         
         /// <summary>
         /// Adds one or more ad extensions to an account's ad extension library.
@@ -18120,6 +18780,294 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="UpdateConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/U" +
             "pdateConversionGoalsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.UpdateConversionGoalsResponse> UpdateConversionGoalsAsync(Microsoft.BingAds.V11.CampaignManagement.UpdateConversionGoalsRequest request);
+        
+        /// <summary>
+        /// Applies offline conversions for the account with Microsoft Click Id among other offline conversion data.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversions Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyOfflineConversions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/A" +
+            "pplyOfflineConversionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/A" +
+            "pplyOfflineConversionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/A" +
+            "pplyOfflineConversionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.ApplyOfflineConversionsResponse ApplyOfflineConversions(Microsoft.BingAds.V11.CampaignManagement.ApplyOfflineConversionsRequest request);
+        
+        /// <summary>
+        /// Applies offline conversions for the account with Microsoft Click Id among other offline conversion data.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversions Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyOfflineConversions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/A" +
+            "pplyOfflineConversionsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.ApplyOfflineConversionsResponse> ApplyOfflineConversionsAsync(Microsoft.BingAds.V11.CampaignManagement.ApplyOfflineConversionsRequest request);
+        
+        /// <summary>
+        /// Adds one or more labels to an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddLabels", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/A" +
+            "ddLabelsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/A" +
+            "ddLabelsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/A" +
+            "ddLabelsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.AddLabelsResponse AddLabels(Microsoft.BingAds.V11.CampaignManagement.AddLabelsRequest request);
+        
+        /// <summary>
+        /// Adds one or more labels to an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddLabels", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/A" +
+            "ddLabelsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.AddLabelsResponse> AddLabelsAsync(Microsoft.BingAds.V11.CampaignManagement.AddLabelsRequest request);
+        
+        /// <summary>
+        /// Deletes one or more labels from the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteLabels", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/D" +
+            "eleteLabelsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/D" +
+            "eleteLabelsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/D" +
+            "eleteLabelsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.DeleteLabelsResponse DeleteLabels(Microsoft.BingAds.V11.CampaignManagement.DeleteLabelsRequest request);
+        
+        /// <summary>
+        /// Deletes one or more labels from the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteLabels", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/D" +
+            "eleteLabelsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.DeleteLabelsResponse> DeleteLabelsAsync(Microsoft.BingAds.V11.CampaignManagement.DeleteLabelsRequest request);
+        
+        /// <summary>
+        /// Updates the labels within the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateLabels", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/U" +
+            "pdateLabelsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/U" +
+            "pdateLabelsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/U" +
+            "pdateLabelsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.UpdateLabelsResponse UpdateLabels(Microsoft.BingAds.V11.CampaignManagement.UpdateLabelsRequest request);
+        
+        /// <summary>
+        /// Updates the labels within the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateLabels", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/U" +
+            "pdateLabelsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.UpdateLabelsResponse> UpdateLabelsAsync(Microsoft.BingAds.V11.CampaignManagement.UpdateLabelsRequest request);
+        
+        /// <summary>
+        /// Gets labels by label identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetLabelsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelsByIdsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.GetLabelsByIdsResponse GetLabelsByIds(Microsoft.BingAds.V11.CampaignManagement.GetLabelsByIdsRequest request);
+        
+        /// <summary>
+        /// Gets labels by label identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetLabelsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelsByIdsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelsByIdsResponse> GetLabelsByIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelsByIdsRequest request);
+        
+        /// <summary>
+        /// Sets label associations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociations Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any associations that were not successfully retrieved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="SetLabelAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/S" +
+            "etLabelAssociationsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/S" +
+            "etLabelAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/S" +
+            "etLabelAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.SetLabelAssociationsResponse SetLabelAssociations(Microsoft.BingAds.V11.CampaignManagement.SetLabelAssociationsRequest request);
+        
+        /// <summary>
+        /// Sets label associations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociations Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any associations that were not successfully retrieved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="SetLabelAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/S" +
+            "etLabelAssociationsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.SetLabelAssociationsResponse> SetLabelAssociationsAsync(Microsoft.BingAds.V11.CampaignManagement.SetLabelAssociationsRequest request);
+        
+        /// <summary>
+        /// Deletes label associations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociations Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any associations that were not successfully retrieved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteLabelAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/D" +
+            "eleteLabelAssociationsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/D" +
+            "eleteLabelAssociationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/D" +
+            "eleteLabelAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.DeleteLabelAssociationsResponse DeleteLabelAssociations(Microsoft.BingAds.V11.CampaignManagement.DeleteLabelAssociationsRequest request);
+        
+        /// <summary>
+        /// Deletes label associations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociations Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any associations that were not successfully retrieved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteLabelAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/D" +
+            "eleteLabelAssociationsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.DeleteLabelAssociationsResponse> DeleteLabelAssociationsAsync(Microsoft.BingAds.V11.CampaignManagement.DeleteLabelAssociationsRequest request);
+        
+        /// <summary>
+        /// Gets label associations by entity identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetLabelAssociationsByEntityIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelAssociationsByEntityIdsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelAssociationsByEntityIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelAssociationsByEntityIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByEntityIdsResponse GetLabelAssociationsByEntityIds(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByEntityIdsRequest request);
+        
+        /// <summary>
+        /// Gets label associations by entity identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetLabelAssociationsByEntityIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelAssociationsByEntityIdsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByEntityIdsResponse> GetLabelAssociationsByEntityIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByEntityIdsRequest request);
+        
+        /// <summary>
+        /// Gets label associations by label identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetLabelAssociationsByLabelIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelAssociationsByLabelIdsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelAssociationsByLabelIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelAssociationsByLabelIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsResponse GetLabelAssociationsByLabelIds(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsRequest request);
+        
+        /// <summary>
+        /// Gets label associations by label identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetLabelAssociationsByLabelIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etLabelAssociationsByLabelIdsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsResponse> GetLabelAssociationsByLabelIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsRequest request);
     }
     
     /// <summary>
@@ -22153,6 +23101,232 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         {
             this.TrackingId = TrackingId;
             this.MigrationStatuses = MigrationStatuses;
+        }
+    }
+    
+    /// <summary>
+    /// Sets account level properties by name.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountProperties Request Object</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SetAccountProperties">SetAccountProperties</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SetAccountPropertiesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class SetAccountPropertiesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.AccountProperty> AccountProperties;
+        
+        /// <summary>
+        /// Constructor for the SetAccountPropertiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountPropertiesRequest</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+        /// </remarks>
+        public SetAccountPropertiesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the SetAccountPropertiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountPropertiesRequest</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="AccountProperties"></param>
+        public SetAccountPropertiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.AccountProperty> AccountProperties)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountProperties = AccountProperties;
+        }
+    }
+    
+    /// <summary>
+    /// Sets account level properties by name.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountProperties Response Object</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SetAccountProperties">SetAccountProperties</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SetAccountPropertiesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class SetAccountPropertiesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Constructor for the SetAccountPropertiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountPropertiesResponse</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+        /// </remarks>
+        public SetAccountPropertiesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the SetAccountPropertiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountPropertiesResponse</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+        /// </remarks>
+        public SetAccountPropertiesResponse(string TrackingId)
+        {
+            this.TrackingId = TrackingId;
+        }
+    }
+    
+    /// <summary>
+    /// Gets account level properties by name.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountProperties Request Object</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountPropertiesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetAccountPropertiesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.AccountPropertyName> AccountPropertyNames;
+        
+        /// <summary>
+        /// Constructor for the GetAccountPropertiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountPropertiesRequest</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetAccountPropertiesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetAccountPropertiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountPropertiesRequest</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="AccountPropertyNames"></param>
+        public GetAccountPropertiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.AccountPropertyName> AccountPropertyNames)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountPropertyNames = AccountPropertyNames;
+        }
+    }
+    
+    /// <summary>
+    /// Gets account level properties by name.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountProperties Response Object</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountPropertiesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetAccountPropertiesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of account properties.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.AccountProperty> AccountProperties;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetAccountPropertiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountPropertiesResponse</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetAccountPropertiesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetAccountPropertiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountPropertiesResponse</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="AccountProperties">An array of account properties.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public GetAccountPropertiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.AccountProperty> AccountProperties, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.AccountProperties = AccountProperties;
+            this.PartialErrors = PartialErrors;
         }
     }
     
@@ -29092,6 +30266,1079 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Applies offline conversions for the account with Microsoft Click Id among other offline conversion data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversions Request Object</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyOfflineConversionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class ApplyOfflineConversionsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.OfflineConversion> OfflineConversions;
+        
+        /// <summary>
+        /// Constructor for the ApplyOfflineConversionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversionsRequest</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+        /// </remarks>
+        public ApplyOfflineConversionsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ApplyOfflineConversionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversionsRequest</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="OfflineConversions"></param>
+        public ApplyOfflineConversionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.OfflineConversion> OfflineConversions)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.OfflineConversions = OfflineConversions;
+        }
+    }
+    
+    /// <summary>
+    /// Applies offline conversions for the account with Microsoft Click Id among other offline conversion data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversions Response Object</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyOfflineConversionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class ApplyOfflineConversionsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the ApplyOfflineConversionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversionsResponse</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+        /// </remarks>
+        public ApplyOfflineConversionsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ApplyOfflineConversionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversionsResponse</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public ApplyOfflineConversionsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Adds one or more labels to an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabels Request Object</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddLabelsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class AddLabelsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Label> Labels;
+        
+        /// <summary>
+        /// Constructor for the AddLabelsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabelsRequest</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+        /// </remarks>
+        public AddLabelsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddLabelsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabelsRequest</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="Labels"></param>
+        public AddLabelsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Label> Labels)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Labels = Labels;
+        }
+    }
+    
+    /// <summary>
+    /// Adds one or more labels to an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabels Response Object</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddLabelsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class AddLabelsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// A list of unique system identifiers corresponding to the labels that were added.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<System.Nullable<long>> LabelIds;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the AddLabelsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabelsResponse</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+        /// </remarks>
+        public AddLabelsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddLabelsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabelsResponse</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="LabelIds">A list of unique system identifiers corresponding to the labels that were added.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public AddLabelsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> LabelIds, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.LabelIds = LabelIds;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Deletes one or more labels from the account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabels Request Object</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteLabelsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class DeleteLabelsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<long> LabelIds;
+        
+        /// <summary>
+        /// Constructor for the DeleteLabelsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabelsRequest</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+        /// </remarks>
+        public DeleteLabelsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteLabelsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabelsRequest</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="LabelIds"></param>
+        public DeleteLabelsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> LabelIds)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.LabelIds = LabelIds;
+        }
+    }
+    
+    /// <summary>
+    /// Deletes one or more labels from the account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabels Response Object</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteLabelsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class DeleteLabelsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the DeleteLabelsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabelsResponse</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+        /// </remarks>
+        public DeleteLabelsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteLabelsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabelsResponse</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public DeleteLabelsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Updates the labels within the account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabels Request Object</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateLabelsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class UpdateLabelsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Label> Labels;
+        
+        /// <summary>
+        /// Constructor for the UpdateLabelsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabelsRequest</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+        /// </remarks>
+        public UpdateLabelsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateLabelsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabelsRequest</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="Labels"></param>
+        public UpdateLabelsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Label> Labels)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Labels = Labels;
+        }
+    }
+    
+    /// <summary>
+    /// Updates the labels within the account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabels Response Object</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateLabelsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class UpdateLabelsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the UpdateLabelsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabelsResponse</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+        /// </remarks>
+        public UpdateLabelsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateLabelsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabelsResponse</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public UpdateLabelsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Gets labels by label identifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIds Request Object</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLabelsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetLabelsByIdsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<long> LabelIds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public Microsoft.BingAds.V11.CampaignManagement.Paging PageInfo;
+        
+        /// <summary>
+        /// Constructor for the GetLabelsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetLabelsByIdsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetLabelsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="LabelIds"></param>
+        /// <param name="PageInfo"></param>
+        public GetLabelsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> LabelIds, Microsoft.BingAds.V11.CampaignManagement.Paging PageInfo)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.LabelIds = LabelIds;
+            this.PageInfo = PageInfo;
+        }
+    }
+    
+    /// <summary>
+    /// Gets labels by label identifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIds Response Object</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLabelsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetLabelsByIdsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of Label objects that corresponds directly to the label identifiers that you specified in the request. Items of the list may be returned as null. For each list index where a label was not retrieved, the corresponding element will be null.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Label> Labels;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetLabelsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetLabelsByIdsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetLabelsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="Labels">An array of Label objects that corresponds directly to the label identifiers that you specified in the request. Items of the list may be returned as null. For each list index where a label was not retrieved, the corresponding element will be null.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public GetLabelsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Label> Labels, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.Labels = Labels;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Sets label associations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociations Request Object</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SetLabelAssociationsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class SetLabelAssociationsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public Microsoft.BingAds.V11.CampaignManagement.EntityType EntityType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.LabelAssociation> LabelAssociations;
+        
+        /// <summary>
+        /// Constructor for the SetLabelAssociationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociationsRequest</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+        /// </remarks>
+        public SetLabelAssociationsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the SetLabelAssociationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociationsRequest</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="EntityType"></param>
+        /// <param name="LabelAssociations"></param>
+        public SetLabelAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CampaignManagement.EntityType EntityType, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.LabelAssociation> LabelAssociations)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.EntityType = EntityType;
+            this.LabelAssociations = LabelAssociations;
+        }
+    }
+    
+    /// <summary>
+    /// Sets label associations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociations Response Object</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SetLabelAssociationsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class SetLabelAssociationsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any associations that were not successfully retrieved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the SetLabelAssociationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociationsResponse</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+        /// </remarks>
+        public SetLabelAssociationsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the SetLabelAssociationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociationsResponse</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any associations that were not successfully retrieved.</param>
+        public SetLabelAssociationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Deletes label associations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociations Request Object</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteLabelAssociationsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class DeleteLabelAssociationsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public Microsoft.BingAds.V11.CampaignManagement.EntityType EntityType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.LabelAssociation> LabelAssociations;
+        
+        /// <summary>
+        /// Constructor for the DeleteLabelAssociationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociationsRequest</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+        /// </remarks>
+        public DeleteLabelAssociationsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteLabelAssociationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociationsRequest</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="EntityType"></param>
+        /// <param name="LabelAssociations"></param>
+        public DeleteLabelAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CampaignManagement.EntityType EntityType, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.LabelAssociation> LabelAssociations)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.EntityType = EntityType;
+            this.LabelAssociations = LabelAssociations;
+        }
+    }
+    
+    /// <summary>
+    /// Deletes label associations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociations Response Object</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteLabelAssociationsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class DeleteLabelAssociationsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any associations that were not successfully retrieved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the DeleteLabelAssociationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociationsResponse</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+        /// </remarks>
+        public DeleteLabelAssociationsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteLabelAssociationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociationsResponse</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any associations that were not successfully retrieved.</param>
+        public DeleteLabelAssociationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Gets label associations by entity identifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIds Request Object</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLabelAssociationsByEntityIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetLabelAssociationsByEntityIdsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<long> EntityIds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public Microsoft.BingAds.V11.CampaignManagement.EntityType EntityType;
+        
+        /// <summary>
+        /// Constructor for the GetLabelAssociationsByEntityIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetLabelAssociationsByEntityIdsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetLabelAssociationsByEntityIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="EntityIds"></param>
+        /// <param name="EntityType"></param>
+        public GetLabelAssociationsByEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> EntityIds, Microsoft.BingAds.V11.CampaignManagement.EntityType EntityType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.EntityIds = EntityIds;
+            this.EntityType = EntityType;
+        }
+    }
+    
+    /// <summary>
+    /// Gets label associations by entity identifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIds Response Object</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLabelAssociationsByEntityIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetLabelAssociationsByEntityIdsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.LabelAssociation> LabelAssociations;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any associations that were not successfully retrieved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetLabelAssociationsByEntityIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetLabelAssociationsByEntityIdsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetLabelAssociationsByEntityIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="LabelAssociations"></param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any associations that were not successfully retrieved.</param>
+        public GetLabelAssociationsByEntityIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.LabelAssociation> LabelAssociations, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.LabelAssociations = LabelAssociations;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Gets label associations by label identifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIds Request Object</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLabelAssociationsByLabelIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetLabelAssociationsByLabelIdsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public Microsoft.BingAds.V11.CampaignManagement.EntityType EntityType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Collections.Generic.IList<long> LabelIds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        public Microsoft.BingAds.V11.CampaignManagement.Paging PageInfo;
+        
+        /// <summary>
+        /// Constructor for the GetLabelAssociationsByLabelIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetLabelAssociationsByLabelIdsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetLabelAssociationsByLabelIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIdsRequest</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="EntityType"></param>
+        /// <param name="LabelIds"></param>
+        /// <param name="PageInfo"></param>
+        public GetLabelAssociationsByLabelIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CampaignManagement.EntityType EntityType, System.Collections.Generic.IList<long> LabelIds, Microsoft.BingAds.V11.CampaignManagement.Paging PageInfo)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.EntityType = EntityType;
+            this.LabelIds = LabelIds;
+            this.PageInfo = PageInfo;
+        }
+    }
+    
+    /// <summary>
+    /// Gets label associations by label identifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIds Response Object</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLabelAssociationsByLabelIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetLabelAssociationsByLabelIdsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.LabelAssociation> LabelAssociations;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any associations that were not successfully retrieved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetLabelAssociationsByLabelIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+        /// </remarks>
+        public GetLabelAssociationsByLabelIdsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetLabelAssociationsByLabelIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIdsResponse</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <param name="LabelAssociations"></param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any associations that were not successfully retrieved.</param>
+        public GetLabelAssociationsByLabelIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.LabelAssociation> LabelAssociations, System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.LabelAssociations = LabelAssociations;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICampaignManagementServiceChannel : Microsoft.BingAds.V11.CampaignManagement.ICampaignManagementService, System.ServiceModel.IClientChannel
     {
@@ -30064,6 +32311,66 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetAccountMigrationStatusesResponse> GetAccountMigrationStatusesAsync(Microsoft.BingAds.V11.CampaignManagement.GetAccountMigrationStatusesRequest request)
         {
             return base.Channel.GetAccountMigrationStatusesAsync(request);
+        }
+        
+        /// <summary>
+        /// Sets account level properties by name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountProperties Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.SetAccountPropertiesResponse SetAccountProperties(Microsoft.BingAds.V11.CampaignManagement.SetAccountPropertiesRequest request)
+        {
+            return base.Channel.SetAccountProperties(request);
+        }
+        
+        /// <summary>
+        /// Sets account level properties by name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx">SetAccountProperties Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803290(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.SetAccountPropertiesResponse> SetAccountPropertiesAsync(Microsoft.BingAds.V11.CampaignManagement.SetAccountPropertiesRequest request)
+        {
+            return base.Channel.SetAccountPropertiesAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets account level properties by name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountProperties Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.GetAccountPropertiesResponse GetAccountProperties(Microsoft.BingAds.V11.CampaignManagement.GetAccountPropertiesRequest request)
+        {
+            return base.Channel.GetAccountProperties(request);
+        }
+        
+        /// <summary>
+        /// Gets account level properties by name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx">GetAccountProperties Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803284(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetAccountPropertiesResponse> GetAccountPropertiesAsync(Microsoft.BingAds.V11.CampaignManagement.GetAccountPropertiesRequest request)
+        {
+            return base.Channel.GetAccountPropertiesAsync(request);
         }
         
         /// <summary>
@@ -31724,6 +34031,276 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.UpdateConversionGoalsResponse> UpdateConversionGoalsAsync(Microsoft.BingAds.V11.CampaignManagement.UpdateConversionGoalsRequest request)
         {
             return base.Channel.UpdateConversionGoalsAsync(request);
+        }
+        
+        /// <summary>
+        /// Applies offline conversions for the account with Microsoft Click Id among other offline conversion data.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversions Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.ApplyOfflineConversionsResponse ApplyOfflineConversions(Microsoft.BingAds.V11.CampaignManagement.ApplyOfflineConversionsRequest request)
+        {
+            return base.Channel.ApplyOfflineConversions(request);
+        }
+        
+        /// <summary>
+        /// Applies offline conversions for the account with Microsoft Click Id among other offline conversion data.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx">ApplyOfflineConversions Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803289(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.ApplyOfflineConversionsResponse> ApplyOfflineConversionsAsync(Microsoft.BingAds.V11.CampaignManagement.ApplyOfflineConversionsRequest request)
+        {
+            return base.Channel.ApplyOfflineConversionsAsync(request);
+        }
+        
+        /// <summary>
+        /// Adds one or more labels to an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.AddLabelsResponse AddLabels(Microsoft.BingAds.V11.CampaignManagement.AddLabelsRequest request)
+        {
+            return base.Channel.AddLabels(request);
+        }
+        
+        /// <summary>
+        /// Adds one or more labels to an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx">AddLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803285(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.AddLabelsResponse> AddLabelsAsync(Microsoft.BingAds.V11.CampaignManagement.AddLabelsRequest request)
+        {
+            return base.Channel.AddLabelsAsync(request);
+        }
+        
+        /// <summary>
+        /// Deletes one or more labels from the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.DeleteLabelsResponse DeleteLabels(Microsoft.BingAds.V11.CampaignManagement.DeleteLabelsRequest request)
+        {
+            return base.Channel.DeleteLabels(request);
+        }
+        
+        /// <summary>
+        /// Deletes one or more labels from the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx">DeleteLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803282(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.DeleteLabelsResponse> DeleteLabelsAsync(Microsoft.BingAds.V11.CampaignManagement.DeleteLabelsRequest request)
+        {
+            return base.Channel.DeleteLabelsAsync(request);
+        }
+        
+        /// <summary>
+        /// Updates the labels within the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.UpdateLabelsResponse UpdateLabels(Microsoft.BingAds.V11.CampaignManagement.UpdateLabelsRequest request)
+        {
+            return base.Channel.UpdateLabels(request);
+        }
+        
+        /// <summary>
+        /// Updates the labels within the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx">UpdateLabels Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803294(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.UpdateLabelsResponse> UpdateLabelsAsync(Microsoft.BingAds.V11.CampaignManagement.UpdateLabelsRequest request)
+        {
+            return base.Channel.UpdateLabelsAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets labels by label identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.GetLabelsByIdsResponse GetLabelsByIds(Microsoft.BingAds.V11.CampaignManagement.GetLabelsByIdsRequest request)
+        {
+            return base.Channel.GetLabelsByIds(request);
+        }
+        
+        /// <summary>
+        /// Gets labels by label identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx">GetLabelsByIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803291(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelsByIdsResponse> GetLabelsByIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelsByIdsRequest request)
+        {
+            return base.Channel.GetLabelsByIdsAsync(request);
+        }
+        
+        /// <summary>
+        /// Sets label associations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociations Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any associations that were not successfully retrieved.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.SetLabelAssociationsResponse SetLabelAssociations(Microsoft.BingAds.V11.CampaignManagement.SetLabelAssociationsRequest request)
+        {
+            return base.Channel.SetLabelAssociations(request);
+        }
+        
+        /// <summary>
+        /// Sets label associations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx">SetLabelAssociations Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803283(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any associations that were not successfully retrieved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.SetLabelAssociationsResponse> SetLabelAssociationsAsync(Microsoft.BingAds.V11.CampaignManagement.SetLabelAssociationsRequest request)
+        {
+            return base.Channel.SetLabelAssociationsAsync(request);
+        }
+        
+        /// <summary>
+        /// Deletes label associations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociations Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any associations that were not successfully retrieved.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.DeleteLabelAssociationsResponse DeleteLabelAssociations(Microsoft.BingAds.V11.CampaignManagement.DeleteLabelAssociationsRequest request)
+        {
+            return base.Channel.DeleteLabelAssociations(request);
+        }
+        
+        /// <summary>
+        /// Deletes label associations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx">DeleteLabelAssociations Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803288(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any associations that were not successfully retrieved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.DeleteLabelAssociationsResponse> DeleteLabelAssociationsAsync(Microsoft.BingAds.V11.CampaignManagement.DeleteLabelAssociationsRequest request)
+        {
+            return base.Channel.DeleteLabelAssociationsAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets label associations by entity identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByEntityIdsResponse GetLabelAssociationsByEntityIds(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByEntityIdsRequest request)
+        {
+            return base.Channel.GetLabelAssociationsByEntityIds(request);
+        }
+        
+        /// <summary>
+        /// Gets label associations by entity identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx">GetLabelAssociationsByEntityIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803281(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByEntityIdsResponse> GetLabelAssociationsByEntityIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByEntityIdsRequest request)
+        {
+            return base.Channel.GetLabelAssociationsByEntityIdsAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets label associations by label identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsResponse GetLabelAssociationsByLabelIds(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsRequest request)
+        {
+            return base.Channel.GetLabelAssociationsByLabelIds(request);
+        }
+        
+        /// <summary>
+        /// Gets label associations by label identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx">GetLabelAssociationsByLabelIds Service Operation</see> http://msdn.microsoft.com/en-us/library/mt803287(v=msads.110).aspx for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsResponse> GetLabelAssociationsByLabelIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsRequest request)
+        {
+            return base.Channel.GetLabelAssociationsByLabelIdsAsync(request);
         }
     }
 }

@@ -319,6 +319,31 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
             return new Bid {Amount = s.Parse<double>()};
         }
 
+        public static string ToBidBulkString(this Bid bid)
+        {
+            if (bid == null)
+            {
+                return null;
+            }
+
+            if (bid.Amount == null)
+            {
+                return DeleteValue;
+            }
+
+            return bid.Amount.ToBulkString();
+        }
+
+        public static Bid ParseBid(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return new Bid() { Amount = null };
+            }
+
+            return new Bid { Amount = s.Parse<double>() };
+        }
+
         public static long? ParseDevicePreference(this string s)
         {
             if (string.IsNullOrEmpty(s))
@@ -482,6 +507,35 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                     .ToList();
 
             return urls;
+        }
+
+        public static string WriteCampaignLanguages(this IList<string> languages, string seperator)
+        {
+            if (languages == null)
+            {
+                return null;
+            }
+
+            if (languages.Count == 0)
+            {
+                return DeleteValue;
+            }
+
+            var text = string.Join(seperator, languages);
+
+            return text;
+        }
+
+        public static IList<string> ParseCampaignLanguages(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
+            var languages = s.Split(new string[] { ";" }, StringSplitOptions.None).ToList();
+
+            return languages;
         }
 
         public static string ToBulkString(this CustomParameters parameters)

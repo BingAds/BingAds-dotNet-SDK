@@ -100,11 +100,6 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 c => c.AppAdExtension.DisplayText,
                 (v, c) => c.AdExtension.DisplayText = v
             ), 
-
-            new SimpleBulkMapping<BulkAppAdExtension>(StringTable.DevicePreference,
-                c => c.AppAdExtension.DevicePreference.ToDevicePreferenceBulkString(),
-                (v, c) => c.AdExtension.DevicePreference = v.ParseDevicePreference()
-            )
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

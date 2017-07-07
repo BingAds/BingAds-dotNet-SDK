@@ -3596,7 +3596,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt219345(v=msads.110).aspx">DayMonthAndYear Data Object</see> http://msdn.microsoft.com/en-us/library/mt219345(v=msads.110).aspx for details.
-    /// <para>Used by <see cref="AdGroupBidLandscape"/>, <see cref="HistoricalSearchCountPeriodic"/> and <see cref="KeywordBidLandscape"/> data objects.</para>
+    /// <para>Used by <see cref="AdGroupBidLandscape"/>, <see cref="DateRangeSearchParameter"/>, <see cref="HistoricalSearchCountPeriodic"/> and <see cref="KeywordBidLandscape"/> data objects.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalSearchCount">GetHistoricalSearchCount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6978,6 +6978,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.DeviceSearchParameter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.LanguageSearchParameter))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.CompetitionSearchParameter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.AdInsight.DateRangeSearchParameter))]
     public partial class SearchParameter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -7586,6 +7587,67 @@ namespace Microsoft.BingAds.V11.AdInsight
     }
     
     /// <summary>
+    /// The date range search parameter that you can include when requesting keyword ideas.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt803151(v=msads.110).aspx">DateRangeSearchParameter Data Object</see> http://msdn.microsoft.com/en-us/library/mt803151(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DateRangeSearchParameter", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V11.Entity.SearchParameters")]
+    [System.SerializableAttribute()]
+    public partial class DateRangeSearchParameter : Microsoft.BingAds.V11.AdInsight.SearchParameter
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.DayMonthAndYear EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.AdInsight.DayMonthAndYear StartDateField;
+        
+        /// <summary>
+        /// The end date range of monthly search counts for the returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.DayMonthAndYear EndDate
+        {
+            get
+            {
+                return this.EndDateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.EndDateField, value) != true))
+                {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The start date range of monthly search counts for the returned keyword ideas.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.AdInsight.DayMonthAndYear StartDate
+        {
+            get
+            {
+                return this.StartDateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.StartDateField, value) != true))
+                {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a keyword with match type.
     /// </summary>
     /// <remarks>
@@ -8014,7 +8076,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the ad group that contains the keyword.
+        /// The negative ad group identifier that groups keyword ideas into suggested new ad groups. Keyword ideas for existing ad group identifiers is not supported.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AdGroupId
@@ -8034,7 +8096,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         }
         
         /// <summary>
-        /// The name of the ad group that contains the keyword.
+        /// The suggested name of the ad group for the keyword idea.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AdGroupName
@@ -8074,7 +8136,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         }
         
         /// <summary>
-        /// The number of advertisers bidding on this keyword, relative to all other keywords across Bing Ads.
+        /// Determined by the number of advertisers bidding on this keyword, relative to all other keywords across Bing Ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.AdInsight.CompetitionLevel Competition
@@ -8711,7 +8773,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     }
     
     /// <summary>
-    /// Contains a nested list of suggested keywords for the campaign's ad groups with minimum and maximum traffic estimates. Traffic estimates include averge CPC, average position, clicks, CTR, impressions, and total cost.
+    /// Contains a nested list of suggested keywords for the campaign's ad groups with minimum and maximum traffic estimates. Traffic estimates include average CPC, average position, clicks, CTR, impressions, and total cost.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt784406(v=msads.110).aspx">CampaignEstimate Data Object</see> http://msdn.microsoft.com/en-us/library/mt784406(v=msads.110).aspx for details.
@@ -8793,7 +8855,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     }
     
     /// <summary>
-    /// Contains a list of suggested keywords for the ad group with minimum and maximum traffic estimates. Traffic estimates include averge CPC, average position, clicks, CTR, impressions, and total cost.
+    /// Contains a list of suggested keywords for the ad group with minimum and maximum traffic estimates. Traffic estimates include average CPC, average position, clicks, CTR, impressions, and total cost.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt784396(v=msads.110).aspx">AdGroupEstimate Data Object</see> http://msdn.microsoft.com/en-us/library/mt784396(v=msads.110).aspx for details.
@@ -8875,7 +8937,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     }
     
     /// <summary>
-    /// A suggested keyword with minimum and maximum traffic estimates. Traffic estimates include averge CPC, average position, clicks, CTR, impressions, and total cost.
+    /// A suggested keyword with minimum and maximum traffic estimates. Traffic estimates include average CPC, average position, clicks, CTR, impressions, and total cost.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt784394(v=msads.110).aspx">KeywordEstimate Data Object</see> http://msdn.microsoft.com/en-us/library/mt784394(v=msads.110).aspx for details.
@@ -9176,7 +9238,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidOpportunit" +
             "iesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidOpportunit" +
-            "iesApiFaultDetailFault", Name="ApiFaultDetail")]
+            "iesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetBidOpportunitiesResponse GetBidOpportunities(Microsoft.BingAds.V11.AdInsight.GetBidOpportunitiesRequest request);
         
         /// <summary>
@@ -9208,7 +9270,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBudgetOpportu" +
             "nitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBudgetOpportu" +
-            "nitiesApiFaultDetailFault", Name="ApiFaultDetail")]
+            "nitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetBudgetOpportunitiesResponse GetBudgetOpportunities(Microsoft.BingAds.V11.AdInsight.GetBudgetOpportunitiesRequest request);
         
         /// <summary>
@@ -9240,7 +9302,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordOpport" +
             "unitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordOpport" +
-            "unitiesApiFaultDetailFault", Name="ApiFaultDetail")]
+            "unitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordOpportunitiesResponse GetKeywordOpportunities(Microsoft.BingAds.V11.AdInsight.GetKeywordOpportunitiesRequest request);
         
         /// <summary>
@@ -9272,7 +9334,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedBidB" +
             "yKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedBidB" +
-            "yKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "yKeywordIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetEstimatedBidByKeywordIdsResponse GetEstimatedBidByKeywordIds(Microsoft.BingAds.V11.AdInsight.GetEstimatedBidByKeywordIdsRequest request);
         
         /// <summary>
@@ -9304,7 +9366,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedPosi" +
             "tionByKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedPosi" +
-            "tionByKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "tionByKeywordIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetEstimatedPositionByKeywordIdsResponse GetEstimatedPositionByKeywordIds(Microsoft.BingAds.V11.AdInsight.GetEstimatedPositionByKeywordIdsRequest request);
         
         /// <summary>
@@ -9336,7 +9398,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedBidB" +
             "yKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedBidB" +
-            "yKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "yKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetEstimatedBidByKeywordsResponse GetEstimatedBidByKeywords(Microsoft.BingAds.V11.AdInsight.GetEstimatedBidByKeywordsRequest request);
         
         /// <summary>
@@ -9368,7 +9430,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedPosi" +
             "tionByKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedPosi" +
-            "tionByKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "tionByKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetEstimatedPositionByKeywordsResponse GetEstimatedPositionByKeywords(Microsoft.BingAds.V11.AdInsight.GetEstimatedPositionByKeywordsRequest request);
         
         /// <summary>
@@ -9400,7 +9462,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidLandscapeB" +
             "yAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidLandscapeB" +
-            "yAdGroupIdsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "yAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetBidLandscapeByAdGroupIdsResponse GetBidLandscapeByAdGroupIds(Microsoft.BingAds.V11.AdInsight.GetBidLandscapeByAdGroupIdsRequest request);
         
         /// <summary>
@@ -9432,7 +9494,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidLandscapeB" +
             "yKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidLandscapeB" +
-            "yKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "yKeywordIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetBidLandscapeByKeywordIdsResponse GetBidLandscapeByKeywordIds(Microsoft.BingAds.V11.AdInsight.GetBidLandscapeByKeywordIdsRequest request);
         
         /// <summary>
@@ -9464,7 +9526,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetHistoricalKey" +
             "wordPerformanceAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetHistoricalKey" +
-            "wordPerformanceApiFaultDetailFault", Name="ApiFaultDetail")]
+            "wordPerformanceApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetHistoricalKeywordPerformanceResponse GetHistoricalKeywordPerformance(Microsoft.BingAds.V11.AdInsight.GetHistoricalKeywordPerformanceRequest request);
         
         /// <summary>
@@ -9496,7 +9558,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetHistoricalSea" +
             "rchCountAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetHistoricalSea" +
-            "rchCountApiFaultDetailFault", Name="ApiFaultDetail")]
+            "rchCountApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetHistoricalSearchCountResponse GetHistoricalSearchCount(Microsoft.BingAds.V11.AdInsight.GetHistoricalSearchCountRequest request);
         
         /// <summary>
@@ -9528,7 +9590,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordCatego" +
             "riesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordCatego" +
-            "riesApiFaultDetailFault", Name="ApiFaultDetail")]
+            "riesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordCategoriesResponse GetKeywordCategories(Microsoft.BingAds.V11.AdInsight.GetKeywordCategoriesRequest request);
         
         /// <summary>
@@ -9560,7 +9622,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordDemogr" +
             "aphicsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordDemogr" +
-            "aphicsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "aphicsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordDemographicsResponse GetKeywordDemographics(Microsoft.BingAds.V11.AdInsight.GetKeywordDemographicsRequest request);
         
         /// <summary>
@@ -9592,7 +9654,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordLocati" +
             "onsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordLocati" +
-            "onsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "onsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordLocationsResponse GetKeywordLocations(Microsoft.BingAds.V11.AdInsight.GetKeywordLocationsRequest request);
         
         /// <summary>
@@ -9624,7 +9686,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/SuggestKeywordsF" +
             "orUrlAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/SuggestKeywordsF" +
-            "orUrlApiFaultDetailFault", Name="ApiFaultDetail")]
+            "orUrlApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.SuggestKeywordsForUrlResponse SuggestKeywordsForUrl(Microsoft.BingAds.V11.AdInsight.SuggestKeywordsForUrlRequest request);
         
         /// <summary>
@@ -9656,7 +9718,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/SuggestKeywordsF" +
             "romExistingKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/SuggestKeywordsF" +
-            "romExistingKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
+            "romExistingKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.SuggestKeywordsFromExistingKeywordsResponse SuggestKeywordsFromExistingKeywords(Microsoft.BingAds.V11.AdInsight.SuggestKeywordsFromExistingKeywordsRequest request);
         
         /// <summary>
@@ -9678,7 +9740,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetAuctionInsigh" +
             "tDataAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetAuctionInsigh" +
-            "tDataApiFaultDetailFault", Name="ApiFaultDetail")]
+            "tDataApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetAuctionInsightDataResponse GetAuctionInsightData(Microsoft.BingAds.V11.AdInsight.GetAuctionInsightDataRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetAuctionInsigh" +
@@ -9700,7 +9762,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetDomainCategor" +
             "iesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetDomainCategor" +
-            "iesApiFaultDetailFault", Name="ApiFaultDetail")]
+            "iesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetDomainCategoriesResponse GetDomainCategories(Microsoft.BingAds.V11.AdInsight.GetDomainCategoriesRequest request);
         
         /// <summary>
@@ -9722,7 +9784,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/PutMetricDataAdA" +
             "piFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/PutMetricDataApi" +
-            "FaultDetailFault", Name="ApiFaultDetail")]
+            "FaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.PutMetricDataResponse PutMetricData(Microsoft.BingAds.V11.AdInsight.PutMetricDataRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="PutMetricData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/PutMetricDataRes" +
@@ -9744,7 +9806,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeaCa" +
             "tegoriesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeaCa" +
-            "tegoriesApiFaultDetailFault", Name="ApiFaultDetail")]
+            "tegoriesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesResponse GetKeywordIdeaCategories(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesRequest request);
         
         /// <summary>
@@ -9776,7 +9838,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeasA" +
             "dApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeasA" +
-            "piFaultDetailFault", Name="ApiFaultDetail")]
+            "piFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasResponse GetKeywordIdeas(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasRequest request);
         
         /// <summary>
@@ -9794,7 +9856,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasResponse> GetKeywordIdeasAsync(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasRequest request);
         
         /// <summary>
-        /// Gets a list of keyword traffic estimates based on your criteria and filters.
+        /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost. As input you provide the bid, language, location, and network, with optional campaign budget and negative keyword filters.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
@@ -9808,11 +9870,11 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordTraffi" +
             "cEstimatesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordTraffi" +
-            "cEstimatesApiFaultDetailFault", Name="ApiFaultDetail")]
+            "cEstimatesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesResponse GetKeywordTrafficEstimates(Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesRequest request);
         
         /// <summary>
-        /// Gets a list of keyword traffic estimates based on your criteria and filters.
+        /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost. As input you provide the bid, language, location, and network, with optional campaign budget and negative keyword filters.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
@@ -12579,7 +12641,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         public System.Nullable<bool> ExpandIdeas;
         
         /// <summary>
-        /// The keyword idea attributes that you want included in the response e.g., Competition, MonthlySearchCounts, and SuggestedBid.
+        /// The keyword idea attributes that you want included in the response e.g., Keyword, Competition, MonthlySearchCounts, and SuggestedBid.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V11", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordIdeaAttribute> IdeaAttributes;
@@ -12607,7 +12669,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx">GetKeywordIdeasRequest</see> http://msdn.microsoft.com/en-us/library/mt784397(v=msads.110).aspx for details.
         /// </remarks>
         /// <param name="ExpandIdeas">Determines whether you want new keyword ideas, or if you only want keyword attributes for the set of keywords that you specified in the SearchParameters list. If you set this element false, the QuerySearchParameter object must be included in the SearchParameters list.</param>
-        /// <param name="IdeaAttributes">The keyword idea attributes that you want included in the response e.g., Competition, MonthlySearchCounts, and SuggestedBid.</param>
+        /// <param name="IdeaAttributes">The keyword idea attributes that you want included in the response e.g., Keyword, Competition, MonthlySearchCounts, and SuggestedBid.</param>
         /// <param name="SearchParameters">The search parameters define your criteria and filters for the requested keyword ideas.</param>
         public GetKeywordIdeasRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Nullable<bool> ExpandIdeas, System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.KeywordIdeaAttribute> IdeaAttributes, System.Collections.Generic.IList<Microsoft.BingAds.V11.AdInsight.SearchParameter> SearchParameters)
         {
@@ -12671,7 +12733,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     }
     
     /// <summary>
-    /// Gets a list of keyword traffic estimates based on your criteria and filters.
+    /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost. As input you provide the bid, language, location, and network, with optional campaign budget and negative keyword filters.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Request Object</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
@@ -12741,7 +12803,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     }
     
     /// <summary>
-    /// Gets a list of keyword traffic estimates based on your criteria and filters.
+    /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost. As input you provide the bid, language, location, and network, with optional campaign budget and negative keyword filters.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Response Object</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
@@ -13411,7 +13473,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         }
         
         /// <summary>
-        /// Gets a list of keyword traffic estimates based on your criteria and filters.
+        /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost. As input you provide the bid, language, location, and network, with optional campaign budget and negative keyword filters.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.
@@ -13426,7 +13488,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         }
         
         /// <summary>
-        /// Gets a list of keyword traffic estimates based on your criteria and filters.
+        /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost. As input you provide the bid, language, location, and network, with optional campaign budget and negative keyword filters.
         /// </summary>
         /// <remarks>
         /// See <see href="http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx">GetKeywordTrafficEstimates Service Operation</see> http://msdn.microsoft.com/en-us/library/mt784428(v=msads.110).aspx for details.

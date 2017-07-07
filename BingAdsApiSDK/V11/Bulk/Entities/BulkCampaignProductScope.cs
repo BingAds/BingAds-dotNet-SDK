@@ -87,8 +87,8 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkCampaignProductScope>[] Mappings =
         {
             new SimpleBulkMapping<BulkCampaignProductScope>(StringTable.Status,
-                c => c.Status.ToBulkString(),
-                (v, c) => c.Status = v.ParseOptional<Status>()
+                c => c.BiddableCampaignCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkCampaignProductScope>(StringTable.Id,

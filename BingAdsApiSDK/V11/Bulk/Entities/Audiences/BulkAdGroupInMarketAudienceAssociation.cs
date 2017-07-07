@@ -47,6 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds.V11.Internal.Bulk;
 using Microsoft.BingAds.V11.Internal.Bulk.Entities;
@@ -56,18 +57,19 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property with LocationCriterion that can be read and written as fields of the Ad Group Location Criterion record in a bulk file. 
+    /// Represents an Ad Group In Market Audience Association that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property that can be read and written as fields of the Ad Group In Market Audience Association record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Location Criterion</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group In Market Audience Association</see> </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupLocationCriterion : SingleRecordBulkEntity
+    public class BulkAdGroupInMarketAudienceAssociation : SingleRecordBulkEntity
     {
         /// <summary>
-        /// Defines a Biddable Ad Group Criterion.
+        /// Defines an Biddable Ad Group Criterion.
         /// </summary>
         public BiddableAdGroupCriterion BiddableAdGroupCriterion { get; set; }
 
@@ -78,117 +80,93 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         public string CampaignName { get; set; }
 
         /// <summary>
-        /// The name of the ad group that contains the criterion.
+        /// The <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group</see> that is associated with the audience.
         /// Corresponds to the 'Ad Group' field in the bulk file.
         /// </summary>
         public string AdGroupName { get; set; }
 
-        private static readonly IBulkMapping<BulkAdGroupLocationCriterion>[] Mappings =
+        /// <summary>
+        /// The historical performance data for the audience association.
+        /// </summary>
+        public PerformanceData PerformanceData { get; private set; }
+
+        /// <summary>
+        /// The name of the In Market Audience
+        /// Corresponds to the "Audience" field in the bulk file.
+        /// </summary>
+        public string InMarketAudienceName { get; set; }
+
+        private static readonly IBulkMapping<BulkAdGroupInMarketAudienceAssociation>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Status,
+            new SimpleBulkMapping<BulkAdGroupInMarketAudienceAssociation>(StringTable.Status,
                 c => c.BiddableAdGroupCriterion.Status.ToBulkString(),
                 (v, c) => c.BiddableAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Id,
+            new SimpleBulkMapping<BulkAdGroupInMarketAudienceAssociation>(StringTable.Id,
                 c => c.BiddableAdGroupCriterion.Id.ToBulkString(),
                 (v, c) => c.BiddableAdGroupCriterion.Id = v.ParseOptional<long>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.ParentId,
+            new SimpleBulkMapping<BulkAdGroupInMarketAudienceAssociation>(StringTable.ParentId,
                 c => c.BiddableAdGroupCriterion.AdGroupId.ToBulkString(true),
                 (v, c) => c.BiddableAdGroupCriterion.AdGroupId = v.Parse<long>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Campaign,
+            new SimpleBulkMapping<BulkAdGroupInMarketAudienceAssociation>(StringTable.Campaign,
                 c => c.CampaignName,
                 (v, c) => c.CampaignName = v
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.AdGroup,
+            new SimpleBulkMapping<BulkAdGroupInMarketAudienceAssociation>(StringTable.AdGroup,
                 c => c.AdGroupName,
                 (v, c) => c.AdGroupName = v
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.BidAdjustment,
+            new SimpleBulkMapping<BulkAdGroupInMarketAudienceAssociation>(StringTable.Audience,
+                c => c.InMarketAudienceName,
+                (v, c) => c.InMarketAudienceName = v
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupInMarketAudienceAssociation>(StringTable.BidAdjustment,
                 c =>
                 {
-                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
+                    if (c.BiddableAdGroupCriterion == null) return null;
 
-                    if (criterion == null) return null;
-
-                    var multiplicativeBid = criterion.CriterionBid as BidMultiplier;
+                    var multiplicativeBid = c.BiddableAdGroupCriterion.CriterionBid as BidMultiplier;
 
                     return multiplicativeBid?.Multiplier.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion == null) return;
+                    if (c.BiddableAdGroupCriterion == null) return;
 
                     double? multiplier = v.ParseOptional<double>();
                     if (multiplier != null)
                     {
-                        ((BidMultiplier) criterion.CriterionBid).Multiplier = multiplier.Value;
+                        ((BidMultiplier) c.BiddableAdGroupCriterion.CriterionBid).Multiplier = multiplier.Value;
                     }
                     else
                     {
-                        criterion.CriterionBid = null;
+                        c.BiddableAdGroupCriterion.CriterionBid = null;
                     }
                 }
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Target,
+            new SimpleBulkMapping<BulkAdGroupInMarketAudienceAssociation>(StringTable.AudienceId,
                 c =>
                 {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
+                    var audienceCriterion = c.BiddableAdGroupCriterion?.Criterion as AudienceCriterion;
 
-                    return locationCriterion?.LocationId.ToBulkString();
+                    return audienceCriterion != null ? audienceCriterion.AudienceId.ToBulkString() : null;
                 },
                 (v, c) =>
                 {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
+                    var audienceCriterion = c.BiddableAdGroupCriterion?.Criterion as AudienceCriterion;
 
-                    if (locationCriterion != null && v.ParseOptional<long>() != null)
+                    if (audienceCriterion != null)
                     {
-                        locationCriterion.LocationId = v.Parse<long>();
-                    }
-                }
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.SubType,
-                c =>
-                {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
-
-                    return locationCriterion?.LocationType;
-                },
-                (v, c) =>
-                {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
-
-                    if (locationCriterion != null)
-                    {
-                        locationCriterion.LocationType = v;
-                    }
-                }
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Name,
-                c =>
-                {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
-
-                    return locationCriterion?.DisplayName;
-                },
-                (v, c) =>
-                {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
-
-                    if (locationCriterion != null)
-                    {
-                        locationCriterion.DisplayName = v;
+                        audienceCriterion.AudienceId = v.ParseOptional<long>();
                     }
                 }
             ),
@@ -199,15 +177,20 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             ValidatePropertyNotNull(BiddableAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
+
+            if (!excludeReadonlyData)
+            {
+                PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
+            }
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
             BiddableAdGroupCriterion = new BiddableAdGroupCriterion
             {
-                Criterion = new LocationCriterion()
+                Criterion = new AudienceCriterion()
                 {
-                    Type = typeof(LocationCriterion).Name,
+                    Type = typeof(AudienceCriterion).Name,
                 },
                 CriterionBid = new BidMultiplier
                 {
@@ -217,6 +200,8 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             };
 
             values.ConvertToEntity(this, Mappings);
+
+            PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);
         }
     }
 }

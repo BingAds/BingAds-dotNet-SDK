@@ -46,6 +46,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ApiEnvironment.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAccountAppAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAccountCalloutAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAccountImageAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAccountLocationAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAccountPriceAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAccountReviewAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAccountSitelink2AdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAccountStructuredSnippetAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkAdGroupPriceAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkCampaignPriceAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\AdExtensions\BulkPriceAdExtension.cs" />
+    <Compile Include="V11\Bulk\Entities\Audiences\BulkAdGroupCustomAudienceAssociation.cs" />
+    <Compile Include="V11\Bulk\Entities\Audiences\BulkAdGroupInMarketAudienceAssociation.cs" />
+    <Compile Include="V11\Bulk\Entities\Audiences\BulkAdGroupNegativeCustomAudienceAssociation.cs" />
+    <Compile Include="V11\Bulk\Entities\Audiences\BulkAdGroupNegativeInMarketAudienceAssociation.cs" />
+    <Compile Include="V11\Bulk\Entities\Audiences\BulkAdGroupNegativeRemarketingListAssociation.cs" />
+    <Compile Include="V11\Bulk\Entities\Audiences\BulkCustomAudience.cs" />
+    <Compile Include="V11\Bulk\Entities\Audiences\BulkInMarketAudience.cs" />
     <Compile Include="V11\Bulk\Entities\TargetCriterions\BulkAdGroupAgeCriterion.cs" />
     <Compile Include="V11\Bulk\Entities\TargetCriterions\BulkAdGroupDayTimeCriterion.cs" />
     <Compile Include="V11\Bulk\Entities\TargetCriterions\BulkAdGroupDeviceCriterion.cs" />
@@ -219,6 +237,7 @@
     <Compile Include="V11\Internal\Bulk\CsvLight.cs" />
     <Compile Include="V11\Internal\Bulk\CsvReader.cs" />
     <Compile Include="V11\Internal\Bulk\CsvTextFormatter.cs" />
+    <Compile Include="V11\Internal\Bulk\Entities\AdExtensions\BulkAccountAdExtensionAssociation.cs" />
     <Compile Include="V11\Internal\Bulk\Entities\AdExtensions\BulkAdExtension.cs" />
     <Compile Include="V11\Internal\Bulk\Entities\AdExtensions\BulkAdExtensionAssociation.cs" />
     <Compile Include="V11\Internal\Bulk\Entities\AdExtensions\BulkAdExtensionIdentifier.cs" />
@@ -238,6 +257,7 @@
     <Compile Include="V11\Internal\Bulk\Entities\MultiRecordBulkEntity.cs" />
     <Compile Include="V11\Internal\Bulk\Entities\NegativeKeywords\BulkEntityNegativeKeyword.cs" />
     <Compile Include="V11\Internal\Bulk\Entities\NegativeKeywords\BulkNegativeKeyword.cs" />
+    <Compile Include="V11\Internal\Bulk\Entities\PriceTableRowHelper.cs" />
     <Compile Include="V11\Internal\Bulk\Entities\ProductConditionHelper.cs" />
     <Compile Include="V11\Internal\Bulk\Entities\SingleRecordBulkEntity.cs" />
     <Compile Include="V11\Internal\Bulk\Entities\WebpageConditionHelper.cs" />

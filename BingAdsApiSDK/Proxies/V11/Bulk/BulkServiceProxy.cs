@@ -473,18 +473,33 @@ namespace Microsoft.BingAds.V11.Bulk
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupPriceAdExtensions = 57,
         
+        /// <summary>
+        /// Include Label records in the download data.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Labels = 58,
         
+        /// <summary>
+        /// Include Campaign Label records in the download that each represent a label applied to a campaign. For Label records, you should include the Labels value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignLabels = 59,
         
+        /// <summary>
+        /// Include Ad Group Label records in the download that each represent a label applied to an ad group. For Label records, you should include the Labels value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupLabels = 60,
         
+        /// <summary>
+        /// Include Text Ad Label records in the download that each represent a label applied to a text ad. For Label records, you should include the Labels value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TextAdLabels = 61,
         
+        /// <summary>
+        /// Include Keyword Label records in the download that each represent a label applied to a keyword. For Label records, you should include the Labels value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordLabels = 62,
         
@@ -548,15 +563,27 @@ namespace Microsoft.BingAds.V11.Bulk
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeAudienceAssociations = 72,
         
+        /// <summary>
+        /// Include Product Ad Label records in the download that each represent a label applied to a product ad. For Label records, you should include the Labels value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductAdLabels = 73,
         
+        /// <summary>
+        /// Include App Install Ad Label records in the download that each represent a label applied to an app install ad. For Label records, you should include the Labels value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstallAdLabels = 74,
         
+        /// <summary>
+        /// Include Expanded Text Ad Label records in the download that each represent a label applied to an expanded text ad. For Label records, you should include the Labels value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpandedTextAdLabels = 75,
         
+        /// <summary>
+        /// Include Dynamic Search Ad Label records in the download that each represent a label applied to a dynamic search ad. For Label records, you should include the Labels value in the download request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicSearchAdLabels = 76,
         

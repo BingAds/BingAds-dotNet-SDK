@@ -56,7 +56,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BulkAdGroupNegativeLocationCriterion.AdGroupCriterion"/> property with LocationCriterion that can be read and written as fields of the Ad Group Location Criterion record in a bulk file. 
+    /// This class exposes the <see cref="NegativeAdGroupCriterion"/> property with LocationCriterion that can be read and written as fields of the Ad Group Location Criterion record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Negative Location Criterion</see>. </para>
     /// </summary>
@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// <summary>
         /// Defines a Negative Ad Group Criterion.
         /// </summary>
-        public NegativeAdGroupCriterion AdGroupCriterion { get; set; }
+        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the ad group.
@@ -86,18 +86,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkAdGroupNegativeLocationCriterion>[] Mappings =
         {
             new SimpleBulkMapping<BulkAdGroupNegativeLocationCriterion>(StringTable.Status,
-                c => c.AdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
+                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
+                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupNegativeLocationCriterion>(StringTable.Id,
-                c => c.AdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Id = v.ParseOptional<long>()
+                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
+                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupNegativeLocationCriterion>(StringTable.ParentId,
-                c => c.AdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.AdGroupCriterion.AdGroupId = v.Parse<long>()
+                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
+                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupNegativeLocationCriterion>(StringTable.Campaign,
@@ -113,13 +113,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupNegativeLocationCriterion>(StringTable.Target,
                 c =>
                 {
-                    var locationCriterion = c.AdGroupCriterion.Criterion as LocationCriterion;
+                    var locationCriterion = c.NegativeAdGroupCriterion.Criterion as LocationCriterion;
 
                     return locationCriterion?.LocationId.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var locationCriterion = c.AdGroupCriterion.Criterion as LocationCriterion;
+                    var locationCriterion = c.NegativeAdGroupCriterion.Criterion as LocationCriterion;
 
                     if (locationCriterion != null && v.ParseOptional<long>() != null)
                     {
@@ -131,13 +131,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupNegativeLocationCriterion>(StringTable.SubType,
                 c =>
                 {
-                    var locationCriterion = c.AdGroupCriterion.Criterion as LocationCriterion;
+                    var locationCriterion = c.NegativeAdGroupCriterion.Criterion as LocationCriterion;
 
                     return locationCriterion?.LocationType;
                 },
                 (v, c) =>
                 {
-                    var locationCriterion = c.AdGroupCriterion.Criterion as LocationCriterion;
+                    var locationCriterion = c.NegativeAdGroupCriterion.Criterion as LocationCriterion;
 
                     if (locationCriterion != null)
                     {
@@ -149,13 +149,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupNegativeLocationCriterion>(StringTable.Name,
                 c =>
                 {
-                    var locationCriterion = c.AdGroupCriterion.Criterion as LocationCriterion;
+                    var locationCriterion = c.NegativeAdGroupCriterion.Criterion as LocationCriterion;
 
                     return locationCriterion?.DisplayName;
                 },
                 (v, c) =>
                 {
-                    var locationCriterion = c.AdGroupCriterion.Criterion as LocationCriterion;
+                    var locationCriterion = c.NegativeAdGroupCriterion.Criterion as LocationCriterion;
 
                     if (locationCriterion != null)
                     {
@@ -167,14 +167,14 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(AdGroupCriterion, typeof(NegativeAdGroupCriterion).Name);
+            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(NegativeAdGroupCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            AdGroupCriterion = new NegativeAdGroupCriterion
+            NegativeAdGroupCriterion = new NegativeAdGroupCriterion
             {
                 Criterion = new LocationCriterion()
                 {

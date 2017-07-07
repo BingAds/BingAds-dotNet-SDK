@@ -57,7 +57,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BulkAdGroupRadiusCriterion.AdGroupCriterion"/> property with RadiusCriterion that can be read and written as fields of the Ad Group Radius Criterion record in a bulk file. 
+    /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property with RadiusCriterion that can be read and written as fields of the Ad Group Radius Criterion record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Radius Criterion</see>. </para>
     /// </summary>
@@ -70,7 +70,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// <summary>
         /// Defines a Biddable Ad Group Criterion.
         /// </summary>
-        public BiddableAdGroupCriterion AdGroupCriterion { get; set; }
+        public BiddableAdGroupCriterion BiddableAdGroupCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the ad group.
@@ -87,18 +87,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkAdGroupRadiusCriterion>[] Mappings =
         {
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.Status,
-                c => c.AdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
+                c => c.BiddableAdGroupCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.Id,
-                c => c.AdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.AdGroupCriterion.Id = v.ParseOptional<long>()
+                c => c.BiddableAdGroupCriterion.Id.ToBulkString(),
+                (v, c) => c.BiddableAdGroupCriterion.Id = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.ParentId,
-                c => c.AdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.AdGroupCriterion.AdGroupId = v.Parse<long>()
+                c => c.BiddableAdGroupCriterion.AdGroupId.ToBulkString(true),
+                (v, c) => c.BiddableAdGroupCriterion.AdGroupId = v.Parse<long>()
             ),
 
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.Campaign,
@@ -114,7 +114,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.BidAdjustment,
                 c =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
 
                     if (criterion == null) return null;
 
@@ -124,9 +124,9 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
 
-                    if (criterion == null || c.AdGroupCriterion.Id == 0) return;
+                    if (criterion == null || c.BiddableAdGroupCriterion.Id == 0) return;
 
                     double? multiplier = v.ParseOptional<double>();
                     if (multiplier != null)
@@ -143,12 +143,12 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.Name,
                 c =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
                     return radiusCriterion?.Name;
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null)
                     {
@@ -160,13 +160,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.Radius,
                 c =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.Radius.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null && v.ParseOptional<long>() != null)
                     {
@@ -178,13 +178,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.Unit,
                 c =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.RadiusUnit.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null && v.ParseOptional<DistanceUnit>() != null)
                     {
@@ -196,13 +196,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.Latitude,
                 c =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.LatitudeDegrees.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null && v.ParseOptional<double>() != null)
                     {
@@ -214,13 +214,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroupRadiusCriterion>(StringTable.Longitude,
                 c =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     return radiusCriterion?.LongitudeDegrees.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var radiusCriterion = c.AdGroupCriterion.Criterion as RadiusCriterion;
+                    var radiusCriterion = c.BiddableAdGroupCriterion.Criterion as RadiusCriterion;
 
                     if (radiusCriterion != null && v.ParseOptional<double>() != null)
                     {
@@ -233,14 +233,14 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(AdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
+            ValidatePropertyNotNull(BiddableAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            AdGroupCriterion = new BiddableAdGroupCriterion
+            BiddableAdGroupCriterion = new BiddableAdGroupCriterion
             {
                 Criterion = new RadiusCriterion()
                 {

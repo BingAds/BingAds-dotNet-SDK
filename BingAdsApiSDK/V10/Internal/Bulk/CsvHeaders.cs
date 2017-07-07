@@ -245,6 +245,8 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
             // AutoBidding
             StringTable.BidStrategyType,
+            StringTable.BidStrategyMaxCpc,
+            StringTable.BidStrategyTargetCpa,
 
             // Remarketing
             StringTable.Description,

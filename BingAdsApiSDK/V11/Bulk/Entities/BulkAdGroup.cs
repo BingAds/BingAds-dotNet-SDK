@@ -183,8 +183,8 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.Language,
-                c => c.AdGroup.Language,
-                (v, c) => c.AdGroup.Language = v
+                c => c.AdGroup.Language.ToOptionalBulkString(),
+                (v, c) => c.AdGroup.Language = v.GetValueOrEmptyString()
                 ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.BidAdjustment,

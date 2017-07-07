@@ -99,11 +99,6 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 (v, c) => c.Sitelink2AdExtension.Description2 = v
             ),
 
-            new SimpleBulkMapping<BulkSitelink2AdExtension>(StringTable.DevicePreference,
-                c => c.Sitelink2AdExtension.DevicePreference.ToDevicePreferenceBulkString(),
-                (v, c) => c.Sitelink2AdExtension.DevicePreference = v.ParseDevicePreference()
-            ),
-
             new SimpleBulkMapping<BulkSitelink2AdExtension>(StringTable.SiteLinkDisplayText,
                 c => c.Sitelink2AdExtension.DisplayText,
                 (v, c) => c.Sitelink2AdExtension.DisplayText = v

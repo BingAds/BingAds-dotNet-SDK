@@ -165,32 +165,32 @@ namespace Microsoft.BingAds.V10.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroup>(StringTable.SearchNetwork,
                 c => c.AdGroup.AdDistribution.ToSearchAdDistributionBulkString(),
                 (v, c) => c.AdGroup.AdDistribution |= v.ParseSearchAdDistribution()
-                ),
+            ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.ContentNetwork,
                 c => c.AdGroup.AdDistribution.ToContentAdDistributionBulkString(),
                 (v, c) => c.AdGroup.AdDistribution |= v.ParseContentAdDistribution()
-                ),
+            ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.SearchBid,
                 c => c.AdGroup.SearchBid.ToAdGroupBidBulkString(),
                 (v, c) => c.AdGroup.SearchBid = v.ParseAdGroupBid()
-                ),
+            ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.ContentBid,
                 c => c.AdGroup.ContentMatchBid.ToAdGroupBidBulkString(),
                 (v, c) => c.AdGroup.ContentMatchBid = v.ParseAdGroupBid()
-                ),
+            ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.Language,
-                c => c.AdGroup.Language,
-                (v, c) => c.AdGroup.Language = v
-                ),
+                c => c.AdGroup.Language.ToOptionalBulkString(),
+                (v, c) => c.AdGroup.Language = v.GetValueOrEmptyString()
+            ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.BidAdjustment,
                 c => c.AdGroup.NativeBidAdjustment.ToBulkString(),
                 (v, c) => c.AdGroup.NativeBidAdjustment = v.ParseOptional<int>()
-                ),
+            ),
                         
             new SimpleBulkMapping<BulkAdGroup>(StringTable.TrackingTemplate,
                 c => c.AdGroup.TrackingUrlTemplate.ToOptionalBulkString(),

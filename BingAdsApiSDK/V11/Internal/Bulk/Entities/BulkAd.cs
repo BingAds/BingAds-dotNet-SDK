@@ -129,7 +129,12 @@ namespace Microsoft.BingAds.V11.Internal.Bulk.Entities
                 c => c.Ad.DevicePreference.ToDevicePreferenceBulkString(),
                 (v, c) => c.Ad.DevicePreference = v.ParseDevicePreference()
             ),
-                        
+
+            new SimpleBulkMapping<BulkAd<T>>(StringTable.NativePreference,
+                c => c.Ad.AdFormatPreference,
+                (v, c) => c.Ad.AdFormatPreference = v
+            ),
+
             new SimpleBulkMapping<BulkAd<T>>(StringTable.FinalUrl,
                 c => c.Ad.FinalUrls.WriteUrls("; "),
                 (v, c) => c.Ad.FinalUrls = v.ParseUrls()

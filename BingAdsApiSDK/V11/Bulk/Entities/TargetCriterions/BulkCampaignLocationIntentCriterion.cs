@@ -56,7 +56,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BulkCampaignLocationIntentCriterion.CampaignCriterion"/> property with LocationIntentCriterion that can be read and written as fields of the Campaign Location Intent Criterion record in a bulk file. 
+    /// This class exposes the <see cref="BiddableCampaignCriterion"/> property with LocationIntentCriterion that can be read and written as fields of the Campaign Location Intent Criterion record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Location Intent Criterion</see>. </para>
     /// </summary>
@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// <summary>
         /// Defines a Biddable Campaign Criterion.
         /// </summary>
-        public BiddableCampaignCriterion CampaignCriterion { get; set; }
+        public BiddableCampaignCriterion BiddableCampaignCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the Campaign.
@@ -80,18 +80,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static readonly IBulkMapping<BulkCampaignLocationIntentCriterion>[] Mappings =
         {
             new SimpleBulkMapping<BulkCampaignLocationIntentCriterion>(StringTable.Status,
-                c => c.CampaignCriterion.Status.ToBulkString(),
-                (v, c) => c.CampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
+                c => c.BiddableCampaignCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
             ),
 
             new SimpleBulkMapping<BulkCampaignLocationIntentCriterion>(StringTable.Id,
-                c => c.CampaignCriterion.Id.ToBulkString(),
-                (v, c) => c.CampaignCriterion.Id = v.ParseOptional<long>()
+                c => c.BiddableCampaignCriterion.Id.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Id = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkCampaignLocationIntentCriterion>(StringTable.ParentId,
-                c => c.CampaignCriterion.CampaignId.ToBulkString(true),
-                (v, c) => c.CampaignCriterion.CampaignId = v.Parse<long>()
+                c => c.BiddableCampaignCriterion.CampaignId.ToBulkString(true),
+                (v, c) => c.BiddableCampaignCriterion.CampaignId = v.Parse<long>()
             ),
             new SimpleBulkMapping<BulkCampaignLocationIntentCriterion>(StringTable.Campaign,
                 c => c.CampaignName,
@@ -101,13 +101,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaignLocationIntentCriterion>(StringTable.Target,
                 c =>
                 {
-                    var locationIntentCriterion = c.CampaignCriterion.Criterion as LocationIntentCriterion;
+                    var locationIntentCriterion = c.BiddableCampaignCriterion.Criterion as LocationIntentCriterion;
 
                     return locationIntentCriterion?.IntentOption.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var locationIntentCriterion = c.CampaignCriterion.Criterion as LocationIntentCriterion;
+                    var locationIntentCriterion = c.BiddableCampaignCriterion.Criterion as LocationIntentCriterion;
 
                     if (locationIntentCriterion != null && v.ParseOptional<IntentOption>() != null)
                     {
@@ -119,14 +119,14 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(CampaignCriterion, typeof(BiddableCampaignCriterion).Name);
+            ValidatePropertyNotNull(BiddableCampaignCriterion, typeof(BiddableCampaignCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            CampaignCriterion = new BiddableCampaignCriterion
+            BiddableCampaignCriterion = new BiddableCampaignCriterion
             {
                 Criterion = new LocationIntentCriterion()
                 {

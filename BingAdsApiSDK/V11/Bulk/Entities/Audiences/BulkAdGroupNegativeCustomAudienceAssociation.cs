@@ -47,6 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds.V11.Internal.Bulk;
 using Microsoft.BingAds.V11.Internal.Bulk.Entities;
@@ -56,20 +57,21 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property with LocationCriterion that can be read and written as fields of the Ad Group Location Criterion record in a bulk file. 
+    /// Represents an Ad Group Negative Custom Audience Association that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="NegativeAdGroupCriterion"/> property that can be read and written as fields of the Ad Group Negative Custom Audience Association record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Location Criterion</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Negative Custom Audience Association</see> </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupLocationCriterion : SingleRecordBulkEntity
+    public class BulkAdGroupNegativeCustomAudienceAssociation : SingleRecordBulkEntity
     {
         /// <summary>
-        /// Defines a Biddable Ad Group Criterion.
+        /// Defines an Negative Ad Group Criterion.
         /// </summary>
-        public BiddableAdGroupCriterion BiddableAdGroupCriterion { get; set; }
+        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the ad group.
@@ -78,117 +80,63 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         public string CampaignName { get; set; }
 
         /// <summary>
-        /// The name of the ad group that contains the criterion.
+        /// The <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group</see> that is associated with the audience.
         /// Corresponds to the 'Ad Group' field in the bulk file.
         /// </summary>
         public string AdGroupName { get; set; }
 
-        private static readonly IBulkMapping<BulkAdGroupLocationCriterion>[] Mappings =
+        /// <summary>
+        /// The name of the Custom Audience
+        /// Corresponds to the "Audience" field in the bulk file.
+        /// </summary>
+        public string CustomAudienceName { get; set; }
+
+        private static readonly IBulkMapping<BulkAdGroupNegativeCustomAudienceAssociation>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Status,
-                c => c.BiddableAdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.BiddableAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
+            new SimpleBulkMapping<BulkAdGroupNegativeCustomAudienceAssociation>(StringTable.Status,
+                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
+                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Id,
-                c => c.BiddableAdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.BiddableAdGroupCriterion.Id = v.ParseOptional<long>()
+            new SimpleBulkMapping<BulkAdGroupNegativeCustomAudienceAssociation>(StringTable.Id,
+                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
+                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.ParentId,
-                c => c.BiddableAdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.BiddableAdGroupCriterion.AdGroupId = v.Parse<long>()
+            new SimpleBulkMapping<BulkAdGroupNegativeCustomAudienceAssociation>(StringTable.ParentId,
+                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
+                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Campaign,
+            new SimpleBulkMapping<BulkAdGroupNegativeCustomAudienceAssociation>(StringTable.Campaign,
                 c => c.CampaignName,
                 (v, c) => c.CampaignName = v
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.AdGroup,
+            new SimpleBulkMapping<BulkAdGroupNegativeCustomAudienceAssociation>(StringTable.AdGroup,
                 c => c.AdGroupName,
                 (v, c) => c.AdGroupName = v
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.BidAdjustment,
-                c =>
-                {
-                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion == null) return null;
-
-                    var multiplicativeBid = criterion.CriterionBid as BidMultiplier;
-
-                    return multiplicativeBid?.Multiplier.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion == null) return;
-
-                    double? multiplier = v.ParseOptional<double>();
-                    if (multiplier != null)
-                    {
-                        ((BidMultiplier) criterion.CriterionBid).Multiplier = multiplier.Value;
-                    }
-                    else
-                    {
-                        criterion.CriterionBid = null;
-                    }
-                }
+            new SimpleBulkMapping<BulkAdGroupNegativeCustomAudienceAssociation>(StringTable.Audience,
+                c => c.CustomAudienceName,
+                (v, c) => c.CustomAudienceName = v
             ),
 
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Target,
+            new SimpleBulkMapping<BulkAdGroupNegativeCustomAudienceAssociation>(StringTable.AudienceId,
                 c =>
                 {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
+                    var audienceCriterion = c.NegativeAdGroupCriterion?.Criterion as AudienceCriterion;
 
-                    return locationCriterion?.LocationId.ToBulkString();
+                    return audienceCriterion != null ? audienceCriterion.AudienceId.ToBulkString() : null;
                 },
                 (v, c) =>
                 {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
+                    var audienceCriterion = c.NegativeAdGroupCriterion?.Criterion as AudienceCriterion;
 
-                    if (locationCriterion != null && v.ParseOptional<long>() != null)
+                    if (audienceCriterion != null)
                     {
-                        locationCriterion.LocationId = v.Parse<long>();
-                    }
-                }
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.SubType,
-                c =>
-                {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
-
-                    return locationCriterion?.LocationType;
-                },
-                (v, c) =>
-                {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
-
-                    if (locationCriterion != null)
-                    {
-                        locationCriterion.LocationType = v;
-                    }
-                }
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupLocationCriterion>(StringTable.Name,
-                c =>
-                {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
-
-                    return locationCriterion?.DisplayName;
-                },
-                (v, c) =>
-                {
-                    var locationCriterion = c.BiddableAdGroupCriterion.Criterion as LocationCriterion;
-
-                    if (locationCriterion != null)
-                    {
-                        locationCriterion.DisplayName = v;
+                        audienceCriterion.AudienceId = v.ParseOptional<long>();
                     }
                 }
             ),
@@ -196,24 +144,20 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(BiddableAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
+            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(NegativeAdGroupCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            BiddableAdGroupCriterion = new BiddableAdGroupCriterion
+            NegativeAdGroupCriterion = new NegativeAdGroupCriterion
             {
-                Criterion = new LocationCriterion()
+                Criterion = new AudienceCriterion()
                 {
-                    Type = typeof(LocationCriterion).Name,
+                    Type = typeof(AudienceCriterion).Name,
                 },
-                CriterionBid = new BidMultiplier
-                {
-                    Type = typeof(BidMultiplier).Name,
-                },
-                Type = typeof(BiddableAdGroupCriterion).Name
+                Type = typeof(NegativeAdGroupCriterion).Name
             };
 
             values.ConvertToEntity(this, Mappings);
