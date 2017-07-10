@@ -60,7 +60,9 @@ namespace BingAdsExamplesLibrary.V11
         /// The maximum amount of time (in milliseconds) that you want to wait for the bulk download or upload.
         /// </summary>
         protected const int TimeoutInMilliseconds = 36000000;
-        
+
+        protected long accountIdKey = -1;
+        protected long tagIdKey = -2;
         protected long appAdExtensionIdKey = -11;
         protected long callAdExtensionIdKey = -12;
         protected long calloutAdExtensionIdKey = -13;
@@ -72,10 +74,14 @@ namespace BingAdsExamplesLibrary.V11
         protected long structuredSnippetAdExtensionIdKey = -18;
         protected long negativeKeywordListIdKey = -19;
         protected long budgetIdKey = -20;
+        protected long remarketingListIdKey = -21;
         protected long campaignIdKey = -111;
+        protected long searchAndContentCampaignIdKey = -112;
+        protected long shoppingCampaignIdKey = -113;
+        protected long dynamicSearchAdsCampaignIdKey = -114;
         protected long adGroupIdKey = -1111;
         protected long negativeKeywordIdKey = -11111;
-
+        
 
         /// <summary>
         /// Writes the specified entities to a local file and uploads the file. We could have uploaded directly
@@ -1580,8 +1586,6 @@ namespace BingAdsExamplesLibrary.V11
                     Name = "Women's Red Shoe Sale",
                     // 'Network Distribution' column header in the Bulk file
                     Network = Network.OwnedAndOperatedAndSyndicatedSearch,
-                    // 'Pricing Model' column header in the Bulk file
-                    PricingModel = PricingModel.Cpc,
                     // 'Remarketing Targeting Setting' column header in the Bulk file
                     RemarketingTargetingSetting = RemarketingTargetingSetting.TargetAndBid,
                     // 'Search Bid' column header in the Bulk file
@@ -2423,6 +2427,2330 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return bulkAdGroupRadiusCriterion;
+        }
+        
+        protected BulkEntity GetBulkAppAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkAppAdExtension
+            var bulkAppAdExtension = new BulkAppAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // AppAdExtension object of the Campaign Management service.
+                AppAdExtension = new AppAdExtension
+                {
+                    // 'App Platform' column header in the Bulk file
+                    AppPlatform = "Windows",
+                    // 'App Id' column header in the Bulk file
+                    AppStoreId = "AppStoreIdGoesHere",
+                    // 'Destination Url' column header in the Bulk file
+                    DestinationUrl = "DestinationUrlGoesHere",
+                    // 'Text' column header in the Bulk file
+                    DisplayText = "Contoso",
+                    // 'Id' column header in the Bulk file
+                    Id = appAdExtensionIdKey,
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                },
+            };
+
+            return bulkAppAdExtension;
+        }
+
+        protected BulkEntity GetBulkCallAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCallAdExtension
+            var bulkCallAdExtension = new BulkCallAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // CallAdExtension object of the Campaign Management service.
+                CallAdExtension = new CallAdExtension
+                {
+                    // 'Country Code' column header in the Bulk file
+                    CountryCode = "US",
+                    // 'Id' column header in the Bulk file
+                    Id = callAdExtensionIdKey,
+                    // 'Call Only' column header in the Bulk file
+                    IsCallOnly = true,
+                    // 'Call Tracking Enabled' column header in the Bulk file
+                    IsCallTrackingEnabled = true,
+                    // 'Phone Number' column header in the Bulk file
+                    PhoneNumber = "2065550100",
+                    // 'Toll Free' column header in the Bulk file
+                    RequireTollFreeTrackingNumber = true,
+
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                },
+            };
+
+            return bulkCallAdExtension;
+        }
+
+        protected BulkEntity GetBulkCalloutAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCallAdExtension
+            var bulkCalloutAdExtension = new BulkCalloutAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // CalloutAdExtension object of the Campaign Management service.
+                CalloutAdExtension = new CalloutAdExtension
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = calloutAdExtensionIdKey,
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                    // 'Callout Text' column header in the Bulk file
+                    Text = "Callout Text",
+                },
+            };
+
+            return bulkCalloutAdExtension;
+        }
+
+        protected BulkEntity GetBulkImageAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkImageAdExtension
+            var bulkImageAdExtension = new BulkImageAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // ImageAdExtension object of the Campaign Management service.
+                ImageAdExtension = new ImageAdExtension
+                {
+                    // 'Alternative Text' column header in the Bulk file
+                    AlternativeText = "ImageAdExtension Alternative Text",
+                    // 'Destination Url' column header in the Bulk file
+                    DestinationUrl = null,
+                    // 'Id' column header in the Bulk file
+                    Id = imageAdExtensionIdKey,
+                    // 'Media Ids' column header in the Bulk file
+                    ImageMediaIds = new long[] { /*ImageMediaIdGoesHere*/ },
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                },
+            };
+
+            return bulkImageAdExtension;
+        }
+
+        protected BulkEntity GetBulkLocationAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkLocationAdExtension
+            var bulkLocationAdExtension = new BulkLocationAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // LocationAdExtension object of the Campaign Management service.
+                LocationAdExtension = new LocationAdExtension
+                {
+                    Address = new Address
+                    {
+                        // 'City' column header in the Bulk file
+                        CityName = "Woodinville",
+                        // 'Country Code' column header in the Bulk file
+                        CountryCode = "US",
+                        // 'Postal Code' column header in the Bulk file
+                        PostalCode = "98608",
+                        // 'State Or Province Code' column header in the Bulk file
+                        ProvinceCode = null,
+                        // 'Province Name' column header in the Bulk file
+                        ProvinceName = "WA",
+                        // 'Address Line 1' column header in the Bulk file
+                        StreetAddress = "1234 Washington Place",
+                        // 'Address Line 2' column header in the Bulk file
+                        StreetAddress2 = "Suite 1210",
+                    },
+                    // 'Business Name' column header in the Bulk file
+                    CompanyName = "Contoso Shoes",
+                    // 'Geo Code Status' column header in the Bulk file
+                    GeoCodeStatus = null,
+                    GeoPoint = new GeoPoint
+                    {
+                        // 'Latitude' column header in the Bulk file
+                        LatitudeInMicroDegrees = 0,
+                        // 'Longitude' column header in the Bulk file
+                        LongitudeInMicroDegrees = 0,
+                    },
+                    // 'Map Icon' column header in the Bulk file
+                    IconMediaId = null,
+                    // 'Id' column header in the Bulk file
+                    Id = locationAdExtensionIdKey,
+                    // 'Media Ids' column header in the Bulk file
+                    ImageMediaId = /*ImageMediaIdGoesHere*/null,
+                    // 'Phone Number' column header in the Bulk file
+                    PhoneNumber = "206-555-0100",
+
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                },
+            };
+
+            return bulkLocationAdExtension;
+        }
+
+        protected BulkEntity GetBulkReviewAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkReviewAdExtension
+            var bulkReviewAdExtension = new BulkReviewAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // ReviewAdExtension object of the Campaign Management service.
+                ReviewAdExtension = new ReviewAdExtension
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = reviewAdExtensionIdKey,
+                    // 'Is Exact' column header in the Bulk file
+                    IsExact = true,
+                    // 'Source' column header in the Bulk file
+                    Source = "Review Source Name",
+                    // 'Text' column header in the Bulk file
+                    Text = "Review Text",
+                    // 'Url' column header in the Bulk file
+                    Url = "http://review.contoso.com",
+
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                },
+            };
+
+            return bulkReviewAdExtension;
+        }
+
+        protected BulkEntity GetBulkSiteLinkAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkSiteLinkAdExtension
+            var bulkSiteLinkAdExtension = new BulkSiteLinkAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+
+                // Map properties in the Bulk file to the 
+                // SiteLinksAdExtension object of the Campaign Management service.
+                SiteLinksAdExtension = new SiteLinksAdExtension
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = siteLinksAdExtensionIdKey,
+                    SiteLinks = new[]
+                    {
+                        // Map properties in the Bulk file to the 
+                        // SiteLink object of the Campaign Management service.
+                        new SiteLink
+                        {
+                            // 'Sitelink Extension Description1' column header in the Bulk file
+                            Description1 = "Simple & Transparent.",
+                            // 'Sitelink Extension Description2' column header in the Bulk file
+                            Description2 = "No Upfront Cost.",
+                            // 'Text' column header in the Bulk file
+                            DisplayText = "Women's Shoe Sale",
+                            // 'Destination Url' column header in the Bulk file
+                            DestinationUrl = "",
+                            // 'Final Url' column header in the Bulk file
+                            FinalUrls = new[] {
+                                // Each Url is delimited by a semicolon (;) in the Bulk file
+                                "http://www.contoso.com/womenshoesale"
+                            },
+                            // 'Mobile Final Url' column header in the Bulk file
+                            FinalMobileUrls = new[] {
+                                // Each Url is delimited by a semicolon (;) in the Bulk file
+                                "http://mobile.contoso.com/womenshoesale"
+                            },
+                            // 'Ad Schedule' column header in the Bulk file
+                            Scheduling = new Schedule
+                            {
+                                // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                                DayTimeRanges = new[]
+                                {
+                                    // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                                    new DayTime
+                                    {
+                                        Day = Day.Monday,
+                                        StartHour = 9,
+                                        StartMinute = Minute.Zero,
+                                        EndHour = 21,
+                                        EndMinute = Minute.Zero,
+                                    },
+                                },
+                                // 'End Date' column header in the Bulk file
+                                EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                                {
+                                    Month = 12,
+                                    Day = 31,
+                                    Year = DateTime.UtcNow.Year + 1
+                                },
+                                // 'Start Date' column header in the Bulk file
+                                StartDate = null,
+                                // 'Use Searcher Time Zone' column header in the Bulk file
+                                UseSearcherTimeZone = false,
+                            },
+                            // 'Tracking Template' column header in the Bulk file
+                            TrackingUrlTemplate = null,
+                            // 'Custom Parameter' column header in the Bulk file
+                            UrlCustomParameters = new CustomParameters
+                            {
+                                // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                                Parameters = new[] {
+                                    new CustomParameter(){
+                                        Key = "promoCode",
+                                        Value = "PROMO1"
+                                    },
+                                    new CustomParameter(){
+                                        Key = "season",
+                                        Value = "summer"
+                                    },
+                                }
+                            },
+                        }
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                },
+            };
+
+            return bulkSiteLinkAdExtension;
+        }
+
+        protected BulkEntity GetBulkSiteLink()
+        {
+            // Map properties in the Bulk file to the BulkSiteLink
+            var bulkSiteLink = new BulkSiteLink
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Id' column header in the Bulk file
+                AdExtensionId = siteLinksAdExtensionIdKey,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // SiteLink object of the Campaign Management service.
+                SiteLink = new SiteLink
+                {
+                    // 'Sitelink Extension Description1' column header in the Bulk file
+                    Description1 = "Simple & Transparent.",
+                    // 'Sitelink Extension Description2' column header in the Bulk file
+                    Description2 = "No Upfront Cost.",
+                    // 'Text' column header in the Bulk file
+                    DisplayText = "Women's Shoe Sale",
+                    // 'Destination Url' column header in the Bulk file
+                    DestinationUrl = "",
+                    // 'Final Url' column header in the Bulk file
+                    FinalUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://www.contoso.com/womenshoesale"
+                    },
+                    // 'Mobile Final Url' column header in the Bulk file
+                    FinalMobileUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://mobile.contoso.com/womenshoesale"
+                    },
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+
+                // 'Status' column header in the Bulk file
+                Status = AdExtensionStatus.Active,
+            };
+
+            return bulkSiteLink;
+        }
+
+        protected BulkEntity GetBulkSitelink2AdExtension()
+        {
+            // Map properties in the Bulk file to the BulkSitelink2AdExtension
+            var bulkSitelink2AdExtension = new BulkSitelink2AdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // Sitelink2AdExtension object of the Campaign Management service.
+                Sitelink2AdExtension = new Sitelink2AdExtension
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = sitelink2AdExtensionIdKey,
+                    // 'Sitelink Extension Description1' column header in the Bulk file
+                    Description1 = "Simple & Transparent.",
+                    // 'Sitelink Extension Description2' column header in the Bulk file
+                    Description2 = "No Upfront Cost.",
+                    // 'Text' column header in the Bulk file
+                    DisplayText = "Women's Shoe Sale",
+                    // 'Destination Url' column header in the Bulk file
+                    DestinationUrl = "",
+                    // 'Final Url' column header in the Bulk file
+                    FinalUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://www.contoso.com/womenshoesale"
+                    },
+                    // 'Mobile Final Url' column header in the Bulk file
+                    FinalMobileUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://mobile.contoso.com/womenshoesale"
+                    },
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                },
+            };
+
+            return bulkSitelink2AdExtension;
+        }
+
+        protected BulkEntity GetBulkStructuredSnippetAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkStructuredSnippetAdExtension
+            var bulkStructuredSnippetAdExtension = new BulkStructuredSnippetAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // StructuredSnippetAdExtension object of the Campaign Management service.
+                StructuredSnippetAdExtension = new StructuredSnippetAdExtension
+                {
+                    // 'Header' column header in the Bulk file
+                    Header = "Brands",
+                    // 'Id' column header in the Bulk file
+                    Id = structuredSnippetAdExtensionIdKey,
+
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                    // 'Structured Snippet Values' column header in the Bulk file
+                    // Each value is delimited by a semicolon (;) in the Bulk file
+                    Values = new[] { "Windows", "Xbox", "Skype" },
+
+                },
+            };
+
+            return bulkStructuredSnippetAdExtension;
+        }
+
+        protected BulkEntity GetBulkBudget()
+        {
+            // Map properties in the Bulk file to the BulkBudget
+            var bulkBudget = new BulkBudget
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+
+                // Map properties in the Bulk file to the 
+                // Budget object of the Campaign Management service.
+                Budget = new Budget
+                {
+                    // 'Budget' column header in the Bulk file
+                    Amount = 50,
+                    // 'Budget Type' column header in the Bulk file
+                    BudgetType = BudgetLimitType.DailyBudgetAccelerated,
+                    // 'Budget Name' column header in the Bulk file
+                    Name = "My Shared Budget " + DateTime.UtcNow,
+                    // 'Id' column header in the Bulk file
+                    Id = budgetIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkBudget;
+        }
+
+        protected BulkEntity GetBulkRemarketingList()
+        {
+            // Map properties in the Bulk file to the BulkRemarketingList
+            var bulkRemarketingList = new BulkRemarketingList
+            {
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // RemarketingList object of the Campaign Management service.
+                RemarketingList = new RemarketingList
+                {
+                    // 'Description' column header in the Bulk file
+                    Description = "New list with CustomEventsRule",
+                    // 'Id' column header in the Bulk file
+                    Id = remarketingListIdKey,
+                    // 'Membership Duration' column header in the Bulk file
+                    MembershipDuration = 30,
+                    // 'Audience' column header in the Bulk file
+                    Name = "Remarketing List with CustomEventsRule " + DateTime.UtcNow,
+                    // 'Parent Id' column header in the Bulk file
+                    ParentId = accountIdKey,
+                    // 'Remarketing Rule' column header in the Bulk file
+                    Rule = new CustomEventsRule
+                    {
+                        // The rule definition is translated to the following logical expression: 
+                        // CustomEvents(Category Equals video) and (Action Equals play) and (Label Equals trailer) 
+                        // and (Value Equals 5)
+                        Action = "play",
+                        ActionOperator = StringOperator.Equals,
+                        Category = "video",
+                        CategoryOperator = StringOperator.Equals,
+                        Label = "trailer",
+                        LabelOperator = StringOperator.Equals,
+                        Value = 5.00m,
+                        ValueOperator = NumberOperator.Equals,
+                    },
+                    // 'Scope' column header in the Bulk file
+                    Scope = EntityScope.Account,
+                    // 'UET Tag Id' column header in the Bulk file
+                    TagId = tagIdKey
+                },
+
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkRemarketingList;
+        }
+
+        protected BulkEntity GetBulkAdGroup()
+        {
+            // Map properties in the Bulk file to the BulkAdGroup
+            var bulkAdGroup = new BulkAdGroup
+            {
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Parent Id' column header in the Bulk file
+                CampaignId = campaignIdKey,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // AdGroup object of the Campaign Management service.
+                AdGroup = new AdGroup
+                {
+                    // 'Search Network' or 'Content Network' column header in the Bulk file
+                    AdDistribution = AdDistribution.Search,
+                    // 'Ad Rotation' column header in the Bulk file
+                    AdRotation = new AdRotation
+                    {
+                        Type = AdRotationType.RotateAdsEvenly
+                    },
+                    // 'Bid Strategy Type' column header in the Bulk file
+                    BiddingScheme = new ManualCpcBiddingScheme { },
+                    // 'Content Bid' column header in the Bulk file
+                    ContentMatchBid = null,
+                    // 'End Date' column header in the Bulk file
+                    EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                    {
+                        Month = 12,
+                        Day = 31,
+                        Year = DateTime.UtcNow.Year + 1
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = adGroupIdKey,
+                    // 'Language' column header in the Bulk file
+                    Language = "English",
+                    // 'Ad Group' column header in the Bulk file
+                    Name = "Women's Red Shoe Sale",
+                    // 'Bid Adjustment' column header in the Bulk file
+                    NativeBidAdjustment = 10,
+                    // 'Network Distribution' column header in the Bulk file
+                    Network = Network.OwnedAndOperatedAndSyndicatedSearch,
+                    // 'Remarketing Targeting Setting' column header in the Bulk file
+                    RemarketingTargetingSetting = RemarketingTargetingSetting.TargetAndBid,
+                    // 'Search Bid' column header in the Bulk file
+                    SearchBid = new Bid
+                    {
+                        Amount = 0.10
+                    },
+                    // 'Start Date' column header in the Bulk file
+                    StartDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                    {
+                        Month = DateTime.UtcNow.Month,
+                        Day = DateTime.UtcNow.Day,
+                        Year = DateTime.UtcNow.Year
+                    },
+                    // 'Status' column header in the Bulk file
+                    Status = AdGroupStatus.Paused,
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+            };
+
+            return bulkAdGroup;
+        }
+
+        protected BulkEntity GetBulkAdGroupAppAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupAppAdExtension
+            var bulkAdGroupAppAdExtension = new BulkAdGroupAppAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = appAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = adGroupIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkAdGroupAppAdExtension;
+        }
+
+        protected BulkEntity GetBulkAdGroupCalloutAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupCalloutAdExtension
+            var bulkAdGroupCalloutAdExtension = new BulkAdGroupCalloutAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = calloutAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = adGroupIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkAdGroupCalloutAdExtension;
+        }
+
+        protected BulkEntity GetBulkAdGroupImageAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupCalloutAdExtension
+            var bulkAdGroupImageAdExtension = new BulkAdGroupImageAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = imageAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = adGroupIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkAdGroupImageAdExtension;
+        }
+
+        protected BulkEntity GetBulkAdGroupReviewAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupReviewAdExtension
+            var bulkAdGroupReviewAdExtension = new BulkAdGroupReviewAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = reviewAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = adGroupIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkAdGroupReviewAdExtension;
+        }
+
+        protected BulkEntity GetBulkAdGroupSitelink2AdExtension()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupSitelink2AdExtension
+            var bulkAdGroupSitelink2AdExtension = new BulkAdGroupSitelink2AdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = sitelink2AdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = adGroupIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkAdGroupSitelink2AdExtension;
+        }
+
+        protected BulkEntity GetBulkAdGroupSiteLinkAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupSiteLinkAdExtension
+            var bulkAdGroupSiteLinkAdExtension = new BulkAdGroupSiteLinkAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = siteLinksAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = adGroupIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkAdGroupSiteLinkAdExtension;
+        }
+
+        protected BulkEntity GetBulkAdGroupStructuredSnippetAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupStructuredSnippetAdExtension
+            var bulkAdGroupStructuredSnippetAdExtension = new BulkAdGroupStructuredSnippetAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = structuredSnippetAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = adGroupIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkAdGroupStructuredSnippetAdExtension;
+        }
+        
+        protected BulkEntity GetBulkAdGroupDynamicSearchAdTarget()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupDynamicSearchAdTarget
+            var bulkAdGroupDynamicSearchAdTarget = new BulkAdGroupDynamicSearchAdTarget
+            {
+                // Map properties in the Bulk file to the 
+                // BiddableAdGroupCriterion object of the Campaign Management service.
+                AdGroupCriterion = new BiddableAdGroupCriterion
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    AdGroupId = adGroupIdKey,
+                    Criterion = new Webpage
+                    {
+                        Parameter = new WebpageParameter
+                        {
+                            // Set Conditions null if you want to target all webpages
+                            Conditions = new[]
+                            {
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 1' column header in the Bulk file
+                                    Argument = "contoso.com",
+                                    // 'Dynamic Ad Target Condition 1' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.Url
+                                },
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 2' column header in the Bulk file
+                                    Argument = "US/CA/SFO",
+                                    // 'Dynamic Ad Target Condition 2' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.Category
+                                },
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 3' column header in the Bulk file
+                                    Argument = "flowers",
+                                    // 'Dynamic Ad Target Condition 3' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.PageContent
+                                },
+                            },
+                            // 'Name' column header in the Bulk file
+                            CriterionName = "Bulk Ad Group Dynamic Search Ad Target"
+                        }
+                    },
+                    CriterionBid = new FixedBid
+                    {
+                        // 'Bid' column header in the Bulk file
+                        Amount = 0.50
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Status' column header in the Bulk file
+                    Status = AdGroupCriterionStatus.Paused,
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = null,
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+            };
+
+            return bulkAdGroupDynamicSearchAdTarget;
+        }
+
+        protected BulkEntity GetBulkAdGroupNegativeDynamicSearchAdTarget()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupNegativeDynamicSearchAdTarget
+            var bulkAdGroupNegativeDynamicSearchAdTarget = new BulkAdGroupNegativeDynamicSearchAdTarget
+            {
+                // Map properties in the Bulk file to the 
+                // NegativeAdGroupCriterion object of the Campaign Management service.
+                AdGroupCriterion = new NegativeAdGroupCriterion
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    AdGroupId = adGroupIdKey,
+                    Criterion = new Webpage
+                    {
+                        Parameter = new WebpageParameter
+                        {
+                            Conditions = new[]
+                            {
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 1' column header in the Bulk file
+                                    Argument = "contoso.com",
+                                    // 'Dynamic Ad Target Condition 1' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.Url
+                                },
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 2' column header in the Bulk file
+                                    Argument = "US/CA/",
+                                    // 'Dynamic Ad Target Condition 2' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.Category
+                                },
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 3' column header in the Bulk file
+                                    Argument = "flowers",
+                                    // 'Dynamic Ad Target Condition 3' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.PageContent
+                                },
+                            },
+                            // 'Name' column header in the Bulk file
+                            CriterionName = "Bulk Ad Group Negative Dynamic Search Ad Target"
+                        }
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Status' column header in the Bulk file
+                    Status = AdGroupCriterionStatus.Paused,
+                },
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = null,
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+            };
+
+            return bulkAdGroupNegativeDynamicSearchAdTarget;
+        }
+
+        protected BulkEntity GetBulkAdGroupNegativeKeyword()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupNegativeKeyword
+            var bulkAdGroupNegativeKeyword = new BulkAdGroupNegativeKeyword
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = null,
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // NegativeKeyword object of the Campaign Management service.
+                NegativeKeyword = new NegativeKeyword
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Match Type' column header in the Bulk file
+                    MatchType = MatchType.Exact,
+                    // 'Text' column header in the Bulk file
+                    Text = "shoes"
+                },
+
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkAdGroupNegativeKeyword;
+        }
+
+        protected BulkEntity GetBulkAdGroupNegativeSite()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupNegativeSite
+            var bulkAdGroupNegativeSite = new BulkAdGroupNegativeSite
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = null,
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+                // 'Website' column header in the Bulk file
+                Website = "contoso.com",
+            };
+
+            return bulkAdGroupNegativeSite;
+        }
+
+        protected BulkEntity GetBulkAdGroupNegativeSites()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupNegativeSites
+            var bulkAdGroupNegativeSites = new BulkAdGroupNegativeSites
+            {
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = null,
+
+                // Map properties in the Bulk file to the 
+                // AdGroupNegativeSites object of the Campaign Management service.
+                AdGroupNegativeSites = new AdGroupNegativeSites
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    AdGroupId = adGroupIdKey,
+                    NegativeSites = new[]
+                    {
+                        // 'Website' column header in the Bulk file
+                        "contoso.com",
+                    }
+                },
+
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkAdGroupNegativeSites;
+        }
+
+        protected BulkEntity GetBulkAdGroupProductPartition()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupProductPartition
+            var bulkAdGroupProductPartition = new BulkAdGroupProductPartition
+            {
+                // Map properties in the Bulk file to the BiddableAdGroupCriterion or
+                // NegativeAdGroupCriterion object of the Campaign Management service.
+                // Use the BiddableAdGroupCriterion to set the 'Is Excluded' field in the Bulk file to True,
+                // and otherwise use the NegativeAdGroupCriterion to set the 'Is Excluded' field to False.
+                AdGroupCriterion = new BiddableAdGroupCriterion
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    AdGroupId = adGroupIdKey,
+                    Criterion = new ProductPartition
+                    {
+                        Condition = new ProductCondition
+                        {
+                            // 'Product Value 1' column header in the Bulk file
+                            Attribute = null,
+                            // 'Product Condition 1' column header in the Bulk file
+                            Operand = "All",
+                        },
+                        // 'Parent Criterion Id' column header in the Bulk file
+                        ParentCriterionId = null
+                    },
+                    CriterionBid = new FixedBid
+                    {
+                        // 'Bid' column header in the Bulk file is only applicable for BiddableAdGroupCriterion
+                        Amount = 0
+                    },
+                    // 'Destination Url' column header in the Bulk file is only applicable for BiddableAdGroupCriterion
+                    DestinationUrl = null,
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Status' column header in the Bulk file
+                    Status = AdGroupCriterionStatus.Paused,
+                    // 'Tracking Template' column header in the Bulk file is only applicable for BiddableAdGroupCriterion
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file is only applicable for BiddableAdGroupCriterion
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = null,
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+            };
+
+            return bulkAdGroupProductPartition;
+        }
+
+        protected BulkEntity GetBulkAdGroupRemarketingListAssociation()
+        {
+            // Map properties in the Bulk file to the BulkAdGroupRemarketingListAssociation
+            var bulkAdGroupRemarketingListAssociation = new BulkAdGroupRemarketingListAssociation
+            {
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = null,
+
+                // Map properties in the Bulk file to the 
+                // BiddableAdGroupCriterion object of the Campaign Management service.
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    AdGroupId = adGroupIdKey,
+                    Criterion = new AudienceCriterion
+                    {
+                        // 'Remarketing List Id' column header in the Bulk file
+                        AudienceId = remarketingListIdKey,
+                    },
+                    // 'Bid Adjustment' column header in the Bulk file
+                    CriterionBid = new BidMultiplier
+                    {
+                        Multiplier = 10
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Status' column header in the Bulk file
+                    Status = AdGroupCriterionStatus.Paused
+                },
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Audience' column header in the Bulk file
+                RemarketingListName = "My Remarketing List " + DateTime.UtcNow,
+            };
+
+            return bulkAdGroupRemarketingListAssociation;
+        }
+
+        protected List<BulkEntity> GetBulkCampaigns()
+        {
+            var uploadEntities = new List<BulkEntity>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                // Map properties in the Bulk file to the BulkCampaign
+                var bulkCampaign = new BulkCampaign
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    AccountId = 0,
+                    // 'Client Id' column header in the Bulk file
+                    ClientId = "ClientIdGoesHere",
+
+                    // Map properties in the Bulk file to the 
+                    // Campaign object of the Campaign Management service.
+                    Campaign = new Campaign
+                    {
+                        // 'Bid Strategy Type' column header in the Bulk file
+                        BiddingScheme = new EnhancedCpcBiddingScheme { },
+                        // 'Budget Id' column header in the Bulk file
+                        BudgetId = null,
+                        // 'Budget Type' column header in the Bulk file
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+                        // 'Campaign Type' column header in the Bulk file
+                        CampaignType = null,
+                        // 'Budget' column header in the Bulk file
+                        DailyBudget = 50,
+                        // 'Description' column header in the Bulk file
+                        Description = "Red shoes line.",
+                        // 'Id' column header in the Bulk file
+                        Id = campaignIdKey,
+                        // 'Language' column header in the Bulk file
+                        Languages = null,
+                        // 'Campaign' column header in the Bulk file
+                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        // 'Bid Adjustment' column header in the Bulk file
+                        NativeBidAdjustment = 10,
+                        // 'Settings are not applicable for the SearchAndContent campaign type
+                        Settings = null,
+                        // 'Status' column header in the Bulk file
+                        Status = CampaignStatus.Active,
+                        // 'Time Zone' column header in the Bulk file
+                        TimeZone = "PacificTimeUSCanadaTijuana",
+                        // 'Tracking Template' column header in the Bulk file
+                        TrackingUrlTemplate = null,
+                        // 'Custom Parameter' column header in the Bulk file
+                        UrlCustomParameters = new CustomParameters
+                        {
+                            // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                            Parameters = new[] {
+                                new CustomParameter(){
+                                    Key = "promoCode",
+                                    Value = "PROMO1"
+                                },
+                                new CustomParameter(){
+                                    Key = "season",
+                                    Value = "summer"
+                                },
+                            }
+                        },
+                    },
+                };
+
+                uploadEntities.Add(bulkCampaign);
+            }
+
+            // Set properties specific to the SearchAndContent campaign type
+            ((BulkCampaign)uploadEntities[0]).Campaign.Id = searchAndContentCampaignIdKey;
+            ((BulkCampaign)uploadEntities[0]).Campaign.Name = "SearchAndContent " + DateTime.UtcNow;
+            ((BulkCampaign)uploadEntities[0]).Campaign.CampaignType = CampaignType.SearchAndContent;
+
+            // Set properties specific to the Shopping campaign type
+            ((BulkCampaign)uploadEntities[1]).Campaign.Id = shoppingCampaignIdKey;
+            ((BulkCampaign)uploadEntities[1]).Campaign.Name = "Shopping " + DateTime.UtcNow;
+            // EnhancedCpcBiddingScheme is not supported for shopping campaigns.
+            // 'Bid Strategy Type' column header in the Bulk file
+            ((BulkCampaign)uploadEntities[1]).Campaign.BiddingScheme = null;
+            ((BulkCampaign)uploadEntities[1]).Campaign.CampaignType = CampaignType.Shopping;
+            ((BulkCampaign)uploadEntities[1]).Campaign.Settings = new[] {
+                new ShoppingSetting {
+                    // 'Priority' column header in the Bulk file
+                    Priority = 0,
+                    // 'Country Code' column header in the Bulk file
+                    SalesCountryCode = "US",
+                    // 'Store Id' column header in the Bulk file
+                    StoreId = null // StoreIdGoesHere
+                }
+            };
+
+            // Set properties specific to the DynamicSearchAds campaign type
+            ((BulkCampaign)uploadEntities[2]).Campaign.Id = dynamicSearchAdsCampaignIdKey;
+            ((BulkCampaign)uploadEntities[2]).Campaign.Name = "DynamicSearchAds " + DateTime.UtcNow;
+            ((BulkCampaign)uploadEntities[2]).Campaign.CampaignType = CampaignType.DynamicSearchAds;
+            ((BulkCampaign)uploadEntities[2]).Campaign.Settings = new[] {
+                new DynamicSearchAdsSetting {
+                    // 'Website' column header in the Bulk file
+                    DomainName = "contoso.com",
+                    // 'Domain Language' column header in the Bulk file
+                    Language = "EN"
+                }
+            };
+
+            return uploadEntities;
+        }
+
+        protected BulkEntity GetBulkCampaignAppAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignAppAdExtension
+            var bulkCampaignAppAdExtension = new BulkCampaignAppAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = appAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignAppAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignCallAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignCallAdExtension
+            var bulkCampaignCallAdExtension = new BulkCampaignCallAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = callAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignCallAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignCalloutAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignCalloutAdExtension
+            var bulkCampaignCalloutAdExtension = new BulkCampaignCalloutAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = calloutAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignCalloutAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignImageAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignImageAdExtension
+            var bulkCampaignImageAdExtension = new BulkCampaignImageAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = imageAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignImageAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignLocationAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignLocationAdExtension
+            var bulkCampaignLocationAdExtension = new BulkCampaignLocationAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = locationAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignLocationAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignReviewAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignReviewAdExtension
+            var bulkCampaignReviewAdExtension = new BulkCampaignReviewAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = reviewAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignReviewAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignSitelink2AdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignSitelink2AdExtension
+            var bulkCampaignSitelink2AdExtension = new BulkCampaignSitelink2AdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = sitelink2AdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignSitelink2AdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignSiteLinkAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignSiteLinkAdExtension
+            var bulkCampaignSiteLinkAdExtension = new BulkCampaignSiteLinkAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = siteLinksAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignSiteLinkAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignStructuredSnippetAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignStructuredSnippetAdExtension
+            var bulkCampaignStructuredSnippetAdExtension = new BulkCampaignStructuredSnippetAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = structuredSnippetAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignStructuredSnippetAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignNegativeDynamicSearchAdTarget()
+        {
+            // Map properties in the Bulk file to the BulkCampaignNegativeDynamicSearchAdTarget
+            var bulkCampaignNegativeDynamicSearchAdTarget = new BulkCampaignNegativeDynamicSearchAdTarget
+            {
+                // Map properties in the Bulk file to the 
+                // NegativeCampaignCriterion object of the Campaign Management service.
+                NegativeCampaignCriterion = new NegativeCampaignCriterion
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    CampaignId = campaignIdKey,
+                    Criterion = new Webpage
+                    {
+                        Parameter = new WebpageParameter
+                        {
+                            Conditions = new[]
+                            {
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 1' column header in the Bulk file
+                                    Argument = "contoso.com",
+                                    // 'Dynamic Ad Target Condition 1' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.Url
+                                },
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 2' column header in the Bulk file
+                                    Argument = "US/CA/SFO",
+                                    // 'Dynamic Ad Target Condition 2' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.Category
+                                },
+                                new WebpageCondition
+                                {
+                                    // 'Dynamic Ad Target Value 3' column header in the Bulk file
+                                    Argument = "flowers",
+                                    // 'Dynamic Ad Target Condition 3' column header in the Bulk file
+                                    Operand = WebpageConditionOperand.PageContent
+                                },
+                            },
+                            // 'Name' column header in the Bulk file
+                            CriterionName = "Bulk Campaign Negative Dynamic Search Ad Target"
+                        }
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                },
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkCampaignNegativeDynamicSearchAdTarget;
+        }
+
+        protected BulkEntity GetBulkCampaignNegativeDynamicSearchAdTargetTest()
+        {
+            // Map properties in the Bulk file to the BulkCampaignNegativeDynamicSearchAdTarget
+            var bulkCampaignNegativeDynamicSearchAdTarget = new BulkCampaignNegativeDynamicSearchAdTarget
+            {
+                // Map properties in the Bulk file to the 
+                // NegativeCampaignCriterion object of the Campaign Management service.
+                NegativeCampaignCriterion = new NegativeCampaignCriterion
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    CampaignId = campaignIdKey,
+                    Criterion = new Webpage
+                    {
+                        Parameter = new WebpageParameter
+                        {
+                            Conditions = null,
+                            // 'Name' column header in the Bulk file
+                            CriterionName = "Bulk Campaign Negative Dynamic Search Ad Target"
+                        }
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                },
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkCampaignNegativeDynamicSearchAdTarget;
+        }
+
+        protected BulkEntity GetBulkCampaignNegativeKeyword()
+        {
+            // Map properties in the Bulk file to the BulkCampaignNegativeKeyword
+            var bulkCampaignNegativeKeyword = new BulkCampaignNegativeKeyword
+            {
+                // 'Parent Id' column header in the Bulk file
+                CampaignId = campaignIdKey,
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // NegativeKeyword object of the Campaign Management service.
+                NegativeKeyword = new NegativeKeyword
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Match Type' column header in the Bulk file
+                    MatchType = MatchType.Exact,
+                    // 'Text' column header in the Bulk file
+                    Text = "shoes"
+                },
+
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkCampaignNegativeKeyword;
+        }
+
+        protected BulkEntity GetBulkCampaignNegativeKeywordList()
+        {
+            // Map properties in the Bulk file to the BulkCampaignNegativeKeywordList
+            var bulkCampaignNegativeKeywordList = new BulkCampaignNegativeKeywordList
+            {
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // SharedEntityAssociation object of the Campaign Management service.
+                SharedEntityAssociation = new SharedEntityAssociation
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                    // 'Id' column header in the Bulk file
+                    SharedEntityId = negativeKeywordListIdKey,
+                },
+
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkCampaignNegativeKeywordList;
+        }
+
+        protected BulkEntity GetBulkNegativeKeywordList()
+        {
+            // Map properties in the Bulk file to the BulkNegativeKeywordList
+            var bulkNegativeKeywordList = new BulkNegativeKeywordList
+            {
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // NegativeKeywordList object of the Campaign Management service.
+                NegativeKeywordList = new NegativeKeywordList
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = negativeKeywordListIdKey,
+                    // 'Name' column header in the Bulk file
+                    Name = "My Negative Keyword List " + DateTime.UtcNow,
+                },
+
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkNegativeKeywordList;
+        }
+
+        protected BulkEntity GetBulkSharedNegativeKeyword()
+        {
+            // Map properties in the Bulk file to the BulkSharedNegativeKeyword
+            var bulkSharedNegativeKeyword = new BulkSharedNegativeKeyword
+            {
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // NegativeKeyword object of the Campaign Management service.
+                NegativeKeyword = new NegativeKeyword
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Match Type' column header in the Bulk file
+                    MatchType = MatchType.Exact,
+                    // 'Text' column header in the Bulk file
+                    Text = "shoes"
+                },
+
+                // 'Parent Id' column header in the Bulk file
+                NegativeKeywordListId = negativeKeywordListIdKey,
+
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkSharedNegativeKeyword;
+        }
+
+        protected BulkEntity GetBulkCampaignNegativeSite()
+        {
+            // Map properties in the Bulk file to the BulkCampaignNegativeSite
+            var bulkCampaignNegativeSite = new BulkCampaignNegativeSite
+            {
+                // 'Parent Id' column header in the Bulk file
+                CampaignId = campaignIdKey,
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+                // 'Website' column header in the Bulk file
+                Website = "contoso.com",
+            };
+
+            return bulkCampaignNegativeSite;
+        }
+
+        protected BulkEntity GetBulkCampaignNegativeSites()
+        {
+            // Map properties in the Bulk file to the BulkCampaignNegativeSites
+            var bulkCampaignNegativeSites = new BulkCampaignNegativeSites
+            {
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+
+                // Map properties in the Bulk file to the 
+                // CampaignNegativeSites object of the Campaign Management service.
+                CampaignNegativeSites = new CampaignNegativeSites
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    CampaignId = campaignIdKey,
+                    NegativeSites = new[]
+                    {
+                        // 'Website' column header in the Bulk file
+                        "contoso.com",
+                    }
+                },
+
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignNegativeSites;
+        }
+
+        protected BulkEntity GetBulkCampaignProductScope()
+        {
+            // Map properties in the Bulk file to the BulkCampaignProductScope
+            var bulkCampaignProductScope = new BulkCampaignProductScope
+            {
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // BiddableCampaignCriterion object of the Campaign Management service.
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    CampaignId = campaignIdKey,
+                    Criterion = new ProductScope
+                    {
+                        // Conditions are mapped to Product Value 1..7 and Product Condition 1..7 columns
+                        Conditions = new[]
+                        {
+                            new ProductCondition
+                            {
+                                // 'Product Value 1' column header in the Bulk file
+                                Attribute = "New",
+                                // 'Product Condition 1' column header in the Bulk file
+                                Operand = "Condition",
+                            },
+                            new ProductCondition
+                            {
+                                // 'Product Value 2' column header in the Bulk file
+                                Attribute = "MerchantDefinedCustomLabel",
+                                // 'Product Condition 2' column header in the Bulk file
+                                Operand = "CustomLabel0",
+                            },
+                        },
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                },
+
+                // 'Campaign' column header in the Bulk file
+                CampaignName = null,
+                // 'Status' column header in the Bulk file
+                Status = Status.Active
+            };
+
+            return bulkCampaignProductScope;
+        }
+
+
+        protected BulkEntity GetBulkKeyword()
+        {
+            // Map properties in the Bulk file to the BulkKeyword
+            var bulkKeyword = new BulkKeyword
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = "AdGroupNameHere",
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // Keyword object of the Campaign Management service.
+                Keyword = new Keyword
+                {
+                    // 'Bid' column header in the Bulk file
+                    Bid = new Bid
+                    {
+                        Amount = 0.50,
+                    },
+                    // 'Bid Strategy Type' column header in the Bulk file
+                    BiddingScheme = new ManualCpcBiddingScheme { },
+                    // 'Destination Url' column header in the Bulk file
+                    DestinationUrl = null,
+                    // 'Mobile Final Url' column header in the Bulk file
+                    FinalMobileUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://mobile.contoso.com/womenshoesale"
+                    },
+                    // 'Final Url' column header in the Bulk file
+                    FinalUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://www.contoso.com/womenshoesale"
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Match Type' column header in the Bulk file
+                    MatchType = MatchType.Broad,
+                    // 'Param 1 column header in the Bulk file
+                    Param1 = null,
+                    // 'Param 2' column header in the Bulk file
+                    Param2 = null,
+                    // 'Param 3' column header in the Bulk file
+                    Param3 = null,
+                    // 'Status' column header in the Bulk file
+                    Status = KeywordStatus.Active,
+                    // 'Text' column header in the Bulk file
+                    Text = "red shoes",
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+            };
+
+            return bulkKeyword;
+        }
+
+        protected BulkEntity GetBulkAppInstallAd()
+        {
+            // Map properties in the Bulk file to the BulkAppInstallAd
+            var bulkAppInstallAd = new BulkAppInstallAd
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = "AdGroupNameHere",
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // AppInstallAd object of the Campaign Management service.
+                AppInstallAd = new AppInstallAd
+                {
+                    // 'App Platform' column header in the Bulk file
+                    AppPlatform = "Android",
+                    // 'App Id' column header in the Bulk file
+                    AppStoreId = "AppStoreIdGoesHere",
+                    // 'Device Preference' column header in the Bulk file
+                    DevicePreference = 0,
+                    // 'Final Url' column header in the Bulk file
+                    FinalUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "FinalUrlGoesHere"
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Status' column header in the Bulk file
+                    Status = AdStatus.Active,
+                    // 'Text' column header in the Bulk file
+                    Text = "Find New Customers & Increase Sales!",
+                    // 'Title' column header in the Bulk file
+                    Title = "Contoso Quick Setup",
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+            };
+
+            return bulkAppInstallAd;
+        }
+
+        protected BulkEntity GetBulkDynamicSearchAd()
+        {
+            // Map properties in the Bulk file to the BulkDynamicSearchAd
+            var bulkDynamicSearchAd = new BulkDynamicSearchAd
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = "AdGroupNameHere",
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // DynamicSearchAd object of the Campaign Management service.
+                DynamicSearchAd = new DynamicSearchAd
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Path 1' column header in the Bulk file
+                    Path1 = "seattle",
+                    // 'Path 2' column header in the Bulk file
+                    Path2 = "shoe sale",
+                    // 'Status' column header in the Bulk file
+                    Status = AdStatus.Active,
+                    // 'Text' column header in the Bulk file
+                    Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+            };
+
+            return bulkDynamicSearchAd;
+        }
+
+        protected BulkEntity GetBulkExpandedTextAd()
+        {
+            // Map properties in the Bulk file to the BulkExpandedTextAd
+            var bulkExpandedTextAd = new BulkExpandedTextAd
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = "AdGroupNameHere",
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // ExpandedTextAd object of the Campaign Management service.
+                ExpandedTextAd = new ExpandedTextAd
+                {
+                    // 'Ad Format Preference' column header in the Bulk file
+                    AdFormatPreference = "All",
+                    // 'Mobile Final Url' column header in the Bulk file
+                    FinalMobileUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://mobile.contoso.com/womenshoesale"
+                    },
+                    // 'Final Url' column header in the Bulk file
+                    FinalUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://www.contoso.com/womenshoesale"
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Path 1' column header in the Bulk file
+                    Path1 = "seattle",
+                    // 'Path 2' column header in the Bulk file
+                    Path2 = "shoe sale",
+                    // 'Status' column header in the Bulk file
+                    Status = AdStatus.Active,
+                    // 'Text' column header in the Bulk file
+                    Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                    // 'Title Part 1' column header in the Bulk file
+                    TitlePart1 = "Contoso",
+                    // 'Title Part 2' column header in the Bulk file
+                    TitlePart2 = "Quick & Easy Setup",
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+            };
+
+            return bulkExpandedTextAd;
+        }
+
+        protected BulkEntity GetBulkProductAd()
+        {
+            // Map properties in the Bulk file to the BulkProductAd
+            var bulkProductAd = new BulkProductAd
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = "AdGroupNameHere",
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // ProductAd object of the Campaign Management service.
+                ProductAd = new ProductAd
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Promotion' column header in the Bulk file
+                    PromotionalText = "Find New Customers & Increase Sales!",
+                    // 'Status' column header in the Bulk file
+                    Status = AdStatus.Active,
+                },
+            };
+
+            return bulkProductAd;
+        }
+
+        protected BulkEntity GetBulkTextAd()
+        {
+            // Map properties in the Bulk file to the BulkTextAd
+            var bulkTextAd = new BulkTextAd
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = "AdGroupNameHere",
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // TextAd object of the Campaign Management service.
+                TextAd = new TextAd
+                {
+                    // 'Ad Format Preference' column header in the Bulk file
+                    AdFormatPreference = "All",
+                    // 'Destination Url' column header in the Bulk file
+                    DestinationUrl = null,
+                    // 'Device Preference' column header in the Bulk file
+                    DevicePreference = 0,
+                    // 'Display Url' column header in the Bulk file
+                    DisplayUrl = "contoso.com",
+                    // 'Mobile Final Url' column header in the Bulk file
+                    FinalMobileUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://mobile.contoso.com/womenshoesale"
+                    },
+                    // 'Final Url' column header in the Bulk file
+                    FinalUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://www.contoso.com/womenshoesale"
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Status' column header in the Bulk file
+                    Status = AdStatus.Active,
+                    // 'Text' column header in the Bulk file
+                    Text = "Find New Customers & Increase Sales!",
+                    // 'Title' column header in the Bulk file
+                    Title = "Contoso Quick Setup",
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+            };
+
+            return bulkTextAd;
         }
 
         #endregion BulkEntityExamples
