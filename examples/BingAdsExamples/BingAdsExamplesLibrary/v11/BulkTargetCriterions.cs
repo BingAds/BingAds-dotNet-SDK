@@ -247,7 +247,7 @@ namespace BingAdsExamplesLibrary.V11
 
             var bulkCampaignDayTimeCriterion = new BulkCampaignDayTimeCriterion
             {
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     CampaignId = campaignIdKey,
                     Criterion = new DayTimeCriterion
@@ -452,7 +452,7 @@ namespace BingAdsExamplesLibrary.V11
             // We can also target Canada (LocationId = 32) by adding a new location criterion.
             var bulkCampaignLocationCriterion = new BulkCampaignLocationCriterion
             {
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     CampaignId = campaignIdKey,
                     Criterion = new LocationCriterion
@@ -471,10 +471,10 @@ namespace BingAdsExamplesLibrary.V11
             // This attempt will fail but will not cause other criterion updates to fail.
             var bulkCampaignLocationIntentCriterion = new BulkCampaignLocationIntentCriterion
             {
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     CampaignId = campaignIdKey,
-                    Id = campaignLocationIntentCriterionResults[0].CampaignCriterion.Id,
+                    Id = campaignLocationIntentCriterionResults[0].BiddableCampaignCriterion.Id,
                     Status = CampaignCriterionStatus.Deleted
                 }
             };
@@ -484,7 +484,7 @@ namespace BingAdsExamplesLibrary.V11
             // for the EighteenToTwentyFour age range, the attempt will fail with code 1043 i.e. CampaignServiceEntityAlreadyExists.
             var bulkAdGroupAgeCriterion = new BulkAdGroupAgeCriterion
             {
-                AdGroupCriterion = new BiddableAdGroupCriterion
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                 {
                     AdGroupId = adGroupIdKey,
                     Id = null,
@@ -503,7 +503,7 @@ namespace BingAdsExamplesLibrary.V11
             // By removing all ad group level device criterions, the campaign device criterions will be inherited.
             foreach (var adGroupDeviceCriterionResult in adGroupDeviceCriterionResults)
             {
-                adGroupDeviceCriterionResult.AdGroupCriterion.Status = AdGroupCriterionStatus.Deleted;
+                adGroupDeviceCriterionResult.BiddableAdGroupCriterion.Status = AdGroupCriterionStatus.Deleted;
                 uploadEntities.Add(adGroupDeviceCriterionResult);
             }
                         
