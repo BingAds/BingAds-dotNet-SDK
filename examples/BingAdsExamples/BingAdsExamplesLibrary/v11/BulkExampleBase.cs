@@ -174,7 +174,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.AdGroupCriterion);
+                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -199,7 +199,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.AdGroupCriterion);
+                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -224,7 +224,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.AdGroupCriterion);
+                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -249,7 +249,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.AdGroupCriterion);
+                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -274,7 +274,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.AdGroupCriterion);
+                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -299,7 +299,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.AdGroupCriterion);
+                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -324,7 +324,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management NegativeAdGroupCriterion Object
-                    OutputNegativeAdGroupCriterion(entity.AdGroupCriterion);
+                    OutputNegativeAdGroupCriterion(entity.NegativeAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -349,7 +349,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.AdGroupCriterion);
+                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -1639,7 +1639,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableCampaignCriterion object of the Campaign Management service.
 
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     CampaignId = campaignIdKey,
@@ -1681,7 +1681,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableCampaignCriterion object of the Campaign Management service.
 
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     CampaignId = campaignIdKey,
@@ -1736,7 +1736,7 @@ namespace BingAdsExamplesLibrary.V11
                     // Map properties in the Bulk file to the 
                     // BiddableCampaignCriterion object of the Campaign Management service.
 
-                    CampaignCriterion = new BiddableCampaignCriterion
+                    BiddableCampaignCriterion = new BiddableCampaignCriterion
                     {
                         // 'Parent Id' column header in the Bulk file
                         CampaignId = campaignIdKey,
@@ -1763,7 +1763,7 @@ namespace BingAdsExamplesLibrary.V11
                 new BulkCampaignDeviceCriterion
                 {
                     ClientId = "ClientIdGoesHere",
-                    CampaignCriterion = new BiddableCampaignCriterion
+                    BiddableCampaignCriterion = new BiddableCampaignCriterion
                     {
                         CampaignId = campaignIdKey,
                         Criterion = new DeviceCriterion
@@ -1779,7 +1779,7 @@ namespace BingAdsExamplesLibrary.V11
                 new BulkCampaignDeviceCriterion
                 {
                     ClientId = "ClientIdGoesHere",
-                    CampaignCriterion = new BiddableCampaignCriterion
+                    BiddableCampaignCriterion = new BiddableCampaignCriterion
                     {
                         CampaignId = campaignIdKey,
                         Criterion = new DeviceCriterion
@@ -1811,7 +1811,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableCampaignCriterion object of the Campaign Management service.
 
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     CampaignId = campaignIdKey,
@@ -1853,7 +1853,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableCampaignCriterion object of the Campaign Management service.
 
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     CampaignId = campaignIdKey,
@@ -1898,7 +1898,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableCampaignCriterion object of the Campaign Management service.
 
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     CampaignId = campaignIdKey,
@@ -1936,7 +1936,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // NegativeCampaignCriterion object of the Campaign Management service.
 
-                CampaignCriterion = new NegativeCampaignCriterion
+                NegativeCampaignCriterion = new NegativeCampaignCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     CampaignId = campaignIdKey,
@@ -1975,7 +1975,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableCampaignCriterion object of the Campaign Management service.
 
-                CampaignCriterion = new BiddableCampaignCriterion
+                BiddableCampaignCriterion = new BiddableCampaignCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     CampaignId = campaignIdKey,
@@ -2032,7 +2032,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableAdGroupCriterion object of the Campaign Management service.
 
-                AdGroupCriterion = new BiddableAdGroupCriterion
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -2077,7 +2077,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableAdGroupCriterion object of the Campaign Management service.
 
-                AdGroupCriterion = new BiddableAdGroupCriterion
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -2135,7 +2135,7 @@ namespace BingAdsExamplesLibrary.V11
                     // Map properties in the Bulk file to the 
                     // BiddableAdGroupCriterion object of the Campaign Management service.
 
-                    AdGroupCriterion = new BiddableAdGroupCriterion
+                    BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                     {
                         // 'Parent Id' column header in the Bulk file
                         AdGroupId = adGroupIdKey,
@@ -2162,7 +2162,7 @@ namespace BingAdsExamplesLibrary.V11
                 new BulkAdGroupDeviceCriterion
                 {
                     ClientId = "ClientIdGoesHere",
-                    AdGroupCriterion = new BiddableAdGroupCriterion
+                    BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                     {
                         AdGroupId = adGroupIdKey,
                         Criterion = new DeviceCriterion
@@ -2178,7 +2178,7 @@ namespace BingAdsExamplesLibrary.V11
                 new BulkAdGroupDeviceCriterion
                 {
                     ClientId = "ClientIdGoesHere",
-                    AdGroupCriterion = new BiddableAdGroupCriterion
+                    BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                     {
                         AdGroupId = adGroupIdKey,
                         Criterion = new DeviceCriterion
@@ -2213,7 +2213,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableAdGroupCriterion object of the Campaign Management service.
 
-                AdGroupCriterion = new BiddableAdGroupCriterion
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -2258,7 +2258,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableAdGroupCriterion object of the Campaign Management service.
 
-                AdGroupCriterion = new BiddableAdGroupCriterion
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -2306,7 +2306,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableAdGroupCriterion object of the Campaign Management service.
 
-                AdGroupCriterion = new BiddableAdGroupCriterion
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -2347,7 +2347,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // NegativeAdGroupCriterion object of the Campaign Management service.
 
-                AdGroupCriterion = new NegativeAdGroupCriterion
+                NegativeAdGroupCriterion = new NegativeAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -2389,7 +2389,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Map properties in the Bulk file to the 
                 // BiddableAdGroupCriterion object of the Campaign Management service.
 
-                AdGroupCriterion = new BiddableAdGroupCriterion
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -3459,7 +3459,7 @@ namespace BingAdsExamplesLibrary.V11
             {
                 // Map properties in the Bulk file to the 
                 // BiddableAdGroupCriterion object of the Campaign Management service.
-                AdGroupCriterion = new BiddableAdGroupCriterion
+                BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -3541,7 +3541,7 @@ namespace BingAdsExamplesLibrary.V11
             {
                 // Map properties in the Bulk file to the 
                 // NegativeAdGroupCriterion object of the Campaign Management service.
-                AdGroupCriterion = new NegativeAdGroupCriterion
+                NegativeAdGroupCriterion = new NegativeAdGroupCriterion
                 {
                     // 'Parent Id' column header in the Bulk file
                     AdGroupId = adGroupIdKey,
@@ -4392,12 +4392,12 @@ namespace BingAdsExamplesLibrary.V11
                     },
                     // 'Id' column header in the Bulk file
                     Id = null,
+                    // 'Status' column header in the Bulk file
+                    Status = CampaignCriterionStatus.Active
                 },
 
                 // 'Campaign' column header in the Bulk file
                 CampaignName = null,
-                // 'Status' column header in the Bulk file
-                Status = Status.Active
             };
 
             return bulkCampaignProductScope;
