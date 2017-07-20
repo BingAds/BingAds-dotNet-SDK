@@ -157,6 +157,7 @@ namespace BingAdsExamplesLibrary.V11
                         OutputStatusMessage(string.Format("Relevance: {0}", keywordIdea.Relevance));
                         OutputStatusMessage(string.Format("Source: {0}", keywordIdea.Source));
                         OutputStatusMessage(string.Format("SuggestedBid: {0}", keywordIdea.SuggestedBid));
+                        OutputStatusMessage("\n");
                     }
                 }
             }
@@ -198,6 +199,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputTrafficEstimate(keywordEstimate.Maximum);
                     OutputStatusMessage("KeywordEstimate Minimum TrafficEstimate:");
                     OutputTrafficEstimate(keywordEstimate.Minimum);
+                    OutputStatusMessage("\n");
                 }
             }
         }
