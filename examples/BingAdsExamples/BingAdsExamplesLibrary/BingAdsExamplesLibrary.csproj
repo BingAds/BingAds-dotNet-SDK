@@ -88,6 +88,7 @@
     <Compile Include="v11\ExampleBase.cs" />
     <Compile Include="v11\GeographicalLocations.cs" />
     <Compile Include="v11\InviteUser.cs" />
+    <Compile Include="v11\KeywordPlanner.cs" />
     <Compile Include="v11\KeywordsAds.cs" />
     <Compile Include="v11\ManageClient.cs" />
     <Compile Include="v11\NegativeKeywords.cs" />

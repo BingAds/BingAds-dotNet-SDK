@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.BingAds.V11.AdInsight;
@@ -81,6 +82,7 @@ namespace BingAdsExamplesLibrary.V11
             Console.WriteLine(msg);
         }
 
+
         #region AdInsight_Output
 
         protected void OutputBudgetOpportunities(IList<BudgetOpportunity> budgetOpportunities, long campaignId)
@@ -123,6 +125,108 @@ namespace BingAdsExamplesLibrary.V11
             }
         }
 
+        protected void OutputKeywordIdeas(IList<KeywordIdea> keywordIdeas)
+        {
+            if (keywordIdeas != null)
+            {
+                foreach (var keywordIdea in keywordIdeas)
+                {
+                    if (keywordIdea != null)
+                    {
+                        OutputStatusMessage(string.Format("AdGroupId: {0}", keywordIdea.AdGroupId));
+                        OutputStatusMessage(string.Format("AdGroupName: {0}", keywordIdea.AdGroupName));
+                        OutputStatusMessage(string.Format("AdImpressionShare: {0}", keywordIdea.AdImpressionShare));
+                        OutputStatusMessage(string.Format("Competition: {0}", keywordIdea.Competition));
+                        OutputStatusMessage(string.Format("Keyword: {0}", keywordIdea.Keyword));
+                        if (keywordIdea.MonthlySearchCounts.Count > 0)
+                        {
+                            OutputStatusMessage(string.Format("MonthlySearchCounts for last {0} months:", keywordIdea.MonthlySearchCounts.Count));
+                            var countDuration = DateTime.UtcNow.AddMonths(-keywordIdea.MonthlySearchCounts.Count);
+                            for (int index = 0; index < keywordIdea.MonthlySearchCounts.Count; index++)
+                            {
+                                OutputStatusMessage(string.Format("{0}/{1}: {2}",
+                                    countDuration.Month,
+                                    countDuration.Year,
+                                    keywordIdea.MonthlySearchCounts[index]));
+                                countDuration = countDuration.AddMonths(1);
+                            }
+
+                            OutputStatusMessage(string.Format("Average MonthlySearchCounts (Client Side Calculation): {0}",
+                                keywordIdea.MonthlySearchCounts.Sum() / keywordIdea.MonthlySearchCounts.Count));
+                        }
+                        OutputStatusMessage(string.Format("Relevance: {0}", keywordIdea.Relevance));
+                        OutputStatusMessage(string.Format("Source: {0}", keywordIdea.Source));
+                        OutputStatusMessage(string.Format("SuggestedBid: {0}", keywordIdea.SuggestedBid));
+                        OutputStatusMessage("\n");
+                    }
+                }
+            }
+        }
+
+        protected void OutputCampaignEstimates(IList<CampaignEstimate> campaignEstimates)
+        {
+            if (campaignEstimates != null)
+            {
+                foreach (var campaignEstimate in campaignEstimates)
+                {
+                    OutputStatusMessage(string.Format("CampaignId: {0}", campaignEstimate.CampaignId));
+                    OutputAdGroupEstimates(campaignEstimate.AdGroupEstimates);
+                }
+            }
+        }
+
+        protected void OutputAdGroupEstimates(IList<AdGroupEstimate> adGroupEstimates)
+        {
+            if (adGroupEstimates != null)
+            {
+                foreach (var adGroupEstimate in adGroupEstimates)
+                {
+                    OutputStatusMessage(string.Format("AdGroupId: {0}", adGroupEstimate.AdGroupId));
+                    OutputKeywordEstimates(adGroupEstimate.KeywordEstimates);
+                }
+            }
+        }
+
+        protected void OutputKeywordEstimates(IList<KeywordEstimate> keywordEstimates)
+        {
+            if (keywordEstimates != null)
+            {
+                foreach (var keywordEstimate in keywordEstimates)
+                {
+                    OutputStatusMessage("KeywordEstimate Keyword:");
+                    OutputKeyword(keywordEstimate.Keyword);
+                    OutputStatusMessage("KeywordEstimate Maximum TrafficEstimate:");
+                    OutputTrafficEstimate(keywordEstimate.Maximum);
+                    OutputStatusMessage("KeywordEstimate Minimum TrafficEstimate:");
+                    OutputTrafficEstimate(keywordEstimate.Minimum);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+
+        protected void OutputKeyword(Microsoft.BingAds.V11.AdInsight.Keyword keyword)
+        {
+            if (keyword != null)
+            {
+                OutputStatusMessage(string.Format("Id: {0}", keyword.Id));
+                OutputStatusMessage(string.Format("MatchType: {0}", keyword.MatchType));
+                OutputStatusMessage(string.Format("Text: {0}", keyword.Text));
+            }
+        }
+
+        protected void OutputTrafficEstimate(TrafficEstimate estimate)
+        {
+            if (estimate != null)
+            {
+                OutputStatusMessage(string.Format("AverageCpc: {0}", estimate.AverageCpc));
+                OutputStatusMessage(string.Format("AveragePosition: {0}", estimate.AveragePosition));
+                OutputStatusMessage(string.Format("Clicks: {0}", estimate.Clicks));
+                OutputStatusMessage(string.Format("Ctr: {0}", estimate.Ctr));
+                OutputStatusMessage(string.Format("Impressions: {0}", estimate.Impressions));
+                OutputStatusMessage(string.Format("TotalCost: {0}", estimate.TotalCost));
+            }
+        }
+
         #endregion AdInsight_Output
 
         #region AdInsight_ServiceOperations
@@ -148,6 +252,39 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return (await AdInsightService.CallAsync((s, r) => s.GetDomainCategoriesAsync(r), request));
+        }
+
+        protected async Task<GetKeywordIdeaCategoriesResponse> GetKeywordIdeaCategoriesAsync()
+        {
+            var request = new GetKeywordIdeaCategoriesRequest { };
+
+            return (await AdInsightService.CallAsync((s, r) => s.GetKeywordIdeaCategoriesAsync(r), request));
+        }
+
+        protected async Task<GetKeywordIdeasResponse> GetKeywordIdeasAsync(
+            bool expandIdeas,
+            IList<KeywordIdeaAttribute> ideaAttributes,
+            IList<SearchParameter> searchParameters)
+        {
+            var request = new GetKeywordIdeasRequest
+            {
+                ExpandIdeas = expandIdeas,
+                IdeaAttributes = ideaAttributes,
+                SearchParameters = searchParameters
+            };
+
+            return (await AdInsightService.CallAsync((s, r) => s.GetKeywordIdeasAsync(r), request));
+        }
+
+        protected async Task<GetKeywordTrafficEstimatesResponse> GetKeywordTrafficEstimatesAsync(
+            IList<CampaignEstimator> campaigns)
+        {
+            var request = new GetKeywordTrafficEstimatesRequest
+            {
+                CampaignEstimators = campaigns
+            };
+
+            return (await AdInsightService.CallAsync((s, r) => s.GetKeywordTrafficEstimatesAsync(r), request));
         }
 
         #endregion AdInsight_ServiceOperations
