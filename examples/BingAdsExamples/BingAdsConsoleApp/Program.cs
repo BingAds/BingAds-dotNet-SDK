@@ -18,7 +18,7 @@ namespace BingAdsConsoleApp
         private static readonly ExampleBase[] _examples =
         {
             /*
-            new BingAdsExamplesLibrary.V11.BudgetOpportunities(),
+            new BingAdsExamplesLibrary.V11.KeywordPlanner(),
             new BingAdsExamplesLibrary.V11.BudgetOpportunities(),
             new BingAdsExamplesLibrary.V11.BulkServiceManagerDemo(),
             new BingAdsExamplesLibrary.V11.BulkAdExtensions(),
@@ -27,20 +27,22 @@ namespace BingAdsConsoleApp
             new BingAdsExamplesLibrary.V11.KeywordsAds(),
             new BingAdsExamplesLibrary.V11.BulkNegativeKeywords(),
             new BingAdsExamplesLibrary.V11.NegativeKeywords(),
+            new BingAdsExamplesLibrary.V11.BulkAdGroupUpdate(),
             new BingAdsExamplesLibrary.V11.BulkProductPartitionUpdateBid(),
             new BingAdsExamplesLibrary.V11.ConversionGoals(),
             new BingAdsExamplesLibrary.V11.BulkRemarketingLists(),
             new BingAdsExamplesLibrary.V11.RemarketingLists(),
             new BingAdsExamplesLibrary.V11.BulkShoppingCampaigns(),
             new BingAdsExamplesLibrary.V11.ShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V11.BulkNegativeSites(),
+            new BingAdsExamplesLibrary.V11.DynamicSearchCampaigns(),
             new BingAdsExamplesLibrary.V11.BulkTargetCriterions(),
             new BingAdsExamplesLibrary.V11.TargetCriterions(),
             new BingAdsExamplesLibrary.V11.GeographicalLocations(),
-            new BingAdsExamplesLibrary.V11.ReportRequests(),
+            new BingAdsExamplesLibrary.V11.BulkNegativeSites(),
             new BingAdsExamplesLibrary.V11.InviteUser(),
             new BingAdsExamplesLibrary.V11.CustomerSignup(),
             new BingAdsExamplesLibrary.V11.ManageClient(),
+            new BingAdsExamplesLibrary.V11.ReportRequests(),
             */
             new BingAdsExamplesLibrary.V11.SearchUserAccounts(),
 
