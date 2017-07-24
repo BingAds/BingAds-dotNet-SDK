@@ -66,6 +66,7 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V10.BulkShoppingCampaigns(),
             new BingAdsExamplesLibrary.V10.ShoppingCampaigns(),
             new BingAdsExamplesLibrary.V10.DynamicSearchCampaigns(),
+            new BingAdsExamplesLibrary.V10.BulkFindSharedTargetCriterions(),
             new BingAdsExamplesLibrary.V10.BulkTargets(),
             new BingAdsExamplesLibrary.V10.Targets(),
             new BingAdsExamplesLibrary.V10.GeographicalLocations(),

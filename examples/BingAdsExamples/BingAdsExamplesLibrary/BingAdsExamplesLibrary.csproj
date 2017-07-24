@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExampleBase.cs" />
+    <Compile Include="v10\BulkFindSharedTargetCriterions.cs" />
     <Compile Include="v10\GeographicalLocations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="v10\AdExtensions.cs" />
