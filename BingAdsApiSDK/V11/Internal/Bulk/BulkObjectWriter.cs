@@ -68,6 +68,12 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             
         }
 
+        public BulkObjectWriter(Stream stream, DownloadFileType fileFormat)
+            : this(new StreamWriter(stream, Encoding.UTF8), new BulkObjectFactory(), new CsvTextFormatter(fileFormat))
+        {
+
+        }
+
         /// <summary>
         /// For unit testing
         /// </summary>

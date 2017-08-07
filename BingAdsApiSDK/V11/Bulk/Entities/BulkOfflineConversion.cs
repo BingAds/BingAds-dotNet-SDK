@@ -47,82 +47,73 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using System;
+using Microsoft.BingAds.V11.Internal.Bulk;
+using Microsoft.BingAds.V11.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V11.Internal.Bulk.Entities;
+using Microsoft.BingAds.V11.CampaignManagement;
 
-namespace Microsoft.BingAds.V11.Internal.Bulk
+// ReSharper disable once CheckNamespace
+namespace Microsoft.BingAds.V11.Bulk.Entities
 {
-    internal class CsvReader : CsvLight, ICsvReader
+    /// <summary>
+    /// <para>
+    /// Represents a label that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkOfflineConversion.OfflineConversion"/> property that can be read and written as fields of the OfflineConversion record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">OfflineConversion</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkOfflineConversion : SingleRecordBulkEntity
     {
-        private bool disposed;
-
-        private Dictionary<string, int> _mappings;
-
-        public CsvReader(string fileName, char delimiter)
-            : base(GetStream(fileName), delimiter)
-        {
-        }
-
-        public CsvReader(Stream stream, char delimiter)
-        : base(new StreamReader(stream), delimiter)
-        { 
-        }
-
         /// <summary>
-        /// For unit tests
-        /// </summary>        
-        internal CsvReader(StreamReader streamReader, char delimiter)
-            : base(streamReader, delimiter)
+        /// The offline conversion.
+        /// </summary>
+        public OfflineConversion OfflineConversion { get; set; }
+
+        private static readonly IBulkMapping<BulkOfflineConversion>[] Mappings =
         {
-            
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionCurrencyCode,
+                c => c.OfflineConversion.ConversionCurrencyCode,
+                (v, c) => c.OfflineConversion.ConversionCurrencyCode = v
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionName,
+                c => c.OfflineConversion.ConversionName,
+                (v, c) => c.OfflineConversion.ConversionName = v
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionTime,
+                c => c.OfflineConversion.ConversionTime.ToBulkString(),
+                (v, c) => c.OfflineConversion.ConversionTime = v.Parse<DateTime>()
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionValue,
+                c => c.OfflineConversion.ConversionValue.ToBulkString(),
+                (v, c) => c.OfflineConversion.ConversionValue = v.Parse<double>()
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.MicrosoftClickId,
+                c => c.OfflineConversion.MicrosoftClickId,
+                (v, c) => c.OfflineConversion.MicrosoftClickId = v
+            ),
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            OfflineConversion = new OfflineConversion { };
+
+            values.ConvertToEntity(this, Mappings);
         }
 
-        public RowValues ReadNextRow()
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            if (_mappings == null)
-            {
-                _mappings = Headers.Select((i, h) => new { key = i, value = h }).ToDictionary(x => x.key, x => x.value);
-            }
+            ValidatePropertyNotNull(OfflineConversion, "OfflineConversion");
 
-            if (!ReadNextRecord())
-            {
-                return null;
-            }
-
-            if (Columns == null)
-            {
-                return null;
-            }
-
-            var rowValues = new RowValues(Columns, _mappings);
-
-            return rowValues;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                try
-                {
-                    if (disposing)
-                    {
-                        Stream.Dispose();
-                    }
-                }
-                finally
-                {
-                    base.Dispose(disposing);
-                }
-            }
-
-            this.disposed = true;
-        }
-
-        private static StreamReader GetStream(string fileName)
-        {
-            return new StreamReader(new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite), System.Text.Encoding.Default, true);
+            this.ConvertToValues(values, Mappings);
         }
     }
 }

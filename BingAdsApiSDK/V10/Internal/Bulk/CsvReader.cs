@@ -64,6 +64,11 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         {
         }
 
+        public CsvReader(Stream stream, char delimiter)
+            : base(new StreamReader(stream), delimiter)
+        {
+        }
+
         /// <summary>
         /// For unit tests
         /// </summary>        

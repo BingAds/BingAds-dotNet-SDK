@@ -2592,7 +2592,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The primary country where the customer operates. This country will be the default country for ad groups in the customer's campaigns. For a list of customer market country code values, see Ad Languages.
+        /// The primary country where the customer operates. For a list of customer market country code values, see Product Language.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MarketCountry
@@ -2632,7 +2632,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The primary language that the customer uses. This language will be the default language for ad groups in the customer's campaigns. For a list of customer market language code values, see Ad Languages.
+        /// The primary language that the customer uses. Your customer market language determines the language of the Bing Ads interface. For a list of customer market language code values, see Product Language.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.LanguageType> MarketLanguage

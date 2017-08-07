@@ -939,6 +939,29 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.SerializableAttribute()]
     public partial class InheritFromParentBiddingScheme : Microsoft.BingAds.V11.CampaignManagement.BiddingScheme
     {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InheritedBidStrategyTypeField;
+        
+        /// <summary>
+        /// The type of bidding scheme (a.k.a. bid strategy type) that is inherited from the parent campaign or ad group. This value is equal to the Type element of the campaign or ad group's BiddingScheme object. Possible values are EnhancedCpc, ManualCpc, MaxClicks, MaxConversions, and TargetCpa.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string InheritedBidStrategyType
+        {
+            get
+            {
+                return this.InheritedBidStrategyTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.InheritedBidStrategyTypeField, value) != true))
+                {
+                    this.InheritedBidStrategyTypeField = value;
+                    this.RaisePropertyChanged("InheritedBidStrategyType");
+                }
+            }
+        }
     }
     
     /// <summary>
@@ -3072,6 +3095,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a list of optional AdGroup properties that you can request when calling GetAdGroupsByCampaignId and GetAdGroupsByIds. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding properties will be included in the AdGroup object by default.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt709095(v=msads.110).aspx">AdGroupAdditionalField Value Set</see> http://msdn.microsoft.com/en-us/library/mt709095(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdGroupsByCampaignId">GetAdGroupsByCampaignId</see> and <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum AdGroupAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Includes the InheritedBidStrategyType element that can be nested within the BiddingScheme element of an AdGroup object. The InheritedBidStrategyType will only be returned if the BiddingScheme element is an InheritFromParentBiddingScheme object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InheritedBidStrategyType = 1,
+    }
+    
+    /// <summary>
     /// Defines an object that contains the negative site URLs of an ad group.
     /// </summary>
     /// <remarks>
@@ -4653,6 +4696,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 3,
+    }
+    
+    /// <summary>
+    /// Defines a list of optional Keyword properties that you can request when calling GetKeywordsByAdGroupId, GetKeywordsByEditorialStatus, and GetKeywordsByIds. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding propertys will be included in the Keyword object by default.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt709096(v=msads.110).aspx">KeywordAdditionalField Value Set</see> http://msdn.microsoft.com/en-us/library/mt709096(v=msads.110).aspx for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetKeywordsByAdGroupId">GetKeywordsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByEditorialStatus">GetKeywordsByEditorialStatus</see> and <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum KeywordAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Includes the InheritedBidStrategyType element that can be nested within the BiddingScheme element of an Keyword object. The InheritedBidStrategyType will only be returned if the BiddingScheme element is an InheritFromParentBiddingScheme object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InheritedBidStrategyType = 1,
     }
     
     /// <summary>
@@ -14555,10 +14618,16 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         AppInstall = 16,
         
         /// <summary>
-        /// Refers to an OfflineConversion
+        /// Refers to an OfflineConversionGoal
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfflineConversion = 32,
+        
+        /// <summary>
+        /// Refers to an InStoreTransactionGoal
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InStoreTransaction = 64,
     }
     
     /// <summary>
@@ -14578,6 +14647,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.EventGoal))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AppInstallGoal))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.OfflineConversionGoal))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.InStoreTransactionGoal))]
     public partial class ConversionGoal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -15313,6 +15383,20 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
+    /// Defines an in-store transaction goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="http://msdn.microsoft.com/en-us/library/mt493294(v=msads.110).aspx">InStoreTransactionGoal Data Object</see> http://msdn.microsoft.com/en-us/library/mt493294(v=msads.110).aspx for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InStoreTransactionGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class InStoreTransactionGoal : Microsoft.BingAds.V11.CampaignManagement.ConversionGoal
+    {
+    }
+    
+    /// <summary>
     /// Defines how your conversions are recorded within your chosen conversion window.
     /// </summary>
     /// <remarks>
@@ -15674,9 +15758,6 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The label color as a hexadecimal code.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ColorCode
         {
@@ -15694,9 +15775,6 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The label description.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
@@ -15714,9 +15792,6 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the label.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -15734,9 +15809,6 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        /// <summary>
-        /// The label name.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -20451,6 +20523,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Collections.Generic.IList<long> AdGroupIds;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned AdGroup object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -20468,7 +20546,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign that contains the ad groups to get.</param>
         /// <param name="AdGroupIds">A maximum of 1,000 identifiers of the ad groups to get.</param>
-        public GetAdGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AdGroupIds)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned AdGroup object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetAdGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AdGroupIds, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -20479,6 +20558,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.UserName = UserName;
             this.CampaignId = CampaignId;
             this.AdGroupIds = AdGroupIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -20577,6 +20657,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public long CampaignId;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned AdGroup object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupsByCampaignIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -20593,7 +20679,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn277524(v=msads.110).aspx">GetAdGroupsByCampaignIdRequest</see> http://msdn.microsoft.com/en-us/library/dn277524(v=msads.110).aspx for details.
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign that contains the ad groups to get.</param>
-        public GetAdGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned AdGroup object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetAdGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -20603,6 +20690,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.CampaignId = CampaignId;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -22259,6 +22347,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public Microsoft.BingAds.V11.CampaignManagement.KeywordEditorialStatus EditorialStatus;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned Keyword object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetKeywordsByEditorialStatusRequest request object.
         /// </summary>
         /// <remarks>
@@ -22276,7 +22370,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group that contains the keywords to retrieve.</param>
         /// <param name="EditorialStatus">The review status of the keywords to retrieve.</param>
-        public GetKeywordsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V11.CampaignManagement.KeywordEditorialStatus EditorialStatus)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Keyword object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetKeywordsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V11.CampaignManagement.KeywordEditorialStatus EditorialStatus, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -22287,6 +22382,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
             this.EditorialStatus = EditorialStatus;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -22383,6 +22479,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Collections.Generic.IList<long> KeywordIds;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned Keyword object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetKeywordsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -22400,7 +22502,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group whose keywords you want to get.</param>
         /// <param name="KeywordIds">A maximum of 1,000 identifiers of the keywords to get.</param>
-        public GetKeywordsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> KeywordIds)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Keyword object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetKeywordsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> KeywordIds, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -22411,6 +22514,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
             this.KeywordIds = KeywordIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -22509,6 +22613,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public long AdGroupId;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned Keyword object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetKeywordsByAdGroupIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -22525,7 +22635,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// See <see href="http://msdn.microsoft.com/en-us/library/dn236311(v=msads.110).aspx">GetKeywordsByAdGroupIdRequest</see> http://msdn.microsoft.com/en-us/library/dn236311(v=msads.110).aspx for details.
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group that keywords are returned for.</param>
-        public GetKeywordsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Keyword object. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetKeywordsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -22535,6 +22646,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

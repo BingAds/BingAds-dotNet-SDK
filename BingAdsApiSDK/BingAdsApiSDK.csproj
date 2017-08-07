@@ -64,6 +64,17 @@
     <Compile Include="V11\Bulk\Entities\Audiences\BulkAdGroupNegativeRemarketingListAssociation.cs" />
     <Compile Include="V11\Bulk\Entities\Audiences\BulkCustomAudience.cs" />
     <Compile Include="V11\Bulk\Entities\Audiences\BulkInMarketAudience.cs" />
+    <Compile Include="V11\Bulk\Entities\BulkOfflineConversion.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkLabelAssociation.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkAdGroupLabel.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkAppInstallAdLabel.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkCampaignLabel.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkDynamicSearchAdLabel.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkExpandedTextAdLabel.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkKeywordLabel.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkLabel.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkProductAdLabel.cs" />
+    <Compile Include="V11\Bulk\Entities\Labels\BulkTextAdLabel.cs" />
     <Compile Include="V11\Bulk\Entities\TargetCriterions\BulkAdGroupAgeCriterion.cs" />
     <Compile Include="V11\Bulk\Entities\TargetCriterions\BulkAdGroupDayTimeCriterion.cs" />
     <Compile Include="V11\Bulk\Entities\TargetCriterions\BulkAdGroupDeviceCriterion.cs" />

@@ -50,6 +50,7 @@
 
 
 using System;
+using System.IO;
 
 namespace Microsoft.BingAds.V10.Internal.Bulk
 {
@@ -65,6 +66,13 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
         public BulkObjectReader(string fileName, char delimiter)            
         {
             _csvReader = new CsvReader(fileName, delimiter);
+
+            _bulkObjectFactory = new BulkObjectFactory();
+        }
+
+        public BulkObjectReader(Stream stream, char delimiter)
+        {
+            _csvReader = new CsvReader(stream, delimiter);
 
             _bulkObjectFactory = new BulkObjectFactory();
         }

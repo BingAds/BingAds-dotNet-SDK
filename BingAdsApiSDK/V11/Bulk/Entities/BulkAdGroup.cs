@@ -113,7 +113,6 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 {
                     if (v == "Expired")
                     {
-                        c.AdGroup.Status = AdGroupStatus.Deleted;
                         c.IsExpired = true;
                     }
                     else
@@ -201,11 +200,8 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 c => c.AdGroup.UrlCustomParameters.ToBulkString(),
                 (v, c) => c.AdGroup.UrlCustomParameters = v.ParseCustomParameters()
             ),
-
-            new SimpleBulkMapping<BulkAdGroup>(StringTable.BidStrategyType,
-                c => c.AdGroup.BiddingScheme.ToBiddingSchemeBulkString(),
-                (v, c) => c.AdGroup.BiddingScheme = v.ParseBiddingScheme()
-            ),
+            
+            new ComplexBulkMapping<BulkAdGroup>(BiddingSchemeToCsv, CsvToBiddingScheme),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.RemarketingTargetingSetting,
                 c => c.AdGroup.RemarketingTargetingSetting.ToBulkString(),
@@ -236,6 +232,54 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 QualityScoreData.WriteToRowValuesIfNotNull(QualityScoreData, values);
 
                 PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
+            }
+        }
+        
+        private static void CsvToBiddingScheme(RowValues values, BulkAdGroup c)
+        {
+            string bidStrategyTypeRowValue;
+
+            BiddingScheme biddingScheme;
+
+            if (!values.TryGetValue(StringTable.BidStrategyType, out bidStrategyTypeRowValue) || (biddingScheme = bidStrategyTypeRowValue.ParseBiddingScheme()) == null)
+            {
+                return;
+            }
+
+            string inheritedBidStrategyTypeRowValue;
+
+            values.TryGetValue(StringTable.InheritedBidStrategyType, out inheritedBidStrategyTypeRowValue);
+            
+            var inheritFromParentBiddingScheme = biddingScheme as InheritFromParentBiddingScheme;
+            if (inheritFromParentBiddingScheme != null)
+            {
+                c.AdGroup.BiddingScheme = new InheritFromParentBiddingScheme
+                {
+                    InheritedBidStrategyType = inheritedBidStrategyTypeRowValue,
+                    Type = "InheritFromParent",
+                };
+            }
+            else
+            {
+                c.AdGroup.BiddingScheme = biddingScheme;
+            }
+        }
+
+        private static void BiddingSchemeToCsv(BulkAdGroup c, RowValues values)
+        {
+            var biddingScheme = c.AdGroup.BiddingScheme;
+
+            if (biddingScheme == null)
+            {
+                return;
+            }
+
+            values[StringTable.BidStrategyType] = biddingScheme.ToBiddingSchemeBulkString();
+
+            var inheritFromParentBiddingScheme = biddingScheme as InheritFromParentBiddingScheme;
+            if (inheritFromParentBiddingScheme != null)
+            {
+                values[StringTable.InheritedBidStrategyType] = inheritFromParentBiddingScheme.InheritedBidStrategyType;
             }
         }
     }

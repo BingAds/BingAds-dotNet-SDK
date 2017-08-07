@@ -240,10 +240,8 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 (v, c) => c.Keyword.UrlCustomParameters = v.ParseCustomParameters()
             ),
 
-            new SimpleBulkMapping<BulkKeyword>(StringTable.BidStrategyType,
-                c => c.Keyword.BiddingScheme.ToBiddingSchemeBulkString(),
-                (v, c) => c.Keyword.BiddingScheme = v.ParseBiddingScheme()
-            ),
+            new ComplexBulkMapping<BulkKeyword>(BiddingSchemeToCsv, CsvToBiddingScheme),
+
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
@@ -268,6 +266,54 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 QualityScoreData.WriteToRowValuesIfNotNull(QualityScoreData, values);
 
                 PerformanceData.WriteToRowValuesIfNotNull(PerformanceData, values);
+            }
+        }
+
+        private static void CsvToBiddingScheme(RowValues values, BulkKeyword c)
+        {
+            string bidStrategyTypeRowValue;
+
+            BiddingScheme biddingScheme;
+
+            if (!values.TryGetValue(StringTable.BidStrategyType, out bidStrategyTypeRowValue) || (biddingScheme = bidStrategyTypeRowValue.ParseBiddingScheme()) == null)
+            {
+                return;
+            }
+
+            string inheritedBidStrategyTypeRowValue;
+
+            values.TryGetValue(StringTable.InheritedBidStrategyType, out inheritedBidStrategyTypeRowValue);
+
+            var inheritFromParentBiddingScheme = biddingScheme as InheritFromParentBiddingScheme;
+            if (inheritFromParentBiddingScheme != null)
+            {
+                c.Keyword.BiddingScheme = new InheritFromParentBiddingScheme
+                {
+                    InheritedBidStrategyType = inheritedBidStrategyTypeRowValue,
+                    Type = "InheritFromParent",
+                };
+            }
+            else
+            {
+                c.Keyword.BiddingScheme = biddingScheme;
+            }
+        }
+
+        private static void BiddingSchemeToCsv(BulkKeyword c, RowValues values)
+        {
+            var biddingScheme = c.Keyword.BiddingScheme;
+
+            if (biddingScheme == null)
+            {
+                return;
+            }
+
+            values[StringTable.BidStrategyType] = biddingScheme.ToBiddingSchemeBulkString();
+
+            var inheritFromParentBiddingScheme = biddingScheme as InheritFromParentBiddingScheme;
+            if (inheritFromParentBiddingScheme != null)
+            {
+                values[StringTable.InheritedBidStrategyType] = inheritFromParentBiddingScheme.InheritedBidStrategyType;
             }
         }
     }

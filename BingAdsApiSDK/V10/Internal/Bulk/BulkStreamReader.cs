@@ -48,6 +48,7 @@
 //=====================================================================================================================================================
 
 using System;
+using System.IO;
 using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.V10.Bulk;
 
@@ -62,7 +63,12 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
 
         public BulkStreamReader(string fileName, DownloadFileType fileType)
         {
-            _bulkObjectReader = new BulkObjectReader(fileName, fileType == DownloadFileType.Csv ? ',' : '\t');
+            _bulkObjectReader = new BulkObjectReader(fileName, GetDelimiter(fileType));
+        }
+
+        public BulkStreamReader(Stream stream, DownloadFileType fileType)
+        {
+            _bulkObjectReader = new BulkObjectReader(stream, GetDelimiter(fileType));
         }
 
         internal BulkStreamReader(IBulkObjectReader reader)
@@ -188,6 +194,11 @@ namespace Microsoft.BingAds.V10.Internal.Bulk
                     _bulkObjectReader = null;
                 }
             }
+        }
+
+        private static char GetDelimiter(DownloadFileType fileType)
+        {
+            return fileType == DownloadFileType.Csv ? ',' : '\t';
         }
     }
 }

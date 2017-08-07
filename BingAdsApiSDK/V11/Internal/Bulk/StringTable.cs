@@ -406,6 +406,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string BidStrategyType = "Bid Strategy Type";
         public const string BidStrategyMaxCpc = "Bid Strategy MaxCpc";
         public const string BidStrategyTargetCpa = "Bid Strategy TargetCpa";
+        public const string InheritedBidStrategyType = "Inherited Bid Strategy Type";
 
         // Audience
         public const string Audience = "Audience";
@@ -482,5 +483,25 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string CampaignLocationIntentCriterion = "Campaign Location Intent Criterion";
         public const string CampaignNegativeLocationCriterion = "Campaign Negative Location Criterion";
         public const string CampaignRadiusCriterion = "Campaign Radius Criterion";
+
+        // Labels
+        public const string ColorCode = "Color";
+        public const string Label = "Label";
+        public const string CampaignLabel = "Campaign Label";
+        public const string AdGroupLabel = "Ad Group Label";
+        public const string KeywordLabel = "Keyword Label";
+        public const string AppInstallAdLabel = "App Install Ad Label";
+        public const string DynamicSearchAdLabel = "Dynamic Search Ad Label";
+        public const string ExpandedTextAdLabel = "Expanded Text Ad Label";
+        public const string ProductAdLabel = "Product Ad Label";
+        public const string TextAdLabel = "Text Ad Label";
+
+        // Offline Conversions
+        public const string OfflineConversion = "Offline Conversion";
+        public const string ConversionCurrencyCode = "Conversion Currency Code";
+        public const string ConversionName = "Conversion Name";
+        public const string ConversionTime = "Conversion Time";
+        public const string ConversionValue = "Conversion Value";
+        public const string MicrosoftClickId = "Microsoft Click Id";
     }
 }

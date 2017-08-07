@@ -48,6 +48,7 @@
 //=====================================================================================================================================================
 
 using System;
+using System.IO;
 using Microsoft.BingAds.V11.Bulk.Entities;
 using Microsoft.BingAds.V11.Internal.Bulk;
 using Microsoft.BingAds.V11.Internal.Bulk.Entities;
@@ -79,6 +80,17 @@ namespace Microsoft.BingAds.V11.Bulk
         /// <param name="fileFormat">The bulk file format.</param>
         public BulkFileWriter(string filePath, DownloadFileType fileFormat)
             : this(new BulkObjectWriter(filePath, fileFormat))
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of this class with the specified stream.
+        /// </summary>
+        /// <param name="stream">The stream to write.</param>
+        /// <param name="fileFormat">The bulk file format.</param>
+        public BulkFileWriter(Stream stream, DownloadFileType fileFormat)
+            : this(new BulkObjectWriter(stream, fileFormat))
         {
 
         }

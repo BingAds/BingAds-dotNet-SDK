@@ -4230,7 +4230,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TimePeriod = 3,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 4,
@@ -4332,7 +4332,7 @@ namespace Microsoft.BingAds.V11.Reporting
         LowQualityConversionRate = 20,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 21,
@@ -5130,7 +5130,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CampaignId = 6,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 7,
@@ -5232,7 +5232,7 @@ namespace Microsoft.BingAds.V11.Reporting
         LowQualityConversionRate = 23,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
@@ -6079,7 +6079,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Param3 = 13,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 14,
@@ -6145,13 +6145,13 @@ namespace Microsoft.BingAds.V11.Reporting
         CostPerConversion = 24,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 25,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 26,
@@ -6769,7 +6769,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupId = 8,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 9,
@@ -6835,13 +6835,13 @@ namespace Microsoft.BingAds.V11.Reporting
         CostPerConversion = 19,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 20,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
@@ -7391,7 +7391,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdType = 11,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
@@ -7463,13 +7463,13 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 23,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 25,
@@ -8146,7 +8146,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrentMaxCpc = 13,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 14,
@@ -8224,7 +8224,7 @@ namespace Microsoft.BingAds.V11.Reporting
         BidMatchType = 26,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 27,
@@ -8254,7 +8254,7 @@ namespace Microsoft.BingAds.V11.Reporting
         LandingPageExperience = 31,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 32,
@@ -8909,7 +8909,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdId = 8,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 9,
@@ -8981,13 +8981,13 @@ namespace Microsoft.BingAds.V11.Reporting
         CostPerConversion = 20,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 21,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
@@ -9263,7 +9263,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Date = 5,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 6,
@@ -9553,7 +9553,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 8,
         
         /// <summary>
-        /// The age group of the audience who viewed the ad.
+        /// The age group of the audience who viewed the ad.The possible values are 13-17, 18-24, 25-34, 35-49, 50-64, and 65+.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AgeGroup = 9,
@@ -9583,7 +9583,7 @@ namespace Microsoft.BingAds.V11.Reporting
         EstimatedCtr = 13,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 14,
@@ -9820,7 +9820,7 @@ namespace Microsoft.BingAds.V11.Reporting
         MetroArea = 10,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 11,
@@ -9880,7 +9880,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Radius = 20,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
@@ -9940,7 +9940,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TopVsOther = 30,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 31,
@@ -10223,7 +10223,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 8,
@@ -10295,7 +10295,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CostPerConversion = 19,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 20,
@@ -10325,7 +10325,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TopVsOther = 24,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 25,
@@ -10898,7 +10898,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CostPerConversion = 26,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 27,
@@ -10922,7 +10922,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TopVsOther = 30,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 31,
@@ -11347,7 +11347,7 @@ namespace Microsoft.BingAds.V11.Reporting
         RevenuePerAssist = 22,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 23,
@@ -11705,7 +11705,7 @@ namespace Microsoft.BingAds.V11.Reporting
         GoalId = 14,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
@@ -11739,6 +11739,12 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 20,
+        
+        /// <summary>
+        /// The goal type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 21,
     }
     
     /// <summary>
@@ -11977,7 +11983,7 @@ namespace Microsoft.BingAds.V11.Reporting
         NegativeKeywordId = 14,
         
         /// <summary>
-        /// The type of match to compare the negative keyword and the user's search term. The possible values for a negative keyword are Exact and Phrase.
+        /// The type of match to compare the negative keyword and the user's search term.The possible values for a negative keyword are Exact and Phrase.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordMatchType = 15,
@@ -12548,7 +12554,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdExtensionType = 8,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 9,
@@ -12986,7 +12992,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdExtensionType = 8,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 9,
@@ -13739,7 +13745,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Impressions = 14,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
@@ -14226,7 +14232,7 @@ namespace Microsoft.BingAds.V11.Reporting
         BidMatchType = 6,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 7,
@@ -14390,11 +14396,14 @@ namespace Microsoft.BingAds.V11.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 34,
         
+        /// <summary>
+        /// The percentage of clicks that went to your ads. It is the share of the prospective customer's mindshare and buying intent you captured.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 35,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 36,
@@ -14700,19 +14709,19 @@ namespace Microsoft.BingAds.V11.Reporting
         CampaignName = 11,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 13,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 14,
@@ -14898,7 +14907,7 @@ namespace Microsoft.BingAds.V11.Reporting
         SellerName = 44,
         
         /// <summary>
-        /// The report will include a column that contains the language for the product offer.
+        /// The report will include a column that contains the language for the product offer.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 45,
@@ -14963,6 +14972,9 @@ namespace Microsoft.BingAds.V11.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickTypeId = 55,
         
+        /// <summary>
+        /// The number of clicks when this ad element was present in the ad copy, whether this or another ad element was clicked on.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalClicksOnAdElements = 56,
         
@@ -14971,6 +14983,27 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 57,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 58,
+        
+        /// <summary>
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidStrategyType = 59,
+        
+        /// <summary>
+        /// An alphanumeric identifier defined by the merchant to uniquely identify each local store.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LocalStoreCode = 60,
+        
+        /// <summary>
+        /// The unique identifier for the Bing Merchant Center store.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        StoreId = 61,
     }
     
     /// <summary>
@@ -15243,7 +15276,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrentMaxCpc = 12,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 13,
@@ -15309,13 +15342,13 @@ namespace Microsoft.BingAds.V11.Reporting
         CostPerConversion = 23,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 25,
@@ -15387,7 +15420,7 @@ namespace Microsoft.BingAds.V11.Reporting
         RevenuePerAssist = 36,
         
         /// <summary>
-        /// The report will include a column that contains the language for the product offer.
+        /// The report will include a column that contains the language for the product offer.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 37,
@@ -15458,6 +15491,9 @@ namespace Microsoft.BingAds.V11.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickTypeId = 48,
         
+        /// <summary>
+        /// The number of clicks when this ad element was present in the ad copy, whether this or another ad element was clicked on.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalClicksOnAdElements = 49,
         
@@ -15466,6 +15502,24 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 50,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 51,
+        
+        /// <summary>
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidStrategyType = 52,
+        
+        /// <summary>
+        /// An alphanumeric identifier defined by the merchant to uniquely identify each local store.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LocalStoreCode = 53,
     }
     
     /// <summary>
@@ -15732,7 +15786,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrentMaxCpc = 11,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
@@ -15798,13 +15852,13 @@ namespace Microsoft.BingAds.V11.Reporting
         CostPerConversion = 22,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 23,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 24,
@@ -15892,6 +15946,24 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 38,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 39,
+        
+        /// <summary>
+        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidStrategyType = 40,
+        
+        /// <summary>
+        /// An alphanumeric identifier defined by the merchant to uniquely identify each local store.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LocalStoreCode = 41,
     }
     
     /// <summary>
@@ -16192,7 +16264,7 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 9,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 10,
@@ -16204,7 +16276,7 @@ namespace Microsoft.BingAds.V11.Reporting
         DeviceOS = 11,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 12,
@@ -16837,7 +16909,7 @@ namespace Microsoft.BingAds.V11.Reporting
         City = 11,
         
         /// <summary>
-        /// The account currency type.
+        /// The account currency type.For possible values, see Currencies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
@@ -16897,7 +16969,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Radius = 21,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
@@ -16927,7 +16999,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TopVsOther = 26,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 27,
@@ -17364,7 +17436,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 20,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
@@ -17382,7 +17454,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TopVsOther = 23,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
@@ -17745,7 +17817,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 11,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 12,
@@ -17763,7 +17835,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TopVsOther = 14,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
@@ -18207,7 +18279,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 16,
         
         /// <summary>
-        /// The ad group language.
+        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 17,
@@ -18225,7 +18297,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TopVsOther = 19,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.For possible values, see the DeviceTypeReportFilter.
+        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 20,

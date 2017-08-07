@@ -49,6 +49,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.BingAds.V10.Bulk.Entities;
 using Microsoft.BingAds.V10.Internal.Bulk;
@@ -89,6 +90,19 @@ namespace Microsoft.BingAds.V10.Bulk
             _isForFullDownload = resultFileType == ResultFileType.FullDownload;
 
             _bulkStreamReader = new BulkStreamReader(filePath, fileFormat);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of this class with the specified stream.
+        /// </summary>
+        /// <param name="stream">The stream to read.</param>
+        /// <param name="resultFileType">The result file type.</param>
+        /// <param name="fileFormat">The bulk file format.</param>
+        public BulkFileReader(Stream stream, ResultFileType resultFileType, Bulk.DownloadFileType fileFormat)
+        {
+            _isForFullDownload = resultFileType == ResultFileType.FullDownload;
+
+            _bulkStreamReader = new BulkStreamReader(stream, fileFormat);
         }
 
         /// <summary>

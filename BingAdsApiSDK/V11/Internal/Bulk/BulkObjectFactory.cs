@@ -126,6 +126,16 @@ using BulkStructuredSnippetAdExtension = Microsoft.BingAds.V11.Bulk.Entities.Bul
 using BulkTextAd = Microsoft.BingAds.V11.Bulk.Entities.BulkTextAd;
 using SiteLinkAdExtensionIdentifier = Microsoft.BingAds.V11.Internal.Bulk.Entities.SiteLinkAdExtensionIdentifier;
 using UnknownBulkEntity = Microsoft.BingAds.V11.Bulk.Entities.UnknownBulkEntity;
+using BulkLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkLabel;
+using BulkCampaignLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkCampaignLabel;
+using BulkAdGroupLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkAdGroupLabel;
+using BulkKeywordLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkKeywordLabel;
+using BulkAppInstallAdLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkAppInstallAdLabel;
+using BulkDynamicSearchAdLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkDynamicSearchAdLabel;
+using BulkExpandedTextAdLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkExpandedTextAdLabel;
+using BulkProductAdLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkProductAdLabel;
+using BulkTextAdLabel = Microsoft.BingAds.V11.Bulk.Entities.BulkTextAdLabel;
+using BulkOfflineConversion = Microsoft.BingAds.V11.Bulk.Entities.BulkOfflineConversion;
 
 namespace Microsoft.BingAds.V11.Internal.Bulk
 {
@@ -230,6 +240,18 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
                 {StringTable.CampaignLocationIntentCriterion,  new EntityInfo(() => new BulkCampaignLocationIntentCriterion())},
                 {StringTable.CampaignNegativeLocationCriterion,  new EntityInfo(() => new BulkCampaignNegativeLocationCriterion())},
                 {StringTable.CampaignRadiusCriterion,  new EntityInfo(() => new BulkCampaignRadiusCriterion())},
+
+                {StringTable.Label,  new EntityInfo(() => new BulkLabel())},
+                {StringTable.CampaignLabel,  new EntityInfo(() => new BulkCampaignLabel())},
+                {StringTable.AdGroupLabel,  new EntityInfo(() => new BulkAdGroupLabel())},
+                {StringTable.KeywordLabel,  new EntityInfo(() => new BulkKeywordLabel())},
+                {StringTable.AppInstallAdLabel,  new EntityInfo(() => new BulkAppInstallAdLabel())},
+                {StringTable.DynamicSearchAdLabel,  new EntityInfo(() => new BulkDynamicSearchAdLabel())},
+                {StringTable.ExpandedTextAdLabel,  new EntityInfo(() => new BulkExpandedTextAdLabel())},
+                {StringTable.ProductAdLabel,  new EntityInfo(() => new BulkProductAdLabel())},
+                {StringTable.TextAdLabel,  new EntityInfo(() => new BulkTextAdLabel())},
+
+                {StringTable.OfflineConversion,  new EntityInfo(() => new BulkOfflineConversion())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

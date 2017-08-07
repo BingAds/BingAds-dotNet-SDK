@@ -331,6 +331,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             StringTable.BidStrategyType,
             StringTable.BidStrategyMaxCpc,
             StringTable.BidStrategyTargetCpa,
+            StringTable.InheritedBidStrategyType,
 
             // Remarketing
             StringTable.Description,
@@ -359,7 +360,18 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             StringTable.DynamicAdTargetCondition3,
             StringTable.DynamicAdTargetValue1,
             StringTable.DynamicAdTargetValue2,
-            StringTable.DynamicAdTargetValue3        
+            StringTable.DynamicAdTargetValue3,
+
+            // Labels
+            StringTable.ColorCode,
+            StringTable.Label,
+
+            // Offline Conversions
+            StringTable.ConversionCurrencyCode,
+            StringTable.ConversionName,
+            StringTable.ConversionTime,
+            StringTable.ConversionValue,
+            StringTable.MicrosoftClickId,
         };
 
         /// <summary>

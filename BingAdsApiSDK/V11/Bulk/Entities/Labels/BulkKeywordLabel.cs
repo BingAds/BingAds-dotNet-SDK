@@ -47,82 +47,26 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using Microsoft.BingAds.V11.Internal.Bulk;
+using Microsoft.BingAds.V11.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V11.Internal.Bulk.Entities;
+using Microsoft.BingAds.V11.CampaignManagement;
 
-namespace Microsoft.BingAds.V11.Internal.Bulk
+// ReSharper disable once CheckNamespace
+namespace Microsoft.BingAds.V11.Bulk.Entities
 {
-    internal class CsvReader : CsvLight, ICsvReader
+    /// <summary>
+    /// <para>
+    /// Represents a label that is applied to a campaign. Each label can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkLabelAssociation.LabelAssociation"/> property that can be read and written as fields of the Campaign Label record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Label</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkKeywordLabel : BulkLabelAssociation
     {
-        private bool disposed;
-
-        private Dictionary<string, int> _mappings;
-
-        public CsvReader(string fileName, char delimiter)
-            : base(GetStream(fileName), delimiter)
-        {
-        }
-
-        public CsvReader(Stream stream, char delimiter)
-        : base(new StreamReader(stream), delimiter)
-        { 
-        }
-
-        /// <summary>
-        /// For unit tests
-        /// </summary>        
-        internal CsvReader(StreamReader streamReader, char delimiter)
-            : base(streamReader, delimiter)
-        {
-            
-        }
-
-        public RowValues ReadNextRow()
-        {
-            if (_mappings == null)
-            {
-                _mappings = Headers.Select((i, h) => new { key = i, value = h }).ToDictionary(x => x.key, x => x.value);
-            }
-
-            if (!ReadNextRecord())
-            {
-                return null;
-            }
-
-            if (Columns == null)
-            {
-                return null;
-            }
-
-            var rowValues = new RowValues(Columns, _mappings);
-
-            return rowValues;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                try
-                {
-                    if (disposing)
-                    {
-                        Stream.Dispose();
-                    }
-                }
-                finally
-                {
-                    base.Dispose(disposing);
-                }
-            }
-
-            this.disposed = true;
-        }
-
-        private static StreamReader GetStream(string fileName)
-        {
-            return new StreamReader(new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite), System.Text.Encoding.Default, true);
-        }
     }
 }
