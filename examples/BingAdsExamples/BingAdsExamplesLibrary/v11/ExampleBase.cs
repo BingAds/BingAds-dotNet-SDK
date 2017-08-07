@@ -1197,6 +1197,16 @@ namespace BingAdsExamplesLibrary.V11
             }
         }
         
+        protected List<long> GetNonNullableIds(IList<long?> nullableIds)
+        {
+            List<long> ids = new List<long>();
+            foreach (var nullableId in nullableIds)
+            {
+                ids.Add((long)nullableId);
+            }
+            return ids;
+        }
+
         protected void OutputPartialErrors(IList<BatchError> partialErrors)
         {
             if (partialErrors == null || partialErrors.Count == 0)
@@ -2234,6 +2244,77 @@ namespace BingAdsExamplesLibrary.V11
             }
         }
 
+        /// <summary>
+        /// Outputs the Label.
+        /// </summary>
+        protected void OutputLabel(Label label)
+        {
+            if (label != null)
+            {
+                OutputStatusMessage(string.Format("ColorCode: {0}", label.ColorCode));
+                OutputStatusMessage(string.Format("Description: {0}", label.Description));
+                OutputStatusMessage(string.Format("Id: {0}", label.Id));
+                OutputStatusMessage(string.Format("Name: {0}", label.Name));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the Label list.
+        /// </summary>
+        protected void OutputLabels(IList<Label> labels)
+        {
+            if (labels != null)
+            {
+                foreach(var label in labels)
+                {
+                    OutputLabel(label);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the LabelAssociation.
+        /// </summary>
+        protected void OutputLabelAssociation(LabelAssociation labelAssociation)
+        {
+            if (labelAssociation != null)
+            {
+                OutputStatusMessage(string.Format("EntityId: {0}", labelAssociation.EntityId));
+                OutputStatusMessage(string.Format("LabelId: {0}", labelAssociation.LabelId));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the LabelAssociation list.
+        /// </summary>
+        protected void OutputLabelAssociations(IList<LabelAssociation> labelAssociations)
+        {
+            if (labelAssociations != null)
+            {
+                foreach (var labelAssociation in labelAssociations)
+                {
+                    OutputLabelAssociation(labelAssociation);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the OfflineConversion.
+        /// </summary>
+        protected void OutputOfflineConversion(OfflineConversion offlineConversion)
+        {
+            if (offlineConversion != null)
+            {
+                OutputStatusMessage(string.Format("ConversionCurrencyCode: {0}", offlineConversion.ConversionCurrencyCode));
+                OutputStatusMessage(string.Format("ConversionName: {0}", offlineConversion.ConversionName));
+                OutputStatusMessage(string.Format("ConversionTime: {0}", offlineConversion.ConversionTime));
+                OutputStatusMessage(string.Format("ConversionValue: {0}", offlineConversion.ConversionValue));
+                OutputStatusMessage(string.Format("MicrosoftClickId: {0}", offlineConversion.MicrosoftClickId));
+            }
+        }
+
         #endregion CampaignManagement_Output
 
         #region CampaignManagement_ServiceOperations
@@ -2348,6 +2429,16 @@ namespace BingAdsExamplesLibrary.V11
 
             return (await CampaignService.CallAsync((s, r) => s.AddKeywordsAsync(r), request));
         }
+        
+        protected async Task<AddLabelsResponse> AddLabelsAsync(IList<Label> labels)
+        {
+            var request = new AddLabelsRequest
+            {
+                Labels = labels
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.AddLabelsAsync(r), request));
+        }
 
         protected async Task<AddListItemsToSharedListResponse> AddListItemsToSharedListAsync(
            IList<SharedListItem> listItems,
@@ -2403,6 +2494,16 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return (await CampaignService.CallAsync((s, r) => s.AddUetTagsAsync(r), request));
+        }
+
+        protected async Task<ApplyOfflineConversionsResponse> ApplyOfflineConversionsAsync(IList<OfflineConversion> offlineConversions)
+        {
+            var request = new ApplyOfflineConversionsRequest
+            {
+                OfflineConversions = offlineConversions
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.ApplyOfflineConversionsAsync(r), request));
         }
 
         protected async Task<ApplyProductPartitionActionsResponse> ApplyProductPartitionActionsAsync(
@@ -2483,6 +2584,29 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return (await CampaignService.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request));
+        }
+        
+        protected async Task<DeleteLabelAssociationsResponse> DeleteLabelAssociationsAsync(
+            IList<LabelAssociation> labelAssociations,
+            EntityType entityType)
+        {
+            var request = new DeleteLabelAssociationsRequest
+            {
+                LabelAssociations = labelAssociations,
+                EntityType = entityType,
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.DeleteLabelAssociationsAsync(r), request));
+        }
+
+        protected async Task<DeleteLabelsResponse> DeleteLabelsAsync(IList<long> labelIds)
+        {
+            var request = new DeleteLabelsRequest
+            {
+                LabelIds = labelIds
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.DeleteLabelsAsync(r), request));
         }
 
         protected async Task<DeleteListItemsFromSharedListResponse> DeleteListItemsFromSharedListAsync(
@@ -2728,6 +2852,47 @@ namespace BingAdsExamplesLibrary.V11
             return (await CampaignService.CallAsync((s, r) => s.GetKeywordsByAdGroupIdAsync(r), request));
         }
 
+        protected async Task<GetLabelAssociationsByEntityIdsResponse> GetLabelAssociationsByEntityIdsAsync(
+            IList<long> entityIds,
+            EntityType entityType)
+        {
+            var request = new GetLabelAssociationsByEntityIdsRequest
+            {
+                EntityIds = entityIds,
+                EntityType = entityType,
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.GetLabelAssociationsByEntityIdsAsync(r), request));
+        }
+
+        protected async Task<GetLabelAssociationsByLabelIdsResponse> GetLabelAssociationsByLabelIdsAsync(
+            IList<long> labelIds,
+            EntityType entityType,
+            Microsoft.BingAds.V11.CampaignManagement.Paging pageInfo)
+        {
+            var request = new GetLabelAssociationsByLabelIdsRequest
+            {
+                LabelIds = labelIds,
+                EntityType = entityType,
+                PageInfo = pageInfo
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.GetLabelAssociationsByLabelIdsAsync(r), request));
+        }
+
+        protected async Task<GetLabelsByIdsResponse> GetLabelsByIdsAsync(
+            IList<long> labelIds,
+            Microsoft.BingAds.V11.CampaignManagement.Paging pageInfo)
+        {
+            var request = new GetLabelsByIdsRequest
+            {
+                LabelIds = labelIds,
+                PageInfo = pageInfo
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.GetLabelsByIdsAsync(r), request));
+        }
+        
         protected async Task<GetListItemsBySharedListResponse> GetListItemsBySharedListAsync(SharedList sharedList)
         {
             var request = new GetListItemsBySharedListRequest
@@ -2813,6 +2978,20 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return (await CampaignService.CallAsync((s, r) => s.SetAdExtensionsAssociationsAsync(r), request));
+        }
+
+
+        protected async Task<SetLabelAssociationsResponse> SetLabelAssociationsAsync(
+            IList<LabelAssociation> labelAssociations,
+            EntityType entityType)
+        {
+            var request = new SetLabelAssociationsRequest
+            {
+                LabelAssociations = labelAssociations,
+                EntityType = entityType,
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.SetLabelAssociationsAsync(r), request));
         }
 
         protected async Task<SetSharedEntityAssociationsResponse> SetSharedEntityAssociationsAsync(IList<SharedEntityAssociation> sharedEntityAssociations)
@@ -2934,6 +3113,16 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return await CampaignService.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
+        }
+
+        protected async Task<UpdateLabelsResponse> UpdateLabelsAsync(IList<Label> labels)
+        {
+            var request = new UpdateLabelsRequest
+            {
+                Labels = labels
+            };
+
+            return await CampaignService.CallAsync((s, r) => s.UpdateLabelsAsync(r), request);
         }
 
         protected async Task<UpdateSharedEntitiesResponse> UpdateSharedEntitiesAsync(IList<SharedEntity> sharedEntities)

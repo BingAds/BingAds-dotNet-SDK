@@ -22,6 +22,8 @@ namespace BingAdsWpfApp
         {
             // Current examples
             
+            new BingAdsExamplesLibrary.V11.Labels(),
+            new BingAdsExamplesLibrary.V11.OfflineConversions(),
             new BingAdsExamplesLibrary.V11.KeywordPlanner(),
             new BingAdsExamplesLibrary.V11.BudgetOpportunities(),
             new BingAdsExamplesLibrary.V11.BulkServiceManagerDemo(),

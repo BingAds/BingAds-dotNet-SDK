@@ -75,13 +75,21 @@ namespace BingAdsExamplesLibrary.V11
         protected long negativeKeywordListIdKey = -19;
         protected long budgetIdKey = -20;
         protected long remarketingListIdKey = -21;
+        protected long labelIdKey = -22;
         protected long campaignIdKey = -111;
         protected long searchAndContentCampaignIdKey = -112;
         protected long shoppingCampaignIdKey = -113;
         protected long dynamicSearchAdsCampaignIdKey = -114;
         protected long adGroupIdKey = -1111;
         protected long negativeKeywordIdKey = -11111;
-        
+        protected long keywordIdKey = -11112;
+        protected long adIdKey = -11113;
+        protected long appInstallAdIdKey = -11114;
+        protected long dynamicSearchAdIdKey = -11115;
+        protected long expandedTextAdIdKey = -11116;
+        protected long productAdIdKey = -11117;
+        protected long textAdIdKey = -11118;
+
 
         /// <summary>
         /// Writes the specified entities to a local file and uploads the file. We could have uploaded directly
