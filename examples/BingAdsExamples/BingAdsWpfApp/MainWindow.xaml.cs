@@ -50,34 +50,6 @@ namespace BingAdsWpfApp
             new BingAdsExamplesLibrary.V11.CustomerSignup(),
             new BingAdsExamplesLibrary.V11.ManageClient(),
             new BingAdsExamplesLibrary.V11.ReportRequests(),
-
-            // Deprected examples
-
-            new BingAdsExamplesLibrary.V10.BudgetOpportunities(),
-            new BingAdsExamplesLibrary.V10.BulkServiceManagerDemo(),
-            new BingAdsExamplesLibrary.V10.BulkAdExtensions(),
-            new BingAdsExamplesLibrary.V10.AdExtensions(),
-            new BingAdsExamplesLibrary.V10.BulkKeywordsAds(),
-            new BingAdsExamplesLibrary.V10.KeywordsAds(),
-            new BingAdsExamplesLibrary.V10.BulkNegativeKeywords(),
-            new BingAdsExamplesLibrary.V10.NegativeKeywords(),
-            new BingAdsExamplesLibrary.V10.BulkProductPartitionUpdateBid(),
-            new BingAdsExamplesLibrary.V10.ConversionGoals(),
-            new BingAdsExamplesLibrary.V10.BulkRemarketingLists(),
-            new BingAdsExamplesLibrary.V10.RemarketingLists(),
-            new BingAdsExamplesLibrary.V10.BulkShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V10.ShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V10.DynamicSearchCampaigns(),
-            new BingAdsExamplesLibrary.V10.BulkFindSharedTargetCriterions(),
-            new BingAdsExamplesLibrary.V10.BulkTargets(),
-            new BingAdsExamplesLibrary.V10.Targets(),
-            new BingAdsExamplesLibrary.V10.GeographicalLocations(),
-            new BingAdsExamplesLibrary.V10.BulkNegativeSites(),
-            new BingAdsExamplesLibrary.V9.SearchUserAccounts(),
-            new BingAdsExamplesLibrary.V9.InviteUser(),
-            new BingAdsExamplesLibrary.V9.CustomerSignup(),
-            new BingAdsExamplesLibrary.V9.ManageClient(),
-            new BingAdsExamplesLibrary.V9.ReportRequests(),
         };
 
         private static long?[,] _accountCustomerIds;

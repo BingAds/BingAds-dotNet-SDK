@@ -9,8 +9,8 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
-    /// This example demonstrates how to add ads and keywords to a new ad group, 
-    /// and handle partial errors when some ads or keywords are not successfully created.
+    /// This example demonstrates how to add labels and associate them with
+    /// campaigns, ad groups, keywords, and ads.
     /// </summary>
     public class Labels : ExampleBase
     {

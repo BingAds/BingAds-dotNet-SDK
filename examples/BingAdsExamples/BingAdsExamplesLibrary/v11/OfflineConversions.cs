@@ -9,7 +9,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
-    /// This example demonstrates how to associate remarketing lists with a new ad group.
+    /// This example demonstrates how to send Bing Ads your offline conversions using the Campaign Management service.
     /// </summary>
     public class OfflineConversions : ExampleBase
     {
@@ -26,19 +26,82 @@ namespace BingAdsExamplesLibrary.V11
             {
                 CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
+                var offlineConversionGoalName = "My Offline Conversion Goal " + DateTime.UtcNow;
+
+                var conversionGoals = new ConversionGoal[]
+                {
+                    new OfflineConversionGoal
+                    {
+                        // Determines how long after a click that you want to count offline conversions. 
+                        ConversionWindowInMinutes = 43200,
+
+                        // If the count type is 'Unique' then only the first offline conversion will be counted.
+                        // By setting the count type to 'All', then all offline conversions for the same
+                        // MicrosoftClickId with different conversion times will be added cumulatively. 
+                        CountType = ConversionGoalCountType.All,
+
+                        Name = offlineConversionGoalName,
+
+                        // The default conversion currency code and value. Each offline conversion can override it.
+                        Revenue = new ConversionGoalRevenue
+                        {
+                            CurrencyCode = null,
+                            Type = ConversionGoalRevenueType.FixedValue,
+                            Value = 5.00m,
+                        },
+                        Scope = EntityScope.Account,
+                        Status = ConversionGoalStatus.Active,
+                        TagId = null
+                    },
+                };
+
+                OutputStatusMessage("Add conversion goal...\n");
+                var addConversionGoalsResponse = await AddConversionGoalsAsync(conversionGoals);
+
+                List<long> conversionGoalIds = GetNonNullableIds(addConversionGoalsResponse.ConversionGoalIds);
+                var conversionGoalTypes = ConversionGoalType.OfflineConversion;
+                var getConversionGoals =
+                    (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
+                
+                OutputConversionGoals(getConversionGoals);
+
+                // Every time you create a new OfflineConversionGoal via either the Bing Ads web application or Campaign Management API, 
+                // the MSCLKIDAutoTaggingEnabled value of the corresponding AccountProperty is set to True automatically.
+                // We can confirm the setting now.
+
+                var accountPropertyNames = Enum.GetValues(typeof(AccountPropertyName)).Cast<AccountPropertyName>().ToList();
+                accountPropertyNames.Remove(AccountPropertyName.None);
+
+                OutputStatusMessage("Get account properties...\n");
+                var getAccountPropertiesResponse = await GetAccountPropertiesAsync(accountPropertyNames);
+                OutputAccountProperties(getAccountPropertiesResponse.AccountProperties);
+
                 var offlineConversions = new []
                 {
                     new OfflineConversion
                     {
+                        // If you do not specify an offline conversion currency code, 
+                        // then the 'CurrencyCode' element of the goal's 'ConversionGoalRevenue' is used.
                         ConversionCurrencyCode = "USD",
-                        ConversionName = "TestGoal",
+
+                        // The conversion name must match the 'Name' of the 'OfflineConversionGoal'.
+                        // If it does not match you won't observe any error, although the offline
+                        // conversion will not be counted.
+                        ConversionName = offlineConversionGoalName,
+                        
                         ConversionTime = DateTime.UtcNow,
+
+                        // If you do not specify an offline conversion value, 
+                        // then the 'Value' element of the goal's 'ConversionGoalRevenue' is used.
                         ConversionValue = 10,
+
                         MicrosoftClickId = "f894f652ea334e739002f7167ab8f8e3"
                     }
                 };
-                
+
+                OutputStatusMessage("Apply the offline conversion...\n");
                 var applyOfflineConversionsResponse = await ApplyOfflineConversionsAsync(offlineConversions);
+                OutputOfflineConversions(offlineConversions);
 
             }
             // Catch authentication exceptions

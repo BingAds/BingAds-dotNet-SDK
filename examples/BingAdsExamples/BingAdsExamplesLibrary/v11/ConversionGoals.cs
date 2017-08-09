@@ -210,14 +210,7 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Find the conversion goals that were added successfully. 
 
-                List<long> conversionGoalIds = new List<long>();
-                foreach (var goalId in addConversionGoalsResponse.ConversionGoalIds)
-                {
-                    if (goalId != null)
-                    {
-                        conversionGoalIds.Add((long)goalId);
-                    }
-                }
+                List<long> conversionGoalIds = GetNonNullableIds(addConversionGoalsResponse.ConversionGoalIds);
 
                 OutputStatusMessage("List of errors returned from AddConversionGoals (if any):\n");
                 OutputPartialErrors(addConversionGoalsResponse.PartialErrors);

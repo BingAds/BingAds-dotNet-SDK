@@ -1739,6 +1739,21 @@ namespace BingAdsExamplesLibrary.V11
         }
 
         /// <summary>
+        /// Outputs the ConversionGoal list.
+        /// </summary>
+        protected void OutputConversionGoals(IList<ConversionGoal> conversionGoals)
+        {
+            if (conversionGoals != null)
+            {
+                foreach (var conversionGoal in conversionGoals)
+                {
+                    OutputConversionGoal(conversionGoal);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+
+        /// <summary>
         /// Outputs the ConversionGoal.
         /// </summary>
         protected void OutputConversionGoal(ConversionGoal conversionGoal)
@@ -2301,6 +2316,21 @@ namespace BingAdsExamplesLibrary.V11
         }
 
         /// <summary>
+        /// Outputs the OfflineConversion list.
+        /// </summary>
+        protected void OutputOfflineConversions(IList<OfflineConversion> offlineConversions)
+        {
+            if (offlineConversions != null)
+            {
+                foreach (var offlineConversion in offlineConversions)
+                {
+                    OutputOfflineConversion(offlineConversion);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+
+        /// <summary>
         /// Outputs the OfflineConversion.
         /// </summary>
         protected void OutputOfflineConversion(OfflineConversion offlineConversion)
@@ -2312,6 +2342,33 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("ConversionTime: {0}", offlineConversion.ConversionTime));
                 OutputStatusMessage(string.Format("ConversionValue: {0}", offlineConversion.ConversionValue));
                 OutputStatusMessage(string.Format("MicrosoftClickId: {0}", offlineConversion.MicrosoftClickId));
+            }
+        }
+
+        /// <summary>
+        /// Outputs the AccountProperty list.
+        /// </summary>
+        protected void OutputAccountProperties(IList<AccountProperty> accountProperties)
+        {
+            if (accountProperties != null)
+            {
+                foreach (var accountProperty in accountProperties)
+                {
+                    OutputAccountProperty(accountProperty);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the AccountProperty.
+        /// </summary>
+        protected void OutputAccountProperty(AccountProperty accountProperty)
+        {
+            if (accountProperty != null)
+            {
+                OutputStatusMessage(string.Format("Name: {0}", accountProperty.Name));
+                OutputStatusMessage(string.Format("Value: {0}", accountProperty.Value));
             }
         }
 
@@ -2585,7 +2642,7 @@ namespace BingAdsExamplesLibrary.V11
 
             return (await CampaignService.CallAsync((s, r) => s.DeleteCampaignsAsync(r), request));
         }
-        
+                
         protected async Task<DeleteLabelAssociationsResponse> DeleteLabelAssociationsAsync(
             IList<LabelAssociation> labelAssociations,
             EntityType entityType)
@@ -2663,6 +2720,16 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return (await CampaignService.CallAsync((s, r) => s.GetAccountMigrationStatusesAsync(r), request));
+        }
+
+        protected async Task<GetAccountPropertiesResponse> GetAccountPropertiesAsync(IList<AccountPropertyName> accountPropertyNames)
+        {
+            var request = new GetAccountPropertiesRequest
+            {
+                AccountPropertyNames = accountPropertyNames,
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.GetAccountPropertiesAsync(r), request));
         }
 
         protected async Task<GetAdGroupCriterionsByIdsResponse> GetAdGroupCriterionsByIdsAsync(
@@ -2966,6 +3033,16 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return await CampaignService.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request);
+        }
+
+        protected async Task<SetAccountPropertiesResponse> SetAccountPropertiesAsync(IList<AccountProperty> accountProperties)
+        {
+            var request = new SetAccountPropertiesRequest
+            {
+                AccountProperties = accountProperties
+            };
+
+            return (await CampaignService.CallAsync((s, r) => s.SetAccountPropertiesAsync(r), request));
         }
 
         protected async Task<SetAdExtensionsAssociationsResponse> SetAdExtensionsAssociationsAsync(long accountId, IList<AdExtensionIdToEntityIdAssociation> associations, AssociationType associationType)
