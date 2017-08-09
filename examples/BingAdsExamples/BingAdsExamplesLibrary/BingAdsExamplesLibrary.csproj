@@ -91,8 +91,10 @@
     <Compile Include="v11\InviteUser.cs" />
     <Compile Include="v11\KeywordPlanner.cs" />
     <Compile Include="v11\KeywordsAds.cs" />
+    <Compile Include="v11\Labels.cs" />
     <Compile Include="v11\ManageClient.cs" />
     <Compile Include="v11\NegativeKeywords.cs" />
+    <Compile Include="v11\OfflineConversions.cs" />
     <Compile Include="v11\RemarketingLists.cs" />
     <Compile Include="v11\ReportRequests.cs" />
     <Compile Include="v11\SearchUserAccounts.cs" />
