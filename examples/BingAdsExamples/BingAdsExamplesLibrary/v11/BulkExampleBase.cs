@@ -2523,7 +2523,7 @@ namespace BingAdsExamplesLibrary.V11
                     // 'Phone Number' column header in the Bulk file
                     PhoneNumber = "2065550100",
                     // 'Toll Free' column header in the Bulk file
-                    RequireTollFreeTrackingNumber = true,
+                    RequireTollFreeTrackingNumber = false,
 
                     // 'Ad Schedule' column header in the Bulk file
                     Scheduling = new Schedule
