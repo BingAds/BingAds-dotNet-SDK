@@ -269,6 +269,74 @@ namespace BingAdsExamplesLibrary.V11
                         }
                     }
                 };
+                
+                var bulkPriceAdExtension = new BulkPriceAdExtension
+                {
+                    AccountId = authorizationData.AccountId,
+                    PriceAdExtension = new PriceAdExtension
+                    {
+                        Id = priceAdExtensionIdKey,
+                        Language = "English",
+                        TableRows = new PriceTableRow[]
+                        {
+                            new PriceTableRow
+                            {
+                                CurrencyCode = "USD",
+                                Description = "Come to the event",
+                                FinalUrls = new string[]
+                                {
+                                    "https://contoso.com"
+                                },
+                                Header = "New Event",
+                                Price = 9.99,
+                                PriceQualifier = PriceQualifier.From,
+                                PriceUnit = PriceUnit.PerDay,
+                            },
+                            new PriceTableRow
+                            {
+                                CurrencyCode = "USD",
+                                Description = "Come to the next event",
+                                FinalUrls = new string[]
+                                {
+                                    "https://contoso.com"
+                                },
+                                Header = "Next Event",
+                                Price = 9.99,
+                                PriceQualifier = PriceQualifier.From,
+                                PriceUnit = PriceUnit.PerDay,
+                            },
+                            new PriceTableRow
+                            {
+                                CurrencyCode = "USD",
+                                Description = "Come to the final event",
+                                FinalUrls = new string[]
+                                {
+                                    "https://contoso.com"
+                                },
+                                Header = "Final Event",
+                                Price = 9.99,
+                                PriceQualifier = PriceQualifier.From,
+                                PriceUnit = PriceUnit.PerDay,
+                            },
+                        },
+                        PriceExtensionType = PriceExtensionType.Events,
+                        TrackingUrlTemplate = "http://tracker.com?url={lpurl}&matchtype={matchtype}",
+                        UrlCustomParameters = new CustomParameters
+                        {
+                            // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                            Parameters = new[] {
+                                new CustomParameter(){
+                                    Key = "promoCode",
+                                    Value = "PROMO1"
+                                },
+                                new CustomParameter(){
+                                    Key = "season",
+                                    Value = "summer"
+                                },
+                            }
+                        },
+                    }
+                };
 
                 var bulkReviewAdExtension = new BulkReviewAdExtension
                 {
@@ -332,6 +400,15 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
+                var bulkCampaignPriceAdExtension = new BulkCampaignPriceAdExtension
+                {
+                    AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                    {
+                        AdExtensionId = priceAdExtensionIdKey,
+                        EntityId = campaignIdKey
+                    }
+                };
+
                 var bulkCampaignReviewAdExtension = new BulkCampaignReviewAdExtension
                 {
                     AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
@@ -361,6 +438,7 @@ namespace BingAdsExamplesLibrary.V11
                 uploadEntities.Add(bulkCallAdExtension);
                 uploadEntities.Add(bulkCalloutAdExtension);
                 uploadEntities.Add(bulkLocationAdExtension);
+                uploadEntities.Add(bulkPriceAdExtension);
                 uploadEntities.Add(bulkReviewAdExtension);
                 uploadEntities.Add(bulkStructuredSnippetAdExtension);
 
@@ -368,6 +446,7 @@ namespace BingAdsExamplesLibrary.V11
                 uploadEntities.Add(bulkCampaignCallAdExtension);
                 uploadEntities.Add(bulkCampaignCalloutAdExtension);
                 uploadEntities.Add(bulkCampaignLocationAdExtension);
+                uploadEntities.Add(bulkCampaignPriceAdExtension);
                 uploadEntities.Add(bulkCampaignReviewAdExtension);
                 uploadEntities.Add(bulkCampaignStructuredSnippetAdExtension);
 
@@ -406,6 +485,9 @@ namespace BingAdsExamplesLibrary.V11
 
                 var locationAdExtensionResults = downloadEntities.OfType<BulkLocationAdExtension>().ToList();
                 OutputBulkLocationAdExtensions(locationAdExtensionResults);
+
+                var priceAdExtensionResults = downloadEntities.OfType<BulkPriceAdExtension>().ToList();
+                OutputBulkPriceAdExtensions(priceAdExtensionResults);
 
                 var reviewAdExtensionResults = downloadEntities.OfType<BulkReviewAdExtension>().ToList();
                 OutputBulkReviewAdExtensions(reviewAdExtensionResults);
@@ -515,8 +597,20 @@ namespace BingAdsExamplesLibrary.V11
 
                 foreach (var locationAdExtensionResult in locationAdExtensionResults)
                 {
-                    locationAdExtensionResult.LocationAdExtension.Status = AdExtensionStatus.Deleted;
-                    uploadEntities.Add(locationAdExtensionResult);
+                    if (locationAdExtensionResult.LocationAdExtension.Id > 0)
+                    {
+                        locationAdExtensionResult.LocationAdExtension.Status = AdExtensionStatus.Deleted;
+                        uploadEntities.Add(locationAdExtensionResult);
+                    }
+                }
+
+                foreach (var priceAdExtensionResult in priceAdExtensionResults)
+                {
+                    if (priceAdExtensionResult.PriceAdExtension.Id > 0)
+                    {
+                        priceAdExtensionResult.PriceAdExtension.Status = AdExtensionStatus.Deleted;
+                        uploadEntities.Add(priceAdExtensionResult);
+                    }
                 }
 
                 foreach (var reviewAdExtensionResult in reviewAdExtensionResults)
@@ -567,6 +661,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkCalloutAdExtensions(downloadEntities.OfType<BulkCalloutAdExtension>().ToList());
                 OutputBulkImageAdExtensions(downloadEntities.OfType<BulkImageAdExtension>().ToList());
                 OutputBulkLocationAdExtensions(downloadEntities.OfType<BulkLocationAdExtension>().ToList());
+                OutputBulkPriceAdExtensions(downloadEntities.OfType<BulkPriceAdExtension>().ToList());
                 OutputBulkReviewAdExtensions(downloadEntities.OfType<BulkReviewAdExtension>().ToList());
                 OutputBulkSiteLinkAdExtensions(downloadEntities.OfType<BulkSiteLinkAdExtension>().ToList());
                 OutputBulkSitelink2AdExtensions(downloadEntities.OfType<BulkSitelink2AdExtension>().ToList());
