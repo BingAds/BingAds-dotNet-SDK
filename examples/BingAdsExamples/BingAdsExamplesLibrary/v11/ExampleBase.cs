@@ -563,7 +563,16 @@ namespace BingAdsExamplesLibrary.V11
                                                     }
                                                     else
                                                     {
-                                                        OutputStatusMessage("Unknown extension type");
+                                                        var priceAdExtension = extension as PriceAdExtension;
+                                                        if (priceAdExtension != null)
+                                                        {
+                                                            OutputPriceAdExtension(priceAdExtension);
+                                                            OutputStatusMessage("\n");
+                                                        }
+                                                        else
+                                                        {
+                                                            OutputStatusMessage("Unknown extension type\n");
+                                                        }
                                                     }
                                                 }
                                             }
@@ -864,22 +873,9 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", criterion.DestinationUrl));
                 OutputStatusMessage(string.Format("EditorialStatus: {0}", criterion.EditorialStatus));
                 OutputStatusMessage("FinalMobileUrls: ");
-                if (criterion.FinalMobileUrls != null)
-                {
-                    foreach (var finalMobileUrl in criterion.FinalMobileUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
-                    }
-                }
-
+                OutputUrls(criterion.FinalMobileUrls);
                 OutputStatusMessage("FinalUrls: ");
-                if (criterion.FinalUrls != null)
-                {
-                    foreach (var finalUrl in criterion.FinalUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalUrl));
-                    }
-                }
+                OutputUrls(criterion.FinalUrls);
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", criterion.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (criterion.UrlCustomParameters != null && criterion.UrlCustomParameters.Parameters != null)
@@ -1301,22 +1297,9 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", keyword.DestinationUrl));
                 OutputStatusMessage(string.Format("EditorialStatus: {0}", keyword.EditorialStatus));
                 OutputStatusMessage("FinalMobileUrls: ");
-                if (keyword.FinalMobileUrls != null)
-                {
-                    foreach (var finalMobileUrl in keyword.FinalMobileUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
-                    }
-                }
-
+                OutputUrls(keyword.FinalMobileUrls);
                 OutputStatusMessage("FinalUrls: ");
-                if (keyword.FinalUrls != null)
-                {
-                    foreach (var finalUrl in keyword.FinalUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalUrl));
-                    }
-                }
+                OutputUrls(keyword.FinalUrls);
                 OutputStatusMessage("ForwardCompatibilityMap: ");
                 if (keyword.ForwardCompatibilityMap != null)
                 {
@@ -1401,22 +1384,9 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("DevicePreference: {0}", ad.DevicePreference));
                 OutputStatusMessage(string.Format("EditorialStatus: {0}", ad.EditorialStatus));
                 OutputStatusMessage("FinalMobileUrls: ");
-                if (ad.FinalMobileUrls != null)
-                {
-                    foreach (var finalMobileUrl in ad.FinalMobileUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
-                    }
-                }
-
+                OutputUrls(ad.FinalMobileUrls);
                 OutputStatusMessage("FinalUrls: ");
-                if (ad.FinalUrls != null)
-                {
-                    foreach (var finalUrl in ad.FinalUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalUrl));
-                    }
-                }
+                OutputUrls(ad.FinalUrls);
                 OutputStatusMessage("ForwardCompatibilityMap: ");
                 if (ad.ForwardCompatibilityMap != null)
                 {
@@ -1858,25 +1828,11 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("AppPlatform: {0}", extension.AppPlatform));
                 OutputStatusMessage(string.Format("AppStoreId: {0}", extension.AppStoreId));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
-                OutputStatusMessage(string.Format("DevicePreference: {0}", extension.DevicePreference));
                 OutputStatusMessage(string.Format("DisplayText: {0}", extension.DisplayText));
                 OutputStatusMessage("FinalMobileUrls: ");
-                if (extension.FinalMobileUrls != null)
-                {
-                    foreach (var finalMobileUrl in extension.FinalMobileUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
-                    }
-                }
-
+                OutputUrls(extension.FinalMobileUrls);
                 OutputStatusMessage("FinalUrls: ");
-                if (extension.FinalUrls != null)
-                {
-                    foreach (var finalUrl in extension.FinalUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalUrl));
-                    }
-                }
+                OutputUrls(extension.FinalUrls);
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
@@ -1902,7 +1858,6 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Output properties that are specific to the CallAdExtension
                 OutputStatusMessage(string.Format("CountryCode: {0}", extension.CountryCode));
-                OutputStatusMessage(string.Format("DevicePreference: {0}", extension.DevicePreference));
                 OutputStatusMessage(string.Format("IsCallOnly: {0}", extension.IsCallOnly));
                 OutputStatusMessage(string.Format("IsCallTrackingEnabled: {0}", extension.IsCallTrackingEnabled));
                 OutputStatusMessage(string.Format("PhoneNumber: {0}", extension.PhoneNumber));
@@ -1925,22 +1880,9 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Description: {0}", extension.Description));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
                 OutputStatusMessage("FinalMobileUrls: ");
-                if (extension.FinalMobileUrls != null)
-                {
-                    foreach (var finalMobileUrl in extension.FinalMobileUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
-                    }
-                }
-
+                OutputUrls(extension.FinalMobileUrls);
                 OutputStatusMessage("FinalUrls: ");
-                if (extension.FinalUrls != null)
-                {
-                    foreach (var finalUrl in extension.FinalUrls)
-                    {
-                        OutputStatusMessage(string.Format("\t{0}", finalUrl));
-                    }
-                }
+                OutputUrls(extension.FinalUrls);
                 OutputStatusMessage("ImageMediaIds: ");
                 if (extension.ImageMediaIds != null)
                 {
@@ -2013,6 +1955,70 @@ namespace BingAdsExamplesLibrary.V11
             }
         }
 
+
+        /// <summary>
+        /// Outputs the PriceAdExtension.
+        /// </summary>
+        protected void OutputPriceAdExtension(PriceAdExtension extension)
+        {
+            if (extension != null)
+            {
+                // Output inherited properties of the AdExtension base class.
+                OutputAdExtension(extension);
+
+                // Output properties that are specific to the PriceAdExtension
+                OutputStatusMessage(string.Format("Language: {0}", extension.Language));
+                OutputStatusMessage(string.Format("PriceExtensionType: {0}", extension.PriceExtensionType));
+                OutputStatusMessage("Price table rows:");
+                OutputPriceTableRows(extension.TableRows);
+                OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
+                OutputStatusMessage("UrlCustomParameters: ");
+                if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
+                {
+                    foreach (var customParameter in extension.UrlCustomParameters.Parameters)
+                    {
+                        OutputStatusMessage(string.Format("\tKey: {0}", customParameter.Key));
+                        OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of PriceTableRow.
+        /// </summary>
+        protected void OutputPriceTableRows(IList<PriceTableRow> priceTableRows)
+        {
+            if (priceTableRows != null)
+            {
+                foreach (var priceTableRow in priceTableRows)
+                {
+                    OutputPriceTableRow(priceTableRow);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the PriceTableRow.
+        /// </summary>
+        protected void OutputPriceTableRow(PriceTableRow priceTableRow)
+        {
+            if (priceTableRow != null)
+            {
+                // Output properties that are specific to the PriceTableRow
+                OutputStatusMessage(string.Format("CurrencyCode: {0}", priceTableRow.CurrencyCode));
+                OutputStatusMessage(string.Format("Description: {0}", priceTableRow.Description));
+                OutputStatusMessage("FinalMobileUrls: ");
+                OutputUrls(priceTableRow.FinalMobileUrls);
+                OutputStatusMessage("FinalUrls: ");
+                OutputUrls(priceTableRow.FinalUrls);
+                OutputStatusMessage(string.Format("Header: {0}", priceTableRow.Header));
+                OutputStatusMessage(string.Format("Price: {0}", priceTableRow.Price));
+                OutputStatusMessage(string.Format("PriceQualifier: {0}", priceTableRow.PriceQualifier));
+                OutputStatusMessage(string.Format("PriceUnit: {0}", priceTableRow.PriceUnit));
+            }
+        }
+
         /// <summary>
         /// Outputs the ReviewAdExtension.
         /// </summary>
@@ -2052,6 +2058,7 @@ namespace BingAdsExamplesLibrary.V11
         /// </summary>
         protected void OutputAdExtension(AdExtension extension)
         {
+            OutputStatusMessage(string.Format("DevicePreference: {0}", extension.DevicePreference));
             OutputStatusMessage(string.Format("Id: {0}", extension.Id));
             OutputStatusMessage(string.Format("Type: {0}", extension.Type));
             OutputStatusMessage("ForwardCompatibilityMap: ");
@@ -2142,27 +2149,14 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("DevicePreference: {0}", siteLink.DevicePreference));
                     OutputStatusMessage(string.Format("DisplayText: {0}", siteLink.DisplayText));
                     OutputStatusMessage("FinalMobileUrls: ");
-                    if (siteLink.FinalMobileUrls != null)
-                    {
-                        foreach (var finalMobileUrl in siteLink.FinalMobileUrls)
-                        {
-                            OutputStatusMessage(string.Format("\t{0}", finalMobileUrl));
-                        }
-                    }
+                    OutputUrls(siteLink.FinalMobileUrls);
+                    OutputStatusMessage("FinalUrls: ");
+                    OutputUrls(siteLink.FinalUrls);
                     OutputStatusMessage("Scheduling: ");
                     if (siteLink.Scheduling != null)
                     {
                         OutputSchedule(siteLink.Scheduling);
                     }
-                    OutputStatusMessage("FinalUrls: ");
-                    if (siteLink.FinalUrls != null)
-                    {
-                        foreach (var finalUrl in siteLink.FinalUrls)
-                        {
-                            OutputStatusMessage(string.Format("\t{0}", finalUrl));
-                        }
-                    }
-
                     OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", siteLink.TrackingUrlTemplate));
                     OutputStatusMessage("UrlCustomParameters: ");
                     if (siteLink.UrlCustomParameters != null && siteLink.UrlCustomParameters.Parameters != null)
@@ -2191,33 +2185,11 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Description1: {0}", extension.Description1));
                 OutputStatusMessage(string.Format("Description2: {0}", extension.Description2));
                 OutputStatusMessage(string.Format("DestinationUrl: {0}", extension.DestinationUrl));
-                OutputStatusMessage(string.Format("DevicePreference: {0}", extension.DevicePreference));
                 OutputStatusMessage(string.Format("DisplayText: {0}", extension.DisplayText));
                 OutputStatusMessage("FinalMobileUrls: ");
-                if (extension.FinalMobileUrls != null)
-                {
-                    foreach (var url in extension.FinalMobileUrls)
-                    {
-                        // List of 10 strings will be returned, but in this example we won't output empty lines.
-                        if(url != null && url.Length > 0)
-                        {
-                            OutputStatusMessage(string.Format("\t{0}", url));
-                        }
-                    }
-                }
-
+                OutputUrls(extension.FinalMobileUrls);
                 OutputStatusMessage("FinalUrls: ");
-                if (extension.FinalUrls != null)
-                {
-                    foreach (var url in extension.FinalUrls)
-                    {
-                        // List of 10 strings will be returned, but in this example we won't output empty lines.
-                        if (url != null && url.Length > 0)
-                        {
-                            OutputStatusMessage(string.Format("\t{0}", url));
-                        }
-                    }
-                }
+                OutputUrls(extension.FinalUrls);
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", extension.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters: ");
                 if (extension.UrlCustomParameters != null && extension.UrlCustomParameters.Parameters != null)
@@ -2226,6 +2198,21 @@ namespace BingAdsExamplesLibrary.V11
                     {
                         OutputStatusMessage(string.Format("\tKey: {0}", customParameter.Key));
                         OutputStatusMessage(string.Format("\tValue: {0}", customParameter.Value));
+                    }
+                }
+            }
+        }
+
+        protected void OutputUrls(IList<string> urls)
+        {
+            if (urls != null)
+            {
+                foreach (var url in urls)
+                {
+                    // List of 10 strings will be returned, but in this example we won't output empty lines.
+                    if (url != null && url.Length > 0)
+                    {
+                        OutputStatusMessage(string.Format("\t{0}", url));
                     }
                 }
             }

@@ -231,6 +231,68 @@ namespace BingAdsExamplesLibrary.V11
                             },
                         }
                     },
+                    new PriceAdExtension
+                    {
+                        Language = "English",
+                        TableRows = new PriceTableRow[]
+                        {
+                            new PriceTableRow
+                            {
+                                CurrencyCode = "USD",
+                                Description = "Come to the event",
+                                FinalUrls = new string[]
+                                {
+                                    "https://contoso.com"
+                                },
+                                Header = "New Event",
+                                Price = 9.99,
+                                PriceQualifier = PriceQualifier.From,
+                                PriceUnit = PriceUnit.PerDay,
+                            },
+                            new PriceTableRow
+                            {
+                                CurrencyCode = "USD",
+                                Description = "Come to the next event",
+                                FinalUrls = new string[]
+                                {
+                                    "https://contoso.com"
+                                },
+                                Header = "Next Event",
+                                Price = 9.99,
+                                PriceQualifier = PriceQualifier.From,
+                                PriceUnit = PriceUnit.PerDay,
+                            },
+                            new PriceTableRow
+                            {
+                                CurrencyCode = "USD",
+                                Description = "Come to the final event",
+                                FinalUrls = new string[]
+                                {
+                                    "https://contoso.com"
+                                },
+                                Header = "Final Event",
+                                Price = 9.99,
+                                PriceQualifier = PriceQualifier.From,
+                                PriceUnit = PriceUnit.PerDay,
+                            },
+                        },
+                        PriceExtensionType = PriceExtensionType.Events,
+                        TrackingUrlTemplate = "http://tracker.com?url={lpurl}&matchtype={matchtype}",
+                        UrlCustomParameters = new CustomParameters
+                        {
+                            // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                            Parameters = new[] {
+                                new CustomParameter(){
+                                    Key = "promoCode",
+                                    Value = "PROMO1"
+                                },
+                                new CustomParameter(){
+                                    Key = "season",
+                                    Value = "summer"
+                                },
+                            }
+                        },
+                    },
                     new ReviewAdExtension
                     {
                         IsExact = true,
@@ -244,7 +306,7 @@ namespace BingAdsExamplesLibrary.V11
                         Values = new [] { "Windows", "Xbox", "Skype"}
                     }
                 };
-
+                
                 // Before migration only the deprecated SiteLinksAdExtension type can be added, 
                 // and after migration only the new Sitelink2AdExtension type can be added.
                 adExtensions = adExtensions.Concat(sitelinkMigrationIsCompleted ? (AdExtension[])
@@ -263,23 +325,26 @@ namespace BingAdsExamplesLibrary.V11
 
                 // DeleteAdExtensionsAssociations, SetAdExtensionsAssociations, and GetAdExtensionsEditorialReasons 
                 // operations each require a list of type AdExtensionIdToEntityIdAssociation.
-                var adExtensionIdToEntityIdAssociations = new AdExtensionIdToEntityIdAssociation[adExtensionIdentities.Count];
+                var adExtensionIdToEntityIdAssociations = new List<AdExtensionIdToEntityIdAssociation>();
 
                 // GetAdExtensionsByIds requires a list of type long.
-                var adExtensionIds = new long[adExtensionIdentities.Count];
+                var adExtensionIds = new List<long>();
 
                 // Loop through the list of extension IDs and build any required data structures
                 // for subsequent operations. 
 
-                for (int i = 0; i < adExtensionIdentities.Count; i++)
+                foreach(var adExtensionIdentity in adExtensionIdentities)
                 {
-                    adExtensionIdToEntityIdAssociations[i] = new AdExtensionIdToEntityIdAssociation
+                    if(adExtensionIdentity != null)
                     {
-                        AdExtensionId = adExtensionIdentities[i].Id,
-                        EntityId = (long)campaignIds[0]
-                    };
+                        adExtensionIdToEntityIdAssociations.Add(new AdExtensionIdToEntityIdAssociation
+                        {
+                            AdExtensionId = adExtensionIdentity.Id,
+                            EntityId = (long)campaignIds[0]
+                        });
 
-                    adExtensionIds[i] = adExtensionIdentities[i].Id;
+                        adExtensionIds.Add(adExtensionIdentity.Id);
+                    }
                 }
 
                 // Associate the specified ad extensions with the respective campaigns or ad groups. 
@@ -312,6 +377,8 @@ namespace BingAdsExamplesLibrary.V11
                     AdExtensionsTypeFilter.CalloutAdExtension |
                     AdExtensionsTypeFilter.ImageAdExtension |
                     AdExtensionsTypeFilter.LocationAdExtension |
+                    // You should remove this flag if your customer is not enabled for price ad extensions.
+                    AdExtensionsTypeFilter.PriceAdExtension |   
                     AdExtensionsTypeFilter.ReviewAdExtension |
                     AdExtensionsTypeFilter.StructuredSnippetAdExtension;
 

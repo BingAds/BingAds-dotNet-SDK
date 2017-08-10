@@ -68,6 +68,7 @@ namespace BingAdsExamplesLibrary.V11
         protected long calloutAdExtensionIdKey = -13;
         protected long imageAdExtensionIdKey = -14;
         protected long locationAdExtensionIdKey = -15;
+        protected long priceAdExtensionIdKey = -24;
         protected long reviewAdExtensionIdKey = -16;
         protected long siteLinksAdExtensionIdKey = -17;
         protected long sitelink2AdExtensionIdKey = -17;
@@ -1116,6 +1117,28 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputNegativeKeywordList(entity.NegativeKeywordList);
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkPriceAdExtension.
+        /// </summary>
+        protected void OutputBulkPriceAdExtensions(IEnumerable<BulkPriceAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("\nBulkPriceAdExtension: \n");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management PriceAdExtension Object
+                OutputPriceAdExtension(entity.PriceAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -2733,6 +2756,164 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return bulkLocationAdExtension;
+        }
+
+
+        protected BulkEntity GetBulkPriceAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkPriceAdExtension
+            var bulkPriceAdExtension = new BulkPriceAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // PriceAdExtension object of the Campaign Management service.
+                PriceAdExtension = new PriceAdExtension
+                {
+                    // 'Language' column header in the Bulk file
+                    Language = "English",
+                    // 'Id' column header in the Bulk file
+                    Id = priceAdExtensionIdKey,
+                    // 'Price Extension Type' column header in the Bulk file
+                    PriceExtensionType = PriceExtensionType.Events,
+
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                        {
+                            // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                            new DayTime
+                            {
+                                Day = Day.Monday,
+                                StartHour = 9,
+                                StartMinute = Minute.Zero,
+                                EndHour = 21,
+                                EndMinute = Minute.Zero,
+                            },
+                        },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+
+                    // TableRows must include between 3 and 8 PriceTableRow
+                    TableRows = new PriceTableRow[]
+                    {
+                        // Each PriceTableRow is mapped to columns with suffix 1..8. 
+                        // This example shows 3 price table rows i.e., with column suffix from 1..3
+                        new PriceTableRow
+                        {
+                            // 'Currency Code 1' column header in the Bulk file
+                            CurrencyCode = "USD",
+                            // 'Price Description 1' column header in the Bulk file
+                            Description = "Come to the new event",
+                            // 'Final Url 1' column header in the Bulk file
+                            FinalUrls = new[] {
+                                // Each Url is delimited by a semicolon (;) in the Bulk file
+                                "http://www.contoso.com/womenshoesale"
+                            },
+                            // 'Final Mobile Url 1' column header in the Bulk file
+                            FinalMobileUrls = new[] {
+                                // Each Url is delimited by a semicolon (;) in the Bulk file
+                                "http://mobile.contoso.com/womenshoesale"
+                            },
+                            // 'Header 1' column header in the Bulk file
+                            Header = "New Event",
+                            // 'Price 1' column header in the Bulk file
+                            Price = 9.99,
+                            // 'Price Qualifier 1' column header in the Bulk file
+                            PriceQualifier = PriceQualifier.From,
+                            // 'Price Unit 1' column header in the Bulk file
+                            PriceUnit = PriceUnit.PerDay,
+                        },
+                        new PriceTableRow
+                        {
+                            // 'Currency Code 2' column header in the Bulk file
+                            CurrencyCode = "USD",
+                            // 'Price Description 2' column header in the Bulk file
+                            Description = "Come to the next event",
+                            // 'Final Url 2' column header in the Bulk file
+                            FinalUrls = new[] {
+                                // Each Url is delimited by a semicolon (;) in the Bulk file
+                                "http://www.contoso.com/womenshoesale"
+                            },
+                            // 'Final Mobile Url 2' column header in the Bulk file
+                            FinalMobileUrls = new[] {
+                                // Each Url is delimited by a semicolon (;) in the Bulk file
+                                "http://mobile.contoso.com/womenshoesale"
+                            },
+                            // 'Header 2' column header in the Bulk file
+                            Header = "Next Event",
+                            // 'Price 2' column header in the Bulk file
+                            Price = 9.99,
+                            // 'Price Qualifier 2' column header in the Bulk file
+                            PriceQualifier = PriceQualifier.From,
+                            // 'Price Unit 2' column header in the Bulk file
+                            PriceUnit = PriceUnit.PerDay,
+                        },
+                        new PriceTableRow
+                        {
+                            // 'Currency Code 3' column header in the Bulk file
+                            CurrencyCode = "USD",
+                            // 'Price Description 3' column header in the Bulk file
+                            Description = "Come to the final event",
+                            // 'Final Url 3' column header in the Bulk file
+                            FinalUrls = new[] {
+                                // Each Url is delimited by a semicolon (;) in the Bulk file
+                                "http://www.contoso.com/womenshoesale"
+                            },
+                            // 'Final Mobile Url 3' column header in the Bulk file
+                            FinalMobileUrls = new[] {
+                                // Each Url is delimited by a semicolon (;) in the Bulk file
+                                "http://mobile.contoso.com/womenshoesale"
+                            },
+                            // 'Header 3' column header in the Bulk file
+                            Header = "Final Event",
+                            // 'Price 3' column header in the Bulk file
+                            Price = 9.99,
+                            // 'Price Qualifier 3' column header in the Bulk file
+                            PriceQualifier = PriceQualifier.From,
+                            // 'Price Unit 3' column header in the Bulk file
+                            PriceUnit = PriceUnit.PerDay,
+                        },
+                    },
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+            };
+
+            return bulkPriceAdExtension;
         }
 
         protected BulkEntity GetBulkReviewAdExtension()
