@@ -66,11 +66,11 @@ namespace BingAdsExamplesLibrary.V11
                 OutputConversionGoals(getConversionGoals);
 
                 // Every time you create a new OfflineConversionGoal via either the Bing Ads web application or Campaign Management API, 
-                // the MSCLKIDAutoTaggingEnabled value of the corresponding AccountProperty is set to True automatically.
+                // the MSCLKIDAutoTaggingEnabled value of the corresponding AccountProperty is set to 'true' automatically.
                 // We can confirm the setting now.
 
-                var accountPropertyNames = Enum.GetValues(typeof(AccountPropertyName)).Cast<AccountPropertyName>().ToList();
-                accountPropertyNames.Remove(AccountPropertyName.None);
+                var accountPropertyNames = new List<AccountPropertyName>();
+                accountPropertyNames.Add(AccountPropertyName.MSCLKIDAutoTaggingEnabled);
 
                 OutputStatusMessage("Get account properties...\n");
                 var getAccountPropertiesResponse = await GetAccountPropertiesAsync(accountPropertyNames);
@@ -88,7 +88,9 @@ namespace BingAdsExamplesLibrary.V11
                         // If it does not match you won't observe any error, although the offline
                         // conversion will not be counted.
                         ConversionName = offlineConversionGoalName,
-                        
+
+                        // The date and time must be in UTC, should align to the date and time of the 
+                        // recorded click (MicrosoftClickId), and cannot be in the future.
                         ConversionTime = DateTime.UtcNow,
 
                         // If you do not specify an offline conversion value, 
@@ -98,6 +100,10 @@ namespace BingAdsExamplesLibrary.V11
                         MicrosoftClickId = "f894f652ea334e739002f7167ab8f8e3"
                     }
                 };
+
+                // After the OfflineConversionGoal is set up, wait two hours before sending Bing Ads the offline conversions. 
+                // This example would not succeed in production because we created the goal very recently i.e., 
+                // please see above call to AddConversionGoalsAsync. 
 
                 OutputStatusMessage("Apply the offline conversion...\n");
                 var applyOfflineConversionsResponse = await ApplyOfflineConversionsAsync(offlineConversions);
