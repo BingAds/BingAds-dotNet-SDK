@@ -29,9 +29,9 @@ namespace BingAdsExamplesLibrary.V11
 
         private const string LanguageLocale = "en";
 
-        // The only supported file format version is 1.0. 
+        // The latest supported file format version is 2.0. 
 
-        private const string Version = "1.0";
+        private const string Version = "2.0";
 
         public override string Description
         {
@@ -54,7 +54,7 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Going forward you should track the date and time of the previous download,  
                 // and compare it with the last modified time provided by the service.
-                var previousSyncTimeUtc = new DateTime(2017, 5, 1, 0, 0, 0, DateTimeKind.Utc);
+                var previousSyncTimeUtc = new DateTime(2017, 8, 10, 0, 0, 0, DateTimeKind.Utc);
 
                 var fileUrl = getGeoLocationsFileUrlResponse.FileUrl;
                 var fileUrlExpiryTimeUtc = getGeoLocationsFileUrlResponse.FileUrlExpiryTimeUtc;
