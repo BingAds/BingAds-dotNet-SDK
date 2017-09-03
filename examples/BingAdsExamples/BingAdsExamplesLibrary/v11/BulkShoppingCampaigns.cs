@@ -156,8 +156,8 @@ namespace BingAdsExamplesLibrary.V11
                  * product ads from the product details that it finds in your Bing Merchant Center store's product catalog. 
                  * The primary purpose of the ProductAd object is to provide promotional text that the delivery engine 
                  * adds to the product ads that it generates. For example, if the promotional text is set to 
-                 * “Free shipping on $99 purchases”, the delivery engine will set the product ad’s description to 
-                 * “Free shipping on $99 purchases.”
+                 * 'Free shipping on $99 purchases', the delivery engine will set the product ad's description to 
+                 * 'Free shipping on $99 purchases.'
                  */
 
                 var bulkProductAd = new BulkProductAd
