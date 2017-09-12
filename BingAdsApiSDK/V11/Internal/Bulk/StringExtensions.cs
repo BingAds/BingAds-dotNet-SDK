@@ -145,6 +145,24 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             return (T?) Convert.ChangeType(s, typeof (T), ParsingCulture);
         }
 
+        public static DateTime? ParseOptionalDateTime(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+            DateTime dateValue;
+            if (DateTime.TryParseExact(s, StringTable.LocalDateTimeFormats, ParsingCulture, DateTimeStyles.None, out dateValue))
+            {
+                return dateValue;
+            }
+            else
+            {
+                return ParseOptional<DateTime>(s);
+            }
+
+        }
+
         public static string ToBulkString<T>(this T? value)
             where T : struct, IFormattable
         {
@@ -169,7 +187,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
         public static Date ParseDate(this string s)
         {
-            var dateTime = ParseOptional<DateTime>(s);
+            var dateTime = ParseOptionalDateTime(s);
 
             if (dateTime == null)
             {
@@ -177,6 +195,16 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             }
 
             return new Date {Year = dateTime.Value.Year, Month = dateTime.Value.Month, Day = dateTime.Value.Day};
+        }
+
+        public static DateTime ParseDateTime(this String s)
+        {
+            var dateTime = ParseOptionalDateTime(s);
+            if (dateTime == null)
+            {
+                return default(DateTime);
+            }
+            return dateTime.Value;
         }
 
         public static string ToDateBulkString(this Date date)

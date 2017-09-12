@@ -104,13 +104,13 @@ namespace Microsoft.BingAds.V11.Bulk
     {
         
         /// <summary>
-        /// Download the entity attributes records.
+        /// Download the entity attributes records e.g., Campaign and Ad Group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityData = 1,
         
         /// <summary>
-        /// Download the performance data fields for the corresponding entity records. The performance data is a summary aggregation per downloaded entity. If you want data aggregated by day, week, or month, you can use the Bing Ads Reporting API.
+        /// Download the performance data fields e.g., Spend, Impressions, and Clicks for the corresponding entity records. The performance data is a summary aggregation per downloaded entity. If you want data aggregated by day, week, or month, you can use the Bing Ads Reporting API.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityPerformanceData = 2,
@@ -122,7 +122,7 @@ namespace Microsoft.BingAds.V11.Bulk
         QualityScoreData = 4,
         
         /// <summary>
-        /// Download the bid suggestions records.
+        /// Download the bid suggestions records i.e., Keyword Best Position Bid, Keyword First Page Bid, and Keyword Main Line Bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidSuggestionsData = 8,

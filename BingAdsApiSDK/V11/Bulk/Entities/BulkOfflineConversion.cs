@@ -88,7 +88,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
             new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionTime,
                 c => c.OfflineConversion.ConversionTime.ToBulkString(),
-                (v, c) => c.OfflineConversion.ConversionTime = v.Parse<DateTime>()
+                (v, c) =>c.OfflineConversion.ConversionTime = v.ParseDateTime()
             ),
 
             new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionValue,

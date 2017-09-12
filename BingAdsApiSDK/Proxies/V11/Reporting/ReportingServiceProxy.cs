@@ -8140,7 +8140,7 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 12,
         
         /// <summary>
-        /// The maximum cost per click.
+        /// The maximum cost per click bid that was in effect at the time the report was generated. It is not a moving historical bid throughout the report time period.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 13,
@@ -9802,19 +9802,19 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The country used to deliver the ad.
+        /// The country where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
         
         /// <summary>
-        /// The state used to deliver the ad.
+        /// The state where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         State = 9,
         
         /// <summary>
-        /// The metro area used to deliver the ad.
+        /// The metro area where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -9886,13 +9886,13 @@ namespace Microsoft.BingAds.V11.Reporting
         Language = 21,
         
         /// <summary>
-        /// The city used to deliver the ad.
+        /// The city where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 22,
         
         /// <summary>
-        /// The name of a country if the user's geographical intent can be determined. The country is set if the user's intent is a country or sub geography of the country, and not necessarily if they are physically located in the country.
+        /// The name of a country if the user's geographical intent can be determined. The country is set if the user's intent is related to a country, and not necessarily if they are physically located in the county.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCountry = 23,
@@ -9904,7 +9904,7 @@ namespace Microsoft.BingAds.V11.Reporting
         QueryIntentState = 24,
         
         /// <summary>
-        /// The name of a city if the user's geographical intent can be determined. The city is set if the user's intent is a city, and not necessarily if they are physically located in the city. For example, the user's search query was rental cars in Portland.
+        /// The name of a city if the user's geographical intent can be determined. The city is set if the user's intent is a city, and not necessarily if they are physically located in the city.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCity = 25,
@@ -10004,6 +10004,42 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 41,
+        
+        /// <summary>
+        /// The county where the user was physically located when they clicked the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        County = 42,
+        
+        /// <summary>
+        /// The postal code where the user was physically located when they clicked the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostalCode = 43,
+        
+        /// <summary>
+        /// The name of a county if the user's geographical intent can be determined. The county is set if the user's intent is related to a county, and not necessarily if they are physically located in the county.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        QueryIntentCounty = 44,
+        
+        /// <summary>
+        /// The name of a postal code if the user's geographical intent can be determined. The postal code is set if the user's intent is a postal code, and not necessarily if they are physically located in the postal code.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        QueryIntentPostalCode = 45,
+        
+        /// <summary>
+        /// The Bing Ads identifier of the location where the user was physically located when they clicked the ad. For geographical location identifiers, see Geographical Location Codes.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LocationId = 46,
+        
+        /// <summary>
+        /// The location identifier if the user's geographical intent can be determined.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        QueryIntentLocationId = 47,
     }
     
     /// <summary>
@@ -14343,7 +14379,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ImpressionLostToBidPercent = 25,
         
         /// <summary>
-        /// The maximum cost per click.
+        /// The maximum cost per click bid that was in effect at the time the report was generated. It is not a moving historical bid throughout the report time period.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 26,
@@ -15270,7 +15306,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdId = 11,
         
         /// <summary>
-        /// The maximum cost per click.
+        /// The maximum cost per click bid that was in effect at the time the report was generated. It is not a moving historical bid throughout the report time period.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 12,
@@ -15780,7 +15816,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdId = 10,
         
         /// <summary>
-        /// The maximum cost per click.
+        /// The maximum cost per click bid that was in effect at the time the report was generated. It is not a moving historical bid throughout the report time period.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 11,
@@ -16885,25 +16921,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The country used to deliver the ad.
+        /// The country where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
         
         /// <summary>
-        /// The state used to deliver the ad.
+        /// The state where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         State = 9,
         
         /// <summary>
-        /// The metro area used to deliver the ad.
+        /// The metro area where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
         
         /// <summary>
-        /// The city used to deliver the ad.   Note: The LocationType column identifies whether the user was located in, searching for, or viewing pages about the location.
+        /// The city where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 11,
@@ -17093,6 +17129,24 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 42,
+        
+        /// <summary>
+        /// The county where the user was physically located when they clicked the ad. Note: The LocationType column identifies whether the user was located in, searching for, or viewing pages about the location.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        County = 43,
+        
+        /// <summary>
+        /// The postal code where the user was physically located when they clicked the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostalCode = 44,
+        
+        /// <summary>
+        /// The Bing Ads identifier of the location where the user was physically located when they clicked the ad. For geographical location identifiers, see Geographical Location Codes.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LocationId = 45,
     }
     
     /// <summary>
@@ -17400,7 +17454,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Headline = 14,
         
         /// <summary>
-        /// The list of categories that Bing matched to your website. Up to three category levels can be returned per category list item. The list items will be seperated by a semicolon ( ;), and within each category list item the category levels will be separated by a forward slash ('/'). For example in the downloaded report data the categories might be US/CA/SFO; US/WA/SEA; US/TX.
+        /// The list of categories that Bing matched to your website. Up to three category levels can be returned per category list item. The list items are JSON encoded i.e., an array named categoryList with one or more category list items. For example, in the downloaded report data the categories might be {'categoryList':[{'category':'US/CA/SFO'},{'category':'US/WA/SEA'},{'category':'US/TX'}]}.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CategoryList = 15,

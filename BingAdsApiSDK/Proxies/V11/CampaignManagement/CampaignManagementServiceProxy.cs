@@ -2199,7 +2199,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// A list of URLs of the websites on which you do not want your ads displayed. You can specify a maximum of 2,500 URLs. Each URL must specify the domain name e.g., contoso.com which can include up to two subdomains and two subdirectories. For example a.b.contoso.com/1/2 is a valid URL whereas a.b.c.contoso.com/1/2 (too many subdomains) and a.b.contoso.com/1/2/3 (too many subdirectories) are not. Duplicate URLs in the list are not added.
+        /// A list of URLs of the websites on which you do not want your ads displayed. You can specify a maximum of 2,500 URLs. Each URL must specify the domain name e.g., contoso.com which can include up to three subdomains and two subdirectories. The subdomain count includes the www prefix. For example one.two.three.contoso.com/1/2, www.two.three.contoso.com/1/2, and one.two.contoso.co.uk/1/2 are valid URLs, whereas one.two.three.contoso.co.uk/1/2 (too many subdomains) and one.two.three.contoso.com/1/2/3 (too many subdirectories) are not. Duplicate URLs in the list are not added.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> NegativeSites
@@ -2557,7 +2557,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// The targeting setting that is applicable for all remarketing lists that are associated with this ad group. Each remarketing list can be associated with multiple ad groups, and each ad group's remarketing targeting setting is applied independently for delivery.
+        /// The targeting setting that is applicable for all audiences e.g., custom audiences and remarketing lists that are associated with this ad group. Each audience can be associated with multiple ad groups, and each ad group's remarketing targeting setting is applied independently for delivery.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.RemarketingTargetingSetting> RemarketingTargetingSetting
@@ -3008,7 +3008,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the targeting setting that is applicable for all remarketing lists that are associated with a given ad group. Each remarketing list can be associated with multiple ad groups, and each ad group's remarketing targeting setting is applied independently for delivery.
+    /// The targeting setting that is applicable for all audiences e.g., custom audiences and remarketing lists that are associated with this ad group. Each audience can be associated with multiple ad groups, and each ad group's remarketing targeting setting is applied independently for delivery.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt735046(v=msads.110).aspx">RemarketingTargetingSetting Value Set</see> http://msdn.microsoft.com/en-us/library/mt735046(v=msads.110).aspx for details.
@@ -3020,13 +3020,13 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Show ads to people searching for your ad, with the option to change the bid amount for people included in the remarketing list. Ads in this ad group can show to everyone but the bid adjustment will apply to people included in the remarketing list.
+        /// Show ads to people searching for your ad, with the option to change the bid amount for people included in the audience. Ads in this ad group can show to everyone but the bid adjustment will apply to people included in the audience.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidOnly = 0,
         
         /// <summary>
-        /// Show ads only to people included in the remarketing list, with the option to change the bid amount. Ads in this ad group will only show to people included in the remarketing list.
+        /// Show ads only to people included in the audience, with the option to change the bid amount. Ads in this ad group will only show to people included in the audience.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TargetAndBid = 1,
@@ -3095,7 +3095,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a list of optional AdGroup properties that you can request when calling GetAdGroupsByCampaignId and GetAdGroupsByIds. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding properties will be included in the AdGroup object by default.
+    /// Defines additional properties of an AdGroup object, or properties of objects nested within an ad group, that you can request when calling GetAdGroupsByCampaignId and GetAdGroupsByIds. These properties are not returned by the corresponding service operations unless you request them by name. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding properties will be included with the AdGroup by default.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt709095(v=msads.110).aspx">AdGroupAdditionalField Value Set</see> http://msdn.microsoft.com/en-us/library/mt709095(v=msads.110).aspx for details.
@@ -3170,7 +3170,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// A list of URLs of the websites on which you do not want your ads displayed. You can specify a maximum of 2,500 URLs. Each URL must specify the domain name e.g., contoso.com which can include up to two subdomains and two subdirectories. For example a.b.contoso.com/1/2 is a valid URL whereas a.b.c.contoso.com/1/2 (too many subdomains) and a.b.contoso.com/1/2/3 (too many subdirectories) are not. Duplicate URLs in the list are not added.
+        /// A list of URLs of the websites on which you do not want your ads displayed. You can specify a maximum of 2,500 URLs. Each URL must specify the domain name e.g., contoso.com which can include up to three subdomains and two subdirectories. The subdomain count includes the www prefix. For example one.two.three.contoso.com/1/2, www.two.three.contoso.com/1/2, and one.two.contoso.co.uk/1/2 are valid URLs, whereas one.two.three.contoso.co.uk/1/2 (too many subdomains) and one.two.three.contoso.com/1/2/3 (too many subdirectories) are not. Duplicate URLs in the list are not added.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> NegativeSites
@@ -3765,10 +3765,13 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Path2Field;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitlePart1Field;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitlePart2Field;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -3822,7 +3825,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Text
         {
             get
@@ -3839,7 +3842,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string TitlePart1
         {
             get
@@ -3856,7 +3859,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string TitlePart2
         {
             get
@@ -4699,7 +4702,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a list of optional Keyword properties that you can request when calling GetKeywordsByAdGroupId, GetKeywordsByEditorialStatus, and GetKeywordsByIds. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding propertys will be included in the Keyword object by default.
+    /// Defines additional properties of a Keyword object, or properties of objects nested within a keyword, that you can request when calling GetKeywordsByAdGroupId, GetKeywordsByEditorialStatus, and GetKeywordsByIds. These properties are not returned by the corresponding service operations unless you request them by name. This set of flags enables you to get the latest features using the current version of Bing Ads Campaign Management API, and in the next version the corresponding propertys will be included in the Keyword object by default.
     /// </summary>
     /// <remarks>
     /// See <see href="http://msdn.microsoft.com/en-us/library/mt709096(v=msads.110).aspx">KeywordAdditionalField Value Set</see> http://msdn.microsoft.com/en-us/library/mt709096(v=msads.110).aspx for details.
@@ -5548,6 +5551,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdExtensionStatus> StatusField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -5668,7 +5672,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The type of ad extension. For more information, see Remarks.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type
         {
             get
@@ -6747,12 +6751,16 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     public partial class Sitelink2AdExtension : Microsoft.BingAds.V11.CampaignManagement.AdExtension
     {
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Description1Field;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Description2Field;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DestinationUrlField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DisplayTextField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -6770,7 +6778,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V11.CampaignManagement.CustomParameters UrlCustomParametersField;
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description1
         {
             get
@@ -6787,7 +6795,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description2
         {
             get
@@ -6804,7 +6812,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string DestinationUrl
         {
             get
@@ -6821,7 +6829,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string DisplayText
         {
             get
@@ -6942,7 +6950,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private System.Collections.Generic.IList<string> ValuesField;
         
         /// <summary>
-        /// The header that is appended with a colon ( :) and precedes the snippet values. The following are possible headers that you can specify: Amenities, Brands, Courses, Degree programs, Destinations, Featured hotels, Insurance coverage, Models, Neighborhoods, Service catalog, Shows, Styles, and Types.
+        /// The header that is appended with a colon ( :) and precedes the snippet values. Structured Snippet headers must be specified in the same language that you intend it to be shown. For example, if you want header Amenities in English you must specify the header as Amenities. If you want header Ausstattung in German you must specify the header as Ausstattung ( Amenities in German). For a list of supported headers per language, please see Structured Snippet Header Languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Header
@@ -12188,13 +12196,14 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     public partial class NegativeKeyword : Microsoft.BingAds.V11.CampaignManagement.SharedListItem
     {
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
         
         private Microsoft.BingAds.V11.CampaignManagement.MatchType MatchTypeField;
         
         private string TextField;
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
             get
@@ -12267,6 +12276,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TypeField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -12304,7 +12314,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The type of the shared list item. For more information about shared list item types, see Remarks.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type
         {
             get
@@ -12421,10 +12431,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
         
         private string NameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TypeField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -12482,7 +12494,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The unique Bing Ads identifier of the shared entity.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
             get
@@ -12522,7 +12534,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The type of the shared entity. For more information about shared entity types, see SharedEntity Data Object Remarks.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type
         {
             get
@@ -12566,12 +12578,13 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     public partial class SharedList : Microsoft.BingAds.V11.CampaignManagement.SharedEntity
     {
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> ItemCountField;
         
         /// <summary>
         /// The number of SharedListItem objects that are added to this shared list.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> ItemCount
         {
             get
@@ -12832,6 +12845,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -12915,7 +12929,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The unique Bing Ads identifier for the campaign criterion.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
             get

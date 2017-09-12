@@ -101,7 +101,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
             new SimpleBulkMapping<BulkAccount>(StringTable.SyncTime,
                 c => c.SyncTime.ToBulkString(),
-                (v, c) => c.SyncTime = v.Parse<DateTime>()
+                (v, c) => c.SyncTime = v.ParseDateTime()
             )
         };
 

@@ -106,7 +106,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk.Entities
 
             new SimpleBulkMapping<SingleRecordBulkEntity>(StringTable.LastModifiedTime,
                 c => c.LastModifiedTime.ToBulkString(),
-                (v, c) => c._lastModifiedTime = v.ParseOptional<DateTime>()
+                (v, c) => c._lastModifiedTime = v.ParseOptionalDateTime()
             )
         };
 
