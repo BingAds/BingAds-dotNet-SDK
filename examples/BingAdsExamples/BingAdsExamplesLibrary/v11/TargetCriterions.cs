@@ -6,16 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.V11.CampaignManagement;
 using Microsoft.BingAds;
 
-using ICampaignManagementServiceV10 = Microsoft.BingAds.V10.CampaignManagement.ICampaignManagementService;
-
-using AddTargetsToLibraryRequestV10 = Microsoft.BingAds.V10.CampaignManagement.AddTargetsToLibraryRequest;
-using AddTargetsToLibraryResponseV10 = Microsoft.BingAds.V10.CampaignManagement.AddTargetsToLibraryResponse;
-using SetTargetToAdGroupRequestV10 = Microsoft.BingAds.V10.CampaignManagement.SetTargetToAdGroupRequest;
-
-using TargetV10 = Microsoft.BingAds.V10.CampaignManagement.Target;
-using DeviceOSTargetV10 = Microsoft.BingAds.V10.CampaignManagement.DeviceOSTarget;
-using DeviceOSTargetBidV10 = Microsoft.BingAds.V10.CampaignManagement.DeviceOSTargetBid;
-
 namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
@@ -23,11 +13,9 @@ namespace BingAdsExamplesLibrary.V11
     /// </summary>
     public class TargetCriterions : ExampleBase
     {
-        public static ServiceClient<ICampaignManagementServiceV10> CampaignServiceV10;
-
         public override string Description
         {
-            get { return "Target Criterions | Campaign Management V10 to V11"; }
+            get { return "Target Criterions | Campaign Management V11"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -35,7 +23,6 @@ namespace BingAdsExamplesLibrary.V11
             try
             {
                 CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
-                CampaignServiceV10 = new ServiceClient<ICampaignManagementServiceV10>(authorizationData);
 
                 List<long> campaignIds = (await GetExampleCampaignIdsAsync(authorizationData)).ToList();
                 
@@ -99,21 +86,10 @@ namespace BingAdsExamplesLibrary.V11
                             campaignCriterions: campaignCriterions,
                             criterionType: CampaignCriterionType.Targets
                         );
+                        
+                        // Capture the new criterion IDs.
 
-                        // If the campaign used to share target criterions with another campaign or ad group,
-                        // and the add operation resulted in new target criterion identifiers for this campaign,
-                        // then we need to get the new criterion IDs.
-
-                        // Otherwise we only need to capture the new criterion IDs.
-
-                        if (addCampaignCriterionsResponse.IsMigrated == true)
-                        {
-                            campaignCriterions = (await GetCampaignCriterionsByIdsAsync(
-                                campaignId: campaignId,
-                                campaignCriterionIds: null,
-                                criterionType: AllTargetCampaignCriterionTypes)).CampaignCriterions.ToList();
-                        }
-                        else if (addCampaignCriterionsResponse?.CampaignCriterionIds.Count > 0)
+                        if (addCampaignCriterionsResponse?.CampaignCriterionIds.Count > 0)
                         {
                             var criterionIds = addCampaignCriterionsResponse?.CampaignCriterionIds;
                             for (int index = 0; index < criterionIds.Count; index++)
@@ -123,8 +99,7 @@ namespace BingAdsExamplesLibrary.V11
                         }
                     }
                     
-                    // You can now store or output the campaign criterions, whether or not they were 
-                    // migrated from a shared target library.
+                    // You can now store or output the campaign criterions.
 
                     OutputStatusMessage("Campaign Criterions: \n");
                     OutputCampaignCriterions(campaignCriterions);
@@ -146,44 +121,34 @@ namespace BingAdsExamplesLibrary.V11
                             criterionType: AllTargetAdGroupCriterionTypes)).AdGroupCriterions.ToList();
 
 
-                        // If the Smartphones device criterion already exists, we'll increase the bid multiplier by 5 percent.
- 
-                        var updateAdGroupCriterions = new List<AdGroupCriterion>();
-                        foreach(var adGroupCriterion in adGroupCriterions)
+                        if(adGroupCriterions != null)
                         {
-                            var deviceCriterion = adGroupCriterion.Criterion as DeviceCriterion;
-                            if(deviceCriterion != null && string.Equals(deviceCriterion.DeviceName, "Smartphones"))
+                            // If the Smartphones device criterion already exists, we'll increase the bid multiplier by 5 percent.
+
+                            var updateAdGroupCriterions = new List<AdGroupCriterion>();
+                            foreach (var adGroupCriterion in adGroupCriterions)
                             {
-                                ((BidMultiplier)((BiddableAdGroupCriterion)adGroupCriterion).CriterionBid).Multiplier *= 1.05;
-                                updateAdGroupCriterions.Add(adGroupCriterion);
+                                var deviceCriterion = adGroupCriterion.Criterion as DeviceCriterion;
+                                if (deviceCriterion != null && string.Equals(deviceCriterion.DeviceName, "Smartphones"))
+                                {
+                                    ((BidMultiplier)((BiddableAdGroupCriterion)adGroupCriterion).CriterionBid).Multiplier *= 1.05;
+                                    updateAdGroupCriterions.Add(adGroupCriterion);
+                                }
                             }
-                        }
-                        
-                        if (updateAdGroupCriterions != null && updateAdGroupCriterions.ToList().Count > 0)
-                        {
-                            var updateAdGroupCriterionsResponse = await UpdateAdGroupCriterionsAsync(
-                                adGroupCriterions: updateAdGroupCriterions,
-                                criterionType: AdGroupCriterionType.Targets
-                            );
 
-                            // If the ad group used to share target criterions with another campaign or ad group,
-                            // and the update operation resulted in new target criterion identifiers for this ad group,
-                            // then we need to get the new criterion IDs.
-
-                            if (updateAdGroupCriterionsResponse.IsMigrated == true)
+                            if (updateAdGroupCriterions != null && updateAdGroupCriterions.ToList().Count > 0)
                             {
-                                adGroupCriterions = (await GetAdGroupCriterionsByIdsAsync(
-                                    adGroupId: adGroupId,
-                                    adGroupCriterionIds: null,
-                                    criterionType: AllTargetAdGroupCriterionTypes)).AdGroupCriterions.ToList();
+                                var updateAdGroupCriterionsResponse = await UpdateAdGroupCriterionsAsync(
+                                    adGroupCriterions: updateAdGroupCriterions,
+                                    criterionType: AdGroupCriterionType.Targets
+                                );
                             }
-                        }
-                        
-                        // You can now store or output the ad group criterions, whether or not they were 
-                        // migrated from a shared target library.
 
-                        OutputStatusMessage("Ad Group Criterions: ");
-                        OutputAdGroupCriterions(adGroupCriterions);
+                            // You can now store or output the ad group criterions.
+
+                            OutputStatusMessage("Ad Group Criterions: ");
+                            OutputAdGroupCriterions(adGroupCriterions);
+                        }
                     }
                 }
 
@@ -270,21 +235,7 @@ namespace BingAdsExamplesLibrary.V11
             BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
             OutputIds(nillableAdGroupIds);
             OutputPartialErrors(adGroupErrors);
-
-            // This example uses the deprecated version 10 shared target library in order to later demonstrate
-            // the inline migration from shared target criterions to unshared target criterions.
-
-            List<long> adGroupIds = new List<long>();
-            foreach (var adGroupId in nillableAdGroupIds)
-            {
-                adGroupIds.Add((long)adGroupId);
-            }
-
-            // The shared target ID is output within the ShareDeprecatedTargetsAsync method.
-            // We won't do anything further with it in this example.
-
-            var sharedTargetId = await ShareDeprecatedTargetsAsync(authorizationData, adGroupIds);
-
+            
             List<long> campaignIds = new List<long>();
             foreach (var campaignId in nillableCampaignIds)
             {
@@ -292,76 +243,6 @@ namespace BingAdsExamplesLibrary.V11
             }
 
             return campaignIds;
-        }
-
-        /// <summary>
-        /// Shares a target with multiple new ad groups. This helper function is used to setup
-        /// criterion migration scenarios.
-        /// 
-        /// This is an example of a deprecated scenario. In Bing Ads API version 11 you can no longer use 
-        /// the AddTargetsToLibrary, SetTargetToCampaign, or SetTargetToAdGroup operations. Instead you will 
-        /// be required to use criterions. Support for targets will end no later than the sunset 
-        /// of Bing Ads API version 10. 
-        /// </summary>
-        /// <param name="authorizationData"></param>
-        /// <returns></returns>
-        private async Task<long> ShareDeprecatedTargetsAsync(
-            AuthorizationData authorizationData,
-            IList<long> adGroupIds)
-        {            
-            var sharedTarget = new TargetV10
-            {
-                Name = "My Target",
-
-                DeviceOS = new DeviceOSTargetV10
-                {
-                    Bids = new[]
-                    {
-                            new DeviceOSTargetBidV10
-                            {
-                                BidAdjustment = 20,
-                                DeviceName = "Computers",
-                            },
-                        },
-                },
-            };
-
-            var addTargetsToLibraryResponse = await AddTargetsToLibraryAsync(new[] { sharedTarget });
-            var sharedTargetId = addTargetsToLibraryResponse.TargetIds[0];
-            OutputStatusMessage(string.Format("Added Target Id: {0}\n", sharedTargetId));
-
-            await SetTargetToAdGroupAsync(adGroupIds[0], sharedTargetId);
-            OutputStatusMessage(string.Format("Associated AdGroupId {0} with TargetId {1}.\n", adGroupIds[0], sharedTargetId));
-            await SetTargetToAdGroupAsync(adGroupIds[1], sharedTargetId);
-            OutputStatusMessage(string.Format("Associated AdGroupId {0} with TargetId {1}.\n", adGroupIds[1], sharedTargetId));
-            await SetTargetToAdGroupAsync(adGroupIds[2], sharedTargetId);
-            OutputStatusMessage(string.Format("Associated AdGroupId {0} with TargetId {1}.\n", adGroupIds[2], sharedTargetId));
-            
-            return sharedTargetId;
-        }
-
-        // Adds the specified Target object to the customer library. 
-        private async Task<AddTargetsToLibraryResponseV10> AddTargetsToLibraryAsync(IList<TargetV10> targets)
-        {
-            var request = new AddTargetsToLibraryRequestV10
-            {
-                Targets = targets
-            };
-
-            return (await CampaignServiceV10.CallAsync((s, r) => s.AddTargetsToLibraryAsync(r), request));
-        }
-        
-        // Associates the specified ad group and target. 
-        private async Task SetTargetToAdGroupAsync(long adGroupId, long targetId)
-        {
-            var request = new SetTargetToAdGroupRequestV10
-            {
-                AdGroupId = adGroupId,
-                TargetId = targetId,
-                ReplaceAssociation = true
-            };
-
-            await CampaignServiceV10.CallAsync((s, r) => s.SetTargetToAdGroupAsync(r), request);
         }
     }
 }

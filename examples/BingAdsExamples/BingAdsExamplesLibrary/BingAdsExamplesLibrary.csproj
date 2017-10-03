@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BingAds">
-      <HintPath>..\..\..\BingAdsApiSDK\bin\Debug\Microsoft.BingAds.dll</HintPath>
+    <Reference Include="Microsoft.BingAds, Version=11.5.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.BingAds.SDK.11.5.5\lib\net45\Microsoft.BingAds.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,29 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExampleBase.cs" />
-    <Compile Include="v10\BulkFindSharedTargetCriterions.cs" />
-    <Compile Include="v10\GeographicalLocations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="v10\AdExtensions.cs" />
-    <Compile Include="v10\BudgetOpportunities.cs" />
-    <Compile Include="v10\BulkAdExtensions.cs" />
-    <Compile Include="v10\BulkExampleBase.cs" />
-    <Compile Include="v10\BulkKeywordsAds.cs" />
-    <Compile Include="v10\BulkNegativeKeywords.cs" />
-    <Compile Include="v10\BulkNegativeSites.cs" />
-    <Compile Include="v10\BulkProductPartitionUpdateBid.cs" />
-    <Compile Include="v10\BulkRemarketingLists.cs" />
-    <Compile Include="v10\BulkServiceManagerDemo.cs" />
-    <Compile Include="v10\BulkShoppingCampaigns.cs" />
-    <Compile Include="v10\BulkTargets.cs" />
-    <Compile Include="v10\ConversionGoals.cs" />
-    <Compile Include="v10\DynamicSearchCampaigns.cs" />
-    <Compile Include="v10\ExampleBase.cs" />
-    <Compile Include="v10\KeywordsAds.cs" />
-    <Compile Include="v10\NegativeKeywords.cs" />
-    <Compile Include="v10\RemarketingLists.cs" />
-    <Compile Include="v10\ShoppingCampaigns.cs" />
-    <Compile Include="v10\Targets.cs" />
     <Compile Include="v11\AdExtensions.cs" />
     <Compile Include="v11\BudgetOpportunities.cs" />
     <Compile Include="v11\BulkAdExtensions.cs" />
@@ -100,12 +79,9 @@
     <Compile Include="v11\SearchUserAccounts.cs" />
     <Compile Include="v11\ShoppingCampaigns.cs" />
     <Compile Include="v11\TargetCriterions.cs" />
-    <Compile Include="v9\CustomerSignup.cs" />
-    <Compile Include="v9\ExampleBase.cs" />
-    <Compile Include="v9\InviteUser.cs" />
-    <Compile Include="v9\ManageClient.cs" />
-    <Compile Include="v9\ReportRequests.cs" />
-    <Compile Include="v9\SearchUserAccounts.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
