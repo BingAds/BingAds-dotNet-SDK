@@ -145,7 +145,7 @@ namespace BingAdsWpfApp
                     ex.Details.Error, ex.Details.Description));
             }
                 // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error =>
                 {
@@ -159,7 +159,7 @@ namespace BingAdsWpfApp
                 OutputStatusMessage(string.Join("; ",
                     ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ",
                     ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
