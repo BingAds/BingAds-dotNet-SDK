@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BingAds, Version=11.5.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.BingAds.SDK.11.5.5\lib\net45\Microsoft.BingAds.dll</HintPath>
+    <Reference Include="Microsoft.BingAds, Version=11.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.BingAds.SDK.11.5.6\lib\net45\Microsoft.BingAds.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
