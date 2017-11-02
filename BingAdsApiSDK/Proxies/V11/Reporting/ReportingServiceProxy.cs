@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the base object for all report requests.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671813(v=msads.110).aspx">ReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671813(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequest?version=11">ReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequest?version=11 for details.
     /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -146,7 +146,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// Determines whether or not the downloaded report should contain header descriptions for each column. The report column header matches the requested column name e.g. Impressions and Clicks.
+        /// Determines whether or not the downloaded report should contain header descriptions for each column.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeColumnHeaders
@@ -166,7 +166,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright ( ©2017 Microsoft Corporation. All rights reserved.). Set this property true if you want the report footer metadata excluded from the downloaded report. The default value is false.
+        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright (@2017 Microsoft Corporation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeReportFooter
@@ -206,7 +206,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The format of the report data. For example, you can request the data in comma-separated values (Csv) format or tab-separated values (Tsv) format.
+        /// The format of the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.ReportFormat> Format
@@ -246,7 +246,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The name of the report. The name is included in the report header. If you do not specify a report name, the system generates a name in the form, ReportType-ReportDateTime.
+        /// The name of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ReportName
@@ -298,10 +298,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an account performance report request. Use this report to observe long-term account performance and trends. You can request impressions, impression share (%), clicks, spend, and average cost per click for individual accounts. Once downloaded, this data can be sorted by individual accounts, currency, bid match type, and delivered match type.
+    /// Defines an account performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671927(v=msads.110).aspx">AccountPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671927(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportrequest?version=11">AccountPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -322,7 +322,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
@@ -342,7 +342,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AccountPerformanceReportColumn> Columns
@@ -382,7 +382,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for one or more accounts.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountReportScope Scope
@@ -402,7 +402,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -423,10 +423,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a campaign performance report request. Use this report to view high-level performance statistics and quality attributes for each campaign or account. This is also a quick way to flag any major campaign or account problems.
+    /// Defines a campaign performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671804(v=msads.110).aspx">CampaignPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671804(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportrequest?version=11">CampaignPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -447,7 +447,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
@@ -467,7 +467,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.CampaignPerformanceReportColumn> Columns
@@ -507,7 +507,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughCampaignReportScope Scope
@@ -527,7 +527,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -548,10 +548,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an ad dynamic text performance report request. Use this report to identify which dynamic text strings are performing well and which strings you should consider changing.
+    /// Defines an ad dynamic text performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671950(v=msads.110).aspx">AdDynamicTextPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671950(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportrequest?version=11">AdDynamicTextPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -571,6 +571,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -588,6 +591,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AdDynamicTextPerformanceReportColumn> Columns
         {
@@ -605,6 +611,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.AdDynamicTextPerformanceReportFilter Filter
         {
@@ -622,6 +631,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -639,6 +651,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -658,10 +673,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an ad group performance report request. Use this report to more broadly compare delivery performance statistics by ad group, campaign, or account attributes rather than at the keyword level.
+    /// Defines an ad group performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671686(v=msads.110).aspx">AdGroupPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671686(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportrequest?version=11">AdGroupPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -682,7 +697,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
@@ -702,7 +717,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AdGroupPerformanceReportColumn> Columns
@@ -742,7 +757,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -762,7 +777,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -783,10 +798,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an ad performance report request. Use this report to help you determine which ads lead to clicks and conversions, and which are not performing. Having underperforming ads in your account can pull down the quality of your campaigns.
+    /// Defines an ad performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672006(v=msads.110).aspx">AdPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb672006(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportrequest?version=11">AdPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -807,7 +822,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
@@ -827,7 +842,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AdPerformanceReportColumn> Columns
@@ -867,7 +882,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -887,7 +902,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -908,10 +923,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a keyword performance report request. Use this report to find out which keywords are performing well and those that are not.
+    /// Defines a keyword performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671816(v=msads.110).aspx">KeywordPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671816(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportrequest?version=11">KeywordPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -937,6 +952,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
         {
@@ -954,6 +972,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.KeywordPerformanceReportColumn> Columns
         {
@@ -971,6 +992,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.KeywordPerformanceReportFilter Filter
         {
@@ -988,6 +1012,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The top number of data rows to return in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int MaxRows
         {
@@ -1005,6 +1032,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1022,6 +1052,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// A list of the columns to sort, and the corresponding sort order.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.KeywordPerformanceReportSort> Sort
         {
@@ -1039,6 +1072,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -1058,10 +1094,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a destination URL performance report request. Use this report to identify landing pages that met audience expectations and potentially resulted in high click-through or conversion rates.
+    /// Defines a destination URL performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671480(v=msads.110).aspx">DestinationUrlPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671480(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportrequest?version=11">DestinationUrlPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1081,6 +1117,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -1098,6 +1137,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.DestinationUrlPerformanceReportColumn> Columns
         {
@@ -1115,6 +1157,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.DestinationUrlPerformanceReportFilter Filter
         {
@@ -1132,6 +1177,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1149,6 +1197,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -1168,10 +1219,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a budget summary report request. Use this report to discover how your campaign's budget is performing for the month. For example, the report shows your monthly budget, how much you have spent to date, and whether you are on target to spend your monthly budget.
+    /// Defines a budget summary report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672028(v=msads.110).aspx">BudgetSummaryReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb672028(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreportrequest?version=11">BudgetSummaryReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1187,7 +1238,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.BudgetSummaryReportTime TimeField;
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.BudgetSummaryReportColumn> Columns
@@ -1207,7 +1258,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughCampaignReportScope Scope
@@ -1227,7 +1278,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisMonth.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.BudgetSummaryReportTime Time
@@ -1248,10 +1299,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an age and gender demographic report request. Use this report to discover how your campaigns and ad groups are resonating with audiences of diverse age and gender.
+    /// Defines an age and gender demographic report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671917(v=msads.110).aspx">AgeGenderDemographicReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671917(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportrequest?version=11">AgeGenderDemographicReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1272,7 +1323,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
@@ -1292,7 +1343,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AgeGenderDemographicReportColumn> Columns
@@ -1332,7 +1383,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1352,7 +1403,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -1373,10 +1424,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a user location performance report request. Use this report to see where your traffic is coming from broken out by the physical location and the location people are searching for. You can then validate whether your location targeting strategy is successful, and identify opportunities to improve.
+    /// Defines a user location performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt781256(v=msads.110).aspx">UserLocationPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/mt781256(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportrequest?version=11">UserLocationPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1397,7 +1448,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
@@ -1417,7 +1468,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.UserLocationPerformanceReportColumn> Columns
@@ -1457,7 +1508,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1477,7 +1528,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -1498,10 +1549,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a publisher usage performance report request. Use this report to see if any website URLs aren't performing well enough for your campaign or ad group target settings. For example, if ad impressions at those URLs yield a low click-through rate, then you might decide to exclude those websites from your campaign.
+    /// Defines a publisher usage performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dd797229(v=msads.110).aspx">PublisherUsagePerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dd797229(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportrequest?version=11">PublisherUsagePerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1522,7 +1573,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
@@ -1542,7 +1593,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.PublisherUsagePerformanceReportColumn> Columns
@@ -1582,7 +1633,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1602,7 +1653,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -1623,10 +1674,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a search query performance report request. Use this report to see what your audience is searching for when your ads are shown. You can use this information to make informed additions, removals, or edits to both your keyword and negative keyword lists.
+    /// Defines a search query performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee703962(v=msads.110).aspx">SearchQueryPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/ee703962(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportrequest?version=11">SearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1647,7 +1698,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.SearchQueryReportAggregation Aggregation
@@ -1667,7 +1718,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.SearchQueryPerformanceReportColumn> Columns
@@ -1707,7 +1758,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1727,7 +1778,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -1748,10 +1799,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a conversion performance report request. Use this report to understand which campaigns and keywords are leading an audience to complete a purchase or other conversion action.
+    /// Defines a conversion performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262843(v=msads.110).aspx">ConversionPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262843(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportrequest?version=11">ConversionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1771,6 +1822,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -1788,6 +1842,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ConversionPerformanceReportColumn> Columns
         {
@@ -1805,6 +1862,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.ConversionPerformanceReportFilter Filter
         {
@@ -1822,6 +1882,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1839,6 +1902,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -1858,10 +1924,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a goals and funnels report request. Use this report to discover whether your audience completes each step through the land, browse, prospect, and conversion pages of your website. For example, you can use this report to determine the step that users leave the conversion funnel, so that you can improve or remove that step to increase the chance that the user will continue to the next step.
+    /// Defines a goals and funnels report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262840(v=msads.110).aspx">GoalsAndFunnelsReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/gg262840(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportrequest?version=11">GoalsAndFunnelsReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1881,6 +1947,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -1898,6 +1967,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.GoalsAndFunnelsReportColumn> Columns
         {
@@ -1915,6 +1987,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.GoalsAndFunnelsReportFilter Filter
         {
@@ -1932,6 +2007,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1949,6 +2027,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -1968,10 +2049,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a negative keyword conflict report request. Use this report to discover which keywords and negative keywords are in conflict, and whether the conflict is at the campaign or ad group level. Use this list to figure out which negative keywords to delete.
+    /// Defines a negative keyword conflict report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh560534(v=msads.110).aspx">NegativeKeywordConflictReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/hh560534(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportrequest?version=11">NegativeKeywordConflictReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1988,7 +2069,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope ScopeField;
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.NegativeKeywordConflictReportColumn> Columns
@@ -2028,7 +2109,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2049,10 +2130,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a change history report request. Use this report to discover when changes to an account were made, as well as which user made the changes.
+    /// Defines a change history report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh912357(v=msads.110).aspx">SearchCampaignChangeHistoryReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/hh912357(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportrequest?version=11">SearchCampaignChangeHistoryReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2070,6 +2151,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.SearchCampaignChangeHistoryReportColumn> Columns
         {
@@ -2087,6 +2171,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.SearchCampaignChangeHistoryReportFilter Filter
         {
@@ -2104,6 +2191,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2121,6 +2211,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -2140,10 +2233,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an ad extension by ad report request. Use this report to compare how well different versions of your ad extensions are performing with each ad.
+    /// Defines an ad extension by ad report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj713606(v=msads.110).aspx">AdExtensionByAdReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/jj713606(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportrequest?version=11">AdExtensionByAdReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2163,6 +2256,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
         {
@@ -2180,6 +2276,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AdExtensionByAdReportColumn> Columns
         {
@@ -2197,6 +2296,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The criteria to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.AdExtensionByAdReportFilter Filter
         {
@@ -2214,6 +2316,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2231,6 +2336,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -2250,10 +2358,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an ad extension by keyword report request. Use this report to compare how well different versions of your ad extensions are performing for each keyword.
+    /// Defines an ad extension by keyword report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj713605(v=msads.110).aspx">AdExtensionByKeywordReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/jj713605(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportrequest?version=11">AdExtensionByKeywordReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2273,6 +2381,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
         {
@@ -2290,6 +2401,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AdExtensionByKeywordReportColumn> Columns
         {
@@ -2307,6 +2421,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The criteria to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.AdExtensionByKeywordReportFilter Filter
         {
@@ -2324,6 +2441,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2341,6 +2461,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -2360,10 +2483,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an audience performance report request. Use this report to compare delivery performance statistics by audience, ad group, campaign, or account attributes.
+    /// Defines an audience performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt604702(v=msads.110).aspx">AudiencePerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/mt604702(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportrequest?version=11">AudiencePerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2384,7 +2507,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
@@ -2404,7 +2527,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AudiencePerformanceReportColumn> Columns
@@ -2444,7 +2567,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2464,7 +2587,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -2485,10 +2608,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines an ad extension detail report request. Use this report to discover the effectiveness of individual ad extension items, for example, each link of a sitelink extension.
+    /// Defines an ad extension detail report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610364(v=msads.110).aspx">AdExtensionDetailReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn610364(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportrequest?version=11">AdExtensionDetailReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2508,6 +2631,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
         {
@@ -2525,6 +2651,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AdExtensionDetailReportColumn> Columns
         {
@@ -2542,6 +2671,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The criteria to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.AdExtensionDetailReportFilter Filter
         {
@@ -2559,6 +2691,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2576,6 +2711,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -2595,10 +2733,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a share of voice (SOV) report request. Use this report to view impression share (%) of successful bids for each keyword, and identify opportunities to increase impression share.
+    /// Defines a share of voice (SOV) report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj592909(v=msads.110).aspx">ShareOfVoiceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/jj592909(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportrequest?version=11">ShareOfVoiceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2618,6 +2756,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
         {
@@ -2635,6 +2776,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ShareOfVoiceReportColumn> Columns
         {
@@ -2652,6 +2796,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.ShareOfVoiceReportFilter Filter
         {
@@ -2669,6 +2816,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2686,6 +2836,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -2705,10 +2858,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a product dimension performance report request that aggregates the performance data by product category, custom label, title, and type for a specified time period. You can include details in the report such as impressions, clicks, and spend that you can use to identify whether or not the product dimensions are performing well.
+    /// Defines a product dimension performance report request that aggregates the performance data by product category, custom label, title, and type for a specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913141(v=msads.110).aspx">ProductDimensionPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn913141(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportrequest?version=11">ProductDimensionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2728,6 +2881,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
         {
@@ -2745,6 +2901,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ProductDimensionPerformanceReportColumn> Columns
         {
@@ -2762,6 +2921,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.ProductDimensionPerformanceReportFilter Filter
         {
@@ -2779,6 +2941,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2796,6 +2961,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -2815,10 +2983,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a product partition performance report request that aggregates the performance data by product group and product partition type for a specified time period. You can include details in the report such as impressions, clicks, and spend that you can use to identify whether or not the product partitions are performing well.
+    /// Defines a product partition performance report request that aggregates the performance data by product group and product partition type for a specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913138(v=msads.110).aspx">ProductPartitionPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn913138(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportrequest?version=11">ProductPartitionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2838,6 +3006,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
         {
@@ -2855,6 +3026,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ProductPartitionPerformanceReportColumn> Columns
         {
@@ -2872,6 +3046,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.ProductPartitionPerformanceReportFilter Filter
         {
@@ -2889,6 +3066,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2906,6 +3086,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -2925,10 +3108,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a product partition unit performance report request that aggregates the performance data by product partition unit for a specified time period. You can include details in the report such as impressions, clicks, and spend that you can use to identify whether or not the product partitions are performing well.
+    /// Defines a product partition unit performance report request that aggregates the performance data by product partition unit for a specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt592960(v=msads.110).aspx">ProductPartitionUnitPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/mt592960(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportrequest?version=11">ProductPartitionUnitPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2948,6 +3131,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
         {
@@ -2965,6 +3151,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ProductPartitionUnitPerformanceReportColumn> Columns
         {
@@ -2982,6 +3171,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.ProductPartitionUnitPerformanceReportFilter Filter
         {
@@ -2999,6 +3191,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3016,6 +3211,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -3035,10 +3233,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a Bing Shopping campaign product search query performance report request. Use this report to get insight into what your audience is searching for when your ads are shown as well as ensure that your product titles are relevant to search queries.
+    /// Defines a Bing Shopping campaign product search query performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt783264(v=msads.110).aspx">ProductSearchQueryPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/mt783264(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportrequest?version=11">ProductSearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3059,7 +3257,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
@@ -3079,7 +3277,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ProductSearchQueryPerformanceReportColumn> Columns
@@ -3119,7 +3317,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3139,7 +3337,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -3160,10 +3358,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a call detail report request. Use this report to discover which accounts, campaigns, or ad groups are driving the most completed phone calls.
+    /// Defines a call detail report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn195845(v=msads.110).aspx">CallDetailReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/dn195845(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportrequest?version=11">CallDetailReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3183,6 +3381,9 @@ namespace Microsoft.BingAds.V11.Reporting
         
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
         {
@@ -3200,6 +3401,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.CallDetailReportColumn> Columns
         {
@@ -3217,6 +3421,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.CallDetailReportFilter Filter
         {
@@ -3234,6 +3441,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The scope of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3251,6 +3461,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
         {
@@ -3270,10 +3483,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a geographic performance report request. Use this report to see where your traffic is coming from: the physical location of the people searching for your ad or the locations people are searching for. You can then validate whether your location targeting strategy is successful and identify opportunities to improve.
+    /// Defines a geographic performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt781254(v=msads.110).aspx">GeographicPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/mt781254(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportrequest?version=11">GeographicPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3294,7 +3507,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
@@ -3314,7 +3527,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.GeographicPerformanceReportColumn> Columns
@@ -3354,7 +3567,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3374,7 +3587,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -3395,10 +3608,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines a DSA search query performance report request. Use this report to find out which search terms are in demand for your DSA campaign and the performance of dynamic headlines that are being displayed.
+    /// Defines a DSA search query performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779097(v=msads.110).aspx">DSASearchQueryPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/mt779097(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportrequest?version=11">DSASearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3419,7 +3632,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.SearchQueryReportAggregation Aggregation
@@ -3439,7 +3652,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.DSASearchQueryPerformanceReportColumn> Columns
@@ -3479,7 +3692,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3499,7 +3712,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -3523,7 +3736,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines a DSA auto target performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779098(v=msads.110).aspx">DSAAutoTargetPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/mt779098(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportrequest?version=11">DSAAutoTargetPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3544,7 +3757,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
@@ -3564,7 +3777,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.DSAAutoTargetPerformanceReportColumn> Columns
@@ -3604,7 +3817,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3624,7 +3837,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -3648,7 +3861,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines a DSA category performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779095(v=msads.110).aspx">DSACategoryPerformanceReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/mt779095(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportrequest?version=11">DSACategoryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportrequest?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3669,7 +3882,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
         
         /// <summary>
-        /// The type of aggregation to use to aggregate the report data. For example, you can aggregate the report data by day or week, or request a summary report.
+        /// The type of aggregation to use to aggregate the report data.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
@@ -3689,7 +3902,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The list of attributes and performance statistics to include in the report. The report will include the columns in the order that you specify them.
+        /// The list of attributes and performance statistics to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.DSACategoryPerformanceReportColumn> Columns
@@ -3729,7 +3942,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report. Use this element to limit the report to include data for a combination of accounts, ad groups, and campaigns.
+        /// The scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3749,7 +3962,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The time period to use for the report. You can specify a custom date range or select a predefined date range, for example, Today or ThisWeek.
+        /// The time period to use for the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.ReportTime Time
@@ -3773,7 +3986,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the file formats that you can use for a report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671932(v=msads.110).aspx">ReportFormat Value Set</see> http://msdn.microsoft.com/en-us/library/bb671932(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportformat?version=11">ReportFormat Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportformat?version=11 for details.
     /// <para>Used by <see cref="ReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3804,7 +4017,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the language values that you may specify for columns of a downloaded report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671595(v=msads.110).aspx">ReportLanguage Value Set</see> http://msdn.microsoft.com/en-us/library/bb671595(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportlanguage?version=11">ReportLanguage Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportlanguage?version=11 for details.
     /// <para>Used by <see cref="ReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3829,7 +4042,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the account performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671671(v=msads.110).aspx">AccountPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb671671(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportfilter?version=11">AccountPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3867,7 +4080,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -3887,7 +4100,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -3907,7 +4120,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// The report will include data where the ad is displayed on the specified device operating systems.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceOSReportFilter> DeviceOS
@@ -3927,7 +4140,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// The report will include data where the ad is displayed on the specified device types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -3962,7 +4175,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the set of accounts to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671563(v=msads.110).aspx">AccountReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671563(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountreportscope?version=11">AccountReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountreportscope?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4026,7 +4239,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the date range values of a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671895(v=msads.110).aspx">ReportTime Data Object</see> http://msdn.microsoft.com/en-us/library/bb671895(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reporttime?version=11">ReportTime Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reporttime?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4061,7 +4274,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The end date of the custom date range. The end date cannot be later than today's date.
+        /// The end date of the custom date range.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.Date CustomDateRangeEnd
@@ -4081,7 +4294,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The start date of the custom date range. The start date must be earlier than or the same as the end date.
+        /// The start date of the custom date range.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.Date CustomDateRangeStart
@@ -4101,7 +4314,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// A predefined date range value. Each report request type specifies the predefined time periods that you can specify for each aggregation type.
+        /// A predefined date range value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.ReportTimePeriod> PredefinedTime
@@ -4136,7 +4349,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the aggregation values that you can use for a report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672067(v=msads.110).aspx">ReportAggregation Value Set</see> http://msdn.microsoft.com/en-us/library/bb672067(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportaggregation?version=11">ReportAggregation Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportaggregation?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/> and <see cref="ProductSearchQueryPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4145,49 +4358,49 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// The report data will be aggregated by the entire specified report time. The report will not include a time period column.
+        /// The report data will be aggregated by the entire specified report time.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Summary = 0,
         
         /// <summary>
-        /// Each row of the report identifies the hour when the transaction occurred. The report data will be aggregated by each hour of the day. The report will include a column named Hour, and the possible values are 0 - 23. The report will also include a column named GregorianDate that contains the date formatted as yyyy-mm-dd. If the report time spans multiple days, then the performance data for a given hour will be provided separately across multiple rows i.e. the report will include one row for each unique day and hour. For example if Campaign A has 5 impressions during Hour 7 on each of the 3 days included in the report time range, then the report will include three rows each with 5 impressions for Hour 7.
+        /// Each row of the report identifies the hour when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hourly = 1,
         
         /// <summary>
-        /// Each row of the report identifies the month, day, and year when the transaction occurred. The report data will be aggregated by each day. Each row of the report identifies the month, day, and year when the transaction occurred. The report will include a column named GregorianDate that contains the day formatted as yyyy-mm-dd.
+        /// Each row of the report identifies the month, day, and year when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Daily = 2,
         
         /// <summary>
-        /// Each row of the report identifies the week when the transaction occurred. The report data will be aggregated by each week. The report will include a column named WeekStartDate that contains the date of the Sunday for each week formatted as yyyy-mm-dd.
+        /// Each row of the report identifies the week when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Weekly = 3,
         
         /// <summary>
-        /// Each row of the report identifies the month when the transaction occurred. The report data will be aggregated by each month. The report will include a column named MonthStartDate that contains the first day of the month formatted as yyyy-mm-dd.
+        /// Each row of the report identifies the month when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Monthly = 4,
         
         /// <summary>
-        /// Each row of the report identifies the year when the transaction occurred. The report data will be aggregated by each year. The report will include a column named Year that contains the year formatted as yyyy.
+        /// Each row of the report identifies the year when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yearly = 5,
         
         /// <summary>
-        /// Each row of the report identifies the hour of the day when the transaction occurred. The report data will be aggregated by each of the 24 hours across all days. The report will include a column named HourOfDay, and the possible values are 0 - 23. If the report time spans multiple days, then the performance data across all days for a given hour will be aggregated in one row. For example if Campaign A has 5 impressions during hour 7 on each of the 3 days included in the report time range, then the report will include one row with impressions for HourOfDay totaling 15.
+        /// Each row of the report identifies the hour of the day when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HourOfDay = 6,
         
         /// <summary>
-        /// Each row of the report identifies the day of the week when the transaction occurred. The report data will be aggregated by each of the seven days in a week. The report will include a column named DayOfWeek, and the possible values are 1 - 7 where 1 represents Sunday and 7 represents Saturday. If the report time spans multiple weeks, then the performance data across all weeks for a given day of the week will be aggregated in one row. For example if Campaign A has 5 impressions every Monday (day 2) throughout each of the 3 weeks included in the report time range, then the report will include one row with DayOfWeek set to 2 and impressions in that row totaling 15.
+        /// Each row of the report identifies the day of the week when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DayOfWeek = 7,
@@ -4197,7 +4410,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AccountPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671947(v=msads.110).aspx">AccountPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671947(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportcolumn?version=11">AccountPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4224,13 +4437,13 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 4,
@@ -4242,25 +4455,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 5,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 6,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 7,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 8,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 9,
@@ -4278,31 +4491,31 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 11,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 12,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 13,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 14,
         
         /// <summary>
-        /// Clicks that exhibit a low likelihood of commercial intent. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks that exhibit a low likelihood of commercial intent.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicks = 15,
         
         /// <summary>
-        /// The low-quality clicks as a percentage.The formula for calculating the low quality clicks percentage is (LowQualityClicks / Clicks) x 100.
+        /// The low-quality clicks as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicksPercent = 16,
@@ -4314,7 +4527,7 @@ namespace Microsoft.BingAds.V11.Reporting
         LowQualityImpressions = 17,
         
         /// <summary>
-        /// The low-quality impressions as a percentage.The formula for calculating the percentage is (LowQualityImpressions / Impressions) x 100.
+        /// The low-quality impressions as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityImpressionsPercent = 18,
@@ -4326,13 +4539,13 @@ namespace Microsoft.BingAds.V11.Reporting
         LowQualityConversions = 19,
         
         /// <summary>
-        /// The low-quality conversion rate as a percentage.The formula for calculating the conversion rate is (LowQualityConversions / LowQualityClicks) x 100.
+        /// The low-quality conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityConversionRate = 20,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 21,
@@ -4344,37 +4557,37 @@ namespace Microsoft.BingAds.V11.Reporting
         DeviceOS = 22,
         
         /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting. The value of this column is empty if the data is not available.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 23,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 24,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 25,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBidPercent = 26,
         
         /// <summary>
-        /// The percentage of impression share lost due to low ad relevance. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of impression share lost due to low ad relevance.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToAdRelevancePercent = 27,
         
         /// <summary>
-        /// The percentage of impression share lost due to low expected click-through rate. If this is high, figure out what you can do to increase your CTR. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of impression share lost due to low expected click-through rate.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToExpectedCtrPercent = 28,
@@ -4386,13 +4599,13 @@ namespace Microsoft.BingAds.V11.Reporting
         PhoneImpressions = 29,
         
         /// <summary>
-        /// The number of total calls to the tracked phone number that showed with your ad.The formula for calculating the phone calls is ManualCalls + ClickCalls.
+        /// The number of total calls to the tracked phone number that showed with your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneCalls = 30,
         
         /// <summary>
-        /// The number of calls dialed manually from any device to the tracked phone number.Note: This column is applicable solely for manual calls, and does not include clicks-to-call data.
+        /// The number of calls dialed manually from any device to the tracked phone number.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ManualCalls = 31,
@@ -4404,73 +4617,73 @@ namespace Microsoft.BingAds.V11.Reporting
         ClickCalls = 32,
         
         /// <summary>
-        /// The phone-through rate (Ptr).The formula for calculating the Ptr is (PhoneCalls / PhoneImpressions) x 100.
+        /// The phone-through rate (Ptr).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ptr = 33,
         
         /// <summary>
-        /// The average cost per phone call (CPP).Note: This column is applicable solely for manual calls, and does not include clicks-to-call data.
+        /// The average cost per phone call (CPP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpp = 34,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 35,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 36,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 37,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 38,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 39,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 40,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 41,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 42,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 43,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 44,
@@ -4482,23 +4695,29 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountStatus = 45,
         
         /// <summary>
-        /// Clicks that are filtered by general methods, such as blacklists and activity-based detection, and that exhibit a low likelihood of commercial intent. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks that are filtered by general methods, such as blacklists and activity-based detection, and that exhibit a low likelihood of commercial intent.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityGeneralClicks = 46,
         
         /// <summary>
-        /// Invalid clicks that use sophisticated means to appear valid. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// Invalid clicks that use sophisticated means to appear valid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualitySophisticatedClicks = 47,
+        
+        /// <summary>
+        /// The estimated percentage of impressions that your account received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExactMatchImpressionSharePercent = 48,
     }
     
     /// <summary>
-    /// Defines the account status values that you can use to filter the report data. These values are also used as column values in reports that include account status, such as the account performance report.
+    /// Defines the account status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt489832(v=msads.110).aspx">AccountStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/mt489832(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountstatusreportfilter?version=11">AccountStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountstatusreportfilter?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4527,10 +4746,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the ad distribution medium values that you can use to filter the report data. These values are also used as column values in reports that include ad distribution, such as the account performance report.
+    /// Defines the ad distribution medium values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671722(v=msads.110).aspx">AdDistributionReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb671722(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addistributionreportfilter?version=11">AdDistributionReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addistributionreportfilter?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchCampaignChangeHistoryReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="UserLocationPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4552,7 +4771,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Content = 2,
         
         /// <summary>
-        /// The report will contain native ads.
+        /// The report will contain intent ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Native = 16,
@@ -4562,7 +4781,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the device operating system values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn411633(v=msads.110).aspx">DeviceOSReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/dn411633(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/deviceosreportfilter?version=11">DeviceOSReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/deviceosreportfilter?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/> and <see cref="GoalsAndFunnelsReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4603,10 +4822,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the device type values that you can use to filter the report data. These values are also used as column values in reports that include device type information, such as the ad group performance report.
+    /// Defines the device type values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262850(v=msads.110).aspx">DeviceTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/gg262850(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/devicetypereportfilter?version=11">DeviceTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/devicetypereportfilter?version=11 for details.
     /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4644,7 +4863,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines a calendar date by month, day, and year.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn376514(v=msads.110).aspx">Date Data Object</see> http://msdn.microsoft.com/en-us/library/dn376514(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/date?version=11">Date Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/date?version=11 for details.
     /// <para>Used by <see cref="BudgetSummaryReportTime"/> and <see cref="ReportTime"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4751,7 +4970,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the predefined time and date range values for a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671772(v=msads.110).aspx">ReportTimePeriod Value Set</see> http://msdn.microsoft.com/en-us/library/bb671772(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reporttimeperiod?version=11">ReportTimePeriod Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reporttimeperiod?version=11 for details.
     /// <para>Used by <see cref="ReportTime"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4836,7 +5055,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the campaign performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671808(v=msads.110).aspx">CampaignPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb671808(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportfilter?version=11">CampaignPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="CampaignPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4877,7 +5096,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -4897,7 +5116,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -4917,7 +5136,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// The report will include data where the ad is displayed on the specified device operating systems.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceOSReportFilter> DeviceOS
@@ -4937,7 +5156,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// The report will include data where the ad is displayed on the specified device types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -4957,7 +5176,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad group status values. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the specified ad group status values.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> Status
@@ -4992,7 +5211,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the set of accounts and campaigns to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671549(v=msads.110).aspx">AccountThroughCampaignReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671549(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughcampaignreportscope?version=11">AccountThroughCampaignReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughcampaignreportscope?version=11 for details.
     /// <para>Used by <see cref="BudgetSummaryReportRequest"/> and <see cref="CampaignPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5024,7 +5243,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// An array of account identifiers that identifies the account data to include in the report. You can specify a maximum of 1,000 account identifiers.
+        /// An array of account identifiers that identifies the account data to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
@@ -5044,7 +5263,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// An array of CampaignReportScope objects that identifies the campaign data to include in the report. You can specify a maximum of 300 campaign identifiers.
+        /// An array of CampaignReportScope objects that identifies the campaign data to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.CampaignReportScope> Campaigns
@@ -5079,7 +5298,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the CampaignPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671614(v=msads.110).aspx">CampaignPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671614(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn?version=11">CampaignPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="CampaignPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5106,13 +5325,13 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
         /// <summary>
-        /// The current entity status.
+        /// The current entity  status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Status = 4,
@@ -5142,25 +5361,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 8,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 9,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 10,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 11,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 12,
@@ -5178,25 +5397,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 14,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 16,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 17,
         
         /// <summary>
-        /// Clicks that exhibit a low likelihood of commercial intent. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks that exhibit a low likelihood of commercial intent.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicks = 18,
@@ -5232,97 +5451,97 @@ namespace Microsoft.BingAds.V11.Reporting
         LowQualityConversionRate = 23,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 25,
         
         /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting. The value of this column is empty if the data is not available.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 26,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 27,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 28,
         
         /// <summary>
-        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms. The quality score is calculated by Bing Ads using the ExpectedCtr, AdRelevance, and LandingPageExperience sub scores. If available, the quality score can range from a low of 1 to a high of 10.
+        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScore = 29,
         
         /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic. Ads that are relevant to searchers' queries or other input are more likely to have a higher click-through rate. This metric tells you if a keyword is underperforming and causing a loss in impression share, so you can make keyword changes or remove ads altogether.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// How well your keyword competes against other keywords targeting the same traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpectedCtr = 30,
         
         /// <summary>
-        /// How closely related your ads is to the customer's search query or other input. It tells you how relevant your ad and landing page are to potential customers.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// How closely related your ads is to the customer's search query or other input.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdRelevance = 31,
         
         /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site. The landing page experience score measures whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// An aggregate quality assessment of all landing pages on your site.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageExperience = 32,
         
         /// <summary>
-        /// The historic quality score of the keyword. The historic quality score for each row is the value that was calculated for quality score on that date.Use the historic quality score to find out how the quality score may have changed over time. For example, if you specify a time period that spans three days, the historic quality score for day one will be the quality score calculated on day one, the historic quality score for day two will be the quality score calculated on day two, and so on.This score may vary from the score in the QualityScore column, which will be the same value for each day in the time period.
+        /// The historic quality score of the keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricQualityScore = 33,
         
         /// <summary>
-        /// Historic average of expected click-through rate scores going back as far as 18 months from the current date. This score may vary from the score in the ExpectedCtr column, which is the current score and same value for each day in the time period.
+        /// Historic average of expected click-through rate scores going back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricExpectedCtr = 34,
         
         /// <summary>
-        /// Historic average of ad relevance scores back as far as 18 months from the current date.This score may vary from the score in the AdRelevance column, which is the current score and same value for each day in the time period.
+        /// Historic average of ad relevance scores back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricAdRelevance = 35,
         
         /// <summary>
-        /// Historic average of landing page experience scores back as far as 18 months from the current date.This score may vary from the score in the LandingPageExperience column, which is the current score and same value for each day in the time period.
+        /// Historic average of landing page experience scores back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricLandingPageExperience = 36,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBidPercent = 37,
         
         /// <summary>
-        /// The percentage of impression share lost due to low ad relevance. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of impression share lost due to low ad relevance.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToAdRelevancePercent = 38,
         
         /// <summary>
-        /// The percentage of impression share lost due to low expected click-through rate. If this is high, figure out what you can do to increase your CTR. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of impression share lost due to low expected click-through rate.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToExpectedCtrPercent = 39,
@@ -5340,7 +5559,7 @@ namespace Microsoft.BingAds.V11.Reporting
         PhoneCalls = 41,
         
         /// <summary>
-        /// The number of calls dialed manually from any device to the tracked phone number.Note: This column is applicable solely for manual calls, and does not include clicks-to-call data.
+        /// The number of calls dialed manually from any device to the tracked phone number.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ManualCalls = 42,
@@ -5358,43 +5577,43 @@ namespace Microsoft.BingAds.V11.Reporting
         Ptr = 44,
         
         /// <summary>
-        /// The average cost per phone call (CPP).Note: This column is applicable solely for manual calls, and does not include clicks-to-call data.
+        /// The average cost per phone call (CPP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpp = 45,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 46,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 47,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 48,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 49,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 50,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 51,
@@ -5406,7 +5625,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 52,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 53,
@@ -5442,41 +5661,53 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountStatus = 58,
         
         /// <summary>
-        /// The name of the budget. Note: This column will be empty for unshared budgets.
+        /// The name of the budget.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetName = 59,
         
         /// <summary>
-        /// The budget status. The possible values are Active and Deleted.
+        /// The budget status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetStatus = 60,
         
         /// <summary>
-        /// Indicates whether or not the campaign is currently spending from the budget mentioned in the BudgetName column. The possible values are Current and Ended.
+        /// Indicates whether or not the campaign is currently spending from the budget mentioned in the BudgetName column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetAssociationStatus = 61,
         
         /// <summary>
-        /// Clicks that are filtered by general methods, such as blacklists and activity-based detection, and that exhibit a low likelihood of commercial intent. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks that are filtered by general methods, such as blacklists and activity-based detection, and that exhibit a low likelihood of commercial intent.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityGeneralClicks = 62,
         
         /// <summary>
-        /// Invalid clicks that use sophisticated means to appear valid. You are not billed for these clicks. For more information, see Bing Ads click measurement: description of methodology.
+        /// Invalid clicks that use sophisticated means to appear valid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualitySophisticatedClicks = 63,
+        
+        /// <summary>
+        /// The labels applied to the campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignLabels = 64,
+        
+        /// <summary>
+        /// The estimated percentage of impressions that your campaign received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExactMatchImpressionSharePercent = 65,
     }
     
     /// <summary>
-    /// Defines the campaign status values that you can use to filter the report data. These values are also used as column values in reports that include campaign status, such as the campaign performance report.
+    /// Defines the campaign status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672004(v=msads.110).aspx">CampaignStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb672004(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignstatusreportfilter?version=11">CampaignStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignstatusreportfilter?version=11 for details.
     /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5526,7 +5757,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines a campaign to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671721(v=msads.110).aspx">CampaignReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671721(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignreportscope?version=11">CampaignReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignreportscope?version=11 for details.
     /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> and <see cref="AccountThroughCampaignReportScope"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5611,7 +5842,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the ad dynamic text performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672086(v=msads.110).aspx">AdDynamicTextPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb672086(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportfilter?version=11">AdDynamicTextPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5661,7 +5892,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -5681,7 +5912,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -5701,7 +5932,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -5721,7 +5952,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad status. For example, you can use the filter to include data for only active ads.
+        /// The report will include data for only the ad status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -5741,7 +5972,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad types. For example, the report can include data for product or text ads. You can specify one or more ad types.
+        /// The report will include data for only the specified ad types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdTypeReportFilter> AdType
@@ -5761,7 +5992,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only text ads displayed on smartphones.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -5781,7 +6012,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the keyword status. For example, you can use the filter to include data for only active keywords.
+        /// The report will include data for only the keyword status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.KeywordStatusReportFilter> KeywordStatus
@@ -5801,7 +6032,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -5836,7 +6067,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the set of accounts, campaigns, and ad groups to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671547(v=msads.110).aspx">AccountThroughAdGroupReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671547(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughadgroupreportscope?version=11">AccountThroughAdGroupReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughadgroupreportscope?version=11 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5871,7 +6102,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// An array of account identifiers that identifies the account data to include in the report. You can specify a maximum of 1,000 account identifiers.
+        /// An array of account identifiers that identifies the account data to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
@@ -5891,7 +6122,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// An array of AdGroupReportScope objects that identifies the ad group data to include in the report. You can specify a maximum of 300 ad group identifiers.
+        /// An array of AdGroupReportScope objects that identifies the ad group data to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AdGroupReportScope> AdGroups
@@ -5911,7 +6142,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// An array of CampaignReportScope objects that identifies the campaign data to include in the report. You can specify a maximum of 300 campaign identifiers.
+        /// An array of CampaignReportScope objects that identifies the campaign data to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.CampaignReportScope> Campaigns
@@ -5946,7 +6177,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the aggregation values for reports that cannot specify hourly aggregation.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672057(v=msads.110).aspx">NonHourlyReportAggregation Value Set</see> http://msdn.microsoft.com/en-us/library/bb672057(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/nonhourlyreportaggregation?version=11">NonHourlyReportAggregation Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/nonhourlyreportaggregation?version=11 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5955,31 +6186,31 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// The report data will be aggregated by the entire specified report time. The report will not include a time period column.
+        /// The report data will be aggregated by the entire specified report time.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Summary = 0,
         
         /// <summary>
-        /// Each row of the report identifies the month, day, and year when the transaction occurred. The report data will be aggregated by each day. Each row of the report identifies the month, day, and year when the transaction occurred. The report will include a column named GregorianDate that contains the day formatted as mm/dd/yyyy.
+        /// Each row of the report identifies the month, day, and year when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Daily = 1,
         
         /// <summary>
-        /// Each row of the report identifies the week when the transaction occurred. The report data will be aggregated by each week. The report will include a column named WeekStartDate that contains the date of the Sunday for each week formatted as mm/dd/yyyy.
+        /// Each row of the report identifies the week when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Weekly = 2,
         
         /// <summary>
-        /// Each row of the report identifies the month when the transaction occurred. The report data will be aggregated by each month. The report will include a column named MonthStartDate that contains the first day of the month formatted as mm/dd/yyyy.
+        /// Each row of the report identifies the month when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Monthly = 3,
         
         /// <summary>
-        /// Each row of the report identifies the year when the transaction occurred. The report data will be aggregated by each year. The report will include a column named Year that contains the year formatted as yyyy.
+        /// Each row of the report identifies the year when the transaction occurred.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yearly = 4,
@@ -5989,7 +6220,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdDynamicTextPerformanceReportRequest Data Object.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671878(v=msads.110).aspx">AdDynamicTextPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671878(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportcolumn?version=11">AdDynamicTextPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6016,7 +6247,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountNumber = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -6039,6 +6270,9 @@ namespace Microsoft.BingAds.V11.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 6,
         
+        /// <summary>
+        /// The Bing Ads assigned identifier of an ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 7,
         
@@ -6091,25 +6325,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 15,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 16,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 18,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 19,
@@ -6127,31 +6361,31 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 21,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 22,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 23,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 24,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 25,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 26,
@@ -6227,13 +6461,19 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 38,
+        
+        /// <summary>
+        /// The labels applied to the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdLabels = 39,
     }
     
     /// <summary>
-    /// Defines the ad group status values that you can use to filter the report data. These values are also used as column values in reports that include ad group status, such as the ad group performance report.
+    /// Defines the ad group status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671991(v=msads.110).aspx">AdGroupStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb671991(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupstatusreportfilter?version=11">AdGroupStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupstatusreportfilter?version=11 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6268,10 +6508,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the ad status values that you can use to filter the report data. These values are also used as column values in reports that include ad status, such as the search query performance report.
+    /// Defines the ad status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh560533(v=msads.110).aspx">AdStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/hh560533(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adstatusreportfilter?version=11">AdStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adstatusreportfilter?version=11 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="SearchQueryPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6312,10 +6552,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the ad type values that you can use to filter the report data. These values are also used as column values in reports that include the ad type, such as the ad performance report.
+    /// Defines the ad type values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/cc580687(v=msads.110).aspx">AdTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/cc580687(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adtypereportfilter?version=11">AdTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adtypereportfilter?version=11 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="SearchQueryPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6362,10 +6602,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the keyword status values that you can use to filter the report data. These values are also used as column values in reports that include keyword status, such as the keyword performance report.
+    /// Defines the keyword status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt489834(v=msads.110).aspx">KeywordStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/mt489834(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordstatusreportfilter?version=11">KeywordStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordstatusreportfilter?version=11 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6397,7 +6637,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines an ad group to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671622(v=msads.110).aspx">AdGroupReportScope Data Object</see> http://msdn.microsoft.com/en-us/library/bb671622(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupreportscope?version=11">AdGroupReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupreportscope?version=11 for details.
     /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6504,7 +6744,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the ad group performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671729(v=msads.110).aspx">AdGroupPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb671729(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportfilter?version=11">AdGroupPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="AdGroupPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6551,7 +6791,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -6571,7 +6811,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -6591,7 +6831,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -6611,7 +6851,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// The report will include data where the ad is displayed on the specified device operating systems.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceOSReportFilter> DeviceOS
@@ -6631,7 +6871,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// The report will include data where the ad is displayed on the specified device types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -6651,7 +6891,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -6671,7 +6911,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad group status values. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the specified ad group status values.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> Status
@@ -6706,7 +6946,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdGroupPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671495(v=msads.110).aspx">AdGroupPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671495(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn?version=11">AdGroupPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="AdGroupPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6733,13 +6973,13 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
         /// <summary>
-        /// The current entity status.
+        /// The current entity  status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Status = 4,
@@ -6781,25 +7021,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 10,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 11,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 13,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 14,
@@ -6817,121 +7057,121 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 16,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 17,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 18,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 19,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 20,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 22,
         
         /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting. The value of this column is empty if the data is not available.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 23,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 24,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 25,
         
         /// <summary>
-        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms. The quality score is calculated by Bing Ads using the ExpectedCtr, AdRelevance, and LandingPageExperience sub scores. If available, the quality score can range from a low of 1 to a high of 10.
+        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScore = 26,
         
         /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic. Ads that are relevant to searchers' queries or other input are more likely to have a higher click-through rate. This metric tells you if a keyword is underperforming and causing a loss in impression share, so you can make keyword changes or remove ads altogether.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// How well your keyword competes against other keywords targeting the same traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpectedCtr = 27,
         
         /// <summary>
-        /// How closely related your ads is to the customer's search query or other input. It tells you how relevant your ad and landing page are to potential customers.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// How closely related your ads is to the customer's search query or other input.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdRelevance = 28,
         
         /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site. The landing page experience score measures whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// An aggregate quality assessment of all landing pages on your site.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageExperience = 29,
         
         /// <summary>
-        /// The historic quality score of the keyword. The historic quality score for each row is the value that was calculated for quality score on that date.Use the historic quality score to find out how the quality score may have changed over time. For example, if you specify a time period that spans three days, the historic quality score for day one will be the quality score calculated on day one, the historic quality score for day two will be the quality score calculated on day two, and so on.This score may vary from the score in the QualityScore column, which will be the same value for each day in the time period.
+        /// The historic quality score of the keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricQualityScore = 30,
         
         /// <summary>
-        /// Historic average of expected click-through rate scores going back as far as 18 months from the current date. This score may vary from the score in the ExpectedCtr column, which is the current score and same value for each day in the time period.
+        /// Historic average of expected click-through rate scores going back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricExpectedCtr = 31,
         
         /// <summary>
-        /// Historic average of ad relevance scores back as far as 18 months from the current date.This score may vary from the score in the AdRelevance column, which is the current score and same value for each day in the time period.
+        /// Historic average of ad relevance scores back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricAdRelevance = 32,
         
         /// <summary>
-        /// Historic average of landing page experience scores back as far as 18 months from the current date.This score may vary from the score in the LandingPageExperience column, which is the current score and same value for each day in the time period.
+        /// Historic average of landing page experience scores back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricLandingPageExperience = 33,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBidPercent = 34,
         
         /// <summary>
-        /// The percentage of impression share lost due to low ad relevance. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of impression share lost due to low ad relevance.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToAdRelevancePercent = 35,
         
         /// <summary>
-        /// The percentage of impression share lost due to low expected click-through rate. If this is high, figure out what you can do to increase your CTR. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of impression share lost due to low expected click-through rate.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToExpectedCtrPercent = 36,
@@ -6973,7 +7213,7 @@ namespace Microsoft.BingAds.V11.Reporting
         PhoneCalls = 42,
         
         /// <summary>
-        /// The number of calls dialed manually from any device to the tracked phone number.Note: This column is applicable solely for manual calls, and does not include clicks-to-call data.
+        /// The number of calls dialed manually from any device to the tracked phone number.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ManualCalls = 43,
@@ -6991,43 +7231,43 @@ namespace Microsoft.BingAds.V11.Reporting
         Ptr = 45,
         
         /// <summary>
-        /// The average cost per phone call (CPP).Note: This column is applicable solely for manual calls, and does not include clicks-to-call data.
+        /// The average cost per phone call (CPP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpp = 46,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 47,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 48,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 49,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 50,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 51,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 52,
@@ -7039,7 +7279,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 53,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 54,
@@ -7079,13 +7319,25 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 60,
+        
+        /// <summary>
+        /// The labels applied to the ad group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupLabels = 61,
+        
+        /// <summary>
+        /// The estimated percentage of impressions that your ad group received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExactMatchImpressionSharePercent = 62,
     }
     
     /// <summary>
     /// Defines the criteria to use to filter the ad performance report request data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671609(v=msads.110).aspx">AdPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb671609(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportfilter?version=11">AdPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="AdPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7135,7 +7387,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -7155,7 +7407,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -7175,7 +7427,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -7195,7 +7447,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad status. For example, you can use the filter to include data for only active ads.
+        /// The report will include data for only the ad status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -7215,7 +7467,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad types. For example, the report can include data for product or text ads. You can specify one or more ad types.
+        /// The report will include data for only the specified ad types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdTypeReportFilter> AdType
@@ -7235,7 +7487,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -7255,7 +7507,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only text ads displayed on smartphones.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -7275,7 +7527,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -7310,7 +7562,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671923(v=msads.110).aspx">AdPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671923(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn?version=11">AdPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="AdPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7337,7 +7589,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -7403,25 +7655,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 13,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 14,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 15,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 16,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 17,
@@ -7439,19 +7691,19 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 19,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 20,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 21,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 22,
@@ -7463,13 +7715,13 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 23,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 25,
@@ -7511,43 +7763,43 @@ namespace Microsoft.BingAds.V11.Reporting
         AdStatus = 31,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 32,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 33,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 34,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 35,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 36,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 37,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 38,
@@ -7559,7 +7811,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 39,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 40,
@@ -7647,13 +7899,19 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path2 = 54,
+        
+        /// <summary>
+        /// The labels applied to the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdLabels = 55,
     }
     
     /// <summary>
     /// Defines the criteria to use to filter the keyword performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672082(v=msads.110).aspx">KeywordPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb672082(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportfilter?version=11">KeywordPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7727,7 +7985,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -7747,7 +8005,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -7767,7 +8025,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -7786,6 +8044,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// How closely related your ads is to the customer's search query or other input.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> AdRelevance
         {
@@ -7804,7 +8065,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad types. For example, the report can include data for product or text ads. You can specify one or more ad types.
+        /// The report will include data for only the specified ad types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdTypeReportFilter> AdType
@@ -7824,7 +8085,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified bid match types. For example, you can use the filter to include data for ads that were bid on using the exact or phrase match type.
+        /// The report will include data for only the specified bid match types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.BidMatchTypeReportFilter> BidMatchType
@@ -7844,7 +8105,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified bid strategy type or types. For example, you can use the filter to include data only for keywords that were bid on using the enhanced bid strategy type.
+        /// The report will include data for only the specified bid strategy type or types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.BidStrategyTypeReportFilter> BidStrategyType
@@ -7864,7 +8125,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -7904,7 +8165,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only text ads displayed on smartphones.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -7923,6 +8184,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// How well your keyword competes against other keywords targeting the same traffic.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> ExpectedCtr
         {
@@ -7941,7 +8205,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the keyword status. For example, you can use the filter to include data for only active keywords.
+        /// The report will include data for only the keyword status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.KeywordStatusReportFilter> KeywordStatus
@@ -7961,7 +8225,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified keywords. You can specify a maximum of 75 keywords. Each keyword can contain a maximum of 100 characters.
+        /// The report will include data for only the specified keywords.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Keywords
@@ -7980,6 +8244,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// An aggregate quality assessment of all landing pages on your site.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> LandingPageExperience
         {
@@ -7998,7 +8265,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -8018,7 +8285,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only keywords with the specified quality scores. You can filter the report based on one or more of the following relevance values: 0 - N/A (as shown in the web application) 1 - Underperforming 2 - Underperforming 3 - Underperforming 4 - Underperforming 5 - Underperforming 6 - Average performance 7 - Competitive 8 - Competitive 9 - Competitive 10 - Competitive
+        /// The report will include data for only keywords with the specified quality scores.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> QualityScore
@@ -8053,7 +8320,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the KeywordPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672087(v=msads.110).aspx">KeywordPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb672087(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn?version=11">KeywordPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> and <see cref="KeywordPerformanceReportSort"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8080,7 +8347,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -8140,7 +8407,7 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 12,
         
         /// <summary>
-        /// The maximum cost per click bid that was in effect at the time the report was generated. It is not a moving historical bid throughout the report time period.
+        /// The maximum cost per click bid that was in effect at the time the report was generated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 13,
@@ -8152,7 +8419,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 14,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 15,
@@ -8164,25 +8431,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 16,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 17,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 18,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 19,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 20,
@@ -8200,91 +8467,91 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 22,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 23,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 24,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 25,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 26,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 27,
         
         /// <summary>
-        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms. The quality score is calculated by Bing Ads using the ExpectedCtr, AdRelevance, and LandingPageExperience sub scores. If available, the quality score can range from a low of 1 to a high of 10.
+        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScore = 28,
         
         /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic. Ads that are relevant to searchers' queries or other input are more likely to have a higher click-through rate. This metric tells you if a keyword is underperforming and causing a loss in impression share, so you can make keyword changes or remove ads altogether.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// How well your keyword competes against other keywords targeting the same traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpectedCtr = 29,
         
         /// <summary>
-        /// How closely related your ads is to the customer's search query or other input. It tells you how relevant your ad and landing page are to potential customers.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// How closely related your ads is to the customer's search query or other input.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdRelevance = 30,
         
         /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site. The landing page experience score measures whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// An aggregate quality assessment of all landing pages on your site.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageExperience = 31,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 32,
         
         /// <summary>
-        /// The historic quality score of the keyword. The historic quality score for each row is the value that was calculated for quality score on that date.Use the historic quality score to find out how the quality score may have changed over time. For example, if you specify a time period that spans three days, the historic quality score for day one will be the quality score calculated on day one, the historic quality score for day two will be the quality score calculated on day two, and so on.This score may vary from the score in the QualityScore column, which will be the same value for each day in the time period.
+        /// The historic quality score of the keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricQualityScore = 33,
         
         /// <summary>
-        /// Historic average of expected click-through rate scores going back as far as 18 months from the current date. This score may vary from the score in the ExpectedCtr column, which is the current score and same value for each day in the time period.
+        /// Historic average of expected click-through rate scores going back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricExpectedCtr = 34,
         
         /// <summary>
-        /// Historic average of ad relevance scores back as far as 18 months from the current date.This score may vary from the score in the AdRelevance column, which is the current score and same value for each day in the time period.
+        /// Historic average of ad relevance scores back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricAdRelevance = 35,
         
         /// <summary>
-        /// Historic average of landing page experience scores back as far as 18 months from the current date.This score may vary from the score in the LandingPageExperience column, which is the current score and same value for each day in the time period.
+        /// Historic average of landing page experience scores back as far as 18 months from the current date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricLandingPageExperience = 36,
         
         /// <summary>
-        /// The numeric score that indicates the possible increase in the number of impressions that the keyword could receive if the corresponding QualityScore column would rise above underperforming: 0 - Not available. Could be because the keyword is not underperforming.1 - Low impact. Improving the quality score could increase impressions by less than 100 additional impressions per day.2 - Medium impact. Improving the quality score could increase impressions by 100 to 500 additional impressions per day.3 - High impact. Improving the quality score could increase impressions by more than 500 additional impressions per day.
+        /// The numeric score that indicates the possible increase in the number of impressions that the keyword could receive if the corresponding QualityScore column would rise above underperforming:0 - Not available.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityImpact = 37,
@@ -8338,31 +8605,31 @@ namespace Microsoft.BingAds.V11.Reporting
         KeywordStatus = 45,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 46,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 47,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 48,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 49,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 50,
@@ -8374,7 +8641,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 51,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 52,
@@ -8422,17 +8689,23 @@ namespace Microsoft.BingAds.V11.Reporting
         FinalAppURL = 59,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc, ManualCpc, MaxClicks, MaxConversions, and TargetCpa. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// The bid strategy type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 60,
+        
+        /// <summary>
+        /// The labels applied to the keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KeywordLabels = 61,
     }
     
     /// <summary>
     /// Defines a keyword performance report column and corresponding sort order.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn342799(v=msads.110).aspx">KeywordPerformanceReportSort Data Object</see> http://msdn.microsoft.com/en-us/library/dn342799(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportsort?version=11">KeywordPerformanceReportSort Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportsort?version=11 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8514,10 +8787,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the bid match type values that you can use to filter the report data. These values are also used as column values in reports that include bid match type, such as the keyword performance report.
+    /// Defines the bid match type values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728812(v=msads.110).aspx">BidMatchTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/ff728812(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/bidmatchtypereportfilter?version=11">BidMatchTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/bidmatchtypereportfilter?version=11 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8555,7 +8828,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the possible values that you can use to use to filter the report data by bid strategy type.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt711485(v=msads.110).aspx">BidStrategyTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/mt711485(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/bidstrategytypereportfilter?version=11">BidStrategyTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/bidstrategytypereportfilter?version=11 for details.
     /// <para>Used by <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8578,10 +8851,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the delivered match type values that you can use to filter the report data. These values are also used as column values in reports that include match type, such as the keyword performance report.
+    /// Defines the delivered match type values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671749(v=msads.110).aspx">DeliveredMatchTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/bb671749(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/deliveredmatchtypereportfilter?version=11">DeliveredMatchTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/deliveredmatchtypereportfilter?version=11 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8619,7 +8892,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the ascending or descending sort order of values within the specified report column.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn342800(v=msads.110).aspx">SortOrder Value Set</see> http://msdn.microsoft.com/en-us/library/dn342800(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/sortorder?version=11">SortOrder Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/sortorder?version=11 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportSort"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8644,7 +8917,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the destination URL performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671544(v=msads.110).aspx">DestinationUrlPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb671544(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportfilter?version=11">DestinationUrlPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="DestinationUrlPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8691,7 +8964,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -8711,7 +8984,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -8731,7 +9004,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -8751,7 +9024,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad status. For example, you can use the filter to include data for only active ads.
+        /// The report will include data for only the ad status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -8771,7 +9044,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -8791,7 +9064,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only text ads displayed on smartphones.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -8811,7 +9084,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -8846,7 +9119,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the DestinationUrlPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671820(v=msads.110).aspx">DestinationUrlPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671820(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportcolumn?version=11">DestinationUrlPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="DestinationUrlPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8873,7 +9146,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -8927,25 +9200,25 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 11,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 12,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 14,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 15,
@@ -8963,73 +9236,73 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 17,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 18,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 19,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 20,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 21,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 23,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 24,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 26,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 27,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 29,
@@ -9041,7 +9314,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 30,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 31,
@@ -9065,7 +9338,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TrackingTemplate = 34,
         
         /// <summary>
-        /// The current custom parameter set of the ad, keyword, or criterion. Each custom parameter is a key and value pair. The list of custom parameters is semicolon-delimited and each key is enclosed by braces and a leading underscore, for example {_key1}=value1;{_key2}=value2.
+        /// The current custom parameter set of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 35,
@@ -9117,7 +9390,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the date range values of a budget summary report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671928(v=msads.110).aspx">BudgetSummaryReportTime Data Object</see> http://msdn.microsoft.com/en-us/library/bb671928(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreporttime?version=11">BudgetSummaryReportTime Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreporttime?version=11 for details.
     /// <para>Used by <see cref="BudgetSummaryReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9151,6 +9424,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The end date of a date range.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.Date CustomDateRangeEnd
         {
@@ -9168,6 +9444,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The start date of a date range.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Reporting.Date CustomDateRangeStart
         {
@@ -9185,6 +9464,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// A predefined date range.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.BudgetSummaryReportTimePeriod> PredefinedTime
         {
@@ -9218,7 +9500,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the BudgetSummaryReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671925(v=msads.110).aspx">BudgetSummaryReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671925(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreportcolumn?version=11">BudgetSummaryReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreportcolumn?version=11 for details.
     /// <para>Used by <see cref="BudgetSummaryReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9257,7 +9539,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CampaignId = 4,
         
         /// <summary>
-        /// The date for the downloaded report records. The date will be in the time zone of the campaign
+        /// The date for the downloaded report records.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Date = 5,
@@ -9291,7 +9573,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the predefined time and date range values for a budget summary report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671612(v=msads.110).aspx">BudgetSummaryReportTimePeriod Value Set</see> http://msdn.microsoft.com/en-us/library/bb671612(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreporttimeperiod?version=11">BudgetSummaryReportTimePeriod Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreporttimeperiod?version=11 for details.
     /// <para>Used by <see cref="BudgetSummaryReportTime"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9334,7 +9616,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the age and gender demographic report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671580(v=msads.110).aspx">AgeGenderDemographicReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/bb671580(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportfilter?version=11">AgeGenderDemographicReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportfilter?version=11 for details.
     /// <para>Used by <see cref="AgeGenderDemographicReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9375,7 +9657,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -9395,7 +9677,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -9415,7 +9697,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -9435,7 +9717,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -9455,7 +9737,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -9490,7 +9772,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AgeGenderDemographicReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671786(v=msads.110).aspx">AgeGenderDemographicReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/bb671786(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportcolumn?version=11">AgeGenderDemographicReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportcolumn?version=11 for details.
     /// <para>Used by <see cref="AgeGenderDemographicReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9517,7 +9799,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -9565,13 +9847,13 @@ namespace Microsoft.BingAds.V11.Reporting
         Gender = 10,
         
         /// <summary>
-        /// The estimated number of impressions, or the number of times an ad could be served to a particular age group or gender, divided by the total number of estimated impressions across the ad group (including estimated impressions for unknown age &amp; gender demographics). The value is expressed as a percent from 0 - 100.Note: This value is an estimate because the age and gender is not known for the entire audience.
+        /// The estimated number of impressions, or the number of times an ad could be served to a particular age group or gender, divided by the total number of estimated impressions across the ad group (including estimated impressions for unknown age and gender demographics).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedImpressionPercent = 11,
         
         /// <summary>
-        /// The estimated number of times that an ad could be clicked by a particular age group or gender, divided by the total number of estimated clicks across the ad group (including estimated clicks for unknown age &amp; gender demographics). The value is expressed as a percent from 0 - 100.Note: This value is an estimate because the age and gender is not known for the entire audience.
+        /// The estimated number of times that an ad could be clicked by a particular age group or gender, divided by the total number of estimated clicks across the ad group (including estimated clicks for unknown age and gender demographics).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedClickPercent = 12,
@@ -9583,31 +9865,31 @@ namespace Microsoft.BingAds.V11.Reporting
         EstimatedCtr = 13,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 14,
         
         /// <summary>
-        /// The estimated number of times an ad could be served to a particular age group or gender.Note: This value is an estimate because the age and gender is not known for the entire audience.
+        /// The estimated number of times an ad could be served to a particular age group or gender.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedImpressions = 15,
         
         /// <summary>
-        /// The estimated number of times that an ad could be clicked by a particular age group or gender.Note: This value is an estimate because the age and gender is not known for the entire audience.
+        /// The estimated number of times that an ad could be clicked by a particular age group or gender.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedClicks = 16,
         
         /// <summary>
-        /// The estimated number of conversions, which are the clicks that results in a sale or another measure of success, to a particular age group or gender. Conversions are measured by adding a small bit of code to your website pages so that a visitor's progress through your site can be tracked.Note: This value is an estimate because the age and gender is not known for the entire audience.
+        /// The estimated number of conversions, which are the clicks that results in a sale or another measure of success, to a particular age group or gender.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedConversions = 17,
         
         /// <summary>
-        /// The estimated number of the conversions that results in a sale or another measure of success to a particular age group or gender, divided by the estimated number of clicks by a particular age group or gender.Note: This value is an estimate because the age and gender is not known for the entire audience.
+        /// The estimated number of the conversions that results in a sale or another measure of success to a particular age group or gender, divided by the estimated number of clicks by a particular age group or gender.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedConversionRate = 18,
@@ -9635,7 +9917,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the user location performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt781257(v=msads.110).aspx">UserLocationPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt781257(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportfilter?version=11">UserLocationPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="UserLocationPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9670,7 +9952,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -9710,7 +9992,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -9745,7 +10027,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the UserLocationPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt781259(v=msads.110).aspx">UserLocationPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/mt781259(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportcolumn?version=11">UserLocationPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="UserLocationPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9772,7 +10054,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -9832,25 +10114,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 12,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 13,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 15,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 16,
@@ -9868,19 +10150,19 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 18,
         
         /// <summary>
-        /// The radius target bid name. The name of the geographic radius where the user was physically located when they clicked the ad.The Radius attribute column contains the distance of the radius.
+        /// The radius target bid name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProximityTargetLocation = 19,
         
         /// <summary>
-        /// The radius of a radius target bid. The geographic radius where the user was physically located when they clicked the ad.The ProximityTargetLocation attribute column contains the address or landmark name of the radius.
+        /// The radius of a radius target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Radius = 20,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
@@ -9892,85 +10174,85 @@ namespace Microsoft.BingAds.V11.Reporting
         City = 22,
         
         /// <summary>
-        /// The name of a country if the user's geographical intent can be determined. The country is set if the user's intent is related to a country, and not necessarily if they are physically located in the county.
+        /// The name of a country if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCountry = 23,
         
         /// <summary>
-        /// The name of a state if the user's geographical intent can be determined. The state is set if the user's intent is a state or sub geography of the state, and not necessarily if they are physically located in the state.
+        /// The name of a state if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentState = 24,
         
         /// <summary>
-        /// The name of a city if the user's geographical intent can be determined. The city is set if the user's intent is a city, and not necessarily if they are physically located in the city.
+        /// The name of a city if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area if the user's geographical intent can be determined. The metro area is set if the user's intent is a metro area or city within the metro area, and not necessarily if they are physically located in the metro area.
+        /// The name of a metro area if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 27,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 28,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 31,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 32,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 34,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 35,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 36,
@@ -9982,13 +10264,13 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 37,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 38,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 39,
@@ -10018,19 +10300,19 @@ namespace Microsoft.BingAds.V11.Reporting
         PostalCode = 43,
         
         /// <summary>
-        /// The name of a county if the user's geographical intent can be determined. The county is set if the user's intent is related to a county, and not necessarily if they are physically located in the county.
+        /// The name of a county if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCounty = 44,
         
         /// <summary>
-        /// The name of a postal code if the user's geographical intent can be determined. The postal code is set if the user's intent is a postal code, and not necessarily if they are physically located in the postal code.
+        /// The name of a postal code if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentPostalCode = 45,
         
         /// <summary>
-        /// The Bing Ads identifier of the location where the user was physically located when they clicked the ad. For geographical location identifiers, see Geographical Location Codes.
+        /// The Bing Ads identifier of the location where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationId = 46,
@@ -10046,7 +10328,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the publisher usage performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dd796865(v=msads.110).aspx">PublisherUsagePerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dd796865(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportfilter?version=11">PublisherUsagePerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="PublisherUsagePerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10087,7 +10369,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -10107,7 +10389,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you may use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -10127,7 +10409,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -10147,7 +10429,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -10167,7 +10449,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -10202,7 +10484,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the PublisherUsagePerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dd797159(v=msads.110).aspx">PublisherUsagePerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dd797159(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportcolumn?version=11">PublisherUsagePerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="PublisherUsagePerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10229,7 +10511,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -10277,25 +10559,25 @@ namespace Microsoft.BingAds.V11.Reporting
         PublisherUrl = 10,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 11,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 13,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 14,
@@ -10313,73 +10595,73 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 16,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 17,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 18,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 19,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 20,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 21,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 22,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 23,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 24,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 25,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 26,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 27,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 28,
@@ -10391,7 +10673,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 29,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 30,
@@ -10431,7 +10713,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the search query performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee703961(v=msads.110).aspx">SearchQueryPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/ee703961(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportfilter?version=11">SearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="SearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10487,7 +10769,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -10507,7 +10789,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -10527,7 +10809,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for ads that have the specified status value. You can specify one or more status values.
+        /// The report will include data for ads that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -10547,7 +10829,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad types. For example, the report can include data for product or text ads. You can specify one or more ad types.
+        /// The report will include data for only the specified ad types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdTypeReportFilter> AdType
@@ -10567,7 +10849,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for campaigns that have the specified status value. You can specify one or more status values.
+        /// The report will include data for campaigns that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -10587,7 +10869,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified delivered match types (as opposed to the bid match type). For example, you can use the filter to include data for ads that were delivered using the exact or phrase match type.
+        /// The report will include data for only the specified delivered match types (as opposed to the bid match type).
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
@@ -10627,7 +10909,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the keyword status. For example, you can use the filter to include data for only active keywords.
+        /// The report will include data for only the keyword status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.KeywordStatusReportFilter> KeywordStatus
@@ -10647,7 +10929,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -10702,7 +10984,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the aggregation values that you can use in a search query performance report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee703960(v=msads.110).aspx">SearchQueryReportAggregation Value Set</see> http://msdn.microsoft.com/en-us/library/ee703960(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryreportaggregation?version=11">SearchQueryReportAggregation Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryreportaggregation?version=11 for details.
     /// <para>Used by <see cref="DSASearchQueryPerformanceReportRequest"/> and <see cref="SearchQueryPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10763,7 +11045,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the SearchQueryPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee703958(v=msads.110).aspx">SearchQueryPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/ee703958(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportcolumn?version=11">SearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="SearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10790,7 +11072,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -10838,13 +11120,13 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 10,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 11,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 12,
@@ -10862,25 +11144,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdStatus = 14,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 15,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 16,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 17,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 18,
@@ -10916,25 +11198,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupCriterionId = 23,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 24,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 25,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 26,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 27,
@@ -10946,37 +11228,37 @@ namespace Microsoft.BingAds.V11.Reporting
         KeywordId = 28,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 31,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 32,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 34,
@@ -10988,7 +11270,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 35,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 36,
@@ -11024,7 +11306,7 @@ namespace Microsoft.BingAds.V11.Reporting
         KeywordStatus = 41,
         
         /// <summary>
-        /// The type of campaign. Possible values include Search &amp; content, Shopping, and Dynamic search.
+        /// The type of campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 42,
@@ -11034,7 +11316,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the conversion performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262849(v=msads.110).aspx">ConversionPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/gg262849(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportfilter?version=11">ConversionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11081,7 +11363,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -11101,7 +11383,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -11121,7 +11403,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -11141,7 +11423,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -11161,7 +11443,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data only for text ads displayed on smartphones.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -11181,7 +11463,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the keyword status. For example, you can use the filter to include data for only active keywords.
+        /// The report will include data for only the keyword status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.KeywordStatusReportFilter> KeywordStatus
@@ -11201,7 +11483,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified keywords. You can specify a maximum of 75 keywords. Each keyword can contain a maximum of 100 characters.
+        /// The report will include data for only the specified keywords.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Keywords
@@ -11236,7 +11518,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ConversionPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262852(v=msads.110).aspx">ConversionPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/gg262852(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportcolumn?version=11">ConversionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11263,7 +11545,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -11305,37 +11587,37 @@ namespace Microsoft.BingAds.V11.Reporting
         KeywordId = 9,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 10,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 11,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 12,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 13,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 14,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 15,
@@ -11347,7 +11629,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Spend = 16,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 17,
@@ -11359,13 +11641,13 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 18,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 19,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 20,
@@ -11383,7 +11665,7 @@ namespace Microsoft.BingAds.V11.Reporting
         RevenuePerAssist = 22,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 23,
@@ -11417,7 +11699,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the goals and funnels report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262854(v=msads.110).aspx">GoalsAndFunnelsReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/gg262854(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportfilter?version=11">GoalsAndFunnelsReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportfilter?version=11 for details.
     /// <para>Used by <see cref="GoalsAndFunnelsReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11467,7 +11749,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -11487,7 +11769,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -11507,7 +11789,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -11527,7 +11809,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -11547,7 +11829,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// The report will include data where the ad is displayed on the specified device operating systems.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceOSReportFilter> DeviceOS
@@ -11567,7 +11849,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// The report will include data where the ad is displayed on the specified device types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -11587,7 +11869,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified goals. The list can contain a maximum of 300 identifiers.
+        /// The report will include data for only the specified goals.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> GoalIds
@@ -11607,7 +11889,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the keyword status. For example, you can use the filter to include data for only active keywords.
+        /// The report will include data for only the keyword status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.KeywordStatusReportFilter> KeywordStatus
@@ -11642,7 +11924,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the GoalsAndFunnelsReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/gg262845(v=msads.110).aspx">GoalsAndFunnelsReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/gg262845(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn?version=11">GoalsAndFunnelsReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn?version=11 for details.
     /// <para>Used by <see cref="GoalsAndFunnelsReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11669,7 +11951,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -11717,19 +11999,19 @@ namespace Microsoft.BingAds.V11.Reporting
         Goal = 10,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 11,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.Note: Available for accounts that are setup to use analytics with Bing Ads Universal Event Tracking. For more information, see the Track sales and other conversions help topic.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 12,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 13,
@@ -11741,13 +12023,13 @@ namespace Microsoft.BingAds.V11.Reporting
         GoalId = 14,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
@@ -11787,7 +12069,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the negative keyword conflict report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt706469(v=msads.110).aspx">NegativeKeywordConflictReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt706469(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportfilter?version=11">NegativeKeywordConflictReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportfilter?version=11 for details.
     /// <para>Used by <see cref="NegativeKeywordConflictReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11825,7 +12107,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will only include data for accounts with the specified status. For example, you can use the filter to include data for only active accounts.
+        /// The report will only include data for accounts with the specified status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -11845,7 +12127,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will only include data for ad groups with the specified status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will only include data for ad groups with the specified status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -11865,7 +12147,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will only include data for campaigns with the specified status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will only include data for campaigns with the specified status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -11885,7 +12167,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will only include data for keywords with the specified status. For example, you can use the filter to include data for only active keywords.
+        /// The report will only include data for keywords with the specified status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.KeywordStatusReportFilter> KeywordStatus
@@ -11920,7 +12202,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes columns that you can include in the NegativeKeywordConflictReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh560535(v=msads.110).aspx">NegativeKeywordConflictReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/hh560535(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportcolumn?version=11">NegativeKeywordConflictReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportcolumn?version=11 for details.
     /// <para>Used by <see cref="NegativeKeywordConflictReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11995,7 +12277,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ConflictLevel = 10,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 11,
@@ -12019,20 +12301,32 @@ namespace Microsoft.BingAds.V11.Reporting
         NegativeKeywordId = 14,
         
         /// <summary>
-        /// The type of match to compare the negative keyword and the user's search term.The possible values for a negative keyword are Exact and Phrase.
+        /// The type of match to compare the negative keyword and the user's search term.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordMatchType = 15,
         
+        /// <summary>
+        /// The current account status.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 16,
         
+        /// <summary>
+        /// The current campaign status.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 17,
         
+        /// <summary>
+        /// The current ad group status.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 18,
         
+        /// <summary>
+        /// The current keyword status.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 19,
     }
@@ -12041,7 +12335,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the campaign change history report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh912356(v=msads.110).aspx">SearchCampaignChangeHistoryReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/hh912356(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportfilter?version=11">SearchCampaignChangeHistoryReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportfilter?version=11 for details.
     /// <para>Used by <see cref="SearchCampaignChangeHistoryReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12076,7 +12370,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -12096,7 +12390,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified type of change. For example, you can use the filter to include data only for updates or deletions.
+        /// The report will include data for only the specified type of change.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.ChangeTypeReportFilter> HowChanged
@@ -12116,7 +12410,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified type of entity. For example, you can use the filter to include data only for changes to ad groups or campaigns.
+        /// The report will include data for only the specified type of entity.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.ChangeEntityReportFilter> ItemChanged
@@ -12151,7 +12445,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attribute columns that you can include in the SearchCampaignChangeHistoryReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh912353(v=msads.110).aspx">SearchCampaignChangeHistoryReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/hh912353(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportcolumn?version=11">SearchCampaignChangeHistoryReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportcolumn?version=11 for details.
     /// <para>Used by <see cref="SearchCampaignChangeHistoryReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12160,7 +12454,7 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// The date and time of the change. The date and time will be in the time zone of the campaign.
+        /// The date and time of the change.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DateTime = 0,
@@ -12184,7 +12478,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountNumber = 3,
         
         /// <summary>
-        /// The username of the user that made the change to settings within the account. If the system made the change, the value will be Administrator.
+        /// The username of the user that made the change to settings within the account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChangedBy = 4,
@@ -12202,13 +12496,13 @@ namespace Microsoft.BingAds.V11.Reporting
         CampaignId = 6,
         
         /// <summary>
-        /// The ad group name.  Note: This column will be empty if ItemChanged is not Ad , Ad group, or Keyword.
+        /// The ad group name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.  Note: This column will be empty if ItemChanged is not Ad , Ad group, or Keyword.
+        /// The Bing Ads assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
@@ -12220,19 +12514,19 @@ namespace Microsoft.BingAds.V11.Reporting
         AdTitle = 9,
         
         /// <summary>
-        /// The text attribute of an ad.  Note: This column will be empty if ItemChanged is not Ad.
+        /// The text attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 10,
         
         /// <summary>
-        /// The ad display URL.  Note: This column will be empty if ItemChanged is not Ad.
+        /// The ad display URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DisplayUrl = 11,
         
         /// <summary>
-        /// The keyword text.  Note: This column will be empty if ItemChanged is not Keyword.
+        /// The keyword text.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 12,
@@ -12244,35 +12538,35 @@ namespace Microsoft.BingAds.V11.Reporting
         ItemChanged = 13,
         
         /// <summary>
-        /// Identifies the attribute or property of the entity from the ItemChanged column that changed.
+        /// Identifies the attribute or property of the entity from the ItemChanged column that changed.For a list of elements whose change history is reported, see the Attribute Changed column within Remarks.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AttributeChanged = 14,
         
         /// <summary>
-        /// The value that indicates whether the element was added, updated, or deleted. For possible values, see ChangeTypeReportFilter Value Set.
+        /// The value that indicates whether the element was added, updated, or deleted.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HowChanged = 15,
         
         /// <summary>
-        /// The value before the change. For more information, see the HowChanged column.
+        /// The value before the change.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OldValue = 16,
         
         /// <summary>
-        /// The value after the change. For more information, see the HowChanged column.
+        /// The value after the change.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewValue = 17,
     }
     
     /// <summary>
-    /// Defines the types of changes to entities by which you can filter the report data. These values are also used as column values in the HowChanged column of the campaign change history report. For more information, see SearchCampaignChangeHistoryReportColumn.
+    /// Defines the types of changes to entities by which you can filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh912354(v=msads.110).aspx">ChangeTypeReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/hh912354(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/changetypereportfilter?version=11">ChangeTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/changetypereportfilter?version=11 for details.
     /// <para>Used by <see cref="SearchCampaignChangeHistoryReportFilter"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12304,7 +12598,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the types of entities by which you can filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh912355(v=msads.110).aspx">ChangeEntityReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/hh912355(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/changeentityreportfilter?version=11">ChangeEntityReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/changeentityreportfilter?version=11 for details.
     /// <para>Used by <see cref="SearchCampaignChangeHistoryReportFilter"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12348,7 +12642,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the ad extension by ad report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn393942(v=msads.110).aspx">AdExtensionByAdReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn393942(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportfilter?version=11">AdExtensionByAdReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportfilter?version=11 for details.
     /// <para>Used by <see cref="AdExtensionByAdReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12392,7 +12686,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -12412,7 +12706,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -12432,7 +12726,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad status. For example, you can use the filter to include data for only active ads.
+        /// The report will include data for only the ad status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -12452,7 +12746,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -12472,7 +12766,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// The report will include data where the ad is displayed on the specified device operating systems.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceOSReportFilter> DeviceOS
@@ -12492,7 +12786,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// The report will include data where the ad is displayed on the specified device types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -12527,7 +12821,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdExtensionByAdReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj713608(v=msads.110).aspx">AdExtensionByAdReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/jj713608(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportcolumn?version=11">AdExtensionByAdReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportcolumn?version=11 for details.
     /// <para>Used by <see cref="AdExtensionByAdReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12542,7 +12836,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 1,
@@ -12590,13 +12884,13 @@ namespace Microsoft.BingAds.V11.Reporting
         AdExtensionType = 8,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 9,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 10,
@@ -12608,13 +12902,13 @@ namespace Microsoft.BingAds.V11.Reporting
         ClickType = 11,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 12,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
@@ -12626,25 +12920,25 @@ namespace Microsoft.BingAds.V11.Reporting
         TotalClicks = 14,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 16,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 17,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 18,
@@ -12680,37 +12974,37 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 23,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 24,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 29,
@@ -12722,13 +13016,13 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 30,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 31,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 32,
@@ -12786,7 +13080,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the ad extension by keyword report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn393943(v=msads.110).aspx">AdExtensionByKeywordReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn393943(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportfilter?version=11">AdExtensionByKeywordReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportfilter?version=11 for details.
     /// <para>Used by <see cref="AdExtensionByKeywordReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12830,7 +13124,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -12850,7 +13144,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -12870,7 +13164,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -12890,7 +13184,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// The report will include data where the ad is displayed on the specified device operating systems.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceOSReportFilter> DeviceOS
@@ -12910,7 +13204,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// The report will include data where the ad is displayed on the specified device types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -12930,7 +13224,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the keyword status. For example, you can use the filter to include data for only active keywords.
+        /// The report will include data for only the keyword status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.KeywordStatusReportFilter> KeywordStatus
@@ -12965,7 +13259,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdExtensionByKeywordReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj713610(v=msads.110).aspx">AdExtensionByKeywordReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/jj713610(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportcolumn?version=11">AdExtensionByKeywordReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportcolumn?version=11 for details.
     /// <para>Used by <see cref="AdExtensionByKeywordReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12980,7 +13274,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 1,
@@ -13028,13 +13322,13 @@ namespace Microsoft.BingAds.V11.Reporting
         AdExtensionType = 8,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 9,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 10,
@@ -13046,13 +13340,13 @@ namespace Microsoft.BingAds.V11.Reporting
         ClickType = 11,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 12,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
@@ -13064,25 +13358,25 @@ namespace Microsoft.BingAds.V11.Reporting
         TotalClicks = 14,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 16,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 17,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 18,
@@ -13118,37 +13412,37 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 23,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 24,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 29,
@@ -13160,13 +13454,13 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 30,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 31,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 32,
@@ -13212,7 +13506,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the audience performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt489833(v=msads.110).aspx">AudiencePerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt489833(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportfilter?version=11">AudiencePerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="AudiencePerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -13247,7 +13541,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -13267,7 +13561,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -13287,7 +13581,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -13322,7 +13616,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AudiencePerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt604701(v=msads.110).aspx">AudiencePerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/mt604701(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportcolumn?version=11">AudiencePerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="AudiencePerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -13349,7 +13643,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -13391,43 +13685,43 @@ namespace Microsoft.BingAds.V11.Reporting
         AudienceName = 9,
         
         /// <summary>
-        /// The status of the association between the ad group and remarketing list, which indicates whether ads are eligible to display. The possible values are Active, Paused, and Deleted.
+        /// The status of the association between the ad group and remarketing list, which indicates whether ads are eligible to display.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssociationStatus = 10,
         
         /// <summary>
-        /// This attribute reflects the current value of your ad group's audience bid adjustment, even if a different bid adjustment value was used when the ad was shown. This value is the requested percentage to increase or decrease the bid amount for the remarketing list.
+        /// This attribute reflects the current value of your ad group's audience bid adjustment, even if a different bid adjustment value was used when the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidAdjustment = 11,
         
         /// <summary>
-        /// This attribute reflects the current value of your ad group's audience targeting setting. The possible values are 'Target and bid' or 'Bid only'.Target and bid: Show ads only to people included in the remarketing list, with the option to change the bid amount.Bid only: Show ads to people searching for your ad, with the option to change the bid amount for people included in the remarketing list.
+        /// This attribute reflects the current value of your ad group's audience targeting setting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TargetingSetting = 12,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 13,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 15,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 16,
@@ -13445,25 +13739,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 18,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 19,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 20,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 21,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 22,
@@ -13503,7 +13797,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the ad extension detail report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610806(v=msads.110).aspx">AdExtensionDetailReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn610806(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportfilter?version=11">AdExtensionDetailReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportfilter?version=11 for details.
     /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -13547,7 +13841,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -13567,7 +13861,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -13587,7 +13881,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad status. For example, you can use the filter to include data for only active ads.
+        /// The report will include data for only the ad status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -13607,7 +13901,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -13627,7 +13921,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems. For example, you may use the filter to include data for only ads displayed on Windows devices.
+        /// The report will include data where the ad is displayed on the specified device operating systems.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceOSReportFilter> DeviceOS
@@ -13647,7 +13941,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types. For example, you may use the filter to include data for only ads displayed on smartphones.
+        /// The report will include data where the ad is displayed on the specified device types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -13682,7 +13976,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdExtensionDetailReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn610365(v=msads.110).aspx">AdExtensionDetailReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn610365(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportcolumn?version=11">AdExtensionDetailReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportcolumn?version=11 for details.
     /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -13703,7 +13997,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 1,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 2,
@@ -13751,7 +14045,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdExtensionType = 9,
         
         /// <summary>
-        /// The system identifier that corresponds to the AdExtensionType column. The supported identifiers are 10, 11, and 12.
+        /// The system identifier that corresponds to the AdExtensionType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionTypeId = 10,
@@ -13769,55 +14063,55 @@ namespace Microsoft.BingAds.V11.Reporting
         AdExtensionVersion = 12,
         
         /// <summary>
-        /// The human readable ad extension property value. For this report only one property is available for each type of ad extension. The following are the possible property values corresponding to each AdExtensionTypeId: If the AdExtensionTypeId is 10, this AdExtensionPropertyValue is the display text of a sitelink ad extension.
+        /// The human readable ad extension property value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionPropertyValue = 13,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 14,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 18,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 19,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 20,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 21,
@@ -13829,43 +14123,43 @@ namespace Microsoft.BingAds.V11.Reporting
         Spend = 22,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 23,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 24,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 29,
@@ -13877,7 +14171,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 30,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 31,
@@ -13923,7 +14217,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the share of voice report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj592908(v=msads.110).aspx">ShareOfVoiceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/jj592908(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportfilter?version=11">ShareOfVoiceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportfilter?version=11 for details.
     /// <para>Used by <see cref="ShareOfVoiceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -13982,7 +14276,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -14002,7 +14296,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -14022,7 +14316,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -14042,7 +14336,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified bid match types. For example, you can use the filter to include data for ads that were bid on using the exact or phrase match type.
+        /// The report will include data for only the specified bid match types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.BidMatchTypeReportFilter> BidMatchType
@@ -14062,7 +14356,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified bid strategy type or types. For example, you can use the filter to include data only for keywords that were bid on using the enhanced bid strategy type.
+        /// The report will include data for only the specified bid strategy type or types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.BidStrategyTypeReportFilter> BidStrategyType
@@ -14082,7 +14376,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -14102,7 +14396,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified delivered match types. For example, you can use the filter to include data for ads that were delivered using the exact or phrase match type.
+        /// The report will include data for only the specified delivered match types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
@@ -14122,7 +14416,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data only for text ads displayed on smartphones.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -14142,7 +14436,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the keyword status. For example, you can use the filter to include data for only active keywords.
+        /// The report will include data for only the keyword status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.KeywordStatusReportFilter> KeywordStatus
@@ -14162,7 +14456,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified keywords. You can specify a maximum of 75 keywords. Each keyword can contain a maximum of 100 characters.
+        /// The report will include data for only the specified keywords.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Keywords
@@ -14182,7 +14476,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -14217,7 +14511,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ShareOfVoiceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj592910(v=msads.110).aspx">ShareOfVoiceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/jj592910(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportcolumn?version=11">ShareOfVoiceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportcolumn?version=11 for details.
     /// <para>Used by <see cref="ShareOfVoiceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14232,7 +14526,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 1,
@@ -14256,19 +14550,19 @@ namespace Microsoft.BingAds.V11.Reporting
         Keyword = 4,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 5,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 6,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 7,
@@ -14304,25 +14598,25 @@ namespace Microsoft.BingAds.V11.Reporting
         CampaignId = 12,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 13,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 15,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 16,
@@ -14340,88 +14634,91 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 18,
         
         /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting. The value of this column is empty if the data is not available.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 19,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 20,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 21,
         
         /// <summary>
-        /// The percentage of impression share lost due to low ad relevance. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of impression share lost due to low ad relevance.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToAdRelevancePercent = 22,
         
         /// <summary>
-        /// The percentage of impression share lost due to low expected click-through rate. If this is high, figure out what you can do to increase your CTR. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of impression share lost due to low expected click-through rate.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToExpectedCtrPercent = 23,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRelevancePercent = 24,
         
         /// <summary>
-        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The percentage of time your ads would have been displayed to users, but were not because your bid was too low or your bid and quality score was below minimum thresholds, which prevented you from entering the auction.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBidPercent = 25,
         
         /// <summary>
-        /// The maximum cost per click bid that was in effect at the time the report was generated. It is not a moving historical bid throughout the report time period.
+        /// The maximum cost per click bid that was in effect at the time the report was generated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 26,
         
         /// <summary>
-        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms. The quality score is calculated by Bing Ads using the ExpectedCtr, AdRelevance, and LandingPageExperience sub scores. If available, the quality score can range from a low of 1 to a high of 10.
+        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScore = 27,
         
         /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic. Ads that are relevant to searchers' queries or other input are more likely to have a higher click-through rate. This metric tells you if a keyword is underperforming and causing a loss in impression share, so you can make keyword changes or remove ads altogether.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// How well your keyword competes against other keywords targeting the same traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpectedCtr = 28,
         
         /// <summary>
-        /// How closely related your ads is to the customer's search query or other input. It tells you how relevant your ad and landing page are to potential customers.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// How closely related your ads is to the customer's search query or other input.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdRelevance = 29,
         
         /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site. The landing page experience score measures whether your landing page is likely to provide a good experience to customers who click your ad and land on your website.A score of 3 is Above Average; a score of 2 is Average; and a score of 1 is considered Below Average.If you specify a time period that spans multiple days, the score will be the same for each day in the time period, and the value is the most recent calculated score.Note: Data for this column is typically updated 14-18 hours after the UTC day ends.
+        /// An aggregate quality assessment of all landing pages on your site.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageExperience = 30,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 31,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 32,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 33,
@@ -14433,19 +14730,19 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 34,
         
         /// <summary>
-        /// The percentage of clicks that went to your ads. It is the share of the prospective customer's mindshare and buying intent you captured.
+        /// The percentage of clicks that went to your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 35,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 36,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 37,
@@ -14475,17 +14772,29 @@ namespace Microsoft.BingAds.V11.Reporting
         KeywordStatus = 41,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc, ManualCpc, MaxClicks, MaxConversions, and TargetCpa. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// The bid strategy type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 42,
+        
+        /// <summary>
+        /// The labels applied to the keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KeywordLabels = 43,
+        
+        /// <summary>
+        /// The estimated percentage of impressions that your campaign received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExactMatchImpressionSharePercent = 44,
     }
     
     /// <summary>
     /// Defines the criteria to use to filter the product dimension performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913139(v=msads.110).aspx">ProductDimensionPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn913139(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportfilter?version=11">ProductDimensionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="ProductDimensionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -14529,7 +14838,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -14549,7 +14858,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -14569,7 +14878,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad status. For example, you can use the filter to include data for only active ads.
+        /// The report will include data for only the ad status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -14589,7 +14898,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -14609,7 +14918,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only ads displayed on computers.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -14629,7 +14938,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -14664,7 +14973,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductDimensionPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913140(v=msads.110).aspx">ProductDimensionPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn913140(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportcolumn?version=11">ProductDimensionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="ProductDimensionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14673,7 +14982,7 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
@@ -14721,7 +15030,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupStatus = 7,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 8,
@@ -14751,13 +15060,13 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 12,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 13,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 14,
@@ -14769,13 +15078,13 @@ namespace Microsoft.BingAds.V11.Reporting
         MerchantProductId = 15,
         
         /// <summary>
-        /// The product item name. For example the title of a book, DVD, or game.
+        /// The product item name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Title = 16,
         
         /// <summary>
-        /// The condition of a product item. Possible values include:NewUsedRefurbishedRemanufacturedCollectableOpen Box
+        /// The condition of a product item.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Condition = 17,
@@ -14823,85 +15132,85 @@ namespace Microsoft.BingAds.V11.Reporting
         CustomLabel4 = 24,
         
         /// <summary>
-        /// The first level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The first level value of the Product_type field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType1 = 25,
         
         /// <summary>
-        /// The second level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The second level value of the Product_type field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType2 = 26,
         
         /// <summary>
-        /// The third level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The third level value of the Product_type field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType3 = 27,
         
         /// <summary>
-        /// The fourth level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The fourth level value of the Product_type field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType4 = 28,
         
         /// <summary>
-        /// The fifth level value of the Product_type field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The fifth level value of the Product_type field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType5 = 29,
         
         /// <summary>
-        /// The first level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The first level value of the Product_category field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory1 = 30,
         
         /// <summary>
-        /// The second level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The second level value of the Product_category field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory2 = 31,
         
         /// <summary>
-        /// The third level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The third level value of the Product_category field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory3 = 32,
         
         /// <summary>
-        /// The fourth level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The fourth level value of the Product_category field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory4 = 33,
         
         /// <summary>
-        /// The fifth level value of the Product_category field in your Bing Merchant Center catalog. For more information, see How is the catalog feed organized?
+        /// The fifth level value of the Product_category field in your Bing Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory5 = 34,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 35,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 36,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 37,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 38,
@@ -14913,19 +15222,19 @@ namespace Microsoft.BingAds.V11.Reporting
         Spend = 39,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 40,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 41,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 42,
@@ -14943,7 +15252,7 @@ namespace Microsoft.BingAds.V11.Reporting
         SellerName = 44,
         
         /// <summary>
-        /// The report will include a column that contains the language for the product offer.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The report will include a column that contains the language for the product offer.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 45,
@@ -14961,25 +15270,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdStatus = 47,
         
         /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting. The value of this column is empty if the data is not available.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 48,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 49,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 50,
         
         /// <summary>
-        /// Shows you how much other advertisers are bidding on average on similar products as your current target.Use this information as a benchmark to compare your bidding strategy for a product group against that of other advertisers advertising similar products. If the benchmark bid is significantly higher than your bid, you might consider raising your bid.
+        /// Shows you how much other advertisers are bidding on average on similar products as your current target.Use this information as a benchmark to compare your bidding strategy for a product group against that of other advertisers advertising similar products.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkBid = 51,
@@ -14991,7 +15300,7 @@ namespace Microsoft.BingAds.V11.Reporting
         BenchmarkCtr = 52,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 53,
@@ -15020,11 +15329,14 @@ namespace Microsoft.BingAds.V11.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 57,
         
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 58,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// The bid strategy type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 59,
@@ -15046,7 +15358,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the product partition performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913143(v=msads.110).aspx">ProductPartitionPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/dn913143(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportfilter?version=11">ProductPartitionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="ProductPartitionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -15090,7 +15402,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -15110,7 +15422,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -15130,7 +15442,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad status. For example, you can use the filter to include data for only active ads.
+        /// The report will include data for only the ad status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -15150,7 +15462,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -15170,7 +15482,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only ads displayed on computers.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -15190,7 +15502,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -15225,7 +15537,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductPartitionPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn913142(v=msads.110).aspx">ProductPartitionPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn913142(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportcolumn?version=11">ProductPartitionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="ProductPartitionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -15252,7 +15564,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -15282,7 +15594,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute. For example 'Product Type = Home / Product Type = Electronics / Product Type = DVD Player'
+        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 8,
@@ -15306,7 +15618,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdId = 11,
         
         /// <summary>
-        /// The maximum cost per click bid that was in effect at the time the report was generated. It is not a moving historical bid throughout the report time period.
+        /// The maximum cost per click bid that was in effect at the time the report was generated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 12,
@@ -15318,37 +15630,37 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 13,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 14,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 15,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 16,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 18,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 19,
@@ -15360,31 +15672,31 @@ namespace Microsoft.BingAds.V11.Reporting
         Spend = 20,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 21,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 22,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 23,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 25,
@@ -15414,31 +15726,31 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 29,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 30,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 31,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 32,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 33,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 34,
@@ -15456,7 +15768,7 @@ namespace Microsoft.BingAds.V11.Reporting
         RevenuePerAssist = 36,
         
         /// <summary>
-        /// The report will include a column that contains the language for the product offer.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The report will include a column that contains the language for the product offer.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 37,
@@ -15486,25 +15798,25 @@ namespace Microsoft.BingAds.V11.Reporting
         CustomParameters = 41,
         
         /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting. The value of this column is empty if the data is not available.Example: Out of estimated 59,000 impressions that occurred on this day in your targeted market, you got only about 2,300, or 3%.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 42,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 43,
         
         /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking. The value of this column is empty if the data is not available.Note: If you try to include this column with Hourly or HourOfDay aggregation the service will return code 2053.
+        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 44,
         
         /// <summary>
-        /// Shows you how much other advertisers are bidding on average on similar products as your current target.Use this information as a benchmark to compare your bidding strategy for a product group against that of other advertisers advertising similar products. If the benchmark bid is significantly higher than your bid, you might consider raising your bid.
+        /// Shows you how much other advertisers are bidding on average on similar products as your current target.Use this information as a benchmark to compare your bidding strategy for a product group against that of other advertisers advertising similar products.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkBid = 45,
@@ -15546,7 +15858,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 51,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// The bid strategy type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 52,
@@ -15559,10 +15871,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the criteria to use to filter the product partition performance report data.
+    /// Defines the criteria to use to filter the product partition  performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt592961(v=msads.110).aspx">ProductPartitionUnitPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt592961(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportfilter?version=11">ProductPartitionUnitPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="ProductPartitionUnitPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -15606,7 +15918,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -15626,7 +15938,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -15646,7 +15958,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad status. For example, you can use the filter to include data for only active ads.
+        /// The report will include data for only the ad status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -15666,7 +15978,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -15686,7 +15998,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed. For example, you can use the filter to include data for only ads displayed on computers.
+        /// The report will include data for only the specified types of devices on which the ad is displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.DeviceTypeReportFilter> DeviceType
@@ -15706,7 +16018,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Common Market Values.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -15741,7 +16053,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductPartitionUnitPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt592967(v=msads.110).aspx">ProductPartitionUnitPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/mt592967(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportcolumn?version=11">ProductPartitionUnitPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="ProductPartitionUnitPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -15768,7 +16080,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -15798,7 +16110,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute. For example 'Product Type = Home / Product Type = Electronics / Product Type = DVD Player'
+        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 8,
@@ -15816,7 +16128,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdId = 10,
         
         /// <summary>
-        /// The maximum cost per click bid that was in effect at the time the report was generated. It is not a moving historical bid throughout the report time period.
+        /// The maximum cost per click bid that was in effect at the time the report was generated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 11,
@@ -15828,37 +16140,37 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 12,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 13,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 14,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 15,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 16,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 17,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 18,
@@ -15870,31 +16182,31 @@ namespace Microsoft.BingAds.V11.Reporting
         Spend = 19,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 20,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 21,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 22,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 23,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 24,
@@ -15924,31 +16236,31 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 28,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 31,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 32,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 33,
@@ -15990,7 +16302,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 39,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc and ManualCpc. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// The bid strategy type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 40,
@@ -16006,7 +16318,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the Bing Shopping product search query performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt783265(v=msads.110).aspx">ProductSearchQueryPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt783265(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportfilter?version=11">ProductSearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="ProductSearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -16056,7 +16368,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -16076,7 +16388,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -16096,7 +16408,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for ads that have the specified status value. You can specify one or more status values.
+        /// The report will include data for ads that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -16116,7 +16428,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad types. For example, the report can include data for product or text ads. You can specify one or more ad types.
+        /// The report will include data for only the specified ad types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdTypeReportFilter> AdType
@@ -16136,7 +16448,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for campaigns that have the specified status value. You can specify one or more status values.
+        /// The report will include data for campaigns that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -16176,7 +16488,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -16231,7 +16543,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductSearchQueryPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt783266(v=msads.110).aspx">ProductSearchQueryPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/mt783266(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportcolumn?version=11">ProductSearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="ProductSearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -16240,7 +16552,7 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
@@ -16300,19 +16612,19 @@ namespace Microsoft.BingAds.V11.Reporting
         DestinationUrl = 9,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 10,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 11,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 12,
@@ -16324,7 +16636,7 @@ namespace Microsoft.BingAds.V11.Reporting
         SearchQuery = 13,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 14,
@@ -16336,7 +16648,7 @@ namespace Microsoft.BingAds.V11.Reporting
         MerchantProductId = 15,
         
         /// <summary>
-        /// The product item name. For example the title of a book, DVD, or game.
+        /// The product item name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Title = 16,
@@ -16366,7 +16678,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupCriterionId = 20,
         
         /// <summary>
-        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute. For example 'Product Type = Home / Product Type = Electronics / Product Type = DVD Player'
+        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 21,
@@ -16378,25 +16690,25 @@ namespace Microsoft.BingAds.V11.Reporting
         PartitionType = 22,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 23,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 24,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 25,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 26,
@@ -16408,37 +16720,37 @@ namespace Microsoft.BingAds.V11.Reporting
         Spend = 27,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 28,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 29,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 30,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 31,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 32,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 33,
@@ -16460,7 +16772,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the call detail report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt489831(v=msads.110).aspx">CallDetailReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt489831(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportfilter?version=11">CallDetailReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportfilter?version=11 for details.
     /// <para>Used by <see cref="CallDetailReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -16495,7 +16807,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -16515,7 +16827,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -16535,7 +16847,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -16570,7 +16882,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the CallDetailReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn195843(v=msads.110).aspx">CallDetailReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/dn195843(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportcolumn?version=11">CallDetailReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportcolumn?version=11 for details.
     /// <para>Used by <see cref="CallDetailReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -16615,13 +16927,13 @@ namespace Microsoft.BingAds.V11.Reporting
         Duration = 5,
         
         /// <summary>
-        /// The call status.Note: This column is deprecated and will be removed in a future API version. Bing Ads stopped charging for manual calls to a tracked number on March 12, 2014, and the CallStatus value is empty for any dates since.
+        /// The call status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CallStatus = 6,
         
         /// <summary>
-        /// The name of the call type.Note: This column is deprecated and will be removed in a future API version. Bing Ads stopped charging for manual calls to a tracked number on March 12, 2014, and the CallTypeName value is empty for any dates since.
+        /// The name of the call type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CallTypeName = 7,
@@ -16633,13 +16945,13 @@ namespace Microsoft.BingAds.V11.Reporting
         AreaCode = 8,
         
         /// <summary>
-        /// The city used to deliver the ad. The location where the user was in physically when they clicked the ad.
+        /// The city used to deliver the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 9,
         
         /// <summary>
-        /// The state used to deliver the ad. The location where the user was in physically when they clicked the ad.
+        /// The state used to deliver the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         State = 10,
@@ -16685,7 +16997,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the geographic performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt781255(v=msads.110).aspx">GeographicPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt781255(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportfilter?version=11">GeographicPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="GeographicPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -16729,7 +17041,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -16749,7 +17061,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified distribution medium. For example, you can use the filter to include data for only search ads.
+        /// The report will include data for only the specified distribution medium.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
@@ -16769,7 +17081,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -16789,7 +17101,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the campaign status. For example, you can use the filter to include data for only active campaigns.
+        /// The report will include data for only the campaign status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -16829,7 +17141,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -16864,7 +17176,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the GeographicPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt781258(v=msads.110).aspx">GeographicPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/mt781258(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn?version=11">GeographicPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="GeographicPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -16891,7 +17203,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AccountId = 2,
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
@@ -16957,25 +17269,25 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 13,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 14,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 15,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 16,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 17,
@@ -16993,79 +17305,79 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 19,
         
         /// <summary>
-        /// The radius target bid name. The name of the geographic radius where the user was physically located when they clicked the ad.The Radius attribute column contains the distance of the radius.
+        /// The radius target bid name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProximityTargetLocation = 20,
         
         /// <summary>
-        /// The radius of a radius target bid. The geographic radius where the user was physically located when they clicked the ad.The ProximityTargetLocation attribute column contains the address or landmark name of the radius.
+        /// The radius of a radius target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Radius = 21,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
         
         /// <summary>
-        /// The keyword bid match type. This can be different from the DeliveredMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 23,
         
         /// <summary>
-        /// The match type used to deliver an ad. This can be different from the BidMatchType column, for example if you bid on a broad match and the search term was an exact match. For more information, see Budget and Bid Strategies.
+        /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 24,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 26,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 27,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 28,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 29,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 30,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 31,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 32,
@@ -17077,13 +17389,13 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 33,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 34,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 35,
@@ -17101,13 +17413,13 @@ namespace Microsoft.BingAds.V11.Reporting
         RevenuePerAssist = 37,
         
         /// <summary>
-        /// The location type used to deliver ads. For example to distinguish between people in versus searching for or viewing pages about the corresponding location of interest.The possible location type values are listed below:Physical location - Indicates that the user was physically located in the corresponding City, Country, MetroArea, or State locations.Location of interest - Indicates that the physical location of the user was not used to serve the ad, and the user was searching for or viewing pages about the corresponding City, Country, MetroArea, or State locations.Unknown - Legacy value returned if the physical location was not used or confirmed prior to the release of this report column in May 2014.Note: If the user is searching for the location that they are in, then the location type is Physical location. For example if the search user is in Seattle and searching for Seattle, the location type is Physical location.
+        /// The location type used to deliver ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationType = 38,
         
         /// <summary>
-        /// The most specific location used to deliver ads. For example if the city and country are both identified, this column will include the same value as the City column. If postal code information is available, then it will be included in the report instead of city or country.
+        /// The most specific location used to deliver ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MostSpecificLocation = 39,
@@ -17131,7 +17443,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupStatus = 42,
         
         /// <summary>
-        /// The county where the user was physically located when they clicked the ad. Note: The LocationType column identifies whether the user was located in, searching for, or viewing pages about the location.
+        /// The county where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         County = 43,
@@ -17143,7 +17455,7 @@ namespace Microsoft.BingAds.V11.Reporting
         PostalCode = 44,
         
         /// <summary>
-        /// The Bing Ads identifier of the location where the user was physically located when they clicked the ad. For geographical location identifiers, see Geographical Location Codes.
+        /// The Bing Ads identifier of the location where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationId = 45,
@@ -17153,7 +17465,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the DSA search query performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779093(v=msads.110).aspx">DSASearchQueryPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt779093(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportfilter?version=11">DSASearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="DSASearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -17200,7 +17512,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -17220,7 +17532,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -17240,7 +17552,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for ads that have the specified status value. You can specify one or more status values.
+        /// The report will include data for ads that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -17260,7 +17572,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for campaigns that have the specified status value. You can specify one or more status values.
+        /// The report will include data for campaigns that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -17300,7 +17612,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -17355,7 +17667,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the DSASearchQueryPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779091(v=msads.110).aspx">DSASearchQueryPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/mt779091(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportcolumn?version=11">DSASearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="DSASearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -17364,7 +17676,7 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
@@ -17454,7 +17766,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Headline = 14,
         
         /// <summary>
-        /// The list of categories that Bing matched to your website. Up to three category levels can be returned per category list item. The list items are JSON encoded i.e., an array named categoryList with one or more category list items. For example, in the downloaded report data the categories might be {'categoryList':[{'category':'US/CA/SFO'},{'category':'US/WA/SEA'},{'category':'US/TX'}]}.
+        /// The list of categories that Bing matched to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CategoryList = 15,
@@ -17466,13 +17778,13 @@ namespace Microsoft.BingAds.V11.Reporting
         LandingPageTitle = 16,
         
         /// <summary>
-        /// The URL address of the page on your website that people reach when they click your ad from a desktop or laptop. If the URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL before substitution.
+        /// The URL address of the page on your website that people reach when they click your ad from a desktop or laptop.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrl = 17,
         
         /// <summary>
-        /// The dynamic ad target or webpage condition that Bing matched to your website. For example the condition could be returned in the report as URL contains xyz.
+        /// The dynamic ad target or webpage condition that Bing matched to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTarget = 18,
@@ -17490,55 +17802,55 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 20,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 22,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 23,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 25,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 26,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 27,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 28,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 29,
@@ -17556,31 +17868,31 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 31,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 32,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 33,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 34,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 35,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 36,
@@ -17592,7 +17904,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 37,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 38,
@@ -17614,7 +17926,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the DSA auto target performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779094(v=msads.110).aspx">DSAAutoTargetPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt779094(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportfilter?version=11">DSAAutoTargetPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="DSAAutoTargetPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -17658,7 +17970,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -17678,7 +17990,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -17697,6 +18009,9 @@ namespace Microsoft.BingAds.V11.Reporting
             }
         }
         
+        /// <summary>
+        /// The report will include data for only the specified bid strategy types.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.BidStrategyTypeReportFilter> BidStrategyType
         {
@@ -17715,7 +18030,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for campaigns that have the specified status value. You can specify one or more status values.
+        /// The report will include data for campaigns that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -17755,7 +18070,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -17790,7 +18105,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the DSAAutoTargetPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779092(v=msads.110).aspx">DSAAutoTargetPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/mt779092(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportcolumn?version=11">DSAAutoTargetPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="DSAAutoTargetPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -17799,7 +18114,7 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
@@ -17871,37 +18186,37 @@ namespace Microsoft.BingAds.V11.Reporting
         AdDistribution = 11,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 12,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 13,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 14,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
         
         /// <summary>
-        /// The bid strategy type. Possible values include EnhancedCpc, ManualCpc, MaxClicks, MaxConversions, and TargetCpa. If the InheritFromParent strategy type is used, the report will include the inherited bid strategy type e.g. one of the supported values listed above.
+        /// The bid strategy type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 17,
@@ -17925,7 +18240,7 @@ namespace Microsoft.BingAds.V11.Reporting
         DynamicAdTargetId = 20,
         
         /// <summary>
-        /// The dynamic ad target or webpage condition that Bing matched to your website. For example the condition could be returned in the report as URL contains xyz.
+        /// The dynamic ad target or webpage condition that Bing matched to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTarget = 21,
@@ -17943,25 +18258,25 @@ namespace Microsoft.BingAds.V11.Reporting
         WebsiteCoverage = 23,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 24,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 25,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 26,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 27,
@@ -17979,31 +18294,31 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 29,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 30,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 31,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 32,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 34,
@@ -18015,7 +18330,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 35,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 36,
@@ -18034,10 +18349,10 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
-    /// Defines the dynamic ad target status values that you can use to filter the report data. These values are also used as column values in reports that include dynamic ad targets status, such as the DSA auto target performance report.
+    /// Defines the dynamic ad target status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt793840(v=msads.110).aspx">DynamicAdTargetStatusReportFilter Value Set</see> http://msdn.microsoft.com/en-us/library/mt793840(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dynamicadtargetstatusreportfilter?version=11">DynamicAdTargetStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dynamicadtargetstatusreportfilter?version=11 for details.
     /// <para>Used by <see cref="DSAAutoTargetPerformanceReportFilter"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -18069,7 +18384,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the criteria to use to filter the DSA category performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779096(v=msads.110).aspx">DSACategoryPerformanceReportFilter Data Object</see> http://msdn.microsoft.com/en-us/library/mt779096(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportfilter?version=11">DSACategoryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportfilter?version=11 for details.
     /// <para>Used by <see cref="DSACategoryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18110,7 +18425,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the account status. For example, you can use the filter to include data for only active accounts.
+        /// The report will include data for only the account status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
@@ -18130,7 +18445,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the ad group status. For example, you can use the filter to include data for only active ad groups.
+        /// The report will include data for only the ad group status.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
@@ -18150,7 +18465,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for ads that have the specified status value. You can specify one or more status values.
+        /// The report will include data for ads that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.AdStatusReportFilter> AdStatus
@@ -18170,7 +18485,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for campaigns that have the specified status value. You can specify one or more status values.
+        /// The report will include data for campaigns that have the specified status value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
@@ -18190,7 +18505,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only websites that used the specified languages. For a list of possible values, see Ad Languages.
+        /// The report will include data for only websites that used the specified languages.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> LanguageCode
@@ -18225,7 +18540,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the DSACategoryPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt779090(v=msads.110).aspx">DSACategoryPerformanceReportColumn Value Set</see> http://msdn.microsoft.com/en-us/library/mt779090(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportcolumn?version=11">DSACategoryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportcolumn?version=11 for details.
     /// <para>Used by <see cref="DSACategoryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -18234,7 +18549,7 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// The time period of each report row.Note: You may not include this column if the Aggregation element of the request object is set to Summary. If you include the TimePeriod column, the column label in the downloaded report depends on the aggregation level that you specify in the report request. For more information, see Time Period Column.
+        /// The time period of each report row.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
@@ -18312,76 +18627,79 @@ namespace Microsoft.BingAds.V11.Reporting
         AdStatus = 12,
         
         /// <summary>
-        /// The top level category that Bing matched to your website. For example if the category is US/CA/SFO, the Category0 value will be US.
+        /// The top level category that Bing matched to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Category0 = 13,
         
         /// <summary>
-        /// The mid level category that Bing matched to your website. For example if the category is US/CA/SFO, the Category1 value will be CA.
+        /// The mid level category that Bing matched to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Category1 = 14,
         
         /// <summary>
-        /// The low level category that Bing matched to your website. For example if the category is US/CA/SFO, the Category2 value will be SFO.
+        /// The low level category that Bing matched to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Category2 = 15,
         
+        /// <summary>
+        /// The ad distribution attribute of an ad group.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 16,
         
         /// <summary>
-        /// The ad group language.For possible values see Ad Languages. The language display name will be provided in the report e.g. English.
+        /// The ad group language.For possible values see Ad Languages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 17,
         
         /// <summary>
-        /// The current network setting of an ad group. The following is a list of possible values:AOL searchBing and Yahoo! searchContentSyndicated search partners
+        /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 18,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. The following is a list of possible values:AOL search - TopAOL search - OtherBing and Yahoo! search - TopBing and Yahoo! search - OtherSyndicated search partners - TopSyndicated search partners - OtherContent networkUnknown
+        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 19,
         
         /// <summary>
-        /// The device name attribute of a device OS target bid. The type of device which showed ads.The possible values include Computer, Smartphone, Tablet, and Unknown.
+        /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 20,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
+        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 21,
         
         /// <summary>
-        /// The number of times an ad has been displayed on search results pages. Without impressions there are no clicks or conversions.
+        /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 22,
         
         /// <summary>
-        /// Clicks are what you pay for. Clicks typically include a customer clicking an ad on a search results page or on a website on the search network. Clicks can also come from other sources (for example, spiders, robots, and test servers). For more information, see Bing Ads click measurement: description of methodology.
+        /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 23,
         
         /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). For example, if your ads got 50 clicks given 2,348 impressions, your CTR is 2.13 (%).The formula for calculating CTR is (Clicks / Impressions) x 100.
+        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 24,
         
         /// <summary>
-        /// The average cost per click (CPC). The total cost of all clicks on an ad divided by the number of clicks. This is the average amount you're actually charged each time your ad is clicked. For example, if you paid a total of 48.35 for 300 clicks, your average CPC is 0.16.The formula for calculating the average CPC is (Spend /Clicks).
+        /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 25,
@@ -18399,31 +18717,31 @@ namespace Microsoft.BingAds.V11.Reporting
         AveragePosition = 27,
         
         /// <summary>
-        /// The number of conversions. A conversion is the completion of an action by a customer after viewing your ad. The action could be purchasing your product, registering for your webinar, joining an organization, or whatever you consider your goal and best measure of the ad's success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 28,
         
         /// <summary>
-        /// The conversion rate as a percentage. The number of conversions, divided by the total number of clicks. For example, if the ads in your campaign got 300 clicks and four conversions, the conversion rate is 1.33 (%).The formula for calculating the conversion rate is (Conversions / Clicks) x 100.
+        /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 29,
         
         /// <summary>
-        /// The cost per conversion. The formula for calculating the cost per conversion is (Spend / Conversions).
+        /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 30,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion. Additionally, the click corresponding to the assist must occur within the conversion period of the goal.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 31,
         
         /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions. Corresponds to the optional revenue parameter of a Bing Ads campaign analytics tracking script.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 32,
@@ -18435,7 +18753,7 @@ namespace Microsoft.BingAds.V11.Reporting
         ReturnOnAdSpend = 33,
         
         /// <summary>
-        /// The cost per assist. The formula for calculating the cost per assist is (Spend / Assists).
+        /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 34,
@@ -18457,7 +18775,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169139(v=msads.110).aspx">ApplicationFault Data Object</see> http://msdn.microsoft.com/en-us/library/dn169139(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/applicationfault?version=11">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/applicationfault?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -18522,7 +18840,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169136(v=msads.110).aspx">ApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/dn169136(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/apifaultdetail?version=11">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/apifaultdetail?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -18538,7 +18856,7 @@ namespace Microsoft.BingAds.V11.Reporting
         private System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.OperationError> OperationErrorsField;
         
         /// <summary>
-        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
+        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.BatchError> BatchErrors
@@ -18582,7 +18900,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169140(v=msads.110).aspx">AdApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/dn169140(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adapifaultdetail?version=11">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adapifaultdetail?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -18619,7 +18937,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169137(v=msads.110).aspx">AdApiError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169137(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adapierror?version=11">AdApiError Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adapierror?version=11 for details.
     /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18677,7 +18995,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// A message that contains additional details about the error. This string can be empty.
+        /// A message that contains additional details about the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Detail
@@ -18697,7 +19015,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// A symbolic string constant that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
@@ -18752,7 +19070,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169134(v=msads.110).aspx">BatchError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169134(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/batcherror?version=11">BatchError Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/batcherror?version=11 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18813,7 +19131,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// A message that provides additional details about the batch error. This string can be empty.
+        /// A message that provides additional details about the batch error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
@@ -18833,7 +19151,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// A symbolic string constant that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
@@ -18908,7 +19226,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169135(v=msads.110).aspx">OperationError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169135(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/operationerror?version=11">OperationError Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/operationerror?version=11 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18966,7 +19284,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// A message that provides additional details about the error. This string can be empty.
+        /// A message that provides additional details about the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
@@ -18986,7 +19304,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// A symbolic string constant that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
@@ -19041,7 +19359,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the status of a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672100(v=msads.110).aspx">ReportRequestStatus Data Object</see> http://msdn.microsoft.com/en-us/library/bb672100(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatus?version=11">ReportRequestStatus Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatus?version=11 for details.
     /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19073,7 +19391,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The URL from where the report can be downloaded. Once returned, the URL is valid for five minutes.
+        /// The URL from where the report can be downloaded.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ReportDownloadUrl
@@ -19128,7 +19446,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Defines the status of a report.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671578(v=msads.110).aspx">ReportRequestStatusType Value Set</see> http://msdn.microsoft.com/en-us/library/bb671578(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatustype?version=11">ReportRequestStatusType Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatustype?version=11 for details.
     /// <para>Used by <see cref="ReportRequestStatus"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -19137,7 +19455,7 @@ namespace Microsoft.BingAds.V11.Reporting
     {
         
         /// <summary>
-        /// An error occurred while generating the report. You will need to submit your report request again. If the request continues to fail, consider getting the tracking identifier from the response message and contacting support.
+        /// An error occurred while generating the report.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Error = 0,
@@ -19164,12 +19482,12 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Submits a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReport Service Operation</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the report request. Use this identifier when calling the PollGenerateReport to determine the status of the report request. Once returned, the identifier is valid for two days.</returns>
+        /// <returns>The identifier of the report request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SubmitGenerateReport", ReplyAction="https://bingads.microsoft.com/Reporting/v11/IReportingService/SubmitGenerateRepor" +
             "tResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.Reporting.AdApiFaultDetail), Action="https://bingads.microsoft.com/Reporting/v11/IReportingService/SubmitGenerateRepor" +
@@ -19182,12 +19500,12 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Submits a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReport Service Operation</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the report request. Use this identifier when calling the PollGenerateReport to determine the status of the report request. Once returned, the identifier is valid for two days.</returns>
+        /// <returns>The identifier of the report request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SubmitGenerateReport", ReplyAction="https://bingads.microsoft.com/Reporting/v11/IReportingService/SubmitGenerateRepor" +
             "tResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.Reporting.SubmitGenerateReportResponse> SubmitGenerateReportAsync(Microsoft.BingAds.V11.Reporting.SubmitGenerateReportRequest request);
@@ -19196,7 +19514,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Gets the status of a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReport Service Operation</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -19214,7 +19532,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Gets the status of a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReport Service Operation</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -19229,7 +19547,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Submits a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReport Request Object</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReport Request Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
     /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19260,7 +19578,7 @@ namespace Microsoft.BingAds.V11.Reporting
         public string UserName;
         
         /// <summary>
-        /// The report request. The request must be an object that derives from ReportRequest. For a list of report request types, see Report Types.
+        /// The report request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Reporting/v11", Order=0)]
         public Microsoft.BingAds.V11.Reporting.ReportRequest ReportRequest;
@@ -19269,7 +19587,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Constructor for the SubmitGenerateReportRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReportRequest</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReportRequest</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
         /// </remarks>
         public SubmitGenerateReportRequest()
         {
@@ -19279,9 +19597,9 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Constructor for the SubmitGenerateReportRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReportRequest</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReportRequest</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
         /// </remarks>
-        /// <param name="ReportRequest">The report request. The request must be an object that derives from ReportRequest. For a list of report request types, see Report Types.</param>
+        /// <param name="ReportRequest">The report request.</param>
         public SubmitGenerateReportRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.Reporting.ReportRequest ReportRequest)
         {
             this.ApplicationToken = ApplicationToken;
@@ -19299,7 +19617,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Submits a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReport Response Object</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReport Response Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
     /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19312,7 +19630,7 @@ namespace Microsoft.BingAds.V11.Reporting
         public string TrackingId;
         
         /// <summary>
-        /// The identifier of the report request. Use this identifier when calling the PollGenerateReport to determine the status of the report request. Once returned, the identifier is valid for two days.
+        /// The identifier of the report request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Reporting/v11", Order=0)]
         public string ReportRequestId;
@@ -19321,7 +19639,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Constructor for the SubmitGenerateReportResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReportResponse</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReportResponse</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
         /// </remarks>
         public SubmitGenerateReportResponse()
         {
@@ -19331,9 +19649,9 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Constructor for the SubmitGenerateReportResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReportResponse</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReportResponse</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
         /// </remarks>
-        /// <param name="ReportRequestId">The identifier of the report request. Use this identifier when calling the PollGenerateReport to determine the status of the report request. Once returned, the identifier is valid for two days.</param>
+        /// <param name="ReportRequestId">The identifier of the report request.</param>
         public SubmitGenerateReportResponse(string TrackingId, string ReportRequestId)
         {
             this.TrackingId = TrackingId;
@@ -19345,7 +19663,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Gets the status of a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReport Request Object</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReport Request Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
     /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19376,7 +19694,7 @@ namespace Microsoft.BingAds.V11.Reporting
         public string UserName;
         
         /// <summary>
-        /// The identifier of the report request. The SubmitGenerateReport operation returns the identifier.
+        /// The identifier of the report request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Reporting/v11", Order=0)]
         public string ReportRequestId;
@@ -19385,7 +19703,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Constructor for the PollGenerateReportRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReportRequest</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReportRequest</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
         /// </remarks>
         public PollGenerateReportRequest()
         {
@@ -19395,9 +19713,9 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Constructor for the PollGenerateReportRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReportRequest</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReportRequest</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
         /// </remarks>
-        /// <param name="ReportRequestId">The identifier of the report request. The SubmitGenerateReport operation returns the identifier.</param>
+        /// <param name="ReportRequestId">The identifier of the report request.</param>
         public PollGenerateReportRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ReportRequestId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -19415,7 +19733,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// Gets the status of a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReport Response Object</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReport Response Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
     /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19437,7 +19755,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Constructor for the PollGenerateReportResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReportResponse</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReportResponse</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
         /// </remarks>
         public PollGenerateReportResponse()
         {
@@ -19447,7 +19765,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Constructor for the PollGenerateReportResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReportResponse</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReportResponse</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
         /// </remarks>
         /// <param name="ReportRequestStatus">Contains the status of the report request and the download URL.</param>
         public PollGenerateReportResponse(string TrackingId, Microsoft.BingAds.V11.Reporting.ReportRequestStatus ReportRequestStatus)
@@ -19495,12 +19813,12 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Submits a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReport Service Operation</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the report request. Use this identifier when calling the PollGenerateReport to determine the status of the report request. Once returned, the identifier is valid for two days.</returns>
+        /// <returns>The identifier of the report request.</returns>
         public Microsoft.BingAds.V11.Reporting.SubmitGenerateReportResponse SubmitGenerateReport(Microsoft.BingAds.V11.Reporting.SubmitGenerateReportRequest request)
         {
             return base.Channel.SubmitGenerateReport(request);
@@ -19510,12 +19828,12 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Submits a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx">SubmitGenerateReport Service Operation</see> http://msdn.microsoft.com/en-us/library/jj879321(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the report request. Use this identifier when calling the PollGenerateReport to determine the status of the report request. Once returned, the identifier is valid for two days.</returns>
+        /// <returns>The identifier of the report request.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.Reporting.SubmitGenerateReportResponse> SubmitGenerateReportAsync(Microsoft.BingAds.V11.Reporting.SubmitGenerateReportRequest request)
         {
             return base.Channel.SubmitGenerateReportAsync(request);
@@ -19525,7 +19843,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Gets the status of a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReport Service Operation</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -19540,7 +19858,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Gets the status of a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx">PollGenerateReport Service Operation</see> http://msdn.microsoft.com/en-us/library/jj879320(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>

@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines the possible compression types for the file to download.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt179363(v=msads.110).aspx">CompressionType Value Set</see> http://msdn.microsoft.com/en-us/library/mt179363(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/compressiontype?version=11">CompressionType Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/compressiontype?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -94,7 +94,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines the scope or types of data to download.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249976(v=msads.110).aspx">DataScope Value Set</see> http://msdn.microsoft.com/en-us/library/dn249976(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/datascope?version=11">DataScope Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/datascope?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -104,13 +104,13 @@ namespace Microsoft.BingAds.V11.Bulk
     {
         
         /// <summary>
-        /// Download the entity attributes records e.g., Campaign and Ad Group.
+        /// Download the entity attributes records.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityData = 1,
         
         /// <summary>
-        /// Download the performance data fields e.g., Spend, Impressions, and Clicks for the corresponding entity records. The performance data is a summary aggregation per downloaded entity. If you want data aggregated by day, week, or month, you can use the Bing Ads Reporting API.
+        /// Download the performance data fields for the corresponding entity records.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityPerformanceData = 2,
@@ -122,7 +122,7 @@ namespace Microsoft.BingAds.V11.Bulk
         QualityScoreData = 4,
         
         /// <summary>
-        /// Download the bid suggestions records i.e., Keyword Best Position Bid, Keyword First Page Bid, and Keyword Main Line Bid.
+        /// Download the bid suggestions records.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidSuggestionsData = 8,
@@ -132,7 +132,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines the entities that may be downloaded in bulk.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/mt807599(v=msads.110).aspx">DownloadEntity Value Set</see> http://msdn.microsoft.com/en-us/library/mt807599(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadentity?version=11">DownloadEntity Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadentity?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -201,25 +201,25 @@ namespace Microsoft.BingAds.V11.Bulk
         AdGroupNegativeSites = 10,
         
         /// <summary>
-        /// Include Campaign Sitelink Ad Extension records in the download that represents the association relationship between a campaign and a sitelink ad extension. For Sitelink Ad Extension records, you should include the SiteLinksAdExtensions value in the download request.
+        /// This value is deprecated in favor of CampaignSitelink2AdExtensions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignSiteLinksAdExtensions = 11,
         
         /// <summary>
-        /// Include Campaign Location Ad Extension records in the download that represents the association relationship between a campaign and a location ad extension. For Location Ad Extension records, you should include the LocationAdExtensions value in the download request.
+        /// Include Campaign Location Ad Extension records in the download that represents the association relationship between a campaign and a location ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignLocationAdExtensions = 12,
         
         /// <summary>
-        /// Include Campaign Call Ad Extension records in the download that represents the association relationship between a campaign and a call ad extension. For Call Ad Extension records, you should include the CallAdExtensions value in the download request.
+        /// Include Campaign Call Ad Extension records in the download that represents the association relationship between a campaign and a call ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignCallAdExtensions = 13,
         
         /// <summary>
-        /// Include AdGroup Sitelink Ad Extension records in the download that each represent the association relationship between an ad group and a sitelink ad extension. For Sitelink Ad Extension records, you should include the SiteLinksAdExtensions value in the download request.
+        /// This value is deprecated in favor of AdGroupSitelink2AdExtensions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupSiteLinksAdExtensions = 14,
@@ -237,25 +237,25 @@ namespace Microsoft.BingAds.V11.Bulk
         CallAdExtensions = 16,
         
         /// <summary>
-        /// Include Sitelink Ad Extension records in the download data.
+        /// This value is deprecated in favor of Sitelink2AdExtensions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SiteLinksAdExtensions = 17,
         
         /// <summary>
-        /// Include Negative Keyword List records in the download data. The Negative Keyword List records do not include negative keywords that are shared in each list. For Shared Negative Keyword records, you should include the SharedNegativeKeywords value in the download request.
+        /// Include Negative Keyword List records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordLists = 18,
         
         /// <summary>
-        /// Include Shared Negative Keyword records in the download data. Shared negative keywords belong to a negative keyword list. For Negative Keyword List records, you should include the NegativeKeywordLists value in the download request.
+        /// Include Shared Negative Keyword records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SharedNegativeKeywords = 19,
         
         /// <summary>
-        /// Include Campaign Negative Keyword List Association records in the download that represents the association relationship between a campaign and a negative keyword list. For Negative Keyword List records, you should include the NegativeKeywordLists value in the download request.
+        /// Include Campaign Negative Keyword List Association records in the download that represents the association relationship between a campaign and a negative keyword list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeKeywordListAssociations = 20,
@@ -267,13 +267,13 @@ namespace Microsoft.BingAds.V11.Bulk
         ImageAdExtensions = 21,
         
         /// <summary>
-        /// Include Campaign Image Ad Extension records in the download that represents the association relationship between a campaign and an image ad extension. For Image Ad Extension records, you should include the ImageAdExtensions value in the download request.
+        /// Include Campaign Image Ad Extension records in the download that represents the association relationship between a campaign and an image ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignImageAdExtensions = 22,
         
         /// <summary>
-        /// Include Ad Group Image Ad Extension records in the download that each represent the association relationship between an ad group and an image ad extension. For Image Ad Extension records, you should include the ImageAdExtensions value in the download request.
+        /// Include Ad Group Image Ad Extension records in the download that each represent the association relationship between an ad group and an image ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupImageAdExtensions = 23,
@@ -285,13 +285,13 @@ namespace Microsoft.BingAds.V11.Bulk
         AppAdExtensions = 24,
         
         /// <summary>
-        /// Include Ad Group App Ad Extension records in the download that each represent the association relationship between an ad group and an app ad extension. For App Ad Extension records, you should include the AppAdExtensions value in the download request.
+        /// Include Ad Group App Ad Extension records in the download that each represent the association relationship between an ad group and an app ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupAppAdExtensions = 25,
         
         /// <summary>
-        /// Include Campaign App Ad Extension records in the download that each represent the association relationship between a campaign and an app ad extension. For App Ad Extension records, you should include the AppAdExtensions value in the download request.
+        /// Include Campaign App Ad Extension records in the download that each represent the association relationship between a campaign and an app ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignAppAdExtensions = 26,
@@ -327,13 +327,13 @@ namespace Microsoft.BingAds.V11.Bulk
         CampaignProductScopes = 31,
         
         /// <summary>
-        /// Include Campaign Review Ad Extension records in the download that each represent the association relationship between a campaign and a review ad extension. For Review Ad Extension records, you should include the ReviewAdExtensions value in the download request.
+        /// Include Campaign Review Ad Extension records in the download that each represent the association relationship between a campaign and a review ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignReviewAdExtensions = 32,
         
         /// <summary>
-        /// Include Ad Group Review Ad Extension records in the download that each represent the association relationship between an ad group and a review ad extension. For Review Ad Extension records, you should include the ReviewAdExtensions value in the download request.
+        /// Include Ad Group Review Ad Extension records in the download that each represent the association relationship between an ad group and a review ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupReviewAdExtensions = 33,
@@ -345,13 +345,13 @@ namespace Microsoft.BingAds.V11.Bulk
         CalloutAdExtensions = 34,
         
         /// <summary>
-        /// Include Campaign Callout Ad Extension records in the download that represents the association relationship between a campaign and a callout ad extension. For Callout Ad Extension records, you should include the CalloutAdExtensions value in the download request.
+        /// Include Campaign Callout Ad Extension records in the download that represents the association relationship between a campaign and a callout ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignCalloutAdExtensions = 35,
         
         /// <summary>
-        /// Include Ad Group Callout Ad Extension records in the download that each represent the association relationship between an ad group and a callout ad extension. For Callout Ad Extension records, you should include the CalloutAdExtensions value in the download request.
+        /// Include Ad Group Callout Ad Extension records in the download that each represent the association relationship between an ad group and a callout ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCalloutAdExtensions = 36,
@@ -363,23 +363,32 @@ namespace Microsoft.BingAds.V11.Bulk
         Sitelink2AdExtensions = 37,
         
         /// <summary>
-        /// Include Campaign Sitelink2 Ad Extension records in the download that represents the association relationship between a campaign and a sitelink2 ad extension. For Sitelink2 Ad Extension records, you should include the Sitelink2AdExtensions value in the download request.
+        /// Include Campaign Sitelink2 Ad Extension records in the download that represents the association relationship between a campaign and a sitelink2 ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignSitelink2AdExtensions = 38,
         
         /// <summary>
-        /// Include Ad Group Sitelink2 Ad Extension records in the download that each represent the association relationship between an ad group and a sitelink2 ad extension. For Sitelink2 Ad Extension records, you should include the Sitelink2AdExtensions value in the download request.
+        /// Include Ad Group Sitelink2 Ad Extension records in the download that each represent the association relationship between an ad group and a sitelink2 ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupSitelink2AdExtensions = 39,
         
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActionLinkAdExtensions = 40,
         
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignActionLinkAdExtensions = 41,
         
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupActionLinkAdExtensions = 42,
         
@@ -390,13 +399,13 @@ namespace Microsoft.BingAds.V11.Bulk
         StructuredSnippetAdExtensions = 43,
         
         /// <summary>
-        /// Include Campaign Structured Snippet Ad Extension records in the download that represents the association relationship between a campaign and a structured snippet ad extension. For Structured Snippet Ad Extension records, you should include the StructuredSnippetAdExtensions value in the download request.
+        /// Include Campaign Structured Snippet Ad Extension records in the download that represents the association relationship between a campaign and a structured snippet ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStructuredSnippetAdExtensions = 44,
         
         /// <summary>
-        /// Include Ad Group Structured Snippet Ad Extension records in the download that each represent the association relationship between an ad group and a structured snippet ad extension. For Structured Snippet Ad Extension records, you should include the StructuredSnippetAdExtensions value in the download request.
+        /// Include Ad Group Structured Snippet Ad Extension records in the download that each represent the association relationship between an ad group and a structured snippet ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStructuredSnippetAdExtensions = 45,
@@ -408,7 +417,7 @@ namespace Microsoft.BingAds.V11.Bulk
         RemarketingLists = 46,
         
         /// <summary>
-        /// Include Ad Group Remarketing List Association records in the download that each represent the association relationship between an ad group and a remarketing list. For Remarketing List records, you should include the RemarketingLists value in the download request.
+        /// Include Ad Group Remarketing List Association records in the download that each represent the association relationship between an ad group and a remarketing list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupRemarketingListAssociations = 47,
@@ -462,13 +471,13 @@ namespace Microsoft.BingAds.V11.Bulk
         AdGroupNegativeDynamicSearchAdTargets = 55,
         
         /// <summary>
-        /// Include Campaign Price Ad Extension records in the download that represents the association relationship between a campaign and a price ad extension. For Price Ad Extension records, you should include the PriceAdExtensions value in the download request.
+        /// Include Campaign Price Ad Extension records in the download that represents the association relationship between a campaign and a price ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignPriceAdExtensions = 56,
         
         /// <summary>
-        /// Include Ad Group Price Ad Extension records in the download that each represent the association relationship between an ad group and a price ad extension. For Price Ad Extension records, you should include the PriceAdExtensions value in the download request.
+        /// Include Ad Group Price Ad Extension records in the download that each represent the association relationship between an ad group and a price ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupPriceAdExtensions = 57,
@@ -480,31 +489,31 @@ namespace Microsoft.BingAds.V11.Bulk
         Labels = 58,
         
         /// <summary>
-        /// Include Campaign Label records in the download that each represent a label applied to a campaign. For Label records, you should include the Labels value in the download request.
+        /// Include Campaign Label records in the download that each represent a label applied to a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignLabels = 59,
         
         /// <summary>
-        /// Include Ad Group Label records in the download that each represent a label applied to an ad group. For Label records, you should include the Labels value in the download request.
+        /// Include Ad Group Label records in the download that each represent a label applied to an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupLabels = 60,
         
         /// <summary>
-        /// Include Text Ad Label records in the download that each represent a label applied to a text ad. For Label records, you should include the Labels value in the download request.
+        /// Include Text Ad Label records in the download that each represent a label applied to a text ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TextAdLabels = 61,
         
         /// <summary>
-        /// Include Keyword Label records in the download that each represent a label applied to a keyword. For Label records, you should include the Labels value in the download request.
+        /// Include Keyword Label records in the download that each represent a label applied to a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordLabels = 62,
         
         /// <summary>
-        /// Include Ad Group Negative Remarketing List Association records in the download that each represent the association relationship between an ad group and a remarketing list exclusion. For Remarketing List records, you should include the RemarketingLists value in the download request.
+        /// Include Ad Group Negative Remarketing List Association records in the download that each represent the association relationship between an ad group and a remarketing list exclusion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeRemarketingListAssociations = 63,
@@ -516,13 +525,13 @@ namespace Microsoft.BingAds.V11.Bulk
         CustomAudiences = 64,
         
         /// <summary>
-        /// Include Ad Group Custom Audience Association records in the download that each represent the association relationship between an ad group and a custom audience. For Custom Audience records, you should include the CustomAudiences value in the download request.
+        /// Include Ad Group Custom Audience Association records in the download that each represent the association relationship between an ad group and a custom audience.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCustomAudienceAssociations = 65,
         
         /// <summary>
-        /// Include Ad Group Negative Custom Audience Association records in the download that each represent the association relationship between an ad group and a custom audience exclusion. For Custom Audience records, you should include the CustomAudiences value in the download request.
+        /// Include Ad Group Negative Custom Audience Association records in the download that each represent the association relationship between an ad group and a custom audience exclusion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeCustomAudienceAssociations = 66,
@@ -534,13 +543,13 @@ namespace Microsoft.BingAds.V11.Bulk
         InMarketAudiences = 67,
         
         /// <summary>
-        /// Include Ad Group In Market Audience Association records in the download that each represent the association relationship between an ad group and an in-market audience. For In Market Audience records, you should include the InMarketAudiences value in the download request.
+        /// Include Ad Group In Market Audience Association records in the download that each represent the association relationship between an ad group and an in-market audience.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupInMarketAudienceAssociations = 68,
         
         /// <summary>
-        /// Include Ad Group Negative In Market Audience Association records in the download that each represent the association relationship between an ad group and an in-market audience exclusion. For In Market Audience records, you should include the InMarketAudiences value in the download request.
+        /// Include Ad Group Negative In Market Audience Association records in the download that each represent the association relationship between an ad group and an in-market audience exclusion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeInMarketAudienceAssociations = 69,
@@ -564,76 +573,79 @@ namespace Microsoft.BingAds.V11.Bulk
         AdGroupNegativeAudienceAssociations = 72,
         
         /// <summary>
-        /// Include Product Ad Label records in the download that each represent a label applied to a product ad. For Label records, you should include the Labels value in the download request.
+        /// Include Product Ad Label records in the download that each represent a label applied to a product ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductAdLabels = 73,
         
         /// <summary>
-        /// Include App Install Ad Label records in the download that each represent a label applied to an app install ad. For Label records, you should include the Labels value in the download request.
+        /// Include App Install Ad Label records in the download that each represent a label applied to an app install ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstallAdLabels = 74,
         
         /// <summary>
-        /// Include Expanded Text Ad Label records in the download that each represent a label applied to an expanded text ad. For Label records, you should include the Labels value in the download request.
+        /// Include Expanded Text Ad Label records in the download that each represent a label applied to an expanded text ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpandedTextAdLabels = 75,
         
         /// <summary>
-        /// Include Dynamic Search Ad Label records in the download that each represent a label applied to a dynamic search ad. For Label records, you should include the Labels value in the download request.
+        /// Include Dynamic Search Ad Label records in the download that each represent a label applied to a dynamic search ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicSearchAdLabels = 76,
         
         /// <summary>
-        /// Include Account Location Ad Extension records in the download that represents the association relationship between an account and a location ad extension. For Location Ad Extension records, you should include the LocationAdExtensions value in the download request.
+        /// Include Account Location Ad Extension records in the download that represents the association relationship between an account and a location ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountLocationAdExtensions = 77,
         
         /// <summary>
-        /// Include Account Image Ad Extension records in the download that represents the association relationship between an account and an image ad extension. For Image Ad Extension records, you should include the ImageAdExtensions value in the download request.
+        /// Include Account Image Ad Extension records in the download that represents the association relationship between an account and an image ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountImageAdExtensions = 78,
         
         /// <summary>
-        /// Include Account App Ad Extension records in the download that each represent the association relationship between an account and an app ad extension. For App Ad Extension records, you should include the AppAdExtensions value in the download request.
+        /// Include Account App Ad Extension records in the download that each represent the association relationship between an account and an app ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountAppAdExtensions = 79,
         
         /// <summary>
-        /// Include Account Price Ad Extension records in the download that represents the association relationship between an account and a price ad extension. For Price Ad Extension records, you should include the PriceAdExtensions value in the download request.
+        /// Include Account Price Ad Extension records in the download that represents the association relationship between an account and a price ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountPriceAdExtensions = 80,
         
         /// <summary>
-        /// Include Account Review Ad Extension records in the download that each represent the association relationship between an account and a review ad extension. For Review Ad Extension records, you should include the ReviewAdExtensions value in the download request.
+        /// Include Account Review Ad Extension records in the download that each represent the association relationship between an account and a review ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountReviewAdExtensions = 81,
         
         /// <summary>
-        /// Include Account Callout Ad Extension records in the download that represents the association relationship between an account and a callout ad extension. For Callout Ad Extension records, you should include the CalloutAdExtensions value in the download request.
+        /// Include Account Callout Ad Extension records in the download that represents the association relationship between an account and a callout ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountCalloutAdExtensions = 82,
         
         /// <summary>
-        /// Include Account Sitelink2 Ad Extension records in the download that represents the association relationship between an account and a sitelink2 ad extension. For Sitelink2 Ad Extension records, you should include the Sitelink2AdExtensions value in the download request.
+        /// Include Account Sitelink2 Ad Extension records in the download that represents the association relationship between an account and a sitelink2 ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountSitelink2AdExtensions = 83,
         
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountActionLinkAdExtensions = 84,
         
         /// <summary>
-        /// Include Account Structured Snippet Ad Extension records in the download that represents the association relationship between an account and a structured snippet ad extension. For Structured Snippet Ad Extension records, you should include the StructuredSnippetAdExtensions value in the download request.
+        /// Include Account Structured Snippet Ad Extension records in the download that represents the association relationship between an account and a structured snippet ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStructuredSnippetAdExtensions = 85,
@@ -643,7 +655,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines the file formats for a download request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj919219(v=msads.110).aspx">DownloadFileType Value Set</see> http://msdn.microsoft.com/en-us/library/jj919219(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadfiletype?version=11">DownloadFileType Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadfiletype?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -651,9 +663,15 @@ namespace Microsoft.BingAds.V11.Bulk
     public enum DownloadFileType : int
     {
         
+        /// <summary>
+        /// The file format is comma separated values (CSV).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Csv = 0,
         
+        /// <summary>
+        /// The file format is tab separated values (TSV).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tsv = 1,
     }
@@ -662,7 +680,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines the date range values for the requested performance data in a bulk download.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249975(v=msads.110).aspx">PerformanceStatsDateRange Data Object</see> http://msdn.microsoft.com/en-us/library/dn249975(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/performancestatsdaterange?version=11">PerformanceStatsDateRange Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/performancestatsdaterange?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -697,7 +715,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// The end date of the custom date range. The end date cannot be later than today's date.
+        /// The end date of the custom date range.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Bulk.Date CustomDateRangeEnd
@@ -717,7 +735,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// The start date of the custom date range. The start date must be earlier than or the same as the end date.
+        /// The start date of the custom date range.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.Bulk.Date CustomDateRangeStart
@@ -772,7 +790,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines a calendar date by month, day, and year.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj134989(v=msads.110).aspx">Date Data Object</see> http://msdn.microsoft.com/en-us/library/jj134989(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/date?version=11">Date Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/date?version=11 for details.
     /// <para>Used by <see cref="PerformanceStatsDateRange"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -879,7 +897,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines the date range values for the requested performance data in a bulk download.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249977(v=msads.110).aspx">ReportTimePeriod Value Set</see> http://msdn.microsoft.com/en-us/library/dn249977(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/reporttimeperiod?version=11">ReportTimePeriod Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/reporttimeperiod?version=11 for details.
     /// <para>Used by <see cref="PerformanceStatsDateRange"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -964,7 +982,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169093(v=msads.110).aspx">ApplicationFault Data Object</see> http://msdn.microsoft.com/en-us/library/dn169093(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/applicationfault?version=11">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/applicationfault?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1029,7 +1047,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169094(v=msads.110).aspx">ApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/dn169094(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/apifaultdetail?version=11">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/apifaultdetail?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1045,7 +1063,7 @@ namespace Microsoft.BingAds.V11.Bulk
         private System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.OperationError> OperationErrorsField;
         
         /// <summary>
-        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
+        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.BatchError> BatchErrors
@@ -1089,7 +1107,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169095(v=msads.110).aspx">AdApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/dn169095(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/adapifaultdetail?version=11">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/adapifaultdetail?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1126,7 +1144,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169097(v=msads.110).aspx">AdApiError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169097(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/adapierror?version=11">AdApiError Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/adapierror?version=11 for details.
     /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1184,7 +1202,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// A message that contains additional details about the error. This string can be empty.
+        /// A message that contains additional details about the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Detail
@@ -1204,7 +1222,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// A symbolic string constant that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
@@ -1259,7 +1277,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169096(v=msads.110).aspx">BatchError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169096(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/batcherror?version=11">BatchError Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/batcherror?version=11 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1330,7 +1348,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// A message that provides additional details about the batch error. This string can be empty.
+        /// A message that provides additional details about the batch error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
@@ -1350,7 +1368,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// A symbolic string constant that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
@@ -1390,7 +1408,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
@@ -1485,7 +1503,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169098(v=msads.110).aspx">OperationError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169098(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/operationerror?version=11">OperationError Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/operationerror?version=11 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// <para>Used by <see cref="BulkServiceClient.GetBulkDownloadStatus">GetBulkDownloadStatus</see> and <see cref="BulkServiceClient.GetBulkUploadStatus">GetBulkUploadStatus</see> service operations.</para>
     /// </remarks>
@@ -1524,7 +1542,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// A numeric error code that identifies the error
+        /// A numeric error code that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
@@ -1544,7 +1562,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// A message that provides additional details about the error. This string can be empty.
+        /// A message that provides additional details about the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
@@ -1564,7 +1582,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// A symbolic string constant that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
@@ -1619,7 +1637,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines an error object that identifies the entity with the batch of entities that failed editorial review.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249981(v=msads.110).aspx">EditorialError Data Object</see> http://msdn.microsoft.com/en-us/library/dn249981(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/editorialerror?version=11">EditorialError Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/editorialerror?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1724,7 +1742,7 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// A numeric code that identifies the error. For more information, see Editorial Failure Reason Codes.
+        /// A numeric code that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ReasonCode
@@ -1748,7 +1766,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines an object that identifies a campaign to download.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj134990(v=msads.110).aspx">CampaignScope Data Object</see> http://msdn.microsoft.com/en-us/library/jj134990(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/campaignscope?version=11">CampaignScope Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/campaignscope?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1835,7 +1853,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Defines elements to specify whether the bulk service should return upload errors with their corresponding data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249983(v=msads.110).aspx">ResponseMode Value Set</see> http://msdn.microsoft.com/en-us/library/dn249983(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/responsemode?version=11">ResponseMode Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/responsemode?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadUrl">GetBulkUploadUrl</see> service operation.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1862,15 +1880,15 @@ namespace Microsoft.BingAds.V11.Bulk
     {
         
         /// <summary>
-        /// Downloads settings and performance data for all of the account's campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the account.
+        /// Downloads settings and performance data for all of the account's campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIds Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</returns>
+        /// <returns>The identifier of the download request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DownloadCampaignsByAccountIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/IBulkService/DownloadCampaig" +
             "nsByAccountIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.Bulk.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/IBulkService/DownloadCampaig" +
@@ -1880,29 +1898,29 @@ namespace Microsoft.BingAds.V11.Bulk
         Microsoft.BingAds.V11.Bulk.DownloadCampaignsByAccountIdsResponse DownloadCampaignsByAccountIds(Microsoft.BingAds.V11.Bulk.DownloadCampaignsByAccountIdsRequest request);
         
         /// <summary>
-        /// Downloads settings and performance data for all of the account's campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the account.
+        /// Downloads settings and performance data for all of the account's campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIds Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</returns>
+        /// <returns>The identifier of the download request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DownloadCampaignsByAccountIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/IBulkService/DownloadCampaig" +
             "nsByAccountIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.Bulk.DownloadCampaignsByAccountIdsResponse> DownloadCampaignsByAccountIdsAsync(Microsoft.BingAds.V11.Bulk.DownloadCampaignsByAccountIdsRequest request);
         
         /// <summary>
-        /// Downloads settings and performance data for the specified campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the campaign.
+        /// Downloads settings and performance data for the specified campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIds Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</returns>
+        /// <returns>The identifier of the download request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DownloadCampaignsByCampaignIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/IBulkService/DownloadCampaig" +
             "nsByCampaignIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.Bulk.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/IBulkService/DownloadCampaig" +
@@ -1912,15 +1930,15 @@ namespace Microsoft.BingAds.V11.Bulk
         Microsoft.BingAds.V11.Bulk.DownloadCampaignsByCampaignIdsResponse DownloadCampaignsByCampaignIds(Microsoft.BingAds.V11.Bulk.DownloadCampaignsByCampaignIdsRequest request);
         
         /// <summary>
-        /// Downloads settings and performance data for the specified campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the campaign.
+        /// Downloads settings and performance data for the specified campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIds Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</returns>
+        /// <returns>The identifier of the download request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DownloadCampaignsByCampaignIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/IBulkService/DownloadCampaig" +
             "nsByCampaignIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.Bulk.DownloadCampaignsByCampaignIdsResponse> DownloadCampaignsByCampaignIdsAsync(Microsoft.BingAds.V11.Bulk.DownloadCampaignsByCampaignIdsRequest request);
@@ -1929,7 +1947,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Gets the status of a bulk download request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatus Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -1947,7 +1965,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Gets the status of a bulk download request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatus Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -1961,7 +1979,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Submits a request for a URL where a bulk upload file may be posted.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrl Service Operation</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -1979,7 +1997,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Submits a request for a URL where a bulk upload file may be posted.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrl Service Operation</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -1993,7 +2011,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Gets the status and completion progress of a bulk upload request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatus Service Operation</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2011,7 +2029,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Gets the status and completion progress of a bulk upload request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatus Service Operation</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2023,10 +2041,10 @@ namespace Microsoft.BingAds.V11.Bulk
     }
     
     /// <summary>
-    /// Downloads settings and performance data for all of the account's campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the account.
+    /// Downloads settings and performance data for all of the account's campaigns.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIds Request Object</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIds Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2057,31 +2075,31 @@ namespace Microsoft.BingAds.V11.Bulk
         public string UserName;
         
         /// <summary>
-        /// The identifier of the account that contains the campaign data to download. The maximum number of accounts that you can specify is one.
+        /// The identifier of the account that contains the campaign data to download.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public System.Collections.Generic.IList<long> AccountIds;
         
         /// <summary>
-        /// The compression type of the download file. For possible values, see CompressionType. The default is Zip.
+        /// The compression type of the download file.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public System.Nullable<Microsoft.BingAds.V11.Bulk.CompressionType> CompressionType;
         
         /// <summary>
-        /// You may include performance data such as spend, in addition to entity data such as campaign settings. The default is EntityData which will exclude performance data from the download.
+        /// You may include performance data such as spend, in addition to entity data such as campaign settings.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
         public Microsoft.BingAds.V11.Bulk.DataScope DataScope;
         
         /// <summary>
-        /// The entities to include in the download. For a list of entities that you can download, see the DownloadEntity value set.
+        /// The entities to include in the download.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=3)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.DownloadEntity> DownloadEntities;
         
         /// <summary>
-        /// The file type of the download file. For possible values, see DownloadFileType. The default is CSV.
+        /// The file type of the download file.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=4)]
         public System.Nullable<Microsoft.BingAds.V11.Bulk.DownloadFileType> DownloadFileType;
@@ -2093,7 +2111,7 @@ namespace Microsoft.BingAds.V11.Bulk
         public string FormatVersion;
         
         /// <summary>
-        /// The last time that you requested a download. The date and time is expressed in Coordinated Universal Time (UTC).
+        /// The last time that you requested a download.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=6)]
         public System.Nullable<System.DateTime> LastSyncTimeInUTC;
@@ -2108,7 +2126,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the DownloadCampaignsByAccountIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIdsRequest</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIdsRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
         /// </remarks>
         public DownloadCampaignsByAccountIdsRequest()
         {
@@ -2118,15 +2136,15 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the DownloadCampaignsByAccountIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIdsRequest</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIdsRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
         /// </remarks>
-        /// <param name="AccountIds">The identifier of the account that contains the campaign data to download. The maximum number of accounts that you can specify is one.</param>
-        /// <param name="CompressionType">The compression type of the download file. For possible values, see CompressionType. The default is Zip.</param>
-        /// <param name="DataScope">You may include performance data such as spend, in addition to entity data such as campaign settings. The default is EntityData which will exclude performance data from the download.</param>
-        /// <param name="DownloadEntities">The entities to include in the download. For a list of entities that you can download, see the DownloadEntity value set.</param>
-        /// <param name="DownloadFileType">The file type of the download file. For possible values, see DownloadFileType. The default is CSV.</param>
+        /// <param name="AccountIds">The identifier of the account that contains the campaign data to download.</param>
+        /// <param name="CompressionType">The compression type of the download file.</param>
+        /// <param name="DataScope">You may include performance data such as spend, in addition to entity data such as campaign settings.</param>
+        /// <param name="DownloadEntities">The entities to include in the download.</param>
+        /// <param name="DownloadFileType">The file type of the download file.</param>
         /// <param name="FormatVersion">The format for records of the download file.</param>
-        /// <param name="LastSyncTimeInUTC">The last time that you requested a download. The date and time is expressed in Coordinated Universal Time (UTC).</param>
+        /// <param name="LastSyncTimeInUTC">The last time that you requested a download.</param>
         /// <param name="PerformanceStatsDateRange">Defines the start and end date when downloading performance data.</param>
         public DownloadCampaignsByAccountIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AccountIds, System.Nullable<Microsoft.BingAds.V11.Bulk.CompressionType> CompressionType, Microsoft.BingAds.V11.Bulk.DataScope DataScope, System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.DownloadEntity> DownloadEntities, System.Nullable<Microsoft.BingAds.V11.Bulk.DownloadFileType> DownloadFileType, string FormatVersion, System.Nullable<System.DateTime> LastSyncTimeInUTC, Microsoft.BingAds.V11.Bulk.PerformanceStatsDateRange PerformanceStatsDateRange)
         {
@@ -2149,10 +2167,10 @@ namespace Microsoft.BingAds.V11.Bulk
     }
     
     /// <summary>
-    /// Downloads settings and performance data for all of the account's campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the account.
+    /// Downloads settings and performance data for all of the account's campaigns.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIds Response Object</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIds Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2165,7 +2183,7 @@ namespace Microsoft.BingAds.V11.Bulk
         public string TrackingId;
         
         /// <summary>
-        /// The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.
+        /// The identifier of the download request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public string DownloadRequestId;
@@ -2174,7 +2192,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the DownloadCampaignsByAccountIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIdsResponse</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIdsResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
         /// </remarks>
         public DownloadCampaignsByAccountIdsResponse()
         {
@@ -2184,9 +2202,9 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the DownloadCampaignsByAccountIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIdsResponse</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIdsResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
         /// </remarks>
-        /// <param name="DownloadRequestId">The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</param>
+        /// <param name="DownloadRequestId">The identifier of the download request.</param>
         public DownloadCampaignsByAccountIdsResponse(string TrackingId, string DownloadRequestId)
         {
             this.TrackingId = TrackingId;
@@ -2195,10 +2213,10 @@ namespace Microsoft.BingAds.V11.Bulk
     }
     
     /// <summary>
-    /// Downloads settings and performance data for the specified campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the campaign.
+    /// Downloads settings and performance data for the specified campaigns.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIds Request Object</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIds Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2229,31 +2247,31 @@ namespace Microsoft.BingAds.V11.Bulk
         public string UserName;
         
         /// <summary>
-        /// The campaigns to download. You can specify a maximum of 1,000 campaigns. The campaigns that you specify must belong to the same account.
+        /// The campaigns to download.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.CampaignScope> Campaigns;
         
         /// <summary>
-        /// The compression type of the download file. For possible values, see CompressionType. The default is Zip.
+        /// The compression type of the download file.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public System.Nullable<Microsoft.BingAds.V11.Bulk.CompressionType> CompressionType;
         
         /// <summary>
-        /// You may include performance data such as spend, in addition to entity data such as campaign settings. The default is EntityData which will exclude performance data from the download.
+        /// You may include performance data such as spend, in addition to entity data such as campaign settings.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
         public Microsoft.BingAds.V11.Bulk.DataScope DataScope;
         
         /// <summary>
-        /// The entities to include in the download. For a list of entities that you can download, see the DownloadEntity value set.
+        /// The entities to include in the download.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=3)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.DownloadEntity> DownloadEntities;
         
         /// <summary>
-        /// The format of the download file. For possible values, see DownloadFileType. The default is CSV.
+        /// The format of the download file.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=4)]
         public System.Nullable<Microsoft.BingAds.V11.Bulk.DownloadFileType> DownloadFileType;
@@ -2265,7 +2283,7 @@ namespace Microsoft.BingAds.V11.Bulk
         public string FormatVersion;
         
         /// <summary>
-        /// The last time that you requested a download. The date and time is expressed in Coordinated Universal Time (UTC).
+        /// The last time that you requested a download.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=6)]
         public System.Nullable<System.DateTime> LastSyncTimeInUTC;
@@ -2280,7 +2298,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the DownloadCampaignsByCampaignIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIdsRequest</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIdsRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
         /// </remarks>
         public DownloadCampaignsByCampaignIdsRequest()
         {
@@ -2290,15 +2308,15 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the DownloadCampaignsByCampaignIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIdsRequest</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIdsRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
         /// </remarks>
-        /// <param name="Campaigns">The campaigns to download. You can specify a maximum of 1,000 campaigns. The campaigns that you specify must belong to the same account.</param>
-        /// <param name="CompressionType">The compression type of the download file. For possible values, see CompressionType. The default is Zip.</param>
-        /// <param name="DataScope">You may include performance data such as spend, in addition to entity data such as campaign settings. The default is EntityData which will exclude performance data from the download.</param>
-        /// <param name="DownloadEntities">The entities to include in the download. For a list of entities that you can download, see the DownloadEntity value set.</param>
-        /// <param name="DownloadFileType">The format of the download file. For possible values, see DownloadFileType. The default is CSV.</param>
+        /// <param name="Campaigns">The campaigns to download.</param>
+        /// <param name="CompressionType">The compression type of the download file.</param>
+        /// <param name="DataScope">You may include performance data such as spend, in addition to entity data such as campaign settings.</param>
+        /// <param name="DownloadEntities">The entities to include in the download.</param>
+        /// <param name="DownloadFileType">The format of the download file.</param>
         /// <param name="FormatVersion">The format for records of the download file.</param>
-        /// <param name="LastSyncTimeInUTC">The last time that you requested a download. The date and time is expressed in Coordinated Universal Time (UTC).</param>
+        /// <param name="LastSyncTimeInUTC">The last time that you requested a download.</param>
         /// <param name="PerformanceStatsDateRange">Defines the start and end date when downloading performance data.</param>
         public DownloadCampaignsByCampaignIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.CampaignScope> Campaigns, System.Nullable<Microsoft.BingAds.V11.Bulk.CompressionType> CompressionType, Microsoft.BingAds.V11.Bulk.DataScope DataScope, System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.DownloadEntity> DownloadEntities, System.Nullable<Microsoft.BingAds.V11.Bulk.DownloadFileType> DownloadFileType, string FormatVersion, System.Nullable<System.DateTime> LastSyncTimeInUTC, Microsoft.BingAds.V11.Bulk.PerformanceStatsDateRange PerformanceStatsDateRange)
         {
@@ -2321,10 +2339,10 @@ namespace Microsoft.BingAds.V11.Bulk
     }
     
     /// <summary>
-    /// Downloads settings and performance data for the specified campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the campaign.
+    /// Downloads settings and performance data for the specified campaigns.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIds Response Object</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIds Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2337,7 +2355,7 @@ namespace Microsoft.BingAds.V11.Bulk
         public string TrackingId;
         
         /// <summary>
-        /// The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.
+        /// The identifier of the download request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public string DownloadRequestId;
@@ -2346,7 +2364,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the DownloadCampaignsByCampaignIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIdsResponse</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIdsResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
         /// </remarks>
         public DownloadCampaignsByCampaignIdsResponse()
         {
@@ -2356,9 +2374,9 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the DownloadCampaignsByCampaignIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIdsResponse</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIdsResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
         /// </remarks>
-        /// <param name="DownloadRequestId">The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</param>
+        /// <param name="DownloadRequestId">The identifier of the download request.</param>
         public DownloadCampaignsByCampaignIdsResponse(string TrackingId, string DownloadRequestId)
         {
             this.TrackingId = TrackingId;
@@ -2370,7 +2388,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Gets the status of a bulk download request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatus Request Object</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatus Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkDownloadStatus">GetBulkDownloadStatus</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2400,6 +2418,9 @@ namespace Microsoft.BingAds.V11.Bulk
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
         public string UserName;
         
+        /// <summary>
+        /// The identifier of the download request.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public string RequestId;
         
@@ -2407,7 +2428,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkDownloadStatusRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatusRequest</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatusRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
         /// </remarks>
         public GetBulkDownloadStatusRequest()
         {
@@ -2417,9 +2438,9 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkDownloadStatusRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatusRequest</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatusRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
         /// </remarks>
-        /// <param name="RequestId"></param>
+        /// <param name="RequestId">The identifier of the download request.</param>
         public GetBulkDownloadStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string RequestId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2437,7 +2458,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Gets the status of a bulk download request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatus Response Object</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatus Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkDownloadStatus">GetBulkDownloadStatus</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2456,7 +2477,7 @@ namespace Microsoft.BingAds.V11.Bulk
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.OperationError> Errors;
         
         /// <summary>
-        /// The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap;
@@ -2468,13 +2489,13 @@ namespace Microsoft.BingAds.V11.Bulk
         public int PercentComplete;
         
         /// <summary>
-        /// The status of the download. The possible values are as follows.
+        /// The status of the download.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=3)]
         public string RequestStatus;
         
         /// <summary>
-        /// The URL that contains the download data. This element contains the URL when the Status element is Success.
+        /// The URL that contains the download data.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=4)]
         public string ResultFileUrl;
@@ -2483,7 +2504,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkDownloadStatusResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatusResponse</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatusResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
         /// </remarks>
         public GetBulkDownloadStatusResponse()
         {
@@ -2493,13 +2514,13 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkDownloadStatusResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatusResponse</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatusResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
         /// </remarks>
         /// <param name="Errors">An array of OperationError objects corresponding to errors encountered during the system processing of the bulk file after your download request was submitted.</param>
-        /// <param name="ForwardCompatibilityMap">The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.</param>
+        /// <param name="ForwardCompatibilityMap">The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.</param>
         /// <param name="PercentComplete">The progress completion percentage for system processing of the bulk download file.</param>
-        /// <param name="RequestStatus">The status of the download. The possible values are as follows.</param>
-        /// <param name="ResultFileUrl">The URL that contains the download data. This element contains the URL when the Status element is Success.</param>
+        /// <param name="RequestStatus">The status of the download.</param>
+        /// <param name="ResultFileUrl">The URL that contains the download data.</param>
         public GetBulkDownloadStatusResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.OperationError> Errors, System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap, int PercentComplete, string RequestStatus, string ResultFileUrl)
         {
             this.TrackingId = TrackingId;
@@ -2515,7 +2536,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Submits a request for a URL where a bulk upload file may be posted.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrl Request Object</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrl Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadUrl">GetBulkUploadUrl</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2546,7 +2567,7 @@ namespace Microsoft.BingAds.V11.Bulk
         public string UserName;
         
         /// <summary>
-        /// Specify whether to return errors and their corresponding data, or only the errors in the results file. The default is ErrorsOnly.
+        /// Specify whether to return errors and their corresponding data, or only the errors in the results file.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public Microsoft.BingAds.V11.Bulk.ResponseMode ResponseMode;
@@ -2561,7 +2582,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkUploadUrlRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrlRequest</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrlRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
         /// </remarks>
         public GetBulkUploadUrlRequest()
         {
@@ -2571,9 +2592,9 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkUploadUrlRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrlRequest</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrlRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
         /// </remarks>
-        /// <param name="ResponseMode">Specify whether to return errors and their corresponding data, or only the errors in the results file. The default is ErrorsOnly.</param>
+        /// <param name="ResponseMode">Specify whether to return errors and their corresponding data, or only the errors in the results file.</param>
         /// <param name="AccountId">The account identifier corresponding to the data that will be uploaded.</param>
         public GetBulkUploadUrlRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.Bulk.ResponseMode ResponseMode, long AccountId)
         {
@@ -2593,7 +2614,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Submits a request for a URL where a bulk upload file may be posted.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrl Response Object</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrl Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadUrl">GetBulkUploadUrl</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2612,7 +2633,7 @@ namespace Microsoft.BingAds.V11.Bulk
         public string RequestId;
         
         /// <summary>
-        /// The URL where you may submit your bulk upload file with HTTP POST.
+        /// The URL where you may submit your bulk upload file with  HTTP POST.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public string UploadUrl;
@@ -2621,7 +2642,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkUploadUrlResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrlResponse</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrlResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
         /// </remarks>
         public GetBulkUploadUrlResponse()
         {
@@ -2631,10 +2652,10 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkUploadUrlResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrlResponse</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrlResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
         /// </remarks>
         /// <param name="RequestId">The identifier of the upload request.</param>
-        /// <param name="UploadUrl">The URL where you may submit your bulk upload file with HTTP POST.</param>
+        /// <param name="UploadUrl">The URL where you may submit your bulk upload file with  HTTP POST.</param>
         public GetBulkUploadUrlResponse(string TrackingId, string RequestId, string UploadUrl)
         {
             this.TrackingId = TrackingId;
@@ -2647,7 +2668,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Gets the status and completion progress of a bulk upload request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatus Request Object</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatus Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadStatus">GetBulkUploadStatus</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2687,7 +2708,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkUploadStatusRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatusRequest</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatusRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
         /// </remarks>
         public GetBulkUploadStatusRequest()
         {
@@ -2697,7 +2718,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkUploadStatusRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatusRequest</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatusRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
         /// </remarks>
         /// <param name="RequestId">The identifier of the upload request.</param>
         public GetBulkUploadStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string RequestId)
@@ -2717,7 +2738,7 @@ namespace Microsoft.BingAds.V11.Bulk
     /// Gets the status and completion progress of a bulk upload request.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatus Response Object</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatus Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadStatus">GetBulkUploadStatus</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2736,19 +2757,19 @@ namespace Microsoft.BingAds.V11.Bulk
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.OperationError> Errors;
         
         /// <summary>
-        /// The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap;
         
         /// <summary>
-        /// The progress completion percentage for system processing of the uploaded bulk file. The value range is between 0 and 100.
+        /// The progress completion percentage for system processing of the uploaded bulk file.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
         public int PercentComplete;
         
         /// <summary>
-        /// The status of the upload. The following are the possible returned status values.
+        /// The status of the upload.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=3)]
         public string RequestStatus;
@@ -2763,7 +2784,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkUploadStatusResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatusResponse</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatusResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
         /// </remarks>
         public GetBulkUploadStatusResponse()
         {
@@ -2773,12 +2794,12 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Constructor for the GetBulkUploadStatusResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatusResponse</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatusResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
         /// </remarks>
         /// <param name="Errors">An array of OperationError objects corresponding to errors encountered during the system processing of the bulk file after your HTTP POST upload completed.</param>
-        /// <param name="ForwardCompatibilityMap">The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.</param>
-        /// <param name="PercentComplete">The progress completion percentage for system processing of the uploaded bulk file. The value range is between 0 and 100.</param>
-        /// <param name="RequestStatus">The status of the upload. The following are the possible returned status values.</param>
+        /// <param name="ForwardCompatibilityMap">The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.</param>
+        /// <param name="PercentComplete">The progress completion percentage for system processing of the uploaded bulk file.</param>
+        /// <param name="RequestStatus">The status of the upload.</param>
         /// <param name="ResultFileUrl">The URL of the file that contains the requested results, for example upload error information.</param>
         public GetBulkUploadStatusResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.Bulk.OperationError> Errors, System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap, int PercentComplete, string RequestStatus, string ResultFileUrl)
         {
@@ -2826,60 +2847,60 @@ namespace Microsoft.BingAds.V11.Bulk
         }
         
         /// <summary>
-        /// Downloads settings and performance data for all of the account's campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the account.
+        /// Downloads settings and performance data for all of the account's campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIds Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</returns>
+        /// <returns>The identifier of the download request.</returns>
         public Microsoft.BingAds.V11.Bulk.DownloadCampaignsByAccountIdsResponse DownloadCampaignsByAccountIds(Microsoft.BingAds.V11.Bulk.DownloadCampaignsByAccountIdsRequest request)
         {
             return base.Channel.DownloadCampaignsByAccountIds(request);
         }
         
         /// <summary>
-        /// Downloads settings and performance data for all of the account's campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the account.
+        /// Downloads settings and performance data for all of the account's campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx">DownloadCampaignsByAccountIds Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885755(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</returns>
+        /// <returns>The identifier of the download request.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.Bulk.DownloadCampaignsByAccountIdsResponse> DownloadCampaignsByAccountIdsAsync(Microsoft.BingAds.V11.Bulk.DownloadCampaignsByAccountIdsRequest request)
         {
             return base.Channel.DownloadCampaignsByAccountIdsAsync(request);
         }
         
         /// <summary>
-        /// Downloads settings and performance data for the specified campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the campaign.
+        /// Downloads settings and performance data for the specified campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIds Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</returns>
+        /// <returns>The identifier of the download request.</returns>
         public Microsoft.BingAds.V11.Bulk.DownloadCampaignsByCampaignIdsResponse DownloadCampaignsByCampaignIds(Microsoft.BingAds.V11.Bulk.DownloadCampaignsByCampaignIdsRequest request)
         {
             return base.Channel.DownloadCampaignsByCampaignIds(request);
         }
         
         /// <summary>
-        /// Downloads settings and performance data for the specified campaigns. You can request all campaign data or only the data that has changed since the last time you downloaded the campaign.
+        /// Downloads settings and performance data for the specified campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx">DownloadCampaignsByCampaignIds Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885756(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the download request. You use the identifier to call the GetBulkDownloadStatus operation to check the status of the download. The identifier is valid for a maximum of two days. If you have not successfully downloaded the file within this period, it is removed from the download site and you will need to get a new download request identifier.</returns>
+        /// <returns>The identifier of the download request.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.Bulk.DownloadCampaignsByCampaignIdsResponse> DownloadCampaignsByCampaignIdsAsync(Microsoft.BingAds.V11.Bulk.DownloadCampaignsByCampaignIdsRequest request)
         {
             return base.Channel.DownloadCampaignsByCampaignIdsAsync(request);
@@ -2889,7 +2910,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Gets the status of a bulk download request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatus Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2904,7 +2925,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Gets the status of a bulk download request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx">GetBulkDownloadStatus Service Operation</see> http://msdn.microsoft.com/en-us/library/jj885754(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2919,7 +2940,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Submits a request for a URL where a bulk upload file may be posted.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrl Service Operation</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2934,7 +2955,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Submits a request for a URL where a bulk upload file may be posted.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx">GetBulkUploadUrl Service Operation</see> http://msdn.microsoft.com/en-us/library/dn249978(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2949,7 +2970,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Gets the status and completion progress of a bulk upload request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatus Service Operation</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2964,7 +2985,7 @@ namespace Microsoft.BingAds.V11.Bulk
         /// Gets the status and completion progress of a bulk upload request.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx">GetBulkUploadStatus Service Operation</see> http://msdn.microsoft.com/en-us/library/dn249979(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>

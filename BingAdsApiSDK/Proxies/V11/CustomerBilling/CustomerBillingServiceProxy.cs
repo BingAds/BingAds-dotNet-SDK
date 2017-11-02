@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines a billing document identification object that contains information about a billing document, such as the billing document identifier, billing document amount, and account identifier.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn469176(v=msads.110).aspx">BillingDocumentInfo Data Object</see> http://msdn.microsoft.com/en-us/library/dn469176(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/billingdocumentinfo?version=11">BillingDocumentInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/billingdocumentinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocumentsInfo">GetBillingDocumentsInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -196,7 +196,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// The currency of the billing document. For possible values, see Currencies.
+        /// The currency of the billing document.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CurrencyCode
@@ -271,7 +271,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169107(v=msads.110).aspx">ApplicationFault Data Object</see> http://msdn.microsoft.com/en-us/library/dn169107(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/applicationfault?version=11">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/applicationfault?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -337,7 +337,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169108(v=msads.110).aspx">ApiFault Data Object</see> http://msdn.microsoft.com/en-us/library/dn169108(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/apifault?version=11">ApiFault Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/apifault?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -350,6 +350,9 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.OperationError> OperationErrorsField;
         
+        /// <summary>
+        /// An array of OperationError objects that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.OperationError> OperationErrors
         {
@@ -372,7 +375,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169102(v=msads.110).aspx">ApiBatchFault Data Object</see> http://msdn.microsoft.com/en-us/library/dn169102(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/apibatchfault?version=11">ApiBatchFault Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/apibatchfault?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -385,7 +388,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         private System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.BatchError> BatchErrorsField;
         
         /// <summary>
-        /// An array of BatchError objects that identifies the items in the batch of items in the request message that caused the operation to fail. Each object contains the details that explain why the item caused the failure.
+        /// An array of BatchError objects that identifies the items in the batch of items in the request message that caused the operation to fail.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.BatchError> BatchErrors
@@ -409,7 +412,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169105(v=msads.110).aspx">AdApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/dn169105(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/adapifaultdetail?version=11">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/adapifaultdetail?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -446,7 +449,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169104(v=msads.110).aspx">AdApiError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169104(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/adapierror?version=11">AdApiError Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/adapierror?version=11 for details.
     /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -504,7 +507,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// A message that contains additional details about the error. This string can be empty.
+        /// A message that contains additional details about the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Detail
@@ -524,7 +527,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// A symbolic string constant that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
@@ -579,7 +582,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169103(v=msads.110).aspx">OperationError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169103(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/operationerror?version=11">OperationError Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/operationerror?version=11 for details.
     /// <para>Used by <see cref="ApiFault"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -634,7 +637,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// A message that provides additional details about the error. This string can be empty.
+        /// A message that provides additional details about the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
@@ -689,7 +692,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169101(v=msads.110).aspx">BatchError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169101(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/batcherror?version=11">BatchError Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/batcherror?version=11 for details.
     /// <para>Used by <see cref="ApiBatchFault"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -747,7 +750,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// A message that provides additional details about the batch error. This string can be empty.
+        /// A message that provides additional details about the batch error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
@@ -822,7 +825,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines the possible formats in which to generate the billing document.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee704172(v=msads.110).aspx">DataType Value Set</see> http://msdn.microsoft.com/en-us/library/ee704172(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/datatype?version=11">DataType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/datatype?version=11 for details.
     /// <para>Used by <see cref="BillingDocument"/> data object.</para>
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see> and <see cref="CustomerBillingServiceClient.GetDisplayInvoices">GetDisplayInvoices</see> service operations.</para>
     /// </remarks>
@@ -848,7 +851,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines a billing document.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn469177(v=msads.110).aspx">BillingDocument Data Object</see> http://msdn.microsoft.com/en-us/library/dn469177(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/billingdocument?version=11">BillingDocument Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/billingdocument?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see>, <see cref="CustomerBillingServiceClient.GetDisplayInvoices">GetDisplayInvoices</see> and <see cref="CustomerBillingServiceClient.GetKOHIOInvoices">GetKOHIOInvoices</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -958,7 +961,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines an insertion order.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728378(v=msads.110).aspx">InsertionOrder Data Object</see> http://msdn.microsoft.com/en-us/library/ff728378(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/insertionorder?version=11">InsertionOrder Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/insertionorder?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.AddInsertionOrder">AddInsertionOrder</see>, <see cref="CustomerBillingServiceClient.GetInsertionOrdersByAccount">GetInsertionOrdersByAccount</see>, <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> and <see cref="CustomerBillingServiceClient.UpdateInsertionOrder">UpdateInsertionOrder</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1052,7 +1055,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// The running balance of the insertion order. The running balance value is initially the same as the spending limit, and then decreases each time an ad in the account is served.
+        /// The running balance of the insertion order.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BalanceAmount
@@ -1072,7 +1075,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// A code that identifies the country/region in which the account operates. For a list of country code values, see Geographical Location Codes.
+        /// A code that identifies the country/region in which the account operates.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BookingCountryCode
@@ -1092,7 +1095,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// A description of the insertion order. The description is limited to 100 characters.
+        /// A description of the insertion order.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Comment
@@ -1112,7 +1115,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// The date that the insertion order expires. The end date must be later than the start date.
+        /// The date that the insertion order expires.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime EndDate
@@ -1192,7 +1195,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// A percentage of the budget that has been spent. Specify the percentage as a value from 0 to 100. Notification is sent when the threshold is reached. For example, if you set the threshold to 70, the Billing service sends notification when you have spent 70 percent of the budget.
+        /// A percentage of the budget that has been spent.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> NotificationThreshold
@@ -1232,7 +1235,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// The budget for this insertion order. The budget is a hard limit. When the account reaches this limit and there is not another insertion order available, the account's lifecycle status value is set to Pause.
+        /// The budget for this insertion order.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double SpendCapAmount
@@ -1252,7 +1255,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// The date that the insertion order can begin accruing charges. The start date must be later than the current date.
+        /// The date that the insertion order can begin accruing charges.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime StartDate
@@ -1312,7 +1315,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// A purchase order value that can be used to reference this insertion order in monthly invoices. This value will be printed as the purchase order in the monthly invoices.
+        /// A purchase order value that can be used to reference this insertion order in monthly invoices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public string PurchaseOrder
@@ -1367,7 +1370,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines the possible status values of an InsertionOrder.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743761(v=msads.110).aspx">InsertionOrderStatus Value Set</see> http://msdn.microsoft.com/en-us/library/dn743761(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/insertionorderstatus?version=11">InsertionOrderStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/insertionorderstatus?version=11 for details.
     /// <para>Used by <see cref="InsertionOrder"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1394,7 +1397,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         Active = 2,
         
         /// <summary>
-        /// You have declined an order created by Bing Ads, or the order you created has been declined. Submit a new order, contact your Bing Ads account manager, or contact support.
+        /// You have declined an order created by Bing Ads, or the order you created has been declined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Declined = 3,
@@ -1406,7 +1409,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         Expired = 4,
         
         /// <summary>
-        /// You have canceled an order that you created or that was created by Bing Ads. A canceled order cannot be reactivated.
+        /// You have canceled an order that you created or that was created by Bing Ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Canceled = 5,
@@ -1428,7 +1431,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines a predicate for the list of insertion orders returned using the SearchInsertionOrders operation.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743756(v=msads.110).aspx">Predicate Data Object</see> http://msdn.microsoft.com/en-us/library/dn743756(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/predicate?version=11">Predicate Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/predicate?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1463,7 +1466,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// The name of the element for the object you are searching.
+        /// The name of the element for  the object you are searching.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Field
@@ -1538,7 +1541,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines the condition of results for insertion orders returned using SearchInsertionOrders.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743753(v=msads.110).aspx">PredicateOperator Value Set</see> http://msdn.microsoft.com/en-us/library/dn743753(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/predicateoperator?version=11">PredicateOperator Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/predicateoperator?version=11 for details.
     /// <para>Used by <see cref="Predicate"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1599,7 +1602,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines an order for the list of insertion orders returned using the SearchInsertionOrders operation.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743752(v=msads.110).aspx">OrderBy Data Object</see> http://msdn.microsoft.com/en-us/library/dn743752(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/orderby?version=11">OrderBy Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/orderby?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1631,7 +1634,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// Determines the field to order the results. For example order the results by Id.
+        /// Determines the field to order the results.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CustomerBilling.OrderByField Field
@@ -1686,7 +1689,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines the field order of insertion orders returned using SearchInsertionOrders.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743750(v=msads.110).aspx">OrderByField Value Set</see> http://msdn.microsoft.com/en-us/library/dn743750(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/orderbyfield?version=11">OrderByField Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/orderbyfield?version=11 for details.
     /// <para>Used by <see cref="OrderBy"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1723,7 +1726,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines the ascending or descending sort order of results for SearchInsertionOrders.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743751(v=msads.110).aspx">SortOrder Value Set</see> http://msdn.microsoft.com/en-us/library/dn743751(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/sortorder?version=11">SortOrder Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/sortorder?version=11 for details.
     /// <para>Used by <see cref="OrderBy"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1748,7 +1751,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Defines a paging object for the list of insertion orders returned using the SearchInsertionOrders operation.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743749(v=msads.110).aspx">Paging Data Object</see> http://msdn.microsoft.com/en-us/library/dn743749(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/paging?version=11">Paging Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/paging?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1780,7 +1783,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         }
         
         /// <summary>
-        /// The zero-based results page index. For example to request the first page of results, set this value to 0 (zero).
+        /// The zero-based results page index.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Index
@@ -1840,7 +1843,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiBatchFault"></exception>
@@ -1861,7 +1864,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiBatchFault"></exception>
@@ -1876,7 +1879,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets the specified billing documents.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocuments Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocuments Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiBatchFault"></exception>
@@ -1897,7 +1900,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets the specified billing documents.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocuments Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocuments Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiBatchFault"></exception>
@@ -1926,7 +1929,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Adds an insertion order to the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrder Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrder Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -1944,7 +1947,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Adds an insertion order to the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrder Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrder Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -1958,7 +1961,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Updates an insertion order within the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrder Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrder Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -1976,7 +1979,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Updates an insertion order within the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrder Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrder Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -1990,7 +1993,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets a list of insertion orders for the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -2008,7 +2011,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets a list of insertion orders for the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -2022,12 +2025,12 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Searches for insertion orders that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrders Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrders Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of insertion orders that meet the specified criteria.</returns>
+        /// <returns>A  list of insertion orders that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchInsertionOrders", ReplyAction="https://bingads.microsoft.com/Billing/v11/ICustomerBillingService/SearchInsertion" +
             "OrdersResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v11/ICustomerBillingService/SearchInsertion" +
@@ -2040,12 +2043,12 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Searches for insertion orders that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrders Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrders Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of insertion orders that meet the specified criteria.</returns>
+        /// <returns>A  list of insertion orders that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchInsertionOrders", ReplyAction="https://bingads.microsoft.com/Billing/v11/ICustomerBillingService/SearchInsertion" +
             "OrdersResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerBilling.SearchInsertionOrdersResponse> SearchInsertionOrdersAsync(Microsoft.BingAds.V11.CustomerBilling.SearchInsertionOrdersRequest request);
@@ -2068,7 +2071,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets the amount spent by the account in the specified month.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpend Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpend Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -2086,7 +2089,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets the amount spent by the account in the specified month.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpend Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpend Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -2101,7 +2104,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfo Request Object</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocumentsInfo">GetBillingDocumentsInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2147,7 +2150,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetBillingDocumentsInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
         /// </remarks>
         public GetBillingDocumentsInfoRequest()
         {
@@ -2157,7 +2160,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetBillingDocumentsInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
         /// </remarks>
         /// <param name="AccountIds">A list of identifiers of the accounts whose billing document information you want to get.</param>
         /// <param name="StartDate">The start date to use for specifying the billing documents to get.</param>
@@ -2179,7 +2182,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfo Response Object</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocumentsInfo">GetBillingDocumentsInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2201,7 +2204,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetBillingDocumentsInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
         /// </remarks>
         public GetBillingDocumentsInfoResponse()
         {
@@ -2211,7 +2214,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetBillingDocumentsInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
         /// </remarks>
         /// <param name="BillingDocumentsInfo">The list of billing document information objects that were retrieved.</param>
         public GetBillingDocumentsInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.BillingDocumentInfo> BillingDocumentsInfo)
@@ -2225,7 +2228,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Gets the specified billing documents.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocuments Request Object</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocuments Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2250,13 +2253,13 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         public string UserName;
         
         /// <summary>
-        /// A list of identifiers of the billing documents to get. To get a list of identifiers, call the GetBillingDocumentsInfo operation.
+        /// A list of identifiers of the billing documents to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=0)]
         public System.Collections.Generic.IList<long> DocumentIds;
         
         /// <summary>
-        /// The format to use to generate the billing document. For example, you can generate the billing document in PDF or XML format.
+        /// The format to use to generate the billing document.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=1)]
         public Microsoft.BingAds.V11.CustomerBilling.DataType Type;
@@ -2265,7 +2268,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetBillingDocumentsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocumentsRequest</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocumentsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
         /// </remarks>
         public GetBillingDocumentsRequest()
         {
@@ -2275,10 +2278,10 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetBillingDocumentsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocumentsRequest</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocumentsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
         /// </remarks>
-        /// <param name="DocumentIds">A list of identifiers of the billing documents to get. To get a list of identifiers, call the GetBillingDocumentsInfo operation.</param>
-        /// <param name="Type">The format to use to generate the billing document. For example, you can generate the billing document in PDF or XML format.</param>
+        /// <param name="DocumentIds">A list of identifiers of the billing documents to get.</param>
+        /// <param name="Type">The format to use to generate the billing document.</param>
         public GetBillingDocumentsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> DocumentIds, Microsoft.BingAds.V11.CustomerBilling.DataType Type)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2295,7 +2298,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Gets the specified billing documents.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocuments Response Object</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocuments Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetBillingDocuments">GetBillingDocuments</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2317,7 +2320,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetBillingDocumentsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocumentsResponse</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocumentsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
         /// </remarks>
         public GetBillingDocumentsResponse()
         {
@@ -2327,7 +2330,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetBillingDocumentsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocumentsResponse</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocumentsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
         /// </remarks>
         /// <param name="BillingDocuments">The list of billing documents that were retrieved.</param>
         public GetBillingDocumentsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.BillingDocument> BillingDocuments)
@@ -2407,7 +2410,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Adds an insertion order to the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrder Request Object</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrder Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.AddInsertionOrder">AddInsertionOrder</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2432,7 +2435,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         public string UserName;
         
         /// <summary>
-        /// An insertion order to add to the account specified in the InsertionOrder object.
+        /// An insertion order to add to the account.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=0)]
         public Microsoft.BingAds.V11.CustomerBilling.InsertionOrder InsertionOrder;
@@ -2441,7 +2444,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the AddInsertionOrderRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrderRequest</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrderRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
         /// </remarks>
         public AddInsertionOrderRequest()
         {
@@ -2451,9 +2454,9 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the AddInsertionOrderRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrderRequest</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrderRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
         /// </remarks>
-        /// <param name="InsertionOrder">An insertion order to add to the account specified in the InsertionOrder object.</param>
+        /// <param name="InsertionOrder">An insertion order to add to the account.</param>
         public AddInsertionOrderRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CustomerBilling.InsertionOrder InsertionOrder)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2469,7 +2472,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Adds an insertion order to the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrder Response Object</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrder Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.AddInsertionOrder">AddInsertionOrder</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2497,7 +2500,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the AddInsertionOrderResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrderResponse</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrderResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
         /// </remarks>
         public AddInsertionOrderResponse()
         {
@@ -2507,7 +2510,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the AddInsertionOrderResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrderResponse</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrderResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
         /// </remarks>
         /// <param name="InsertionOrderId">A long value that represents the identifier for the insertion order that was added.</param>
         /// <param name="CreateTime">Identifies the server time in UTC when the insertion order was added.</param>
@@ -2523,7 +2526,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Updates an insertion order within the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrder Request Object</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrder Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.UpdateInsertionOrder">UpdateInsertionOrder</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2548,7 +2551,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         public string UserName;
         
         /// <summary>
-        /// An insertion order to update within the account specified in the InsertionOrder object.
+        /// An insertion order to update within the account.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=0)]
         public Microsoft.BingAds.V11.CustomerBilling.InsertionOrder InsertionOrder;
@@ -2557,7 +2560,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the UpdateInsertionOrderRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrderRequest</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrderRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
         /// </remarks>
         public UpdateInsertionOrderRequest()
         {
@@ -2567,9 +2570,9 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the UpdateInsertionOrderRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrderRequest</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrderRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
         /// </remarks>
-        /// <param name="InsertionOrder">An insertion order to update within the account specified in the InsertionOrder object.</param>
+        /// <param name="InsertionOrder">An insertion order to update within the account.</param>
         public UpdateInsertionOrderRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CustomerBilling.InsertionOrder InsertionOrder)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2585,7 +2588,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Updates an insertion order within the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrder Response Object</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrder Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.UpdateInsertionOrder">UpdateInsertionOrder</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2607,7 +2610,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the UpdateInsertionOrderResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrderResponse</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrderResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
         /// </remarks>
         public UpdateInsertionOrderResponse()
         {
@@ -2617,7 +2620,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the UpdateInsertionOrderResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrderResponse</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrderResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
         /// </remarks>
         /// <param name="LastModifiedTime">Identifies the server time in UTC when the insertion order was last modified.</param>
         public UpdateInsertionOrderResponse(string TrackingId, System.DateTime LastModifiedTime)
@@ -2631,7 +2634,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Gets a list of insertion orders for the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccount Request Object</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccount Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetInsertionOrdersByAccount">GetInsertionOrdersByAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2662,7 +2665,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         public long AccountId;
         
         /// <summary>
-        /// A list of identifiers of the insertion orders to get. To get all insertion orders, including those that have expired, set to NULL.
+        /// A list of identifiers of the insertion orders to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=1)]
         public System.Collections.Generic.IList<long> InsertionOrderIds;
@@ -2671,7 +2674,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetInsertionOrdersByAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccountRequest</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
         /// </remarks>
         public GetInsertionOrdersByAccountRequest()
         {
@@ -2681,10 +2684,10 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetInsertionOrdersByAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccountRequest</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the insertion orders to get.</param>
-        /// <param name="InsertionOrderIds">A list of identifiers of the insertion orders to get. To get all insertion orders, including those that have expired, set to NULL.</param>
+        /// <param name="InsertionOrderIds">A list of identifiers of the insertion orders to get.</param>
         public GetInsertionOrdersByAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> InsertionOrderIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2701,7 +2704,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Gets a list of insertion orders for the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccount Response Object</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccount Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetInsertionOrdersByAccount">GetInsertionOrdersByAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2723,7 +2726,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetInsertionOrdersByAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccountResponse</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
         /// </remarks>
         public GetInsertionOrdersByAccountResponse()
         {
@@ -2733,7 +2736,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetInsertionOrdersByAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccountResponse</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
         /// </remarks>
         /// <param name="InsertionOrders">A list of insertion orders.</param>
         public GetInsertionOrdersByAccountResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.InsertionOrder> InsertionOrders)
@@ -2747,7 +2750,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Searches for insertion orders that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrders Request Object</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrders Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2772,7 +2775,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         public string UserName;
         
         /// <summary>
-        /// Determines the request conditions. This operation's response will include accounts that match all of the specified predicates.
+        /// Determines the request conditions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.Predicate> Predicates;
@@ -2784,7 +2787,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.OrderBy> Ordering;
         
         /// <summary>
-        /// Determines the index and size of results per page.
+        /// Determines the index and size of  results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=2)]
         public Microsoft.BingAds.V11.CustomerBilling.Paging PageInfo;
@@ -2793,7 +2796,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the SearchInsertionOrdersRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrdersRequest</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrdersRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
         /// </remarks>
         public SearchInsertionOrdersRequest()
         {
@@ -2803,11 +2806,11 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the SearchInsertionOrdersRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrdersRequest</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrdersRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
         /// </remarks>
-        /// <param name="Predicates">Determines the request conditions. This operation's response will include accounts that match all of the specified predicates.</param>
+        /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
-        /// <param name="PageInfo">Determines the index and size of results per page.</param>
+        /// <param name="PageInfo">Determines the index and size of  results per page.</param>
         public SearchInsertionOrdersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V11.CustomerBilling.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -2825,7 +2828,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Searches for insertion orders that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrders Response Object</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrders Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2838,7 +2841,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         public string TrackingId;
         
         /// <summary>
-        /// A list of insertion orders that meet the specified criteria.
+        /// A  list of insertion orders that meet the specified criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.InsertionOrder> InsertionOrders;
@@ -2847,7 +2850,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the SearchInsertionOrdersResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrdersResponse</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrdersResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
         /// </remarks>
         public SearchInsertionOrdersResponse()
         {
@@ -2857,9 +2860,9 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the SearchInsertionOrdersResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrdersResponse</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrdersResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
         /// </remarks>
-        /// <param name="InsertionOrders">A list of insertion orders that meet the specified criteria.</param>
+        /// <param name="InsertionOrders">A  list of insertion orders that meet the specified criteria.</param>
         public SearchInsertionOrdersResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerBilling.InsertionOrder> InsertionOrders)
         {
             this.TrackingId = TrackingId;
@@ -2933,7 +2936,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Gets the amount spent by the account in the specified month.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpend Request Object</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpend Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetAccountMonthlySpend">GetAccountMonthlySpend</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2964,7 +2967,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         public long AccountId;
         
         /// <summary>
-        /// The month and year for which you want to get the monthly spend information (the operation ignores the day and time values). Note: The service uses the month and year components corresponding to the specified dateTime. For example 2013-06-15T00:00:00 and 2013-06 are both valid and will return the same results.
+        /// The month and year for which you want to get the monthly spend information (the operation ignores the day and time values).
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v11", Order=1)]
         public System.DateTime MonthYear;
@@ -2973,7 +2976,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetAccountMonthlySpendRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpendRequest</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpendRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
         /// </remarks>
         public GetAccountMonthlySpendRequest()
         {
@@ -2983,10 +2986,10 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetAccountMonthlySpendRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpendRequest</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpendRequest</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the spend information to get.</param>
-        /// <param name="MonthYear">The month and year for which you want to get the monthly spend information (the operation ignores the day and time values). Note: The service uses the month and year components corresponding to the specified dateTime. For example 2013-06-15T00:00:00 and 2013-06 are both valid and will return the same results.</param>
+        /// <param name="MonthYear">The month and year for which you want to get the monthly spend information (the operation ignores the day and time values).</param>
         public GetAccountMonthlySpendRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, System.DateTime MonthYear)
         {
             this.ApplicationToken = ApplicationToken;
@@ -3003,7 +3006,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
     /// Gets the amount spent by the account in the specified month.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpend Response Object</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpend Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
     /// <para>Used by <see cref="CustomerBillingServiceClient.GetAccountMonthlySpend">GetAccountMonthlySpend</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3025,7 +3028,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetAccountMonthlySpendResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpendResponse</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpendResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
         /// </remarks>
         public GetAccountMonthlySpendResponse()
         {
@@ -3035,7 +3038,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Constructor for the GetAccountMonthlySpendResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpendResponse</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpendResponse</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
         /// </remarks>
         /// <param name="Amount">The amount spent by the account in the specified period.</param>
         public GetAccountMonthlySpendResponse(string TrackingId, double Amount)
@@ -3083,7 +3086,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiBatchFault"></exception>
@@ -3099,7 +3102,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets a list of objects that contains billing document identification information, for example the billing document identifier, amount, and account identifier.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx">GetBillingDocumentsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451271(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11">GetBillingDocumentsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocumentsinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiBatchFault"></exception>
@@ -3115,7 +3118,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets the specified billing documents.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocuments Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocuments Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiBatchFault"></exception>
@@ -3131,7 +3134,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets the specified billing documents.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx">GetBillingDocuments Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451265(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11">GetBillingDocuments Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getbillingdocuments?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiBatchFault"></exception>
@@ -3157,7 +3160,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Adds an insertion order to the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrder Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrder Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -3172,7 +3175,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Adds an insertion order to the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx">AddInsertionOrder Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743758(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11">AddInsertionOrder Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/addinsertionorder?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -3187,7 +3190,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Updates an insertion order within the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrder Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrder Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -3202,7 +3205,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Updates an insertion order within the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx">UpdateInsertionOrder Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743760(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11">UpdateInsertionOrder Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/updateinsertionorder?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -3217,7 +3220,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets a list of insertion orders for the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -3232,7 +3235,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets a list of insertion orders for the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx">GetInsertionOrdersByAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451269(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11">GetInsertionOrdersByAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getinsertionordersbyaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -3247,12 +3250,12 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Searches for insertion orders that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrders Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrders Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of insertion orders that meet the specified criteria.</returns>
+        /// <returns>A  list of insertion orders that meet the specified criteria.</returns>
         public Microsoft.BingAds.V11.CustomerBilling.SearchInsertionOrdersResponse SearchInsertionOrders(Microsoft.BingAds.V11.CustomerBilling.SearchInsertionOrdersRequest request)
         {
             return base.Channel.SearchInsertionOrders(request);
@@ -3262,12 +3265,12 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Searches for insertion orders that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx">SearchInsertionOrders Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743759(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11">SearchInsertionOrders Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/searchinsertionorders?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of insertion orders that meet the specified criteria.</returns>
+        /// <returns>A  list of insertion orders that meet the specified criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerBilling.SearchInsertionOrdersResponse> SearchInsertionOrdersAsync(Microsoft.BingAds.V11.CustomerBilling.SearchInsertionOrdersRequest request)
         {
             return base.Channel.SearchInsertionOrdersAsync(request);
@@ -3287,7 +3290,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets the amount spent by the account in the specified month.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpend Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpend Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -3302,7 +3305,7 @@ namespace Microsoft.BingAds.V11.CustomerBilling
         /// Gets the amount spent by the account in the specified month.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx">GetAccountMonthlySpend Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451264(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11">GetAccountMonthlySpend Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-billing-service/getaccountmonthlyspend?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>

@@ -500,7 +500,11 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                             Type = "TargetCpa",
                         };
                     }
-                }
+                    else
+                    {
+                        c.Campaign.BiddingScheme = biddingScheme;
+                    }
+                } 
             }
         }
 

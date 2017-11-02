@@ -56,12 +56,6 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Configuration;
 using System.Web.Configuration;
 using System.Web.Hosting;
-using Microsoft.BingAds.CustomerBilling;
-using Microsoft.BingAds.CustomerManagement;
-using Microsoft.BingAds.Reporting;
-using IAdInsightServiceV10 = Microsoft.BingAds.V10.AdInsight.IAdInsightService;
-using IBulkServiceV10 = Microsoft.BingAds.V10.Bulk.IBulkService;
-using ICampaignManagementServiceV10 = Microsoft.BingAds.V10.CampaignManagement.ICampaignManagementService;
 
 namespace Microsoft.BingAds.Internal
 {
@@ -69,48 +63,6 @@ namespace Microsoft.BingAds.Internal
     {
         private static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
         {
-           { 
-                typeof (ICustomerBillingService), new ServiceInfo
-                {
-                    ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/Billing/v9/CustomerBillingService.svc",
-                    SandboxUrl = null
-                }
-            },
-            { 
-                typeof (ICustomerManagementService), new ServiceInfo
-                {
-                    ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc",
-                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc"
-                }
-            },
-            { 
-                typeof (IReportingService), new ServiceInfo
-                {
-                    ProductionUrl = "https://api.bingads.microsoft.com/Api/Advertiser/Reporting/v9/ReportingService.svc",
-                    SandboxUrl = "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/v9/ReportingService.svc"
-                }
-            },
-            {
-                typeof (IAdInsightServiceV10), new ServiceInfo
-                {
-                    ProductionUrl = "https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/V10/AdInsightService.svc",
-                    SandboxUrl = "https://adinsight.api.sandbox.bingads.microsoft.com/Api/Advertiser/AdInsight/V10/AdInsightService.svc"
-                }
-            },
-            {
-                typeof (ICampaignManagementServiceV10), new ServiceInfo
-                {
-                    ProductionUrl = "https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/CampaignManagementService.svc",
-                    SandboxUrl = "https://campaign.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/CampaignManagementService.svc"
-                }
-            },
-            {
-                typeof (IBulkServiceV10), new ServiceInfo
-                {
-                    ProductionUrl = "https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/BulkService.svc",
-                    SandboxUrl = "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/BulkService.svc"
-                }
-            },
             {
                 typeof (V11.CustomerBilling.ICustomerBillingService), new ServiceInfo
                 {
@@ -168,11 +120,11 @@ namespace Microsoft.BingAds.Internal
         {
             ServiceTypes = new[]
             {
-                typeof (ICustomerBillingService), typeof (ICustomerManagementService),
-                typeof (IReportingService), typeof (IAdInsightServiceV10), typeof (IBulkServiceV10),
-                typeof (ICampaignManagementServiceV10), typeof(V11.CustomerBilling.ICustomerBillingService), 
-                typeof (V11.CustomerManagement.ICustomerManagementService), typeof(V11.Reporting.IReportingService),
-                typeof (V11.Bulk.IBulkService), typeof(V11.CampaignManagement.ICampaignManagementService),
+                typeof (V11.CustomerBilling.ICustomerBillingService),
+                typeof (V11.Reporting.IReportingService),
+                typeof (V11.CustomerManagement.ICustomerManagementService),
+                typeof (V11.Bulk.IBulkService),
+                typeof(V11.CampaignManagement.ICampaignManagementService),
                 typeof (V11.AdInsight.IAdInsightService)
             };
 

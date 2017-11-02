@@ -49,7 +49,7 @@
 
 using System;
 using Microsoft.BingAds.Internal;
-using Microsoft.BingAds.V10.Bulk;
+using Microsoft.BingAds.V11.Bulk;
 
 namespace Microsoft.BingAds
 {

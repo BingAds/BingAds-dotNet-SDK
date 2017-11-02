@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines an account identification object that contains information that identifies an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728414(v=msads.110).aspx">AccountInfo Data Object</see> http://msdn.microsoft.com/en-us/library/ff728414(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accountinfo?version=11">AccountInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accountinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see> and <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -190,7 +190,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A flag value that indicates who paused the account. The following are the possible values: 1 - The user paused the account.
+        /// A flag value that indicates who paused the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public System.Nullable<byte> PauseReason
@@ -225,7 +225,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible status values of an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728394(v=msads.110).aspx">AccountLifeCycleStatus Value Set</see> http://msdn.microsoft.com/en-us/library/ff728394(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accountlifecyclestatus?version=11">AccountLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accountlifecyclestatus?version=11 for details.
     /// <para>Used by <see cref="Account"/>, <see cref="AccountInfo"/> and <see cref="AccountInfoWithCustomerData"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -234,7 +234,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     {
         
         /// <summary>
-        /// The account is in a draft state. When you add an account, the system sets the status to Draft. After the system validates the payment instrument, the status changes to Active. You cannot add another account while the customer has an account in the Draft state.
+        /// The account is in a draft state.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Draft = 0,
@@ -252,19 +252,19 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         Inactive = 2,
         
         /// <summary>
-        /// For internal use only. You may update the account and its campaigns while the account is in the paused state.
+        /// For internal use only.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pause = 3,
         
         /// <summary>
-        /// For internal use only. You may update the account and its campaigns while the account is in the pending state.
+        /// For internal use only.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 4,
         
         /// <summary>
-        /// Your account has been suspended and no ads are eligible for delivery because of potentially fraudulent activity. Please contact Bing Ads Support.
+        /// Your account has been suspended and no ads are eligible for delivery because of potentially fraudulent activity.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Suspended = 5,
@@ -274,7 +274,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169113(v=msads.110).aspx">ApplicationFault Data Object</see> http://msdn.microsoft.com/en-us/library/dn169113(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/applicationfault?version=11">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/applicationfault?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -339,7 +339,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169117(v=msads.110).aspx">ApiFault Data Object</see> http://msdn.microsoft.com/en-us/library/dn169117(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/apifault?version=11">ApiFault Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/apifault?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -351,6 +351,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OperationError> OperationErrorsField;
         
+        /// <summary>
+        /// An array of OperationError objects that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OperationError> OperationErrors
         {
@@ -373,7 +376,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169115(v=msads.110).aspx">AdApiFaultDetail Data Object</see> http://msdn.microsoft.com/en-us/library/dn169115(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/adapifaultdetail?version=11">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/adapifaultdetail?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -410,7 +413,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169116(v=msads.110).aspx">AdApiError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169116(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/adapierror?version=11">AdApiError Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/adapierror?version=11 for details.
     /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -468,7 +471,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A message that contains additional details about the error. This string can be empty.
+        /// A message that contains additional details about the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Detail
@@ -488,7 +491,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A symbolic string constant that identifies the error. For example, UserIsNotAuthorized.
+        /// A symbolic string constant that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
@@ -543,7 +546,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn169112(v=msads.110).aspx">OperationError Data Object</see> http://msdn.microsoft.com/en-us/library/dn169112(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/operationerror?version=11">OperationError Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/operationerror?version=11 for details.
     /// <para>Used by <see cref="ApiFault"/> data object.</para>
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
     /// </remarks>
@@ -599,7 +602,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A message that provides additional details about the error. This string can be empty.
+        /// A message that provides additional details about the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
@@ -654,7 +657,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible application types.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee704168(v=msads.110).aspx">ApplicationType Value Set</see> http://msdn.microsoft.com/en-us/library/ee704168(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/applicationtype?version=11">ApplicationType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/applicationtype?version=11 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see>, <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see>, <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> and <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operations.</para>
     /// </remarks>
@@ -671,10 +674,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Defines an account. This is the base object from which the advertising accounts derive.
+    /// Defines an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671588(v=msads.110).aspx">Account Data Object</see> http://msdn.microsoft.com/en-us/library/bb671588(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/account?version=11">Account Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/account?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see>, <see cref="CustomerManagementServiceClient.AddPrepayAccount">AddPrepayAccount</see>, <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see>, <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see>, <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> and <see cref="CustomerManagementServiceClient.UpdatePrepayAccount">UpdatePrepayAccount</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -761,7 +764,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The type of the account. For example, whether the account is an advertiser account.
+        /// The type of the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CustomerManagement.AccountType AccountType
@@ -781,7 +784,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The identifier of the customer that is billed for the charges that the account generates. This is either the reseller that manages this account on behalf of the owner or the identifier of the customer that owns the account.
+        /// The identifier of the customer that is billed for the charges that the account generates.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> BillToCustomerId
@@ -801,7 +804,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The code that identifies the country/region in which the account operates. The service uses the country/region information for billing purposes.
+        /// The code that identifies the country/region in which the account operates.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CountryCode
@@ -821,7 +824,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The type of currency that is used to settle the account. The service uses the currency information for billing purposes.
+        /// The type of currency that is used to settle the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.CurrencyType> CurrencyType
@@ -841,7 +844,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The financial status of the account. For example, the status can indicate whether the account is in good standing or is past due.
+        /// The financial status of the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.AccountFinancialStatus> AccountFinancialStatus
@@ -901,7 +904,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// For a list of valid key and value strings for this element, see Account ForwardCompatibilityMap in the section below.
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
@@ -941,7 +944,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The date and time that the account was last updated. The value is in Coordinated Universal Time (UTC).
+        /// The date and time that the account was last updated.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public System.Nullable<System.DateTime> LastModifiedTime
@@ -961,7 +964,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The name of the account. The name can contain a maximum of 100 characters and must be unique within the customer.
+        /// The name of the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public string Name
@@ -981,7 +984,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated account number that is used to identify the account in the Bing Ads web application. The account number has the form xxxxxxxx, where xxxxxxxx is a series of any eight alphanumeric characters.
+        /// The system generated account number that is used to identify the account in the Bing Ads web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
         public string Number
@@ -1041,7 +1044,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The type of payment instrument to use to settle the account. You do not have to set this value because the type is determined by the payment instrument corresponding to the PaymentMethodId element.
+        /// The type of payment instrument to use to settle the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.PaymentMethodType> PaymentMethodType
@@ -1081,7 +1084,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The status of the account. You cannot set the status of the account.
+        /// The status of the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.AccountLifeCycleStatus> AccountLifeCycleStatus
@@ -1141,7 +1144,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A flag value that indicates who paused the account. The following are the possible values: 1 - The user paused the account.
+        /// A flag value that indicates who paused the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=19)]
         public System.Nullable<byte> PauseReason
@@ -1176,7 +1179,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines an advertiser account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee704163(v=msads.110).aspx">AdvertiserAccount Data Object</see> http://msdn.microsoft.com/en-us/library/ee704163(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/advertiseraccount?version=11">AdvertiserAccount Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/advertiseraccount?version=11 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1264,7 +1267,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The identifier of a backup payment instrument to use to settle the account. This element is not applicable for invoiced accounts.
+        /// The identifier of a backup  payment instrument to use to settle the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public System.Nullable<long> BackUpPaymentInstrumentId
@@ -1304,7 +1307,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The location where your business is legally registered. If you are an agency working as an agent for your customer, this is the location where your client is legally registered. If you are an agency working as a reseller, this is the legally registered business address of your company. The business address is used to determine your tax requirements.
+        /// The location where your business is legally registered.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
         public Microsoft.BingAds.V11.CustomerManagement.Address BusinessAddress
@@ -1328,7 +1331,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible account types.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728392(v=msads.110).aspx">AccountType Value Set</see> http://msdn.microsoft.com/en-us/library/ff728392(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accounttype?version=11">AccountType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accounttype?version=11 for details.
     /// <para>Used by <see cref="Account"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1347,7 +1350,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a selection of currency values.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671938(v=msads.110).aspx">CurrencyType Value Set</see> http://msdn.microsoft.com/en-us/library/bb671938(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/currencytype?version=11">CurrencyType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/currencytype?version=11 for details.
     /// <para>Used by <see cref="Account"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1355,279 +1358,555 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     public enum CurrencyType : int
     {
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AlgerianDinar = 0,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArgentinePeso = 1,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArmenianDram = 2,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AustralianDollar = 3,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AzerbaijanianManat = 4,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BahrainiDinar = 5,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Baht = 6,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Balboa = 7,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BelarussianRuble = 8,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BelizeDollar = 9,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bolivar = 10,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Boliviano = 11,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrazilianReal = 12,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BruneiDollar = 13,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CanadianDollar = 14,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChileanPeso = 15,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ColombianPeso = 16,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CordobaOro = 17,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostaRicanColon = 18,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Croatiankuna = 19,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CzechKoruna = 20,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DanishKrone = 21,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Denar = 22,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DominicanPeso = 23,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Dong = 24,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EgyptianPound = 25,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Euro = 26,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Forint = 27,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Guarani = 28,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HongKongDollar = 29,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hryvnia = 30,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IcelandKrona = 31,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IndianRupee = 32,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IranianRial = 33,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IraqiDinar = 34,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JamaicanDollar = 35,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JapaneseYen = 36,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JordanianDinar = 37,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KenyanShilling = 38,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kroon = 39,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KuwaitiDinar = 40,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lari = 41,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LatvianLats = 42,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LebanesePound = 43,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lek = 44,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lempira = 45,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Leu = 46,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lev = 47,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LibyanDinar = 48,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LithuanianLitus = 49,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MalaysianRinggit = 50,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MexicanPeso = 51,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoroccanDirham = 52,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewIsraeliSheqel = 53,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewTaiwanDollar = 54,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewZealandDollar = 55,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NorwegianKrone = 56,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NuevoSol = 57,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PakistanRupee = 58,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pataca = 59,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PesoUruguayo = 60,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhilippinePeso = 61,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QatariRial = 62,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Quetzal = 63,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RialOmani = 64,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rufiyaa = 65,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rupiah = 66,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RussianRuble = 67,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SaudiRiyal = 68,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SingaporeDollar = 69,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SlovakKoruna = 70,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Som = 71,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SouthAfricanRand = 72,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwedishKrona = 73,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwissFranc = 74,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SyrianPound = 75,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tenge = 76,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tolar = 77,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrinidadandTobagoDollar = 78,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tugrik = 79,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TunisianDinar = 80,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TurkishLira = 81,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UAEDirham = 82,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UKPound = 83,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         USDollar = 84,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UzbekistanSum = 85,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Won = 86,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YemeniRial = 87,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YuanRenminbi = 88,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YugoslavianNewDinar = 89,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ZimbabweDollar = 90,
         
+        /// <summary>
+        /// The corresponding currency type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Zloty = 91,
     }
@@ -1636,7 +1915,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible financial status values of an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728399(v=msads.110).aspx">AccountFinancialStatus Value Set</see> http://msdn.microsoft.com/en-us/library/ff728399(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accountfinancialstatus?version=11">AccountFinancialStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accountfinancialstatus?version=11 for details.
     /// <para>Used by <see cref="Account"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1675,25 +1954,25 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         CreditWarning = 4,
         
         /// <summary>
-        /// For an advertiser account, this status indicates that the account is past due. The service will not deliver the account's ads until the account is settled. For a credit card account, this status indicates that the card has been declined three times.
+        /// For an advertiser account, this status indicates that the account is past due.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hold = 5,
         
         /// <summary>
-        /// The account is past due; however, collection is no longer being pursued. When this status is set, the Status element of the Account will be set to Inactive.
+        /// The account is past due; however, collection is no longer being pursued.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WriteOff = 6,
         
         /// <summary>
-        /// For a publisher account, this status indicates that the publisher has yet to provide a valid tax instrument. The service continues to deliver the account's ads.
+        /// For a publisher account, this status indicates that the publisher has yet to provide a valid tax instrument.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TaxOnHold = 7,
         
         /// <summary>
-        /// For a publisher account, this status indicates that the payout to the publisher was placed on hold by publisher. The service continues to deliver the account's ads.
+        /// For a publisher account, this status indicates that the payout to the publisher was placed on hold by publisher.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UserHold = 8,
@@ -1703,7 +1982,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a selection of language values.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb672074(v=msads.110).aspx">LanguageType Value Set</see> http://msdn.microsoft.com/en-us/library/bb672074(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/languagetype?version=11">LanguageType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/languagetype?version=11 for details.
     /// <para>Used by <see cref="Account"/> and <see cref="Customer"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1711,57 +1990,111 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     public enum LanguageType : int
     {
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Danish = 0,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Dutch = 1,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         English = 2,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Finnish = 3,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         French = 4,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         German = 5,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Italian = 6,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Japanese = 7,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Norwegian = 8,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Portuguese = 9,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Swedish = 10,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spanish = 11,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Arabic = 12,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hebrew = 13,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Korean = 14,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Russian = 15,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TraditionalChinese = 16,
         
+        /// <summary>
+        /// The corresponding language type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SimplifiedChinese = 17,
     }
@@ -1770,7 +2103,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines possible payment methods for a Bing Ads account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee704164(v=msads.110).aspx">PaymentMethodType Value Set</see> http://msdn.microsoft.com/en-us/library/ee704164(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/paymentmethodtype?version=11">PaymentMethodType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/paymentmethodtype?version=11 for details.
     /// <para>Used by <see cref="Account"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1778,30 +2111,57 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     public enum PaymentMethodType : int
     {
         
+        /// <summary>
+        /// The payments are made with a credit card.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CreditCard = 1,
         
+        /// <summary>
+        /// An invoice is sent to the customer requesting payment.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Invoice = 2,
         
+        /// <summary>
+        /// The payments are made with a check.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Check = 3,
         
+        /// <summary>
+        /// The payments are made with an electronic funds transfer.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ElectronicFundsTransfer = 4,
         
+        /// <summary>
+        /// A payment service that allows customers to pay for their Bing Ads transactions online.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PayPal = 5,
         
+        /// <summary>
+        /// The ELV value represents the SEPA payment method.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ELV = 6,
         
+        /// <summary>
+        /// Meant to signal when a customer is funding a prepay account by making payment via a check or a bank transfer.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfflinePaymentMethod = 7,
         
+        /// <summary>
+        /// Virtual Bank Account is a form of payment used widely in Taiwan.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VBA = 8,
         
+        /// <summary>
+        /// Boleto is a form of payment used widely in Brazil.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Boleto = 9,
     }
@@ -1810,7 +2170,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible time zones for the customer management service.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451293(v=msads.110).aspx">TimeZoneType Value Set</see> http://msdn.microsoft.com/en-us/library/dn451293(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/timezonetype?version=11">TimeZoneType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/timezonetype?version=11 for details.
     /// <para>Used by <see cref="Account"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1818,228 +2178,453 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     public enum TimeZoneType : int
     {
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbuDhabiMuscat = 32,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Adelaide = 11,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Alaska = 72,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AlmatyNovosibirsk = 25,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AmsterdamBerlinBernRomeStockholmVienna = 48,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Arizona = 68,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AstanaDhaka = 24,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AthensBuckarestIstanbul = 43,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AtlanticTimeCanada = 58,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AucklandWellington = 3,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Azores = 51,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Baghdad = 37,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BakuTbilisiYerevan = 31,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BangkokHanoiJakarta = 21,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BeijingChongqingHongKongUrumqi = 19,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BelgradeBratislavaBudapestLjubljanaPrague = 47,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BogotaLimaQuito = 61,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brasilia = 54,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brisbane = 9,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrusselsCopenhagenMadridParis = 46,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bucharest = 42,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BuenosAiresGeorgetown = 55,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Cairo = 41,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CanberraMelbourneSydney = 8,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CapeVerdeIsland = 52,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CaracasLaPaz = 59,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CasablancaMonrovia = 49,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CentralAmerica = 64,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CentralTimeUSCanada = 65,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChennaiKolkataMumbaiNewDelhi = 27,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChihuahuaLaPazMazatlan = 69,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Darwin = 10,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EasternTimeUSCanada = 62,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ekaterinburg = 29,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FijiKamchatkaMarshallIsland = 2,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Greenland = 56,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreenwichMeanTimeDublinEdinburghLisbonLondon = 50,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GuadalajaraMexicoCityMonterrey = 66,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GuamPortMoresby = 7,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HararePretoria = 40,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hawaii = 73,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelsinkiKyivRigaSofiaTallinnVilnius = 39,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hobart = 6,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IndianaEast = 63,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InternationalDatelineWest = 75,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IrkutskUlaanBataar = 18,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IslamabadKarachiTashkent = 28,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Jerusalem = 38,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kabul = 30,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kathmandu = 26,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Krasnoyarsk = 20,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KualaLumpurSingapore = 17,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KuwaitRiyadh = 36,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MagadanSolomonIslandNewCaledonia = 4,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MidAtlantic = 53,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MidwayIslandAndSamoa = 74,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoscowStPetersburgVolgograd = 35,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MountainTimeUSCanada = 70,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Nairobi = 34,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Newfoundland = 57,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Nukualofa = 1,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OsakaSapporoTokyo = 14,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PacificTimeUSCanadaTijuana = 71,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Perth = 16,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rangoon = 22,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Santiago = 60,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SarajevoSkopjeWarsawZagreb = 45,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Saskatchewan = 67,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Seoul = 13,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SriJayawardenepura = 23,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Taipei = 15,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tehran = 33,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Vladivostok = 5,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WestCentralAfrica = 44,
         
+        /// <summary>
+        /// The corresponding time zone type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yakutsk = 12,
     }
@@ -2048,7 +2633,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a postal address.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671505(v=msads.110).aspx">Address Data Object</see> http://msdn.microsoft.com/en-us/library/bb671505(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/address?version=11">Address Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/address?version=11 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/>, <see cref="ContactInfo"/> and <see cref="Customer"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2124,7 +2709,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The country/region code. For possible values, see Geographical Location Codes.
+        /// The country/region code.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CountryCode
@@ -2264,7 +2849,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The state or province. This element is required for countries that define sub geographies, but should be set to null for countries that do not define sub geographies, such as Singapore.
+        /// The state or province.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string StateOrProvince
@@ -2283,6 +2868,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The date and time that the address was last updated.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public byte[] TimeStamp
         {
@@ -2316,7 +2904,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a customer identification object that contains information that identifies a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728384(v=msads.110).aspx">CustomerInfo Data Object</see> http://msdn.microsoft.com/en-us/library/ff728384(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customerinfo?version=11">CustomerInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customerinfo?version=11 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> service operation.</para>
     /// </remarks>
@@ -2404,7 +2992,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671875(v=msads.110).aspx">Customer Data Object</see> http://msdn.microsoft.com/en-us/library/bb671875(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customer?version=11">Customer Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccessibleCustomer">GetAccessibleCustomer</see>, <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> and <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2492,7 +3080,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The financial status of the customer. For example, the status indicates whether the customer is in good standing or one or more of the accounts are past due.
+        /// The financial status of the customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.CustomerFinancialStatus> CustomerFinancialStatus
@@ -2572,7 +3160,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The date and time that the customer information was last updated. The value is in Coordinated Universal Time (UTC).
+        /// The date and time that the customer information was last updated.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> LastModifiedTime
@@ -2592,7 +3180,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The primary country where the customer operates. For a list of customer market country code values, see Product Language.
+        /// The primary country where the customer operates.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MarketCountry
@@ -2612,7 +3200,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The list of key and value strings for forward compatibility. This element can be used to avoid otherwise breaking changes when new elements are added in future releases.
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
@@ -2632,7 +3220,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The primary language that the customer uses. Your customer market language determines the language of the Bing Ads interface. For a list of customer market language code values, see Product Language.
+        /// The primary language that the customer uses.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.LanguageType> MarketLanguage
@@ -2652,7 +3240,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The name of the customer. The name can contain a maximum of 100 characters.
+        /// The name of the customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public string Name
@@ -2672,7 +3260,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// For internal use only. If this element is set when calling SignupCustomer an error will be returned. If this element is set when calling UpdateCustomer the element will be ignored.
+        /// For internal use only.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.ServiceLevel> ServiceLevel
@@ -2692,7 +3280,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The status of the customer. When you create the customer, the status is set to Active. You cannot change the status.
+        /// The status of the customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.CustomerLifeCycleStatus> CustomerLifeCycleStatus
@@ -2732,7 +3320,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A system-generated customer number that is used in the Bing Ads web application. The customer number is of the form, C nnnnnnn, where nnnnnnn is a series of digits.
+        /// A system-generated customer number that is used in the Bing Ads web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public string Number
@@ -2767,7 +3355,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible financial status values of a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728435(v=msads.110).aspx">CustomerFinancialStatus Value Set</see> http://msdn.microsoft.com/en-us/library/ff728435(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customerfinancialstatus?version=11">CustomerFinancialStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customerfinancialstatus?version=11 for details.
     /// <para>Used by <see cref="Customer"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2782,7 +3370,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         ProposalsOnly = 0,
         
         /// <summary>
-        /// The customer is undergoing a credit check as part of the customer sign-up process. The service will not deliver the customer's ads until the credit check is complete. This status applies only to premium customers.
+        /// The customer is undergoing a credit check as part of the customer sign-up process.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PendingCreditCheck = 1,
@@ -2794,7 +3382,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         ClearFinancialStatus = 2,
         
         /// <summary>
-        /// The customer is considered to be a credit risk. You cannot set the BillToCustomerId element of the Account for a customer that has this status. This status applies only to premium customers.
+        /// The customer is considered to be a credit risk.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SoldToOnly = 3,
@@ -2816,7 +3404,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible industry segments in which a customer operates.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671992(v=msads.110).aspx">Industry Value Set</see> http://msdn.microsoft.com/en-us/library/bb671992(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/industry?version=11">Industry Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/industry?version=11 for details.
     /// <para>Used by <see cref="Customer"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2944,6 +3532,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Other = 19,
         
+        /// <summary>
+        /// The pharmaceuticals industry.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pharmaceuticals = 20,
     }
@@ -2952,7 +3543,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// For internal use only.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728418(v=msads.110).aspx">ServiceLevel Value Set</see> http://msdn.microsoft.com/en-us/library/ff728418(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/servicelevel?version=11">ServiceLevel Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/servicelevel?version=11 for details.
     /// <para>Used by <see cref="Customer"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2995,7 +3586,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible status values of a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728419(v=msads.110).aspx">CustomerLifeCycleStatus Value Set</see> http://msdn.microsoft.com/en-us/library/ff728419(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customerlifecyclestatus?version=11">CustomerLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customerlifecyclestatus?version=11 for details.
     /// <para>Used by <see cref="Customer"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3020,7 +3611,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671824(v=msads.110).aspx">User Data Object</see> http://msdn.microsoft.com/en-us/library/bb671824(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/user?version=11">User Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/user?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCurrentUser">GetCurrentUser</see>, <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> and <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3174,7 +3765,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The user's job title. The title can contain a maximum of 50 characters.
+        /// The user's job title.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string JobTitle
@@ -3214,7 +3805,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The date and time that that the user information was last updated. The value is in Coordinated Universal Time (UTC).
+        /// The date and time that that the user information was last updated.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> LastModifiedTime
@@ -3234,7 +3825,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The locale to use when sending correspondence to the user by email or postal mail. The default is EnglishUS.
+        /// The locale to use when sending correspondence to the user by email or postal mail.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.LCID> Lcid
@@ -3294,7 +3885,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The answer to the secret question that is specified in the SecretQuestion element. The answer must contain a minimum of five characters and a maximum of 64 characters.
+        /// The answer to the secret question that is specified in the SecretQuestion element.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SecretAnswer
@@ -3314,7 +3905,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A question from a list of predefined questions that the user selects to use as his or her secret question. The SecretAnswer element contains the user's answer to the question. The secret question and answer are used to validate the user in case the user forgets his or her password, and requests it.
+        /// A question from a list of predefined questions that the user selects to use as his or her secret question.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CustomerManagement.SecretQuestion SecretQuestion
@@ -3374,7 +3965,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// If the value of IsMigratedToMicrosoftAccount is false, this element contains the user's Bing Ads managed sign-in user name. The name is case-insensitive.
+        /// If the value of IsMigratedToMicrosoftAccount is false, this element contains the user's Bing Ads managed sign-in user name.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public string UserName
@@ -3394,7 +3985,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// If true, the user can be authenticated using a Microsoft Account. For more information, see Managing User Authentication with OAuth.
+        /// If true, the user can be authenticated using  a Microsoft Account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public bool IsMigratedToMicrosoftAccount
@@ -3429,7 +4020,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the contact information for a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671639(v=msads.110).aspx">ContactInfo Data Object</see> http://msdn.microsoft.com/en-us/library/bb671639(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/contactinfo?version=11">ContactInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/contactinfo?version=11 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3508,7 +4099,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A value that determines whether the user should be contacted by telephone. If true, the telephone number specified in the Phone1 element is used to contact the user.
+        /// A value that determines whether the user should be contacted by telephone.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ContactByPhone
@@ -3528,7 +4119,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A value that determines whether the user should be contacted by postal mail. If true, correspondence is sent to the address specified in the Address element.
+        /// A value that determines whether the user should be contacted by postal mail.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ContactByPostalMail
@@ -3588,7 +4179,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The fax telephone number of the user. The telephone number can contain a maximum of 100 characters.
+        /// The fax telephone number of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Fax
@@ -3608,7 +4199,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The home telephone number of the user. The telephone number can contain a maximum of 100 characters.
+        /// The home telephone number of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string HomePhone
@@ -3648,7 +4239,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The mobile telephone number of the user. The telephone number can contain a maximum of 100 characters.
+        /// The mobile telephone number of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Mobile
@@ -3668,7 +4259,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The primary telephone number of the user. The telephone number can contain a maximum of 100 characters.
+        /// The primary telephone number of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Phone1
@@ -3688,7 +4279,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// An alternate telephone number for the user. The telephone number can contain a maximum of 100 characters.
+        /// An alternate telephone number for the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Phone2
@@ -3723,7 +4314,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the name of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728429(v=msads.110).aspx">PersonName Data Object</see> http://msdn.microsoft.com/en-us/library/ff728429(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/personname?version=11">PersonName Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/personname?version=11 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3758,7 +4349,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The first name of the user. The first name is limited to 100 characters.
+        /// The first name of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FirstName
@@ -3778,7 +4369,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The last name of the user. The last name is limited to 100 characters.
+        /// The last name of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string LastName
@@ -3798,7 +4389,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The middle initial of the user. The middle initial is limited to one character.
+        /// The middle initial of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MiddleInitial
@@ -3833,7 +4424,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a selection of locale values.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671785(v=msads.110).aspx">LCID Value Set</see> http://msdn.microsoft.com/en-us/library/bb671785(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/lcid?version=11">LCID Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/lcid?version=11 for details.
     /// <para>Used by <see cref="User"/> and <see cref="UserInvitation"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3841,159 +4432,315 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     public enum LCID : int
     {
         
+        /// <summary>
+        /// Arabic (Saudi Arabia)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicSaudiArabia = 1025,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicAlgeria = 5121,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicBahrain = 15361,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicEgypt = 3073,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicIraq = 2049,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicJordan = 11265,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicKuwait = 13313,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicLebanon = 12289,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicLibya = 4097,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicMorocco = 6145,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicOman = 8193,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicQatar = 16385,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicTunisia = 7169,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicUnitedArabEmirates = 14337,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicYemen = 9217,
         
+        /// <summary>
+        /// Chinese (Taiwan)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseTaiwan = 1028,
         
+        /// <summary>
+        /// Danish (Denmark)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DanishDenmark = 1030,
         
+        /// <summary>
+        /// German (Germany)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanGermany = 1031,
         
+        /// <summary>
+        /// English (United States)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishUS = 1033,
         
+        /// <summary>
+        /// Spanish (Spain)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishSpain = 1034,
         
+        /// <summary>
+        /// Finnish (Finland)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinnishFinland = 1035,
         
+        /// <summary>
+        /// French (France)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrenchFrance = 1036,
         
+        /// <summary>
+        /// Hebrew (Israel)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HebrewIsrael = 1037,
         
+        /// <summary>
+        /// Italian (Italy)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ItalianItaly = 1040,
         
+        /// <summary>
+        /// Korean (Korea)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KoreanKorea = 1042,
         
+        /// <summary>
+        /// Dutch (Netherlands)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DutchNetherlands = 1043,
         
+        /// <summary>
+        /// Norwegian (Norway)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NorwegianNorway = 1044,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PortugueseBrazil = 1046,
         
+        /// <summary>
+        /// Russian (Russia)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RussianRussia = 1049,
         
+        /// <summary>
+        /// Swedish (Sweden)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwedishSweden = 1053,
         
+        /// <summary>
+        /// English (Thailand)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishThailand = 1054,
         
+        /// <summary>
+        /// English (Indonesia)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIndonesia = 1057,
         
+        /// <summary>
+        /// English (Vietnam)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishVietnam = 1066,
         
+        /// <summary>
+        /// German (Switzerland)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanSwitzerland = 2055,
         
+        /// <summary>
+        /// English (United Kingdom)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishUK = 2057,
         
+        /// <summary>
+        /// Spanish (Mexico)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishMexico = 2058,
         
+        /// <summary>
+        /// Chinese (Hong Kong)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseHongKong = 3076,
         
+        /// <summary>
+        /// German (Austria)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanAustria = 3079,
         
+        /// <summary>
+        /// English (Australia)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishAustralia = 3081,
         
+        /// <summary>
+        /// French (Canada)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrenchCanada = 3084,
         
+        /// <summary>
+        /// English (Canada)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishCanada = 4105,
         
+        /// <summary>
+        /// English (New Zealand)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishNewZealand = 5129,
         
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIreland = 6153,
         
+        /// <summary>
+        /// Spanish (Venezuela)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishVenezuela = 8202,
         
+        /// <summary>
+        /// Spanish (Colombia)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishColombia = 9226,
         
+        /// <summary>
+        /// Spanish (Peru)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishPeru = 10250,
         
+        /// <summary>
+        /// Spanish (Argentina)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishArgentina = 11274,
         
+        /// <summary>
+        /// English (Philippines)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishPhilippines = 13321,
         
+        /// <summary>
+        /// Spanish (Chile)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishChile = 13322,
         
+        /// <summary>
+        /// English (India)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIndia = 16393,
         
+        /// <summary>
+        /// English (Malaysia)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishMalaysia = 17417,
         
+        /// <summary>
+        /// English (Singapore)
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishSingapore = 18441,
     }
@@ -4002,7 +4749,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible secret questions that users can choose from to help them recall their password.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671980(v=msads.110).aspx">SecretQuestion Value Set</see> http://msdn.microsoft.com/en-us/library/bb671980(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/secretquestion?version=11">SecretQuestion Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/secretquestion?version=11 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4011,7 +4758,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     {
         
         /// <summary>
-        /// Do not specify this value. If you specify this value, adding or updating the user will fail.
+        /// Do not specify this value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
@@ -4075,7 +4822,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible status values of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee704179(v=msads.110).aspx">UserLifeCycleStatus Value Set</see> http://msdn.microsoft.com/en-us/library/ee704179(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/userlifecyclestatus?version=11">UserLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/userlifecyclestatus?version=11 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
     /// </remarks>
@@ -4085,7 +4832,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     {
         
         /// <summary>
-        /// The user is a new user who has not been activated. The user is sent notification about how to activate the account. After the user activates the account, the status changes to Active.
+        /// The user is a new user who has not been activated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 0,
@@ -4097,13 +4844,13 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         Active = 1,
         
         /// <summary>
-        /// Reserved for internal use. The user was disabled by the system.
+        /// Reserved for internal use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 2,
         
         /// <summary>
-        /// Reserved for internal use. The user was deleted.
+        /// Reserved for internal use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 3,
@@ -4113,7 +4860,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible formats of the body of an email message.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/bb671705(v=msads.110).aspx">EmailFormat Value Set</see> http://msdn.microsoft.com/en-us/library/bb671705(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/emailformat?version=11">EmailFormat Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/emailformat?version=11 for details.
     /// <para>Used by <see cref="ContactInfo"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4138,7 +4885,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a user identification object that contains information that identifies a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ff728438(v=msads.110).aspx">UserInfo Data Object</see> http://msdn.microsoft.com/en-us/library/ff728438(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/userinfo?version=11">UserInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/userinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4249,6 +4996,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id
         {
@@ -4266,6 +5016,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<string> Countries
         {
@@ -4299,7 +5052,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines an object that contains information that identifies an account and the customer that manages or owns the account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/hh420973(v=msads.110).aspx">AccountInfoWithCustomerData Data Object</see> http://msdn.microsoft.com/en-us/library/hh420973(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accountinfowithcustomerdata?version=11">AccountInfoWithCustomerData Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accountinfowithcustomerdata?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4426,7 +5179,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated account number that is used to identify the account in the Bing Ads web application. The account number has the form X nnnnnnn, where nnnnnnn is a series of digits.
+        /// The system generated account number that is used to identify the account in the Bing Ads web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string AccountNumber
@@ -4466,7 +5219,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// A flag value that indicates who paused the account. The following are the possible values: 1 - The user paused the account.
+        /// A flag value that indicates who paused the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Nullable<byte> PauseReason
@@ -4501,7 +5254,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a predicate for the list of entities requested using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn452060(v=msads.110).aspx">Predicate Data Object</see> http://msdn.microsoft.com/en-us/library/dn452060(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/predicate?version=11">Predicate Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/predicate?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> and <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4536,7 +5289,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The name of the element for the object you are searching.
+        /// The name of the element for  the object you are searching.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Field
@@ -4611,7 +5364,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the condition of results for one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn518214(v=msads.110).aspx">PredicateOperator Value Set</see> http://msdn.microsoft.com/en-us/library/dn518214(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/predicateoperator?version=11">PredicateOperator Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/predicateoperator?version=11 for details.
     /// <para>Used by <see cref="Predicate"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4672,7 +5425,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a date range object.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn452056(v=msads.110).aspx">DateRange Data Object</see> http://msdn.microsoft.com/en-us/library/dn452056(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/daterange?version=11">DateRange Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/daterange?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4759,7 +5512,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines an order for the list of entities returned using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn452057(v=msads.110).aspx">OrderBy Data Object</see> http://msdn.microsoft.com/en-us/library/dn452057(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/orderby?version=11">OrderBy Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/orderby?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4791,7 +5544,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// Determines the field to order the results. For example order the results by Id.
+        /// Determines the field to order the results.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CustomerManagement.OrderByField Field
@@ -4846,7 +5599,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the field order of entities returned using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn452058(v=msads.110).aspx">OrderByField Value Set</see> http://msdn.microsoft.com/en-us/library/dn452058(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/orderbyfield?version=11">OrderByField Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/orderbyfield?version=11 for details.
     /// <para>Used by <see cref="OrderBy"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4883,7 +5636,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the ascending or descending sort order of results for one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn452061(v=msads.110).aspx">SortOrder Value Set</see> http://msdn.microsoft.com/en-us/library/dn452061(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/sortorder?version=11">SortOrder Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/sortorder?version=11 for details.
     /// <para>Used by <see cref="OrderBy"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4908,7 +5661,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines a paging object for the list of entities returned using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn452059(v=msads.110).aspx">Paging Data Object</see> http://msdn.microsoft.com/en-us/library/dn452059(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/paging?version=11">Paging Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/paging?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4940,7 +5693,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The zero-based results page index. For example to request the first page of results, set this value to 0 (zero).
+        /// The zero-based results page index.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Index
@@ -4960,7 +5713,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The page size and the number of results to return in the specified page. The maximum size is 1,000.
+        /// The page size and the number of results to return in the specified page.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Size
@@ -4992,10 +5745,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Defines a client link object. Acceptance of a client link invitation enables an agency to manage the corresponding client accounts. To send an invitation to manage a client account, call the AddClientLinks and specify one client link per account to manage. For more information about the client link lifecycle, see Link to Client Accounts.
+    /// Defines a client link object.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn632189(v=msads.110).aspx">ClientLink Data Object</see> http://msdn.microsoft.com/en-us/library/dn632189(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/clientlink?version=11">ClientLink Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/clientlink?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5071,6 +5824,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The identifier of the client account to manage.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ClientAccountId
         {
@@ -5088,6 +5844,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The number of the client account to manage.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ClientAccountNumber
         {
@@ -5105,6 +5864,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The identifier of the customer who manages or is requesting to manage the client account.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ManagingCustomerId
         {
@@ -5122,6 +5884,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The number of the customer who manages or is requesting to manage the client account.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ManagingCustomerNumber
         {
@@ -5139,6 +5904,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// Optional message from the requestor providing context and details about the client link invitation.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Note
         {
@@ -5156,6 +5924,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The friendly name that can be used to reference this client link.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public string Name
         {
@@ -5173,6 +5944,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The email of the user who created the client link request.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public string InviterEmail
         {
@@ -5190,6 +5964,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The name of the parent customer of the user who  created the client link request.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public string InviterName
         {
@@ -5207,6 +5984,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The phone number of the user who created the client link request.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public string InviterPhone
         {
@@ -5224,6 +6004,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// Determines whether the owner of the client account or the managing customer is responsible for billing payments.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public bool IsBillToClient
         {
@@ -5241,6 +6024,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The date when the status would update.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public System.Nullable<System.DateTime> StartDate
         {
@@ -5258,6 +6044,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// Determines the life cycle status of the client link, for example whether the client link has been accepted or declined.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.ClientLinkStatus> Status
         {
@@ -5275,6 +6064,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// Determines whether or not to send email notification of the client link invitation to the primary user of the client account.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public bool SuppressNotification
         {
@@ -5292,6 +6084,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The date and time that the client link was last updated.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public System.DateTime LastModifiedDateTime
         {
@@ -5309,6 +6104,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The identifier of the last user to update the client link's information.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public long LastModifiedByUserId
         {
@@ -5326,6 +6124,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public byte[] Timestamp
         {
@@ -5343,6 +6144,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
         {
@@ -5376,7 +6180,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible status values of a ClientLink.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn632184(v=msads.110).aspx">ClientLinkStatus Value Set</see> http://msdn.microsoft.com/en-us/library/dn632184(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/clientlinkstatus?version=11">ClientLinkStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/clientlinkstatus?version=11 for details.
     /// <para>Used by <see cref="ClientLink"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5385,7 +6189,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     {
         
         /// <summary>
-        /// The ClientLink has been added via the AddClientLinks operation. The link request has been sent and is pending approval from the client.
+        /// The ClientLink has been added via the AddClientLinks operation.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkPending = 0,
@@ -5397,7 +6201,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         LinkCanceled = 1,
         
         /// <summary>
-        /// The link is inactive due to expiry. The client did not accept or decline the request within 30 days.
+        /// The link is inactive due to expiry.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkExpired = 2,
@@ -5439,7 +6243,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         UnlinkRequested = 8,
         
         /// <summary>
-        /// A request to terminate the link has been sent. The request is waiting for the system to begin the unlink progress.
+        /// A request to terminate the link has been sent.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnlinkPending = 9,
@@ -5470,10 +6274,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Defines a user invitation. When the invitation is accepted, the user's Microsoft account is linked to the specified Bing Ads customer accounts.
+    /// Defines a user invitation.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn771360(v=msads.110).aspx">UserInvitation Data Object</see> http://msdn.microsoft.com/en-us/library/dn771360(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/userinvitation?version=11">UserInvitation Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/userinvitation?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> and <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5546,7 +6350,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The first name of the user. The first name is limited to 40 characters.
+        /// The first name of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public string FirstName
@@ -5566,7 +6370,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The last name of the user. The last name is limited to 40 characters.
+        /// The last name of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public string LastName
@@ -5586,7 +6390,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The email address corresponding to the user's Microsoft account. The address can contain a maximum of 100 characters.
+        /// The email address corresponding to the user's Microsoft account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public string Email
@@ -5606,7 +6410,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The identifier of the customer this user is invited to manage. The AccountIds element determines which customer accounts the user can manage.
+        /// The identifier of the customer this user is invited to manage.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public long CustomerId
@@ -5646,7 +6450,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// An array of identifiers of the accounts that the user can manage. To specify that the user can manage all current and future accounts of the customer to which the user belongs, set to NULL.
+        /// An array of identifiers of the accounts that the user can manage.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Collections.Generic.IList<long> AccountIds
@@ -5666,7 +6470,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The date and time that the user invitation will expire. The value is in Coordinated Universal Time (UTC).
+        /// The date and time that the user invitation will expire.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public System.DateTime ExpirationDate
@@ -5686,7 +6490,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The locale to use when sending correspondence to the user by email or postal mail. The default is EnglishUS.
+        /// The locale to use when sending correspondence to the user by email or postal mail.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public Microsoft.BingAds.V11.CustomerManagement.LCID Lcid
@@ -5721,7 +6525,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Defines the possible roles of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/ee704157(v=msads.110).aspx">UserRole Value Set</see> http://msdn.microsoft.com/en-us/library/ee704157(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/userrole?version=11">UserRole Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/userrole?version=11 for details.
     /// <para>Used by <see cref="UserInvitation"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5729,36 +6533,69 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     public enum UserRole : int
     {
         
+        /// <summary>
+        /// This role has permissions to view selected accounts and add, edit, or delete campaigns within the selected accounts.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdvertiserCampaignManager = 0,
         
+        /// <summary>
+        /// This role has full permissions for all accounts.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SuperAdmin = 1,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClientViewer = 2,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClientManager = 3,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PublisherAdmin = 4,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PublisherAccountManager = 5,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PublisherReportUser = 6,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PublisherListManager = 7,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PublisherAdViewer = 8,
         
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClientAdmin = 9,
         
+        /// <summary>
+        /// This role has permissions to manage campaigns and perform some billing activities on specific accounts.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StandardUser = 10,
     }
@@ -5772,7 +6609,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5790,7 +6627,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5804,7 +6641,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccounts Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5822,7 +6659,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccounts Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5848,12 +6685,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the account was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAccount", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateAccou" +
             "ntResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateAccou" +
@@ -5866,12 +6703,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the account was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAccount", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateAccou" +
             "ntResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateAccountResponse> UpdateAccountAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateAccountRequest request);
@@ -5880,7 +6717,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5898,7 +6735,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5912,12 +6749,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the customer was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateCusto" +
             "merResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateCusto" +
@@ -5930,12 +6767,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the customer was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateCusto" +
             "merResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateCustomerResponse> UpdateCustomerAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateCustomerRequest request);
@@ -5944,7 +6781,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Signs up a customer with Bing Ads.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5962,7 +6799,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Signs up a customer with Bing Ads.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5976,7 +6813,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -5994,7 +6831,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6008,7 +6845,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6026,7 +6863,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6040,7 +6877,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6058,7 +6895,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6072,7 +6909,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6090,7 +6927,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6104,12 +6941,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the user was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUser", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateUserR" +
             "esponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateUserA" +
@@ -6122,12 +6959,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the user was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUser", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateUserR" +
             "esponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateUserResponse> UpdateUserAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateUserRequest request);
@@ -6136,12 +6973,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the roles of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRoles Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the user roles were last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUserRoles", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateUserR" +
             "olesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateUserR" +
@@ -6154,12 +6991,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the roles of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRoles Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the user roles were last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUserRoles", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/UpdateUserR" +
             "olesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateUserRolesResponse> UpdateUserRolesAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateUserRolesRequest request);
@@ -6168,7 +7005,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6186,7 +7023,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6212,7 +7049,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6230,7 +7067,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6244,7 +7081,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6262,7 +7099,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6276,7 +7113,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of the pilot programs in which the specified customer participates.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeatures Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6294,7 +7131,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of the pilot programs in which the specified customer participates.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeatures Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6332,7 +7169,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of the accounts and customers that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6350,7 +7187,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of the accounts and customers that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6424,12 +7261,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for customers that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomers Service Operation</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of customers that meet the specified criteria.</returns>
+        /// <returns>A  list of customers that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchCustomers", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchCusto" +
             "mersResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchCusto" +
@@ -6442,21 +7279,21 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for customers that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomers Service Operation</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of customers that meet the specified criteria.</returns>
+        /// <returns>A  list of customers that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchCustomers", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchCusto" +
             "mersResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.SearchCustomersResponse> SearchCustomersAsync(Microsoft.BingAds.V11.CustomerManagement.SearchCustomersRequest request);
         
         /// <summary>
-        /// Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// Initiates the client link process to manage the account of another customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6471,10 +7308,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         Microsoft.BingAds.V11.CustomerManagement.AddClientLinksResponse AddClientLinks(Microsoft.BingAds.V11.CustomerManagement.AddClientLinksRequest request);
         
         /// <summary>
-        /// Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// Initiates the client link process to manage the account of another customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6485,10 +7322,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.AddClientLinksResponse> AddClientLinksAsync(Microsoft.BingAds.V11.CustomerManagement.AddClientLinksRequest request);
         
         /// <summary>
-        /// Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// Updates the status of the specified client links.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6503,10 +7340,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         Microsoft.BingAds.V11.CustomerManagement.UpdateClientLinksResponse UpdateClientLinks(Microsoft.BingAds.V11.CustomerManagement.UpdateClientLinksRequest request);
         
         /// <summary>
-        /// Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// Updates the status of the specified client links.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6517,10 +7354,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateClientLinksResponse> UpdateClientLinksAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateClientLinksRequest request);
         
         /// <summary>
-        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria. The operation returns the most recent link for each unique combination of agency customer and client account. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6535,10 +7372,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         Microsoft.BingAds.V11.CustomerManagement.SearchClientLinksResponse SearchClientLinks(Microsoft.BingAds.V11.CustomerManagement.SearchClientLinksRequest request);
         
         /// <summary>
-        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria. The operation returns the most recent link for each unique combination of agency customer and client account. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6552,12 +7389,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for accounts that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccounts Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the specified criteria.</returns>
+        /// <returns>A  list of accounts that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchAccou" +
             "ntsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchAccou" +
@@ -6570,21 +7407,21 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for accounts that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccounts Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the specified criteria.</returns>
+        /// <returns>A  list of accounts that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchAccou" +
             "ntsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V11.CustomerManagement.SearchAccountsRequest request);
         
         /// <summary>
-        /// Sends an invitation for a Microsoft account user to manage one or more Bing Ads customer accounts. When the invitation is accepted, the user's Microsoft account is linked to the specified Bing Ads customer accounts.
+        /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitation Service Operation</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6599,10 +7436,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         Microsoft.BingAds.V11.CustomerManagement.SendUserInvitationResponse SendUserInvitation(Microsoft.BingAds.V11.CustomerManagement.SendUserInvitationRequest request);
         
         /// <summary>
-        /// Sends an invitation for a Microsoft account user to manage one or more Bing Ads customer accounts. When the invitation is accepted, the user's Microsoft account is linked to the specified Bing Ads customer accounts.
+        /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitation Service Operation</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6616,12 +7453,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for user invitations that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitations Service Operation</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of user invitations that meet the specified criteria.</returns>
+        /// <returns>A  list of user invitations that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchUserInvitations", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchUserI" +
             "nvitationsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchUserI" +
@@ -6634,12 +7471,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for user invitations that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitations Service Operation</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of user invitations that meet the specified criteria.</returns>
+        /// <returns>A  list of user invitations that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchUserInvitations", ReplyAction="https://bingads.microsoft.com/Customer/v11/ICustomerManagementService/SearchUserI" +
             "nvitationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.SearchUserInvitationsResponse> SearchUserInvitationsAsync(Microsoft.BingAds.V11.CustomerManagement.SearchUserInvitationsRequest request);
@@ -6649,7 +7486,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfo Request Object</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6674,13 +7511,13 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// The identifier of the customer who owns the accounts to get. If not set, the user's credentials are used to determine the customer.
+        /// The identifier of the customer who owns the accounts to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.Nullable<long> CustomerId;
         
         /// <summary>
-        /// Determines whether to return only the accounts that belong to the customer or to also return the accounts that the customer manages for other customers. To return all accounts (those that belong to the customer and those that the customer manages), set this element to false; otherwise, set to true to return account information for only the specified customer. The default is false.
+        /// Determines whether to return only the accounts that belong to the customer or to also return the accounts that the customer manages for other customers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public bool OnlyParentAccounts;
@@ -6689,7 +7526,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetAccountsInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
         /// </remarks>
         public GetAccountsInfoRequest()
         {
@@ -6699,10 +7536,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetAccountsInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
         /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer who owns the accounts to get. If not set, the user's credentials are used to determine the customer.</param>
-        /// <param name="OnlyParentAccounts">Determines whether to return only the accounts that belong to the customer or to also return the accounts that the customer manages for other customers. To return all accounts (those that belong to the customer and those that the customer manages), set this element to false; otherwise, set to true to return account information for only the specified customer. The default is false.</param>
+        /// <param name="CustomerId">The identifier of the customer who owns the accounts to get.</param>
+        /// <param name="OnlyParentAccounts">Determines whether to return only the accounts that belong to the customer or to also return the accounts that the customer manages for other customers.</param>
         public GetAccountsInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> CustomerId, bool OnlyParentAccounts)
         {
             this.ApplicationToken = ApplicationToken;
@@ -6719,7 +7556,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfo Response Object</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6741,7 +7578,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetAccountsInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
         /// </remarks>
         public GetAccountsInfoResponse()
         {
@@ -6751,7 +7588,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetAccountsInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
         /// </remarks>
         /// <param name="AccountsInfo">An array of AccountInfo objects that identifies the list of accounts that the customer owns.</param>
         public GetAccountsInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.AccountInfo> AccountsInfo)
@@ -6765,7 +7602,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccounts Request Object</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccounts Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6796,19 +7633,19 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public System.Nullable<long> CustomerId;
         
         /// <summary>
-        /// The criteria to use to filter the list of accounts. You can specify either an account name or an account number. If your filter value is of the form, X nnnnn, where nnnnn is a series of digits, the operation filters by account number.
+        /// The criteria to use to filter the list of accounts.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public string AccountFilter;
         
         /// <summary>
-        /// A nonzero positive integer that specifies the number of accounts to return in the result. You must specify a value from 1 through 5,000.
+        /// A nonzero positive integer that specifies the number of accounts to return in the result.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=2)]
         public int TopN;
         
         /// <summary>
-        /// A value that determines whether to return advertiser accounts or publisher accounts. If you do not specify the scope, the list may include both types of accounts.
+        /// A value that determines whether to return advertiser accounts or publisher accounts.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=3)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.ApplicationType> ApplicationScope;
@@ -6817,7 +7654,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the FindAccountsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccountsRequest</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
         /// </remarks>
         public FindAccountsRequest()
         {
@@ -6827,12 +7664,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the FindAccountsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccountsRequest</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer whose accounts you want to get.</param>
-        /// <param name="AccountFilter">The criteria to use to filter the list of accounts. You can specify either an account name or an account number. If your filter value is of the form, X nnnnn, where nnnnn is a series of digits, the operation filters by account number.</param>
-        /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result. You must specify a value from 1 through 5,000.</param>
-        /// <param name="ApplicationScope">A value that determines whether to return advertiser accounts or publisher accounts. If you do not specify the scope, the list may include both types of accounts.</param>
+        /// <param name="AccountFilter">The criteria to use to filter the list of accounts.</param>
+        /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result.</param>
+        /// <param name="ApplicationScope">A value that determines whether to return advertiser accounts or publisher accounts.</param>
         public FindAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> CustomerId, string AccountFilter, int TopN, System.Nullable<Microsoft.BingAds.V11.CustomerManagement.ApplicationType> ApplicationScope)
         {
             this.ApplicationToken = ApplicationToken;
@@ -6851,7 +7688,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccounts Response Object</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccounts Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6873,7 +7710,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the FindAccountsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccountsResponse</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
         /// </remarks>
         public FindAccountsResponse()
         {
@@ -6883,7 +7720,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the FindAccountsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccountsResponse</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
         /// </remarks>
         /// <param name="AccountsInfo">A list of AccountInfo objects of the accounts that match the specified filter criteria.</param>
         public FindAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.AccountInfo> AccountsInfo)
@@ -6967,7 +7804,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Updates the details of the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccount Request Object</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccount Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7001,7 +7838,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccountRequest</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
         /// </remarks>
         public UpdateAccountRequest()
         {
@@ -7011,7 +7848,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccountRequest</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
         /// </remarks>
         /// <param name="Account">An AdvertiserAccount object that contains the updated account information.</param>
         public UpdateAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CustomerManagement.Account Account)
@@ -7029,7 +7866,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Updates the details of the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccount Response Object</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccount Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7041,6 +7878,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v11")]
         public string TrackingId;
         
+        /// <summary>
+        /// The date and time that the account was last updated.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.DateTime LastModifiedTime;
         
@@ -7048,7 +7888,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccountResponse</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
         /// </remarks>
         public UpdateAccountResponse()
         {
@@ -7058,9 +7898,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccountResponse</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
         /// </remarks>
-        /// <param name="LastModifiedTime"></param>
+        /// <param name="LastModifiedTime">The date and time that the account was last updated.</param>
         public UpdateAccountResponse(string TrackingId, System.DateTime LastModifiedTime)
         {
             this.TrackingId = TrackingId;
@@ -7072,7 +7912,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets the details of a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomer Request Object</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7106,7 +7946,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomerRequest</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
         /// </remarks>
         public GetCustomerRequest()
         {
@@ -7116,7 +7956,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomerRequest</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer whose information you want to get.</param>
         public GetCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
@@ -7134,7 +7974,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets the details of a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomer Response Object</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7156,7 +7996,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomerResponse</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
         /// </remarks>
         public GetCustomerResponse()
         {
@@ -7166,7 +8006,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomerResponse</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
         /// </remarks>
         /// <param name="Customer">A Customer object that contains information about the customer.</param>
         public GetCustomerResponse(string TrackingId, Microsoft.BingAds.V11.CustomerManagement.Customer Customer)
@@ -7180,7 +8020,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Updates the details of the specified customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomer Request Object</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7214,7 +8054,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomerRequest</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
         /// </remarks>
         public UpdateCustomerRequest()
         {
@@ -7224,7 +8064,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomerRequest</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
         /// </remarks>
         /// <param name="Customer">A customer object that contains the updated customer information.</param>
         public UpdateCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CustomerManagement.Customer Customer)
@@ -7242,7 +8082,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Updates the details of the specified customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomer Response Object</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7254,6 +8094,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v11")]
         public string TrackingId;
         
+        /// <summary>
+        /// The date and time that the customer was last updated.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.DateTime LastModifiedTime;
         
@@ -7261,7 +8104,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomerResponse</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
         /// </remarks>
         public UpdateCustomerResponse()
         {
@@ -7271,9 +8114,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomerResponse</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
         /// </remarks>
-        /// <param name="LastModifiedTime"></param>
+        /// <param name="LastModifiedTime">The date and time that the customer was last updated.</param>
         public UpdateCustomerResponse(string TrackingId, System.DateTime LastModifiedTime)
         {
             this.TrackingId = TrackingId;
@@ -7285,7 +8128,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Signs up a customer with Bing Ads.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomer Request Object</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7328,7 +8171,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public System.Nullable<long> ParentCustomerId;
         
         /// <summary>
-        /// Determines the type of customer application. The default is Advertiser.
+        /// Determines  the type of customer application.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=3)]
         public Microsoft.BingAds.V11.CustomerManagement.ApplicationType ApplicationScope;
@@ -7337,7 +8180,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SignupCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomerRequest</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
         /// </remarks>
         public SignupCustomerRequest()
         {
@@ -7347,12 +8190,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SignupCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomerRequest</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
         /// </remarks>
         /// <param name="Customer">A Customer that specifies the details of the customer that you are adding.</param>
         /// <param name="Account">An Account that specifies the details of the customer's primary account.</param>
         /// <param name="ParentCustomerId">The customer identifier of the reseller that will manage this customer.</param>
-        /// <param name="ApplicationScope">Determines the type of customer application. The default is Advertiser.</param>
+        /// <param name="ApplicationScope">Determines  the type of customer application.</param>
         public SignupCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CustomerManagement.Customer Customer, Microsoft.BingAds.V11.CustomerManagement.Account Account, System.Nullable<long> ParentCustomerId, Microsoft.BingAds.V11.CustomerManagement.ApplicationType ApplicationScope)
         {
             this.ApplicationToken = ApplicationToken;
@@ -7371,7 +8214,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Signs up a customer with Bing Ads.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomer Response Object</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7383,18 +8226,33 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v11")]
         public string TrackingId;
         
+        /// <summary>
+        /// A system-generated customer identifier corresponding to the new customer specified in the request.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public long CustomerId;
         
+        /// <summary>
+        /// A system-generated customer number that is used in the Bing Ads web application.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public string CustomerNumber;
         
+        /// <summary>
+        /// A system-generated account identifier corresponding to the new account specified in the request.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=2)]
         public System.Nullable<long> AccountId;
         
+        /// <summary>
+        /// A system-generated account number that is used to identify the account in the Bing Ads web application.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=3)]
         public string AccountNumber;
         
+        /// <summary>
+        /// The date and time that the account was added.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=4)]
         public System.DateTime CreateTime;
         
@@ -7402,7 +8260,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SignupCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomerResponse</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
         /// </remarks>
         public SignupCustomerResponse()
         {
@@ -7412,13 +8270,13 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SignupCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomerResponse</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
         /// </remarks>
-        /// <param name="CustomerId"></param>
-        /// <param name="CustomerNumber"></param>
-        /// <param name="AccountId"></param>
-        /// <param name="AccountNumber"></param>
-        /// <param name="CreateTime"></param>
+        /// <param name="CustomerId">A system-generated customer identifier corresponding to the new customer specified in the request.</param>
+        /// <param name="CustomerNumber">A system-generated customer number that is used in the Bing Ads web application.</param>
+        /// <param name="AccountId">A system-generated account identifier corresponding to the new account specified in the request.</param>
+        /// <param name="AccountNumber">A system-generated account number that is used to identify the account in the Bing Ads web application.</param>
+        /// <param name="CreateTime">The date and time that the account was added.</param>
         public SignupCustomerResponse(string TrackingId, long CustomerId, string CustomerNumber, System.Nullable<long> AccountId, string AccountNumber, System.DateTime CreateTime)
         {
             this.TrackingId = TrackingId;
@@ -7434,7 +8292,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets the details of an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccount Request Object</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccount Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7468,7 +8326,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccountRequest</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
         /// </remarks>
         public GetAccountRequest()
         {
@@ -7478,7 +8336,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccountRequest</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account to get.</param>
         public GetAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId)
@@ -7496,7 +8354,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets the details of an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccount Response Object</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccount Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7518,7 +8376,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccountResponse</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
         /// </remarks>
         public GetAccountResponse()
         {
@@ -7528,7 +8386,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccountResponse</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
         /// </remarks>
         /// <param name="Account">An account object that contains information about the account, such as payment method, account type, and parent customer.</param>
         public GetAccountResponse(string TrackingId, Microsoft.BingAds.V11.CustomerManagement.Account Account)
@@ -7542,7 +8400,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfo Request Object</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7567,7 +8425,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// A partial or full name of the customers that you want to get. The operation includes the customer in the result if the customer's name begins with the specified filter name. If you do not want to filter by customer name, set this element to an empty string.
+        /// A partial or full name of the customers that you want to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public string CustomerNameFilter;
@@ -7579,7 +8437,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public int TopN;
         
         /// <summary>
-        /// A value that determines whether to return results for advertising customers or publishing customers. If you do not specify the scope, the list may include both types of customers.
+        /// A value that determines whether to return results for advertising customers or publishing customers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=2)]
         public Microsoft.BingAds.V11.CustomerManagement.ApplicationType ApplicationScope;
@@ -7588,7 +8446,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
         /// </remarks>
         public GetCustomersInfoRequest()
         {
@@ -7598,11 +8456,11 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
         /// </remarks>
-        /// <param name="CustomerNameFilter">A partial or full name of the customers that you want to get. The operation includes the customer in the result if the customer's name begins with the specified filter name. If you do not want to filter by customer name, set this element to an empty string.</param>
+        /// <param name="CustomerNameFilter">A partial or full name of the customers that you want to get.</param>
         /// <param name="TopN">A nonzero positive integer that specifies the number of customers to return in the result.</param>
-        /// <param name="ApplicationScope">A value that determines whether to return results for advertising customers or publishing customers. If you do not specify the scope, the list may include both types of customers.</param>
+        /// <param name="ApplicationScope">A value that determines whether to return results for advertising customers or publishing customers.</param>
         public GetCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string CustomerNameFilter, int TopN, Microsoft.BingAds.V11.CustomerManagement.ApplicationType ApplicationScope)
         {
             this.ApplicationToken = ApplicationToken;
@@ -7620,7 +8478,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfo Response Object</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7642,7 +8500,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
         /// </remarks>
         public GetCustomersInfoResponse()
         {
@@ -7652,7 +8510,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
         /// </remarks>
         /// <param name="CustomersInfo">An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.</param>
         public GetCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.CustomerInfo> CustomersInfo)
@@ -7666,7 +8524,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Deletes an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccount Request Object</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccount Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteAccount">DeleteAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7697,7 +8555,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public long AccountId;
         
         /// <summary>
-        /// The time-stamp value that the operation uses to reconcile the update. You must call GetAccount to get the time-stamp value. The delete operation fails if the account object has a time-stamp value that differs from the one that you pass.
+        /// The time-stamp value that the operation uses to reconcile the update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public byte[] TimeStamp;
@@ -7706,7 +8564,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccountRequest</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
         /// </remarks>
         public DeleteAccountRequest()
         {
@@ -7716,10 +8574,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccountRequest</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account to delete.</param>
-        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update. You must call GetAccount to get the time-stamp value. The delete operation fails if the account object has a time-stamp value that differs from the one that you pass.</param>
+        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
         public DeleteAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, byte[] TimeStamp)
         {
             this.ApplicationToken = ApplicationToken;
@@ -7736,7 +8594,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Deletes an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccount Response Object</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccount Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteAccount">DeleteAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7752,7 +8610,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccountResponse</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
         /// </remarks>
         public DeleteAccountResponse()
         {
@@ -7762,7 +8620,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccountResponse</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
         /// </remarks>
         public DeleteAccountResponse(string TrackingId)
         {
@@ -7774,7 +8632,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Deletes a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomer Request Object</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteCustomer">DeleteCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7805,7 +8663,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public long CustomerId;
         
         /// <summary>
-        /// The time-stamp value that the operation uses to reconcile the update. You must call GetCustomer to get the time-stamp value. The delete operation fails if the customer object has a time-stamp value that differs from the one that you pass.
+        /// The time-stamp value that the operation uses to reconcile the update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public byte[] TimeStamp;
@@ -7814,7 +8672,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomerRequest</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
         /// </remarks>
         public DeleteCustomerRequest()
         {
@@ -7824,10 +8682,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomerRequest</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer to delete.</param>
-        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update. You must call GetCustomer to get the time-stamp value. The delete operation fails if the customer object has a time-stamp value that differs from the one that you pass.</param>
+        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
         public DeleteCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, byte[] TimeStamp)
         {
             this.ApplicationToken = ApplicationToken;
@@ -7844,7 +8702,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Deletes a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomer Response Object</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteCustomer">DeleteCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7860,7 +8718,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomerResponse</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
         /// </remarks>
         public DeleteCustomerResponse()
         {
@@ -7870,7 +8728,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomerResponse</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
         /// </remarks>
         public DeleteCustomerResponse(string TrackingId)
         {
@@ -7882,7 +8740,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Updates the details of the specified user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUser Request Object</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUser Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7916,7 +8774,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUserRequest</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
         /// </remarks>
         public UpdateUserRequest()
         {
@@ -7926,7 +8784,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUserRequest</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
         /// </remarks>
         /// <param name="User">The user object that contains the updated user information.</param>
         public UpdateUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CustomerManagement.User User)
@@ -7944,7 +8802,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Updates the details of the specified user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUser Response Object</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUser Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7956,6 +8814,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v11")]
         public string TrackingId;
         
+        /// <summary>
+        /// The date and time that the user was last updated.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.DateTime LastModifiedTime;
         
@@ -7963,7 +8824,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUserResponse</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
         /// </remarks>
         public UpdateUserResponse()
         {
@@ -7973,9 +8834,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUserResponse</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
         /// </remarks>
-        /// <param name="LastModifiedTime"></param>
+        /// <param name="LastModifiedTime">The date and time that the user was last updated.</param>
         public UpdateUserResponse(string TrackingId, System.DateTime LastModifiedTime)
         {
             this.TrackingId = TrackingId;
@@ -7987,7 +8848,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Updates the roles of the specified user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRoles Request Object</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRoles Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUserRoles">UpdateUserRoles</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8024,26 +8885,38 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public long UserId;
         
         /// <summary>
-        /// The identifier of the role to which the values specified in the NewAccounts or NewCustomers element applies to, if set.
+        /// The identifier of the role to which the values specified in the NewAccountIds or NewCustomerIds element applies to, if set.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=2)]
         public System.Nullable<int> NewRoleId;
         
+        /// <summary>
+        /// An array of identifiers of the accounts to restrict the user to.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=3)]
         public System.Collections.Generic.IList<long> NewAccountIds;
         
+        /// <summary>
+        /// An array of identifiers of the customers to restrict the user to.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=4)]
         public System.Collections.Generic.IList<long> NewCustomerIds;
         
         /// <summary>
-        /// The identifier of the role to which the values specified in the DeleteAccounts or DeleteCustomers element applies, if set.
+        /// The identifier of the role to which the values specified in the DeleteAccountIds or DeleteCustomerIds element applies, if set.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=5)]
         public System.Nullable<int> DeleteRoleId;
         
+        /// <summary>
+        /// An array of identifiers of the accounts to remove from the list of accounts that the user can manage.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=6)]
         public System.Collections.Generic.IList<long> DeleteAccountIds;
         
+        /// <summary>
+        /// An array of identifiers of the customers to remove from the list of customers that the user can manage.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=7)]
         public System.Collections.Generic.IList<long> DeleteCustomerIds;
         
@@ -8051,7 +8924,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateUserRolesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRolesRequest</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRolesRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
         /// </remarks>
         public UpdateUserRolesRequest()
         {
@@ -8061,16 +8934,16 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateUserRolesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRolesRequest</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRolesRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer to which the user belongs.</param>
         /// <param name="UserId">The identifier of the user whose role you want to update.</param>
-        /// <param name="NewRoleId">The identifier of the role to which the values specified in the NewAccounts or NewCustomers element applies to, if set.</param>
-        /// <param name="NewAccountIds"></param>
-        /// <param name="NewCustomerIds"></param>
-        /// <param name="DeleteRoleId">The identifier of the role to which the values specified in the DeleteAccounts or DeleteCustomers element applies, if set.</param>
-        /// <param name="DeleteAccountIds"></param>
-        /// <param name="DeleteCustomerIds"></param>
+        /// <param name="NewRoleId">The identifier of the role to which the values specified in the NewAccountIds or NewCustomerIds element applies to, if set.</param>
+        /// <param name="NewAccountIds">An array of identifiers of the accounts to restrict the user to.</param>
+        /// <param name="NewCustomerIds">An array of identifiers of the customers to restrict the user to.</param>
+        /// <param name="DeleteRoleId">The identifier of the role to which the values specified in the DeleteAccountIds or DeleteCustomerIds element applies, if set.</param>
+        /// <param name="DeleteAccountIds">An array of identifiers of the accounts to remove from the list of accounts that the user can manage.</param>
+        /// <param name="DeleteCustomerIds">An array of identifiers of the customers to remove from the list of customers that the user can manage.</param>
         public UpdateUserRolesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, long UserId, System.Nullable<int> NewRoleId, System.Collections.Generic.IList<long> NewAccountIds, System.Collections.Generic.IList<long> NewCustomerIds, System.Nullable<int> DeleteRoleId, System.Collections.Generic.IList<long> DeleteAccountIds, System.Collections.Generic.IList<long> DeleteCustomerIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8093,7 +8966,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Updates the roles of the specified user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRoles Response Object</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRoles Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUserRoles">UpdateUserRoles</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8105,6 +8978,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v11")]
         public string TrackingId;
         
+        /// <summary>
+        /// The date and time that the user roles were last updated.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.DateTime LastModifiedTime;
         
@@ -8112,7 +8988,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateUserRolesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRolesResponse</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRolesResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
         /// </remarks>
         public UpdateUserRolesResponse()
         {
@@ -8122,9 +8998,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateUserRolesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRolesResponse</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRolesResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
         /// </remarks>
-        /// <param name="LastModifiedTime"></param>
+        /// <param name="LastModifiedTime">The date and time that the user roles were last updated.</param>
         public UpdateUserRolesResponse(string TrackingId, System.DateTime LastModifiedTime)
         {
             this.TrackingId = TrackingId;
@@ -8136,7 +9012,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets the details of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUser Request Object</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUser Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8170,7 +9046,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUserRequest</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
         /// </remarks>
         public GetUserRequest()
         {
@@ -8180,7 +9056,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUserRequest</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
         /// </remarks>
         /// <param name="UserId">The identifier of the user to get.</param>
         public GetUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> UserId)
@@ -8198,7 +9074,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets the details of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUser Response Object</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUser Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8223,13 +9099,13 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public System.Collections.Generic.IList<int> Roles;
         
         /// <summary>
-        /// An array of identifiers of the accounts to which the user has access permissions. If the Roles element contains an account role and the Accounts element contains a 0 (zero)-length array, it indicates that the user has access permissions to all of the customer's accounts.
+        /// An array of identifiers of the accounts to which the user has access permissions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=2)]
         public System.Collections.Generic.IList<long> Accounts;
         
         /// <summary>
-        /// An array of identifiers of the customers to which the user has access permissions. If the Roles element contains a customer role and the Customers element contains a 0 (zero)-length array, it indicates that the user has access permissions to all customers.
+        /// An array of identifiers of the customers to which the user has access permissions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=3)]
         public System.Collections.Generic.IList<long> Customers;
@@ -8238,7 +9114,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUserResponse</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
         /// </remarks>
         public GetUserResponse()
         {
@@ -8248,12 +9124,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUserResponse</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
         /// </remarks>
         /// <param name="User">A user object that contains information about the user.</param>
         /// <param name="Roles">An array of roles that determines the permissions that the user has to manage the customer or account data.</param>
-        /// <param name="Accounts">An array of identifiers of the accounts to which the user has access permissions. If the Roles element contains an account role and the Accounts element contains a 0 (zero)-length array, it indicates that the user has access permissions to all of the customer's accounts.</param>
-        /// <param name="Customers">An array of identifiers of the customers to which the user has access permissions. If the Roles element contains a customer role and the Customers element contains a 0 (zero)-length array, it indicates that the user has access permissions to all customers.</param>
+        /// <param name="Accounts">An array of identifiers of the accounts to which the user has access permissions.</param>
+        /// <param name="Customers">An array of identifiers of the customers to which the user has access permissions.</param>
         public GetUserResponse(string TrackingId, Microsoft.BingAds.V11.CustomerManagement.User User, System.Collections.Generic.IList<int> Roles, System.Collections.Generic.IList<long> Accounts, System.Collections.Generic.IList<long> Customers)
         {
             this.TrackingId = TrackingId;
@@ -8326,7 +9202,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Deletes a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUser Request Object</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUser Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteUser">DeleteUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8357,7 +9233,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public long UserId;
         
         /// <summary>
-        /// The time-stamp value that the operation uses to reconcile the update. You must call GetUser to get the time-stamp value. The delete operation fails if the user object has a time-stamp value that differs from the one that you pass.
+        /// The time-stamp value that the operation uses to reconcile the update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public byte[] TimeStamp;
@@ -8366,7 +9242,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUserRequest</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
         /// </remarks>
         public DeleteUserRequest()
         {
@@ -8376,10 +9252,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUserRequest</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
         /// </remarks>
         /// <param name="UserId">The identifier of the user to delete.</param>
-        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update. You must call GetUser to get the time-stamp value. The delete operation fails if the user object has a time-stamp value that differs from the one that you pass.</param>
+        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
         public DeleteUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long UserId, byte[] TimeStamp)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8396,7 +9272,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Deletes a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUser Response Object</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUser Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteUser">DeleteUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8412,7 +9288,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUserResponse</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
         /// </remarks>
         public DeleteUserResponse()
         {
@@ -8422,7 +9298,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the DeleteUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUserResponse</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
         /// </remarks>
         public DeleteUserResponse(string TrackingId)
         {
@@ -8434,7 +9310,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfo Request Object</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8465,7 +9341,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public long CustomerId;
         
         /// <summary>
-        /// The status value that the operation uses to filter the list of users that it returns. The operation returns only those users with the specified status.
+        /// The status value that the operation uses to filter the list of users that it returns.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.UserLifeCycleStatus> StatusFilter;
@@ -8474,7 +9350,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetUsersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
         /// </remarks>
         public GetUsersInfoRequest()
         {
@@ -8484,10 +9360,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetUsersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer to which the users belong.</param>
-        /// <param name="StatusFilter">The status value that the operation uses to filter the list of users that it returns. The operation returns only those users with the specified status.</param>
+        /// <param name="StatusFilter">The status value that the operation uses to filter the list of users that it returns.</param>
         public GetUsersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, System.Nullable<Microsoft.BingAds.V11.CustomerManagement.UserLifeCycleStatus> StatusFilter)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8504,7 +9380,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfo Response Object</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8526,7 +9402,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetUsersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
         /// </remarks>
         public GetUsersInfoResponse()
         {
@@ -8536,7 +9412,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetUsersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
         /// </remarks>
         /// <param name="UsersInfo">A list of UserInfo objects that identifies the list of users who meet the filter criteria.</param>
         public GetUsersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.UserInfo> UsersInfo)
@@ -8550,7 +9426,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of the pilot programs in which the specified customer participates.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeatures Request Object</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeatures Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomerPilotFeatures">GetCustomerPilotFeatures</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8584,7 +9460,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomerPilotFeaturesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeaturesRequest</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
         /// </remarks>
         public GetCustomerPilotFeaturesRequest()
         {
@@ -8594,7 +9470,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomerPilotFeaturesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeaturesRequest</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer whose list of pilot programs you want to get.</param>
         public GetCustomerPilotFeaturesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
@@ -8612,7 +9488,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of the pilot programs in which the specified customer participates.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeatures Response Object</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeatures Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomerPilotFeatures">GetCustomerPilotFeatures</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8634,7 +9510,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomerPilotFeaturesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeaturesResponse</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
         /// </remarks>
         public GetCustomerPilotFeaturesResponse()
         {
@@ -8644,7 +9520,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the GetCustomerPilotFeaturesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeaturesResponse</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
         /// </remarks>
         /// <param name="FeaturePilotFlags">A list of integers that identifies the pilot programs in which the customer participates.</param>
         public GetCustomerPilotFeaturesResponse(string TrackingId, System.Collections.Generic.IList<int> FeaturePilotFlags)
@@ -8782,7 +9658,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of the accounts and customers that match the specified filter criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfo Request Object</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8807,19 +9683,19 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// The criteria to use to filter the list of accounts and customers. You can specify either an account name, account number, or customer name.
+        /// The criteria to use to filter the list of accounts and customers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public string Filter;
         
         /// <summary>
-        /// A nonzero positive integer that specifies the number of accounts to return in the result. You must specify a value from 1 through 5,000.
+        /// A nonzero positive integer that specifies the number of accounts to return in the result.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public int TopN;
         
         /// <summary>
-        /// A value that determines whether to return advertiser accounts or publisher accounts. If you do not specify the scope, the list may include both types of accounts.
+        /// A value that determines whether to return advertiser accounts or publisher accounts.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=2)]
         public System.Nullable<Microsoft.BingAds.V11.CustomerManagement.ApplicationType> ApplicationScope;
@@ -8828,7 +9704,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the FindAccountsOrCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
         /// </remarks>
         public FindAccountsOrCustomersInfoRequest()
         {
@@ -8838,11 +9714,11 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the FindAccountsOrCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfoRequest</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
         /// </remarks>
-        /// <param name="Filter">The criteria to use to filter the list of accounts and customers. You can specify either an account name, account number, or customer name.</param>
-        /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result. You must specify a value from 1 through 5,000.</param>
-        /// <param name="ApplicationScope">A value that determines whether to return advertiser accounts or publisher accounts. If you do not specify the scope, the list may include both types of accounts.</param>
+        /// <param name="Filter">The criteria to use to filter the list of accounts and customers.</param>
+        /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result.</param>
+        /// <param name="ApplicationScope">A value that determines whether to return advertiser accounts or publisher accounts.</param>
         public FindAccountsOrCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string Filter, int TopN, System.Nullable<Microsoft.BingAds.V11.CustomerManagement.ApplicationType> ApplicationScope)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8860,7 +9736,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Gets a list of the accounts and customers that match the specified filter criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfo Response Object</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8882,7 +9758,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the FindAccountsOrCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
         /// </remarks>
         public FindAccountsOrCustomersInfoResponse()
         {
@@ -8892,7 +9768,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the FindAccountsOrCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfoResponse</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
         /// </remarks>
         /// <param name="AccountInfoWithCustomerData">A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.</param>
         public FindAccountsOrCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.AccountInfoWithCustomerData> AccountInfoWithCustomerData)
@@ -9220,7 +10096,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Searches for customers that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomers Request Object</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomers Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9245,13 +10121,13 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// A value that determines whether to return results for advertising customers or publishing customers. If you do not specify the scope, the list may include both types of customers.
+        /// A value that determines whether to return results for advertising customers or publishing customers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public Microsoft.BingAds.V11.CustomerManagement.ApplicationType ApplicationScope;
         
         /// <summary>
-        /// Determines the request conditions. This operation's response will include customers that match all of the specified predicates.
+        /// Determines the request conditions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates;
@@ -9269,7 +10145,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OrderBy> Ordering;
         
         /// <summary>
-        /// Determines the index and size of results per page.
+        /// Determines the index and size of  results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=4)]
         public Microsoft.BingAds.V11.CustomerManagement.Paging PageInfo;
@@ -9278,7 +10154,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchCustomersRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomersRequest</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomersRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
         /// </remarks>
         public SearchCustomersRequest()
         {
@@ -9288,13 +10164,13 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchCustomersRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomersRequest</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomersRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
         /// </remarks>
-        /// <param name="ApplicationScope">A value that determines whether to return results for advertising customers or publishing customers. If you do not specify the scope, the list may include both types of customers.</param>
-        /// <param name="Predicates">Determines the request conditions. This operation's response will include customers that match all of the specified predicates.</param>
+        /// <param name="ApplicationScope">A value that determines whether to return results for advertising customers or publishing customers.</param>
+        /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="DateRange">Determines the minimum and maximum customer creation date range.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of a customer.</param>
-        /// <param name="PageInfo">Determines the index and size of results per page.</param>
+        /// <param name="PageInfo">Determines the index and size of  results per page.</param>
         public SearchCustomersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CustomerManagement.ApplicationType ApplicationScope, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates, Microsoft.BingAds.V11.CustomerManagement.DateRange DateRange, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V11.CustomerManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9314,7 +10190,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Searches for customers that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomers Response Object</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomers Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9327,7 +10203,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A list of customers that meet the specified criteria.
+        /// A  list of customers that meet the specified criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Customer> Customers;
@@ -9336,7 +10212,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchCustomersResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomersResponse</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomersResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
         /// </remarks>
         public SearchCustomersResponse()
         {
@@ -9346,9 +10222,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchCustomersResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomersResponse</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomersResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
         /// </remarks>
-        /// <param name="Customers">A list of customers that meet the specified criteria.</param>
+        /// <param name="Customers">A  list of customers that meet the specified criteria.</param>
         public SearchCustomersResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Customer> Customers)
         {
             this.TrackingId = TrackingId;
@@ -9357,10 +10233,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.
+    /// Initiates the client link process to manage the account of another customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinks Request Object</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinks Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9394,7 +10270,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the AddClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinksRequest</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
         /// </remarks>
         public AddClientLinksRequest()
         {
@@ -9404,7 +10280,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the AddClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinksRequest</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
         /// </remarks>
         /// <param name="ClientLinks">The list of client links to add.</param>
         public AddClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.ClientLink> ClientLinks)
@@ -9419,10 +10295,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.
+    /// Initiates the client link process to manage the account of another customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinks Response Object</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinks Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9450,7 +10326,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the AddClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinksResponse</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
         /// </remarks>
         public AddClientLinksResponse()
         {
@@ -9460,7 +10336,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the AddClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinksResponse</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
         /// </remarks>
         /// <param name="OperationErrors">A list of one or more reasons why the service operation failed, and no client links were added.</param>
         /// <param name="PartialErrors">An array of OperationError lists that contain details for any client links that were not successfully added.</param>
@@ -9473,10 +10349,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.
+    /// Updates the status of the specified client links.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinks Request Object</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinks Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9510,7 +10386,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinksRequest</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
         /// </remarks>
         public UpdateClientLinksRequest()
         {
@@ -9520,7 +10396,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinksRequest</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
         /// </remarks>
         /// <param name="ClientLinks">The list of client links to update.</param>
         public UpdateClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.ClientLink> ClientLinks)
@@ -9535,10 +10411,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.
+    /// Updates the status of the specified client links.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinks Response Object</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinks Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9566,7 +10442,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinksResponse</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
         /// </remarks>
         public UpdateClientLinksResponse()
         {
@@ -9576,7 +10452,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the UpdateClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinksResponse</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
         /// </remarks>
         /// <param name="OperationErrors">A list of one or more reasons why the service operation failed, and no client links were added.</param>
         /// <param name="PartialErrors">An array of OperationError lists that contain details for any client links that were not successfully added.</param>
@@ -9589,10 +10465,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria. The operation returns the most recent link for each unique combination of agency customer and client account. For more information about the client link lifecycle, see Link to Client Accounts.
+    /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinks Request Object</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinks Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9617,7 +10493,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// Determines the request conditions. This operation's response will include client links that match all of the specified predicates.
+        /// Determines the request conditions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates;
@@ -9629,7 +10505,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OrderBy> Ordering;
         
         /// <summary>
-        /// Determines the index and size of results per page.
+        /// Determines the index and size of  results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=2)]
         public Microsoft.BingAds.V11.CustomerManagement.Paging PageInfo;
@@ -9638,7 +10514,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinksRequest</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
         /// </remarks>
         public SearchClientLinksRequest()
         {
@@ -9648,11 +10524,11 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinksRequest</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
         /// </remarks>
-        /// <param name="Predicates">Determines the request conditions. This operation's response will include client links that match all of the specified predicates.</param>
+        /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results.</param>
-        /// <param name="PageInfo">Determines the index and size of results per page.</param>
+        /// <param name="PageInfo">Determines the index and size of  results per page.</param>
         public SearchClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V11.CustomerManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9667,10 +10543,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria. The operation returns the most recent link for each unique combination of agency customer and client account. For more information about the client link lifecycle, see Link to Client Accounts.
+    /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinks Response Object</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinks Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9692,7 +10568,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinksResponse</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
         /// </remarks>
         public SearchClientLinksResponse()
         {
@@ -9702,7 +10578,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinksResponse</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
         /// </remarks>
         /// <param name="ClientLinks">The list of client link invitations.</param>
         public SearchClientLinksResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.ClientLink> ClientLinks)
@@ -9716,7 +10592,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Searches for accounts that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccounts Request Object</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccounts Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9741,19 +10617,19 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// Determines the request conditions. This operation's response will include accounts that match all of the specified predicates.
+        /// Determines the request conditions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates;
         
         /// <summary>
-        /// Determines the order of results by the specified property of an account Note: You should only specify one OrderBy element in the array. Additional elements are not supported and will be ignored by the service.
+        /// Determines the order of results by the specified property of an account<br/><br/> You should only specify one OrderBy element in the array.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OrderBy> Ordering;
         
         /// <summary>
-        /// Determines the index and size of results per page.
+        /// Determines the index and size of  results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=2)]
         public Microsoft.BingAds.V11.CustomerManagement.Paging PageInfo;
@@ -9762,7 +10638,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchAccountsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccountsRequest</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
         /// </remarks>
         public SearchAccountsRequest()
         {
@@ -9772,11 +10648,11 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchAccountsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccountsRequest</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
         /// </remarks>
-        /// <param name="Predicates">Determines the request conditions. This operation's response will include accounts that match all of the specified predicates.</param>
-        /// <param name="Ordering">Determines the order of results by the specified property of an account Note: You should only specify one OrderBy element in the array. Additional elements are not supported and will be ignored by the service.</param>
-        /// <param name="PageInfo">Determines the index and size of results per page.</param>
+        /// <param name="Predicates">Determines the request conditions.</param>
+        /// <param name="Ordering">Determines the order of results by the specified property of an account<br/><br/> You should only specify one OrderBy element in the array.</param>
+        /// <param name="PageInfo">Determines the index and size of  results per page.</param>
         public SearchAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V11.CustomerManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9794,7 +10670,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Searches for accounts that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccounts Response Object</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccounts Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9807,7 +10683,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A list of accounts that meet the specified criteria.
+        /// A  list of accounts that meet the specified criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Account> Accounts;
@@ -9816,7 +10692,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchAccountsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccountsResponse</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
         /// </remarks>
         public SearchAccountsResponse()
         {
@@ -9826,9 +10702,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchAccountsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccountsResponse</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
         /// </remarks>
-        /// <param name="Accounts">A list of accounts that meet the specified criteria.</param>
+        /// <param name="Accounts">A  list of accounts that meet the specified criteria.</param>
         public SearchAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Account> Accounts)
         {
             this.TrackingId = TrackingId;
@@ -9837,10 +10713,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Sends an invitation for a Microsoft account user to manage one or more Bing Ads customer accounts. When the invitation is accepted, the user's Microsoft account is linked to the specified Bing Ads customer accounts.
+    /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitation Request Object</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitation Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9874,7 +10750,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SendUserInvitationRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitationRequest</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitationRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
         /// </remarks>
         public SendUserInvitationRequest()
         {
@@ -9884,7 +10760,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SendUserInvitationRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitationRequest</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitationRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
         /// </remarks>
         /// <param name="UserInvitation">The user invitation to send.</param>
         public SendUserInvitationRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V11.CustomerManagement.UserInvitation UserInvitation)
@@ -9899,10 +10775,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Sends an invitation for a Microsoft account user to manage one or more Bing Ads customer accounts. When the invitation is accepted, the user's Microsoft account is linked to the specified Bing Ads customer accounts.
+    /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitation Response Object</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitation Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9924,7 +10800,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SendUserInvitationResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitationResponse</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitationResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
         /// </remarks>
         public SendUserInvitationResponse()
         {
@@ -9934,7 +10810,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SendUserInvitationResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitationResponse</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitationResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
         /// </remarks>
         /// <param name="UserInvitationId">A system-generated identifier for the user invitation that was sent.</param>
         public SendUserInvitationResponse(string TrackingId, long UserInvitationId)
@@ -9948,7 +10824,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Searches for user invitations that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitations Request Object</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitations Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9973,7 +10849,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// Determines the request conditions. This operation's response will include user invitations that match all of the specified predicates.
+        /// Determines the request conditions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates;
@@ -9982,7 +10858,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchUserInvitationsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitationsRequest</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitationsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
         /// </remarks>
         public SearchUserInvitationsRequest()
         {
@@ -9992,9 +10868,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchUserInvitationsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitationsRequest</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitationsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
         /// </remarks>
-        /// <param name="Predicates">Determines the request conditions. This operation's response will include user invitations that match all of the specified predicates.</param>
+        /// <param name="Predicates">Determines the request conditions.</param>
         public SearchUserInvitationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10010,7 +10886,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     /// Searches for user invitations that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitations Response Object</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitations Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10023,7 +10899,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A list of user invitations that meet the specified criteria.
+        /// A  list of user invitations that meet the specified criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.UserInvitation> UserInvitations;
@@ -10032,7 +10908,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchUserInvitationsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitationsResponse</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitationsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
         /// </remarks>
         public SearchUserInvitationsResponse()
         {
@@ -10042,9 +10918,9 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Constructor for the SearchUserInvitationsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitationsResponse</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitationsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
         /// </remarks>
-        /// <param name="UserInvitations">A list of user invitations that meet the specified criteria.</param>
+        /// <param name="UserInvitations">A  list of user invitations that meet the specified criteria.</param>
         public SearchUserInvitationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.UserInvitation> UserInvitations)
         {
             this.TrackingId = TrackingId;
@@ -10090,7 +10966,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10105,7 +10981,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx">GetAccountsInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451289(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10120,7 +10996,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccounts Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10135,7 +11011,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx">FindAccounts Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451274(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10160,12 +11036,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the account was last updated.</returns>
         public Microsoft.BingAds.V11.CustomerManagement.UpdateAccountResponse UpdateAccount(Microsoft.BingAds.V11.CustomerManagement.UpdateAccountRequest request)
         {
             return base.Channel.UpdateAccount(request);
@@ -10175,12 +11051,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx">UpdateAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451286(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the account was last updated.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateAccountResponse> UpdateAccountAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateAccountRequest request)
         {
             return base.Channel.UpdateAccountAsync(request);
@@ -10190,7 +11066,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10205,7 +11081,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx">GetCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451279(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10220,12 +11096,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the customer was last updated.</returns>
         public Microsoft.BingAds.V11.CustomerManagement.UpdateCustomerResponse UpdateCustomer(Microsoft.BingAds.V11.CustomerManagement.UpdateCustomerRequest request)
         {
             return base.Channel.UpdateCustomer(request);
@@ -10235,12 +11111,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx">UpdateCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451294(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the customer was last updated.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateCustomerResponse> UpdateCustomerAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateCustomerRequest request)
         {
             return base.Channel.UpdateCustomerAsync(request);
@@ -10250,7 +11126,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Signs up a customer with Bing Ads.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10265,7 +11141,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Signs up a customer with Bing Ads.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx">SignupCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451287(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10280,7 +11156,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10295,7 +11171,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx">GetAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451273(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10310,7 +11186,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10325,7 +11201,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx">GetCustomersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451282(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10340,7 +11216,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10355,7 +11231,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx">DeleteAccount Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451272(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10370,7 +11246,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10385,7 +11261,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx">DeleteCustomer Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451278(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10400,12 +11276,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the user was last updated.</returns>
         public Microsoft.BingAds.V11.CustomerManagement.UpdateUserResponse UpdateUser(Microsoft.BingAds.V11.CustomerManagement.UpdateUserRequest request)
         {
             return base.Channel.UpdateUser(request);
@@ -10415,12 +11291,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the details of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx">UpdateUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451277(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the user was last updated.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateUserResponse> UpdateUserAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateUserRequest request)
         {
             return base.Channel.UpdateUserAsync(request);
@@ -10430,12 +11306,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the roles of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRoles Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the user roles were last updated.</returns>
         public Microsoft.BingAds.V11.CustomerManagement.UpdateUserRolesResponse UpdateUserRoles(Microsoft.BingAds.V11.CustomerManagement.UpdateUserRolesRequest request)
         {
             return base.Channel.UpdateUserRoles(request);
@@ -10445,12 +11321,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Updates the roles of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx">UpdateUserRoles Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451284(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
+        /// <returns>The date and time that the user roles were last updated.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateUserRolesResponse> UpdateUserRolesAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateUserRolesRequest request)
         {
             return base.Channel.UpdateUserRolesAsync(request);
@@ -10460,7 +11336,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10475,7 +11351,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets the details of a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx">GetUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451280(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11">GetUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10500,7 +11376,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10515,7 +11391,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Deletes a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx">DeleteUser Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451276(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10530,7 +11406,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10545,7 +11421,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx">GetUsersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451283(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10560,7 +11436,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of the pilot programs in which the specified customer participates.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeatures Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10575,7 +11451,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of the pilot programs in which the specified customer participates.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx">GetCustomerPilotFeatures Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451285(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10610,7 +11486,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of the accounts and customers that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10625,7 +11501,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Gets a list of the accounts and customers that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx">FindAccountsOrCustomersInfo Service Operation</see> http://msdn.microsoft.com/en-us/library/dn451281(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10690,12 +11566,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for customers that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomers Service Operation</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of customers that meet the specified criteria.</returns>
+        /// <returns>A  list of customers that meet the specified criteria.</returns>
         public Microsoft.BingAds.V11.CustomerManagement.SearchCustomersResponse SearchCustomers(Microsoft.BingAds.V11.CustomerManagement.SearchCustomersRequest request)
         {
             return base.Channel.SearchCustomers(request);
@@ -10705,22 +11581,22 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for customers that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx">SearchCustomers Service Operation</see> http://msdn.microsoft.com/en-us/library/dn452055(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of customers that meet the specified criteria.</returns>
+        /// <returns>A  list of customers that meet the specified criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.SearchCustomersResponse> SearchCustomersAsync(Microsoft.BingAds.V11.CustomerManagement.SearchCustomersRequest request)
         {
             return base.Channel.SearchCustomersAsync(request);
         }
         
         /// <summary>
-        /// Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// Initiates the client link process to manage the account of another customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10732,10 +11608,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// Initiates the client link process to manage the account of another customer. Sends an invitation from an agency to a potential client. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// Initiates the client link process to manage the account of another customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx">AddClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632187(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10747,10 +11623,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// Updates the status of the specified client links.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10762,10 +11638,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// Updates the status of the specified client links. To update a client link, the TimeStamp element is required for validation, so you must first call the SearchClientLinks to get the existing ClientLink object. Then modify the Status element of the returned ClientLink, and include the updated ClientLink object in a subsequent call to the UpdateClientLinks operation. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// Updates the status of the specified client links.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx">UpdateClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632185(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10777,10 +11653,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria. The operation returns the most recent link for each unique combination of agency customer and client account. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10792,10 +11668,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria. The operation returns the most recent link for each unique combination of agency customer and client account. For more information about the client link lifecycle, see Link to Client Accounts.
+        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx">SearchClientLinks Service Operation</see> http://msdn.microsoft.com/en-us/library/dn632186(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10810,12 +11686,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for accounts that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccounts Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the specified criteria.</returns>
+        /// <returns>A  list of accounts that meet the specified criteria.</returns>
         public Microsoft.BingAds.V11.CustomerManagement.SearchAccountsResponse SearchAccounts(Microsoft.BingAds.V11.CustomerManagement.SearchAccountsRequest request)
         {
             return base.Channel.SearchAccounts(request);
@@ -10825,22 +11701,22 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for accounts that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx">SearchAccounts Service Operation</see> http://msdn.microsoft.com/en-us/library/dn743757(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the specified criteria.</returns>
+        /// <returns>A  list of accounts that meet the specified criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V11.CustomerManagement.SearchAccountsRequest request)
         {
             return base.Channel.SearchAccountsAsync(request);
         }
         
         /// <summary>
-        /// Sends an invitation for a Microsoft account user to manage one or more Bing Ads customer accounts. When the invitation is accepted, the user's Microsoft account is linked to the specified Bing Ads customer accounts.
+        /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitation Service Operation</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10852,10 +11728,10 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// Sends an invitation for a Microsoft account user to manage one or more Bing Ads customer accounts. When the invitation is accepted, the user's Microsoft account is linked to the specified Bing Ads customer accounts.
+        /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx">SendUserInvitation Service Operation</see> http://msdn.microsoft.com/en-us/library/dn789440(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -10870,12 +11746,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for user invitations that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitations Service Operation</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of user invitations that meet the specified criteria.</returns>
+        /// <returns>A  list of user invitations that meet the specified criteria.</returns>
         public Microsoft.BingAds.V11.CustomerManagement.SearchUserInvitationsResponse SearchUserInvitations(Microsoft.BingAds.V11.CustomerManagement.SearchUserInvitationsRequest request)
         {
             return base.Channel.SearchUserInvitations(request);
@@ -10885,12 +11761,12 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// Searches for user invitations that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx">SearchUserInvitations Service Operation</see> http://msdn.microsoft.com/en-us/library/dn771300(v=msads.110).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?version=11 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of user invitations that meet the specified criteria.</returns>
+        /// <returns>A  list of user invitations that meet the specified criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.SearchUserInvitationsResponse> SearchUserInvitationsAsync(Microsoft.BingAds.V11.CustomerManagement.SearchUserInvitationsRequest request)
         {
             return base.Channel.SearchUserInvitationsAsync(request);
