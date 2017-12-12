@@ -313,7 +313,6 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
         public const string SiteLinksAdExtension = "Sitelink Ad Extension";
         public const string LocationAdExtension = "Location Ad Extension";
-        public const string ProductAdExtension = "Product Ad Extension";
         public const string CallAdExtension = "Call Ad Extension";
         public const string ImageAdExtension = "Image Ad Extension";
 
@@ -366,7 +365,6 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string KeywordBestPositionBidType = "Keyword Best Position Bid";
 
         // Product ad extension
-        public const string CampaignProductAdExtension = "Campaign Product Ad Extension";
         public const string ProductCondition1 = "Product Condition 1";
         public const string ProductCondition2 = "Product Condition 2";
         public const string ProductCondition3 = "Product Condition 3";

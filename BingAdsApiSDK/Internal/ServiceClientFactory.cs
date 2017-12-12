@@ -138,7 +138,7 @@ namespace Microsoft.BingAds.Internal
             }
         }
 
-        public IChannelFactory<TClient> CreateChannelFactory<TClient>(ApiEnvironment env)
+        public virtual IChannelFactory<TClient> CreateChannelFactory<TClient>(ApiEnvironment env)
             where TClient : class
         {
             var endpoint = GetEndpointFromConfiguration(typeof(TClient));
