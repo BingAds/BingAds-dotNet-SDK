@@ -47,6 +47,9 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
+using System.Reflection;
+using System.Runtime.Versioning;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
@@ -57,6 +60,19 @@ namespace Microsoft.BingAds.Internal
     {
         private static readonly string UserAgent = string.Format("BingAdsSDK.NET {0}", typeof(UserAgentBehavior).Assembly.GetName().Version);
 
+        static UserAgentBehavior()
+        {
+            try
+            {
+                // Try to send the current running .Net framework version with user agent.
+                UserAgent += " " + Assembly.GetEntryAssembly().GetCustomAttribute<TargetFrameworkAttribute>().FrameworkName;
+            }
+            catch (Exception)
+            {
+                // Ignore
+            }
+        }
+
         public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
         {
         }
@@ -64,7 +80,6 @@ namespace Microsoft.BingAds.Internal
         public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
         {
             var inspector = new HeaderInspector("User-Agent", UserAgent);
-
             clientRuntime.MessageInspectors.Add(inspector);
         }
 

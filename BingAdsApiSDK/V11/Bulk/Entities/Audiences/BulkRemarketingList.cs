@@ -126,7 +126,12 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkRemarketingList>(StringTable.RemarketingRule,
                 c => c.RemarketingList.Rule.ToRemarketingRuleBulkString(),
                 (v, c) => c.RemarketingList.Rule = v.ParseRemarketingRule()
-            ), 
+            ),
+
+            new SimpleBulkMapping<BulkRemarketingList>(StringTable.AudienceSearchSize,
+                c => c.RemarketingList.SearchSize.ToBulkString(),
+                (v, c) => c.RemarketingList.SearchSize = v.ParseOptional<long>()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

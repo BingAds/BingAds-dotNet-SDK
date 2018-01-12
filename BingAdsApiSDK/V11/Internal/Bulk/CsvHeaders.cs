@@ -342,6 +342,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             StringTable.Audience,
             StringTable.RemarketingTargetingSetting,
             StringTable.RemarketingRule,
+            StringTable.AudienceSearchSize,
 
             // Expanded Text Ad
             StringTable.TitlePart1,

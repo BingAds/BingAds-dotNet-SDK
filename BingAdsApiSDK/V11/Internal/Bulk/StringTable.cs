@@ -573,6 +573,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string AudienceId = "Audience Id";
         public const string RemarketingTargetingSetting = "Remarketing Targeting Setting";
         public const string RemarketingRule = "Remarketing Rule";
+        public const string AudienceSearchSize = "Audience Search Size";
 
         // Expanded Text Ad
         public const string ExpandedTextAd = "Expanded Text Ad";

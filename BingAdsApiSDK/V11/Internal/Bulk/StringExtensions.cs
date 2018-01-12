@@ -166,12 +166,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public static string ToBulkString<T>(this T? value)
             where T : struct, IFormattable
         {
-            if (value == null)
-            {
-                return null;
-            }
-
-            return value.Value.ToBulkString();
+            return value?.ToBulkString();
         }
 
         public static string ToBulkString<T>(this T value, bool returnNullForDefaultValue = false)

@@ -3129,7 +3129,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Includes the InheritedBidStrategyType element that can be nested within the BiddingScheme element of an AdGroup object.
+        /// Request that the InheritedBidStrategyType element be included within each returned InheritFromParentBiddingScheme object (nested within the BiddingScheme element of an AdGroup).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InheritedBidStrategyType = 1,
@@ -4161,7 +4161,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// The ad is undergoing editorial review or has failed editorial review.
+        /// This status is read-only.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 0,
@@ -4793,7 +4793,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Includes the InheritedBidStrategyType element that can be nested within the BiddingScheme element of an Keyword object.
+        /// Request that the InheritedBidStrategyType element be included within each returned InheritFromParentBiddingScheme object (nested within the BiddingScheme element of a Keyword).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InheritedBidStrategyType = 1,
@@ -13698,6 +13698,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.EntityScope> ScopeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> SearchSizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V11.CampaignManagement.AudienceType TypeField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -13848,6 +13851,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
                 {
                     this.ScopeField = value;
                     this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The total number of people who belong to this audience.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<long> SearchSize
+        {
+            get
+            {
+                return this.SearchSizeField;
+            }
+            set
+            {
+                if ((this.SearchSizeField.Equals(value) != true))
+                {
+                    this.SearchSizeField = value;
+                    this.RaisePropertyChanged("SearchSize");
                 }
             }
         }
@@ -14754,6 +14777,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LessThanEqualTo = 5,
+    }
+    
+    /// <summary>
+    /// Defines a list of optional Audience properties that you can request when calling GetAudiencesByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/audienceadditionalfield?view=bingads-11">AudienceAdditionalField Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/audienceadditionalfield?view=bingads-11 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AudienceAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum AudienceAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the SearchSize element be included within each returned Audience object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SearchSize = 1,
     }
     
     /// <summary>
@@ -30031,6 +30074,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public Microsoft.BingAds.V11.CampaignManagement.AudienceType Type;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned Audience object.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAudiencesByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -30048,7 +30097,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </remarks>
         /// <param name="AudienceIds">A maximum of 100 identifiers of the requested audiences.</param>
         /// <param name="Type">One or more types of audiences to return.</param>
-        public GetAudiencesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceIds, Microsoft.BingAds.V11.CampaignManagement.AudienceType Type)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Audience object.</param>
+        public GetAudiencesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceIds, Microsoft.BingAds.V11.CampaignManagement.AudienceType Type, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -30059,6 +30109,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.UserName = UserName;
             this.AudienceIds = AudienceIds;
             this.Type = Type;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

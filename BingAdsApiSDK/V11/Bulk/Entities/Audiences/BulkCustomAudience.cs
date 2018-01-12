@@ -117,6 +117,11 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 c => c.CustomAudience.Scope.ToBulkString(),
                 (v, c) => c.CustomAudience.Scope = v.ParseOptional<EntityScope>()
             ),
+
+            new SimpleBulkMapping<BulkCustomAudience>(StringTable.AudienceSearchSize,
+                c => c.CustomAudience.SearchSize.ToBulkString(),
+                (v, c) => c.CustomAudience.SearchSize = v.ParseOptional<long>()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
