@@ -62,25 +62,11 @@ namespace BingAdsExamplesLibrary.V11
                 {
                     CustomerManagementExampleHelper.OutputAccount(account);
 
-                    // Optionally you can find out which pilot features the customer is able to use. 
+                    // You can find out which pilot features the customer is able to use. 
                     // Each account could belong to a different customer, so use the customer ID in each account.
                     var featurePilotFlags = (await CustomerManagementExampleHelper.GetCustomerPilotFeaturesAsync(account.ParentCustomerId)).FeaturePilotFlags;
                     OutputStatusMessage("Customer Pilot flags:");
                     OutputStatusMessage(string.Join("; ", featurePilotFlags.Select(flag => string.Format("{0}", flag))));
-
-                    // Optionally you can update each account with a tracking template.
-
-                    var accountFCM = new List<KeyValuePair<string, string>>();
-                    accountFCM.Add(new KeyValuePair<string, string>(
-                        "TrackingUrlTemplate",
-                        "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
-
-                    // Edit the tracking template above, and uncomment the next line if you want to update the tracking template.
-                    //account.ForwardCompatibilityMap = accountFCM;
-                    await CustomerManagementExampleHelper.UpdateAccountAsync(account);
-                    OutputStatusMessage(string.Format("Updated the account with a TrackingUrlTemplate: {0}\n",
-                        accountFCM.ToArray().SingleOrDefault(keyValuePair => keyValuePair.Key == "TrackingUrlTemplate").Value));
-
                 }
             }
             // Catch authentication exceptions
