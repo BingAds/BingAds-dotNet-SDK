@@ -91,7 +91,8 @@ namespace BingAdsExamplesLibrary.V11
         protected long productAdIdKey = -11117;
         protected long textAdIdKey = -11118;
 
-
+        protected CampaignManagementExampleHelper CampaignManagementExampleHelper;
+        
         /// <summary>
         /// Writes the specified entities to a local file and uploads the file. We could have uploaded directly
         /// without writing to file. This example writes to file as an exercise so that you can view the structure 
@@ -159,7 +160,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkQualityScoreData(entity.QualityScoreData);
 
                 // Output the Campaign Management AdGroup Object
-                OutputAdGroup(entity.AdGroup);
+                CampaignManagementExampleHelper.OutputAdGroup(entity.AdGroup);
 
                 if (entity.HasErrors)
                 {
@@ -167,7 +168,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkAdGroupAgeCriterion.
         /// </summary>
@@ -183,7 +184,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
+                    CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -192,7 +193,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkAdGroupDayTimeCriterion.
         /// </summary>
@@ -208,7 +209,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
+                    CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -225,7 +226,7 @@ namespace BingAdsExamplesLibrary.V11
         {
             foreach (var entity in bulkEntities)
             {
-                if(entity != null)
+                if (entity != null)
                 {
                     OutputStatusMessage("\nBulkAdGroupDeviceCriterion: \n");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
@@ -233,13 +234,13 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
+                    CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
                         OutputBulkErrors(entity.Errors);
                     }
-                }                
+                }
             }
         }
 
@@ -258,7 +259,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
+                    CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -283,7 +284,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
+                    CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -308,7 +309,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
+                    CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -333,7 +334,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management NegativeAdGroupCriterion Object
-                    OutputNegativeAdGroupCriterion(entity.NegativeAdGroupCriterion);
+                    CampaignManagementExampleHelper.OutputNegativeAdGroupCriterion(entity.NegativeAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -358,7 +359,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                     // Output the Campaign Management BiddableAdGroupCriterion Object
-                    OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
+                    CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                     if (entity.HasErrors)
                     {
@@ -393,7 +394,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkAdGroupImageAdExtension.
         /// </summary>
@@ -419,7 +420,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkAdGroupNegativeKeyword.
         /// </summary>
@@ -437,7 +438,7 @@ namespace BingAdsExamplesLibrary.V11
                 if (entity.NegativeKeyword != null)
                 {
                     // Output the Campaign Management NegativeKeyword Object
-                    OutputNegativeKeyword(entity.NegativeKeyword);
+                    CampaignManagementExampleHelper.OutputNegativeKeyword(entity.NegativeKeyword);
                 }
                 if (entity.HasErrors)
                 {
@@ -445,7 +446,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkAdGroupNegativeSites.
         /// </summary>
@@ -463,7 +464,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
-                    OutputNegativeSites(entity.AdGroupNegativeSites.NegativeSites);
+                    CampaignManagementExampleHelper.OutputAdGroupNegativeSites(entity.AdGroupNegativeSites);
                 }
                 else
                 {
@@ -484,7 +485,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
-                OutputNegativeSites(new[] { entity.Website });
+                OutputStatusMessage(string.Format("Website: {0}", entity.Website));
 
                 if (entity.HasErrors)
                 {
@@ -492,7 +493,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-                
+
         /// <summary>
         /// Outputs the list of BulkAdGroupSiteLinkAdExtension.
         /// </summary>
@@ -532,7 +533,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management AppAdExtension Object
-                OutputAppAdExtension(entity.AppAdExtension);
+                CampaignManagementExampleHelper.OutputAppAdExtension(entity.AppAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -554,7 +555,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management CallAdExtension Object
-                OutputCallAdExtension(entity.CallAdExtension);
+                CampaignManagementExampleHelper.OutputCallAdExtension(entity.CallAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -576,8 +577,8 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management CalloutAdExtension Object
-                OutputCalloutAdExtension(entity.CalloutAdExtension);
-                
+                CampaignManagementExampleHelper.OutputCalloutAdExtension(entity.CalloutAdExtension);
+
                 if (entity.HasErrors)
                 {
                     OutputBulkErrors(entity.Errors);
@@ -598,7 +599,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management ReviewAdExtension Object
-                OutputReviewAdExtension(entity.ReviewAdExtension);
+                CampaignManagementExampleHelper.OutputReviewAdExtension(entity.ReviewAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -607,7 +608,7 @@ namespace BingAdsExamplesLibrary.V11
             }
         }
 
-        
+
 
         /// <summary>
         /// Outputs the list of BulkBudget.
@@ -622,7 +623,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management Budget Object
-                OutputBudget(entity.Budget);
+                CampaignManagementExampleHelper.OutputBudget(entity.Budget);
 
                 if (entity.HasErrors)
                 {
@@ -647,7 +648,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkQualityScoreData(entity.QualityScoreData);
 
                 // Output the Campaign Management Campaign Object
-                OutputCampaign(entity.Campaign);
+                CampaignManagementExampleHelper.OutputCampaign(entity.Campaign);
 
                 if (entity.HasErrors)
                 {
@@ -655,7 +656,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-               
+
         /// <summary>
         /// Outputs the list of BulkCampaignAppAdExtension.
         /// </summary>
@@ -755,7 +756,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-                
+
         /// <summary>
         /// Outputs the list of BulkCampaignImageAdExtension.
         /// </summary>
@@ -780,7 +781,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkCampaignLocationAdExtension.
         /// </summary>
@@ -805,7 +806,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkCampaignNegativeKeyword.
         /// </summary>
@@ -822,7 +823,7 @@ namespace BingAdsExamplesLibrary.V11
                 if (entity.NegativeKeyword != null)
                 {
                     // Output the Campaign Management NegativeKeyword Object
-                    OutputNegativeKeyword(entity.NegativeKeyword);
+                    CampaignManagementExampleHelper.OutputNegativeKeyword(entity.NegativeKeyword);
                 }
                 if (entity.HasErrors)
                 {
@@ -877,7 +878,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
-                    OutputNegativeSites(entity.CampaignNegativeSites.NegativeSites);
+                    CampaignManagementExampleHelper.OutputCampaignNegativeSites(entity.CampaignNegativeSites);
                 }
                 else
                 {
@@ -897,7 +898,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
-                OutputNegativeSites(new[] { entity.Website });
+                OutputStatusMessage(string.Format("Website: {0}", entity.Website));
 
                 if (entity.HasErrors)
                 {
@@ -905,7 +906,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkCampaignSiteLinkAdExtension.
         /// </summary>
@@ -1033,7 +1034,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkErrors(entity.Errors);
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkImageAdExtension.
         /// </summary>
@@ -1047,7 +1048,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management ImageAdExtension Object
-                OutputImageAdExtension(entity.ImageAdExtension);
+                CampaignManagementExampleHelper.OutputImageAdExtension(entity.ImageAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1075,7 +1076,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkBidSuggestions(entity.BidSuggestions);
 
                 // Output the Campaign Management Keyword Object
-                OutputKeyword(entity.Keyword);
+                CampaignManagementExampleHelper.OutputKeyword(entity.Keyword);
 
                 if (entity.HasErrors)
                 {
@@ -1096,7 +1097,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management LocationAdExtension Object
-                OutputLocationAdExtension(entity.LocationAdExtension);
+                CampaignManagementExampleHelper.OutputLocationAdExtension(entity.LocationAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1115,7 +1116,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage("\nBulkNegativeKeywordList: \n");
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-                OutputNegativeKeywordList(entity.NegativeKeywordList);
+                CampaignManagementExampleHelper.OutputNegativeKeywordList(entity.NegativeKeywordList);
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
                 if (entity.HasErrors)
@@ -1138,7 +1139,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management PriceAdExtension Object
-                OutputPriceAdExtension(entity.PriceAdExtension);
+                CampaignManagementExampleHelper.OutputPriceAdExtension(entity.PriceAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1164,7 +1165,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkPerformanceData(entity.PerformanceData);
 
                 // Output the Campaign Management ProductAd Object
-                OutputProductAd(entity.ProductAd);
+                CampaignManagementExampleHelper.OutputProductAd(entity.ProductAd);
 
                 if (entity.HasErrors)
                 {
@@ -1186,7 +1187,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management BiddableCampaignCriterion
-                OutputBiddableCampaignCriterion(entity.BiddableCampaignCriterion);
+                CampaignManagementExampleHelper.OutputBiddableCampaignCriterion(entity.BiddableCampaignCriterion);
 
                 if (entity.HasErrors)
                 {
@@ -1216,8 +1217,8 @@ namespace BingAdsExamplesLibrary.V11
                 if (biddableAdGroupCriterion != null)
                 {
                     // Output the Campaign Management BiddableAdGroupCriterion
-                    OutputBiddableAdGroupCriterion(biddableAdGroupCriterion);
-                    
+                    CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(biddableAdGroupCriterion);
+
                 }
                 else
                 {
@@ -1225,7 +1226,7 @@ namespace BingAdsExamplesLibrary.V11
                     if (negativeAdGroupCriterion != null)
                     {
                         // Output the Campaign Management NegativeAdGroupCriterion
-                        OutputNegativeAdGroupCriterion(negativeAdGroupCriterion);
+                        CampaignManagementExampleHelper.OutputNegativeAdGroupCriterion(negativeAdGroupCriterion);
                     }
                 }
 
@@ -1237,7 +1238,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage("\n");
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkSharedNegativeKeyword.
         /// </summary>
@@ -1248,7 +1249,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage("\nBulkSharedNegativeKeyword: \n");
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-                OutputNegativeKeyword(entity.NegativeKeyword);
+                CampaignManagementExampleHelper.OutputNegativeKeyword(entity.NegativeKeyword);
                 OutputStatusMessage(string.Format("NegativeKeywordListId: {0}", entity.NegativeKeywordListId));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
@@ -1271,7 +1272,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management SiteLinksAdExtension Object
-                OutputSiteLinksAdExtension(entity.SiteLinksAdExtension);
+                CampaignManagementExampleHelper.OutputSiteLinksAdExtension(entity.SiteLinksAdExtension);
 
                 if (entity.SiteLinks != null && entity.SiteLinks.Count > 0)
                 {
@@ -1297,7 +1298,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Version: {0}", entity.Version));
 
                 // Output the Campaign Management SiteLink Object
-                OutputSiteLinks(new[] { entity.SiteLink });
+                CampaignManagementExampleHelper.OutputSiteLink(entity.SiteLink);
 
                 if (entity.HasErrors)
                 {
@@ -1318,7 +1319,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management Sitelink2AdExtension Object
-                OutputSitelink2AdExtension(entity.Sitelink2AdExtension);
+                CampaignManagementExampleHelper.OutputSitelink2AdExtension(entity.Sitelink2AdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1339,7 +1340,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management StructuredSnippetAdExtension Object
-                OutputStructuredSnippetAdExtension(entity.StructuredSnippetAdExtension);
+                CampaignManagementExampleHelper.OutputStructuredSnippetAdExtension(entity.StructuredSnippetAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1347,7 +1348,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        
+
         /// <summary>
         /// Outputs the list of BulkExpandedTextAd.
         /// </summary>
@@ -1365,7 +1366,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkPerformanceData(entity.PerformanceData);
 
                 // Output the Campaign Management ExpandedTextAd Object
-                OutputExpandedTextAd(entity.ExpandedTextAd);
+                CampaignManagementExampleHelper.OutputExpandedTextAd(entity.ExpandedTextAd);
 
                 if (entity.HasErrors)
                 {
@@ -1391,7 +1392,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkPerformanceData(entity.PerformanceData);
 
                 // Output the Campaign Management TextAd Object
-                OutputTextAd(entity.TextAd);
+                CampaignManagementExampleHelper.OutputTextAd(entity.TextAd);
 
                 if (entity.HasErrors)
                 {
@@ -1413,7 +1414,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management RemarketingList Object
-                OutputRemarketingList(entity.RemarketingList);
+                CampaignManagementExampleHelper.OutputRemarketingList(entity.RemarketingList);
 
                 if (entity.HasErrors)
                 {
@@ -1436,7 +1437,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management BiddableAdGroupCriterion Object
-                OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
+                CampaignManagementExampleHelper.OutputBiddableAdGroupCriterion(entity.BiddableAdGroupCriterion);
 
                 if (entity.HasErrors)
                 {
@@ -2459,7 +2460,7 @@ namespace BingAdsExamplesLibrary.V11
 
             return bulkAdGroupRadiusCriterion;
         }
-        
+
         protected BulkEntity GetBulkAppAdExtension()
         {
             // Map properties in the Bulk file to the BulkAppAdExtension
@@ -3640,7 +3641,7 @@ namespace BingAdsExamplesLibrary.V11
 
             return bulkAdGroupStructuredSnippetAdExtension;
         }
-        
+
         protected BulkEntity GetBulkAdGroupDynamicSearchAdTarget()
         {
             // Map properties in the Bulk file to the BulkAdGroupDynamicSearchAdTarget

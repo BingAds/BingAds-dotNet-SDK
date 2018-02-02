@@ -19,7 +19,7 @@ namespace BingAdsExamplesLibrary.V11
     public class ManageClient : ExampleBase
     {
         private const int ClientAccountId = 0; //<ClientAccountIdGoesHere>;
-        
+
         public override string Description
         {
             get { return "Manage Client | Customer Management V11"; }
@@ -37,8 +37,8 @@ namespace BingAdsExamplesLibrary.V11
                                     "or unlink an existing client link.");
                 OutputStatusMessage("Login as a client Super Admin user to accept a client link invitation.\n");
 
-
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(authorizationData);
 
                 UpdateClientLinksResponse updateClientLinksResponse = null;
 
@@ -65,10 +65,11 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Search for client links that match the specified criteria.
 
-                var clientLinks = (await SearchClientLinksAsync(
+                var clientLinks = (await CustomerManagementExampleHelper.SearchClientLinksAsync(
+                    new[] { predicate },
                     new[] { ordering },
-                    pageInfo,
-                    new[] { predicate }))?.ClientLinks;
+                    pageInfo
+                    ))?.ClientLinks;
 
                 // Determine whether the agency is already managing the specified client account. 
                 // If a link exists with status either Active, LinkInProgress, LinkPending, 
@@ -88,7 +89,7 @@ namespace BingAdsExamplesLibrary.V11
                         // which would terminate the existing relationship with the client. 
                         case ClientLinkStatus.Active:
                             clientLink.Status = ClientLinkStatus.UnlinkRequested;
-                            updateClientLinksResponse = await UpdateClientLinksAsync(new[] { clientLink });
+                            updateClientLinksResponse = await CustomerManagementExampleHelper.UpdateClientLinksAsync(new[] { clientLink });
                             OutputStatusMessage("UpdateClientLinks : UnlinkRequested.\n");
                             newLinkRequired = false;
                             break;
@@ -114,7 +115,7 @@ namespace BingAdsExamplesLibrary.V11
                             WriteMessage(string.Format("The agency updated status: LinkCanceled.\n");
                              */
                             clientLink.Status = ClientLinkStatus.LinkAccepted;
-                            updateClientLinksResponse = await UpdateClientLinksAsync(new[] { clientLink });
+                            updateClientLinksResponse = await CustomerManagementExampleHelper.UpdateClientLinksAsync(new[] { clientLink });
                             OutputStatusMessage("UpdateClientLinks: LinkAccepted.\n");
                             newLinkRequired = false;
                             break;
@@ -136,8 +137,11 @@ namespace BingAdsExamplesLibrary.V11
 
 
                     // Print errors if any occurred when updating the client link.
-                    OutputCustomerNestedPartialErrors(updateClientLinksResponse?.PartialErrors);
-                    OutputCustomerPartialErrors(updateClientLinksResponse?.OperationErrors);
+                    foreach (var operationErrors in updateClientLinksResponse?.PartialErrors)
+                    {
+                        CustomerManagementExampleHelper.OutputArrayOfOperationError(operationErrors);
+                    }
+                    CustomerManagementExampleHelper.OutputArrayOfOperationError(updateClientLinksResponse?.OperationErrors);
 
                     if (updateClientLinksResponse != null)
                     {
@@ -162,7 +166,7 @@ namespace BingAdsExamplesLibrary.V11
                         SuppressNotification = true
                     };
 
-                    var addClientLinksResponse = await AddClientLinksAsync(new[] { clientLink });
+                    var addClientLinksResponse = await CustomerManagementExampleHelper.AddClientLinksAsync(new[] { clientLink });
 
                     // Print errors if any occurred when adding the client link.
 
@@ -173,12 +177,13 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Get and print the current client link
 
-                clientLinks = (await SearchClientLinksAsync(
-                        new[] { ordering },
-                        pageInfo,
-                        new[] { predicate }))?.ClientLinks;
+                clientLinks = (await CustomerManagementExampleHelper.SearchClientLinksAsync(
+                    new[] { predicate },
+                    new[] { ordering },
+                    pageInfo
+                    ))?.ClientLinks;
 
-                OutputClientLinks(clientLinks);
+                CustomerManagementExampleHelper.OutputArrayOfClientLink(clientLinks);
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -199,10 +204,10 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(ex.Message);
             }
         }
-        
-        
 
-        
+
+
+
 
         // Print errors if any occurred when adding or updating the client link.
 

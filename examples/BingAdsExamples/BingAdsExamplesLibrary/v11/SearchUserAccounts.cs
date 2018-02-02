@@ -23,40 +23,63 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(authorizationData);
 
-                var getUserResponse = await GetUserAsync(null);
+                var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null);
                 var user = getUserResponse.User;
 
                 // Search for the Bing Ads accounts that the user can access.
 
-                var accounts = await SearchAccountsByUserIdAsync(user.Id);
+                var predicate = new Predicate
+                {
+                    Field = "UserId",
+                    Operator = PredicateOperator.Equals,
+                    Value = user.Id.ToString()
+                };
+
+                var paging = new Paging
+                {
+                    Index = 0,
+                    Size = 10
+                };
+
+                var request = new SearchAccountsRequest
+                {
+                    Ordering = null,
+                    PageInfo = paging,
+                    Predicates = new[] { predicate }
+                };
+
+                var accounts = (await CustomerManagementExampleHelper.SearchAccountsAsync(
+                    new[] { predicate },
+                    null,
+                    paging
+                    ))?.Accounts.ToArray();
 
                 OutputStatusMessage("The user can access the following Bing Ads accounts: \n");
                 foreach (var account in accounts)
                 {
-                    OutputAccount(account);
+                    CustomerManagementExampleHelper.OutputAccount(account);
 
                     // Optionally you can find out which pilot features the customer is able to use. 
                     // Each account could belong to a different customer, so use the customer ID in each account.
-                    var featurePilotFlags = (await GetCustomerPilotFeaturesAsync(account.ParentCustomerId)).FeaturePilotFlags;
+                    var featurePilotFlags = (await CustomerManagementExampleHelper.GetCustomerPilotFeaturesAsync(account.ParentCustomerId)).FeaturePilotFlags;
                     OutputStatusMessage("Customer Pilot flags:");
                     OutputStatusMessage(string.Join("; ", featurePilotFlags.Select(flag => string.Format("{0}", flag))));
 
                     // Optionally you can update each account with a tracking template.
 
-                    // Uncomment if you want to update the tracking template. 
-                    // You should first set your own tracking template above instead of the placeholder.
-                    
-                    //var accountFCM = new List<KeyValuePair<string, string>>();
-                    //accountFCM.Add(new KeyValuePair<string, string>(
-                    //    "TrackingUrlTemplate",
-                    //    "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
+                    var accountFCM = new List<KeyValuePair<string, string>>();
+                    accountFCM.Add(new KeyValuePair<string, string>(
+                        "TrackingUrlTemplate",
+                        "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"));
 
+                    // Edit the tracking template above, and uncomment the next line if you want to update the tracking template.
                     //account.ForwardCompatibilityMap = accountFCM;
-                    //await UpdateAccountAsync(account);
-                    //OutputStatusMessage(string.Format("Updated the account with a TrackingUrlTemplate: {0}\n",
-                    //    accountFCM.ToArray().SingleOrDefault(keyValuePair => keyValuePair.Key == "TrackingUrlTemplate").Value));
+                    await CustomerManagementExampleHelper.UpdateAccountAsync(account);
+                    OutputStatusMessage(string.Format("Updated the account with a TrackingUrlTemplate: {0}\n",
+                        accountFCM.ToArray().SingleOrDefault(keyValuePair => keyValuePair.Key == "TrackingUrlTemplate").Value));
 
                 }
             }
@@ -79,30 +102,5 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(ex.Message);
             }
         }
-
-        private async Task<Account[]> SearchAccountsByUserIdAsync(long? userId)
-        {
-            var predicate = new Predicate
-            {
-                Field = "UserId",
-                Operator = PredicateOperator.Equals,
-                Value = userId.ToString()
-            };
-
-            var paging = new Paging
-            {
-                Index = 0,
-                Size = 10
-            };
-
-            var request = new SearchAccountsRequest
-            {
-                Ordering = null,
-                PageInfo = paging,
-                Predicates = new[] { predicate }
-            };
-
-            return (await CustomerService.CallAsync((s, r) => s.SearchAccountsAsync(r), request)).Accounts.ToArray();
-        }        
     }
 }

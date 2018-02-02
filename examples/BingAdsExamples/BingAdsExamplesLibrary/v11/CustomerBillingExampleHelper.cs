@@ -164,7 +164,7 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputArrayOfOperationError(dataObject.OperationErrors);
                 var apibatchfault = dataObject as ApiBatchFault;
-                if(dataObject != null)
+                if(apibatchfault != null)
                 {
                     OutputApiBatchFault((ApiBatchFault)dataObject);
                 }
@@ -187,12 +187,12 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("TrackingId: {0}", dataObject.TrackingId));
                 var adapifaultdetail = dataObject as AdApiFaultDetail;
-                if(dataObject != null)
+                if(adapifaultdetail != null)
                 {
                     OutputAdApiFaultDetail((AdApiFaultDetail)dataObject);
                 }
                 var apifault = dataObject as ApiFault;
-                if(dataObject != null)
+                if(apifault != null)
                 {
                     OutputApiFault((ApiFault)dataObject);
                 }

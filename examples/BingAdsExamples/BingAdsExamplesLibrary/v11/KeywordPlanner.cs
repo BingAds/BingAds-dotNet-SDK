@@ -23,9 +23,10 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
-                
-                var getKeywordIdeaCategoriesResponse = await GetKeywordIdeaCategoriesAsync();
+                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(this.OutputStatusMessage);
+                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
+
+                var getKeywordIdeaCategoriesResponse = await AdInsightExampleHelper.GetKeywordIdeaCategoriesAsync();
                 var categoryId = (long)(getKeywordIdeaCategoriesResponse?.KeywordIdeaCategories?.ToList()[0].CategoryId);
 
                 // You must specify the attributes that you want in each returned KeywordIdea.
@@ -236,7 +237,7 @@ namespace BingAdsExamplesLibrary.V11
 
                 // If ExpandIdeas is false, the QuerySearchParameter is required.
 
-                var getKeywordIdeasResponse = await GetKeywordIdeasAsync(
+                var getKeywordIdeasResponse = await AdInsightExampleHelper.GetKeywordIdeasAsync(
                     expandIdeas: true,
                     ideaAttributes: ideaAttributes,
                     searchParameters: searchParameters);
@@ -248,7 +249,7 @@ namespace BingAdsExamplesLibrary.V11
                     return;
                 }
 
-                OutputKeywordIdeas(keywordIdeas);
+                AdInsightExampleHelper.OutputArrayOfKeywordIdea(keywordIdeas);
 
                 // Let's get traffic estimates for each returned keyword idea.
 
@@ -372,9 +373,10 @@ namespace BingAdsExamplesLibrary.V11
                     },
                 };
 
-                var getKeywordTrafficEstimatesResponse = await GetKeywordTrafficEstimatesAsync(campaigns: campaigns);
-                
-                OutputCampaignEstimates(getKeywordTrafficEstimatesResponse?.CampaignEstimates);
+                var getKeywordTrafficEstimatesResponse = 
+                    await AdInsightExampleHelper.GetKeywordTrafficEstimatesAsync(campaignEstimators: campaigns);
+
+                AdInsightExampleHelper.OutputArrayOfCampaignEstimate(getKeywordTrafficEstimatesResponse?.CampaignEstimates);
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)

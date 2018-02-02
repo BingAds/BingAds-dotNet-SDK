@@ -5,26 +5,17 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds.V11.CampaignManagement;
-using Microsoft.BingAds.V11.CustomerManagement;
 using Microsoft.BingAds;
 
 namespace BingAdsExamplesLibrary.V11
 {
     /// <summary>
-    /// This example demonstrates how to add, get, and delete extensions for an account’s ad extension library, 
+    /// This example demonstrates how to add, get, and delete extensions for an account's ad extension library, 
     /// set, get, and delete the extension associations with a campaign, and determine why an extension failed 
     /// editorial review.
-    /// 
-    /// This example also demonstrates how to determine whether your account supports multiple sitelinks
-    /// per ad extension or a single sitelink per ad extension. At the end of Q3 calendar year 2017, Bing Ads 
-    /// will migrate all SiteLinksAdExtension objects (contains multiple sitelinks per ad extension) 
-    /// to Sitelink2AdExtension objects (contains one sitelink per ad extension). 
-    /// You must be prepared for migration to sitelink2 ad extensions by September 30th.
     /// </summary>
     public class AdExtensions : ExampleBase
     {
-        private const string SITELINK_MIGRATION = "SiteLinkAdExtension";
-
         public override string Description
         {
             get { return "Ad Extensions | Campaign Management V11"; }
@@ -34,56 +25,8 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
-
-                #region MigrationStatus
-
-                // To prepare for the sitelink ad extensions migration in 2017, you will need to determine
-                // whether the account has been migrated from SiteLinksAdExtension to Sitelink2AdExtension. 
-                // All ad extension service operations available for both types of sitelinks; however you will 
-                // need to determine which type to add, update, and retrieve.
-
-                bool sitelinkMigrationIsCompleted = false;
-
-                // Optionally you can find out which pilot features the customer is able to use. Even if the customer 
-                // is in pilot for sitelink migrations, the accounts that it contains might not be migrated.
-                var featurePilotFlags = (await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId))?.FeaturePilotFlags.ToArray();
-                
-                // The pilot flag value for Sitelink ad extension migration is 253.
-                // Pilot flags apply to all accounts within a given customer; however,
-                // each account goes through migration individually and has its own migration status.
-                if (featurePilotFlags.Any(pilotFlag => pilotFlag == 253))
-                {
-                    // Account migration status below will be either NotStarted, InProgress, or Completed.
-                    OutputStatusMessage("Customer is in pilot for Sitelink migration.\n");
-                }
-                else
-                {
-                    // Account migration status below will be NotInPilot.
-                    OutputStatusMessage("Customer is not in pilot for Sitelink migration.\n");
-                }
-
-                // Even if you have multiple accounts per customer, each account will have its own
-                // migration status. This example checks one account using the provided AuthorizationData.
-                var accountMigrationStatusesInfos = (await GetAccountMigrationStatusesAsync(
-                    new long[] { authorizationData.AccountId },
-                    SITELINK_MIGRATION
-                ))?.MigrationStatuses.ToArray();
-
-                foreach (var accountMigrationStatusesInfo in accountMigrationStatusesInfos)
-                {
-                    OutputAccountMigrationStatusesInfo(accountMigrationStatusesInfo);
-
-                    if (accountMigrationStatusesInfo.MigrationStatusInfo.Any(
-                        statusInfo =>
-                        statusInfo.Status == MigrationStatus.Completed && SITELINK_MIGRATION.CompareTo(statusInfo.MigrationType) == 0))
-                    {
-                        sitelinkMigrationIsCompleted = true;
-                    }
-                }
-
-                #endregion MigrationStatus
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // Add a campaign that will later be associated with ad extensions. 
 
@@ -108,10 +51,10 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
-                AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
-                OutputIds(campaignIds);
-                OutputPartialErrors(addCampaignsResponse?.PartialErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(addCampaignsResponse?.PartialErrors);
 
                 // Specify the extensions.
 
@@ -191,7 +134,7 @@ namespace BingAdsExamplesLibrary.V11
                     //new ImageAdExtension
                     //{
                     //    AlternativeText = "Image Extension Alt Text",
-                    //    ImageMediaIds = new long[] { (await AddMediaAsync(GetImageMedia())).MediaIds[0] }
+                    //    ImageMediaIds = new long[] { (await CampaignManagementExampleHelper.AddMediaAsync(GetImageMedia())).MediaIds[0] }
                     //},
                     new LocationAdExtension {
                         PhoneNumber = "206-555-0100",
@@ -306,20 +249,18 @@ namespace BingAdsExamplesLibrary.V11
                         Values = new [] { "Windows", "Xbox", "Skype"}
                     }
                 };
-                
-                // Before migration only the deprecated SiteLinksAdExtension type can be added, 
-                // and after migration only the new Sitelink2AdExtension type can be added.
-                adExtensions = adExtensions.Concat(sitelinkMigrationIsCompleted ? (AdExtension[])
-                    GetSampleSitelink2AdExtensions() : GetSampleSiteLinksAdExtensions()).ToArray();
+
+                // Get
+                adExtensions = adExtensions.Concat(GetSampleSitelink2AdExtensions()).ToArray();
 
 
                 // Add all extensions to the account's ad extension library
-                var addAdExtensionsResponse = (await AddAdExtensionsAsync(
+                var addAdExtensionsResponse = (await CampaignManagementExampleHelper.AddAdExtensionsAsync(
                     authorizationData.AccountId,
                     adExtensions
                 ));
                 var adExtensionIdentities = addAdExtensionsResponse?.AdExtensionIdentities;
-                OutputBatchErrorCollections(addAdExtensionsResponse?.NestedPartialErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(addAdExtensionsResponse?.NestedPartialErrors);
 
                 OutputStatusMessage("Added ad extensions.\n");
 
@@ -333,9 +274,9 @@ namespace BingAdsExamplesLibrary.V11
                 // Loop through the list of extension IDs and build any required data structures
                 // for subsequent operations. 
 
-                foreach(var adExtensionIdentity in adExtensionIdentities)
+                foreach (var adExtensionIdentity in adExtensionIdentities)
                 {
-                    if(adExtensionIdentity != null)
+                    if (adExtensionIdentity != null)
                     {
                         adExtensionIdToEntityIdAssociations.Add(new AdExtensionIdToEntityIdAssociation
                         {
@@ -348,7 +289,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
 
                 // Associate the specified ad extensions with the respective campaigns or ad groups. 
-                await SetAdExtensionsAssociationsAsync(
+                await CampaignManagementExampleHelper.SetAdExtensionsAssociationsAsync(
                     authorizationData.AccountId,
                     adExtensionIdToEntityIdAssociations,
                     AssociationType.Campaign
@@ -358,47 +299,44 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Get editorial rejection reasons for the respective ad extension and entity associations.
                 var getAdExtensionsEditorialReasonsResponse =
-                    (await GetAdExtensionsEditorialReasonsAsync(
+                    (await CampaignManagementExampleHelper.GetAdExtensionsEditorialReasonsAsync(
                         authorizationData.AccountId,
                         adExtensionIdToEntityIdAssociations,
                         AssociationType.Campaign
                     ));
                 var adExtensionEditorialReasonCollection =
                     (AdExtensionEditorialReasonCollection[])getAdExtensionsEditorialReasonsResponse?.EditorialReasons;
-                OutputPartialErrors(getAdExtensionsEditorialReasonsResponse?.PartialErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionsEditorialReasonsResponse?.PartialErrors);
 
-                // If migration has been completed, then you should request the Sitelink2AdExtension objects.
-                // You can always request both types; however, before migration only the deprecated SiteLinksAdExtension
-                // type will be returned, and after migration only the new Sitelink2AdExtension type will be returned.
-                AdExtensionsTypeFilter adExtensionsTypeFilter = (sitelinkMigrationIsCompleted ?
-                    AdExtensionsTypeFilter.Sitelink2AdExtension : AdExtensionsTypeFilter.SiteLinksAdExtension) |
+                AdExtensionsTypeFilter adExtensionsTypeFilter =
                     AdExtensionsTypeFilter.AppAdExtension |
                     AdExtensionsTypeFilter.CallAdExtension |
                     AdExtensionsTypeFilter.CalloutAdExtension |
                     AdExtensionsTypeFilter.ImageAdExtension |
                     AdExtensionsTypeFilter.LocationAdExtension |
+                    AdExtensionsTypeFilter.Sitelink2AdExtension |
                     // You should remove this flag if your customer is not enabled for price ad extensions.
-                    AdExtensionsTypeFilter.PriceAdExtension |   
+                    AdExtensionsTypeFilter.PriceAdExtension |
                     AdExtensionsTypeFilter.ReviewAdExtension |
                     AdExtensionsTypeFilter.StructuredSnippetAdExtension;
 
                 // Get all ad extensions added above.
-                var getAdExtensionsByIdsResponse = (await GetAdExtensionsByIdsAsync(
+                var getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     adExtensionIds,
                     adExtensionsTypeFilter
                 ));
                 adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
-                OutputPartialErrors(getAdExtensionsByIdsResponse?.PartialErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionsByIdsResponse?.PartialErrors);
 
                 OutputStatusMessage("List of ad extensions that were added above:\n");
-                OutputAdExtensionsWithEditorialReasons(adExtensions, adExtensionEditorialReasonCollection);
+                CampaignManagementExampleHelper.OutputArrayOfAdExtension(adExtensions);
 
                 // Get only the location extensions and remove scheduling.
 
                 adExtensionsTypeFilter = AdExtensionsTypeFilter.LocationAdExtension;
 
-                getAdExtensionsByIdsResponse = (await GetAdExtensionsByIdsAsync(
+                getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     adExtensionIds,
                     adExtensionsTypeFilter
@@ -409,7 +347,7 @@ namespace BingAdsExamplesLibrary.V11
                 // are not location ad extensions because we only requested AdExtensionsTypeFilter.LocationAdExtension.
                 // This is an example, and ideally you would only send the required ad extension IDs.
 
-                OutputPartialErrors(getAdExtensionsByIdsResponse?.PartialErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionsByIdsResponse?.PartialErrors);
 
                 var updateExtensions = new List<AdExtension>();
                 var updateExtensionIds = new List<long>();
@@ -417,7 +355,7 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var extension in adExtensions)
                 {
                     // GetAdExtensionsByIds will return a nil element if the request filters / conditions were not met.
-                    if(extension != null && extension.Id != null)
+                    if (extension != null && extension.Id != null)
                     {
                         // Remove read-only elements that would otherwise cause the update operation to fail.
                         var updateExtension = SetReadOnlyAdExtensionElementsToNull(extension);
@@ -434,25 +372,25 @@ namespace BingAdsExamplesLibrary.V11
                 }
 
                 OutputStatusMessage("Removing scheduling from the location ad extensions..\n");
-                await UpdateAdExtensionsAsync(authorizationData.AccountId, updateExtensions);
+                await CampaignManagementExampleHelper.UpdateAdExtensionsAsync(authorizationData.AccountId, updateExtensions);
 
                 // Get only the location extensions to output the result.
 
-                getAdExtensionsByIdsResponse = (await GetAdExtensionsByIdsAsync(
+                getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
                     authorizationData.AccountId,
                     updateExtensionIds,
                     adExtensionsTypeFilter
                 ));
                 adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
-                OutputPartialErrors(getAdExtensionsByIdsResponse?.PartialErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionsByIdsResponse?.PartialErrors);
 
                 OutputStatusMessage("List of ad extensions that were updated above:\n");
-                OutputAdExtensionsWithEditorialReasons(adExtensions, null);
+                CampaignManagementExampleHelper.OutputArrayOfAdExtension(adExtensions);
 
                 // Delete the ad extension associations, ad extensions, and campaign, that were previously added.  
                 // At this point the ad extensions are still available in the account's ad extensions library. 
 
-                await DeleteAdExtensionsAssociationsAsync(
+                await CampaignManagementExampleHelper.DeleteAdExtensionsAssociationsAsync(
                     authorizationData.AccountId,
                     adExtensionIdToEntityIdAssociations,
                     AssociationType.Campaign
@@ -461,13 +399,13 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Delete the ad extensions from the account’s ad extension library.
 
-                await DeleteAdExtensionsAsync(
+                await CampaignManagementExampleHelper.DeleteAdExtensionsAsync(
                     authorizationData.AccountId,
                     adExtensionIds
                 );
                 OutputStatusMessage("Deleted ad extensions.\n");
-                
-                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
+
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
                 OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", (long)campaignIds[0]));
             }
             // Catch authentication exceptions
@@ -512,7 +450,7 @@ namespace BingAdsExamplesLibrary.V11
 
             // This example uses an image with 1.5:1 aspect ratio.
             // For more information about available aspect ratios and min / max dimensions,
-            // see the Image data object reference documentation on MSDN.
+            // see the Image data object reference documentation.
 
             image.Data = GetImage15x10Data();
             image.Type = "Image15x10";
@@ -526,7 +464,7 @@ namespace BingAdsExamplesLibrary.V11
 
             return media;
         }
-        
+
         public string GetImage15x10Data()
         {
             var png = new System.Drawing.Bitmap("blankimageadextension.png");
@@ -538,120 +476,8 @@ namespace BingAdsExamplesLibrary.V11
                 return base64String;
             }
         }
-        
-        
-        
-        
 
-        // Gets an example SiteLinksAdExtension object. You can use this type of ad extension if your account
-        // has not yet been migrated to Sitelink2AdExtension.
-        private SiteLinksAdExtension[] GetSampleSiteLinksAdExtensions()
-        {
-            return new[] {
-                new SiteLinksAdExtension
-                {
-                    SiteLinks = new[] {
-                        new SiteLink
-                        {
-                            Description1 = "Simple & Transparent.",
-                            Description2 = "No Upfront Cost.",
-                            DisplayText = "Women's Shoe Sale 1",
-
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
-                            // to an empty string when updating the sitelink. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
-
-                            // With FinalUrls you can separate the tracking template, custom parameters, and 
-                            // landing page URLs. 
-                            FinalUrls = new[] {
-                                "http://www.contoso.com/womenshoesale"
-                            },
-                            // Final Mobile URLs can also be used if you want to direct the user to a different page 
-                            // for mobile devices.
-                            FinalMobileUrls = new[] {
-                                "http://mobile.contoso.com/womenshoesale"
-                            }, 
-                            // You could use a tracking template which would override the campaign level
-                            // tracking template. Tracking templates defined for lower level entities 
-                            // override those set for higher level entities.
-                            // In this example we are using the campaign level tracking template.
-                            TrackingUrlTemplate = null,
-
-                            // Set custom parameters that are specific to this sitelink, 
-                            // and can be used by the sitelink, ad group, campaign, or account level tracking template. 
-                            // In this example we are using the campaign level tracking template.
-                            UrlCustomParameters = new CustomParameters {
-                                Parameters = new[] {
-                                    new CustomParameter(){
-                                        Key = "promoCode",
-                                        Value = "PROMO1"
-                                    },
-                                    new CustomParameter(){
-                                        Key = "season",
-                                        Value = "summer"
-                                    },
-                                }
-                            },
-                        },
-                        new SiteLink
-                        {
-                            Description1 = "Do Amazing Things With Contoso.",
-                            Description2 = "Read Our Case Studies.",
-                            DisplayText = "Women's Shoe Sale 2",
-
-                            // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                            // Here is an example of a DestinationUrl you might have used previously. 
-                            // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                            // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
-                            // to an empty string when updating the sitelink. If you are removing DestinationUrl,
-                            // then FinalUrls is required.
-                            // DestinationUrl = "",
-
-                            // With FinalUrls you can separate the tracking template, custom parameters, and 
-                            // landing page URLs. 
-                            FinalUrls = new[] {
-                                "http://www.contoso.com/womenshoesale"
-                            },
-                            // Final Mobile URLs can also be used if you want to direct the user to a different page 
-                            // for mobile devices.
-                            FinalMobileUrls = new[] {
-                                "http://mobile.contoso.com/womenshoesale"
-                            }, 
-                            // You could use a tracking template which would override the campaign level
-                            // tracking template. Tracking templates defined for lower level entities 
-                            // override those set for higher level entities.
-                            // In this example we are using the campaign level tracking template.
-                            TrackingUrlTemplate = null,
-
-                            // Set custom parameters that are specific to this sitelink, 
-                            // and can be used by the sitelink, ad group, campaign, or account level tracking template. 
-                            // In this example we are using the campaign level tracking template.
-                            UrlCustomParameters = new CustomParameters {
-                                Parameters = new[] {
-                                    new CustomParameter(){
-                                        Key = "promoCode",
-                                        Value = "PROMO2"
-                                    },
-                                    new CustomParameter(){
-                                        Key = "season",
-                                        Value = "summer"
-                                    },
-                                }
-                            },
-                        }
-                    }
-                }
-            };
-        }
-
-        // Gets an example Sitelink2AdExtension object. You can use this type of ad extension if your account
-        // has not yet been migrated to Sitelink2AdExtension.
+        // Gets an example Sitelink2AdExtension object. 
         private Sitelink2AdExtension[] GetSampleSitelink2AdExtensions()
         {
             return new[] {
@@ -659,15 +485,6 @@ namespace BingAdsExamplesLibrary.V11
                     Description1 = "Simple & Transparent.",
                     Description2 = "No Upfront Cost.",
                     DisplayText = "Women's Shoe Sale 1",
-
-                    // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                    // Here is an example of a DestinationUrl you might have used previously. 
-                    // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                    // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
-                    // to an empty string when updating the ad extension. If you are removing DestinationUrl,
-                    // then FinalUrls is required.
-                    // DestinationUrl = "",
 
                     // With FinalUrls you can separate the tracking template, custom parameters, and 
                     // landing page URLs. 
@@ -707,15 +524,6 @@ namespace BingAdsExamplesLibrary.V11
                     Description1 = "Do Amazing Things With Contoso.",
                     Description2 = "Read Our Case Studies.",
                     DisplayText = "Women's Shoe Sale 2",
-
-                    // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                    // Here is an example of a DestinationUrl you might have used previously. 
-                    // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                    // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
-                    // to an empty string when updating the ad extension. If you are removing DestinationUrl,
-                    // then FinalUrls is required.
-                    // DestinationUrl = "",
 
                     // With FinalUrls you can separate the tracking template, custom parameters, and 
                     // landing page URLs. 

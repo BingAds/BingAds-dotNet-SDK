@@ -8,7 +8,6 @@ using Microsoft.BingAds;
 using Microsoft.BingAds.V11.Bulk;
 using Microsoft.BingAds.V11.Bulk.Entities;
 using Microsoft.BingAds.V11.CampaignManagement;
-using Microsoft.BingAds.V11.CustomerManagement;
 
 using Microsoft.BingAds.V11.Internal.Bulk.Entities;
 
@@ -19,8 +18,6 @@ namespace BingAdsExamplesLibrary.V11
     /// </summary>
     public class BulkAdExtensions : BulkExampleBase
     {
-        private const string SITELINK_MIGRATION = "SiteLinkAdExtension";
-
         public override string Description
         {
             get { return "AdExtensions | Bulk V11"; }
@@ -30,64 +27,13 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
+                // Used to output the Campaign Management objects within Bulk entities.
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+
                 BulkServiceManager = new BulkServiceManager(authorizationData);
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                 OutputStatusMessage(string.Format("{0} % Complete", x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
-
-
-                #region MigrationStatus
-
-                // At the end of Q3 calendar year 2017, Bing Ads will upgrade all sitelinks ad extensions (contains multiple sitelinks per ad extension) 
-                // to sitelink2 ad extensions (contains one sitelink per ad extension). 
-                // You must be prepared for migration to sitelink2 ad extensions by September 30th. 
-                // To prepare for the sitelink ad extensions migration, you will need to determine
-                // whether the account has been migrated from SiteLinksAdExtension to Sitelink2AdExtension. 
-                // Bulk records are available for both types of sitelinks; however you will 
-                // need to determine which type to add, update, and retrieve.
-
-                bool sitelinkMigrationIsCompleted = false;
-
-                // Optionally you can find out which pilot features the customer is able to use. Even if the customer 
-                // is in pilot for sitelink migrations, the accounts that it contains might not be migrated.
-                var featurePilotFlags = (await GetCustomerPilotFeaturesAsync(authorizationData.CustomerId))?.FeaturePilotFlags;
-
-                // The pilot flag value for Sitelink ad extension migration is 253.
-                // Pilot flags apply to all accounts within a given customer; however,
-                // each account goes through migration individually and has its own migration status.
-                if (featurePilotFlags.Any(pilotFlag => pilotFlag == 253))
-                {
-                    // Account migration status below will be either NotStarted, InProgress, or Completed.
-                    OutputStatusMessage("Customer is in pilot for Sitelink migration.\n");
-                }
-                else
-                {
-                    // Account migration status below will be NotInPilot.
-                    OutputStatusMessage("Customer is not in pilot for Sitelink migration.\n");
-                }
-
-                // Even if you have multiple accounts per customer, each account will have its own
-                // migration status. This example checks one account using the provided AuthorizationData.
-                var accountMigrationStatusesInfos = (await GetAccountMigrationStatusesAsync(
-                    new long[] { authorizationData.AccountId },
-                    SITELINK_MIGRATION
-                ))?.MigrationStatuses?.ToArray();
-
-                foreach (var accountMigrationStatusesInfo in accountMigrationStatusesInfos)
-                {
-                    OutputAccountMigrationStatusesInfo(accountMigrationStatusesInfo);
-
-                    if (accountMigrationStatusesInfo.MigrationStatusInfo.Any(
-                        statusInfo =>
-                        statusInfo.Status == MigrationStatus.Completed && SITELINK_MIGRATION.CompareTo(statusInfo.MigrationType) == 0))
-                    {
-                        sitelinkMigrationIsCompleted = true;
-                    }
-                }
-
-                #endregion MigrationStatus
 
                 #region Add
 
@@ -269,7 +215,7 @@ namespace BingAdsExamplesLibrary.V11
                         }
                     }
                 };
-                
+
                 var bulkPriceAdExtension = new BulkPriceAdExtension
                 {
                     AccountId = authorizationData.AccountId,
@@ -450,13 +396,9 @@ namespace BingAdsExamplesLibrary.V11
                 uploadEntities.Add(bulkCampaignReviewAdExtension);
                 uploadEntities.Add(bulkCampaignStructuredSnippetAdExtension);
 
-                // Before migration only the deprecated BulkSiteLinkAdExtension type can be added, 
-                // and after migration only the new BulkSitelink2AdExtension type can be added.
-                var bulkSLExtensions = (sitelinkMigrationIsCompleted ? (BulkEntity[])
-                    GetSampleBulkSitelink2AdExtensions(authorizationData.AccountId) :
-                    GetSampleBulkSiteLinkAdExtensions(authorizationData.AccountId)).ToArray();
+                var bulkSLExtensions = GetSampleBulkSitelink2AdExtensions(authorizationData.AccountId).ToArray();
 
-                foreach(var bulkSLExtension in bulkSLExtensions)
+                foreach (var bulkSLExtension in bulkSLExtensions)
                 {
                     uploadEntities.Add(bulkSLExtension);
                 }
@@ -491,18 +433,13 @@ namespace BingAdsExamplesLibrary.V11
 
                 var reviewAdExtensionResults = downloadEntities.OfType<BulkReviewAdExtension>().ToList();
                 OutputBulkReviewAdExtensions(reviewAdExtensionResults);
-                
+
                 var structuredSnippetAdExtensionResults = downloadEntities.OfType<BulkStructuredSnippetAdExtension>().ToList();
                 OutputBulkStructuredSnippetAdExtensions(structuredSnippetAdExtensionResults);
 
-                // Before migration only the deprecated BulkSiteLinkAdExtension results will be returned, 
-                // and after migration only the new BulkSitelink2AdExtension results will be returned.
-
-                var siteLinkAdExtensionResults = downloadEntities.OfType<BulkSiteLinkAdExtension>().ToList();
-                OutputBulkSiteLinkAdExtensions(siteLinkAdExtensionResults);
                 var sitelink2AdExtensionResults = downloadEntities.OfType<BulkSitelink2AdExtension>().ToList();
                 OutputBulkSitelink2AdExtensions(sitelink2AdExtensionResults);
-                
+
                 OutputBulkCampaignAdExtensionAssociations(downloadEntities.OfType<BulkCampaignAdExtensionAssociation>().ToList());
 
                 Reader.Dispose();
@@ -528,7 +465,7 @@ namespace BingAdsExamplesLibrary.V11
                         uploadEntities.Add(locationAdExtensionResult);
                     }
                 }
-                
+
                 OutputStatusMessage("\nRemoving scheduling from location ad extensions . . .\n");
 
                 // Upload and write the output
@@ -550,7 +487,7 @@ namespace BingAdsExamplesLibrary.V11
 
                 foreach (var campaignResult in campaignResults)
                 {
-                    if(campaignResult.Campaign != null)
+                    if (campaignResult.Campaign != null)
                     {
                         campaignResult.Campaign.Status = CampaignStatus.Deleted;
                         uploadEntities.Add(campaignResult);
@@ -622,15 +559,6 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 }
 
-                foreach (var siteLinkAdExtensionResult in siteLinkAdExtensionResults)
-                {
-                    if (siteLinkAdExtensionResult.SiteLinksAdExtension.Id > 0)
-                    {
-                        siteLinkAdExtensionResult.SiteLinksAdExtension.Status = AdExtensionStatus.Deleted;
-                        uploadEntities.Add(siteLinkAdExtensionResult);
-                    }
-                }
-
                 foreach (var sitelink2AdExtensionResult in sitelink2AdExtensionResults)
                 {
                     if (sitelink2AdExtensionResult.Sitelink2AdExtension.Id > 0)
@@ -663,7 +591,6 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkLocationAdExtensions(downloadEntities.OfType<BulkLocationAdExtension>().ToList());
                 OutputBulkPriceAdExtensions(downloadEntities.OfType<BulkPriceAdExtension>().ToList());
                 OutputBulkReviewAdExtensions(downloadEntities.OfType<BulkReviewAdExtension>().ToList());
-                OutputBulkSiteLinkAdExtensions(downloadEntities.OfType<BulkSiteLinkAdExtension>().ToList());
                 OutputBulkSitelink2AdExtensions(downloadEntities.OfType<BulkSitelink2AdExtension>().ToList());
                 OutputBulkStructuredSnippetAdExtensions(downloadEntities.OfType<BulkStructuredSnippetAdExtension>().ToList());
                 Reader.Dispose();
@@ -676,30 +603,6 @@ namespace BingAdsExamplesLibrary.V11
             catch (OAuthTokenRequestException ex)
             {
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
-            }
-            // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
-            {
-                OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
-            }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
-            {
-                OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
-                OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
-            }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
-            {
-                OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
-                OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
-            }
-            // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
-            {
-                OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
-            }
-            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
-            {
-                OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Bulk service exceptions
             catch (FaultException<Microsoft.BingAds.V11.Bulk.AdApiFaultDetail> ex)
@@ -736,135 +639,6 @@ namespace BingAdsExamplesLibrary.V11
             #endregion CatchExceptions 
         }
 
-        // Gets example BulkSiteLinkAdExtension and BulkCampaignSiteLinkAdExtension objects. You can use 
-        // this type of ad extension if your account has not yet been migrated to BulkSitelink2AdExtension.
-        private BulkEntity[] GetSampleBulkSiteLinkAdExtensions(long accountId)
-        {
-            return new BulkEntity[] {
-                // Note that when written to file using the BulkFileWriter, an extra Sitelink Ad Extension record with Deleted
-                // status precedes the actual site link record or records that you want to upload. All bulk entities 
-                // that are derived from MultiRecordBulkEntiy are preceded with a Deleted record using the BulkFileWriter. 
-                // In this example it is a moot point because we are creating a new ad extension. If the specified
-                // ad extension Id already exists in your account, the Deleted record effectively deletes the existing
-                // extension and replaces it with the SiteLinksAdExtension specified below.
-                new BulkSiteLinkAdExtension
-                {
-                    AccountId = accountId,
-                    SiteLinksAdExtension = new SiteLinksAdExtension
-                    {
-                        // Note that if you do not specify a negative Id as reference key, each of SiteLinks items will
-                        // be split during upload into separate sitelink ad extensions with unique ad extension identifiers.
-                        Id = siteLinksAdExtensionIdKey,
-                        SiteLinks = new List<SiteLink>
-                        {
-                            new SiteLink
-                            {
-                                DisplayText = "Women's Shoe Sale 1",
-
-                                // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                                // Here is an example of a DestinationUrl you might have used previously. 
-                                // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                                // To migrate from DestinationUrl to FinalUrls for existing sitelinks, you can set DestinationUrl
-                                // to an empty string when updating the sitelink. If you are removing DestinationUrl,
-                                // then FinalUrls is required.
-                                // DestinationUrl = "",
-
-                                // With FinalUrls you can separate the tracking template, custom parameters, and 
-                                // landing page URLs. 
-                                FinalUrls = new[] {
-                                    "http://www.contoso.com/womenshoesale"
-                                },
-                                // Final Mobile URLs can also be used if you want to direct the user to a different page 
-                                // for mobile devices.
-                                FinalMobileUrls = new[] {
-                                    "http://mobile.contoso.com/womenshoesale"
-                                }, 
-                                // You could use a tracking template which would override the campaign level
-                                // tracking template. Tracking templates defined for lower level entities 
-                                // override those set for higher level entities.
-                                // In this example we are using the campaign level tracking template.
-                                TrackingUrlTemplate = null,
-
-                                // Set custom parameters that are specific to this sitelink, 
-                                // and can be used by the sitelink, ad group, campaign, or account level tracking template. 
-                                // In this example we are using the campaign level tracking template.
-                                UrlCustomParameters = new CustomParameters {
-                                    Parameters = new[] {
-                                        new CustomParameter(){
-                                            Key = "promoCode",
-                                            Value = "PROMO1"
-                                        },
-                                        new CustomParameter(){
-                                            Key = "season",
-                                            Value = "summer"
-                                        },
-                                    }
-                                },
-                            },
-                            new SiteLink
-                            {
-                                DisplayText = "Women's Shoe Sale 2",
-
-                                // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                                // Here is an example of a DestinationUrl you might have used previously. 
-                                // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                                // To migrate from DestinationUrl to FinalUrls for existing sitelinks, you can set DestinationUrl
-                                // to an empty string when updating the sitelink. If you are removing DestinationUrl,
-                                // then FinalUrls is required.
-                                // DestinationUrl = "",
-
-                                // With FinalUrls you can separate the tracking template, custom parameters, and 
-                                // landing page URLs. 
-                                FinalUrls = new[] {
-                                    "http://www.contoso.com/womenshoesale"
-                                },
-                                // Final Mobile URLs can also be used if you want to direct the user to a different page 
-                                // for mobile devices.
-                                FinalMobileUrls = new[] {
-                                    "http://mobile.contoso.com/womenshoesale"
-                                }, 
-                                // You could use a tracking template which would override the campaign level
-                                // tracking template. Tracking templates defined for lower level entities 
-                                // override those set for higher level entities.
-                                // In this example we are using the campaign level tracking template.
-                                TrackingUrlTemplate = null,
-
-                                // Set custom parameters that are specific to this sitelink, 
-                                // and can be used by the sitelink, ad group, campaign, or account level tracking template. 
-                                // In this example we are using the campaign level tracking template.
-                                UrlCustomParameters = new CustomParameters {
-                                    Parameters = new[] {
-                                        new CustomParameter(){
-                                            Key = "promoCode",
-                                            Value = "PROMO2"
-                                        },
-                                        new CustomParameter(){
-                                            Key = "season",
-                                            Value = "summer"
-                                        },
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    // Note that BulkSiteLinkAdExtension.SiteLinks is read only and only 
-                    // accessible when reading results from the download or upload results file.
-                    // To upload new site links for a new site links ad extension, you should specify
-                    // BulkSiteLinkAdExtension.SiteLinksAdExtension.SiteLinks as shown above.
-                },
-                new BulkCampaignSiteLinkAdExtension
-                {
-                    AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
-                    {
-                        AdExtensionId = siteLinksAdExtensionIdKey,
-                        EntityId = campaignIdKey
-                    }
-                }
-            };
-        }
-
         // Gets example BulkSitelink2AdExtension and BulkCampaignSitelink2AdExtension objects. You can use 
         // this type of ad extension if your account has been migrated to BulkSitelink2AdExtension.
         private BulkEntity[] GetSampleBulkSitelink2AdExtensions(long accountId)
@@ -878,15 +652,6 @@ namespace BingAdsExamplesLibrary.V11
                         Description1 = "Simple & Transparent.",
                         Description2 = "No Upfront Cost.",
                         DisplayText = "Women's Shoe Sale 1",
-
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
-                        // to an empty string when updating the ad extension. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 
@@ -931,15 +696,6 @@ namespace BingAdsExamplesLibrary.V11
                         Description1 = "Do Amazing Things With Contoso.",
                         Description2 = "Read Our Case Studies.",
                         DisplayText = "Women's Shoe Sale 2",
-
-                        // If you are currently using Destination URLs, you must replace them with Final URLs. 
-                        // Here is an example of a DestinationUrl you might have used previously. 
-                        // DestinationUrl = "http://www.contoso.com/womenshoesale/?season=spring&promocode=PROMO123",
-
-                        // To migrate from DestinationUrl to FinalUrls, you can set DestinationUrl
-                        // to an empty string when updating the ad extension. If you are removing DestinationUrl,
-                        // then FinalUrls is required.
-                        // DestinationUrl = "",
 
                         // With FinalUrls you can separate the tracking template, custom parameters, and 
                         // landing page URLs. 

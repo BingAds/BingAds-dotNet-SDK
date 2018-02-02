@@ -1218,27 +1218,27 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 OutputCustomParameters(dataObject.UrlCustomParameters);
                 var appinstallad = dataObject as AppInstallAd;
-                if(dataObject != null)
+                if(appinstallad != null)
                 {
                     OutputAppInstallAd((AppInstallAd)dataObject);
                 }
                 var dynamicsearchad = dataObject as DynamicSearchAd;
-                if(dataObject != null)
+                if(dynamicsearchad != null)
                 {
                     OutputDynamicSearchAd((DynamicSearchAd)dataObject);
                 }
                 var expandedtextad = dataObject as ExpandedTextAd;
-                if(dataObject != null)
+                if(expandedtextad != null)
                 {
                     OutputExpandedTextAd((ExpandedTextAd)dataObject);
                 }
                 var productad = dataObject as ProductAd;
-                if(dataObject != null)
+                if(productad != null)
                 {
                     OutputProductAd((ProductAd)dataObject);
                 }
                 var textad = dataObject as TextAd;
-                if(dataObject != null)
+                if(textad != null)
                 {
                     OutputTextAd((TextAd)dataObject);
                 }
@@ -1330,52 +1330,52 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 OutputStatusMessage(string.Format("Version: {0}", dataObject.Version));
                 var appadextension = dataObject as AppAdExtension;
-                if(dataObject != null)
+                if(appadextension != null)
                 {
                     OutputAppAdExtension((AppAdExtension)dataObject);
                 }
                 var calladextension = dataObject as CallAdExtension;
-                if(dataObject != null)
+                if(calladextension != null)
                 {
                     OutputCallAdExtension((CallAdExtension)dataObject);
                 }
                 var calloutadextension = dataObject as CalloutAdExtension;
-                if(dataObject != null)
+                if(calloutadextension != null)
                 {
                     OutputCalloutAdExtension((CalloutAdExtension)dataObject);
                 }
                 var imageadextension = dataObject as ImageAdExtension;
-                if(dataObject != null)
+                if(imageadextension != null)
                 {
                     OutputImageAdExtension((ImageAdExtension)dataObject);
                 }
                 var locationadextension = dataObject as LocationAdExtension;
-                if(dataObject != null)
+                if(locationadextension != null)
                 {
                     OutputLocationAdExtension((LocationAdExtension)dataObject);
                 }
                 var priceadextension = dataObject as PriceAdExtension;
-                if(dataObject != null)
+                if(priceadextension != null)
                 {
                     OutputPriceAdExtension((PriceAdExtension)dataObject);
                 }
                 var reviewadextension = dataObject as ReviewAdExtension;
-                if(dataObject != null)
+                if(reviewadextension != null)
                 {
                     OutputReviewAdExtension((ReviewAdExtension)dataObject);
                 }
                 var sitelink2adextension = dataObject as Sitelink2AdExtension;
-                if(dataObject != null)
+                if(sitelink2adextension != null)
                 {
                     OutputSitelink2AdExtension((Sitelink2AdExtension)dataObject);
                 }
                 var sitelinksadextension = dataObject as SiteLinksAdExtension;
-                if(dataObject != null)
+                if(sitelinksadextension != null)
                 {
                     OutputSiteLinksAdExtension((SiteLinksAdExtension)dataObject);
                 }
                 var structuredsnippetadextension = dataObject as StructuredSnippetAdExtension;
-                if(dataObject != null)
+                if(structuredsnippetadextension != null)
                 {
                     OutputStructuredSnippetAdExtension((StructuredSnippetAdExtension)dataObject);
                 }
@@ -1555,12 +1555,12 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var biddableadgroupcriterion = dataObject as BiddableAdGroupCriterion;
-                if(dataObject != null)
+                if(biddableadgroupcriterion != null)
                 {
                     OutputBiddableAdGroupCriterion((BiddableAdGroupCriterion)dataObject);
                 }
                 var negativeadgroupcriterion = dataObject as NegativeAdGroupCriterion;
-                if(dataObject != null)
+                if(negativeadgroupcriterion != null)
                 {
                     OutputNegativeAdGroupCriterion((NegativeAdGroupCriterion)dataObject);
                 }
@@ -1744,17 +1744,17 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("TrackingId: {0}", dataObject.TrackingId));
                 var adapifaultdetail = dataObject as AdApiFaultDetail;
-                if(dataObject != null)
+                if(adapifaultdetail != null)
                 {
                     OutputAdApiFaultDetail((AdApiFaultDetail)dataObject);
                 }
                 var apifaultdetail = dataObject as ApiFaultDetail;
-                if(dataObject != null)
+                if(apifaultdetail != null)
                 {
                     OutputApiFaultDetail((ApiFaultDetail)dataObject);
                 }
                 var editorialapifaultdetail = dataObject as EditorialApiFaultDetail;
-                if(dataObject != null)
+                if(editorialapifaultdetail != null)
                 {
                     OutputEditorialApiFaultDetail((EditorialApiFaultDetail)dataObject);
                 }
@@ -1804,17 +1804,17 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("SearchSize: {0}", dataObject.SearchSize));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var customaudience = dataObject as CustomAudience;
-                if(dataObject != null)
+                if(customaudience != null)
                 {
                     OutputCustomAudience((CustomAudience)dataObject);
                 }
                 var inmarketaudience = dataObject as InMarketAudience;
-                if(dataObject != null)
+                if(inmarketaudience != null)
                 {
                     OutputInMarketAudience((InMarketAudience)dataObject);
                 }
                 var remarketinglist = dataObject as RemarketingList;
-                if(dataObject != null)
+                if(remarketinglist != null)
                 {
                     OutputRemarketingList((RemarketingList)dataObject);
                 }
@@ -1863,7 +1863,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var editorialerror = dataObject as EditorialError;
-                if(dataObject != null)
+                if(editorialerror != null)
                 {
                     OutputEditorialError((EditorialError)dataObject);
                 }
@@ -1973,32 +1973,32 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var enhancedcpcbiddingscheme = dataObject as EnhancedCpcBiddingScheme;
-                if(dataObject != null)
+                if(enhancedcpcbiddingscheme != null)
                 {
                     OutputEnhancedCpcBiddingScheme((EnhancedCpcBiddingScheme)dataObject);
                 }
                 var inheritfromparentbiddingscheme = dataObject as InheritFromParentBiddingScheme;
-                if(dataObject != null)
+                if(inheritfromparentbiddingscheme != null)
                 {
                     OutputInheritFromParentBiddingScheme((InheritFromParentBiddingScheme)dataObject);
                 }
                 var manualcpcbiddingscheme = dataObject as ManualCpcBiddingScheme;
-                if(dataObject != null)
+                if(manualcpcbiddingscheme != null)
                 {
                     OutputManualCpcBiddingScheme((ManualCpcBiddingScheme)dataObject);
                 }
                 var maxclicksbiddingscheme = dataObject as MaxClicksBiddingScheme;
-                if(dataObject != null)
+                if(maxclicksbiddingscheme != null)
                 {
                     OutputMaxClicksBiddingScheme((MaxClicksBiddingScheme)dataObject);
                 }
                 var maxconversionsbiddingscheme = dataObject as MaxConversionsBiddingScheme;
-                if(dataObject != null)
+                if(maxconversionsbiddingscheme != null)
                 {
                     OutputMaxConversionsBiddingScheme((MaxConversionsBiddingScheme)dataObject);
                 }
                 var targetcpabiddingscheme = dataObject as TargetCpaBiddingScheme;
-                if(dataObject != null)
+                if(targetcpabiddingscheme != null)
                 {
                     OutputTargetCpaBiddingScheme((TargetCpaBiddingScheme)dataObject);
                 }
@@ -2161,12 +2161,12 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var biddablecampaigncriterion = dataObject as BiddableCampaignCriterion;
-                if(dataObject != null)
+                if(biddablecampaigncriterion != null)
                 {
                     OutputBiddableCampaignCriterion((BiddableCampaignCriterion)dataObject);
                 }
                 var negativecampaigncriterion = dataObject as NegativeCampaignCriterion;
-                if(dataObject != null)
+                if(negativecampaigncriterion != null)
                 {
                     OutputNegativeCampaignCriterion((NegativeCampaignCriterion)dataObject);
                 }
@@ -2217,37 +2217,37 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("TrackingStatus: {0}", dataObject.TrackingStatus));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var appinstallgoal = dataObject as AppInstallGoal;
-                if(dataObject != null)
+                if(appinstallgoal != null)
                 {
                     OutputAppInstallGoal((AppInstallGoal)dataObject);
                 }
                 var durationgoal = dataObject as DurationGoal;
-                if(dataObject != null)
+                if(durationgoal != null)
                 {
                     OutputDurationGoal((DurationGoal)dataObject);
                 }
                 var eventgoal = dataObject as EventGoal;
-                if(dataObject != null)
+                if(eventgoal != null)
                 {
                     OutputEventGoal((EventGoal)dataObject);
                 }
                 var instoretransactiongoal = dataObject as InStoreTransactionGoal;
-                if(dataObject != null)
+                if(instoretransactiongoal != null)
                 {
                     OutputInStoreTransactionGoal((InStoreTransactionGoal)dataObject);
                 }
                 var offlineconversiongoal = dataObject as OfflineConversionGoal;
-                if(dataObject != null)
+                if(offlineconversiongoal != null)
                 {
                     OutputOfflineConversionGoal((OfflineConversionGoal)dataObject);
                 }
                 var pagesviewedpervisitgoal = dataObject as PagesViewedPerVisitGoal;
-                if(dataObject != null)
+                if(pagesviewedpervisitgoal != null)
                 {
                     OutputPagesViewedPerVisitGoal((PagesViewedPerVisitGoal)dataObject);
                 }
                 var urlgoal = dataObject as UrlGoal;
-                if(dataObject != null)
+                if(urlgoal != null)
                 {
                     OutputUrlGoal((UrlGoal)dataObject);
                 }
@@ -2290,57 +2290,57 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var agecriterion = dataObject as AgeCriterion;
-                if(dataObject != null)
+                if(agecriterion != null)
                 {
                     OutputAgeCriterion((AgeCriterion)dataObject);
                 }
                 var audiencecriterion = dataObject as AudienceCriterion;
-                if(dataObject != null)
+                if(audiencecriterion != null)
                 {
                     OutputAudienceCriterion((AudienceCriterion)dataObject);
                 }
                 var daytimecriterion = dataObject as DayTimeCriterion;
-                if(dataObject != null)
+                if(daytimecriterion != null)
                 {
                     OutputDayTimeCriterion((DayTimeCriterion)dataObject);
                 }
                 var devicecriterion = dataObject as DeviceCriterion;
-                if(dataObject != null)
+                if(devicecriterion != null)
                 {
                     OutputDeviceCriterion((DeviceCriterion)dataObject);
                 }
                 var gendercriterion = dataObject as GenderCriterion;
-                if(dataObject != null)
+                if(gendercriterion != null)
                 {
                     OutputGenderCriterion((GenderCriterion)dataObject);
                 }
                 var locationcriterion = dataObject as LocationCriterion;
-                if(dataObject != null)
+                if(locationcriterion != null)
                 {
                     OutputLocationCriterion((LocationCriterion)dataObject);
                 }
                 var locationintentcriterion = dataObject as LocationIntentCriterion;
-                if(dataObject != null)
+                if(locationintentcriterion != null)
                 {
                     OutputLocationIntentCriterion((LocationIntentCriterion)dataObject);
                 }
                 var productpartition = dataObject as ProductPartition;
-                if(dataObject != null)
+                if(productpartition != null)
                 {
                     OutputProductPartition((ProductPartition)dataObject);
                 }
                 var productscope = dataObject as ProductScope;
-                if(dataObject != null)
+                if(productscope != null)
                 {
                     OutputProductScope((ProductScope)dataObject);
                 }
                 var radiuscriterion = dataObject as RadiusCriterion;
-                if(dataObject != null)
+                if(radiuscriterion != null)
                 {
                     OutputRadiusCriterion((RadiusCriterion)dataObject);
                 }
                 var webpage = dataObject as Webpage;
-                if(dataObject != null)
+                if(webpage != null)
                 {
                     OutputWebpage((Webpage)dataObject);
                 }
@@ -2363,12 +2363,12 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var bidmultiplier = dataObject as BidMultiplier;
-                if(dataObject != null)
+                if(bidmultiplier != null)
                 {
                     OutputBidMultiplier((BidMultiplier)dataObject);
                 }
                 var fixedbid = dataObject as FixedBid;
-                if(dataObject != null)
+                if(fixedbid != null)
                 {
                     OutputFixedBid((FixedBid)dataObject);
                 }
@@ -3178,7 +3178,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("MediaType: {0}", dataObject.MediaType));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var image = dataObject as Image;
-                if(dataObject != null)
+                if(image != null)
                 {
                     OutputImage((Image)dataObject);
                 }
@@ -3244,7 +3244,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 OutputStatusMessage(string.Format("Url: {0}", dataObject.Url));
                 var imagemediarepresentation = dataObject as ImageMediaRepresentation;
-                if(dataObject != null)
+                if(imagemediarepresentation != null)
                 {
                     OutputImageMediaRepresentation((ImageMediaRepresentation)dataObject);
                 }
@@ -3676,22 +3676,22 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var customeventsrule = dataObject as CustomEventsRule;
-                if(dataObject != null)
+                if(customeventsrule != null)
                 {
                     OutputCustomEventsRule((CustomEventsRule)dataObject);
                 }
                 var pagevisitorsrule = dataObject as PageVisitorsRule;
-                if(dataObject != null)
+                if(pagevisitorsrule != null)
                 {
                     OutputPageVisitorsRule((PageVisitorsRule)dataObject);
                 }
                 var pagevisitorswhodidnotvisitanotherpagerule = dataObject as PageVisitorsWhoDidNotVisitAnotherPageRule;
-                if(dataObject != null)
+                if(pagevisitorswhodidnotvisitanotherpagerule != null)
                 {
                     OutputPageVisitorsWhoDidNotVisitAnotherPageRule((PageVisitorsWhoDidNotVisitAnotherPageRule)dataObject);
                 }
                 var pagevisitorswhovisitedanotherpagerule = dataObject as PageVisitorsWhoVisitedAnotherPageRule;
-                if(dataObject != null)
+                if(pagevisitorswhovisitedanotherpagerule != null)
                 {
                     OutputPageVisitorsWhoVisitedAnotherPageRule((PageVisitorsWhoVisitedAnotherPageRule)dataObject);
                 }
@@ -3735,7 +3735,7 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var stringruleitem = dataObject as StringRuleItem;
-                if(dataObject != null)
+                if(stringruleitem != null)
                 {
                     OutputStringRuleItem((StringRuleItem)dataObject);
                 }
@@ -3797,12 +3797,12 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var dynamicsearchadssetting = dataObject as DynamicSearchAdsSetting;
-                if(dataObject != null)
+                if(dynamicsearchadssetting != null)
                 {
                     OutputDynamicSearchAdsSetting((DynamicSearchAdsSetting)dataObject);
                 }
                 var shoppingsetting = dataObject as ShoppingSetting;
-                if(dataObject != null)
+                if(shoppingsetting != null)
                 {
                     OutputShoppingSetting((ShoppingSetting)dataObject);
                 }
@@ -3829,7 +3829,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var sharedlist = dataObject as SharedList;
-                if(dataObject != null)
+                if(sharedlist != null)
                 {
                     OutputSharedList((SharedList)dataObject);
                 }
@@ -3873,7 +3873,7 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("ItemCount: {0}", dataObject.ItemCount));
                 var negativekeywordlist = dataObject as NegativeKeywordList;
-                if(dataObject != null)
+                if(negativekeywordlist != null)
                 {
                     OutputNegativeKeywordList((NegativeKeywordList)dataObject);
                 }
@@ -3897,7 +3897,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputArrayOfKeyValuePairOfstringstring(dataObject.ForwardCompatibilityMap);
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var negativekeyword = dataObject as NegativeKeyword;
-                if(dataObject != null)
+                if(negativekeyword != null)
                 {
                     OutputNegativeKeyword((NegativeKeyword)dataObject);
                 }

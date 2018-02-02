@@ -481,12 +481,12 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("TrackingId: {0}", dataObject.TrackingId));
                 var adapifaultdetail = dataObject as AdApiFaultDetail;
-                if(dataObject != null)
+                if(adapifaultdetail != null)
                 {
                     OutputAdApiFaultDetail((AdApiFaultDetail)dataObject);
                 }
                 var apifaultdetail = dataObject as ApiFaultDetail;
-                if(dataObject != null)
+                if(apifaultdetail != null)
                 {
                     OutputApiFaultDetail((ApiFaultDetail)dataObject);
                 }
@@ -752,22 +752,22 @@ namespace BingAdsExamplesLibrary.V11
             if (null != dataObject)
             {
                 var devicecriterion = dataObject as DeviceCriterion;
-                if(dataObject != null)
+                if(devicecriterion != null)
                 {
                     OutputDeviceCriterion((DeviceCriterion)dataObject);
                 }
                 var languagecriterion = dataObject as LanguageCriterion;
-                if(dataObject != null)
+                if(languagecriterion != null)
                 {
                     OutputLanguageCriterion((LanguageCriterion)dataObject);
                 }
                 var locationcriterion = dataObject as LocationCriterion;
-                if(dataObject != null)
+                if(locationcriterion != null)
                 {
                     OutputLocationCriterion((LocationCriterion)dataObject);
                 }
                 var networkcriterion = dataObject as NetworkCriterion;
-                if(dataObject != null)
+                if(networkcriterion != null)
                 {
                     OutputNetworkCriterion((NetworkCriterion)dataObject);
                 }
@@ -1434,7 +1434,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("SuggestedBid: {0}", dataObject.SuggestedBid));
                 OutputStatusMessage(string.Format("SuggestedKeyword: {0}", dataObject.SuggestedKeyword));
                 var broadmatchkeywordopportunity = dataObject as BroadMatchKeywordOpportunity;
-                if(dataObject != null)
+                if(broadmatchkeywordopportunity != null)
                 {
                     OutputBroadMatchKeywordOpportunity((BroadMatchKeywordOpportunity)dataObject);
                 }
@@ -1644,17 +1644,17 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("OpportunityKey: {0}", dataObject.OpportunityKey));
                 var bidopportunity = dataObject as BidOpportunity;
-                if(dataObject != null)
+                if(bidopportunity != null)
                 {
                     OutputBidOpportunity((BidOpportunity)dataObject);
                 }
                 var budgetopportunity = dataObject as BudgetOpportunity;
-                if(dataObject != null)
+                if(budgetopportunity != null)
                 {
                     OutputBudgetOpportunity((BudgetOpportunity)dataObject);
                 }
                 var keywordopportunity = dataObject as KeywordOpportunity;
-                if(dataObject != null)
+                if(keywordopportunity != null)
                 {
                     OutputKeywordOpportunity((KeywordOpportunity)dataObject);
                 }
@@ -1713,72 +1713,72 @@ namespace BingAdsExamplesLibrary.V11
             if (null != dataObject)
             {
                 var categorysearchparameter = dataObject as CategorySearchParameter;
-                if(dataObject != null)
+                if(categorysearchparameter != null)
                 {
                     OutputCategorySearchParameter((CategorySearchParameter)dataObject);
                 }
                 var competitionsearchparameter = dataObject as CompetitionSearchParameter;
-                if(dataObject != null)
+                if(competitionsearchparameter != null)
                 {
                     OutputCompetitionSearchParameter((CompetitionSearchParameter)dataObject);
                 }
                 var daterangesearchparameter = dataObject as DateRangeSearchParameter;
-                if(dataObject != null)
+                if(daterangesearchparameter != null)
                 {
                     OutputDateRangeSearchParameter((DateRangeSearchParameter)dataObject);
                 }
                 var devicesearchparameter = dataObject as DeviceSearchParameter;
-                if(dataObject != null)
+                if(devicesearchparameter != null)
                 {
                     OutputDeviceSearchParameter((DeviceSearchParameter)dataObject);
                 }
                 var excludeaccountkeywordssearchparameter = dataObject as ExcludeAccountKeywordsSearchParameter;
-                if(dataObject != null)
+                if(excludeaccountkeywordssearchparameter != null)
                 {
                     OutputExcludeAccountKeywordsSearchParameter((ExcludeAccountKeywordsSearchParameter)dataObject);
                 }
                 var ideatextsearchparameter = dataObject as IdeaTextSearchParameter;
-                if(dataObject != null)
+                if(ideatextsearchparameter != null)
                 {
                     OutputIdeaTextSearchParameter((IdeaTextSearchParameter)dataObject);
                 }
                 var impressionsharesearchparameter = dataObject as ImpressionShareSearchParameter;
-                if(dataObject != null)
+                if(impressionsharesearchparameter != null)
                 {
                     OutputImpressionShareSearchParameter((ImpressionShareSearchParameter)dataObject);
                 }
                 var languagesearchparameter = dataObject as LanguageSearchParameter;
-                if(dataObject != null)
+                if(languagesearchparameter != null)
                 {
                     OutputLanguageSearchParameter((LanguageSearchParameter)dataObject);
                 }
                 var locationsearchparameter = dataObject as LocationSearchParameter;
-                if(dataObject != null)
+                if(locationsearchparameter != null)
                 {
                     OutputLocationSearchParameter((LocationSearchParameter)dataObject);
                 }
                 var networksearchparameter = dataObject as NetworkSearchParameter;
-                if(dataObject != null)
+                if(networksearchparameter != null)
                 {
                     OutputNetworkSearchParameter((NetworkSearchParameter)dataObject);
                 }
                 var querysearchparameter = dataObject as QuerySearchParameter;
-                if(dataObject != null)
+                if(querysearchparameter != null)
                 {
                     OutputQuerySearchParameter((QuerySearchParameter)dataObject);
                 }
                 var searchvolumesearchparameter = dataObject as SearchVolumeSearchParameter;
-                if(dataObject != null)
+                if(searchvolumesearchparameter != null)
                 {
                     OutputSearchVolumeSearchParameter((SearchVolumeSearchParameter)dataObject);
                 }
                 var suggestedbidsearchparameter = dataObject as SuggestedBidSearchParameter;
-                if(dataObject != null)
+                if(suggestedbidsearchparameter != null)
                 {
                     OutputSuggestedBidSearchParameter((SuggestedBidSearchParameter)dataObject);
                 }
                 var urlsearchparameter = dataObject as UrlSearchParameter;
-                if(dataObject != null)
+                if(urlsearchparameter != null)
                 {
                     OutputUrlSearchParameter((UrlSearchParameter)dataObject);
                 }

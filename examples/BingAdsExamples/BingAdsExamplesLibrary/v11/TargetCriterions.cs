@@ -22,18 +22,19 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
-                List<long> campaignIds = (await GetExampleCampaignIdsAsync(authorizationData)).ToList();
-                
+                List<long> campaignIds = (await GetExampleCampaignIdsAsync(CampaignManagementExampleHelper, authorizationData)).ToList();
+
                 // You can set campaignIds null to get all campaigns in the account, instead of 
                 // adding and retrieving the example campaigns.
 
-                var getCampaigns = (await GetCampaignsByIdsAsync(
+                var getCampaigns = (await CampaignManagementExampleHelper.GetCampaignsByIdsAsync(
                     accountId: authorizationData.AccountId,
                     campaignIds: campaignIds,
                     campaignType: AllCampaignTypes)).Campaigns;
-                
+
                 // Loop through all campaigns and ad groups to get the target criterion IDs.
 
                 foreach (var campaign in getCampaigns)
@@ -42,8 +43,8 @@ namespace BingAdsExamplesLibrary.V11
 
                     // Set campaignCriterionIds null to get all criterions 
                     // (of the specified target criterion type or types) for the current campaign.
-                    
-                    var campaignCriterions = (await GetCampaignCriterionsByIdsAsync(
+
+                    var campaignCriterions = (await CampaignManagementExampleHelper.GetCampaignCriterionsByIdsAsync(
                         campaignId: campaignId,
                         campaignCriterionIds: null,
                         criterionType: AllTargetCampaignCriterionTypes))?.CampaignCriterions.ToList();
@@ -82,11 +83,11 @@ namespace BingAdsExamplesLibrary.V11
                             },
                         });
 
-                        var addCampaignCriterionsResponse = await AddCampaignCriterionsAsync(
+                        var addCampaignCriterionsResponse = await CampaignManagementExampleHelper.AddCampaignCriterionsAsync(
                             campaignCriterions: campaignCriterions,
                             criterionType: CampaignCriterionType.Targets
                         );
-                        
+
                         // Capture the new criterion IDs.
 
                         if (addCampaignCriterionsResponse?.CampaignCriterionIds.Count > 0)
@@ -98,14 +99,15 @@ namespace BingAdsExamplesLibrary.V11
                             }
                         }
                     }
-                    
+
                     // You can now store or output the campaign criterions.
 
                     OutputStatusMessage("Campaign Criterions: \n");
-                    OutputCampaignCriterions(campaignCriterions);
+                    CampaignManagementExampleHelper.OutputArrayOfCampaignCriterion(campaignCriterions);
 
-                    var getAdGroups = (await GetAdGroupsByCampaignIdAsync(
-                        campaignId
+                    var getAdGroups = (await CampaignManagementExampleHelper.GetAdGroupsByCampaignIdAsync(
+                        campaignId,
+                        AdGroupAdditionalField.InheritedBidStrategyType
                     )).AdGroups;
 
                     // Loop through all ad groups to get the target criterion IDs.
@@ -115,13 +117,13 @@ namespace BingAdsExamplesLibrary.V11
 
                         // Set adGroupCriterionIds null to get all criterions 
                         // (of the specified target criterion type or types) for the current ad group.
-                        var adGroupCriterions = (await GetAdGroupCriterionsByIdsAsync(
+                        var adGroupCriterions = (await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                             adGroupId: adGroupId,
                             adGroupCriterionIds: null,
                             criterionType: AllTargetAdGroupCriterionTypes)).AdGroupCriterions.ToList();
 
 
-                        if(adGroupCriterions != null)
+                        if (adGroupCriterions != null)
                         {
                             // If the Smartphones device criterion already exists, we'll increase the bid multiplier by 5 percent.
 
@@ -138,7 +140,7 @@ namespace BingAdsExamplesLibrary.V11
 
                             if (updateAdGroupCriterions != null && updateAdGroupCriterions.ToList().Count > 0)
                             {
-                                var updateAdGroupCriterionsResponse = await UpdateAdGroupCriterionsAsync(
+                                var updateAdGroupCriterionsResponse = await CampaignManagementExampleHelper.UpdateAdGroupCriterionsAsync(
                                     adGroupCriterions: updateAdGroupCriterions,
                                     criterionType: AdGroupCriterionType.Targets
                                 );
@@ -147,14 +149,14 @@ namespace BingAdsExamplesLibrary.V11
                             // You can now store or output the ad group criterions.
 
                             OutputStatusMessage("Ad Group Criterions: ");
-                            OutputAdGroupCriterions(adGroupCriterions);
+                            CampaignManagementExampleHelper.OutputArrayOfAdGroupCriterion(adGroupCriterions);
                         }
                     }
                 }
 
                 // Delete the campaign and ad group that were previously added. 
 
-                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignIds[0] });
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignIds[0] });
                 OutputStatusMessage(string.Format("\nDeleted Campaign Id {0}\n", campaignIds[0]));
             }
             // Catch authentication exceptions
@@ -183,7 +185,9 @@ namespace BingAdsExamplesLibrary.V11
             }
         }
 
-        private async Task<IList<long>> GetExampleCampaignIdsAsync(AuthorizationData authorizationData)
+        private async Task<IList<long>> GetExampleCampaignIdsAsync(
+            CampaignManagementExampleHelper CampaignManagementExampleHelper,
+            AuthorizationData authorizationData)
         {
             var campaigns = new[]{
                 new Campaign
@@ -223,19 +227,19 @@ namespace BingAdsExamplesLibrary.V11
             // Add the campaigns and ad groups
 
             OutputStatusMessage("Add campaigns:\n");
-            AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
+            AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
             long?[] nillableCampaignIds = addCampaignsResponse.CampaignIds.ToArray();
             BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-            OutputIds(nillableCampaignIds);
-            OutputPartialErrors(campaignErrors);
+            CampaignManagementExampleHelper.OutputArrayOfLong(nillableCampaignIds);
+            CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
 
             OutputStatusMessage("Add ad groups:\n");
-            AddAdGroupsResponse addAdGroupsResponse = await AddAdGroupsAsync((long)nillableCampaignIds[0], adGroups);
+            AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)nillableCampaignIds[0], adGroups);
             long?[] nillableAdGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
             BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
-            OutputIds(nillableAdGroupIds);
-            OutputPartialErrors(adGroupErrors);
-            
+            CampaignManagementExampleHelper.OutputArrayOfLong(nillableAdGroupIds);
+            CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
+
             List<long> campaignIds = new List<long>();
             foreach (var campaignId in nillableCampaignIds)
             {

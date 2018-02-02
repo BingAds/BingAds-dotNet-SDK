@@ -540,12 +540,12 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("TrackingId: {0}", dataObject.TrackingId));
                 var adapifaultdetail = dataObject as AdApiFaultDetail;
-                if(dataObject != null)
+                if(adapifaultdetail != null)
                 {
                     OutputAdApiFaultDetail((AdApiFaultDetail)dataObject);
                 }
                 var apifaultdetail = dataObject as ApiFaultDetail;
-                if(dataObject != null)
+                if(apifaultdetail != null)
                 {
                     OutputApiFaultDetail((ApiFaultDetail)dataObject);
                 }
@@ -1486,152 +1486,152 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("ReportName: {0}", dataObject.ReportName));
                 OutputStatusMessage(string.Format("ReturnOnlyCompleteData: {0}", dataObject.ReturnOnlyCompleteData));
                 var accountperformancereportrequest = dataObject as AccountPerformanceReportRequest;
-                if(dataObject != null)
+                if(accountperformancereportrequest != null)
                 {
                     OutputAccountPerformanceReportRequest((AccountPerformanceReportRequest)dataObject);
                 }
                 var addynamictextperformancereportrequest = dataObject as AdDynamicTextPerformanceReportRequest;
-                if(dataObject != null)
+                if(addynamictextperformancereportrequest != null)
                 {
                     OutputAdDynamicTextPerformanceReportRequest((AdDynamicTextPerformanceReportRequest)dataObject);
                 }
                 var adextensionbyadreportrequest = dataObject as AdExtensionByAdReportRequest;
-                if(dataObject != null)
+                if(adextensionbyadreportrequest != null)
                 {
                     OutputAdExtensionByAdReportRequest((AdExtensionByAdReportRequest)dataObject);
                 }
                 var adextensionbykeywordreportrequest = dataObject as AdExtensionByKeywordReportRequest;
-                if(dataObject != null)
+                if(adextensionbykeywordreportrequest != null)
                 {
                     OutputAdExtensionByKeywordReportRequest((AdExtensionByKeywordReportRequest)dataObject);
                 }
                 var adextensiondetailreportrequest = dataObject as AdExtensionDetailReportRequest;
-                if(dataObject != null)
+                if(adextensiondetailreportrequest != null)
                 {
                     OutputAdExtensionDetailReportRequest((AdExtensionDetailReportRequest)dataObject);
                 }
                 var adgroupperformancereportrequest = dataObject as AdGroupPerformanceReportRequest;
-                if(dataObject != null)
+                if(adgroupperformancereportrequest != null)
                 {
                     OutputAdGroupPerformanceReportRequest((AdGroupPerformanceReportRequest)dataObject);
                 }
                 var adperformancereportrequest = dataObject as AdPerformanceReportRequest;
-                if(dataObject != null)
+                if(adperformancereportrequest != null)
                 {
                     OutputAdPerformanceReportRequest((AdPerformanceReportRequest)dataObject);
                 }
                 var agegenderdemographicreportrequest = dataObject as AgeGenderDemographicReportRequest;
-                if(dataObject != null)
+                if(agegenderdemographicreportrequest != null)
                 {
                     OutputAgeGenderDemographicReportRequest((AgeGenderDemographicReportRequest)dataObject);
                 }
                 var audienceperformancereportrequest = dataObject as AudiencePerformanceReportRequest;
-                if(dataObject != null)
+                if(audienceperformancereportrequest != null)
                 {
                     OutputAudiencePerformanceReportRequest((AudiencePerformanceReportRequest)dataObject);
                 }
                 var budgetsummaryreportrequest = dataObject as BudgetSummaryReportRequest;
-                if(dataObject != null)
+                if(budgetsummaryreportrequest != null)
                 {
                     OutputBudgetSummaryReportRequest((BudgetSummaryReportRequest)dataObject);
                 }
                 var calldetailreportrequest = dataObject as CallDetailReportRequest;
-                if(dataObject != null)
+                if(calldetailreportrequest != null)
                 {
                     OutputCallDetailReportRequest((CallDetailReportRequest)dataObject);
                 }
                 var campaignperformancereportrequest = dataObject as CampaignPerformanceReportRequest;
-                if(dataObject != null)
+                if(campaignperformancereportrequest != null)
                 {
                     OutputCampaignPerformanceReportRequest((CampaignPerformanceReportRequest)dataObject);
                 }
                 var conversionperformancereportrequest = dataObject as ConversionPerformanceReportRequest;
-                if(dataObject != null)
+                if(conversionperformancereportrequest != null)
                 {
                     OutputConversionPerformanceReportRequest((ConversionPerformanceReportRequest)dataObject);
                 }
                 var destinationurlperformancereportrequest = dataObject as DestinationUrlPerformanceReportRequest;
-                if(dataObject != null)
+                if(destinationurlperformancereportrequest != null)
                 {
                     OutputDestinationUrlPerformanceReportRequest((DestinationUrlPerformanceReportRequest)dataObject);
                 }
                 var dsaautotargetperformancereportrequest = dataObject as DSAAutoTargetPerformanceReportRequest;
-                if(dataObject != null)
+                if(dsaautotargetperformancereportrequest != null)
                 {
                     OutputDSAAutoTargetPerformanceReportRequest((DSAAutoTargetPerformanceReportRequest)dataObject);
                 }
                 var dsacategoryperformancereportrequest = dataObject as DSACategoryPerformanceReportRequest;
-                if(dataObject != null)
+                if(dsacategoryperformancereportrequest != null)
                 {
                     OutputDSACategoryPerformanceReportRequest((DSACategoryPerformanceReportRequest)dataObject);
                 }
                 var dsasearchqueryperformancereportrequest = dataObject as DSASearchQueryPerformanceReportRequest;
-                if(dataObject != null)
+                if(dsasearchqueryperformancereportrequest != null)
                 {
                     OutputDSASearchQueryPerformanceReportRequest((DSASearchQueryPerformanceReportRequest)dataObject);
                 }
                 var geographicperformancereportrequest = dataObject as GeographicPerformanceReportRequest;
-                if(dataObject != null)
+                if(geographicperformancereportrequest != null)
                 {
                     OutputGeographicPerformanceReportRequest((GeographicPerformanceReportRequest)dataObject);
                 }
                 var goalsandfunnelsreportrequest = dataObject as GoalsAndFunnelsReportRequest;
-                if(dataObject != null)
+                if(goalsandfunnelsreportrequest != null)
                 {
                     OutputGoalsAndFunnelsReportRequest((GoalsAndFunnelsReportRequest)dataObject);
                 }
                 var keywordperformancereportrequest = dataObject as KeywordPerformanceReportRequest;
-                if(dataObject != null)
+                if(keywordperformancereportrequest != null)
                 {
                     OutputKeywordPerformanceReportRequest((KeywordPerformanceReportRequest)dataObject);
                 }
                 var negativekeywordconflictreportrequest = dataObject as NegativeKeywordConflictReportRequest;
-                if(dataObject != null)
+                if(negativekeywordconflictreportrequest != null)
                 {
                     OutputNegativeKeywordConflictReportRequest((NegativeKeywordConflictReportRequest)dataObject);
                 }
                 var productdimensionperformancereportrequest = dataObject as ProductDimensionPerformanceReportRequest;
-                if(dataObject != null)
+                if(productdimensionperformancereportrequest != null)
                 {
                     OutputProductDimensionPerformanceReportRequest((ProductDimensionPerformanceReportRequest)dataObject);
                 }
                 var productpartitionperformancereportrequest = dataObject as ProductPartitionPerformanceReportRequest;
-                if(dataObject != null)
+                if(productpartitionperformancereportrequest != null)
                 {
                     OutputProductPartitionPerformanceReportRequest((ProductPartitionPerformanceReportRequest)dataObject);
                 }
                 var productpartitionunitperformancereportrequest = dataObject as ProductPartitionUnitPerformanceReportRequest;
-                if(dataObject != null)
+                if(productpartitionunitperformancereportrequest != null)
                 {
                     OutputProductPartitionUnitPerformanceReportRequest((ProductPartitionUnitPerformanceReportRequest)dataObject);
                 }
                 var productsearchqueryperformancereportrequest = dataObject as ProductSearchQueryPerformanceReportRequest;
-                if(dataObject != null)
+                if(productsearchqueryperformancereportrequest != null)
                 {
                     OutputProductSearchQueryPerformanceReportRequest((ProductSearchQueryPerformanceReportRequest)dataObject);
                 }
                 var publisherusageperformancereportrequest = dataObject as PublisherUsagePerformanceReportRequest;
-                if(dataObject != null)
+                if(publisherusageperformancereportrequest != null)
                 {
                     OutputPublisherUsagePerformanceReportRequest((PublisherUsagePerformanceReportRequest)dataObject);
                 }
                 var searchcampaignchangehistoryreportrequest = dataObject as SearchCampaignChangeHistoryReportRequest;
-                if(dataObject != null)
+                if(searchcampaignchangehistoryreportrequest != null)
                 {
                     OutputSearchCampaignChangeHistoryReportRequest((SearchCampaignChangeHistoryReportRequest)dataObject);
                 }
                 var searchqueryperformancereportrequest = dataObject as SearchQueryPerformanceReportRequest;
-                if(dataObject != null)
+                if(searchqueryperformancereportrequest != null)
                 {
                     OutputSearchQueryPerformanceReportRequest((SearchQueryPerformanceReportRequest)dataObject);
                 }
                 var shareofvoicereportrequest = dataObject as ShareOfVoiceReportRequest;
-                if(dataObject != null)
+                if(shareofvoicereportrequest != null)
                 {
                     OutputShareOfVoiceReportRequest((ShareOfVoiceReportRequest)dataObject);
                 }
                 var userlocationperformancereportrequest = dataObject as UserLocationPerformanceReportRequest;
-                if(dataObject != null)
+                if(userlocationperformancereportrequest != null)
                 {
                     OutputUserLocationPerformanceReportRequest((UserLocationPerformanceReportRequest)dataObject);
                 }

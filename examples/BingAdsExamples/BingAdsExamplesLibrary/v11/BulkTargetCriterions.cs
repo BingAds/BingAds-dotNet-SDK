@@ -25,7 +25,7 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
 
                 BulkServiceManager = new BulkServiceManager(authorizationData);
 

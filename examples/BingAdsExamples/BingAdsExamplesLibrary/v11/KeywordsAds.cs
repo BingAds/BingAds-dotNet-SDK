@@ -23,8 +23,9 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
-                                
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
+
                 var budgetIds = new List<long?>();
                 var budgets = new List<Budget>();
                 budgets.Add(new Budget
@@ -34,7 +35,7 @@ namespace BingAdsExamplesLibrary.V11
                     Name = "My Shared Budget " + DateTime.UtcNow,
                 });
 
-                budgetIds = (await AddBudgetsAsync(budgets)).BudgetIds.ToList();
+                budgetIds = (await CampaignManagementExampleHelper.AddBudgetsAsync(budgets)).BudgetIds.ToList();
 
                 // Specify one or more campaigns.
 
@@ -337,29 +338,29 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Add the campaign, ad group, keywords, and ads
 
-                AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-                OutputIds(campaignIds);
-                OutputPartialErrors(campaignErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
 
-                AddAdGroupsResponse addAdGroupsResponse = await AddAdGroupsAsync((long)campaignIds[0], adGroups);
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignIds[0], adGroups);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
-                OutputIds(adGroupIds);
-                OutputPartialErrors(adGroupErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
 
-                AddKeywordsResponse addKeywordsResponse = await AddKeywordsAsync((long)adGroupIds[0], keywords);
+                AddKeywordsResponse addKeywordsResponse = await CampaignManagementExampleHelper.AddKeywordsAsync((long)adGroupIds[0], keywords);
                 long?[] keywordIds = addKeywordsResponse.KeywordIds.ToArray();
                 BatchError[] keywordErrors = addKeywordsResponse.PartialErrors.ToArray();
-                OutputIds(keywordIds);
-                OutputPartialErrors(keywordErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(keywordIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(keywordErrors);
 
-                AddAdsResponse addAdsResponse = await AddAdsAsync((long)adGroupIds[0], ads);
+                AddAdsResponse addAdsResponse = await CampaignManagementExampleHelper.AddAdsAsync((long)adGroupIds[0], ads);
                 long?[] adIds = addAdsResponse.AdIds.ToArray();
                 BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
-                OutputIds(adIds);
-                OutputPartialErrors(adErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(adIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(adErrors);
 
                 // Here is a simple example that updates the campaign budget.
                 // If the campaign has a shared budget you cannot update the Campaign budget amount,
@@ -367,7 +368,7 @@ namespace BingAdsExamplesLibrary.V11
                 // the budget amount of a campaign that has a shared budget, the service will return 
                 // the CampaignServiceCannotUpdateSharedBudget error code.
                 
-                var getCampaigns = (await GetCampaignsByAccountIdAsync(
+                var getCampaigns = (await CampaignManagementExampleHelper.GetCampaignsByAccountIdAsync(
                     authorizationData.AccountId,
                     AllCampaignTypes
                 )).Campaigns;
@@ -405,17 +406,17 @@ namespace BingAdsExamplesLibrary.V11
                     // The UpdateBudgets operation only accepts 100 Budget objects per call. 
                     // To simply the example we will update the first 100.
                     getBudgetIds = getBudgetIds.Distinct().Take(100).ToList();
-                    var getBudgets = (await GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
+                    var getBudgets = (await CampaignManagementExampleHelper.GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
 
                     OutputStatusMessage("List of shared budgets BEFORE update:\n");
                     foreach (var budget in getBudgets)
                     {
                         OutputStatusMessage("Budget:");
-                        OutputBudget(budget);
+                        CampaignManagementExampleHelper.OutputBudget(budget);
                     }
 
                     OutputStatusMessage("List of campaigns that share each budget:\n");
-                    var getCampaignIdCollection = (await GetCampaignIdsByBudgetIdsAsync(getBudgetIds)).CampaignIdCollection;
+                    var getCampaignIdCollection = (await CampaignManagementExampleHelper.GetCampaignIdsByBudgetIdsAsync(getBudgetIds)).CampaignIdCollection;
                     for(int index = 0; index < getCampaignIdCollection.Count; index++)
                     {
                         OutputStatusMessage(string.Format("BudgetId: {0}", getBudgetIds[index]));
@@ -438,15 +439,15 @@ namespace BingAdsExamplesLibrary.V11
                             updateBudgets.Add(budget);
                         }
                     }
-                    await UpdateBudgetsAsync(updateBudgets);
+                    await CampaignManagementExampleHelper.UpdateBudgetsAsync(updateBudgets);
 
-                    getBudgets = (await GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
+                    getBudgets = (await CampaignManagementExampleHelper.GetBudgetsByIdsAsync(getBudgetIds)).Budgets;
 
                     OutputStatusMessage("List of shared budgets AFTER update:\n");
                     foreach (var budget in getBudgets)
                     {
                         OutputStatusMessage("Budget:");
-                        OutputBudget(budget);
+                        CampaignManagementExampleHelper.OutputBudget(budget);
                     }
                 }
 
@@ -462,9 +463,9 @@ namespace BingAdsExamplesLibrary.V11
                         getCampaignIds.Add((long)campaign.Id);
                     }
 
-                    await UpdateCampaignsAsync(authorizationData.AccountId, updateCampaigns);
+                    await CampaignManagementExampleHelper.UpdateCampaignsAsync(authorizationData.AccountId, updateCampaigns);
 
-                    getCampaigns = (await GetCampaignsByIdsAsync(
+                    getCampaigns = (await CampaignManagementExampleHelper.GetCampaignsByIdsAsync(
                         authorizationData.AccountId,
                         getCampaignIds,
                         CampaignType.SearchAndContent | CampaignType.Shopping | CampaignType.DynamicSearchAds
@@ -474,7 +475,7 @@ namespace BingAdsExamplesLibrary.V11
                     foreach (var campaign in getCampaigns)
                     {
                         OutputStatusMessage("Campaign:");
-                        OutputCampaign(campaign);
+                        CampaignManagementExampleHelper.OutputCampaign(campaign);
                     }
                 }
                 
@@ -514,12 +515,12 @@ namespace BingAdsExamplesLibrary.V11
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                var getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync(
+                var getAdsByAdGroupIdResponse = await CampaignManagementExampleHelper.GetAdsByAdGroupIdAsync(
                     (long)adGroupIds[0],
                     AllAdTypes
                     );
-                var updateAdsResponse = await UpdateAdsAsync((long)adGroupIds[0], updateAds);
-                getAdsByAdGroupIdResponse = await GetAdsByAdGroupIdAsync(
+                var updateAdsResponse = await CampaignManagementExampleHelper.UpdateAdsAsync((long)adGroupIds[0], updateAds);
+                getAdsByAdGroupIdResponse = await CampaignManagementExampleHelper.GetAdsByAdGroupIdAsync(
                     (long)adGroupIds[0],
                     AllAdTypes
                     );
@@ -537,21 +538,24 @@ namespace BingAdsExamplesLibrary.V11
 
                 // As an exercise you can step through using the debugger and view the results.
 
-                var getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
-                var updateKeywordsResponse = await UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
-                getKeywordsByAdGroupIdResponse = await GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
+                var getKeywordsByAdGroupIdResponse = 
+                    await CampaignManagementExampleHelper.GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], null);
+                var updateKeywordsResponse = 
+                    await CampaignManagementExampleHelper.UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
+                getKeywordsByAdGroupIdResponse = 
+                    await CampaignManagementExampleHelper.GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], null);
                 
                 // Delete the campaign, ad group, keyword, and ad that were previously added. 
                 // You should remove this line if you want to view the added entities in the 
                 // Bing Ads web application or another tool.
 
-                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
                 OutputStatusMessage(string.Format("\nDeleted Campaign Id {0}\n", campaignIds[0]));
 
                 // This sample will attempt to delete the budget that was created above.
                 if (budgetIds.Count > 0)
                 {
-                    await DeleteBudgetsAsync(new[] { (long)budgetIds[0] });
+                    await CampaignManagementExampleHelper.DeleteBudgetsAsync(new[] { (long)budgetIds[0] });
                     OutputStatusMessage(string.Format("\nDeleted Budget Id {0}\n", budgetIds[0]));
                 }
             }

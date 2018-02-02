@@ -22,17 +22,18 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // Before you can track conversions or target audiences using a remarketing list, 
                 // you need to create a UET tag in Bing Ads (web application or API) and then 
                 // add the UET tag tracking code to every page of your website. For more information, please see 
-                // Universal Event Tracking at https://msdn.microsoft.com/library/bing-ads-universal-event-tracking-guide.aspx.
+                // Universal Event Tracking at https://docs.microsoft.com/en-us/bingads/guides/universal-event-tracking.
 
                 // First you should call the GetUetTagsByIds operation to check whether a tag has already been created. 
                 // You can leave the TagIds element null or empty to request all UET tags available for the customer.
 
-                var uetTags = (await GetUetTagsByIdsAsync(null)).UetTags;
+                var uetTags = (await CampaignManagementExampleHelper.GetUetTagsByIdsAsync(null)).UetTags;
 
                 // If you do not already have a UET tag that can be used, or if you need another UET tag, 
                 // call the AddUetTags service operation to create a new UET tag. If the call is successful, 
@@ -46,7 +47,7 @@ namespace BingAdsExamplesLibrary.V11
                         Description = "My First Uet Tag",
                         Name = "New Uet Tag",
                     };
-                    uetTags = (await AddUetTagsAsync(new[] { uetTag })).UetTags;
+                    uetTags = (await CampaignManagementExampleHelper.AddUetTagsAsync(new[] { uetTag })).UetTags;
                 }
 
                 if (uetTags == null || uetTags.Count < 1)
@@ -60,7 +61,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage("List of all UET Tags:\n");
                 foreach (var uetTag in uetTags)
                 {
-                    OutputUetTag(uetTag);
+                    CampaignManagementExampleHelper.OutputUetTag(uetTag);
                 }
 
 
@@ -69,7 +70,7 @@ namespace BingAdsExamplesLibrary.V11
                 // or your website administrator, add it to your entire website in either the head or body sections. 
                 // If your website has a master page, then that is the best place to add it because you add it once 
                 // and it is included on all pages. For more information, please see 
-                // Universal Event Tracking at https://msdn.microsoft.com/library/bing-ads-universal-event-tracking-guide.aspx.
+                // Universal Event Tracking at https://docs.microsoft.com/en-us/bingads/guides/universal-event-tracking.
 
 
                 // We will use the same UET tag for the remainder of this example.
@@ -79,7 +80,7 @@ namespace BingAdsExamplesLibrary.V11
                 // Optionally you can update the name and description of a UetTag with the UpdateUetTags operation.
 
                 OutputStatusMessage("UET Tag BEFORE update:\n");
-                OutputUetTag(uetTags[0]);
+                CampaignManagementExampleHelper.OutputUetTag(uetTags[0]);
 
                 uetTags = new[]
                 {
@@ -91,12 +92,12 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
-                await UpdateUetTagsAsync(uetTags);
+                await CampaignManagementExampleHelper.UpdateUetTagsAsync(uetTags);
 
-                uetTags = (await GetUetTagsByIdsAsync(new[] { (long)tagId })).UetTags;
+                uetTags = (await CampaignManagementExampleHelper.GetUetTagsByIdsAsync(new[] { (long)tagId })).UetTags;
 
                 OutputStatusMessage("UET Tag AFTER update:\n");
-                OutputUetTag(uetTags[0]);
+                CampaignManagementExampleHelper.OutputUetTag(uetTags[0]);
 
                 // Add conversion goals that depend on the UET Tag Id retreived above.
                 // Please note that you cannot delete conversion goals. If you want to stop 
@@ -206,14 +207,14 @@ namespace BingAdsExamplesLibrary.V11
                     },
                 };
 
-                var addConversionGoalsResponse = await AddConversionGoalsAsync(conversionGoals);
+                var addConversionGoalsResponse = await CampaignManagementExampleHelper.AddConversionGoalsAsync(conversionGoals);
 
                 // Find the conversion goals that were added successfully. 
 
                 List<long> conversionGoalIds = GetNonNullableIds(addConversionGoalsResponse.ConversionGoalIds);
 
                 OutputStatusMessage("List of errors returned from AddConversionGoals (if any):\n");
-                OutputPartialErrors(addConversionGoalsResponse.PartialErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(addConversionGoalsResponse.PartialErrors);
 
                 var conversionGoalTypes =
                     ConversionGoalType.AppInstall |
@@ -223,12 +224,12 @@ namespace BingAdsExamplesLibrary.V11
                     ConversionGoalType.Url;
 
                 var getConversionGoals = 
-                    (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
+                    (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
 
                 OutputStatusMessage("List of conversion goals BEFORE update:\n");
                 foreach (var conversionGoal in getConversionGoals)
                 {
-                    OutputConversionGoal(conversionGoal);
+                    CampaignManagementExampleHelper.OutputConversionGoal(conversionGoal);
                 }
 
                 var updateConversionGoals = new ConversionGoal[]
@@ -306,18 +307,18 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
-                var updateConversionGoalsResponse = await UpdateConversionGoalsAsync(updateConversionGoals);
+                var updateConversionGoalsResponse = await CampaignManagementExampleHelper.UpdateConversionGoalsAsync(updateConversionGoals);
 
                 OutputStatusMessage("List of errors returned from UpdateConversionGoals (if any):\n");
-                OutputPartialErrors(updateConversionGoalsResponse.PartialErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(updateConversionGoalsResponse.PartialErrors);
 
                 getConversionGoals = 
-                    (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
+                    (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
 
                 OutputStatusMessage("List of conversion goals AFTER update:\n");
                 foreach (var conversionGoal in getConversionGoals)
                 {
-                    OutputConversionGoal(conversionGoal);
+                    CampaignManagementExampleHelper.OutputConversionGoal(conversionGoal);
                 }
             }
             // Catch authentication exceptions

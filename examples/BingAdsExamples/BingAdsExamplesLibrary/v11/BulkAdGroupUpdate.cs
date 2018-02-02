@@ -26,6 +26,8 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+
                 BulkServiceManager = new BulkServiceManager(authorizationData);
                 BulkServiceManager.StatusPollIntervalInMilliseconds = 5000;
 

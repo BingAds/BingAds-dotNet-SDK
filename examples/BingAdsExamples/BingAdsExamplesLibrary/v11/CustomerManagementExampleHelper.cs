@@ -342,7 +342,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("TimeZone: {0}", dataObject.TimeZone));
                 OutputStatusMessage(string.Format("PauseReason: {0}", dataObject.PauseReason));
                 var advertiseraccount = dataObject as AdvertiserAccount;
-                if(dataObject != null)
+                if(advertiseraccount != null)
                 {
                     OutputAdvertiserAccount((AdvertiserAccount)dataObject);
                 }
@@ -518,12 +518,12 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("TrackingId: {0}", dataObject.TrackingId));
                 var adapifaultdetail = dataObject as AdApiFaultDetail;
-                if(dataObject != null)
+                if(adapifaultdetail != null)
                 {
                     OutputAdApiFaultDetail((AdApiFaultDetail)dataObject);
                 }
                 var apifault = dataObject as ApiFault;
-                if(dataObject != null)
+                if(apifault != null)
                 {
                     OutputApiFault((ApiFault)dataObject);
                 }

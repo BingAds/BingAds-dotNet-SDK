@@ -161,12 +161,12 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("TrackingId: {0}", dataObject.TrackingId));
                 var adapifaultdetail = dataObject as AdApiFaultDetail;
-                if(dataObject != null)
+                if(adapifaultdetail != null)
                 {
                     OutputAdApiFaultDetail((AdApiFaultDetail)dataObject);
                 }
                 var apifaultdetail = dataObject as ApiFaultDetail;
-                if(dataObject != null)
+                if(apifaultdetail != null)
                 {
                     OutputApiFaultDetail((ApiFaultDetail)dataObject);
                 }
@@ -196,7 +196,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var editorialerror = dataObject as EditorialError;
-                if(dataObject != null)
+                if(editorialerror != null)
                 {
                     OutputEditorialError((EditorialError)dataObject);
                 }

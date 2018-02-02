@@ -33,11 +33,12 @@ namespace BingAdsExamplesLibrary.V11
                 // when creating a new Bing Shopping Campaign.
                 // For other operations such as adding product conditions, you can manage Bing Shopping Campaigns solely with the Bulk Service. 
 
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId
 
-                IList<BMCStore> stores = (await GetBMCStoresByCustomerIdAsync())?.BMCStores;
+                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
                 if (stores == null)
                 {
                     OutputStatusMessage(
@@ -249,8 +250,8 @@ namespace BingAdsExamplesLibrary.V11
                  * You could build the entire tree in a single call since there are less than 20,000 nodes; however, 
                  * we will build it in steps to demonstrate how to use the results from bulk upload to update the tree. 
                  * 
-                 * For a list of validation rules, see the Bing Shopping Campaigns technical guide:
-                 * https://msdn.microsoft.com/en-US/library/bing-ads-campaign-management-bing-shopping-campaigns.aspx
+                 * For a list of validation rules, see the Product Ads technical guide:
+                 * https://docs.microsoft.com/en-us/bingads/guides/product-ads
                  */
 
                 helper = new ProductPartitionHelper(adGroupId);
@@ -276,7 +277,7 @@ namespace BingAdsExamplesLibrary.V11
                  * The direct children of any node must have the same Operand. 
                  * For this example we will use CategoryL1 nodes as children of the root. 
                  * For a list of valid CategoryL1 through CategoryL5 values, see the Bing Category Taxonomy:
-                 * http://advertise.bingads.microsoft.com/en-us/WWDocs/user/search/en-us/Bing_Category_Taxonomy.txt
+                 * http://go.microsoft.com/fwlink?LinkId=507666
                  */
                 var animalsSubdivision = helper.AddSubdivision(
                     root,
