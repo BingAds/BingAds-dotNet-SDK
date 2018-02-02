@@ -27,6 +27,8 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+
                 BulkServiceManager = new BulkServiceManager(authorizationData);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>

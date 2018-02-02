@@ -34,7 +34,8 @@ namespace BingAdsExamplesLibrary.V11
                                     "the user invitation.");
                 OutputStatusMessage("You must use Super Admin credentials to send a user invitation.\n");
 
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(authorizationData);
 
                 // Prepare to invite a new user
                 var userInvitation = new UserInvitation
@@ -66,7 +67,7 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Once you send a user invitation, there is no option to rescind the invitation using the API.
                 // You can delete a pending invitation in the Accounts & Billing -> Users tab of the Bing Ads web application. 
-                var userInvitationId = (await SendUserInvitationAsync(userInvitation))?.UserInvitationId;
+                var userInvitationId = (await CustomerManagementExampleHelper.SendUserInvitationAsync(userInvitation))?.UserInvitationId;
                 OutputStatusMessage(string.Format("Sent new user invitation to {0}.\n", UserInviteRecipientEmail));
 
                 // It is possible to have multiple pending invitations sent to the same email address, 
@@ -97,9 +98,9 @@ namespace BingAdsExamplesLibrary.V11
                     Value = authorizationData.CustomerId.ToString(CultureInfo.InvariantCulture)
                 };
                 
-                var userInvitations = (await SearchUserInvitationsAsync(new[] { predicate }))?.UserInvitations;
+                var userInvitations = (await CustomerManagementExampleHelper.SearchUserInvitationsAsync(new[] { predicate }))?.UserInvitations;
                 OutputStatusMessage("Existing UserInvitation(s):\n");
-                OutputUserInvitations(userInvitations);
+                CustomerManagementExampleHelper.OutputArrayOfUserInvitation(userInvitations);
 
                 // Determine whether the invitation has been accepted or has expired.
                 // If you specified a valid InvitationId, and if the invitation is not found, 
@@ -117,7 +118,7 @@ namespace BingAdsExamplesLibrary.V11
                 {
                     // Once you send a user invitation, there is no option to rescind the invitation using the API.
                     // You can delete a pending invitation in the Accounts & Billing -> Users tab of the Bing Ads web application. 
-                    userInvitationId = (await SendUserInvitationAsync(userInvitation))?.UserInvitationId;
+                    userInvitationId = (await CustomerManagementExampleHelper.SendUserInvitationAsync(userInvitation))?.UserInvitationId;
                     OutputStatusMessage(string.Format("Sent new user invitation to {0}.\n", UserInviteRecipientEmail));
                 }
                 else
@@ -130,15 +131,17 @@ namespace BingAdsExamplesLibrary.V11
                 // different than the invitation email address, you cannot determine with certainty the mapping from UserInvitation 
                 // to accepted User. With the user ID returned by GetUsersInfo or GetUser, you can call DeleteUser to remove the user.
 
-                var usersInfo = (await GetUsersInfoAsync(authorizationData.CustomerId))?.UsersInfo;
+                var usersInfo = (await CustomerManagementExampleHelper.GetUsersInfoAsync(
+                    authorizationData.CustomerId,
+                    null))?.UsersInfo;
                 var confirmedUserInfo = usersInfo.SingleOrDefault(info => info.UserName == UserInviteRecipientEmail);
 
                 // If a user has already accepted an invitation, you can call GetUser to view all user details.
                 if (confirmedUserInfo != null)
                 {
-                    var getUserResponse = (await GetUserAsync(confirmedUserInfo.Id));
+                    var getUserResponse = (await CustomerManagementExampleHelper.GetUserAsync(confirmedUserInfo.Id));
                     OutputStatusMessage("Found Requested User Details (Not necessarily related to above Invitation ID(s):");
-                    OutputUser(getUserResponse.User);
+                    CustomerManagementExampleHelper.OutputUser(getUserResponse.User);
                     OutputStatusMessage("Role Ids:");
                     OutputStatusMessage(string.Join("; ", getUserResponse.Roles.Select(role => string.Format("{0}", role))));
                 }

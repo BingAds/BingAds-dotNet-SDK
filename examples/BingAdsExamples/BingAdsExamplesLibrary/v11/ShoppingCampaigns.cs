@@ -29,11 +29,12 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId
 
-                IList<BMCStore> stores = (await GetBMCStoresByCustomerIdAsync())?.BMCStores;
+                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
                 if (stores == null)
                 {
                     OutputStatusMessage(
@@ -50,11 +51,11 @@ namespace BingAdsExamplesLibrary.V11
                  *    Add this shopping setting to the Settings list of the Campaign.
                  */
 
-                var campaigns = new [] {
+                var campaigns = new[] {
                     new Campaign
                     {
                         CampaignType = CampaignType.Shopping,
-                        Settings = new[] { 
+                        Settings = new[] {
                             new ShoppingSetting() {
                                 Priority = 0,
                                 SalesCountryCode = "US",
@@ -78,13 +79,13 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
-                AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-                OutputIds(campaignIds);
-                OutputPartialErrors(campaignErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
                 long campaignId = (long)campaignIds[0];
-                
+
                 /* Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
                  * Use the product scope criterion to include a subset of your product catalog, for example a specific brand, 
                  * category, or product type. A campaign can only be associated with one ProductScope, which contains a list 
@@ -107,14 +108,14 @@ namespace BingAdsExamplesLibrary.V11
                                 },
                             }
                         },
-                    }                        
+                    }
                 };
 
-                var addCampaignCriterionsResponse = await (AddCampaignCriterionsAsync(
+                var addCampaignCriterionsResponse = await (CampaignManagementExampleHelper.AddCampaignCriterionsAsync(
                     campaignCriterions,
                     CampaignCriterionType.ProductScope)
                 );
-                
+
                 #endregion ManageCampaign
 
                 #region ManageAdGroup
@@ -137,11 +138,11 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
-                AddAdGroupsResponse addAdGroupsResponse = await AddAdGroupsAsync((long)campaignId, adGroups);
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignId, adGroups);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
-                OutputIds(adGroupIds);
-                OutputPartialErrors(adGroupErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
                 long adGroupId = (long)adGroupIds[0];
 
                 #region BidAllProducts
@@ -156,11 +157,11 @@ namespace BingAdsExamplesLibrary.V11
                 );
 
                 OutputStatusMessage("Applying only the root as a Unit with a bid . . . \n");
-                var applyProductPartitionActionsResponse = await ApplyProductPartitionActionsAsync(helper.PartitionActions);
+                var applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
 
-                var adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
-                    adGroupId,
+                var adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     null,
+                    adGroupId,
                     AdGroupCriterionType.ProductPartition
                 );
 
@@ -184,11 +185,11 @@ namespace BingAdsExamplesLibrary.V11
                 helper.UpdatePartition(updatedRoot);
 
                 OutputStatusMessage("Updating the bid for the tree root node . . . \n");
-                await ApplyProductPartitionActionsAsync(helper.PartitionActions);
+                await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
 
-                adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
-                    adGroupId,
+                adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     null,
+                    adGroupId,
                     AdGroupCriterionType.ProductPartition
                 );
 
@@ -204,8 +205,8 @@ namespace BingAdsExamplesLibrary.V11
                  * You could build the entire tree in a single call since there are less than 5,000 nodes; however, 
                  * we will build it in steps to demonstrate how to use the results from ApplyProductPartitionActions to update the tree. 
                  * 
-                 * For a list of validation rules, see the Bing Shopping Campaigns technical guide:
-                 * https://msdn.microsoft.com/en-US/library/bing-ads-campaign-management-bing-shopping-campaigns.aspx
+                 * For a list of validation rules, see the Product Ads technical guide:
+                 * https://docs.microsoft.com/en-us/bingads/guides/product-ads
                  */
 
                 helper = new PartitionActionHelper(adGroupId);
@@ -213,9 +214,9 @@ namespace BingAdsExamplesLibrary.V11
                 /*
                  * Check whether a root node exists already.
                  */
-                adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
-                    adGroupId,
+                adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     null,
+                    adGroupId,
                     AdGroupCriterionType.ProductPartition
                 );
                 var existingRoot = GetRootNode(adGroupCriterions?.AdGroupCriterions);
@@ -233,7 +234,7 @@ namespace BingAdsExamplesLibrary.V11
                  * The direct children of any node must have the same Operand. 
                  * For this example we will use CategoryL1 nodes as children of the root. 
                  * For a list of valid CategoryL1 through CategoryL5 values, see the Bing Category Taxonomy:
-                 * http://advertise.bingads.microsoft.com/en-us/WWDocs/user/search/en-us/Bing_Category_Taxonomy.txt
+                 * http://go.microsoft.com/fwlink?LinkId=507666
                  */
                 var animalsSubdivision = helper.AddSubdivision(
                     root,
@@ -297,14 +298,14 @@ namespace BingAdsExamplesLibrary.V11
                 );
 
                 OutputStatusMessage("Applying product partitions to the ad group . . . \n");
-                applyProductPartitionActionsResponse = await ApplyProductPartitionActionsAsync(helper.PartitionActions);
+                applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
 
                 // To retrieve product partitions after they have been applied, call GetAdGroupCriterionsByIds. 
                 // The product partition with ParentCriterionId set to null is the root node.
 
-                adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
-                    adGroupId,
+                adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     null,
+                    adGroupId,
                     AdGroupCriterionType.ProductPartition
                 );
 
@@ -394,11 +395,11 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(
                     "Updating the product partition group to refine Electronics (CategoryL1) with 3 child nodes . . . \n"
                 );
-                applyProductPartitionActionsResponse = await ApplyProductPartitionActionsAsync(helper.PartitionActions);
+                applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
 
-                adGroupCriterions = await GetAdGroupCriterionsByIdsAsync(
-                    adGroupId,
+                adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     null,
+                    adGroupId,
                     AdGroupCriterionType.ProductPartition
                 );
 
@@ -453,17 +454,17 @@ namespace BingAdsExamplesLibrary.V11
                  */
 
                 var ads = new Ad[] {
-                    new ProductAd 
+                    new ProductAd
                     {
                         PromotionalText = "Free shipping on $99 purchases."
                     },
                 };
 
-                AddAdsResponse addAdsResponse = await AddAdsAsync((long)adGroupIds[0], ads);
+                AddAdsResponse addAdsResponse = await CampaignManagementExampleHelper.AddAdsAsync((long)adGroupIds[0], ads);
                 long?[] adIds = addAdsResponse.AdIds.ToArray();
                 BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
-                OutputIds(adIds);
-                OutputPartialErrors(adErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(adIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(adErrors);
 
                 #endregion ManageAds
 
@@ -474,7 +475,7 @@ namespace BingAdsExamplesLibrary.V11
                  * Bing Ads web application or another tool.
                  */
 
-                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignId });
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignId });
                 OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", campaignId));
 
                 #endregion CleanUp
@@ -504,7 +505,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(ex.Message);
             }
         }
-        
+
         /// <summary>
         /// Returns the root node of a tree. This operation assumes that a complete 
         /// product partition tree is provided for one ad group. The node that has

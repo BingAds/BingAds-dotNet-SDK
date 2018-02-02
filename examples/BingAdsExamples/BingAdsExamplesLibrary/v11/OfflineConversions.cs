@@ -24,7 +24,8 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 var offlineConversionGoalName = "My Offline Conversion Goal " + DateTime.UtcNow;
 
@@ -56,14 +57,14 @@ namespace BingAdsExamplesLibrary.V11
                 };
 
                 OutputStatusMessage("Add conversion goal...\n");
-                var addConversionGoalsResponse = await AddConversionGoalsAsync(conversionGoals);
+                var addConversionGoalsResponse = await CampaignManagementExampleHelper.AddConversionGoalsAsync(conversionGoals);
 
                 List<long> conversionGoalIds = GetNonNullableIds(addConversionGoalsResponse.ConversionGoalIds);
                 var conversionGoalTypes = ConversionGoalType.OfflineConversion;
                 var getConversionGoals =
-                    (await GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
-                
-                OutputConversionGoals(getConversionGoals);
+                    (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
+
+                CampaignManagementExampleHelper.OutputArrayOfConversionGoal(getConversionGoals);
 
                 // Every time you create a new OfflineConversionGoal via either the Bing Ads web application or Campaign Management API, 
                 // the MSCLKIDAutoTaggingEnabled value of the corresponding AccountProperty is set to 'true' automatically.
@@ -73,10 +74,10 @@ namespace BingAdsExamplesLibrary.V11
                 accountPropertyNames.Add(AccountPropertyName.MSCLKIDAutoTaggingEnabled);
 
                 OutputStatusMessage("Get account properties...\n");
-                var getAccountPropertiesResponse = await GetAccountPropertiesAsync(accountPropertyNames);
-                OutputAccountProperties(getAccountPropertiesResponse.AccountProperties);
+                var getAccountPropertiesResponse = await CampaignManagementExampleHelper.GetAccountPropertiesAsync(accountPropertyNames);
+                CampaignManagementExampleHelper.OutputArrayOfAccountProperty(getAccountPropertiesResponse.AccountProperties);
 
-                var offlineConversions = new []
+                var offlineConversions = new[]
                 {
                     new OfflineConversion
                     {
@@ -106,8 +107,8 @@ namespace BingAdsExamplesLibrary.V11
                 // please see above call to AddConversionGoalsAsync. 
 
                 OutputStatusMessage("Apply the offline conversion...\n");
-                var applyOfflineConversionsResponse = await ApplyOfflineConversionsAsync(offlineConversions);
-                OutputOfflineConversions(offlineConversions);
+                var applyOfflineConversionsResponse = await CampaignManagementExampleHelper.ApplyOfflineConversionsAsync(offlineConversions);
+                CampaignManagementExampleHelper.OutputArrayOfOfflineConversion(offlineConversions);
 
             }
             // Catch authentication exceptions

@@ -26,8 +26,11 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(this.OutputStatusMessage);
+                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
+
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // To get started with dynamic search ads, first you'll need to add a new Campaign 
                 // with its type set to DynamicSearchAds. When you create the campaign, you'll need to 
@@ -67,12 +70,12 @@ namespace BingAdsExamplesLibrary.V11
                     },
                 };
 
-                AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 Microsoft.BingAds.V11.CampaignManagement.BatchError[] campaignErrors = 
                     addCampaignsResponse.PartialErrors.ToArray();
-                OutputIds(campaignIds);
-                OutputPartialErrors(campaignErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
 
                 // Next, create a new AdGroup within the dynamic search ads campaign. 
 
@@ -97,12 +100,12 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
-                AddAdGroupsResponse addAdGroupsResponse = await AddAdGroupsAsync((long)campaignIds[0], adGroups);
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignIds[0], adGroups);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 Microsoft.BingAds.V11.CampaignManagement.BatchError[] adGroupErrors = 
                     addAdGroupsResponse.PartialErrors.ToArray();
-                OutputIds(adGroupIds);
-                OutputPartialErrors(adGroupErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
 
                 // You can add one or more Webpage criterion to each ad group that helps determine 
                 // whether or not to serve dynamic search ads.
@@ -164,7 +167,10 @@ namespace BingAdsExamplesLibrary.V11
                 // To discover the categories that you can use for Webpage criterion (positive or negative), 
                 // use the GetDomainCategories operation with the Ad Insight service.
                 
-                var getDomainCategoriesResponse = await GetDomainCategoriesAsync(DOMAIN_NAME, LANGUAGE);
+                var getDomainCategoriesResponse = await AdInsightExampleHelper.GetDomainCategoriesAsync(
+                    null,
+                    DOMAIN_NAME, 
+                    LANGUAGE);
                 var categories = getDomainCategoriesResponse.Categories;
 
                 // If any categories are available let's use one as a condition.
@@ -224,16 +230,16 @@ namespace BingAdsExamplesLibrary.V11
                 adGroupCriterions.Add(adGroupWebpageNegativeUrl);
 
                 OutputStatusMessage("Adding Ad Group Webpage Criterion . . . \n");
-                OutputAdGroupCriterions(adGroupCriterions);
+                CampaignManagementExampleHelper.OutputArrayOfAdGroupCriterion(adGroupCriterions);
                 AddAdGroupCriterionsResponse addAdGroupCriterionsResponse =
-                    await AddAdGroupCriterionsAsync(adGroupCriterions, AdGroupCriterionType.Webpage);
+                    await CampaignManagementExampleHelper.AddAdGroupCriterionsAsync(adGroupCriterions, AdGroupCriterionType.Webpage);
                 long?[] adGroupCriterionIds = addAdGroupCriterionsResponse.AdGroupCriterionIds.ToArray();
                 OutputStatusMessage("New Ad Group Criterion Ids:\n");
-                OutputIds(adGroupCriterionIds);
+                CampaignManagementExampleHelper.OutputArrayOfLong(adGroupCriterionIds);
                 BatchErrorCollection[] adGroupCriterionErrors =
                     addAdGroupCriterionsResponse.NestedPartialErrors.ToArray();
                 OutputStatusMessage("\nAddAdGroupCriterions Errors:\n");
-                OutputBatchErrorCollections(adGroupCriterionErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(adGroupCriterionErrors);
 
                 // The negative Webpage criterion at the campaign level applies to all ad groups 
                 // within the campaign; however, if you define ad group level negative Webpage criterion, 
@@ -262,16 +268,16 @@ namespace BingAdsExamplesLibrary.V11
                 campaignCriterions.Add(campaignWebpageNegative);
 
                 OutputStatusMessage("Adding Campaign Webpage Criterion . . . \n");
-                OutputCampaignCriterions(campaignCriterions);
+                CampaignManagementExampleHelper.OutputArrayOfCampaignCriterion(campaignCriterions);
                 AddCampaignCriterionsResponse addCampaignCriterionsResponse =
-                    await AddCampaignCriterionsAsync(campaignCriterions, CampaignCriterionType.Webpage);
+                    await CampaignManagementExampleHelper.AddCampaignCriterionsAsync(campaignCriterions, CampaignCriterionType.Webpage);
                 long?[] campaignCriterionIds = addCampaignCriterionsResponse.CampaignCriterionIds.ToArray();
                 OutputStatusMessage("\nNew Campaign Criterion Ids:\n");
-                OutputIds(campaignCriterionIds);
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignCriterionIds);
                 BatchErrorCollection[] campaignCriterionErrors =
                     addCampaignCriterionsResponse.NestedPartialErrors.ToArray();
                 OutputStatusMessage("\nAddCampaignCriterions Errors:\n");
-                OutputBatchErrorCollections(campaignCriterionErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(campaignCriterionErrors);
 
 
                 // Finally you can add a DynamicSearchAd into the ad group. The ad title and display URL 
@@ -312,34 +318,34 @@ namespace BingAdsExamplesLibrary.V11
                     },
                 };
 
-                AddAdsResponse addAdsResponse = await AddAdsAsync((long)adGroupIds[0], ads);
+                AddAdsResponse addAdsResponse = await CampaignManagementExampleHelper.AddAdsAsync((long)adGroupIds[0], ads);
                 long?[] adIds = addAdsResponse.AdIds.ToArray();
                 Microsoft.BingAds.V11.CampaignManagement.BatchError[] adErrors = 
                     addAdsResponse.PartialErrors.ToArray();
-                OutputIds(adIds);
-                OutputPartialErrors(adErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(adIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(adErrors);
 
                 // Retrieve the Webpage criterion for the campaign.
-                var getCampaignCriterionsByIdsResponse = await GetCampaignCriterionsByIdsAsync(
-                    (long)campaignIds[0],
+                var getCampaignCriterionsByIdsResponse = await CampaignManagementExampleHelper.GetCampaignCriterionsByIdsAsync(
                     null,
+                    (long)campaignIds[0],
                     CampaignCriterionType.Webpage
                 );
 
                 OutputStatusMessage("Retrieving the Campaign Webpage Criterions that we added . . . \n");
                 campaignCriterions = getCampaignCriterionsByIdsResponse.CampaignCriterions.ToList();
-                OutputCampaignCriterions(campaignCriterions);
+                CampaignManagementExampleHelper.OutputArrayOfCampaignCriterion(campaignCriterions);
 
                 // Retrieve the Webpage criterion for the ad group and then test some update scenarios.
-                var getAdGroupCriterionsByIdsResponse = await GetAdGroupCriterionsByIdsAsync(
-                    (long)adGroupIds[0],
+                var getAdGroupCriterionsByIdsResponse = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     null,
+                    (long)adGroupIds[0],
                     AdGroupCriterionType.Webpage
                 );
 
                 OutputStatusMessage("Retrieving the Ad Group Webpage Criterions that we added . . . \n");
                 adGroupCriterions = getAdGroupCriterionsByIdsResponse.AdGroupCriterions.ToList();
-                OutputAdGroupCriterions(adGroupCriterions);
+                CampaignManagementExampleHelper.OutputArrayOfAdGroupCriterion(adGroupCriterions);
                 
                 // You can update the bid for BiddableAdGroupCriterion
 
@@ -395,19 +401,19 @@ namespace BingAdsExamplesLibrary.V11
                 }                
 
                 OutputStatusMessage("Updating Ad Group Webpage Criterion . . . \n");
-                OutputAdGroupCriterions(adGroupCriterions);
+                CampaignManagementExampleHelper.OutputArrayOfAdGroupCriterion(adGroupCriterions);
                 UpdateAdGroupCriterionsResponse updateAdGroupCriterionsResponse =
-                    await UpdateAdGroupCriterionsAsync(adGroupCriterions, AdGroupCriterionType.Webpage);
+                    await CampaignManagementExampleHelper.UpdateAdGroupCriterionsAsync(adGroupCriterions, AdGroupCriterionType.Webpage);
                 adGroupCriterionErrors =
                     updateAdGroupCriterionsResponse.NestedPartialErrors.ToArray();
                 OutputStatusMessage("UpdateAdGroupCriterions Errors:\n");
-                OutputBatchErrorCollections(adGroupCriterionErrors);
+                CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(adGroupCriterionErrors);
 
                 // Delete the campaign, ad group, criterion, and ad that were previously added. 
                 // You should remove this operation if you want to view the added entities in the 
                 // Bing Ads web application or another tool.
 
-                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
                 OutputStatusMessage(string.Format("\nDeleted Campaign Id {0}\n", campaignIds[0]));
                 
             }

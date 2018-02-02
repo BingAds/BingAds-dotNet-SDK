@@ -48,9 +48,11 @@ namespace BingAdsExamplesLibrary.V11
 
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
-                var getGeoLocationsFileUrlResponse = await GetGeoLocationsFileUrlAsync(Version, LanguageLocale);
+                var getGeoLocationsFileUrlResponse = 
+                    await CampaignManagementExampleHelper.GetGeoLocationsFileUrlAsync(Version, LanguageLocale);
 
                 // Going forward you should track the date and time of the previous download,  
                 // and compare it with the last modified time provided by the service.

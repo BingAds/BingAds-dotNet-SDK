@@ -23,9 +23,10 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CustomerService = new ServiceClient<ICustomerManagementService>(authorizationData);
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(authorizationData);
 
-                var getUserResponse = await GetUserAsync(null);
+                var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null);
                 var user = getUserResponse.User;
                 
                 // Only a user with the aggregator role (33) can sign up new customers. 
@@ -115,10 +116,11 @@ namespace BingAdsExamplesLibrary.V11
                 };
 
                 // Signup a new customer and account for the reseller. 
-                var signupCustomerResponse = await SignupCustomerAsync(
+                var signupCustomerResponse = await CustomerManagementExampleHelper.SignupCustomerAsync(
                     customer,
                     account,
-                    user.CustomerId);
+                    user.CustomerId,
+                    ApplicationType.Advertiser);
 
                 OutputStatusMessage(string.Format("New Customer and Account:\n"));
 

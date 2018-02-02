@@ -24,10 +24,13 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(this.OutputStatusMessage);
+                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
 
-                var campaigns = (await GetCampaignsByAccountIdAsync(
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
+
+                var campaigns = (await CampaignManagementExampleHelper.GetCampaignsByAccountIdAsync(
                     authorizationData.AccountId,
                     AllCampaignTypes)).Campaigns;
 
@@ -39,8 +42,8 @@ namespace BingAdsExamplesLibrary.V11
                 {
                     if (campaign.Id != null)
                     {
-                        opportunities = (await GetBudgetOpportunitiesAsync((long)campaign.Id)).Opportunities;
-                        OutputBudgetOpportunities(opportunities, (long) campaign.Id);
+                        opportunities = (await AdInsightExampleHelper.GetBudgetOpportunitiesAsync((long)campaign.Id)).Opportunities;
+                        AdInsightExampleHelper.OutputArrayOfBudgetOpportunity(opportunities);
                     }
                 }
             }
@@ -73,6 +76,6 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(ex.Message);
             }
-        }        
+        }
     }
 }

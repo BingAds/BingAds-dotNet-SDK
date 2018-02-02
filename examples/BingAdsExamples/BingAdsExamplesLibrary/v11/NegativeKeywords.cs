@@ -23,7 +23,8 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                CampaignService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
                 // Add a campaign that will later be associated with negative keywords. 
 
@@ -44,11 +45,11 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
-                AddCampaignsResponse addCampaignsResponse = await AddCampaignsAsync(authorizationData.AccountId, campaigns);
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-                OutputIds(campaignIds);
-                OutputPartialErrors(campaignErrors);
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
                 long campaignId = (long)campaignIds[0];
 
                 // You may choose to associate an exclusive set of negative keywords to an individual campaign 
@@ -78,39 +79,39 @@ namespace BingAdsExamplesLibrary.V11
                 };
 
                 AddNegativeKeywordsToEntitiesResponse addNegativeKeywordsToEntitiesResponse =
-                    await AddNegativeKeywordsToEntitiesAsync(entityNegativeKeywords);
-                OutputNegativeKeywordIds(addNegativeKeywordsToEntitiesResponse.NegativeKeywordIds);
-                OutputBatchErrorCollections(addNegativeKeywordsToEntitiesResponse.NestedPartialErrors);
+                    await CampaignManagementExampleHelper.AddNegativeKeywordsToEntitiesAsync(entityNegativeKeywords);
+                CampaignManagementExampleHelper.OutputArrayOfIdCollection(addNegativeKeywordsToEntitiesResponse.NegativeKeywordIds);
+                CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(addNegativeKeywordsToEntitiesResponse.NestedPartialErrors);
                 if (addNegativeKeywordsToEntitiesResponse.NestedPartialErrors == null
                     || addNegativeKeywordsToEntitiesResponse.NestedPartialErrors.Count == 0)
                 {
                     OutputStatusMessage("Added an exclusive set of negative keywords to the Campaign.\n");
-                    OutputNegativeKeywordIds(addNegativeKeywordsToEntitiesResponse.NegativeKeywordIds);
+                    CampaignManagementExampleHelper.OutputArrayOfIdCollection(addNegativeKeywordsToEntitiesResponse.NegativeKeywordIds);
                 }
                 else
                 {
-                    OutputBatchErrorCollections(addNegativeKeywordsToEntitiesResponse.NestedPartialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(addNegativeKeywordsToEntitiesResponse.NestedPartialErrors);
                 }
 
                 GetNegativeKeywordsByEntityIdsResponse getNegativeKeywordsByEntityIdsResponse =
-                    await GetNegativeKeywordsByEntityIdsAsync(new[] { campaignId }, "Campaign", authorizationData.AccountId);
-                OutputEntityNegativeKeywords(getNegativeKeywordsByEntityIdsResponse.EntityNegativeKeywords);
-                OutputPartialErrors(getNegativeKeywordsByEntityIdsResponse.PartialErrors);
+                    await CampaignManagementExampleHelper.GetNegativeKeywordsByEntityIdsAsync(new[] { campaignId }, "Campaign", authorizationData.AccountId);
+                CampaignManagementExampleHelper.OutputArrayOfEntityNegativeKeyword(getNegativeKeywordsByEntityIdsResponse.EntityNegativeKeywords);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getNegativeKeywordsByEntityIdsResponse.PartialErrors);
                 if (getNegativeKeywordsByEntityIdsResponse.PartialErrors == null
                     || getNegativeKeywordsByEntityIdsResponse.PartialErrors.Count == 0)
                 {
                     OutputStatusMessage("Retrieved an exclusive set of negative keywords for the Campaign.\n");
-                    OutputEntityNegativeKeywords(getNegativeKeywordsByEntityIdsResponse.EntityNegativeKeywords);
+                    CampaignManagementExampleHelper.OutputArrayOfEntityNegativeKeyword(getNegativeKeywordsByEntityIdsResponse.EntityNegativeKeywords);
                 }
                 else
                 {
-                    OutputPartialErrors(getNegativeKeywordsByEntityIdsResponse.PartialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchError(getNegativeKeywordsByEntityIdsResponse.PartialErrors);
                 }
-                
+
                 // If you attempt to delete a negative keyword without an identifier the operation will
                 // succeed but will return partial errors corresponding to the index of the negative keyword
                 // that was not deleted. 
-                var nestedPartialErrors = (BatchErrorCollection[])(await DeleteNegativeKeywordsFromEntitiesAsync(entityNegativeKeywords)).NestedPartialErrors;
+                var nestedPartialErrors = (BatchErrorCollection[])(await CampaignManagementExampleHelper.DeleteNegativeKeywordsFromEntitiesAsync(entityNegativeKeywords)).NestedPartialErrors;
                 if (nestedPartialErrors == null || nestedPartialErrors.Length == 0)
                 {
                     OutputStatusMessage("Deleted an exclusive set of negative keywords from the Campaign.\n");
@@ -118,11 +119,11 @@ namespace BingAdsExamplesLibrary.V11
                 else
                 {
                     OutputStatusMessage("Attempt to DeleteNegativeKeywordsFromEntities without NegativeKeyword identifier partially fails by design.");
-                    OutputBatchErrorCollections(nestedPartialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(nestedPartialErrors);
                 }
 
                 // Delete the negative keywords with identifiers that were returned above.
-                nestedPartialErrors = (BatchErrorCollection[])(await DeleteNegativeKeywordsFromEntitiesAsync(
+                nestedPartialErrors = (BatchErrorCollection[])(await CampaignManagementExampleHelper.DeleteNegativeKeywordsFromEntitiesAsync(
                     getNegativeKeywordsByEntityIdsResponse.EntityNegativeKeywords)).NestedPartialErrors;
                 if (nestedPartialErrors == null || nestedPartialErrors.Length == 0)
                 {
@@ -130,7 +131,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
                 else
                 {
-                    OutputBatchErrorCollections(nestedPartialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(nestedPartialErrors);
                 }
 
                 // Negative keywords can also be added and deleted from a shared negative keyword list. 
@@ -143,7 +144,7 @@ namespace BingAdsExamplesLibrary.V11
                     Type = "NegativeKeywordList"
                 };
 
-                SharedListItem[] negativeKeywords = 
+                SharedListItem[] negativeKeywords =
                 {
                     new NegativeKeyword
                     {
@@ -161,27 +162,26 @@ namespace BingAdsExamplesLibrary.V11
 
                 // You can create a new list for negative keywords with or without negative keywords.
 
-                var addSharedEntityResponse = await AddSharedEntityAsync(negativeKeywordList, negativeKeywords);
+                var addSharedEntityResponse = await CampaignManagementExampleHelper.AddSharedEntityAsync(negativeKeywordList, negativeKeywords);
                 var sharedEntityId = addSharedEntityResponse.SharedEntityId;
                 long[] listItemIds = addSharedEntityResponse.ListItemIds.ToArray();
 
                 OutputStatusMessage(string.Format("NegativeKeywordList successfully added to account library and assigned identifer {0}\n", sharedEntityId));
 
-                OutputNegativeKeywordsWithPartialErrors(
-                    sharedEntityId,
-                    negativeKeywords,
-                    listItemIds,
-                    addSharedEntityResponse.PartialErrors.ToArray());
+                negativeKeywordList.Id = addSharedEntityResponse.SharedEntityId;
+                CampaignManagementExampleHelper.OutputSharedEntity(negativeKeywordList);
+                CampaignManagementExampleHelper.OutputArrayOfSharedListItem(negativeKeywords.ToList());
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(addSharedEntityResponse.PartialErrors);
 
                 OutputStatusMessage("Negative keywords currently in NegativeKeywordList:");
-                negativeKeywords = (SharedListItem[])(await GetListItemsBySharedListAsync(new NegativeKeywordList { Id = sharedEntityId })).ListItems;
+                negativeKeywords = (SharedListItem[])(await CampaignManagementExampleHelper.GetListItemsBySharedListAsync(new NegativeKeywordList { Id = sharedEntityId })).ListItems;
                 if (negativeKeywords == null || negativeKeywords.Length == 0)
                 {
                     OutputStatusMessage("None\n");
                 }
                 else
                 {
-                    OutputNegativeKeywords(negativeKeywords.Cast<NegativeKeyword>());
+                    CampaignManagementExampleHelper.OutputArrayOfNegativeKeyword(negativeKeywords.Cast<NegativeKeyword>().ToList());
                 }
 
                 // To update the list of negative keywords, you must either add or remove from the list
@@ -189,7 +189,7 @@ namespace BingAdsExamplesLibrary.V11
                 // To remove the negative keywords from the list pass the negative keyword identifers
                 // and negative keyword list (SharedEntity) identifer.
 
-                var partialErrors = (await DeleteListItemsFromSharedListAsync(listItemIds, new NegativeKeywordList { Id = sharedEntityId }))?.PartialErrors;
+                var partialErrors = (await CampaignManagementExampleHelper.DeleteListItemsFromSharedListAsync(listItemIds, new NegativeKeywordList { Id = sharedEntityId }))?.PartialErrors;
                 if (partialErrors == null || !partialErrors.Any())
                 {
                     OutputStatusMessage("Deleted most recently added negative keywords from negative keyword list.\n");
@@ -197,18 +197,18 @@ namespace BingAdsExamplesLibrary.V11
                 }
                 else
                 {
-                    OutputPartialErrors(partialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchError(partialErrors);
                 }
 
                 OutputStatusMessage("Negative keywords currently in NegativeKeywordList:");
-                negativeKeywords = (SharedListItem[])(await GetListItemsBySharedListAsync(new NegativeKeywordList { Id = sharedEntityId })).ListItems;
+                negativeKeywords = (SharedListItem[])(await CampaignManagementExampleHelper.GetListItemsBySharedListAsync(new NegativeKeywordList { Id = sharedEntityId })).ListItems;
                 if (negativeKeywords == null || negativeKeywords.Length == 0)
                 {
                     OutputStatusMessage("None\n");
                 }
                 else
                 {
-                    OutputNegativeKeywords(negativeKeywords.Cast<NegativeKeyword>());
+                    CampaignManagementExampleHelper.OutputArrayOfNegativeKeyword(negativeKeywords.Cast<NegativeKeyword>().ToList());
                 }
 
                 // Whether you created the list with or without negative keywords, more can be added 
@@ -230,26 +230,23 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 };
 
-                var addListItemsToSharedListResponse = await AddListItemsToSharedListAsync(
+                var addListItemsToSharedListResponse = await CampaignManagementExampleHelper.AddListItemsToSharedListAsync(
                     negativeKeywords,
                     new NegativeKeywordList { Id = sharedEntityId });
                 listItemIds = addListItemsToSharedListResponse.ListItemIds.ToArray();
 
-                OutputNegativeKeywordsWithPartialErrors(
-                    sharedEntityId,
-                    negativeKeywords,
-                    listItemIds,
-                    addListItemsToSharedListResponse.PartialErrors.ToArray());
+                CampaignManagementExampleHelper.OutputArrayOfSharedListItem(negativeKeywords.ToList());
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(addListItemsToSharedListResponse.PartialErrors);
 
                 OutputStatusMessage("Negative keywords currently in NegativeKeywordList:");
-                negativeKeywords = (SharedListItem[])(await GetListItemsBySharedListAsync(new NegativeKeywordList { Id = sharedEntityId })).ListItems;
+                negativeKeywords = (SharedListItem[])(await CampaignManagementExampleHelper.GetListItemsBySharedListAsync(new NegativeKeywordList { Id = sharedEntityId })).ListItems;
                 if (negativeKeywords == null || negativeKeywords.Length == 0)
                 {
                     OutputStatusMessage("None\n");
                 }
                 else
                 {
-                    OutputNegativeKeywords(negativeKeywords.Cast<NegativeKeyword>());
+                    CampaignManagementExampleHelper.OutputArrayOfNegativeKeyword(negativeKeywords.Cast<NegativeKeyword>().ToList());
                 }
 
                 // You can update the name of the negative keyword list. 
@@ -261,21 +258,21 @@ namespace BingAdsExamplesLibrary.V11
                     Type = "NegativeKeywordList"
                 };
 
-                partialErrors = (await UpdateSharedEntitiesAsync(new SharedEntity[] { negativeKeywordList })).PartialErrors;
+                partialErrors = (await CampaignManagementExampleHelper.UpdateSharedEntitiesAsync(new SharedEntity[] { negativeKeywordList })).PartialErrors;
                 if (partialErrors == null || !partialErrors.Any())
                 {
                     OutputStatusMessage(string.Format("Updated Negative Keyword List Name to {0}.\n", negativeKeywordList.Name));
                 }
                 else
                 {
-                    OutputPartialErrors(partialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchError(partialErrors);
                 }
 
                 // Get and output the negative keyword lists and store the list of identifiers.
 
                 const string sharedEntityType = "NegativeKeywordList";
-                var sharedEntities = (await GetSharedEntitiesByAccountIdAsync(sharedEntityType)).SharedEntities;
-                OutputSharedEntityIdentifiersAsync(sharedEntities);
+                var sharedEntities = (await CampaignManagementExampleHelper.GetSharedEntitiesByAccountIdAsync(sharedEntityType)).SharedEntities;
+                CampaignManagementExampleHelper.OutputArrayOfSharedEntity(sharedEntities);
                 var sharedEntityIds = new long[sharedEntities.Count];
                 for (int index = 0; index < sharedEntities.Count; index++)
                 {
@@ -297,11 +294,11 @@ namespace BingAdsExamplesLibrary.V11
                         EntityId = campaignId,
                         EntityType = "Campaign",
                         SharedEntityId = sharedEntityId,
-                        SharedEntityType = "NegativeKeywordList" 
+                        SharedEntityType = "NegativeKeywordList"
                     }
                 };
 
-                partialErrors = (await SetSharedEntityAssociationsAsync(associations)).PartialErrors;
+                partialErrors = (await CampaignManagementExampleHelper.SetSharedEntityAssociationsAsync(associations)).PartialErrors;
                 if (partialErrors == null || !partialErrors.Any())
                 {
                     OutputStatusMessage(string.Format("Associated CampaignId {0} with Negative Keyword List Id {1}.\n",
@@ -309,49 +306,49 @@ namespace BingAdsExamplesLibrary.V11
                 }
                 else
                 {
-                    OutputPartialErrors(partialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchError(partialErrors);
                 }
 
                 // Get and output the associations either by Campaign or NegativeKeywordList identifier.
                 GetSharedEntityAssociationsByEntityIdsResponse getSharedEntityAssociationsByEntityIdsResponse =
-                    await GetSharedEntityAssociationsByEntityIdsAsync(new[] { campaignId }, "Campaign", "NegativeKeywordList");
-                OutputSharedEntityAssociations(getSharedEntityAssociationsByEntityIdsResponse.Associations);
-                OutputPartialErrors(getSharedEntityAssociationsByEntityIdsResponse.PartialErrors);
+                    await CampaignManagementExampleHelper.GetSharedEntityAssociationsByEntityIdsAsync(new[] { campaignId }, "Campaign", "NegativeKeywordList");
+                CampaignManagementExampleHelper.OutputArrayOfSharedEntityAssociation(getSharedEntityAssociationsByEntityIdsResponse.Associations);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getSharedEntityAssociationsByEntityIdsResponse.PartialErrors);
 
                 // Currently the GetSharedEntityAssociationsBySharedEntityIds operation accepts only one shared entity identifier in the list.
                 GetSharedEntityAssociationsBySharedEntityIdsResponse getSharedEntityAssociationsBySharedEntityIdsResponse =
-                    await GetSharedEntityAssociationsBySharedEntityIdsAsync("Campaign", new[] { sharedEntityIds[sharedEntityIds.Length - 1] }, "NegativeKeywordList");
-                OutputSharedEntityAssociations(getSharedEntityAssociationsBySharedEntityIdsResponse.Associations);
-                OutputPartialErrors(getSharedEntityAssociationsBySharedEntityIdsResponse.PartialErrors);
+                    await CampaignManagementExampleHelper.GetSharedEntityAssociationsBySharedEntityIdsAsync("Campaign", new[] { sharedEntityIds[sharedEntityIds.Length - 1] }, "NegativeKeywordList");
+                CampaignManagementExampleHelper.OutputArrayOfSharedEntityAssociation(getSharedEntityAssociationsBySharedEntityIdsResponse.Associations);
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getSharedEntityAssociationsBySharedEntityIdsResponse.PartialErrors);
 
                 // Explicitly delete the association between the campaign and the negative keyword list.
 
-                partialErrors = (await DeleteSharedEntityAssociationsAsync(associations)).PartialErrors;
+                partialErrors = (await CampaignManagementExampleHelper.DeleteSharedEntityAssociationsAsync(associations)).PartialErrors;
                 if (partialErrors == null || !partialErrors.Any())
                 {
                     OutputStatusMessage("Deleted NegativeKeywordList associations\n");
                 }
                 else
                 {
-                    OutputPartialErrors(partialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchError(partialErrors);
                 }
 
                 // Delete the campaign and any remaining assocations. 
 
-                await DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignId });
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignId });
                 OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", campaignId));
 
                 // DeleteCampaigns does not delete the negative keyword list from the account's library. 
                 // Call the DeleteSharedEntities operation to delete the shared entities.
 
-                partialErrors = (await DeleteSharedEntitiesAsync(new SharedEntity[] { new NegativeKeywordList { Id = sharedEntityId } }))?.PartialErrors;
+                partialErrors = (await CampaignManagementExampleHelper.DeleteSharedEntitiesAsync(new SharedEntity[] { new NegativeKeywordList { Id = sharedEntityId } }))?.PartialErrors;
                 if (partialErrors == null || !partialErrors.Any())
                 {
                     OutputStatusMessage(string.Format("Deleted Negative Keyword List (SharedEntity) Id {0}\n", sharedEntityId));
                 }
                 else
                 {
-                    OutputPartialErrors(partialErrors);
+                    CampaignManagementExampleHelper.OutputArrayOfBatchError(partialErrors);
                 }
             }
             // Catch authentication exceptions
@@ -378,6 +375,6 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(ex.Message);
             }
-        }        
+        }
     }
 }
