@@ -145,8 +145,11 @@ namespace BingAdsExamplesLibrary.V11
 
                     if (updateClientLinksResponse != null)
                     {
-                        PrintPartialErrors(updateClientLinksResponse.OperationErrors,
-                                           updateClientLinksResponse.PartialErrors);
+                        CustomerManagementExampleHelper.OutputArrayOfOperationError(updateClientLinksResponse.OperationErrors);
+                        foreach (List<OperationError> operationErrors in updateClientLinksResponse.PartialErrors)
+                        {
+                            CustomerManagementExampleHelper.OutputArrayOfOperationError(operationErrors);
+                        }
                     }
                 }
 
@@ -169,8 +172,13 @@ namespace BingAdsExamplesLibrary.V11
                     var addClientLinksResponse = await CustomerManagementExampleHelper.AddClientLinksAsync(new[] { clientLink });
 
                     // Print errors if any occurred when adding the client link.
+                    
+                    CustomerManagementExampleHelper.OutputArrayOfOperationError(addClientLinksResponse.OperationErrors);
+                    foreach (List<OperationError> operationErrors in addClientLinksResponse.PartialErrors)
+                    {
+                        CustomerManagementExampleHelper.OutputArrayOfOperationError(operationErrors);
+                    }
 
-                    PrintPartialErrors(addClientLinksResponse.OperationErrors.ToArray(), addClientLinksResponse.PartialErrors.ToArray());
                     OutputStatusMessage(string.Format("The user attempted to add a new ClientLink.\n"));
                     OutputStatusMessage(string.Format("Login as the client Super Admin to accept the agency's request to manage AccountId {0}.\n", ClientAccountId));
                 }
@@ -202,46 +210,6 @@ namespace BingAdsExamplesLibrary.V11
             catch (Exception ex)
             {
                 OutputStatusMessage(ex.Message);
-            }
-        }
-
-
-
-
-
-        // Print errors if any occurred when adding or updating the client link.
-
-        private void PrintPartialErrors(IEnumerable<OperationError> operationErrors, IEnumerable<IList<OperationError>> partialErrors)
-        {
-            if (operationErrors == null)
-            {
-                return;
-            }
-
-            foreach (OperationError error in operationErrors)
-            {
-                OutputStatusMessage("OperationError");
-                OutputStatusMessage(string.Format("Code: {0}\nMessage: {1}\n", error.Code, error.Message));
-            }
-
-            if (partialErrors == null)
-            {
-                return;
-            }
-
-            foreach (var errors in partialErrors)
-            {
-                if (errors != null)
-                {
-                    foreach (OperationError error in errors)
-                    {
-                        if (error != null)
-                        {
-                            OutputStatusMessage("OperationError");
-                            OutputStatusMessage(string.Format("Code: {0}\nMessage: {1}\n", error.Code, error.Message));
-                        }
-                    }
-                }
             }
         }
     }
