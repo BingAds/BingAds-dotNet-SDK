@@ -48,13 +48,18 @@
 //=====================================================================================================================================================
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Microsoft.BingAds.Internal.OAuth
 {
-    internal interface IOAuthService
+    class OAuthEndpoints
     {
-        Task<OAuthTokens> GetAccessTokensAsync(OAuthRequestParameters oAuthParameters);
-        Uri RedirectionUri();
+
+        public string RedirectUrl { get; set; }
+        public string OAuthTokenUrl { get; set; }
+        public string AuthorizationEndpointUrl { get; set; }
     }
 }

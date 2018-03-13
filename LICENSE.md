@@ -1,4 +1,4 @@
-Bing Ads .NET SDK ver. 11.5.1
+Bing Ads .NET SDK ver. 11.5.9
 
 Copyright (c) Microsoft Corporation
 

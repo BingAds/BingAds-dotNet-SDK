@@ -67,12 +67,11 @@ namespace Microsoft.BingAds
     /// The Bing Ads service interface that should be called.
     /// </typeparam>
     /// <remarks>Valid values of <typeparamref name="TService"/> are:
-    ///     <para>IAdIntelligenceService</para>
+    ///     <para>IAdInsightService</para>
     ///     <para>IBulkService</para>
     ///     <para>ICampaignManagementService</para>
     ///     <para>ICustomerBillingService</para>
     ///     <para>ICustomerManagementService</para>
-    ///     <para>IOptimizerService</para>
     ///     <para>IReportingService</para>
     /// </remarks>
     public class ServiceClient<TService> : IDisposable
@@ -110,7 +109,6 @@ namespace Microsoft.BingAds
         /// <param name="authorizationData">Represents a user who intends to access the corresponding customer and account.</param>
         public ServiceClient(AuthorizationData authorizationData): this(authorizationData, null)
         {
-
         }
 
         /// <summary>
@@ -124,7 +122,6 @@ namespace Microsoft.BingAds
             {
                 throw new ArgumentNullException("authorizationData");
             }
-
             _authorizationData = authorizationData;
 
             _serviceClientFactory = ServiceClientFactoryFactory.CreateServiceClientFactory();
@@ -133,25 +130,42 @@ namespace Microsoft.BingAds
             {
                 throw new InvalidOperationException(ErrorMessages.ApiServiceTypeMustBeInterface);
             }
-            if (environment == null)
-            {
-                var envSetting = HostingEnvironment.IsHosted ?
-                WebConfigurationManager.AppSettings[EnvironmentAppSetting] :
-                ConfigurationManager.AppSettings[EnvironmentAppSetting];
 
-                if (!Enum.TryParse(envSetting, out _environment))
-                {
-                    _environment = ApiEnvironment.Production;
-                }
-            }
-            else
-            {
-                _environment = environment.Value;
-            }           
+            DetectApiEnvironment(authorizationData, environment);
 
             _channelFactory = _serviceClientFactory.CreateChannelFactory<TService>(_environment);
 
             RefreshOAuthTokensAutomatically = true;
+        }
+
+        private void DetectApiEnvironment(AuthorizationData authorizationData, ApiEnvironment? environment)
+        {
+            var oauth = authorizationData.Authentication as OAuthAuthorization;
+            if (oauth != null)
+            {
+                environment = oauth.Environment;
+            }
+
+            if (environment == null)
+            {
+                DetectApiEnvironmentFromConfiguration();
+            }
+            else
+            {
+                _environment = environment.Value;
+            }
+        }
+
+        private void DetectApiEnvironmentFromConfiguration()
+        {
+            var envSetting = HostingEnvironment.IsHosted ?
+            WebConfigurationManager.AppSettings[EnvironmentAppSetting] :
+            ConfigurationManager.AppSettings[EnvironmentAppSetting];
+
+            if (!Enum.TryParse(envSetting, out _environment))
+            {
+                _environment = ApiEnvironment.Production;
+            }
         }
 
         /// <summary>

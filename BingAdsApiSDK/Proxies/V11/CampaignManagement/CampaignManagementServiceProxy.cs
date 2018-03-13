@@ -443,7 +443,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// The languages of the ads and keywords in the campaign.
+        /// Your ad language setting determines the language you will use when you write your ads and should be the language of your customers.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Collections.Generic.IList<string> Languages
@@ -713,6 +713,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicSearchAds = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Audience = 8,
     }
     
     /// <summary>
@@ -728,6 +734,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ShoppingSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.DynamicSearchAdsSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.TargetSetting))]
     public partial class Setting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -1293,6 +1300,179 @@ namespace Microsoft.BingAds.V11.CampaignManagement
                 }
             }
         }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/targetsetting?view=bingads-11">TargetSetting Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/targetsetting?view=bingads-11 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TargetSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class TargetSetting : Microsoft.BingAds.V11.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.TargetSettingDetail> DetailsField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.TargetSettingDetail> Details
+        {
+            get
+            {
+                return this.DetailsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true))
+                {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/targetsettingdetail?view=bingads-11">TargetSettingDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/targetsettingdetail?view=bingads-11 for details.
+    /// <para>Used by <see cref="TargetSetting"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TargetSettingDetail", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class TargetSettingDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.CampaignManagement.CriterionTypeGroup CriterionTypeGroupField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool TargetAllField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.CampaignManagement.CriterionTypeGroup CriterionTypeGroup
+        {
+            get
+            {
+                return this.CriterionTypeGroupField;
+            }
+            set
+            {
+                if ((this.CriterionTypeGroupField.Equals(value) != true))
+                {
+                    this.CriterionTypeGroupField = value;
+                    this.RaisePropertyChanged("CriterionTypeGroup");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool TargetAll
+        {
+            get
+            {
+                return this.TargetAllField;
+            }
+            set
+            {
+                if ((this.TargetAllField.Equals(value) != true))
+                {
+                    this.TargetAllField = value;
+                    this.RaisePropertyChanged("TargetAll");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/criteriontypegroup?view=bingads-11">CriterionTypeGroup Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/criteriontypegroup?view=bingads-11 for details.
+    /// <para>Used by <see cref="TargetSettingDetail"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CriterionTypeGroup", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum CriterionTypeGroup : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Gender = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Age = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Audience = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CompanyName = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobFunction = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Industry = 6,
     }
     
     /// <summary>
@@ -2305,6 +2485,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.PricingModel> PricingModelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupPrivacyStatus> PrivacyStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.RemarketingTargetingSetting> RemarketingTargetingSettingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2478,7 +2661,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// The language of the ads and keywords in the ad group.
+        /// Your ad language setting determines the language you will use when you write your ads and should be the language of your customers.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Language
@@ -2573,6 +2756,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
                 {
                     this.PricingModelField = value;
                     this.RaisePropertyChanged("PricingModel");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupPrivacyStatus> PrivacyStatus
+        {
+            get
+            {
+                return this.PrivacyStatusField;
+            }
+            set
+            {
+                if ((this.PrivacyStatusField.Equals(value) != true))
+                {
+                    this.PrivacyStatusField = value;
+                    this.RaisePropertyChanged("PrivacyStatus");
                 }
             }
         }
@@ -3001,6 +3204,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SyndicatedSearchOnly = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InHousePromotion = 3,
     }
     
     /// <summary>
@@ -3026,6 +3235,43 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Cpm = 1,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroupprivacystatus?view=bingads-11">AdGroupPrivacyStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroupprivacystatus?view=bingads-11 for details.
+    /// <para>Used by <see cref="AdGroup"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupPrivacyStatus", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum AdGroupPrivacyStatus : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Active = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TargetingTooNarrow = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Pending = 3,
     }
     
     /// <summary>
@@ -3133,6 +3379,18 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InheritedBidStrategyType = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PrivacyStatus = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TargetSetting = 4,
     }
     
     /// <summary>
@@ -3238,6 +3496,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AppInstallAd))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ExpandedTextAd))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.DynamicSearchAd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ResponsiveAd))]
     public partial class Ad : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -4023,6 +4282,223 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/responsivead?view=bingads-11">ResponsiveAd Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/responsivead?view=bingads-11 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponsiveAd", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class ResponsiveAd : Microsoft.BingAds.V11.CampaignManagement.Ad
+    {
+        
+        private string BusinessNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.CallToAction> CallToActionField;
+        
+        private string HeadlineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> LandscapeImageMediaIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> LandscapeLogoMediaIdField;
+        
+        private string LongHeadlineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> SquareImageMediaIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> SquareLogoMediaIdField;
+        
+        private string TextField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string BusinessName
+        {
+            get
+            {
+                return this.BusinessNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.BusinessNameField, value) != true))
+                {
+                    this.BusinessNameField = value;
+                    this.RaisePropertyChanged("BusinessName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.CallToAction> CallToAction
+        {
+            get
+            {
+                return this.CallToActionField;
+            }
+            set
+            {
+                if ((this.CallToActionField.Equals(value) != true))
+                {
+                    this.CallToActionField = value;
+                    this.RaisePropertyChanged("CallToAction");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Headline
+        {
+            get
+            {
+                return this.HeadlineField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.HeadlineField, value) != true))
+                {
+                    this.HeadlineField = value;
+                    this.RaisePropertyChanged("Headline");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> LandscapeImageMediaId
+        {
+            get
+            {
+                return this.LandscapeImageMediaIdField;
+            }
+            set
+            {
+                if ((this.LandscapeImageMediaIdField.Equals(value) != true))
+                {
+                    this.LandscapeImageMediaIdField = value;
+                    this.RaisePropertyChanged("LandscapeImageMediaId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> LandscapeLogoMediaId
+        {
+            get
+            {
+                return this.LandscapeLogoMediaIdField;
+            }
+            set
+            {
+                if ((this.LandscapeLogoMediaIdField.Equals(value) != true))
+                {
+                    this.LandscapeLogoMediaIdField = value;
+                    this.RaisePropertyChanged("LandscapeLogoMediaId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string LongHeadline
+        {
+            get
+            {
+                return this.LongHeadlineField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LongHeadlineField, value) != true))
+                {
+                    this.LongHeadlineField = value;
+                    this.RaisePropertyChanged("LongHeadline");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> SquareImageMediaId
+        {
+            get
+            {
+                return this.SquareImageMediaIdField;
+            }
+            set
+            {
+                if ((this.SquareImageMediaIdField.Equals(value) != true))
+                {
+                    this.SquareImageMediaIdField = value;
+                    this.RaisePropertyChanged("SquareImageMediaId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> SquareLogoMediaId
+        {
+            get
+            {
+                return this.SquareLogoMediaIdField;
+            }
+            set
+            {
+                if ((this.SquareLogoMediaIdField.Equals(value) != true))
+                {
+                    this.SquareLogoMediaIdField = value;
+                    this.RaisePropertyChanged("SquareLogoMediaId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Text
+        {
+            get
+            {
+                return this.TextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TextField, value) != true))
+                {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the editorial review status values of an ad.
     /// </summary>
     /// <remarks>
@@ -4233,6 +4709,151 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicSearch = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveAd = 6,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/calltoaction?view=bingads-11">CallToAction Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/calltoaction?view=bingads-11 for details.
+    /// <para>Used by <see cref="ResponsiveAd"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CallToAction", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum CallToAction : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AddToCart = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ApplyNow = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BookNow = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BookTravel = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Buy = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BuyNow = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ContactUs = 6,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Download = 7,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetQuote = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Install = 9,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LearnMore = 10,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NoButton = 11,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OpenLink = 12,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OrderNow = 13,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RegisterNow = 14,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeMore = 15,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ShopNow = 16,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SignUp = 17,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Subscrib = 18,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 19,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VisitSite = 20,
     }
     
     /// <summary>
@@ -6272,7 +6893,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an ad extension that specifies an image with alternative text to include in a text ad.
+    /// Defines an ad extension that specifies an image with alternative text to include in an expanded text ad.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/imageadextension?view=bingads-11">ImageAdExtension Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/imageadextension?view=bingads-11 for details.
@@ -6708,7 +7329,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an object that specifies third-party reviews (exact or paraphrased) about your business, products, or services to include in a text ad.
+    /// Defines an object that specifies third-party reviews (exact or paraphrased) about your business, products, or services to include in an expanded text ad.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/reviewadextension?view=bingads-11">ReviewAdExtension Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/reviewadextension?view=bingads-11 for details.
@@ -9717,6 +10338,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImageAdExtension = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveAd = 2,
     }
     
     /// <summary>
@@ -10228,6 +10855,24 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RemarketingList = 16384,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CompanyName = 32768,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobFunction = 65536,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Industry = 131072,
     }
     
     /// <summary>
@@ -10410,6 +11055,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.LocationCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.LocationIntentCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AudienceCriterion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ProfileCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.Webpage))]
     public partial class Criterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
@@ -11420,6 +12066,66 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/profilecriterion?view=bingads-11">ProfileCriterion Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/profilecriterion?view=bingads-11 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProfileCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class ProfileCriterion : Microsoft.BingAds.V11.CampaignManagement.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long ProfileIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.CampaignManagement.ProfileType ProfileTypeField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long ProfileId
+        {
+            get
+            {
+                return this.ProfileIdField;
+            }
+            set
+            {
+                if ((this.ProfileIdField.Equals(value) != true))
+                {
+                    this.ProfileIdField = value;
+                    this.RaisePropertyChanged("ProfileId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.CampaignManagement.ProfileType ProfileType
+        {
+            get
+            {
+                return this.ProfileTypeField;
+            }
+            set
+            {
+                if ((this.ProfileTypeField.Equals(value) != true))
+                {
+                    this.ProfileTypeField = value;
+                    this.RaisePropertyChanged("ProfileType");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a webpage parameter that contains a list of webpage conditions or criteria that help determine whether you want to show dynamic search ads.
     /// </summary>
     /// <remarks>
@@ -11582,46 +12288,52 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
         /// People 17 years of age and younger.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ZeroToSeventeen = 0,
+        ZeroToSeventeen = 1,
         
         /// <summary>
         /// People from the ages of 18 through 24 years.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        EighteenToTwentyFour = 1,
+        EighteenToTwentyFour = 2,
         
         /// <summary>
         /// People from the ages of 25 through 34 years.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        TwentyFiveToThirtyFour = 2,
+        TwentyFiveToThirtyFour = 3,
         
         /// <summary>
         /// People from the ages of 35 through 49 years.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThirtyFiveToFourtyNine = 3,
+        ThirtyFiveToFourtyNine = 4,
         
         /// <summary>
         /// People from the ages of 50 through 64 years.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        FiftyToSixtyFour = 4,
+        FiftyToSixtyFour = 5,
         
         /// <summary>
         /// People 65 years of age and older.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        SixtyFiveAndAbove = 5,
+        SixtyFiveAndAbove = 6,
         
         /// <summary>
         /// People from the ages of 13 through 17 years.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ThirteenToSeventeen = 6,
+        ThirteenToSeventeen = 7,
     }
     
     /// <summary>
@@ -11637,16 +12349,22 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
         /// The gender is male.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Male = 0,
+        Male = 1,
         
         /// <summary>
         /// The gender is female.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Female = 1,
+        Female = 2,
     }
     
     /// <summary>
@@ -11736,6 +12454,39 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InMarket = 2,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/profiletype?view=bingads-11">ProfileType Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/profiletype?view=bingads-11 for details.
+    /// <para>Used by <see cref="ProfileCriterion"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetProfileDataFileUrl">GetProfileDataFileUrl</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProfileType", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum ProfileType : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CompanyName = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobFunction = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Industry = 2,
     }
     
     /// <summary>
@@ -19657,6 +20408,38 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="GetLabelAssociationsByLabelIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
             "etLabelAssociationsByLabelIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsResponse> GetLabelAssociationsByLabelIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetProfileDataFileUrl", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etProfileDataFileUrlResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etProfileDataFileUrlAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etProfileDataFileUrlApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlResponse GetProfileDataFileUrl(Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetProfileDataFileUrl", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v11/ICampaignManagementService/G" +
+            "etProfileDataFileUrlResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlResponse> GetProfileDataFileUrlAsync(Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlRequest request);
     }
     
     /// <summary>
@@ -25954,15 +26737,21 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Collections.Generic.IList<long> AdGroupCriterionIds;
         
         /// <summary>
-        /// The identifier of the ad group that owns the criterions to get.
+        /// Reserved.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Nullable<bool> ReturnAgeGenderUnknownValue;
+        
+        /// <summary>
+        /// The identifier of the ad group that owns the criterions to get.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
         public long AdGroupId;
         
         /// <summary>
         /// The type of criterion to get, for example Webpage.
         /// </summary>
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=3)]
         public Microsoft.BingAds.V11.CampaignManagement.AdGroupCriterionType CriterionType;
         
         /// <summary>
@@ -25982,9 +26771,10 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupcriterionsbyids?view=bingads-11">GetAdGroupCriterionsByIdsRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupcriterionsbyids?view=bingads-11 for details.
         /// </remarks>
         /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get.</param>
+        /// <param name="ReturnAgeGenderUnknownValue">Reserved.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterions to get.</param>
         /// <param name="CriterionType">The type of criterion to get, for example Webpage.</param>
-        public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId, Microsoft.BingAds.V11.CampaignManagement.AdGroupCriterionType CriterionType)
+        public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupCriterionIds, System.Nullable<bool> ReturnAgeGenderUnknownValue, long AdGroupId, Microsoft.BingAds.V11.CampaignManagement.AdGroupCriterionType CriterionType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -25994,6 +26784,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.AdGroupCriterionIds = AdGroupCriterionIds;
+            this.ReturnAgeGenderUnknownValue = ReturnAgeGenderUnknownValue;
             this.AdGroupId = AdGroupId;
             this.CriterionType = CriterionType;
         }
@@ -32159,6 +32950,146 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetProfileDataFileUrl">GetProfileDataFileUrl</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetProfileDataFileUrlRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetProfileDataFileUrlRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public string LanguageLocale;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public Microsoft.BingAds.V11.CampaignManagement.ProfileType ProfileType;
+        
+        /// <summary>
+        /// Constructor for the GetProfileDataFileUrlRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrlRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+        /// </remarks>
+        public GetProfileDataFileUrlRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetProfileDataFileUrlRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrlRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+        /// </remarks>
+        /// <param name="LanguageLocale">Reserved.</param>
+        /// <param name="ProfileType">Reserved.</param>
+        public GetProfileDataFileUrlRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string LanguageLocale, Microsoft.BingAds.V11.CampaignManagement.ProfileType ProfileType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.LanguageLocale = LanguageLocale;
+            this.ProfileType = ProfileType;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetProfileDataFileUrl">GetProfileDataFileUrl</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetProfileDataFileUrlResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v11", IsWrapped=true)]
+    public partial class GetProfileDataFileUrlResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public string FileUrl;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
+        public System.Nullable<System.DateTime> FileUrlExpiryTimeUtc;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        public System.DateTime LastModifiedTimeUtc;
+        
+        /// <summary>
+        /// Constructor for the GetProfileDataFileUrlResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrlResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+        /// </remarks>
+        public GetProfileDataFileUrlResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetProfileDataFileUrlResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrlResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+        /// </remarks>
+        /// <param name="FileUrl">Reserved.</param>
+        /// <param name="FileUrlExpiryTimeUtc">Reserved.</param>
+        /// <param name="LastModifiedTimeUtc">Reserved.</param>
+        public GetProfileDataFileUrlResponse(string TrackingId, string FileUrl, System.Nullable<System.DateTime> FileUrlExpiryTimeUtc, System.DateTime LastModifiedTimeUtc)
+        {
+            this.TrackingId = TrackingId;
+            this.FileUrl = FileUrl;
+            this.FileUrlExpiryTimeUtc = FileUrlExpiryTimeUtc;
+            this.LastModifiedTimeUtc = LastModifiedTimeUtc;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICampaignManagementServiceChannel : Microsoft.BingAds.V11.CampaignManagement.ICampaignManagementService, System.ServiceModel.IClientChannel
     {
@@ -35121,6 +36052,36 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsResponse> GetLabelAssociationsByLabelIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsRequest request)
         {
             return base.Channel.GetLabelAssociationsByLabelIdsAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlResponse GetProfileDataFileUrl(Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlRequest request)
+        {
+            return base.Channel.GetProfileDataFileUrl(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlResponse> GetProfileDataFileUrlAsync(Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlRequest request)
+        {
+            return base.Channel.GetProfileDataFileUrlAsync(request);
         }
     }
 }

@@ -105,10 +105,11 @@
     <Compile Include="Internal\OAuth\OAuthRequestParameters.cs" />
     <Compile Include="Internal\OAuthWithAuthorizationCode.cs" />
     <Compile Include="Internal\OAuth\OAuthUrlParameters.cs" />
-    <Compile Include="Internal\OAuth\LiveComOAuthService.cs" />
     <Compile Include="Internal\ServiceClientFactory.cs" />
     <Compile Include="Internal\ServiceClientFactoryFactory.cs" />
     <Compile Include="Internal\ServiceInfo.cs" />
+    <Compile Include="Internal\OAuth\UriOAuthService.cs" />
+    <Compile Include="Internal\OAuth\OAuthEndpoints.cs" />
     <Compile Include="Internal\UserAgentBehavior.cs" />
     <Compile Include="Internal\Utilities\FileSystem.cs" />
     <Compile Include="Internal\Utilities\IFileSystem.cs" />

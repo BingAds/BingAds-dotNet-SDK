@@ -57,22 +57,30 @@ namespace Microsoft.BingAds.Internal.OAuth
     /// <summary>
     /// Provides method for getting OAuth tokens from the live.com authorization server using <see cref="OAuthRequestParameters"/>.
     /// </summary>
-    internal class LiveComOAuthService : IOAuthService
+    internal class UriOAuthService : IOAuthService
     {
-        /// <summary>
-        /// The redirect <see cref="Uri"/> for a desktop or mobile application.
-        /// </summary>
-        public static readonly Uri DesktopRedirectUri = new Uri("https://login.live.com/oauth20_desktop.srf");
 
         private readonly IHttpService _httpService;
 
-        public LiveComOAuthService()
+        private ApiEnvironment _environment;
+
+        public ApiEnvironment Environment
         {
+            get
+            {
+                return _environment;
+            }
+        }
+
+        public UriOAuthService(ApiEnvironment env)
+        {
+            _environment = env;
             _httpService = new HttpService();
         }
 
-        public LiveComOAuthService(IHttpService httpService)
+        public UriOAuthService(IHttpService httpService, ApiEnvironment env)
         {
+            _environment = env;
             _httpService = httpService;
         }
 
@@ -96,18 +104,18 @@ namespace Microsoft.BingAds.Internal.OAuth
             {
                 values.Add(new KeyValuePair<string, string>("client_secret", oAuthParameters.ClientSecret));
             }
-            
-            var response = await _httpService.PostAsync(new Uri("https://login.live.com/oauth20_token.srf"), values, TimeSpan.FromSeconds(100)).ConfigureAwait(false);
+
+            var response = await _httpService.PostAsync(new Uri(EndpointUrls[Environment].OAuthTokenUrl), values, TimeSpan.FromSeconds(100)).ConfigureAwait(false);
 
             var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 
             if (response.IsSuccessStatusCode)
-            {                
+            {
                 var serializer = new DataContractJsonSerializer(typeof(OAuthTokensContract));
 
                 var tokensContract = (OAuthTokensContract)serializer.ReadObject(stream);
 
-                return new OAuthTokens(tokensContract.AccessToken, tokensContract.AccessTokenExpiresInSeconds, tokensContract.RefreshToken);                
+                return new OAuthTokens(tokensContract.AccessToken, tokensContract.AccessTokenExpiresInSeconds, tokensContract.RefreshToken);
             }
             else
             {
@@ -118,15 +126,40 @@ namespace Microsoft.BingAds.Internal.OAuth
                 throw new OAuthTokenRequestException(ErrorMessages.OAuthError, new OAuthErrorDetails { Description = errorDetailsContract.Description, Error = errorDetailsContract.Error });
             }
         }
-        
-        public static Uri GetAuthorizationEndpoint(OAuthUrlParameters parameters)
+
+        public Uri RedirectionUri()
+        {
+            return new Uri(EndpointUrls[Environment].RedirectUrl);
+        }
+
+        public static Uri GetAuthorizationEndpoint(OAuthUrlParameters parameters, ApiEnvironment env)
         {
             return new Uri(string.Format(
-                "https://login.live.com/oauth20_authorize.srf?client_id={0}&scope=bingads.manage&response_type={1}&redirect_uri={2}",
+                EndpointUrls[env].AuthorizationEndpointUrl,
                 parameters.ClientId,
                 parameters.ResponseType,
-                parameters.RedirectUri) + (string.IsNullOrEmpty(parameters.State) ? "": string.Format("&state={0}", parameters.State))
+                parameters.RedirectUri) + (string.IsNullOrEmpty(parameters.State) ? "" : string.Format("&state={0}", parameters.State))
             );
         }
+
+        public static readonly Dictionary<ApiEnvironment, OAuthEndpoints> EndpointUrls = new Dictionary<ApiEnvironment, OAuthEndpoints>
+        {
+            {
+                ApiEnvironment.Production, new OAuthEndpoints
+                {
+                    RedirectUrl = "https://login.live.com/oauth20_desktop.srf",
+                    OAuthTokenUrl = "https://login.live.com/oauth20_token.srf",
+                    AuthorizationEndpointUrl = "https://login.live.com/oauth20_authorize.srf?client_id={0}&scope=bingads.manage&response_type={1}&redirect_uri={2}"
+                }
+            },
+            {
+                ApiEnvironment.Sandbox, new OAuthEndpoints
+                {
+                    RedirectUrl = "https://login.live-int.com/oauth20_desktop.srf",
+                    OAuthTokenUrl = "https://login.live-int.com/oauth20_token.srf",
+                    AuthorizationEndpointUrl = "https://login.live-int.com/oauth20_authorize.srf?client_id={0}&scope=bingads.manage&response_type={1}&redirect_uri={2}&prompt=login"
+                }
+            },
+        };
     }
 }

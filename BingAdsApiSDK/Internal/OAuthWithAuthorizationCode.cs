@@ -61,7 +61,7 @@ namespace Microsoft.BingAds.Internal
     /// Implement an extension of this class in compliance with the authorization code grant flow for 
     /// <see href="http://go.microsoft.com/fwlink/?LinkID=511609">Managing User Authentication with OAuth 
     /// documented</see>. This is a standard OAuth 2.0 flow and is defined in detail in the 
-    /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1">Authorization Code Grant section of the OAuth 2.0 spec</see>.
+    /// <see href="https://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Grant section of the OAuth 2.0 spec</see>.
     /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511607">registering a Bing Ads application</see>. 
     /// </summary>
     public abstract class OAuthWithAuthorizationCode : OAuthAuthorization
@@ -80,18 +80,12 @@ namespace Microsoft.BingAds.Internal
         /// <summary>
         /// Reserved for internal use.
         /// </summary>
-        protected string OptionalClientSecret
-        {
-            get { return _optionalClientSecret; }
-        }
+        protected string OptionalClientSecret => _optionalClientSecret;
 
         /// <summary>
         /// The URI to which the user of the app will be redirected after receiving user consent.
         /// </summary>
-        public override Uri RedirectionUri
-        {
-            get { return _redirectionUri; }
-        }
+        public override Uri RedirectionUri => _redirectionUri;
 
         /// <summary>
         /// Occurs when a new refresh token is received.
@@ -113,18 +107,19 @@ namespace Microsoft.BingAds.Internal
         /// <param name="refreshToken">
         /// The refresh token that should be used to request an access token.
         /// </param>
+        /// <param name="environment">Bing Ads API environment</param>
         /// <remarks>
         /// <para>
         /// For more information about using a client identifier for authentication, see 
-        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>
+        /// <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
+        /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, string refreshToken)
-            : this(clientId, optionalClientSecret, redirectionUri, new LiveComOAuthService())
+        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, string refreshToken, ApiEnvironment? environment)
+            : this(clientId, optionalClientSecret, redirectionUri, environment)
         {
             if (refreshToken == null)
             {
@@ -149,18 +144,19 @@ namespace Microsoft.BingAds.Internal
         /// <param name="oauthTokens">
         /// Contains information about OAuth access tokens received from the Microsoft Account authorization service.
         /// </param>
+        /// <param name="environment">Bing Ads API environment</param>
         /// <remarks>
         /// <para>
         /// For more information about using a client identifier for authentication, see 
-        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
+        /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, OAuthTokens oauthTokens)
-            : this(clientId, optionalClientSecret, redirectionUri, new LiveComOAuthService())
+        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, OAuthTokens oauthTokens, ApiEnvironment? environment)
+            : this(clientId, optionalClientSecret, redirectionUri, environment)
         {
             if (oauthTokens == null || oauthTokens.RefreshToken == null)
             {
@@ -182,23 +178,26 @@ namespace Microsoft.BingAds.Internal
         /// <param name="redirectionUri">
         /// The URI to which the user of the app will be redirected after receiving user consent.        
         /// </param>
+        /// <param name="environment">Bing Ads API environment</param>
         /// <remarks>
         /// <para>
-        /// For more information about using a client identifier for authentication, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>
+        /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
+        /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri)
-            : this(clientId, optionalClientSecret, redirectionUri, new LiveComOAuthService())
+        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, ApiEnvironment? environment)
+            :  base(clientId, environment)
         {
-
+            _optionalClientSecret = optionalClientSecret;
+            _oauthService = new UriOAuthService(Environment);
+            _redirectionUri = redirectionUri?? _oauthService.RedirectionUri();
         }
 
-        internal OAuthWithAuthorizationCode(string clientId, string clientSecret, Uri redirectionUri, IOAuthService oauthService)
-            : base(clientId)
+        internal OAuthWithAuthorizationCode(string clientId, string clientSecret, Uri redirectionUri, IOAuthService oauthService, ApiEnvironment env)
+            : base(clientId, env)
         {
             if (redirectionUri == null)
             {
@@ -216,13 +215,13 @@ namespace Microsoft.BingAds.Internal
         /// <returns>The Microsoft Account authorization endpoint of type <see cref="Uri"/>.</returns>
         public override Uri GetAuthorizationEndpoint()
         {
-            return LiveComOAuthService.GetAuthorizationEndpoint(new OAuthUrlParameters
+            return UriOAuthService.GetAuthorizationEndpoint(new OAuthUrlParameters
             {
                 ClientId = ClientId,
                 ResponseType = "code",
-                RedirectUri = RedirectionUri,
+                RedirectUri = _redirectionUri,
                 State = State
-            });
+            }, Environment);
         }
 
         /// <summary>
@@ -233,7 +232,7 @@ namespace Microsoft.BingAds.Internal
         /// The authorization response redirect <see cref="Uri"/> that contains the authorization code.        
         /// </param>
         /// <remarks>
-        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1.2">Authorization Response section in the OAuth 2.0 spec</see>.
+        /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-4.1.2">Authorization Response section in the OAuth 2.0 spec</see>.
         /// </remarks>
         /// <returns>A task that represents the asynchronous operation. The task result will be an <see cref="OAuthTokens"/> object.</returns>      
         /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be received due to an error received from the Microsoft Account authorization server.</exception>  
@@ -292,7 +291,7 @@ namespace Microsoft.BingAds.Internal
         /// The refresh token used to request new access and refresh tokens.        
         /// </param>
         /// <remarks>
-        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-6">Refreshing an Access Token section in the OAuth 2.0 spec</see>.
+        /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-6">Refreshing an Access Token section in the OAuth 2.0 spec</see>.
         /// </remarks>
         /// <returns>A task that represents the asynchronous operation. The task result will be an <see cref="OAuthTokens"/> object.</returns>        
         /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be received due to an error received from the Microsoft Account authorization server.</exception>
@@ -335,10 +334,7 @@ namespace Microsoft.BingAds.Internal
 
         private void RaiseNewTokensReceivedEvent()
         {
-            if (NewOAuthTokensReceived != null)
-            {
-                NewOAuthTokensReceived(this, new NewOAuthTokensReceivedEventArgs(OAuthTokens.AccessToken, OAuthTokens.RefreshToken));
-            }
+            NewOAuthTokensReceived?.Invoke(this, new NewOAuthTokensReceivedEventArgs(OAuthTokens.AccessToken, OAuthTokens.RefreshToken));
         }
     }
 }

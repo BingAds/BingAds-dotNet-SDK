@@ -67,7 +67,7 @@ namespace Microsoft.BingAds.Internal
                 typeof (V11.CustomerBilling.ICustomerBillingService), new ServiceInfo
                 {
                     ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/Billing/v11/CustomerBillingService.svc",
-                    SandboxUrl = null
+                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/Billing/v11/CustomerBillingService.svc"
                 }
             },
             {

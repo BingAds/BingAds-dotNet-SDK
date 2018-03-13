@@ -49,6 +49,9 @@
 
 using System;
 using System.Net.Http.Headers;
+using System.Configuration;
+using System.Web.Configuration;
+using System.Web.Hosting;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.Internal
@@ -63,18 +66,22 @@ namespace Microsoft.BingAds.Internal
     /// <seealso cref="OAuthWebAuthCodeGrant"/>
     public abstract class OAuthAuthorization : Authentication
     {
-        private readonly string _clientId;
+        private const string EnvironmentAppSetting = "BingAdsEnvironment";
+
+        private ApiEnvironment _environment;
 
         /// <summary>
         /// The client identifier corresponding to your registered application.         
         /// </summary>
         /// <remarks>
-        /// For more information about using a client identifier for authentication, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        public string ClientId
-        {
-            get { return _clientId; }
-        }
+        public string ClientId { get; }
+
+        /// <summary>
+        /// Bing Ads API environment
+        /// </summary>
+        public ApiEnvironment Environment => _environment;
 
         /// <summary>
         /// The URI to which the user of the app will be redirected after receiving user consent.
@@ -87,17 +94,40 @@ namespace Microsoft.BingAds.Internal
         /// <param name="clientId">
         /// The client identifier corresponding to your registered application.         
         /// </param>
+        /// <param name="environment">Bing Ads API environment</param>
         /// <remarks>
-        /// For more information about using a client identifier for authentication, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        protected OAuthAuthorization(string clientId)
+        protected OAuthAuthorization(string clientId, ApiEnvironment? environment)
         {
             if (clientId == null)
             {
                 throw new ArgumentNullException("clientId");
             }
 
-            _clientId = clientId;
+            ClientId = clientId;
+
+            if (environment == null)
+            {
+                DetectApiEnvironmentFromConfiguration();
+            }
+            else
+            {
+                _environment = environment.Value;
+            }
+        }
+
+
+        private void DetectApiEnvironmentFromConfiguration()
+        {
+            var envSetting = HostingEnvironment.IsHosted ?
+            WebConfigurationManager.AppSettings[EnvironmentAppSetting] :
+            ConfigurationManager.AppSettings[EnvironmentAppSetting];
+
+            if (!Enum.TryParse(envSetting, out _environment))
+            {
+                _environment = ApiEnvironment.Production;
+            }
         }
 
         /// <summary>

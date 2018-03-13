@@ -6778,7 +6778,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CustomerManagement.UpdateCustomerResponse> UpdateCustomerAsync(Microsoft.BingAds.V11.CustomerManagement.UpdateCustomerRequest request);
         
         /// <summary>
-        /// Signs up a customer with Bing Ads.
+        /// Creates a new customer and account that rolls up to your reseller payment method.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11 for details.
@@ -6796,7 +6796,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         Microsoft.BingAds.V11.CustomerManagement.SignupCustomerResponse SignupCustomer(Microsoft.BingAds.V11.CustomerManagement.SignupCustomerRequest request);
         
         /// <summary>
-        /// Signs up a customer with Bing Ads.
+        /// Creates a new customer and account that rolls up to your reseller payment method.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11 for details.
@@ -8125,7 +8125,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Signs up a customer with Bing Ads.
+    /// Creates a new customer and account that rolls up to your reseller payment method.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11">SignupCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11 for details.
@@ -8211,7 +8211,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
     }
     
     /// <summary>
-    /// Signs up a customer with Bing Ads.
+    /// Creates a new customer and account that rolls up to your reseller payment method.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11">SignupCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11 for details.
@@ -11123,7 +11123,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// Signs up a customer with Bing Ads.
+        /// Creates a new customer and account that rolls up to your reseller payment method.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11 for details.
@@ -11138,7 +11138,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// Signs up a customer with Bing Ads.
+        /// Creates a new customer and account that rolls up to your reseller payment method.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-11 for details.

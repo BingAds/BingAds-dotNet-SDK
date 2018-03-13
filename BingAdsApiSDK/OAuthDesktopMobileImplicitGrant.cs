@@ -66,7 +66,7 @@ namespace Microsoft.BingAds
     /// This class implements the implicit grant flow for 
     /// <see href="http://go.microsoft.com/fwlink/?LinkID=511608">Managing User Authentication with OAuth 
     /// documented</see>. This is a standard OAuth 2.0 flow and is defined in detail in the 
-    /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1">Authorization Code Grant section of the OAuth 2.0 spec</see>.
+    /// <see href="https://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Grant section of the OAuth 2.0 spec</see>.
     /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511607">registering a Bing Ads application</see>.     
     /// </para>
     /// </remarks>
@@ -80,10 +80,7 @@ namespace Microsoft.BingAds
         /// <summary>
         /// The URI to which your client browser will be redirected after receiving user consent.
         /// </summary>
-        public override Uri RedirectionUri
-        {
-            get { return LiveComOAuthService.DesktopRedirectUri; }
-        } 
+        public override Uri RedirectionUri => new Uri(UriOAuthService.EndpointUrls[Environment].RedirectUrl);
 
         /// <summary>
         /// Initializes a new instance of the OAuthDesktopMobileImplicitGrant class with the specified ClientId.
@@ -91,12 +88,13 @@ namespace Microsoft.BingAds
         /// <param name="clientId">
         /// The client identifier corresponding to your registered application. 
         /// </param>  
+        /// <param name="environment">Bing Ads API environment</param>
         /// <remarks>
         /// For more information about using a client identifier for authentication, see 
-        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>              
-        public OAuthDesktopMobileImplicitGrant(string clientId)
-            : base(clientId)
+        public OAuthDesktopMobileImplicitGrant(string clientId, ApiEnvironment? environment = ApiEnvironment.Production)
+            : base(clientId, environment)
         {            
             
         }
@@ -110,11 +108,12 @@ namespace Microsoft.BingAds
         /// <param name="oAuthTokens">
         /// Contains information about OAuth access tokens received from the Microsoft Account authorization service.
         /// </param>
+        /// <param name="environment">Bing Ads API environment</param>
         /// /// <remarks>
-        /// For more information about using a client identifier for authentication, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        public OAuthDesktopMobileImplicitGrant(string clientId, OAuthTokens oAuthTokens)
-            : base(clientId)
+        public OAuthDesktopMobileImplicitGrant(string clientId, OAuthTokens oAuthTokens, ApiEnvironment? environment = ApiEnvironment.Production)
+            : base(clientId, environment)
         {
             OAuthTokens = oAuthTokens;
         }
@@ -125,13 +124,14 @@ namespace Microsoft.BingAds
         /// <returns>The Microsoft Account authorization endpoint of type <see cref="Uri"/>.</returns>
         public override Uri GetAuthorizationEndpoint()
         {
-            return LiveComOAuthService.GetAuthorizationEndpoint(new OAuthUrlParameters
+            return UriOAuthService.GetAuthorizationEndpoint(new OAuthUrlParameters
             {
                 ClientId = ClientId,
                 ResponseType = "token",
-                RedirectUri = LiveComOAuthService.DesktopRedirectUri,
+                RedirectUri = RedirectionUri,
                 State = State
-            });
+            }, Environment);
+            
         }
 
         /// <summary>

@@ -9940,7 +9940,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidOpportunit" +
             "iesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidOpportunit" +
-            "iesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "iesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetBidOpportunitiesResponse GetBidOpportunities(Microsoft.BingAds.V11.AdInsight.GetBidOpportunitiesRequest request);
         
         /// <summary>
@@ -9972,7 +9972,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBudgetOpportu" +
             "nitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBudgetOpportu" +
-            "nitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "nitiesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetBudgetOpportunitiesResponse GetBudgetOpportunities(Microsoft.BingAds.V11.AdInsight.GetBudgetOpportunitiesRequest request);
         
         /// <summary>
@@ -10004,7 +10004,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordOpport" +
             "unitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordOpport" +
-            "unitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "unitiesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordOpportunitiesResponse GetKeywordOpportunities(Microsoft.BingAds.V11.AdInsight.GetKeywordOpportunitiesRequest request);
         
         /// <summary>
@@ -10036,7 +10036,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedBidB" +
             "yKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedBidB" +
-            "yKeywordIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "yKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetEstimatedBidByKeywordIdsResponse GetEstimatedBidByKeywordIds(Microsoft.BingAds.V11.AdInsight.GetEstimatedBidByKeywordIdsRequest request);
         
         /// <summary>
@@ -10068,7 +10068,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedPosi" +
             "tionByKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedPosi" +
-            "tionByKeywordIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "tionByKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetEstimatedPositionByKeywordIdsResponse GetEstimatedPositionByKeywordIds(Microsoft.BingAds.V11.AdInsight.GetEstimatedPositionByKeywordIdsRequest request);
         
         /// <summary>
@@ -10100,7 +10100,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedBidB" +
             "yKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedBidB" +
-            "yKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "yKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetEstimatedBidByKeywordsResponse GetEstimatedBidByKeywords(Microsoft.BingAds.V11.AdInsight.GetEstimatedBidByKeywordsRequest request);
         
         /// <summary>
@@ -10132,7 +10132,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedPosi" +
             "tionByKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetEstimatedPosi" +
-            "tionByKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "tionByKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetEstimatedPositionByKeywordsResponse GetEstimatedPositionByKeywords(Microsoft.BingAds.V11.AdInsight.GetEstimatedPositionByKeywordsRequest request);
         
         /// <summary>
@@ -10164,7 +10164,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidLandscapeB" +
             "yAdGroupIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidLandscapeB" +
-            "yAdGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "yAdGroupIdsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetBidLandscapeByAdGroupIdsResponse GetBidLandscapeByAdGroupIds(Microsoft.BingAds.V11.AdInsight.GetBidLandscapeByAdGroupIdsRequest request);
         
         /// <summary>
@@ -10196,7 +10196,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidLandscapeB" +
             "yKeywordIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetBidLandscapeB" +
-            "yKeywordIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "yKeywordIdsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetBidLandscapeByKeywordIdsResponse GetBidLandscapeByKeywordIds(Microsoft.BingAds.V11.AdInsight.GetBidLandscapeByKeywordIdsRequest request);
         
         /// <summary>
@@ -10228,7 +10228,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetHistoricalKey" +
             "wordPerformanceAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetHistoricalKey" +
-            "wordPerformanceApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "wordPerformanceApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetHistoricalKeywordPerformanceResponse GetHistoricalKeywordPerformance(Microsoft.BingAds.V11.AdInsight.GetHistoricalKeywordPerformanceRequest request);
         
         /// <summary>
@@ -10260,7 +10260,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetHistoricalSea" +
             "rchCountAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetHistoricalSea" +
-            "rchCountApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "rchCountApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetHistoricalSearchCountResponse GetHistoricalSearchCount(Microsoft.BingAds.V11.AdInsight.GetHistoricalSearchCountRequest request);
         
         /// <summary>
@@ -10292,7 +10292,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordCatego" +
             "riesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordCatego" +
-            "riesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "riesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordCategoriesResponse GetKeywordCategories(Microsoft.BingAds.V11.AdInsight.GetKeywordCategoriesRequest request);
         
         /// <summary>
@@ -10324,7 +10324,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordDemogr" +
             "aphicsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordDemogr" +
-            "aphicsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "aphicsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordDemographicsResponse GetKeywordDemographics(Microsoft.BingAds.V11.AdInsight.GetKeywordDemographicsRequest request);
         
         /// <summary>
@@ -10356,7 +10356,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordLocati" +
             "onsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordLocati" +
-            "onsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "onsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordLocationsResponse GetKeywordLocations(Microsoft.BingAds.V11.AdInsight.GetKeywordLocationsRequest request);
         
         /// <summary>
@@ -10388,7 +10388,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/SuggestKeywordsF" +
             "orUrlAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/SuggestKeywordsF" +
-            "orUrlApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "orUrlApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.SuggestKeywordsForUrlResponse SuggestKeywordsForUrl(Microsoft.BingAds.V11.AdInsight.SuggestKeywordsForUrlRequest request);
         
         /// <summary>
@@ -10420,7 +10420,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/SuggestKeywordsF" +
             "romExistingKeywordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/SuggestKeywordsF" +
-            "romExistingKeywordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "romExistingKeywordsApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.SuggestKeywordsFromExistingKeywordsResponse SuggestKeywordsFromExistingKeywords(Microsoft.BingAds.V11.AdInsight.SuggestKeywordsFromExistingKeywordsRequest request);
         
         /// <summary>
@@ -10442,7 +10442,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetAuctionInsigh" +
             "tDataAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetAuctionInsigh" +
-            "tDataApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "tDataApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetAuctionInsightDataResponse GetAuctionInsightData(Microsoft.BingAds.V11.AdInsight.GetAuctionInsightDataRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetAuctionInsigh" +
@@ -10464,7 +10464,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetDomainCategor" +
             "iesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetDomainCategor" +
-            "iesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "iesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetDomainCategoriesResponse GetDomainCategories(Microsoft.BingAds.V11.AdInsight.GetDomainCategoriesRequest request);
         
         /// <summary>
@@ -10486,7 +10486,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/PutMetricDataAdA" +
             "piFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/PutMetricDataApi" +
-            "FaultDetail2Fault", Name="ApiFaultDetail")]
+            "FaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.PutMetricDataResponse PutMetricData(Microsoft.BingAds.V11.AdInsight.PutMetricDataRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="PutMetricData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/PutMetricDataRes" +
@@ -10508,7 +10508,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeaCa" +
             "tegoriesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeaCa" +
-            "tegoriesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "tegoriesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesResponse GetKeywordIdeaCategories(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeaCategoriesRequest request);
         
         /// <summary>
@@ -10540,7 +10540,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeasA" +
             "dApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordIdeasA" +
-            "piFaultDetail2Fault", Name="ApiFaultDetail")]
+            "piFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasResponse GetKeywordIdeas(Microsoft.BingAds.V11.AdInsight.GetKeywordIdeasRequest request);
         
         /// <summary>
@@ -10572,7 +10572,7 @@ namespace Microsoft.BingAds.V11.AdInsight
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordTraffi" +
             "cEstimatesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V11.AdInsight.ApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V11/IAdInsightService/GetKeywordTraffi" +
-            "cEstimatesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+            "cEstimatesApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesResponse GetKeywordTrafficEstimates(Microsoft.BingAds.V11.AdInsight.GetKeywordTrafficEstimatesRequest request);
         
         /// <summary>

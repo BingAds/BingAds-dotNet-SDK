@@ -129,7 +129,7 @@ namespace Microsoft.BingAds.V11.Bulk
     }
     
     /// <summary>
-    /// Defines the entities that may be downloaded in bulk.
+    /// Defines the entities that may be downloaded and uploaded in bulk.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadentity?view=bingads-11">DownloadEntity Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadentity?view=bingads-11 for details.
@@ -649,6 +649,24 @@ namespace Microsoft.BingAds.V11.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStructuredSnippetAdExtensions = 85,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CoOpCampaigns = 86,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveAds = 87,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveAdLabels = 88,
     }
     
     /// <summary>

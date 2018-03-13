@@ -64,7 +64,7 @@ namespace Microsoft.BingAds
     /// <para>
     /// This class implements the authorization code grant flow for 
     /// <see href="http://go.microsoft.com/fwlink/?LinkID=511609">Managing User Authentication with OAuth documented</see>. This is a standard OAuth 2.0 flow and is defined in detail in the 
-    /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-4.1">Authorization Code Grant section of the OAuth 2.0 spec</see>.
+    /// <see href="https://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Grant section of the OAuth 2.0 spec</see>.
     /// For more information, see <see href="http://go.microsoft.com/fwlink/?LinkID=511607">registering a Bing Ads application</see>. 
     /// </para> 
     /// </remarks>    
@@ -73,10 +73,7 @@ namespace Microsoft.BingAds
         /// <summary>
         /// The client secret for your registered web application.
         /// </summary>
-        public string ClientSecret
-        {
-            get { return OptionalClientSecret; }
-        }
+        public string ClientSecret => OptionalClientSecret;
 
         /// <summary>
         /// Initializes a new instance of the OAuthWebAuthCodeGrant class.
@@ -90,19 +87,27 @@ namespace Microsoft.BingAds
         /// <param name="redirectionUri">
         /// The URI to which the user of the app will be redirected after receiving user consent.    
         /// </param>
+        /// <param name="environment">
+        /// The environment the application runs in. Value should be either <see cref="ApiEnvironment.Production"/> or <see cref="ApiEnvironment.Sandbox"/>.
+        /// If null is given, application will detect the application environment from configuration.
+        /// </param>
         /// <remarks>
         /// <para>
         /// For more information about using a client identifier for authentication, see 
-        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
+        /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri)
-            : base(clientId, clientSecret, redirectionUri)
+        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, ApiEnvironment? environment = ApiEnvironment.Production)
+            : base(clientId, clientSecret, redirectionUri, environment)
         {
+            if (redirectionUri == null)
+            {
+                throw new ArgumentNullException("redirectionUri");
+            }
             if (clientSecret == null)
             {
                 throw new ArgumentNullException("clientSecret");
@@ -124,18 +129,22 @@ namespace Microsoft.BingAds
         /// <param name="refreshToken">
         /// The refresh token that should be used to request an access token.
         /// </param>
+        /// <param name="environment">
+        /// The environment the application runs in. Value should be either <see cref="ApiEnvironment.Production"/> or <see cref="ApiEnvironment.Sandbox"/>.
+        /// If null is given, application will detect the application environment from configuration.
+        /// </param>
         /// <remarks>
         /// <para>
         /// For more information about using a client identifier for authentication, see 
-        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
+        /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, string refreshToken)
-            : base(clientId, clientSecret, redirectionUri, refreshToken)
+        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, string refreshToken, ApiEnvironment? environment = ApiEnvironment.Production)
+            : base(clientId, clientSecret, redirectionUri, refreshToken, environment)
         {
             if (clientSecret == null)
             {
@@ -158,18 +167,22 @@ namespace Microsoft.BingAds
         /// <param name="oAuthTokens">
         /// Contains information about OAuth access tokens received from the Microsoft Account authorization service.
         /// </param>
+        /// <param name="environment">
+        /// The environment the application runs in. Value should be either <see cref="ApiEnvironment.Production"/> or <see cref="ApiEnvironment.Sandbox"/>.
+        /// If null is given, application will detect the application environment from configuration.
+        /// </param>
         /// <remarks>
         /// <para>
         /// For more information about using a client identifier for authentication, see 
-        /// <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
+        /// <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </para>
         /// <para>
         /// For web applications, redirectionUri must be within the same domain of your registered application.  
-        /// For more information, see <see href="http://tools.ietf.org/html/draft-ietf-oauth-v2-15#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
+        /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, OAuthTokens oAuthTokens)
-            : base(clientId, clientSecret, redirectionUri, oAuthTokens)
+        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, OAuthTokens oAuthTokens, ApiEnvironment? environment = ApiEnvironment.Production)
+            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment)
         {
             if (clientSecret == null)
             {
@@ -177,10 +190,9 @@ namespace Microsoft.BingAds
             }
         }
 
-        internal OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, IOAuthService oauthService)
-            : base(clientId, clientSecret, redirectionUri, oauthService)
+        internal OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, IOAuthService oauthService, ApiEnvironment env)
+            : base(clientId, clientSecret, redirectionUri, oauthService, env)
         {
-
         }
     }
 }
