@@ -220,7 +220,8 @@ namespace BingAdsConsoleApp
             _authorizationData = new AuthorizationData
             {
                 Authentication = authentication,
-                DeveloperToken = (Settings.Default["DeveloperToken"] != null) ? Settings.Default["DeveloperToken"].ToString() : null
+                DeveloperToken = ConfigurationManager.AppSettings["BingAdsEnvironment"] == ApiEnvironment.Sandbox.ToString() ?
+                    Settings.Default["DeveloperTokenSandbox"].ToString() : Settings.Default["DeveloperToken"].ToString()
             };
 
             _customerService = new ServiceClient<ICustomerManagementService>(_authorizationData);
