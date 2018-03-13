@@ -21,7 +21,7 @@
                 <Button x:Name="SwitchUserButton" Content="Microsoft Account Login" Margin="0,0,0.333,0" Click="SwitchUserButton_Click"/>
                 <Label Content="" Margin="0,0,0.333,0"/>
                 <CheckBox x:Name="OAuthCheckBox" Content="Use OAuth" Margin="0,0,0.333,0" IsChecked="True" Checked="OAuthCheckBox_Checked" Unchecked="OAuthCheckBox_Unchecked"/>
-                <CheckBox x:Name="SandboxCheckBox" Content="Use Sandbox" Margin="0,0,0.333,0" IsEnabled="False" Checked="SandboxCheckBox_Checked" Unchecked="SandboxCheckBox_Unchecked" />
+                <CheckBox x:Name="SandboxCheckBox" Content="Use Sandbox" Margin="0,0,0.333,0" IsEnabled="True" Checked="SandboxCheckBox_Checked" Unchecked="SandboxCheckBox_Unchecked" />
             </StackPanel>
         </GroupBox>
 

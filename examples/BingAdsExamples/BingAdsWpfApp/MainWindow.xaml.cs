@@ -89,7 +89,15 @@ namespace BingAdsWpfApp
 
                 if (OAuthCheckBox.IsChecked == true)
                 {
-                    authentication = await OAuthHelper.AuthorizeDesktopMobileAuthCodeGrant();
+                    if (SandboxCheckBox.IsChecked == true)
+                    {
+                        authentication = await OAuthHelper.AuthorizeDesktopMobileAuthCodeGrant(ApiEnvironment.Sandbox);
+                    }
+                    else
+                    {
+                        authentication = await OAuthHelper.AuthorizeDesktopMobileAuthCodeGrant(ApiEnvironment.Production);
+                    }
+
                     var authenticationToken =
                         ((OAuthDesktopMobileAuthCodeGrant) (authentication)).OAuthTokens.AccessToken;
                 }
@@ -357,11 +365,6 @@ namespace BingAdsWpfApp
             UserNameTextBox.IsEnabled = false;
             UserNamePasswordBox.IsEnabled = false;
             SwitchUserButton.Content = "Microsoft Account Login";
-
-            if (SandboxCheckBox != null)
-            {
-                SandboxCheckBox.IsEnabled = false;
-            }
         }
 
         private void OAuthCheckBox_Unchecked(object sender, RoutedEventArgs e)
@@ -370,11 +373,6 @@ namespace BingAdsWpfApp
             UserNameTextBox.IsEnabled = true;
             UserNamePasswordBox.IsEnabled = true;
             SwitchUserButton.Content = "UserName Login";
-
-            if (SandboxCheckBox != null)
-            {
-                SandboxCheckBox.IsEnabled = true;
-            }
         }
 
         private void ExamplesComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
