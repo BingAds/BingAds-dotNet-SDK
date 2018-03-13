@@ -22,9 +22,11 @@ namespace BingAdsWpfApp
         /// </summary>
         /// <returns>Returns an instance of OAuthDesktopMobileAuthCodeGrant when the authorization 
         /// request task completes. </returns>
-        public static async Task<OAuthDesktopMobileAuthCodeGrant> AuthorizeDesktopMobileAuthCodeGrant()
+        public static async Task<OAuthDesktopMobileAuthCodeGrant> AuthorizeDesktopMobileAuthCodeGrant(ApiEnvironment? environment)
         {
-            var oAuthDesktopMobileAuthCodeGrant = new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
+            var oAuthDesktopMobileAuthCodeGrant = environment == ApiEnvironment.Sandbox ?
+                new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientIdSandbox"].ToString(), ApiEnvironment.Sandbox) :
+                new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
 
             // It is recommended that you specify a non guessable 'state' request parameter to help prevent
             // cross site request forgery (CSRF). 

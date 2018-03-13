@@ -70,5 +70,17 @@ namespace BingAdsConsoleApp.Properties {
                 this["DeveloperToken"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ClientIdForSandboxGoesHere")]
+        public string ClientIdSandbox {
+            get {
+                return ((string)(this["ClientIdSandbox"]));
+            }
+            set {
+                this["ClientIdSandbox"] = value;
+            }
+        }
     }
 }

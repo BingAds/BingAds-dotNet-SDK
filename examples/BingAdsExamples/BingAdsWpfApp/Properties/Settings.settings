@@ -14,5 +14,8 @@
     <Setting Name="DeveloperToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">DeveloperTokenGoesHere</Value>
     </Setting>
+    <Setting Name="ClientIdSandbox" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ClientIdForSandboxGoesHere</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

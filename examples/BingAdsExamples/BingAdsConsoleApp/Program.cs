@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Configuration;
 using System.Net.Http;
 using System.ServiceModel;
 using System.Text;
@@ -109,7 +110,9 @@ namespace BingAdsConsoleApp
 
         private static Authentication AuthenticateWithOAuth()
         {
-            var oAuthDesktopMobileAuthCodeGrant = new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
+            var oAuthDesktopMobileAuthCodeGrant = ConfigurationManager.AppSettings["BingAdsEnvironment"] == ApiEnvironment.Sandbox.ToString() ?
+                new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientIdSandbox"].ToString(), ApiEnvironment.Sandbox) :
+                new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
 
             // It is recommended that you specify a non guessable 'state' request parameter to help prevent
             // cross site request forgery (CSRF). 
@@ -217,7 +220,8 @@ namespace BingAdsConsoleApp
             _authorizationData = new AuthorizationData
             {
                 Authentication = authentication,
-                DeveloperToken = (Settings.Default["DeveloperToken"] != null) ? Settings.Default["DeveloperToken"].ToString() : null
+                DeveloperToken = ConfigurationManager.AppSettings["BingAdsEnvironment"] == ApiEnvironment.Sandbox.ToString() ?
+                    Settings.Default["DeveloperTokenSandbox"].ToString() : Settings.Default["DeveloperToken"].ToString()
             };
 
             _customerService = new ServiceClient<ICustomerManagementService>(_authorizationData);
