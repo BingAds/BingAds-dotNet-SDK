@@ -94,7 +94,7 @@ namespace BingAdsExamplesLibrary.V11
                 // to download the result file. 
 
                 // For example you might have previously retrieved a request ID using SubmitDownloadAsync.
-                //var reportingDownloadOperation = await ReportingService.SubmitDownloadAsync(reportRequest);
+                //var reportingDownloadOperation = await ReportingServiceManager.SubmitDownloadAsync(reportRequest);
                 //var requestId = reportingDownloadOperation.RequestId;
 
                 // Given the request ID above, you can resume the workflow and download the report.
