@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V12.CampaignManagement;
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     public class CampaignManagementExampleHelper : BingAdsExamplesLibrary.ExampleBase
     {
         public override string Description
         {
-            get { return "Sample Helper | CampaignManagement V11"; }
+            get { return "Sample Helper | CampaignManagement V12"; }
         }
         public ServiceClient<ICampaignManagementService> CampaignManagementService;
         public CampaignManagementExampleHelper(SendMessageDelegate OutputStatusMessageDefault)
@@ -43,12 +43,14 @@ namespace BingAdsExamplesLibrary.V11
         }
         public async Task<AddAdGroupsResponse> AddAdGroupsAsync(
             long campaignId,
-            IList<AdGroup> adGroups)
+            IList<AdGroup> adGroups,
+            bool? returnInheritedBidStrategyTypes)
         {
             var request = new AddAdGroupsRequest
             {
                 CampaignId = campaignId,
-                AdGroups = adGroups
+                AdGroups = adGroups,
+                ReturnInheritedBidStrategyTypes = returnInheritedBidStrategyTypes
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.AddAdGroupsAsync(r), request));
@@ -121,12 +123,14 @@ namespace BingAdsExamplesLibrary.V11
         }
         public async Task<AddKeywordsResponse> AddKeywordsAsync(
             long adGroupId,
-            IList<Keyword> keywords)
+            IList<Keyword> keywords,
+            bool? returnInheritedBidStrategyTypes)
         {
             var request = new AddKeywordsRequest
             {
                 AdGroupId = adGroupId,
-                Keywords = keywords
+                Keywords = keywords,
+                ReturnInheritedBidStrategyTypes = returnInheritedBidStrategyTypes
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.AddKeywordsAsync(r), request));
@@ -511,14 +515,12 @@ namespace BingAdsExamplesLibrary.V11
         }
         public async Task<GetAdGroupCriterionsByIdsResponse> GetAdGroupCriterionsByIdsAsync(
             IList<long> adGroupCriterionIds,
-            bool? returnAgeGenderUnknownValue,
             long adGroupId,
             AdGroupCriterionType criterionType)
         {
             var request = new GetAdGroupCriterionsByIdsRequest
             {
                 AdGroupCriterionIds = adGroupCriterionIds,
-                ReturnAgeGenderUnknownValue = returnAgeGenderUnknownValue,
                 AdGroupId = adGroupId,
                 CriterionType = criterionType
             };
@@ -526,27 +528,23 @@ namespace BingAdsExamplesLibrary.V11
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdGroupCriterionsByIdsAsync(r), request));
         }
         public async Task<GetAdGroupsByCampaignIdResponse> GetAdGroupsByCampaignIdAsync(
-            long campaignId,
-            AdGroupAdditionalField? returnAdditionalFields)
+            long campaignId)
         {
             var request = new GetAdGroupsByCampaignIdRequest
             {
-                CampaignId = campaignId,
-                ReturnAdditionalFields = returnAdditionalFields
+                CampaignId = campaignId
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdGroupsByCampaignIdAsync(r), request));
         }
         public async Task<GetAdGroupsByIdsResponse> GetAdGroupsByIdsAsync(
             long campaignId,
-            IList<long> adGroupIds,
-            AdGroupAdditionalField? returnAdditionalFields)
+            IList<long> adGroupIds)
         {
             var request = new GetAdGroupsByIdsRequest
             {
                 CampaignId = campaignId,
-                AdGroupIds = adGroupIds,
-                ReturnAdditionalFields = returnAdditionalFields
+                AdGroupIds = adGroupIds
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdGroupsByIdsAsync(r), request));
@@ -593,16 +591,12 @@ namespace BingAdsExamplesLibrary.V11
         }
         public async Task<GetAudiencesByIdsResponse> GetAudiencesByIdsAsync(
             IList<long> audienceIds,
-            AudienceType type,
-            AudienceAdditionalField? returnAdditionalFields,
-            bool? returnSupportedCampaignTypes)
+            AudienceType type)
         {
             var request = new GetAudiencesByIdsRequest
             {
                 AudienceIds = audienceIds,
-                Type = type,
-                ReturnAdditionalFields = returnAdditionalFields,
-                ReturnSupportedCampaignTypes = returnSupportedCampaignTypes
+                Type = type
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAudiencesByIdsAsync(r), request));
@@ -734,41 +728,35 @@ namespace BingAdsExamplesLibrary.V11
             return (await CampaignManagementService.CallAsync((s, r) => s.GetGeoLocationsFileUrlAsync(r), request));
         }
         public async Task<GetKeywordsByAdGroupIdResponse> GetKeywordsByAdGroupIdAsync(
-            long adGroupId,
-            KeywordAdditionalField? returnAdditionalFields)
+            long adGroupId)
         {
             var request = new GetKeywordsByAdGroupIdRequest
             {
-                AdGroupId = adGroupId,
-                ReturnAdditionalFields = returnAdditionalFields
+                AdGroupId = adGroupId
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetKeywordsByAdGroupIdAsync(r), request));
         }
         public async Task<GetKeywordsByEditorialStatusResponse> GetKeywordsByEditorialStatusAsync(
             long adGroupId,
-            KeywordEditorialStatus editorialStatus,
-            KeywordAdditionalField? returnAdditionalFields)
+            KeywordEditorialStatus editorialStatus)
         {
             var request = new GetKeywordsByEditorialStatusRequest
             {
                 AdGroupId = adGroupId,
-                EditorialStatus = editorialStatus,
-                ReturnAdditionalFields = returnAdditionalFields
+                EditorialStatus = editorialStatus
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetKeywordsByEditorialStatusAsync(r), request));
         }
         public async Task<GetKeywordsByIdsResponse> GetKeywordsByIdsAsync(
             long adGroupId,
-            IList<long> keywordIds,
-            KeywordAdditionalField? returnAdditionalFields)
+            IList<long> keywordIds)
         {
             var request = new GetKeywordsByIdsRequest
             {
                 AdGroupId = adGroupId,
-                KeywordIds = keywordIds,
-                ReturnAdditionalFields = returnAdditionalFields
+                KeywordIds = keywordIds
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetKeywordsByIdsAsync(r), request));
@@ -832,18 +820,6 @@ namespace BingAdsExamplesLibrary.V11
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetMediaAssociationsAsync(r), request));
-        }
-        public async Task<GetMediaByIdsResponse> GetMediaByIdsAsync(
-            long accountId,
-            IList<long> mediaIds)
-        {
-            var request = new GetMediaByIdsRequest
-            {
-                AccountId = accountId,
-                MediaIds = mediaIds
-            };
-
-            return (await CampaignManagementService.CallAsync((s, r) => s.GetMediaByIdsAsync(r), request));
         }
         public async Task<GetMediaMetaDataByAccountIdResponse> GetMediaMetaDataByAccountIdAsync(
             MediaEnabledEntityFilter mediaEnabledEntities)
@@ -1060,13 +1036,15 @@ namespace BingAdsExamplesLibrary.V11
         public async Task<UpdateAdGroupsResponse> UpdateAdGroupsAsync(
             long campaignId,
             IList<AdGroup> adGroups,
-            bool updateNativeBidAdjustment)
+            bool updateAudienceAdsBidAdjustment,
+            bool? returnInheritedBidStrategyTypes)
         {
             var request = new UpdateAdGroupsRequest
             {
                 CampaignId = campaignId,
                 AdGroups = adGroups,
-                UpdateNativeBidAdjustment = updateNativeBidAdjustment
+                UpdateAudienceAdsBidAdjustment = updateAudienceAdsBidAdjustment,
+                ReturnInheritedBidStrategyTypes = returnInheritedBidStrategyTypes
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.UpdateAdGroupsAsync(r), request));
@@ -1139,12 +1117,14 @@ namespace BingAdsExamplesLibrary.V11
         }
         public async Task<UpdateKeywordsResponse> UpdateKeywordsAsync(
             long adGroupId,
-            IList<Keyword> keywords)
+            IList<Keyword> keywords,
+            bool? returnInheritedBidStrategyTypes)
         {
             var request = new UpdateKeywordsRequest
             {
                 AdGroupId = adGroupId,
-                Keywords = keywords
+                Keywords = keywords,
+                ReturnInheritedBidStrategyTypes = returnInheritedBidStrategyTypes
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request));
@@ -1184,7 +1164,7 @@ namespace BingAdsExamplesLibrary.V11
             if (null != dataObject)
             {
                 OutputStatusMessage(string.Format("AccountId: {0}", dataObject.AccountId));
-                OutputArrayOfMigrationStatusInfo(dataObject.MigrationStatusInfo);
+                OutputArrayOfMigrationStatusInfo(dataObject.MigrationStatusInfos);
             }
         }
         public void OutputArrayOfAccountMigrationStatusesInfo(IList<AccountMigrationStatusesInfo> dataObjects)
@@ -1385,15 +1365,10 @@ namespace BingAdsExamplesLibrary.V11
                 {
                     OutputReviewAdExtension((ReviewAdExtension)dataObject);
                 }
-                var sitelink2adextension = dataObject as Sitelink2AdExtension;
-                if(sitelink2adextension != null)
+                var sitelinkadextension = dataObject as SitelinkAdExtension;
+                if(sitelinkadextension != null)
                 {
-                    OutputSitelink2AdExtension((Sitelink2AdExtension)dataObject);
-                }
-                var sitelinksadextension = dataObject as SiteLinksAdExtension;
-                if(sitelinksadextension != null)
-                {
-                    OutputSiteLinksAdExtension((SiteLinksAdExtension)dataObject);
+                    OutputSitelinkAdExtension((SitelinkAdExtension)dataObject);
                 }
                 var structuredsnippetadextension = dataObject as StructuredSnippetAdExtension;
                 if(structuredsnippetadextension != null)
@@ -1534,21 +1509,17 @@ namespace BingAdsExamplesLibrary.V11
         {
             if (null != dataObject)
             {
-                OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputAdRotation(dataObject.AdRotation);
+                OutputStatusMessage(string.Format("AudienceAdsBidAdjustment: {0}", dataObject.AudienceAdsBidAdjustment));
                 OutputBiddingScheme(dataObject.BiddingScheme);
-                OutputBid(dataObject.ContentMatchBid);
+                OutputBid(dataObject.CpcBid);
                 OutputDate(dataObject.EndDate);
                 OutputArrayOfKeyValuePairOfstringstring(dataObject.ForwardCompatibilityMap);
                 OutputStatusMessage(string.Format("Id: {0}", dataObject.Id));
                 OutputStatusMessage(string.Format("Language: {0}", dataObject.Language));
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
-                OutputStatusMessage(string.Format("NativeBidAdjustment: {0}", dataObject.NativeBidAdjustment));
                 OutputStatusMessage(string.Format("Network: {0}", dataObject.Network));
-                OutputStatusMessage(string.Format("PricingModel: {0}", dataObject.PricingModel));
                 OutputStatusMessage(string.Format("PrivacyStatus: {0}", dataObject.PrivacyStatus));
-                OutputStatusMessage(string.Format("RemarketingTargetingSetting: {0}", dataObject.RemarketingTargetingSetting));
-                OutputBid(dataObject.SearchBid);
                 OutputArrayOfSetting(dataObject.Settings);
                 OutputDate(dataObject.StartDate);
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
@@ -1922,6 +1893,11 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Index: {0}", dataObject.Index));
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
+                var editorialerrorcollection = dataObject as EditorialErrorCollection;
+                if(editorialerrorcollection != null)
+                {
+                    OutputEditorialErrorCollection((EditorialErrorCollection)dataObject);
+                }
             }
         }
         public void OutputArrayOfBatchErrorCollection(IList<BatchErrorCollection> dataObjects)
@@ -2071,6 +2047,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("IsActive: {0}", dataObject.IsActive));
                 OutputStatusMessage(string.Format("IsProductAdsEnabled: {0}", dataObject.IsProductAdsEnabled));
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
+                OutputStatusMessage(string.Format("SubType: {0}", dataObject.SubType));
             }
         }
         public void OutputArrayOfBMCStore(IList<BMCStore> dataObjects)
@@ -2150,6 +2127,7 @@ namespace BingAdsExamplesLibrary.V11
         {
             if (null != dataObject)
             {
+                OutputStatusMessage(string.Format("AudienceAdsBidAdjustment: {0}", dataObject.AudienceAdsBidAdjustment));
                 OutputBiddingScheme(dataObject.BiddingScheme);
                 OutputStatusMessage(string.Format("BudgetType: {0}", dataObject.BudgetType));
                 OutputStatusMessage(string.Format("DailyBudget: {0}", dataObject.DailyBudget));
@@ -2157,8 +2135,8 @@ namespace BingAdsExamplesLibrary.V11
                 OutputArrayOfKeyValuePairOfstringstring(dataObject.ForwardCompatibilityMap);
                 OutputStatusMessage(string.Format("Id: {0}", dataObject.Id));
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
-                OutputStatusMessage(string.Format("NativeBidAdjustment: {0}", dataObject.NativeBidAdjustment));
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
+                OutputStatusMessage(string.Format("SubType: {0}", dataObject.SubType));
                 OutputStatusMessage(string.Format("TimeZone: {0}", dataObject.TimeZone));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", dataObject.TrackingUrlTemplate));
                 OutputCustomParameters(dataObject.UrlCustomParameters);
@@ -2309,6 +2287,26 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var dataObject in dataObjects)
                 {
                     OutputConversionGoalRevenue(dataObject);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+        public void OutputCoOpSetting(CoOpSetting dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage(string.Format("BidBoostValue: {0}", dataObject.BidBoostValue));
+                OutputStatusMessage(string.Format("BidMaxValue: {0}", dataObject.BidMaxValue));
+                OutputStatusMessage(string.Format("BidOption: {0}", dataObject.BidOption));
+            }
+        }
+        public void OutputArrayOfCoOpSetting(IList<CoOpSetting> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputCoOpSetting(dataObject);
                     OutputStatusMessage("\n");
                 }
             }
@@ -2625,6 +2623,8 @@ namespace BingAdsExamplesLibrary.V11
             {
                 OutputStatusMessage(string.Format("DomainName: {0}", dataObject.DomainName));
                 OutputStatusMessage(string.Format("Language: {0}", dataObject.Language));
+                OutputArrayOfLong(dataObject.PageFeedIds);
+                OutputStatusMessage(string.Format("Source: {0}", dataObject.Source));
             }
         }
         public void OutputArrayOfDynamicSearchAdsSetting(IList<DynamicSearchAdsSetting> dataObjects)
@@ -2676,6 +2676,28 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var dataObject in dataObjects)
                 {
                     OutputEditorialError(dataObject);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+        public void OutputEditorialErrorCollection(EditorialErrorCollection dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage(string.Format("Appealable: {0}", dataObject.Appealable));
+                OutputStatusMessage(string.Format("DisapprovedText: {0}", dataObject.DisapprovedText));
+                OutputStatusMessage(string.Format("Location: {0}", dataObject.Location));
+                OutputStatusMessage(string.Format("PublisherCountry: {0}", dataObject.PublisherCountry));
+                OutputStatusMessage(string.Format("ReasonCode: {0}", dataObject.ReasonCode));
+            }
+        }
+        public void OutputArrayOfEditorialErrorCollection(IList<EditorialErrorCollection> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputEditorialErrorCollection(dataObject);
                     OutputStatusMessage("\n");
                 }
             }
@@ -2807,7 +2829,7 @@ namespace BingAdsExamplesLibrary.V11
         {
             if (null != dataObject)
             {
-                OutputStatusMessage(string.Format("DisplayUrl: {0}", dataObject.DisplayUrl));
+                OutputStatusMessage(string.Format("Domain: {0}", dataObject.Domain));
                 OutputStatusMessage(string.Format("Path1: {0}", dataObject.Path1));
                 OutputStatusMessage(string.Format("Path2: {0}", dataObject.Path2));
                 OutputStatusMessage(string.Format("Text: {0}", dataObject.Text));
@@ -3096,8 +3118,6 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("CompanyName: {0}", dataObject.CompanyName));
                 OutputStatusMessage(string.Format("GeoCodeStatus: {0}", dataObject.GeoCodeStatus));
                 OutputGeoPoint(dataObject.GeoPoint);
-                OutputStatusMessage(string.Format("IconMediaId: {0}", dataObject.IconMediaId));
-                OutputStatusMessage(string.Format("ImageMediaId: {0}", dataObject.ImageMediaId));
                 OutputStatusMessage(string.Format("PhoneNumber: {0}", dataObject.PhoneNumber));
             }
         }
@@ -3894,6 +3914,11 @@ namespace BingAdsExamplesLibrary.V11
             if (null != dataObject)
             {
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
+                var coopsetting = dataObject as CoOpSetting;
+                if(coopsetting != null)
+                {
+                    OutputCoOpSetting((CoOpSetting)dataObject);
+                }
                 var dynamicsearchadssetting = dataObject as DynamicSearchAdsSetting;
                 if(dynamicsearchadssetting != null)
                 {
@@ -4038,35 +4063,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        public void OutputSiteLink(SiteLink dataObject)
-        {
-            if (null != dataObject)
-            {
-                OutputStatusMessage(string.Format("Description1: {0}", dataObject.Description1));
-                OutputStatusMessage(string.Format("Description2: {0}", dataObject.Description2));
-                OutputStatusMessage(string.Format("DestinationUrl: {0}", dataObject.DestinationUrl));
-                OutputStatusMessage(string.Format("DevicePreference: {0}", dataObject.DevicePreference));
-                OutputStatusMessage(string.Format("DisplayText: {0}", dataObject.DisplayText));
-                OutputArrayOfAppUrl(dataObject.FinalAppUrls);
-                OutputArrayOfString(dataObject.FinalMobileUrls);
-                OutputArrayOfString(dataObject.FinalUrls);
-                OutputSchedule(dataObject.Scheduling);
-                OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", dataObject.TrackingUrlTemplate));
-                OutputCustomParameters(dataObject.UrlCustomParameters);
-            }
-        }
-        public void OutputArrayOfSiteLink(IList<SiteLink> dataObjects)
-        {
-            if (null != dataObjects)
-            {
-                foreach (var dataObject in dataObjects)
-                {
-                    OutputSiteLink(dataObject);
-                    OutputStatusMessage("\n");
-                }
-            }
-        }
-        public void OutputSitelink2AdExtension(Sitelink2AdExtension dataObject)
+        public void OutputSitelinkAdExtension(SitelinkAdExtension dataObject)
         {
             if (null != dataObject)
             {
@@ -4081,31 +4078,13 @@ namespace BingAdsExamplesLibrary.V11
                 OutputCustomParameters(dataObject.UrlCustomParameters);
             }
         }
-        public void OutputArrayOfSitelink2AdExtension(IList<Sitelink2AdExtension> dataObjects)
+        public void OutputArrayOfSitelinkAdExtension(IList<SitelinkAdExtension> dataObjects)
         {
             if (null != dataObjects)
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputSitelink2AdExtension(dataObject);
-                    OutputStatusMessage("\n");
-                }
-            }
-        }
-        public void OutputSiteLinksAdExtension(SiteLinksAdExtension dataObject)
-        {
-            if (null != dataObject)
-            {
-                OutputArrayOfSiteLink(dataObject.SiteLinks);
-            }
-        }
-        public void OutputArrayOfSiteLinksAdExtension(IList<SiteLinksAdExtension> dataObjects)
-        {
-            if (null != dataObjects)
-            {
-                foreach (var dataObject in dataObjects)
-                {
-                    OutputSiteLinksAdExtension(dataObject);
+                    OutputSitelinkAdExtension(dataObject);
                     OutputStatusMessage("\n");
                 }
             }
@@ -4450,6 +4429,24 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
+        public void OutputDynamicSearchAdsSource(DynamicSearchAdsSource valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(DynamicSearchAdsSource)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfDynamicSearchAdsSource(IList<DynamicSearchAdsSource> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputDynamicSearchAdsSource(valueSet);
+                }
+            }
+        }
         public void OutputCriterionTypeGroup(CriterionTypeGroup valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -4468,21 +4465,21 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        public void OutputAdDistribution(AdDistribution valueSet)
+        public void OutputBidOption(BidOption valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(AdDistribution)))
+            foreach (var value in Enum.GetValues(typeof(BidOption)))
             {
                 OutputStatusMessage(value.ToString());
             }
         }
-        public void OutputArrayOfAdDistribution(IList<AdDistribution> valueSets)
+        public void OutputArrayOfBidOption(IList<BidOption> valueSets)
         {
             if (null != valueSets)
             {
                 foreach (var valueSet in valueSets)
                 {
-                    OutputAdDistribution(valueSet);
+                    OutputBidOption(valueSet);
                 }
             }
         }
@@ -4522,24 +4519,6 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        public void OutputPricingModel(PricingModel valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(PricingModel)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfPricingModel(IList<PricingModel> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputPricingModel(valueSet);
-                }
-            }
-        }
         public void OutputAdGroupPrivacyStatus(AdGroupPrivacyStatus valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -4558,24 +4537,6 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        public void OutputRemarketingTargetingSetting(RemarketingTargetingSetting valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(RemarketingTargetingSetting)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfRemarketingTargetingSetting(IList<RemarketingTargetingSetting> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputRemarketingTargetingSetting(valueSet);
-                }
-            }
-        }
         public void OutputAdGroupStatus(AdGroupStatus valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -4591,24 +4552,6 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var valueSet in valueSets)
                 {
                     OutputAdGroupStatus(valueSet);
-                }
-            }
-        }
-        public void OutputAdGroupAdditionalField(AdGroupAdditionalField valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(AdGroupAdditionalField)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfAdGroupAdditionalField(IList<AdGroupAdditionalField> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputAdGroupAdditionalField(valueSet);
                 }
             }
         }
@@ -4663,24 +4606,6 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var valueSet in valueSets)
                 {
                     OutputKeywordStatus(valueSet);
-                }
-            }
-        }
-        public void OutputKeywordAdditionalField(KeywordAdditionalField valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(KeywordAdditionalField)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfKeywordAdditionalField(IList<KeywordAdditionalField> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputKeywordAdditionalField(valueSet);
                 }
             }
         }
@@ -5170,6 +5095,24 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
+        public void OutputBMCStoreSubType(BMCStoreSubType valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(BMCStoreSubType)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfBMCStoreSubType(IList<BMCStoreSubType> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputBMCStoreSubType(valueSet);
+                }
+            }
+        }
         public void OutputCampaignCriterionStatus(CampaignCriterionStatus valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -5275,24 +5218,6 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var valueSet in valueSets)
                 {
                     OutputProductAudienceType(valueSet);
-                }
-            }
-        }
-        public void OutputAudienceAdditionalField(AudienceAdditionalField valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(AudienceAdditionalField)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfAudienceAdditionalField(IList<AudienceAdditionalField> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputAudienceAdditionalField(valueSet);
                 }
             }
         }

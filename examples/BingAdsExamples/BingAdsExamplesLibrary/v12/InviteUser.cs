@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V11.CustomerManagement;
+using Microsoft.BingAds.V12.CustomerManagement;
 using Microsoft.BingAds;
 using System.Globalization;
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
     /// This example demonstrates how to invite a user to manage Bing Ads accounts.
@@ -19,22 +19,17 @@ namespace BingAdsExamplesLibrary.V11
         /// It is important to note that the recipient can accept the invitation 
         /// and sign into Bing Ads with a Microsoft account different than the invitation email address.
         /// </summary>
-        const string UserInviteRecipientEmail = "urban.eric@outlook.com";//"<UserInviteRecipientEmailGoesHere>";
+        const string UserInviteRecipientEmail = "<UserInviteRecipientEmailGoesHere>";
         
         public override string Description
         {
-            get { return "Invite a User to Manage Bing Ads accounts | Customer Management V11"; }
+            get { return "Invite a User to Manage Bing Ads accounts | Customer Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
             try
             {
-                authorizationData.Authentication = new PasswordAuthentication("reseller_sbx", "bingads123");
-                
-                authorizationData.AccountId = 137889984;
-                authorizationData.CustomerId = 21018518;
-
                 OutputStatusMessage("You must edit this example to provide the email address (UserInviteRecipientEmail) for " +
                                     "the user invitation.");
                 OutputStatusMessage("You must use Super Admin credentials to send a user invitation.\n");
@@ -55,16 +50,17 @@ namespace BingAdsExamplesLibrary.V11
                     AccountIds = null,
 
                     // The user role, which determines the level of access that the user has to the accounts specified in the AccountIds element.
-                    Role = UserRole.SuperAdmin,
+                    // The identifier for an advertiser campaign manager is 12.
+                    RoleId = 12,
 
                     // The email address where the invitation should be sent. This element can contain a maximum of 100 characters.
                     Email = UserInviteRecipientEmail,
 
                     // The first name of the user. This element can contain a maximum of 40 characters.
-                    FirstName = "Eric",
+                    FirstName = "FirstNameGoesHere",
 
                     // The last name of the user. This element can contain a maximum of 40 characters.
-                    LastName = "Urban",
+                    LastName = "LastNameGoesHere",
 
                     // The locale to use when sending correspondence to the user by email or postal mail. The default is EnglishUS.
                     Lcid = LCID.EnglishUS,
@@ -148,7 +144,7 @@ namespace BingAdsExamplesLibrary.V11
                     OutputStatusMessage("Found Requested User Details (Not necessarily related to above Invitation ID(s):");
                     CustomerManagementExampleHelper.OutputUser(getUserResponse.User);
                     OutputStatusMessage("Role Ids:");
-                    OutputStatusMessage(string.Join("; ", getUserResponse.Roles.Select(role => string.Format("{0}", role))));
+                    OutputStatusMessage(string.Join("; ", getUserResponse.CustomerRoles.Select(role => string.Format("{0}", role.RoleId))));
                 }
             }
             // Catch authentication exceptions
@@ -157,12 +153,12 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Customer Management AdApiFaultDetail service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CustomerManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Customer Management ApiFault service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }

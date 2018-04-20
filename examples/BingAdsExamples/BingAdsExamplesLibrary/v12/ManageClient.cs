@@ -4,11 +4,11 @@ using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V11.CustomerManagement;
+using Microsoft.BingAds.V12.CustomerManagement;
 using Microsoft.BingAds;
 
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
     /// This example demonstrates how to use agency credentials to invite a client, 
@@ -22,7 +22,7 @@ namespace BingAdsExamplesLibrary.V11
 
         public override string Description
         {
-            get { return "Manage Client | Customer Management V11"; }
+            get { return "Manage Client | Customer Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -134,8 +134,7 @@ namespace BingAdsExamplesLibrary.V11
                             OutputStatusMessage("A new client link invitation is required.\n");
                             break;
                     }
-
-
+                    
                     // Print errors if any occurred when updating the client link.
 
                     if (updateClientLinksResponse != null)
@@ -194,11 +193,11 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CustomerManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }

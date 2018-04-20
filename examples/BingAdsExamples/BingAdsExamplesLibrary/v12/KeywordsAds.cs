@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V12.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
     /// This example demonstrates how to add ads and keywords to a new ad group, 
@@ -16,7 +16,7 @@ namespace BingAdsExamplesLibrary.V11
     {
         public override string Description
         {
-            get { return "Keywords and Ads | Campaign Management V11"; }
+            get { return "Keywords and Ads | Campaign Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -55,7 +55,7 @@ namespace BingAdsExamplesLibrary.V11
                         // and then, at any time, set an individual ad group or keyword bid strategy to 
                         // Manual CPC (ManualCpcBiddingScheme).
                         // For campaigns you can use either of the EnhancedCpcBiddingScheme or ManualCpcBiddingScheme objects. 
-                        // If you do not set this element, then ManualCpcBiddingScheme is used by default.
+                        // If you do not set this element, then EnhancedCpcBiddingScheme is used by default.
                         BiddingScheme = new EnhancedCpcBiddingScheme { },
                         
                         TimeZone = "PacificTimeUSCanadaTijuana",
@@ -72,26 +72,33 @@ namespace BingAdsExamplesLibrary.V11
                     new AdGroup
                     {
                         Name = "Women's Red Shoe Sale",
-                        AdDistribution = AdDistribution.Search,
-                        PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
+                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date {
                             Month = 12,
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
                         },
-                        SearchBid = new Bid { Amount = 0.09 },
+                        CpcBid = new Bid { Amount = 0.09 },
                         Language = "English",
                         
                         // For ad groups you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
                         // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
                         BiddingScheme = new ManualCpcBiddingScheme { },
-                        
-                        // You could use a tracking template which would override the campaign level
-                        // tracking template. Tracking templates defined for lower level entities 
-                        // override those set for higher level entities.
-                        // In this example we are using the campaign level tracking template.
-                        TrackingUrlTemplate = null,
+
+                        Settings = new[]
+                        {
+                            new TargetSetting
+                            {
+                                Details = new []
+                                {
+                                    new TargetSettingDetail
+                                    {
+                                        CriterionTypeGroup = CriterionTypeGroup.Audience,
+                                        TargetAndBid = true
+                                    }
+                                }
+                            }
+                        },
                     }
                 };
 
@@ -344,13 +351,13 @@ namespace BingAdsExamplesLibrary.V11
                 CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
 
-                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignIds[0], adGroups);
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignIds[0], adGroups, null);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
                 CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
 
-                AddKeywordsResponse addKeywordsResponse = await CampaignManagementExampleHelper.AddKeywordsAsync((long)adGroupIds[0], keywords);
+                AddKeywordsResponse addKeywordsResponse = await CampaignManagementExampleHelper.AddKeywordsAsync((long)adGroupIds[0], keywords, null);
                 long?[] keywordIds = addKeywordsResponse.KeywordIds.ToArray();
                 BatchError[] keywordErrors = addKeywordsResponse.PartialErrors.ToArray();
                 CampaignManagementExampleHelper.OutputArrayOfLong(keywordIds);
@@ -468,7 +475,7 @@ namespace BingAdsExamplesLibrary.V11
                     getCampaigns = (await CampaignManagementExampleHelper.GetCampaignsByIdsAsync(
                         authorizationData.AccountId,
                         getCampaignIds,
-                        CampaignType.SearchAndContent | CampaignType.Shopping | CampaignType.DynamicSearchAds
+                        CampaignType.Search | CampaignType.Shopping | CampaignType.DynamicSearchAds
                     )).Campaigns;
 
                     OutputStatusMessage("List of campaigns with unshared budget AFTER budget update:\n");
@@ -539,11 +546,11 @@ namespace BingAdsExamplesLibrary.V11
                 // As an exercise you can step through using the debugger and view the results.
 
                 var getKeywordsByAdGroupIdResponse = 
-                    await CampaignManagementExampleHelper.GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], null);
+                    await CampaignManagementExampleHelper.GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
                 var updateKeywordsResponse = 
-                    await CampaignManagementExampleHelper.UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword });
+                    await CampaignManagementExampleHelper.UpdateKeywordsAsync((long)adGroupIds[0], new[] { updateKeyword }, null);
                 getKeywordsByAdGroupIdResponse = 
-                    await CampaignManagementExampleHelper.GetKeywordsByAdGroupIdAsync((long)adGroupIds[0], null);
+                    await CampaignManagementExampleHelper.GetKeywordsByAdGroupIdAsync((long)adGroupIds[0]);
                 
                 // Delete the campaign, ad group, keyword, and ad that were previously added. 
                 // You should remove this line if you want to view the added entities in the 
@@ -565,16 +572,16 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));

@@ -25,25 +25,13 @@ namespace BingAdsConsoleApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string RefreshToken {
-            get {
-                return ((string)(this["RefreshToken"]));
-            }
-            set {
-                this["RefreshToken"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("BBD37VB98")]
-        public string DeveloperTokenSandbox {
+        public string DeveloperToken {
             get {
-                return ((string)(this["DeveloperTokenSandbox"]));
+                return ((string)(this["DeveloperToken"]));
             }
             set {
-                this["DeveloperTokenSandbox"] = value;
+                this["DeveloperToken"] = value;
             }
         }
         
@@ -56,30 +44,6 @@ namespace BingAdsConsoleApp.Properties {
             }
             set {
                 this["ClientId"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DeveloperTokenGoesHere")]
-        public string DeveloperToken {
-            get {
-                return ((string)(this["DeveloperToken"]));
-            }
-            set {
-                this["DeveloperToken"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ClientIdForSandboxGoesHere")]
-        public string ClientIdSandbox {
-            get {
-                return ((string)(this["ClientIdSandbox"]));
-            }
-            set {
-                this["ClientIdSandbox"] = value;
             }
         }
     }
