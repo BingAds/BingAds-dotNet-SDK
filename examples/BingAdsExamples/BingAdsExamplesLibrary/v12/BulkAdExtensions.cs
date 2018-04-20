@@ -5,13 +5,13 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V11.Bulk;
-using Microsoft.BingAds.V11.Bulk.Entities;
-using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V12.Bulk;
+using Microsoft.BingAds.V12.Bulk.Entities;
+using Microsoft.BingAds.V12.CampaignManagement;
 
-using Microsoft.BingAds.V11.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.Internal.Bulk.Entities;
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
     /// This example demonstrates how to add and update ad extensions using the BulkServiceManager class.
@@ -20,7 +20,7 @@ namespace BingAdsExamplesLibrary.V11
     {
         public override string Description
         {
-            get { return "AdExtensions | Bulk V11"; }
+            get { return "AdExtensions | Bulk V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -148,7 +148,7 @@ namespace BingAdsExamplesLibrary.V11
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                            EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
                             {
                                 Month = 12,
                                 Day = 31,
@@ -176,9 +176,7 @@ namespace BingAdsExamplesLibrary.V11
                         Id = locationAdExtensionIdKey,
                         PhoneNumber = "206-555-0100",
                         CompanyName = "Contoso Shoes",
-                        IconMediaId = null,
-                        ImageMediaId = null,
-                        Address = new Microsoft.BingAds.V11.CampaignManagement.Address
+                        Address = new Microsoft.BingAds.V12.CampaignManagement.Address
                         {
                             StreetAddress = "1234 Washington Place",
                             StreetAddress2 = "Suite 1210",
@@ -206,7 +204,7 @@ namespace BingAdsExamplesLibrary.V11
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date
+                            EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
                             {
                                 Month = 12,
                                 Day = 31,
@@ -396,7 +394,7 @@ namespace BingAdsExamplesLibrary.V11
                 uploadEntities.Add(bulkCampaignReviewAdExtension);
                 uploadEntities.Add(bulkCampaignStructuredSnippetAdExtension);
 
-                var bulkSLExtensions = GetSampleBulkSitelink2AdExtensions(authorizationData.AccountId).ToArray();
+                var bulkSLExtensions = GetSampleBulkSitelinkAdExtensions(authorizationData.AccountId).ToArray();
 
                 foreach (var bulkSLExtension in bulkSLExtensions)
                 {
@@ -437,8 +435,8 @@ namespace BingAdsExamplesLibrary.V11
                 var structuredSnippetAdExtensionResults = downloadEntities.OfType<BulkStructuredSnippetAdExtension>().ToList();
                 OutputBulkStructuredSnippetAdExtensions(structuredSnippetAdExtensionResults);
 
-                var sitelink2AdExtensionResults = downloadEntities.OfType<BulkSitelink2AdExtension>().ToList();
-                OutputBulkSitelink2AdExtensions(sitelink2AdExtensionResults);
+                var sitelinkAdExtensionResults = downloadEntities.OfType<BulkSitelinkAdExtension>().ToList();
+                OutputBulkSitelinkAdExtensions(sitelinkAdExtensionResults);
 
                 OutputBulkCampaignAdExtensionAssociations(downloadEntities.OfType<BulkCampaignAdExtensionAssociation>().ToList());
 
@@ -559,12 +557,12 @@ namespace BingAdsExamplesLibrary.V11
                     }
                 }
 
-                foreach (var sitelink2AdExtensionResult in sitelink2AdExtensionResults)
+                foreach (var sitelinkAdExtensionResult in sitelinkAdExtensionResults)
                 {
-                    if (sitelink2AdExtensionResult.Sitelink2AdExtension.Id > 0)
+                    if (sitelinkAdExtensionResult.SitelinkAdExtension.Id > 0)
                     {
-                        sitelink2AdExtensionResult.Sitelink2AdExtension.Status = AdExtensionStatus.Deleted;
-                        uploadEntities.Add(sitelink2AdExtensionResult);
+                        sitelinkAdExtensionResult.SitelinkAdExtension.Status = AdExtensionStatus.Deleted;
+                        uploadEntities.Add(sitelinkAdExtensionResult);
                     }
                 }
 
@@ -591,7 +589,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputBulkLocationAdExtensions(downloadEntities.OfType<BulkLocationAdExtension>().ToList());
                 OutputBulkPriceAdExtensions(downloadEntities.OfType<BulkPriceAdExtension>().ToList());
                 OutputBulkReviewAdExtensions(downloadEntities.OfType<BulkReviewAdExtension>().ToList());
-                OutputBulkSitelink2AdExtensions(downloadEntities.OfType<BulkSitelink2AdExtension>().ToList());
+                OutputBulkSitelinkAdExtensions(downloadEntities.OfType<BulkSitelinkAdExtension>().ToList());
                 OutputBulkStructuredSnippetAdExtensions(downloadEntities.OfType<BulkStructuredSnippetAdExtension>().ToList());
                 Reader.Dispose();
 
@@ -605,11 +603,11 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Bulk service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.Bulk.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.Bulk.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.Bulk.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.Bulk.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -639,16 +637,15 @@ namespace BingAdsExamplesLibrary.V11
             #endregion CatchExceptions 
         }
 
-        // Gets example BulkSitelink2AdExtension and BulkCampaignSitelink2AdExtension objects. You can use 
-        // this type of ad extension if your account has been migrated to BulkSitelink2AdExtension.
-        private BulkEntity[] GetSampleBulkSitelink2AdExtensions(long accountId)
+        // Gets example BulkSitelinkAdExtension and BulkCampaignSitelinkAdExtension objects. 
+        private BulkEntity[] GetSampleBulkSitelinkAdExtensions(long accountId)
         {
             return new BulkEntity[] {
-                new BulkSitelink2AdExtension
+                new BulkSitelinkAdExtension
                 {
                     AccountId = accountId,
-                    Sitelink2AdExtension = new Sitelink2AdExtension {
-                        Id = sitelink2AdExtensionIdKey,
+                    SitelinkAdExtension = new SitelinkAdExtension {
+                        Id = sitelinkAdExtensionIdKey,
                         Description1 = "Simple & Transparent.",
                         Description2 = "No Upfront Cost.",
                         DisplayText = "Women's Shoe Sale 1",
@@ -663,8 +660,15 @@ namespace BingAdsExamplesLibrary.V11
                         FinalMobileUrls = new[] {
                             "http://mobile.contoso.com/womenshoesale"
                         },
+                        // You could use a tracking template which would override the campaign level
+                        // tracking template. Tracking templates defined for lower level entities 
+                        // override those set for higher level entities.
+                        // In this example we are using the campaign level tracking template.
+                        TrackingUrlTemplate = null,
 
-                        // Set custom parameters that are specific to this ad extension.
+                        // Set custom parameters that are specific to this ad extension, 
+                        // and can be used by the ad extension, ad group, campaign, or account level tracking template. 
+                        // In this example we are using the campaign level tracking template.
                         UrlCustomParameters = new CustomParameters
                         {
                             Parameters = new[] {
@@ -680,12 +684,12 @@ namespace BingAdsExamplesLibrary.V11
                         },
                     },
                 },
-                new BulkSitelink2AdExtension
+                new BulkSitelinkAdExtension
                 {
                     AccountId = accountId,
-                    Sitelink2AdExtension = new Sitelink2AdExtension
+                    SitelinkAdExtension = new SitelinkAdExtension
                     {
-                        Id = sitelink2AdExtensionIdKey,
+                        Id = sitelinkAdExtensionIdKey,
                         Description1 = "Do Amazing Things With Contoso.",
                         Description2 = "Read Our Case Studies.",
                         DisplayText = "Women's Shoe Sale 2",
@@ -719,14 +723,22 @@ namespace BingAdsExamplesLibrary.V11
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
+                            EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date {
                                 Month = 12,
                                 Day = 31,
                                 Year = DateTime.UtcNow.Year + 1
                             },
                         },
 
-                        // Set custom parameters that are specific to this ad extension.
+                        // You could use a tracking template which would override the campaign level
+                        // tracking template. Tracking templates defined for lower level entities 
+                        // override those set for higher level entities.
+                        // In this example we are using the campaign level tracking template.
+                        TrackingUrlTemplate = null,
+
+                        // Set custom parameters that are specific to this ad extension, 
+                        // and can be used by the ad extension, ad group, campaign, or account level tracking template. 
+                        // In this example we are using the campaign level tracking template.
                         UrlCustomParameters = new CustomParameters
                         {
                             Parameters = new[] {
@@ -742,11 +754,11 @@ namespace BingAdsExamplesLibrary.V11
                         },
                     }
                 },
-                new BulkCampaignSitelink2AdExtension
+                new BulkCampaignSitelinkAdExtension
                 {
                     AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
                     {
-                        AdExtensionId = sitelink2AdExtensionIdKey,
+                        AdExtensionId = sitelinkAdExtensionIdKey,
                         EntityId = campaignIdKey
                     }
                 }

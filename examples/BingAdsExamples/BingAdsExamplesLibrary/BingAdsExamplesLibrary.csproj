@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{199A4882-5EF7-4400-83A5-CEC33F9BC529}</ProjectGuid>
+    <ProjectGuid>{23BE29DF-9F85-4F37-A4D1-F2ED08D7BF8B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BingAdsExamplesLibrary</RootNamespace>
     <AssemblyName>BingAdsExamplesLibrary</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,15 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BingAds, Version=11.5.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.BingAds.SDK.11.5.9\lib\net45\Microsoft.BingAds.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.BingAds, Version=11.12.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.BingAds.SDK.11.12.1\lib\netstandard2.0\Microsoft.BingAds.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Primitives, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Primitives.4.4.1\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,16 +92,46 @@
     <Compile Include="v11\SearchUserAccounts.cs" />
     <Compile Include="v11\ShoppingCampaigns.cs" />
     <Compile Include="v11\TargetCriterions.cs" />
+    <Compile Include="v12\AdExtensions.cs" />
+    <Compile Include="v12\AdInsightExampleHelper.cs" />
+    <Compile Include="v12\BudgetOpportunities.cs" />
+    <Compile Include="v12\BulkAdExtensions.cs" />
+    <Compile Include="v12\BulkAdGroupUpdate.cs" />
+    <Compile Include="v12\BulkDynamicSearchCampaigns.cs" />
+    <Compile Include="v12\BulkExampleBase.cs" />
+    <Compile Include="v12\BulkExampleHelper.cs" />
+    <Compile Include="v12\BulkKeywordsAds.cs" />
+    <Compile Include="v12\BulkNegativeKeywords.cs" />
+    <Compile Include="v12\BulkNegativeSites.cs" />
+    <Compile Include="v12\BulkProductPartitionUpdateBid.cs" />
+    <Compile Include="v12\BulkRemarketingLists.cs" />
+    <Compile Include="v12\BulkServiceManagerDemo.cs" />
+    <Compile Include="v12\BulkShoppingCampaigns.cs" />
+    <Compile Include="v12\BulkTargetCriterions.cs" />
+    <Compile Include="v12\CampaignManagementExampleHelper.cs" />
+    <Compile Include="v12\ConversionGoals.cs" />
+    <Compile Include="v12\CustomerBillingExampleHelper.cs" />
+    <Compile Include="v12\CustomerManagementExampleHelper.cs" />
+    <Compile Include="v12\CustomerSignup.cs" />
+    <Compile Include="v12\DynamicSearchCampaigns.cs" />
+    <Compile Include="v12\ExampleBase.cs" />
+    <Compile Include="v12\GeographicalLocations.cs" />
+    <Compile Include="v12\InviteUser.cs" />
+    <Compile Include="v12\KeywordPlanner.cs" />
+    <Compile Include="v12\KeywordsAds.cs" />
+    <Compile Include="v12\Labels.cs" />
+    <Compile Include="v12\ManageClient.cs" />
+    <Compile Include="v12\NegativeKeywords.cs" />
+    <Compile Include="v12\OfflineConversions.cs" />
+    <Compile Include="v12\RemarketingLists.cs" />
+    <Compile Include="v12\ReportingExampleHelper.cs" />
+    <Compile Include="v12\ReportRequests.cs" />
+    <Compile Include="v12\SearchUserAccounts.cs" />
+    <Compile Include="v12\ShoppingCampaigns.cs" />
+    <Compile Include="v12\TargetCriterions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

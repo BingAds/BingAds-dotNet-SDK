@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V12.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
     /// This example demonstrates how to associate remarketing lists with a new ad group.
@@ -17,7 +17,7 @@ namespace BingAdsExamplesLibrary.V11
 
         public override string Description
         {
-            get { return "Remarketing Lists | Campaign Management V11"; }
+            get { return "Remarketing Lists | Campaign Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -499,22 +499,34 @@ namespace BingAdsExamplesLibrary.V11
                     new AdGroup
                     {
                         Name = "Women's Red Shoe Sale",
-                        AdDistribution = AdDistribution.Search,
-                        PricingModel = PricingModel.Cpc,
                         StartDate = null,
                         EndDate = new Date {
                             Month = 12,
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
                         },
-                        SearchBid = new Bid { Amount = 0.09 },
+                        CpcBid = new Bid { Amount = 0.09 },
                         Language = "English",
                         TrackingUrlTemplate = null,
 
                         // Applicable for all remarketing lists that are associated with this ad group. TargetAndBid indicates 
                         // that you want to show ads only to people included in the remarketing list, with the option to change
                         // the bid amount. Ads in this ad group will only show to people included in the remarketing list.
-                        RemarketingTargetingSetting = RemarketingTargetingSetting.TargetAndBid
+                        Settings = new[]
+                    {
+                        new TargetSetting
+                        {
+                            // Each target setting detail is delimited by a semicolon (;) in the Bulk file
+                            Details = new []
+                            {
+                                new TargetSettingDetail
+                                {
+                                    CriterionTypeGroup = CriterionTypeGroup.Audience,
+                                    TargetAndBid = true
+                                }
+                            }
+                        }
+                    },
                     }
                 };
 
@@ -525,7 +537,7 @@ namespace BingAdsExamplesLibrary.V11
                 CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
 
-                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignIds[0], adGroups);
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignIds[0], adGroups, null);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
                 CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
@@ -549,9 +561,7 @@ namespace BingAdsExamplesLibrary.V11
                 }
                 var remarketingLists = (await CampaignManagementExampleHelper.GetAudiencesByIdsAsync(
                     getAudienceIds,
-                    AudienceType.RemarketingList,
-                    AudienceAdditionalField.AudienceNetworkSize | AudienceAdditionalField.SearchSize,
-                    true)).Audiences;
+                    AudienceType.RemarketingList)).Audiences;
 
                 foreach (var remarketingList in remarketingLists)
                 {
@@ -591,7 +601,6 @@ namespace BingAdsExamplesLibrary.V11
 
                 var getAdGroupCriterionsByIdsResponse = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds,
-                    true,
                     (long)adGroupIds[0],
                     AdGroupCriterionType.RemarketingList);
 
@@ -652,16 +661,16 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));

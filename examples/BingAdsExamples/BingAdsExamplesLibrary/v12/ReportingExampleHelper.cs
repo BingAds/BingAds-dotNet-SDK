@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V11.Reporting;
+using Microsoft.BingAds.V12.Reporting;
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     public class ReportingExampleHelper : BingAdsExamplesLibrary.ExampleBase
     {
         public override string Description
         {
-            get { return "Sample Helper | Reporting V11"; }
+            get { return "Sample Helper | Reporting V12"; }
         }
         public ServiceClient<IReportingService> ReportingService;
         public ReportingExampleHelper(SendMessageDelegate OutputStatusMessageDefault)
@@ -697,6 +697,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputDate(dataObject.CustomDateRangeEnd);
                 OutputDate(dataObject.CustomDateRangeStart);
                 OutputStatusMessage(string.Format("PredefinedTime: {0}", dataObject.PredefinedTime));
+                OutputStatusMessage(string.Format("ReportTimeZone: {0}", dataObject.ReportTimeZone));
             }
         }
         public void OutputArrayOfBudgetSummaryReportTime(IList<BudgetSummaryReportTime> dataObjects)
@@ -1798,6 +1799,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputDate(dataObject.CustomDateRangeEnd);
                 OutputDate(dataObject.CustomDateRangeStart);
                 OutputStatusMessage(string.Format("PredefinedTime: {0}", dataObject.PredefinedTime));
+                OutputStatusMessage(string.Format("ReportTimeZone: {0}", dataObject.ReportTimeZone));
             }
         }
         public void OutputArrayOfReportTime(IList<ReportTime> dataObjects)
@@ -2155,6 +2157,24 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
+        public void OutputReportTimeZone(ReportTimeZone valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(ReportTimeZone)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfReportTimeZone(IList<ReportTimeZone> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputReportTimeZone(valueSet);
+                }
+            }
+        }
         public void OutputCampaignPerformanceReportColumn(CampaignPerformanceReportColumn valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -2188,24 +2208,6 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var valueSet in valueSets)
                 {
                     OutputCampaignStatusReportFilter(valueSet);
-                }
-            }
-        }
-        public void OutputNonHourlyReportAggregation(NonHourlyReportAggregation valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(NonHourlyReportAggregation)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfNonHourlyReportAggregation(IList<NonHourlyReportAggregation> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputNonHourlyReportAggregation(valueSet);
                 }
             }
         }
@@ -2461,24 +2463,6 @@ namespace BingAdsExamplesLibrary.V11
                 }
             }
         }
-        public void OutputBudgetSummaryReportTimePeriod(BudgetSummaryReportTimePeriod valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(BudgetSummaryReportTimePeriod)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfBudgetSummaryReportTimePeriod(IList<BudgetSummaryReportTimePeriod> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputBudgetSummaryReportTimePeriod(valueSet);
-                }
-            }
-        }
         public void OutputAgeGenderDemographicReportColumn(AgeGenderDemographicReportColumn valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -2566,24 +2550,6 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var valueSet in valueSets)
                 {
                     OutputPublisherUsagePerformanceReportColumn(valueSet);
-                }
-            }
-        }
-        public void OutputSearchQueryReportAggregation(SearchQueryReportAggregation valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(SearchQueryReportAggregation)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfSearchQueryReportAggregation(IList<SearchQueryReportAggregation> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputSearchQueryReportAggregation(valueSet);
                 }
             }
         }
