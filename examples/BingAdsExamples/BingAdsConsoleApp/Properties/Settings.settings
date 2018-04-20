@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BingAdsConsoleApp.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ClientId" Type="System.String" Scope="User">
-      <Value Profile="(Default)">db41b09d-6e50-4f4a-90ac-5a99caefb52f</Value>
-    </Setting>
     <Setting Name="DeveloperToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">BBD37VB98</Value>
+    </Setting>
+    <Setting Name="ClientId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ClientIdGoesHere</Value>
     </Setting>
   </Settings>
 </SettingsFile>
