@@ -50,8 +50,6 @@
 using System;
 using System.Net.Http.Headers;
 using System.Configuration;
-using System.Web.Configuration;
-using System.Web.Hosting;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.Internal
@@ -109,26 +107,14 @@ namespace Microsoft.BingAds.Internal
 
             if (environment == null)
             {
-                DetectApiEnvironmentFromConfiguration();
+                _environment = ApiEnvironment.Production;
             }
             else
             {
                 _environment = environment.Value;
             }
         }
-
-
-        private void DetectApiEnvironmentFromConfiguration()
-        {
-            var envSetting = HostingEnvironment.IsHosted ?
-            WebConfigurationManager.AppSettings[EnvironmentAppSetting] :
-            ConfigurationManager.AppSettings[EnvironmentAppSetting];
-
-            if (!Enum.TryParse(envSetting, out _environment))
-            {
-                _environment = ApiEnvironment.Production;
-            }
-        }
+        
 
         /// <summary>
         /// Sets the AuthenticationToken header element for the corresponding Bing Ads service operation. 

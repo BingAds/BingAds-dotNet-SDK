@@ -53,8 +53,6 @@ using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading.Tasks;
-using System.Web.Configuration;
-using System.Web.Hosting;
 using System.Xml.Linq;
 using Microsoft.BingAds.Internal;
 
@@ -109,6 +107,7 @@ namespace Microsoft.BingAds
         /// <param name="authorizationData">Represents a user who intends to access the corresponding customer and account.</param>
         public ServiceClient(AuthorizationData authorizationData): this(authorizationData, null)
         {
+
         }
 
         /// <summary>
@@ -122,6 +121,7 @@ namespace Microsoft.BingAds
             {
                 throw new ArgumentNullException("authorizationData");
             }
+
             _authorizationData = authorizationData;
 
             _serviceClientFactory = ServiceClientFactoryFactory.CreateServiceClientFactory();
@@ -148,23 +148,11 @@ namespace Microsoft.BingAds
 
             if (environment == null)
             {
-                DetectApiEnvironmentFromConfiguration();
+                _environment = ApiEnvironment.Production;
             }
             else
             {
                 _environment = environment.Value;
-            }
-        }
-
-        private void DetectApiEnvironmentFromConfiguration()
-        {
-            var envSetting = HostingEnvironment.IsHosted ?
-            WebConfigurationManager.AppSettings[EnvironmentAppSetting] :
-            ConfigurationManager.AppSettings[EnvironmentAppSetting];
-
-            if (!Enum.TryParse(envSetting, out _environment))
-            {
-                _environment = ApiEnvironment.Production;
             }
         }
 
@@ -249,10 +237,10 @@ namespace Microsoft.BingAds
 
                     throw;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     ((IClientChannel)client).Abort();
-
+                    var message = e.Message;
                     throw;
                 }
             } while (true);
@@ -333,15 +321,8 @@ namespace Microsoft.BingAds
 
         private void ValidateObjectStateAndParameters(object method, object request)
         {
-            if (method == null)
-            {
-                throw new ArgumentNullException("method");
-            }
-
-            if (request == null)
-            {
-                throw new ArgumentNullException("request");
-            }
+            if (method == null) throw new ArgumentNullException(nameof(method));
+            if (request == null) throw new ArgumentNullException(nameof(request));
 
             _authorizationData.Validate();
 

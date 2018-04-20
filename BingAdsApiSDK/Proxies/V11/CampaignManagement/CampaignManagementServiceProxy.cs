@@ -715,7 +715,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         DynamicSearchAds = 4,
         
         /// <summary>
-        /// Reserved.
+        /// The campaign is an Audience campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audience = 8,
@@ -1360,7 +1360,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private Microsoft.BingAds.V11.CampaignManagement.CriterionTypeGroup CriterionTypeGroupField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool TargetAllField;
+        private bool TargetAndBidField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -1398,18 +1398,18 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool TargetAll
+        public bool TargetAndBid
         {
             get
             {
-                return this.TargetAllField;
+                return this.TargetAndBidField;
             }
             set
             {
-                if ((this.TargetAllField.Equals(value) != true))
+                if ((this.TargetAndBidField.Equals(value) != true))
                 {
-                    this.TargetAllField = value;
-                    this.RaisePropertyChanged("TargetAll");
+                    this.TargetAndBidField = value;
+                    this.RaisePropertyChanged("TargetAndBid");
                 }
             }
         }
@@ -3381,13 +3381,13 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         InheritedBidStrategyType = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the PrivacyStatus element be included within each returned AdGroup object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrivacyStatus = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the TargetSetting element be included within each returned AdGroup object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TargetSetting = 4,
@@ -4841,7 +4841,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Subscrib = 18,
+        Subscribe = 18,
         
         /// <summary>
         /// Reserved.
@@ -6705,7 +6705,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// The identifier of an icon used to mark the business location on Bing Maps.
+        /// Reserved for internal use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> IconMediaId
@@ -6725,7 +6725,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// The identifier of the image to include in the ad.
+        /// Reserved for internal use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ImageMediaId
@@ -10873,6 +10873,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Industry = 131072,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductAudience = 262144,
     }
     
     /// <summary>
@@ -12454,6 +12460,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InMarket = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Product = 4,
     }
     
     /// <summary>
@@ -14421,11 +14433,15 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.RemarketingList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.CustomAudience))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.InMarketAudience))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ProductAudience))]
     public partial class Audience : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> AudienceNetworkSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
@@ -14452,6 +14468,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private System.Nullable<long> SearchSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> SupportedCampaignTypesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V11.CampaignManagement.AudienceType TypeField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -14463,6 +14482,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             set
             {
                 this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<long> AudienceNetworkSize
+        {
+            get
+            {
+                return this.AudienceNetworkSizeField;
+            }
+            set
+            {
+                if ((this.AudienceNetworkSizeField.Equals(value) != true))
+                {
+                    this.AudienceNetworkSizeField = value;
+                    this.RaisePropertyChanged("AudienceNetworkSize");
+                }
             }
         }
         
@@ -14627,6 +14666,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
+        /// The list of campaign types that support this audience.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<string> SupportedCampaignTypes
+        {
+            get
+            {
+                return this.SupportedCampaignTypesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SupportedCampaignTypesField, value) != true))
+                {
+                    this.SupportedCampaignTypesField = value;
+                    this.RaisePropertyChanged("SupportedCampaignTypes");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The type of the audience.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -14744,6 +14803,66 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.SerializableAttribute()]
     public partial class InMarketAudience : Microsoft.BingAds.V11.CampaignManagement.Audience
     {
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudience?view=bingads-11">ProductAudience Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudience?view=bingads-11 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductAudience", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class ProductAudience : Microsoft.BingAds.V11.CampaignManagement.Audience
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.ProductAudienceType> ProductAudienceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> TagIdField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.ProductAudienceType> ProductAudienceType
+        {
+            get
+            {
+                return this.ProductAudienceTypeField;
+            }
+            set
+            {
+                if ((this.ProductAudienceTypeField.Equals(value) != true))
+                {
+                    this.ProductAudienceTypeField = value;
+                    this.RaisePropertyChanged("ProductAudienceType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> TagId
+        {
+            get
+            {
+                return this.TagIdField;
+            }
+            set
+            {
+                if ((this.TagIdField.Equals(value) != true))
+                {
+                    this.TagIdField = value;
+                    this.RaisePropertyChanged("TagId");
+                }
+            }
+        }
     }
     
     /// <summary>
@@ -15531,6 +15650,50 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudiencetype?view=bingads-11">ProductAudienceType Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudiencetype?view=bingads-11 for details.
+    /// <para>Used by <see cref="ProductAudience"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductAudienceType", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum ProductAudienceType : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GeneralVisitors = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductSearchers = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductViewers = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ShoppingCartAbandoners = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PastBuyers = 16,
+    }
+    
+    /// <summary>
     /// Defines a list of optional Audience properties that you can request when calling GetAudiencesByIds.
     /// </summary>
     /// <remarks>
@@ -15548,6 +15711,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchSize = 1,
+        
+        /// <summary>
+        /// Request that the AudienceNetworkSize element be included within each returned Audience object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceNetworkSize = 2,
     }
     
     /// <summary>
@@ -30871,6 +31040,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields;
         
         /// <summary>
+        /// Determines whether or not to return the list of campaign types that support this audience.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=3)]
+        public System.Nullable<bool> ReturnSupportedCampaignTypes;
+        
+        /// <summary>
         /// Constructor for the GetAudiencesByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -30889,7 +31064,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <param name="AudienceIds">A maximum of 100 identifiers of the requested audiences.</param>
         /// <param name="Type">One or more types of audiences to return.</param>
         /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Audience object.</param>
-        public GetAudiencesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceIds, Microsoft.BingAds.V11.CampaignManagement.AudienceType Type, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields)
+        /// <param name="ReturnSupportedCampaignTypes">Determines whether or not to return the list of campaign types that support this audience.</param>
+        public GetAudiencesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceIds, Microsoft.BingAds.V11.CampaignManagement.AudienceType Type, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields, System.Nullable<bool> ReturnSupportedCampaignTypes)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -30901,6 +31077,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.AudienceIds = AudienceIds;
             this.Type = Type;
             this.ReturnAdditionalFields = ReturnAdditionalFields;
+            this.ReturnSupportedCampaignTypes = ReturnSupportedCampaignTypes;
         }
     }
     

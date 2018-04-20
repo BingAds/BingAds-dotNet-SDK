@@ -3725,7 +3725,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The identifier of the customer to whom this user belongs.
+        /// The identifier of the customer for this user to access.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CustomerId
@@ -3745,7 +3745,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the user.
+        /// The Bing Ads identifier of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -3965,7 +3965,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// If the value of IsMigratedToMicrosoftAccount is false, this element contains the user's Bing Ads managed sign-in user name.
+        /// The logon user name of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public string UserName
@@ -3985,7 +3985,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         }
         
         /// <summary>
-        /// If true, the user can be authenticated using  a Microsoft Account.
+        /// Determines whether the user name was migrated from a Bing Ads managed sign-in user name to a Microsoft account email address.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public bool IsMigratedToMicrosoftAccount
@@ -6594,7 +6594,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         ClientAdmin = 9,
         
         /// <summary>
-        /// This role has permissions to manage campaigns and perform some billing activities on specific accounts.
+        /// This role has permissions to manage campaigns and perform some billing activities on selected accounts.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StandardUser = 10,

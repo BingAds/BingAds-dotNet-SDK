@@ -85,6 +85,8 @@ namespace Microsoft.BingAds.V11.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.DestinationUrlPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.BudgetSummaryReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.AgeGenderDemographicReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.AgeGenderAudienceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.ProfessionalDemographicsAudienceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.UserLocationPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.PublisherUsagePerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.SearchQueryPerformanceReportRequest))]
@@ -101,6 +103,7 @@ namespace Microsoft.BingAds.V11.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.ProductPartitionPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.ProductPartitionUnitPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.ProductSearchQueryPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.ProductMatchCountReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.CallDetailReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.GeographicPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.Reporting.DSASearchQueryPerformanceReportRequest))]
@@ -382,7 +385,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountReportScope Scope
@@ -507,7 +510,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughCampaignReportScope Scope
@@ -632,7 +635,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -757,7 +760,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -882,7 +885,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1033,7 +1036,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1178,7 +1181,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1258,7 +1261,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughCampaignReportScope Scope
@@ -1383,7 +1386,257 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an age and gender audience report request for Audience campaigns.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportrequest?view=bingads-11">AgeGenderAudienceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportrequest?view=bingads-11 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AgeGenderAudienceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v11")]
+    [System.SerializableAttribute()]
+    public partial class AgeGenderAudienceReportRequest : Microsoft.BingAds.V11.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AgeGenderAudienceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.Reporting.AgeGenderAudienceReportFilter FilterField;
+        
+        private Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.AgeGenderAudienceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.Reporting.AgeGenderAudienceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The entity scope of the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a professional demographics audience report request for Audience campaigns.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-11">ProfessionalDemographicsAudienceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-11 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProfessionalDemographicsAudienceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v11")]
+    [System.SerializableAttribute()]
+    public partial class ProfessionalDemographicsAudienceReportRequest : Microsoft.BingAds.V11.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ProfessionalDemographicsAudienceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V11.Reporting.ProfessionalDemographicsAudienceReportFilter FilterField;
+        
+        private Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.NonHourlyReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ProfessionalDemographicsAudienceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V11.Reporting.ProfessionalDemographicsAudienceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1508,7 +1761,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1633,7 +1886,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1758,7 +2011,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1883,7 +2136,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2008,7 +2261,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2109,7 +2362,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2192,7 +2445,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2317,7 +2570,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2442,7 +2695,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2567,7 +2820,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2692,7 +2945,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2817,7 +3070,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2942,7 +3195,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3067,7 +3320,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3192,7 +3445,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3317,7 +3570,109 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time period to use for the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a product match count report request that aggregates the performance data by product group for a specified time period.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productmatchcountreportrequest?view=bingads-11">ProductMatchCountReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productmatchcountreportrequest?view=bingads-11 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductMatchCountReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v11")]
+    [System.SerializableAttribute()]
+    public partial class ProductMatchCountReportRequest : Microsoft.BingAds.V11.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.V11.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ProductMatchCountReportColumn> ColumnsField;
+        
+        private Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.V11.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// The type of aggregation to use to aggregate the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V11.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V11.Reporting.ProductMatchCountReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3567,7 +3922,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3692,7 +4047,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3817,7 +4172,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3942,7 +4297,7 @@ namespace Microsoft.BingAds.V11.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V11.Reporting.AccountThroughAdGroupReportScope Scope
@@ -4240,7 +4595,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reporttime?view=bingads-11">ReportTime Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reporttime?view=bingads-11 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4350,7 +4705,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportaggregation?view=bingads-11">ReportAggregation Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportaggregation?view=bingads-11 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/> and <see cref="ProductSearchQueryPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/> and <see cref="ProductSearchQueryPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportAggregation", Namespace="https://bingads.microsoft.com/Reporting/v11")]
@@ -4449,7 +4804,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 4,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 5,
@@ -4718,7 +5073,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountstatusreportfilter?view=bingads-11">AccountStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountstatusreportfilter?view=bingads-11 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -4750,7 +5105,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addistributionreportfilter?view=bingads-11">AdDistributionReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addistributionreportfilter?view=bingads-11 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchCampaignChangeHistoryReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="UserLocationPerformanceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchCampaignChangeHistoryReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="UserLocationPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -4991,7 +5346,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Yesterday = 1,
         
         /// <summary>
-        /// A report for the previous seven days, one row for each day.
+        /// A cumulative report for the previous seven days.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastSevenDays = 2,
@@ -5355,7 +5710,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 7,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 8,
@@ -5708,7 +6063,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignstatusreportfilter?view=bingads-11">CampaignStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignstatusreportfilter?view=bingads-11 for details.
-    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -6068,7 +6423,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughadgroupreportscope?view=bingads-11">AccountThroughAdGroupReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughadgroupreportscope?view=bingads-11 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6178,7 +6533,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/nonhourlyreportaggregation?view=bingads-11">NonHourlyReportAggregation Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/nonhourlyreportaggregation?view=bingads-11 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="NonHourlyReportAggregation", Namespace="https://bingads.microsoft.com/Reporting/v11")]
@@ -6319,7 +6674,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 14,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 15,
@@ -6474,7 +6829,7 @@ namespace Microsoft.BingAds.V11.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupstatusreportfilter?view=bingads-11">AdGroupStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupstatusreportfilter?view=bingads-11 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -7015,7 +7370,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 9,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 10,
@@ -7649,7 +8004,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 12,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 13,
@@ -7889,22 +8244,40 @@ namespace Microsoft.BingAds.V11.Reporting
         TitlePart2 = 52,
         
         /// <summary>
+        /// The shorter of two possible responsive ad headlines for Audience campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Headline = 53,
+        
+        /// <summary>
+        /// The longer of two possible responsive ad headlines for Audience campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LongHeadline = 54,
+        
+        /// <summary>
+        /// Depending on your responsive ad's placement, your business's name may appear in your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BusinessName = 55,
+        
+        /// <summary>
         /// The path 1 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Path1 = 53,
+        Path1 = 56,
         
         /// <summary>
         /// The path 2 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Path2 = 54,
+        Path2 = 57,
         
         /// <summary>
         /// The labels applied to the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdLabels = 55,
+        AdLabels = 58,
     }
     
     /// <summary>
@@ -8425,7 +8798,7 @@ namespace Microsoft.BingAds.V11.Reporting
         DeliveredMatchType = 15,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 16,
@@ -8707,13 +9080,13 @@ namespace Microsoft.BingAds.V11.Reporting
         Mainline1Bid = 62,
         
         /// <summary>
-        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Bing Ads calculates for your ad to be placed on the first page sidebar in the search results.
+        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Bing Ads calculates for your ad to be placed on the first page in the search results.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainlineBid = 63,
         
         /// <summary>
-        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Bing Ads calculates for your ad to be placed on the first page sidebar in the search results.
+        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Bing Ads calculates for your ad to be placed on the first page in the search results.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SidebarBid = 64,
@@ -9206,7 +9579,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 9,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 10,
@@ -9847,7 +10220,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 8,
@@ -9911,6 +10284,608 @@ namespace Microsoft.BingAds.V11.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedConversionRate = 18,
+        
+        /// <summary>
+        /// The account status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStatus = 19,
+        
+        /// <summary>
+        /// The campaign status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStatus = 20,
+        
+        /// <summary>
+        /// The ad group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupStatus = 21,
+    }
+    
+    /// <summary>
+    /// Defines the criteria to use to filter the age and gender audience report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportfilter?view=bingads-11">AgeGenderAudienceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportfilter?view=bingads-11 for details.
+    /// <para>Used by <see cref="AgeGenderAudienceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AgeGenderAudienceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v11")]
+    [System.SerializableAttribute()]
+    public partial class AgeGenderAudienceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistributionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LanguageCodeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the account status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
+        {
+            get
+            {
+                return this.AccountStatusField;
+            }
+            set
+            {
+                if ((this.AccountStatusField.Equals(value) != true))
+                {
+                    this.AccountStatusField = value;
+                    this.RaisePropertyChanged("AccountStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified distribution medium.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
+        {
+            get
+            {
+                return this.AdDistributionField;
+            }
+            set
+            {
+                if ((this.AdDistributionField.Equals(value) != true))
+                {
+                    this.AdDistributionField = value;
+                    this.RaisePropertyChanged("AdDistribution");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the ad group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
+        {
+            get
+            {
+                return this.AdGroupStatusField;
+            }
+            set
+            {
+                if ((this.AdGroupStatusField.Equals(value) != true))
+                {
+                    this.AdGroupStatusField = value;
+                    this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the campaign status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
+        {
+            get
+            {
+                return this.CampaignStatusField;
+            }
+            set
+            {
+                if ((this.CampaignStatusField.Equals(value) != true))
+                {
+                    this.CampaignStatusField = value;
+                    this.RaisePropertyChanged("CampaignStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only websites that used the specified languages.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> LanguageCode
+        {
+            get
+            {
+                return this.LanguageCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
+                {
+                    this.LanguageCodeField = value;
+                    this.RaisePropertyChanged("LanguageCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the AgeGenderAudienceReportRequest.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportcolumn?view=bingads-11">AgeGenderAudienceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportcolumn?view=bingads-11 for details.
+    /// <para>Used by <see cref="AgeGenderAudienceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AgeGenderAudienceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v11")]
+    public enum AgeGenderAudienceReportColumn : int
+    {
+        
+        /// <summary>
+        /// The account name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Bing Ads assigned number of an account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of an account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 3,
+        
+        /// <summary>
+        /// The campaign name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 4,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        /// <summary>
+        /// The ad group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 6,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of an ad group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 7,
+        
+        /// <summary>
+        /// The network where you want your ads to show.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDistribution = 8,
+        
+        /// <summary>
+        /// The age group of the audience who viewed the ad.The possible values are 13-17, 18-24, 25-34, 35-49, 50-64, and 65+.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AgeGroup = 9,
+        
+        /// <summary>
+        /// The gender (male or female) of the search users to whom the ad was delivered.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Gender = 10,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages or other sites on the Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 11,
+        
+        /// <summary>
+        /// Clicks are what you pay for.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 12,
+        
+        /// <summary>
+        /// A conversion is a click that results in a sale or another measure of success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 13,
+        
+        /// <summary>
+        /// The sum of your cost-per-click (CPC) charges for your ads and keywords.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 14,
+        
+        /// <summary>
+        /// A value that you can collect using universal event tracking.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 15,
+        
+        /// <summary>
+        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExtendedCost = 16,
+        
+        /// <summary>
+        /// The number of times an entity (an account, campaign, ad group, or keyword, for example) contributed to a conversion that is associated with a different entity.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 17,
+        
+        /// <summary>
+        /// This is the language of the country the ad is served in.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 18,
+        
+        /// <summary>
+        /// The account status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStatus = 19,
+        
+        /// <summary>
+        /// The campaign status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStatus = 20,
+        
+        /// <summary>
+        /// The ad group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupStatus = 21,
+    }
+    
+    /// <summary>
+    /// Defines the criteria to use to filter the professional demographics audience report for Audience campaigns.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-11">ProfessionalDemographicsAudienceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-11 for details.
+    /// <para>Used by <see cref="ProfessionalDemographicsAudienceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProfessionalDemographicsAudienceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v11")]
+    [System.SerializableAttribute()]
+    public partial class ProfessionalDemographicsAudienceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistributionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LanguageCodeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the account status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.Reporting.AccountStatusReportFilter> AccountStatus
+        {
+            get
+            {
+                return this.AccountStatusField;
+            }
+            set
+            {
+                if ((this.AccountStatusField.Equals(value) != true))
+                {
+                    this.AccountStatusField = value;
+                    this.RaisePropertyChanged("AccountStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the specified distribution medium.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.Reporting.AdDistributionReportFilter> AdDistribution
+        {
+            get
+            {
+                return this.AdDistributionField;
+            }
+            set
+            {
+                if ((this.AdDistributionField.Equals(value) != true))
+                {
+                    this.AdDistributionField = value;
+                    this.RaisePropertyChanged("AdDistribution");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the ad group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.Reporting.AdGroupStatusReportFilter> AdGroupStatus
+        {
+            get
+            {
+                return this.AdGroupStatusField;
+            }
+            set
+            {
+                if ((this.AdGroupStatusField.Equals(value) != true))
+                {
+                    this.AdGroupStatusField = value;
+                    this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the campaign status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.Reporting.CampaignStatusReportFilter> CampaignStatus
+        {
+            get
+            {
+                return this.CampaignStatusField;
+            }
+            set
+            {
+                if ((this.CampaignStatusField.Equals(value) != true))
+                {
+                    this.CampaignStatusField = value;
+                    this.RaisePropertyChanged("CampaignStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only websites that used the specified languages.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> LanguageCode
+        {
+            get
+            {
+                return this.LanguageCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageCodeField, value) != true))
+                {
+                    this.LanguageCodeField = value;
+                    this.RaisePropertyChanged("LanguageCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the ProfessionalDemographicsAudienceReportRequest.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportcolumn?view=bingads-11">ProfessionalDemographicsAudienceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportcolumn?view=bingads-11 for details.
+    /// <para>Used by <see cref="ProfessionalDemographicsAudienceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProfessionalDemographicsAudienceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v11")]
+    public enum ProfessionalDemographicsAudienceReportColumn : int
+    {
+        
+        /// <summary>
+        /// The account name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Bing Ads assigned number of an account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of an account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The time period of each report row.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 3,
+        
+        /// <summary>
+        /// The campaign name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 4,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        /// <summary>
+        /// The ad group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 6,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of an ad group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 7,
+        
+        /// <summary>
+        /// The name of the company (according to LinkedIn) of the person who viewed the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CompanyName = 8,
+        
+        /// <summary>
+        /// The name of the industry (according to LinkedIn) of the person who viewed the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IndustryName = 9,
+        
+        /// <summary>
+        /// The name of the job function (according to LinkedIn) of the person who viewed the ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobFunctionName = 10,
+        
+        /// <summary>
+        /// The network where you want your ads to show.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDistribution = 11,
+        
+        /// <summary>
+        /// The number of times an ad has been displayed on search results pages or other sites on the Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 12,
+        
+        /// <summary>
+        /// Clicks are what you pay for.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 13,
+        
+        /// <summary>
+        /// The sum of your cost-per-click (CPC) charges for your ads and keywords.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 14,
+        
+        /// <summary>
+        /// A conversion is a click that results in a sale or another measure of success.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 15,
+        
+        /// <summary>
+        /// This is the language of the country the ad is served in.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 16,
+        
+        /// <summary>
+        /// The number of times an entity (an account, campaign, ad group, or keyword, for example) contributed to a conversion that is associated with a different entity.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 17,
+        
+        /// <summary>
+        /// A value that you can collect using universal event tracking.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 18,
         
         /// <summary>
         /// The account status.
@@ -10114,7 +11089,7 @@ namespace Microsoft.BingAds.V11.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -10126,7 +11101,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 11,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 12,
@@ -10210,7 +11185,7 @@ namespace Microsoft.BingAds.V11.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Nielsen DMA® in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA? in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -10565,7 +11540,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 8,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 9,
@@ -14742,7 +15717,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CostPerConversion = 33,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 34,
@@ -15324,7 +16299,7 @@ namespace Microsoft.BingAds.V11.Reporting
         TopVsOther = 53,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 54,
@@ -15846,7 +16821,7 @@ namespace Microsoft.BingAds.V11.Reporting
         BenchmarkCtr = 46,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 47,
@@ -16787,6 +17762,109 @@ namespace Microsoft.BingAds.V11.Reporting
     }
     
     /// <summary>
+    /// Defines the attributes and performance statistics columns that you can include in the ProductMatchCountReportRequest.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productmatchcountreportcolumn?view=bingads-11">ProductMatchCountReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productmatchcountreportcolumn?view=bingads-11 for details.
+    /// <para>Used by <see cref="ProductMatchCountReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductMatchCountReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v11")]
+    public enum ProductMatchCountReportColumn : int
+    {
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 0,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 1,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of an account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The Bing Ads assigned number of an account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 3,
+        
+        /// <summary>
+        /// The account name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 4,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        /// <summary>
+        /// The campaign name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 6,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of an ad group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 7,
+        
+        /// <summary>
+        /// The ad group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 8,
+        
+        /// <summary>
+        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductGroup = 9,
+        
+        /// <summary>
+        /// The product partition type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PartitionType = 10,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of an ad group criterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupCriterionId = 11,
+        
+        /// <summary>
+        /// The number of products per campaign that matched your product group targets.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MatchedProductsAtCampaign = 12,
+        
+        /// <summary>
+        /// The number of products per ad group that matched your product group targets.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MatchedProductsAtAdGroup = 13,
+        
+        /// <summary>
+        /// The number of products per product group that matched your product group targets.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MatchedProductsAtProductGroup = 14,
+    }
+    
+    /// <summary>
     /// Defines the criteria to use to filter the call detail report data.
     /// </summary>
     /// <remarks>
@@ -17263,7 +18341,7 @@ namespace Microsoft.BingAds.V11.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -17281,7 +18359,7 @@ namespace Microsoft.BingAds.V11.Reporting
         CurrencyCode = 12,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 13,
@@ -17814,7 +18892,7 @@ namespace Microsoft.BingAds.V11.Reporting
         DynamicAdTargetId = 19,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 20,
@@ -18198,7 +19276,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AdGroupStatus = 10,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 11,
@@ -18663,7 +19741,7 @@ namespace Microsoft.BingAds.V11.Reporting
         Category2 = 15,
         
         /// <summary>
-        /// The ad distribution attribute of an ad group.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 16,

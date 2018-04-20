@@ -2094,7 +2094,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     }
     
     /// <summary>
-    /// Defines the possible positions where you can target an ad to appear in the search results or on a content-based webpage.
+    /// Defines the possible positions where you can target an ad to appear in the search results.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/targetadposition?view=bingads-11">TargetAdPosition Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/targetadposition?view=bingads-11 for details.
@@ -4523,7 +4523,7 @@ namespace Microsoft.BingAds.V11.AdInsight
     }
     
     /// <summary>
-    /// Defines the possible positions of an ad in the search results or on a content-based webpage.
+    /// Defines the possible positions of an ad in the search results.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adposition?view=bingads-11">AdPosition Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adposition?view=bingads-11 for details.

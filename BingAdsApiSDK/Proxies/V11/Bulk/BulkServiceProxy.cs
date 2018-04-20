@@ -667,6 +667,36 @@ namespace Microsoft.BingAds.V11.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveAdLabels = 88,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductAudiences = 89,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupProductAudienceAssociations = 90,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupNegativeProductAudienceAssociations = 91,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceNetworkInMarketAudiences = 92,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceNetworkAudiences = 93,
     }
     
     /// <summary>

@@ -58,6 +58,10 @@ namespace Microsoft.BingAds.V11.Bulk
     public enum DownloadStatus
     {
         /// <summary>
+        /// The default unknown status.
+        /// </summary>
+        Unknown,
+        /// <summary>
         /// The download completed successfully.
         /// </summary>
         Completed,

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <NuGetDeterministicPropsWasImported>true</NuGetDeterministicPropsWasImported>
+  </PropertyGroup>
+  <Import Project="Before.$(MSBuildThisFile)" Condition="Exists('Before.$(MSBuildThisFile)')" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp">
+      <Version>[4.4.0]</Version>
+      <Sha512>vvVR/B08YVghQ4jHEloxqw2ZWzEGE1AOA5E0DioUM3ujbXz6FD3AfB/0Jl2ohJPd0nXYGwmPe1En6HTsSriq1A==</Sha512>
+      <Path>microsoft.csharp/4.4.0</Path>
+      <HashFile>microsoft.csharp.4.4.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Platforms">
+      <Version>[2.0.0]</Version>
+      <Sha512>VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==</Sha512>
+      <Path>microsoft.netcore.platforms/2.0.0</Path>
+      <HashFile>Microsoft.NETCore.Platforms.2.0.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Targets">
+      <Version>[1.1.0]</Version>
+      <Sha512>aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==</Sha512>
+      <Path>microsoft.netcore.targets/1.1.0</Path>
+      <HashFile>microsoft.netcore.targets.1.1.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Buffers">
+      <Version>[4.4.0]</Version>
+      <Sha512>AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==</Sha512>
+      <Path>system.buffers/4.4.0</Path>
+      <HashFile>system.buffers.4.4.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Collections">
+      <Version>[4.3.0]</Version>
+      <Sha512>3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==</Sha512>
+      <Path>system.collections/4.3.0</Path>
+      <HashFile>system.collections.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.Debug">
+      <Version>[4.3.0]</Version>
+      <Sha512>ZUhUOdqmaG5Jk3Xdb8xi5kIyQYAA4PnTNlHx1mu9ZY3qv4ELIdKbnL/akbGaKi2RnNUWaZsAs31rvzFdewTj2g==</Sha512>
+      <Path>system.diagnostics.debug/4.3.0</Path>
+      <HashFile>system.diagnostics.debug.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Dynamic.Runtime">
+      <Version>[4.3.0]</Version>
+      <Sha512>SNVi1E/vfWUAs/WYKhE9+qlS6KqK0YVhnlT0HQtr8pMIA8YX3lwy3uPMownDwdYISBdmAF/2holEIldVp85Wag==</Sha512>
+      <Path>system.dynamic.runtime/4.3.0</Path>
+      <HashFile>system.dynamic.runtime.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Globalization">
+      <Version>[4.3.0]</Version>
+      <Sha512>kYdVd2f2PAdFGblzFswE4hkNANJBKRmsfa2X5LG2AcWE1c7/4t0pYae1L8vfZ5xvE2nK/R9JprtToA61OSHWIg==</Sha512>
+      <Path>system.globalization/4.3.0</Path>
+      <HashFile>system.globalization.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.IO">
+      <Version>[4.3.0]</Version>
+      <Sha512>3qjaHvxQPDpSOYICjUoTsmoq5u6QJAFRUITgeT/4gqkF1bajbSmb1kwSxEA8AHlofqgcKJcM8udgieRNhaJ5Cg==</Sha512>
+      <Path>system.io/4.3.0</Path>
+      <HashFile>system.io.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>[4.3.0]</Version>
+      <Sha512>5DbqIUpsDp0dFftytzuMmc0oeMdQwjcP/EWxsksIz/w1TcFRkZ3yKKz0PqiYFMmEwPSWw+qNVqD7PJ889JzHbw==</Sha512>
+      <Path>system.linq/4.3.0</Path>
+      <HashFile>system.linq.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Linq.Expressions">
+      <Version>[4.3.0]</Version>
+      <Sha512>PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==</Sha512>
+      <Path>system.linq.expressions/4.3.0</Path>
+      <HashFile>system.linq.expressions.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http.WinHttpHandler">
+      <Version>[4.4.0]</Version>
+      <Sha512>ZmsFZIZ4PL2UfUlfj4KCzzAGGE2SF39ENIqtvfgu0bwMEAe3J3CqZr765E2W6eQQtNK08/8DpHcsA0sAKZdEtA==</Sha512>
+      <Path>system.net.http.winhttphandler/4.4.0</Path>
+      <HashFile>system.net.http.winhttphandler.4.4.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.ObjectModel">
+      <Version>[4.3.0]</Version>
+      <Sha512>bdX+80eKv9bN6K4N+d77OankKHGn6CH711a6fcOpMQu2Fckp/Ft4L/kW9WznHpyR0NRAvJutzOMHNNlBGvxQzQ==</Sha512>
+      <Path>system.objectmodel/4.3.0</Path>
+      <HashFile>system.objectmodel.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Private.ServiceModel">
+      <Version>[4.4.0]</Version>
+      <Sha512>lED0s9Lfo2TdniGlFY2rdK1wygFJ7dPRaTHR2Z409nGWfFG1YMuAlrfMhSeYFJ5pbffAlOBxb8hvoYxP3LJ6mg==</Sha512>
+      <Path>system.private.servicemodel/4.4.0</Path>
+      <HashFile>system.private.servicemodel.4.4.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Reflection">
+      <Version>[4.3.0]</Version>
+      <Sha512>KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==</Sha512>
+      <Path>system.reflection/4.3.0</Path>
+      <HashFile>system.reflection.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.DispatchProxy">
+      <Version>[4.4.0]</Version>
+      <Sha512>xK6JE0mpsBD+T0qu3V6dmVRa06PxAvIIM/zSjouqP7Sk6X+FQj+9XFRz9GmZk9aJGMU1LX6AgTZIlsYZ64QKsw==</Sha512>
+      <Path>system.reflection.dispatchproxy/4.4.0</Path>
+      <HashFile>system.reflection.dispatchproxy.4.4.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Emit">
+      <Version>[4.3.0]</Version>
+      <Sha512>228FG0jLcIwTVJyz8CLFKueVqQK36ANazUManGaJHkO0icjiIypKW7YLWLIWahyIkdh5M7mV2dJepllLyA1SKg==</Sha512>
+      <Path>system.reflection.emit/4.3.0</Path>
+      <HashFile>system.reflection.emit.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Emit.ILGeneration">
+      <Version>[4.3.0]</Version>
+      <Sha512>59tBslAk9733NXLrUJrwNZEzbMAcu8k344OYo+wfSVygcgZ9lgBdGIzH/nrg3LYhXceynyvTc8t5/GD4Ri0/ng==</Sha512>
+      <Path>system.reflection.emit.ilgeneration/4.3.0</Path>
+      <HashFile>system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Emit.Lightweight">
+      <Version>[4.3.0]</Version>
+      <Sha512>oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==</Sha512>
+      <Path>system.reflection.emit.lightweight/4.3.0</Path>
+      <HashFile>system.reflection.emit.lightweight.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Extensions">
+      <Version>[4.3.0]</Version>
+      <Sha512>rJkrJD3kBI5B712aRu4DpSIiHRtr6QlfZSQsb0hYHrDCZORXCFjQfoipo2LaMUHoT9i1B7j7MnfaEKWDFmFQNQ==</Sha512>
+      <Path>system.reflection.extensions/4.3.0</Path>
+      <HashFile>system.reflection.extensions.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Primitives">
+      <Version>[4.3.0]</Version>
+      <Sha512>5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==</Sha512>
+      <Path>system.reflection.primitives/4.3.0</Path>
+      <HashFile>system.reflection.primitives.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.TypeExtensions">
+      <Version>[4.3.0]</Version>
+      <Sha512>7u6ulLcZbyxB5Gq0nMkQttcdBTx57ibzw+4IOXEfR+sXYQoHvjW5LTLyNr8O22UIMrqYbchJQJnos4eooYzYJA==</Sha512>
+      <Path>system.reflection.typeextensions/4.3.0</Path>
+      <HashFile>system.reflection.typeextensions.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Resources.ResourceManager">
+      <Version>[4.3.0]</Version>
+      <Sha512>/zrcPkkWdZmI4F92gL/TPumP98AVDu/Wxr3CSJGQQ+XN6wbRZcyfSKVoPo17ilb3iOr0cCRqJInGwNMolqhS8A==</Sha512>
+      <Path>system.resources.resourcemanager/4.3.0</Path>
+      <HashFile>system.resources.resourcemanager.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Runtime">
+      <Version>[4.3.0]</Version>
+      <Sha512>JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==</Sha512>
+      <Path>system.runtime/4.3.0</Path>
+      <HashFile>system.runtime.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Extensions">
+      <Version>[4.3.0]</Version>
+      <Sha512>guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==</Sha512>
+      <Path>system.runtime.extensions/4.3.0</Path>
+      <HashFile>system.runtime.extensions.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Security.Principal.Windows">
+      <Version>[4.4.0]</Version>
+      <Sha512>pP+AOzt1o3jESOuLmf52YQTF7H3Ng9hTnrOESQiqsnl2IbBh1HInsAMHYtoh75iUYV0OIkHmjvveraYB6zM97w==</Sha512>
+      <Path>system.security.principal.windows/4.4.0</Path>
+      <HashFile>system.security.principal.windows.4.4.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Http">
+      <Version>[4.4.0]</Version>
+      <Sha512>0wIEFTSwnBbirqX+f8Q4FjgxNxza5o4Y1BlNOKLmMbu6yvovVrHGmeZoWbZZXqqyJvv4BDHKDmVa0nxZ5twYbw==</Sha512>
+      <Path>system.servicemodel.http/4.4.0</Path>
+      <HashFile>system.servicemodel.http.4.4.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Primitives">
+      <Version>[4.4.0]</Version>
+      <Sha512>6rATyMUeeOPVY7XzoneoyzGKVCc62gGl/A6SKrlY0dX0bnMprIrXZF1AXy9Y8ne49JU/2RGGeldFbATYONc/XQ==</Sha512>
+      <Path>system.servicemodel.primitives/4.4.0</Path>
+      <HashFile>system.servicemodel.primitives.4.4.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Text.Encoding">
+      <Version>[4.3.0]</Version>
+      <Sha512>BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==</Sha512>
+      <Path>system.text.encoding/4.3.0</Path>
+      <HashFile>system.text.encoding.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Threading">
+      <Version>[4.3.0]</Version>
+      <Sha512>VkUS0kOBcUf3Wwm0TSbrevDDZ6BlM+b/HRiapRFWjM5O0NS0LviG0glKmFK+hhPDd1XFeSdU1GmlLhb2CoVpIw==</Sha512>
+      <Path>system.threading/4.3.0</Path>
+      <HashFile>system.threading.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks">
+      <Version>[4.3.0]</Version>
+      <Sha512>LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==</Sha512>
+      <Path>system.threading.tasks/4.3.0</Path>
+      <HashFile>system.threading.tasks.4.3.0.nupkg.sha512</HashFile>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="After.$(MSBuildThisFile)" Condition="Exists('After.$(MSBuildThisFile)')" />
+</Project>

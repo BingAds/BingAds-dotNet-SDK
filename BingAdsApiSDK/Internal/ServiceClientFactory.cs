@@ -49,13 +49,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.ServiceModel.Configuration;
-using System.Web.Configuration;
-using System.Web.Hosting;
 
 namespace Microsoft.BingAds.Internal
 {
@@ -105,6 +100,48 @@ namespace Microsoft.BingAds.Internal
                     SandboxUrl = "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/BulkService.svc"
                 }
             },
+            {
+                typeof (V12.CustomerBilling.ICustomerBillingService), new ServiceInfo
+                {
+                    ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/Billing/v12/CustomerBillingService.svc",
+                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/Billing/v12/CustomerBillingService.svc"
+                }
+            },
+            {
+                typeof (V12.CustomerManagement.ICustomerManagementService), new ServiceInfo
+                {
+                    ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v12/CustomerManagementService.svc",
+                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/v12/CustomerManagementService.svc"
+                }
+            },
+            {
+                typeof (V12.Reporting.IReportingService), new ServiceInfo
+                {
+                    ProductionUrl = "https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/v12/ReportingService.svc",
+                    SandboxUrl = "https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/v12/ReportingService.svc"
+                }
+            },
+            {
+                typeof (V12.AdInsight.IAdInsightService), new ServiceInfo
+                {
+                    ProductionUrl = "https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/V12/AdInsightService.svc",
+                    SandboxUrl = "https://adinsight.api.sandbox.bingads.microsoft.com/Api/Advertiser/AdInsight/V12/AdInsightService.svc"
+                }
+            },
+            {
+                typeof (V12.CampaignManagement.ICampaignManagementService), new ServiceInfo
+                {
+                    ProductionUrl = "https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v12/CampaignManagementService.svc",
+                    SandboxUrl = "https://campaign.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v12/CampaignManagementService.svc"
+                }
+            },
+            {
+                typeof (V12.Bulk.IBulkService), new ServiceInfo
+                {
+                    ProductionUrl = "https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v12/BulkService.svc",
+                    SandboxUrl = "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v12/BulkService.svc"
+                }
+            },
         };
 
         private static readonly Type[] ServiceTypes;
@@ -124,8 +161,14 @@ namespace Microsoft.BingAds.Internal
                 typeof (V11.Reporting.IReportingService),
                 typeof (V11.CustomerManagement.ICustomerManagementService),
                 typeof (V11.Bulk.IBulkService),
-                typeof(V11.CampaignManagement.ICampaignManagementService),
-                typeof (V11.AdInsight.IAdInsightService)
+                typeof (V11.CampaignManagement.ICampaignManagementService),
+                typeof (V11.AdInsight.IAdInsightService),
+                typeof (V12.CustomerBilling.ICustomerBillingService),
+                typeof (V12.Reporting.IReportingService),
+                typeof (V12.CustomerManagement.ICustomerManagementService),
+                typeof (V12.Bulk.IBulkService),
+                typeof (V12.CampaignManagement.ICampaignManagementService),
+                typeof (V12.AdInsight.IAdInsightService)
             };
 
             ConfigurationNamesByInterfaceTypes = new Dictionary<Type, string>();
@@ -141,13 +184,10 @@ namespace Microsoft.BingAds.Internal
         public virtual IChannelFactory<TClient> CreateChannelFactory<TClient>(ApiEnvironment env)
             where TClient : class
         {
-            var endpoint = GetEndpointFromConfiguration(typeof(TClient));
+            var factory = CreateChannelFactoryForStandardEndpoint<TClient>(env);
 
-            var factory = endpoint != null 
-                ? CreateChannelFactoryForCustomEndpoint<TClient>(endpoint) 
-                : CreateChannelFactoryForStandardEndpoint<TClient>(env);
-
-            factory.Endpoint.Behaviors.Add(new UserAgentBehavior());
+            factory.Endpoint.EndpointBehaviors.Add(new UserAgentBehavior());
+            factory.Endpoint.EndpointBehaviors.Add(new SimpleTraceBehavior());
 
             return factory;
         }
@@ -165,11 +205,6 @@ namespace Microsoft.BingAds.Internal
             throw new InvalidOperationException("Invalid IChannelFactory type: " + channelFactory.GetType());
         }
 
-        private static ChannelFactory<TClient> CreateChannelFactoryForCustomEndpoint<TClient>(ChannelEndpointElement endpoint)
-            where TClient : class
-        {
-            return new ChannelFactory<TClient>(string.IsNullOrEmpty(endpoint.EndpointConfiguration) ? "*" : endpoint.EndpointConfiguration);
-        }
 
         private static ChannelFactory<TClient> CreateChannelFactoryForStandardEndpoint<TClient>(ApiEnvironment env)
             where TClient : class
@@ -178,32 +213,16 @@ namespace Microsoft.BingAds.Internal
 
             var endpointAddress = new EndpointAddress(serviceInfo.GetUrl(env));
 
-            return new ChannelFactory<TClient>(new BasicHttpBinding(BasicHttpSecurityMode.Transport) { MaxReceivedMessageSize = int.MaxValue }, endpointAddress);
+            return new ChannelFactory<TClient>(new BasicHttpBinding(BasicHttpSecurityMode.Transport)
+            {
+                MaxReceivedMessageSize = 52428800,
+                MaxBufferSize = 52428800,
+                ReceiveTimeout = TimeSpan.FromMinutes(10),
+                SendTimeout = TimeSpan.FromMinutes(10),
+                OpenTimeout = TimeSpan.FromMinutes(1),
+                CloseTimeout = TimeSpan.FromMinutes(1)
+            }, endpointAddress);
         }
 
-        private ChannelEndpointElement GetEndpointFromConfiguration(Type serviceInterfaceType)
-        {
-            try
-            {
-                var clientSection = HostingEnvironment.IsHosted ?
-                    (ClientSection)WebConfigurationManager.GetSection("system.serviceModel/client") :
-                    (ClientSection)ConfigurationManager.GetSection("system.serviceModel/client");
-
-                var contractName = ConfigurationNamesByInterfaceTypes[serviceInterfaceType];
-
-                if (clientSection != null && clientSection.Endpoints != null)
-                {
-                    var endpoint = clientSection.Endpoints.Cast<ChannelEndpointElement>().FirstOrDefault(x => x.Contract == contractName);
-
-                    return endpoint;
-                }
-
-                return null;
-            }
-            catch (ConfigurationErrorsException)
-            {
-                return null;
-            }
-        }
     }
 }
