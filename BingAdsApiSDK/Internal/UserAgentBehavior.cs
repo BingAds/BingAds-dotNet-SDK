@@ -1,5 +1,5 @@
 ﻿//=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 11.5
+// Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -59,6 +59,20 @@ namespace Microsoft.BingAds.Internal
     internal class UserAgentBehavior : IEndpointBehavior
     {
         private static readonly string UserAgent = string.Format("BingAdsSDK.NET_{0}", typeof(UserAgentBehavior).Assembly.GetName().Version);
+
+        //disable version collection temporally since it will cause FormatException
+        //static UserAgentBehavior()
+        //{
+        //    try
+        //    {
+        //        // Try to send the current running .Net framework version with user agent.
+        //        UserAgent += " " + Assembly.GetEntryAssembly().GetCustomAttribute<TargetFrameworkAttribute>().FrameworkName;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        // Ignore
+        //    }
+        //}
 
         public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
         {
