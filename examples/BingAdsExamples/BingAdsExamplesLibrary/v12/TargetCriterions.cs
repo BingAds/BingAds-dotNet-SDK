@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V12.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
     /// This example demonstrates how to use target criterions with the Campaign Management API.
@@ -15,7 +15,7 @@ namespace BingAdsExamplesLibrary.V11
     {
         public override string Description
         {
-            get { return "Target Criterions | Campaign Management V11"; }
+            get { return "Target Criterions | Campaign Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -106,8 +106,7 @@ namespace BingAdsExamplesLibrary.V11
                     CampaignManagementExampleHelper.OutputArrayOfCampaignCriterion(campaignCriterions);
 
                     var getAdGroups = (await CampaignManagementExampleHelper.GetAdGroupsByCampaignIdAsync(
-                        campaignId,
-                        AdGroupAdditionalField.InheritedBidStrategyType
+                        campaignId
                     )).AdGroups;
 
                     // Loop through all ad groups to get the target criterion IDs.
@@ -118,9 +117,8 @@ namespace BingAdsExamplesLibrary.V11
                         // Set adGroupCriterionIds null to get all criterions 
                         // (of the specified target criterion type or types) for the current ad group.
                         var adGroupCriterions = (await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                            adGroupId: adGroupId,
-                            returnAgeGenderUnknownValue: true,
                             adGroupCriterionIds: null,
+                            adGroupId: adGroupId,
                             criterionType: AllTargetAdGroupCriterionTypes)).AdGroupCriterions.ToList();
 
 
@@ -205,22 +203,19 @@ namespace BingAdsExamplesLibrary.V11
                 new AdGroup
                 {
                     Name = "Women's Shoe Sale One " + DateTime.UtcNow,
-                    AdDistribution = AdDistribution.Search,
-                    SearchBid = new Bid { Amount = 0.09 },
+                    CpcBid = new Bid { Amount = 0.09 },
                     Language = "English",
                 },
                 new AdGroup
                 {
                     Name = "Women's Shoe Sale Two " + DateTime.UtcNow,
-                    AdDistribution = AdDistribution.Search,
-                    SearchBid = new Bid { Amount = 0.09 },
+                    CpcBid = new Bid { Amount = 0.09 },
                     Language = "English",
                 },
                 new AdGroup
                 {
                     Name = "Women's Shoe Sale Three " + DateTime.UtcNow,
-                    AdDistribution = AdDistribution.Search,
-                    SearchBid = new Bid { Amount = 0.09 },
+                    CpcBid = new Bid { Amount = 0.09 },
                     Language = "English",
                 },
             };
@@ -235,7 +230,7 @@ namespace BingAdsExamplesLibrary.V11
             CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
 
             OutputStatusMessage("Add ad groups:\n");
-            AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)nillableCampaignIds[0], adGroups);
+            AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)nillableCampaignIds[0], adGroups, null);
             long?[] nillableAdGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
             BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
             CampaignManagementExampleHelper.OutputArrayOfLong(nillableAdGroupIds);

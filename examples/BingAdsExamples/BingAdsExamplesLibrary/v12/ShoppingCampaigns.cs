@@ -7,12 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V12.CampaignManagement;
 using Microsoft.BingAds;
 
-using System.IO;
-
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
     /// This example demonstrates how to apply product conditions for Bing Shopping Campaigns.
@@ -21,7 +19,7 @@ namespace BingAdsExamplesLibrary.V11
     {
         public override string Description
         {
-            get { return "Bing Shopping Campaigns | Campaign Management V11"; }
+            get { return "Bing Shopping Campaigns | Campaign Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -125,19 +123,18 @@ namespace BingAdsExamplesLibrary.V11
                     new AdGroup
                     {
                         Name = "Product Categories",
-                        AdDistribution = AdDistribution.Search,
-                        PricingModel = PricingModel.Cpc,
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V11.CampaignManagement.Date {
+                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date {
                             Month = 12,
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
                         },
-                        Language = "English"
+                        Language = "English",
+                        CpcBid = new Bid { Amount = 0.090 }
                     }
                 };
 
-                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignId, adGroups);
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignId, adGroups, null);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
                 CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
@@ -159,7 +156,6 @@ namespace BingAdsExamplesLibrary.V11
                 var applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
 
                 var adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    null,
                     null,
                     adGroupId,
                     AdGroupCriterionType.ProductPartition
@@ -189,7 +185,6 @@ namespace BingAdsExamplesLibrary.V11
 
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     null,
-                    null,
                     adGroupId,
                     AdGroupCriterionType.ProductPartition
                 );
@@ -216,7 +211,6 @@ namespace BingAdsExamplesLibrary.V11
                  * Check whether a root node exists already.
                  */
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    null,
                     null,
                     adGroupId,
                     AdGroupCriterionType.ProductPartition
@@ -306,7 +300,6 @@ namespace BingAdsExamplesLibrary.V11
                 // The product partition with ParentCriterionId set to null is the root node.
 
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    null,
                     null,
                     adGroupId,
                     AdGroupCriterionType.ProductPartition
@@ -402,7 +395,6 @@ namespace BingAdsExamplesLibrary.V11
 
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     null,
-                    null,
                     adGroupId,
                     AdGroupCriterionType.ProductPartition
                 );
@@ -490,16 +482,16 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));

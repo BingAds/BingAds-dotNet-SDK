@@ -3,13 +3,12 @@ using System.Linq;
 using System.Configuration;
 using System.Net.Http;
 using System.ServiceModel;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V11.CustomerManagement;
+using Microsoft.BingAds.V12.CustomerManagement;
 using BingAdsConsoleApp.Properties;
-using System.Security.Cryptography;
 using BingAdsExamplesLibrary;
+using System.IO;
 
 namespace BingAdsConsoleApp
 {
@@ -19,51 +18,49 @@ namespace BingAdsConsoleApp
         private static readonly ExampleBase[] _examples =
         {
             /*
-            new BingAdsExamplesLibrary.V11.Labels(),
-            new BingAdsExamplesLibrary.V11.OfflineConversions(),
-            new BingAdsExamplesLibrary.V11.KeywordPlanner(),
-            new BingAdsExamplesLibrary.V11.BudgetOpportunities(),
-            new BingAdsExamplesLibrary.V11.BulkServiceManagerDemo(),
-            new BingAdsExamplesLibrary.V11.BulkAdExtensions(),
-            new BingAdsExamplesLibrary.V11.AdExtensions(),
-            new BingAdsExamplesLibrary.V11.BulkKeywordsAds(),
-            new BingAdsExamplesLibrary.V11.KeywordsAds(),
-            new BingAdsExamplesLibrary.V11.BulkNegativeKeywords(),
-            new BingAdsExamplesLibrary.V11.NegativeKeywords(),
-            new BingAdsExamplesLibrary.V11.BulkAdGroupUpdate(),
-            new BingAdsExamplesLibrary.V11.BulkProductPartitionUpdateBid(),
-            new BingAdsExamplesLibrary.V11.ConversionGoals(),
-            new BingAdsExamplesLibrary.V11.BulkRemarketingLists(),
-            new BingAdsExamplesLibrary.V11.RemarketingLists(),
-            new BingAdsExamplesLibrary.V11.BulkShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V11.ShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V11.DynamicSearchCampaigns(),
-            new BingAdsExamplesLibrary.V11.BulkTargetCriterions(),
-            new BingAdsExamplesLibrary.V11.TargetCriterions(),
-            new BingAdsExamplesLibrary.V11.GeographicalLocations(),
-            new BingAdsExamplesLibrary.V11.BulkNegativeSites(),
-            new BingAdsExamplesLibrary.V11.InviteUser(),
-            new BingAdsExamplesLibrary.V11.CustomerSignup(),
-            new BingAdsExamplesLibrary.V11.ManageClient(),
-            new BingAdsExamplesLibrary.V11.ReportRequests(),
+            new BingAdsExamplesLibrary.V12.Labels(),
+            new BingAdsExamplesLibrary.V12.OfflineConversions(),
+            new BingAdsExamplesLibrary.V12.KeywordPlanner(),
+            new BingAdsExamplesLibrary.V12.BudgetOpportunities(),
+            new BingAdsExamplesLibrary.V12.BulkServiceManagerDemo(),
+            new BingAdsExamplesLibrary.V12.BulkAdExtensions(),
+            new BingAdsExamplesLibrary.V12.AdExtensions(),
+            new BingAdsExamplesLibrary.V12.BulkKeywordsAds(),
+            new BingAdsExamplesLibrary.V12.KeywordsAds(),
+            new BingAdsExamplesLibrary.V12.BulkNegativeKeywords(),
+            new BingAdsExamplesLibrary.V12.NegativeKeywords(),
+            new BingAdsExamplesLibrary.V12.BulkAdGroupUpdate(),
+            new BingAdsExamplesLibrary.V12.BulkProductPartitionUpdateBid(),
+            new BingAdsExamplesLibrary.V12.ConversionGoals(),
+            new BingAdsExamplesLibrary.V12.BulkRemarketingLists(),
+            new BingAdsExamplesLibrary.V12.RemarketingLists(),
+            new BingAdsExamplesLibrary.V12.BulkShoppingCampaigns(),
+            new BingAdsExamplesLibrary.V12.ShoppingCampaigns(),
+            new BingAdsExamplesLibrary.V12.DynamicSearchCampaigns(),
+            new BingAdsExamplesLibrary.V12.BulkTargetCriterions(),
+            new BingAdsExamplesLibrary.V12.TargetCriterions(),
+            new BingAdsExamplesLibrary.V12.GeographicalLocations(),
+            new BingAdsExamplesLibrary.V12.BulkNegativeSites(),
+            new BingAdsExamplesLibrary.V12.InviteUser(),
+            new BingAdsExamplesLibrary.V12.CustomerSignup(),
+            new BingAdsExamplesLibrary.V12.ManageClient(),
+            new BingAdsExamplesLibrary.V12.ReportRequests(),
             */
-            new BingAdsExamplesLibrary.V11.SearchUserAccounts(),
-
+            new BingAdsExamplesLibrary.V12.SearchUserAccounts(),
         };
 
         private static AuthorizationData _authorizationData;
-        private static ServiceClient<ICustomerManagementService> _customerService;
         private static string ClientState = "ClientStateGoesHere";
 
         static void Main(string[] args)
         {
             try
             {
-                //Authentication authentication = AuthenticateWithUserName();
                 Authentication authentication = AuthenticateWithOAuth();
 
-                // Most Bing Ads service operations require account and customer ID. This utiltiy operation sets the global 
-                // authorization data instance to the first account that the current authenticated user can access. 
+                // Most Bing Ads service operations require account and customer ID. 
+                // This utiltiy operation sets the global authorization data instance 
+                // to the first account that the current authenticated user can access. 
                 SetAuthorizationDataAsync(authentication).Wait();
 
                 // Run all of the examples that were included above.
@@ -83,7 +80,7 @@ namespace BingAdsConsoleApp
                 }
             }
             // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error =>
                 {
@@ -97,7 +94,7 @@ namespace BingAdsConsoleApp
                 OutputStatusMessage(string.Join("; ",
                     ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ",
                     ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -110,9 +107,12 @@ namespace BingAdsConsoleApp
 
         private static Authentication AuthenticateWithOAuth()
         {
-            var oAuthDesktopMobileAuthCodeGrant = ConfigurationManager.AppSettings["BingAdsEnvironment"] == ApiEnvironment.Sandbox.ToString() ?
-                new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientIdSandbox"].ToString(), ApiEnvironment.Sandbox) :
-                new OAuthDesktopMobileAuthCodeGrant(Settings.Default["ClientId"].ToString());
+            var apiEnvironment = 
+                ConfigurationManager.AppSettings["BingAdsEnvironment"] == ApiEnvironment.Sandbox.ToString() ?
+                ApiEnvironment.Sandbox : ApiEnvironment.Production;
+            var oAuthDesktopMobileAuthCodeGrant = new OAuthDesktopMobileAuthCodeGrant(
+                Settings.Default["ClientId"].ToString(),
+                apiEnvironment);
 
             // It is recommended that you specify a non guessable 'state' request parameter to help prevent
             // cross site request forgery (CSRF). 
@@ -132,8 +132,9 @@ namespace BingAdsConsoleApp
                 Console.WriteLine(string.Format(
                     "The Bing Ads user must provide consent for your application to access their Bing Ads accounts.\n" +
                     "Open a new web browser and navigate to {0}.\n\n" +
-                    "After the user has granted consent in the web browser for the application to access their Bing Ads accounts, " +
-                    "please enter the response URI that includes the authorization 'code' parameter: \n", oAuthDesktopMobileAuthCodeGrant.GetAuthorizationEndpoint()));
+                    "After the user has granted consent in the web browser for the application to access " +
+                    "their Bing Ads accounts, please enter the response URI that includes " +
+                    "the authorization 'code' parameter: \n", oAuthDesktopMobileAuthCodeGrant.GetAuthorizationEndpoint()));
 
                 // Request access and refresh tokens using the URI that you provided manually during program execution.
                 var responseUri = new Uri(Console.ReadLine());
@@ -142,6 +143,7 @@ namespace BingAdsConsoleApp
                     throw new HttpRequestException("The OAuth response state does not match the client request state.");
 
                 oAuthDesktopMobileAuthCodeGrant.RequestAccessAndRefreshTokensAsync(responseUri).Wait();
+                SaveRefreshToken(oAuthDesktopMobileAuthCodeGrant.OAuthTokens.RefreshToken);
             }
 
             // It is important to save the most recent refresh token whenever new OAuth tokens are received. 
@@ -152,11 +154,6 @@ namespace BingAdsConsoleApp
                     (sender, tokens) => SaveRefreshToken(tokens.NewRefreshToken);
 
             return oAuthDesktopMobileAuthCodeGrant;
-        }
-
-        private static Authentication AuthenticateWithUserName()
-        {
-            return new PasswordAuthentication("UserNameGoesHere", "PasswordGoesHere");
         }
 
         /// <summary>
@@ -170,9 +167,20 @@ namespace BingAdsConsoleApp
 
         private static bool GetRefreshToken(out string refreshToken)
         {
-            var protectedToken = Settings.Default["RefreshToken"].ToString();
+            var filePath = Environment.CurrentDirectory + @"\refreshtoken.txt";
+            if (!File.Exists(filePath))
+            {
+                refreshToken = null;
+                return false;
+            }
 
-            if (string.IsNullOrEmpty(protectedToken))
+            String fileContents;
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                fileContents = sr.ReadToEnd();
+            }
+
+            if (string.IsNullOrEmpty(fileContents))
             {
                 refreshToken = null;
                 return false;
@@ -180,13 +188,8 @@ namespace BingAdsConsoleApp
 
             try
             {
-                refreshToken = protectedToken.Unprotect();
+                refreshToken = fileContents;
                 return true;
-            }
-            catch (CryptographicException)
-            {
-                refreshToken = null;
-                return false;
             }
             catch (FormatException)
             {
@@ -204,8 +207,12 @@ namespace BingAdsConsoleApp
         {
             if (newRefreshtoken != null)
             {
-                Settings.Default["RefreshToken"] = newRefreshtoken.Protect();
-                Settings.Default.Save();
+                using (StreamWriter outputFile = new StreamWriter(
+                Environment.CurrentDirectory + @"\refreshtoken.txt",
+                false))
+                {
+                    outputFile.WriteLine(newRefreshtoken);
+                }
             }
         }
 
@@ -213,57 +220,28 @@ namespace BingAdsConsoleApp
         /// Utility method for setting the customer and account identifiers within the global 
         /// <see cref="_authorizationData"/> instance. 
         /// </summary>
-        /// <param name="authentication">The OAuth or Bing Ads managed (UserName/Password) authentication credentials.</param>
+        /// <param name="authentication">The OAuth authentication credentials.</param>
         /// <returns></returns>
         private static async Task SetAuthorizationDataAsync(Authentication authentication)
         {
             _authorizationData = new AuthorizationData
             {
                 Authentication = authentication,
-                DeveloperToken = ConfigurationManager.AppSettings["BingAdsEnvironment"] == ApiEnvironment.Sandbox.ToString() ?
-                    Settings.Default["DeveloperTokenSandbox"].ToString() : Settings.Default["DeveloperToken"].ToString()
+                DeveloperToken = Settings.Default["DeveloperToken"].ToString()
             };
 
-            _customerService = new ServiceClient<ICustomerManagementService>(_authorizationData);
+            BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper CustomerManagementExampleHelper = 
+                new BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper(null);
+            CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(_authorizationData);
 
-            var user = await GetUserAsync(null);
-            var accounts = await SearchAccountsByUserIdAsync(user.Id);
-            if (accounts.Length <= 0) return;
+            var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null);
+            var user = getUserResponse.User;
 
-            _authorizationData.AccountId = (long)accounts[0].Id;
-            _authorizationData.CustomerId = (int)accounts[0].ParentCustomerId;
-
-            return;
-        }
-
-        /// <summary>
-        /// Gets a User object by the specified Bing Ads user identifier.
-        /// </summary>
-        /// <param name="userId">The identifier of the user to get. If null, this operation returns the User object 
-        /// corresponding to the current authenticated user of the global customer management ServiceClient.</param>
-        /// <returns>The User object corresponding to the specified Bing Ads user identifier.</returns>
-        private static async Task<User> GetUserAsync(long? userId)
-        {
-            var request = new GetUserRequest
-            {
-                UserId = userId
-            };
-
-            return (await _customerService.CallAsync((s, r) => s.GetUserAsync(r), request)).User;
-        }
-
-        /// <summary>
-        /// Searches by UserId for accounts that the user can manage.
-        /// </summary>
-        /// <param name="userId">The Bing Ads user identifier.</param>
-        /// <returns>List of accounts that the user can manage.</returns>
-        private static async Task<Account[]> SearchAccountsByUserIdAsync(long? userId)
-        {
             var predicate = new Predicate
             {
                 Field = "UserId",
                 Operator = PredicateOperator.Equals,
-                Value = userId.ToString()
+                Value = user.Id.ToString()
             };
 
             var paging = new Paging
@@ -279,31 +257,17 @@ namespace BingAdsConsoleApp
                 Predicates = new[] { predicate }
             };
 
-            return (await _customerService.CallAsync((s, r) => s.SearchAccountsAsync(r), request)).Accounts.ToArray();
-        }
-    }
+            var accounts = (await CustomerManagementExampleHelper.SearchAccountsAsync(
+                new[] { predicate },
+                null,
+                paging)).Accounts.ToArray();
+            
+            if (accounts.Length <= 0) return;
 
-    /// <summary>
-    /// This static class can be used to access and protect a string.
-    /// </summary>
-    public static class StringProtection
-    {
-        public static string Protect(this string sourceString)
-        {
-            var sourceBytes = Encoding.Unicode.GetBytes(sourceString);
+            _authorizationData.AccountId = (long)accounts[0].Id;
+            _authorizationData.CustomerId = (int)accounts[0].ParentCustomerId;
 
-            var encryptedBytes = ProtectedData.Protect(sourceBytes, null, DataProtectionScope.CurrentUser);
-
-            return Convert.ToBase64String(encryptedBytes);
-        }
-
-        public static string Unprotect(this string protectedString)
-        {
-            var protectedBytes = Convert.FromBase64String(protectedString);
-
-            var unprotectedBytes = ProtectedData.Unprotect(protectedBytes, null, DataProtectionScope.CurrentUser);
-
-            return Encoding.Unicode.GetString(unprotectedBytes);
+            return;
         }
     }
 }
