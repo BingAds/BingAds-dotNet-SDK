@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -73,6 +73,8 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public static readonly Regex CustomKvPattern = new Regex(@"^{_(.*?)}=(.*$)", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
         public static readonly Regex DayTimeRangesPattern = new Regex(@"^\((Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\[(\d\d?)\:(\d\d)\-(\d\d?)\:(\d\d)\]\)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
+
+        public static readonly Regex TargetSettingDetailsPattern = new Regex(@"^(Age|Audience|CompanyName|Gender|Industry|JobFunction)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
         public static readonly Regex PageRulePattern = new Regex(@"^(Url|ReferrerUrl|None) (Equals|Contains|BeginsWith|EndsWith|NotEquals|DoesNotContain|DoesNotBeginWith|DoesNotEndWith) ([^()]*)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
@@ -518,6 +520,27 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
                     throw new ArgumentException("Unkonwn day");
             }
         }
+        
+        public static CriterionTypeGroup ParseCriterionTypeGroup(this string s)
+        {
+            switch (s.ToLower())
+            {
+                case "age":
+                    return CriterionTypeGroup.Age;
+                case "audience":
+                    return CriterionTypeGroup.Audience;
+                case "companyname":
+                    return CriterionTypeGroup.CompanyName;
+                case "gender":
+                    return CriterionTypeGroup.Gender;
+                case "industry":
+                    return CriterionTypeGroup.Industry;
+                case "jobfunction":
+                    return CriterionTypeGroup.JobFunction;
+                default:
+                    throw new ArgumentException("Unknown criterion type group");
+            }
+        }
 
         public static string ToOptionalBulkString(this string sourceString)
         {
@@ -593,6 +616,53 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             var languages = s.Split(new string[] { ";" }, StringSplitOptions.None).ToList();
             
             return languages;
+        }
+
+        public static string WriteAudienceSupportedCampaignTypes(this IList<string> supportedCampaignTypes, string seperator)
+        {
+            if (supportedCampaignTypes == null)
+            {
+                return null;
+            }
+
+            if (supportedCampaignTypes.Count == 0)
+            {
+                return DeleteValue;
+            }
+
+            var text = string.Join(seperator, supportedCampaignTypes);
+
+            return text;
+        }
+
+        public static IList<string> ParseAudienceSupportedCampaignTypes(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
+            var supportedCampaignTypes = s.Split(new string[] { ";" }, StringSplitOptions.None).ToList();
+
+            return supportedCampaignTypes;
+        }
+
+        public static string ToBulkString(this TargetSetting targetSetting)
+        {
+            if (targetSetting == null)
+            {
+                return null;
+            }
+
+            if (targetSetting.Details == null || targetSetting.Details.Count == 0)
+            {
+                return DeleteValue;
+            }
+
+            return string.Join("; ",
+                targetSetting.Details.Where(
+                entry => entry.TargetAndBid).Select(
+                entry => entry.CriterionTypeGroup.ToString()));
         }
 
         public static string ToBulkString(this CustomParameters parameters)
@@ -825,6 +895,39 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
                         StartMinute = ParseMinute(match.Groups[3].Value),
                         EndHour = int.Parse(match.Groups[4].Value),
                         EndMinute = ParseMinute(match.Groups[5].Value),
+                    };
+                }).Where(p => p != null).ToList()
+            ;
+        }
+
+        public static List<TargetSettingDetail> ParseTargetSettingDetails(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            return
+                s.Split(';').Select(token =>
+                {
+                    if (string.IsNullOrWhiteSpace(token))
+                    {
+                        return null;
+                    }
+
+                    token = token.Trim();
+
+                    var match = TargetSettingDetailsPattern.Match(token);
+
+                    if (!match.Success)
+                    {
+                        throw new Exception(string.Format("Bad format for TargetSettingDetails: {0}", s));
+                    }
+
+                    return new TargetSettingDetail
+                    {
+                        CriterionTypeGroup = ParseCriterionTypeGroup(match.Groups[1].Value),
+                        TargetAndBid = true
                     };
                 }).Where(p => p != null).ToList()
             ;

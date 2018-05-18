@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -131,6 +131,16 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkRemarketingList>(StringTable.AudienceSearchSize,
                 c => c.RemarketingList.SearchSize.ToBulkString(),
                 (v, c) => c.RemarketingList.SearchSize = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkRemarketingList>(StringTable.AudienceNetworkSize,
+                c => c.RemarketingList.AudienceNetworkSize.ToBulkString(),
+                (v, c) => c.RemarketingList.AudienceNetworkSize = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkRemarketingList>(StringTable.SupportedCampaignTypes,
+                c => c.RemarketingList.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
+                (v, c) => c.RemarketingList.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
             ),
         };
 

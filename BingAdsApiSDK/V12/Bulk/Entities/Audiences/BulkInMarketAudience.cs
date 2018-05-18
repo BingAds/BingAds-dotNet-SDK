@@ -122,6 +122,16 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 c => c.InMarketAudience.SearchSize.ToBulkString(),
                 (v, c) => c.InMarketAudience.SearchSize = v.ParseOptional<long>()
             ),
+
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.AudienceNetworkSize,
+                c => c.InMarketAudience.AudienceNetworkSize.ToBulkString(),
+                (v, c) => c.InMarketAudience.AudienceNetworkSize = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.SupportedCampaignTypes,
+                c => c.InMarketAudience.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
+                (v, c) => c.InMarketAudience.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

@@ -54,7 +54,10 @@ using System.ServiceModel.Channels;
 
 namespace Microsoft.BingAds.Internal
 {
-    internal class ServiceClientFactory : IServiceClientFactory
+    /// <summary>
+    /// Reserved for internal use.
+    /// </summary>
+    public class ServiceClientFactory : IServiceClientFactory
     {
         private static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
         {

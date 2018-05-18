@@ -191,7 +191,11 @@ namespace Microsoft.BingAds.V11.Reporting
             return false;
         }
 
-        private const int MaxGetStatusRetries = 3;
+        private const int MaxGetStatusRetries = 4;
+
+        private static int[] RateLimitRetryDuration = new int[4] { 15, 20, 25, 30 };
+
+        private const int RATELIMIT_CODE = 117;
 
         private async Task RefreshStatus()
         {
@@ -208,6 +212,14 @@ namespace Microsoft.BingAds.V11.Reporting
                 {
                     return await _statusProvider.GetCurrentStatus(_reportingServiceClient).ConfigureAwait(false);
                 }
+                catch (FaultException<AdApiFaultDetail> fault)
+                {
+                    if (retriesLeft-- <= 0)
+                    {
+                        throw;
+                    }
+                    HandlerRateLimitFailure(fault, retriesLeft);
+                }
                 catch (CommunicationException)
                 {
                     if (retriesLeft-- <= 0)
@@ -223,6 +235,13 @@ namespace Microsoft.BingAds.V11.Reporting
                     }
                 }
             } while (true);
+        }
+        private void HandlerRateLimitFailure(FaultException<AdApiFaultDetail> ex, int retryLeft)
+        {
+            if (ex.Detail.Errors != null && ex.Detail.Errors.Count > 0 && ex.Detail.Errors[0].Code == RATELIMIT_CODE)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(RateLimitRetryDuration[MaxGetStatusRetries - 1 - retryLeft]));
+            }
         }
 
         private void CompleteTaskIfOperationIsComplete()

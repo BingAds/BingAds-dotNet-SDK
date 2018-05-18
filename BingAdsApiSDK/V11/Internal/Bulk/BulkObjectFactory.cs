@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -158,6 +158,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
                 {StringTable.ProductAd,                     new EntityInfo(() => new BulkProductAd())},
                 {StringTable.AppInstallAd,                  new EntityInfo(() => new BulkAppInstallAd())},
                 {StringTable.ExpandedTextAd,                new EntityInfo(() => new BulkExpandedTextAd())},
+                {StringTable.ResponsiveAd,                  new EntityInfo(() => new BulkResponsiveAd())},
                 {StringTable.Keyword,                       new EntityInfo(() => new BulkKeyword())},                
                 {StringTable.SiteLinksAdExtension,          new EntityInfo(() => new BulkSiteLink(),                            StringTable.SiteLinkExtensionOrder, () => new SiteLinkAdExtensionIdentifier())},
                 {StringTable.CampaignSiteLinksAdExtension,  new EntityInfo(() => new BulkCampaignSiteLinkAdExtension())},
@@ -211,7 +212,9 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
                 {StringTable.InMarketAudience,               new EntityInfo(() => new BulkInMarketAudience())},
                 {StringTable.AdGroupInMarketAudienceAssociation, new EntityInfo(() => new BulkAdGroupInMarketAudienceAssociation())},
                 {StringTable.AdGroupNegativeInMarketAudienceAssociation, new EntityInfo(() => new BulkAdGroupNegativeInMarketAudienceAssociation())},
-
+                {StringTable.ProductAudience,               new EntityInfo(() => new BulkProductAudience())},
+                {StringTable.AdGroupProductAudienceAssociation, new EntityInfo(() => new BulkAdGroupProductAudienceAssociation())},
+                {StringTable.AdGroupNegativeProductAudienceAssociation, new EntityInfo(() => new BulkAdGroupNegativeProductAudienceAssociation())},
 
                 {StringTable.Sitelink2AdExtesnion,          new EntityInfo(() => new BulkSitelink2AdExtension())},
                 {StringTable.AccountSitelink2AdExtension,  new EntityInfo(() => new BulkAccountSitelink2AdExtension())},
@@ -225,11 +228,19 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
                 {StringTable.CampaignNegativeDynamicSearchAdTarget, new EntityInfo(() => new BulkCampaignNegativeDynamicSearchAdTarget())},
 
                 {StringTable.AdGroupAgeCriterion,  new EntityInfo(() => new BulkAdGroupAgeCriterion())},
+                {StringTable.AdGroupCompanyNameCriterion,  new EntityInfo(() => new BulkAdGroupCompanyNameCriterion())},
                 {StringTable.AdGroupDayTimeCriterion,  new EntityInfo(() => new BulkAdGroupDayTimeCriterion())},
                 {StringTable.AdGroupDeviceCriterion,  new EntityInfo(() => new BulkAdGroupDeviceCriterion())},
                 {StringTable.AdGroupGenderCriterion,  new EntityInfo(() => new BulkAdGroupGenderCriterion())},
+                {StringTable.AdGroupIndustryCriterion,  new EntityInfo(() => new BulkAdGroupIndustryCriterion())},
+                {StringTable.AdGroupJobFunctionCriterion,  new EntityInfo(() => new BulkAdGroupJobFunctionCriterion())},
                 {StringTable.AdGroupLocationCriterion,  new EntityInfo(() => new BulkAdGroupLocationCriterion())},
                 {StringTable.AdGroupLocationIntentCriterion,  new EntityInfo(() => new BulkAdGroupLocationIntentCriterion())},
+                {StringTable.AdGroupNegativeAgeCriterion,  new EntityInfo(() => new BulkAdGroupNegativeAgeCriterion())},
+                {StringTable.AdGroupNegativeCompanyNameCriterion,  new EntityInfo(() => new BulkAdGroupNegativeCompanyNameCriterion())},
+                {StringTable.AdGroupNegativeGenderCriterion,  new EntityInfo(() => new BulkAdGroupNegativeGenderCriterion())},
+                {StringTable.AdGroupNegativeIndustryCriterion,  new EntityInfo(() => new BulkAdGroupNegativeIndustryCriterion())},
+                {StringTable.AdGroupNegativeJobFunctionCriterion,  new EntityInfo(() => new BulkAdGroupNegativeJobFunctionCriterion())},
                 {StringTable.AdGroupNegativeLocationCriterion,  new EntityInfo(() => new BulkAdGroupNegativeLocationCriterion())},
                 {StringTable.AdGroupRadiusCriterion,  new EntityInfo(() => new BulkAdGroupRadiusCriterion())},
                 {StringTable.CampaignAgeCriterion,  new EntityInfo(() => new BulkCampaignAgeCriterion())},
@@ -249,6 +260,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
                 {StringTable.DynamicSearchAdLabel,  new EntityInfo(() => new BulkDynamicSearchAdLabel())},
                 {StringTable.ExpandedTextAdLabel,  new EntityInfo(() => new BulkExpandedTextAdLabel())},
                 {StringTable.ProductAdLabel,  new EntityInfo(() => new BulkProductAdLabel())},
+                {StringTable.ResponsiveAdLabel,  new EntityInfo(() => new BulkResponsiveAdLabel())},
                 {StringTable.TextAdLabel,  new EntityInfo(() => new BulkTextAdLabel())},
 
                 {StringTable.OfflineConversion,  new EntityInfo(() => new BulkOfflineConversion())},

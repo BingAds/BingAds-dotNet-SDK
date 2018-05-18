@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -98,33 +98,64 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// </summary>
         public PerformanceData PerformanceData { get; private set; }
 
-        private ShoppingSetting GetShoppingSetting()
+        /// <summary>
+        /// Campaigns of type Shopping have exactly one ShoppingSetting.
+        /// Campaigns of type Audience can have zero or one ShoppingSetting. 
+        /// </summary>
+        /// <returns></returns>
+        private Setting GetCampaignSetting(Type campaignSettingType)
         {
-            if (Campaign.Settings == null) return null;
-
-            var shoppingSettings = Campaign.Settings.Where(setting => setting is ShoppingSetting).ToList();
-
-            if (shoppingSettings.Count != 1)
+            if (Campaign.Settings == null)
             {
-                throw new ArgumentException("Can only have 1 ShoppingSetting in Campaign Settings");
+                AddCampaignSettings();
             }
-
-            return (ShoppingSetting) shoppingSettings[0];
-        }
-
-        private DynamicSearchAdsSetting GetDynamicSearchAdsSetting()
-        {
             if (Campaign.Settings == null) return null;
 
-            var dynamicSearchAdsSettingSettings = Campaign.Settings.Where(setting => setting is DynamicSearchAdsSetting).ToList();
+            var settings = Campaign.Settings.Where(setting => setting.GetType() == campaignSettingType).ToList();
 
-            if (dynamicSearchAdsSettingSettings.Count != 1)
+            if (settings == null || settings.Count < 1) return null;
+
+            if (settings.Count != 1)
             {
                 throw new ArgumentException("Can only have 1 DynamicSearchAdsSetting in Campaign Settings");
             }
-
-            return (DynamicSearchAdsSetting)dynamicSearchAdsSettingSettings[0];
+            return settings[0];
         }
+
+
+        private void AddCampaignSettings()
+        {
+            if (Campaign.CampaignType == null) return;
+            switch (Campaign.CampaignType)
+            {
+                case CampaignType.SearchAndContent:
+                    break;
+                case CampaignType.Shopping:
+                case CampaignType.Audience:
+                    {
+                        Campaign.Settings = new List<Setting>
+                        {
+                            new ShoppingSetting
+                                {
+                                    Type = typeof(ShoppingSetting).Name,
+                                },
+                        };
+                    }
+                    break;
+                case CampaignType.DynamicSearchAds:
+                    {
+                        Campaign.Settings = new List<Setting>
+                        {
+                            new DynamicSearchAdsSetting
+                                {
+                                    Type = typeof(DynamicSearchAdsSetting).Name,
+                                },
+                        };
+                    }
+                    break;
+            }
+        }
+
 
         private static readonly IBulkMapping<BulkCampaign>[] Mappings =
         {
@@ -154,31 +185,9 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 (v, c) =>
                 {
                     c.Campaign.CampaignType = v.ParseOptional<CampaignType>();
-
-                    // NOTE: If there are other type of Setting, consider to refactor this part
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
-                    {
-                        c.Campaign.Settings = new List<Setting>
-                        {
-                            new ShoppingSetting
-                            {
-                                Type = typeof (ShoppingSetting).Name,
-                            },
-                        };
-                    }
-
-                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
-                    {
-                        c.Campaign.Settings = new List<Setting>
-                        {
-                            new DynamicSearchAdsSetting
-                            {
-                                Type = typeof (DynamicSearchAdsSetting).Name,
-                            },
-                        };
-                    }
+                    c.AddCampaignSettings();
                 }
-                ), 
+                ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.Status,
                 c => c.Campaign.Status.ToBulkString(),
@@ -195,13 +204,13 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 (v, c) => c.AccountId = v.Parse<long>()
             ),
 
-            new SimpleBulkMapping<BulkCampaign>(StringTable.Campaign, 
-                c => c.Campaign.Name, 
-                (v, c) => c.Campaign.Name = v 
-            ),            
+            new SimpleBulkMapping<BulkCampaign>(StringTable.Campaign,
+                c => c.Campaign.Name,
+                (v, c) => c.Campaign.Name = v
+            ),
 
-            new SimpleBulkMapping<BulkCampaign>(StringTable.TimeZone, 
-                c => c.Campaign.TimeZone, 
+            new SimpleBulkMapping<BulkCampaign>(StringTable.TimeZone,
+                c => c.Campaign.TimeZone,
                 (v, c) => c.Campaign.TimeZone = v
             ),
 
@@ -212,7 +221,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.BudgetType,
                 c => c.Campaign.BudgetType.ToBulkString(),
-                (v, c) => c.Campaign.BudgetType = v.ParseOptional<BudgetLimitType>()                
+                (v, c) => c.Campaign.BudgetType = v.ParseOptional<BudgetLimitType>()
             ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.BudgetId,
@@ -228,73 +237,55 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.BidAdjustment,
                 c => c.Campaign.NativeBidAdjustment.ToBulkString(),
                 (v, c) => c.Campaign.NativeBidAdjustment = v.ParseOptional<int>()
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.BingMerchantCenterId,
                 c =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
-                    {
-                        var shoppingSetting = c.GetShoppingSetting();
-
-                        return shoppingSetting == null ? null : shoppingSetting.StoreId.ToBulkString();
-                    }
-
-                    return null;
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    return setting == null ? null : setting.StoreId.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    var storeId = v.ParseOptional<long>();
+                    if(storeId != null && setting != null)
                     {
-                        var shoppingSetting = c.GetShoppingSetting();
-
-                        shoppingSetting.StoreId = v.ParseOptional<long>();
+                        setting.StoreId = storeId;
                     }
                 }
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.CampaignPriority,
                 c =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
-                    {
-                        var shoppingSetting = c.GetShoppingSetting();
-
-                        return shoppingSetting == null ? null : shoppingSetting.Priority.ToBulkString();
-                    }
-
-                    return null;
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    return setting == null ? null : setting.Priority.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    var priority = v.ParseOptional<int>();
+                    if(priority != null && setting != null)
                     {
-                        var shoppingSetting = c.GetShoppingSetting();
-
-                        shoppingSetting.Priority = v.ParseOptional<int>();
+                        setting.Priority = priority;
                     }
                 }
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.CountryCode,
                 c =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
-                    {
-                        var shoppingSetting = c.GetShoppingSetting();
-
-                        return shoppingSetting == null ? null : shoppingSetting.SalesCountryCode;
-                    }
-
-                    return null;
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    return setting == null ? null : setting.SalesCountryCode;
                 },
                 (v, c) =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    var salesCountryCode = v;
+                    if(salesCountryCode != null && setting != null)
                     {
-                        var shoppingSetting = c.GetShoppingSetting();
-
-                        shoppingSetting.SalesCountryCode = v;
+                        setting.SalesCountryCode = salesCountryCode;
                     }
                 }
             ),
@@ -302,28 +293,22 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.LocalInventoryAdsEnabled,
                 c =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
-                    {
-                        var shoppingSetting = c.GetShoppingSetting();
-
-                        return shoppingSetting == null ? null : shoppingSetting.LocalInventoryAdsEnabled.ToString();
-                    }
-
-                    return null;
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    return setting == null ? null : setting.LocalInventoryAdsEnabled.ToString();
                 },
                 (v, c) =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.Shopping)
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    var localInventoryAdsEnabled = v.ParseOptional<bool>();
+                    if(localInventoryAdsEnabled != null && setting != null)
                     {
-                        var shoppingSetting = c.GetShoppingSetting();
-
-                        shoppingSetting.LocalInventoryAdsEnabled = v.ParseOptional<bool>();
+                        setting.LocalInventoryAdsEnabled = localInventoryAdsEnabled;
                     }
                 }
             ),
 
             new ComplexBulkMapping<BulkCampaign>(BudgetToCsv, CsvToBudget),
-            
+
             new SimpleBulkMapping<BulkCampaign>(StringTable.TrackingTemplate,
                 c => c.Campaign.TrackingUrlTemplate.ToOptionalBulkString(),
                 (v, c) => c.Campaign.TrackingUrlTemplate = v.GetValueOrEmptyString()
@@ -335,26 +320,19 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             ),
 
             new ComplexBulkMapping<BulkCampaign>(BiddingSchemeToCsv, CsvToBiddingScheme),
-                        
+
             new SimpleBulkMapping<BulkCampaign>(StringTable.Website,
                 c =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
-                    {
-                        var dynamicSearchAdsSetting = c.GetDynamicSearchAdsSetting();
-
-                        return dynamicSearchAdsSetting == null ? null : dynamicSearchAdsSetting.DomainName;
-                    }
-
-                    return null;
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    return setting == null ? null : setting.DomainName;
                 },
                 (v, c) =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    if (setting != null)
                     {
-                        var dynamicSearchAdsSetting = c.GetDynamicSearchAdsSetting();
-
-                        dynamicSearchAdsSetting.DomainName = v;
+                        setting.DomainName = v;
                     }
                 }
             ),
@@ -362,22 +340,15 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.DomainLanguage,
                 c =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
-                    {
-                        var dynamicSearchAdsSetting = c.GetDynamicSearchAdsSetting();
-
-                        return dynamicSearchAdsSetting == null ? null : dynamicSearchAdsSetting.Language;
-                    }
-
-                    return null;
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    return setting == null ? null : setting.Language;
                 },
                 (v, c) =>
                 {
-                    if (c.Campaign.CampaignType == CampaignType.DynamicSearchAds)
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    if (setting != null)
                     {
-                        var dynamicSearchAdsSetting = c.GetDynamicSearchAdsSetting();
-
-                        dynamicSearchAdsSetting.Language = v;
+                        setting.Language = v;
                     }
                 }
             )
@@ -391,7 +362,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
             QualityScoreData = QualityScoreData.ReadFromRowValuesOrNull(values);
 
-            PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);            
+            PerformanceData = PerformanceData.ReadFromRowValuesOrNull(values);
         }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
@@ -420,7 +391,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             }
 
             string budgetRowValue;
-            
+
             if (!values.TryGetValue(StringTable.Budget, out budgetRowValue))
             {
                 return;
@@ -451,7 +422,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         private static void CsvToBiddingScheme(RowValues values, BulkCampaign c)
         {
             string bidStrategyTypeRowValue;
-            
+
             BiddingScheme biddingScheme;
 
             if (!values.TryGetValue(StringTable.BidStrategyType, out bidStrategyTypeRowValue) || (biddingScheme = bidStrategyTypeRowValue.ParseBiddingScheme()) == null)
@@ -504,7 +475,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                     {
                         c.Campaign.BiddingScheme = biddingScheme;
                     }
-                } 
+                }
             }
         }
 
@@ -540,7 +511,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                         values[StringTable.BidStrategyTargetCpa] = targetCpaBiddingScheme.TargetCpa.ToBulkString();
                     }
                 }
-            }                
+            }
         }
     }
 }

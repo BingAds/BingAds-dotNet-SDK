@@ -58,9 +58,9 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
     /// <summary>
     /// <para>
     /// Represents a label that is applied to a campaign. Each label can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkLabelAssociation.LabelAssociation"/> property that can be read and written as fields of the Campaign Label record in a bulk file. 
+    /// This class exposes the <see cref="BulkLabelAssociation.LabelAssociation"/> property that can be read and written as fields of the Text Ad Label record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Label</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Text Ad Label</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Defines the base object for all report requests.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/bb671813(v=msads.90).aspx">ReportRequest Data Object</see> http://msdn.microsoft.com/en-us/library/bb671813(v=msads.90).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequest">ReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequest for details.
         /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
         /// </remarks>
         public ReportRequest ReportRequest { get; set; }

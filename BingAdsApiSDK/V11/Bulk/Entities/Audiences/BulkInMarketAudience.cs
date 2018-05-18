@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -121,6 +121,16 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkInMarketAudience>(StringTable.AudienceSearchSize,
                 c => c.InMarketAudience.SearchSize.ToBulkString(),
                 (v, c) => c.InMarketAudience.SearchSize = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.AudienceNetworkSize,
+                c => c.InMarketAudience.AudienceNetworkSize.ToBulkString(),
+                (v, c) => c.InMarketAudience.AudienceNetworkSize = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.SupportedCampaignTypes,
+                c => c.InMarketAudience.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
+                (v, c) => c.InMarketAudience.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
             ),
         };
 

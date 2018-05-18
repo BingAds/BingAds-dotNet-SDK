@@ -166,7 +166,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroup>(StringTable.NetworkDistribution,
                 c => c.AdGroup.Network.ToBulkString(),
                 (v, c) => c.AdGroup.Network = v.ParseOptional<Network>()
-                ),
+            ),
             
             new SimpleBulkMapping<BulkAdGroup>(StringTable.AdRotation,
                 c => c.AdGroup.AdRotation.ToAdRotationBulkString(),
@@ -196,6 +196,11 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroup>(StringTable.CustomParameter,
                 c => c.AdGroup.UrlCustomParameters.ToBulkString(),
                 (v, c) => c.AdGroup.UrlCustomParameters = v.ParseCustomParameters()
+            ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.PrivacyStatus,
+                c => c.AdGroup.PrivacyStatus.ToBulkString(),
+                (v, c) => c.AdGroup.PrivacyStatus = v.ParseOptional<AdGroupPrivacyStatus>()
             ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.TargetSetting,

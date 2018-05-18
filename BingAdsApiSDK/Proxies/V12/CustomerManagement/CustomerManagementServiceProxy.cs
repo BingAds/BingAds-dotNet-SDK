@@ -4836,7 +4836,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Defines the role a user has for each customer or list of accounts.
+    /// Defines the role a user has for one customer or list of accounts within a customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customerrole?view=bingads-12">CustomerRole Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customerrole?view=bingads-12 for details.
@@ -4894,7 +4894,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// The customer that the user can access.
+        /// The identifier of the Customer that the user can access.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public long CustomerId
@@ -4914,7 +4914,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// The list of accounts that the user can access.
+        /// The list of accounts that the user can access in the customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public System.Collections.Generic.IList<long> AccountIds

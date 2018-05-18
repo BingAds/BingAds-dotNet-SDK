@@ -98,7 +98,8 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             StringTable.EndDate,
             StringTable.NetworkDistribution,
             StringTable.AdRotation,
-            StringTable.CpcBid,           
+            StringTable.CpcBid,   
+            StringTable.PrivacyStatus,
             
             // Ads
             StringTable.Title,
@@ -140,6 +141,10 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             StringTable.FromMinute,
             StringTable.ToHour,
             StringTable.ToMinute,
+
+            // Profile criterion
+            StringTable.Profile,
+            StringTable.ProfileId,
 
             // AdExtensions common
             StringTable.Version,
@@ -341,12 +346,24 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             StringTable.Audience,
             StringTable.RemarketingRule,
             StringTable.AudienceSearchSize,
+            StringTable.AudienceNetworkSize,
+            StringTable.SupportedCampaignTypes,
+            StringTable.ProductAudienceType,
 
             // Expanded Text Ad
             StringTable.TitlePart1,
             StringTable.TitlePart2,
             StringTable.Path1,
             StringTable.Path2,
+
+            // Responsive Ad
+            StringTable.CallToAction,
+            StringTable.Headline,
+            StringTable.LandscapeImageMediaId,
+            StringTable.LandscapeLogoMediaId,
+            StringTable.LongHeadline,
+            StringTable.SquareImageMediaId,
+            StringTable.SquareLogoMediaId,
 
             // Structured Snippet Ad Extension
             StringTable.StructuredSnippetHeader,

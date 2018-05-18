@@ -385,7 +385,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountReportScope Scope
@@ -510,7 +510,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughCampaignReportScope Scope
@@ -635,7 +635,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -760,7 +760,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -885,7 +885,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1036,7 +1036,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1181,7 +1181,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1261,7 +1261,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughCampaignReportScope Scope
@@ -1386,7 +1386,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1511,7 +1511,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1636,7 +1636,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1761,7 +1761,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -1886,7 +1886,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2011,7 +2011,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2136,7 +2136,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2362,7 +2362,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2445,7 +2445,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2570,7 +2570,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2695,7 +2695,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2820,7 +2820,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -2945,7 +2945,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3070,7 +3070,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3195,7 +3195,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3320,7 +3320,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3445,7 +3445,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3570,7 +3570,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3672,7 +3672,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -3922,7 +3922,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -4047,7 +4047,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -4172,7 +4172,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -4297,7 +4297,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The scope of the report.
+        /// The entity scope of the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.Reporting.AccountThroughAdGroupReportScope Scope
@@ -11434,7 +11434,7 @@ namespace Microsoft.BingAds.V12.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -11530,7 +11530,7 @@ namespace Microsoft.BingAds.V12.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Nielsen DMA? in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA® in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -14956,7 +14956,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AudienceId = 8,
         
         /// <summary>
-        /// The audienc name.
+        /// The audience name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceName = 9,
@@ -15068,6 +15068,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 27,
+        
+        /// <summary>
+        /// The audience type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceType = 28,
     }
     
     /// <summary>
@@ -18625,7 +18631,7 @@ namespace Microsoft.BingAds.V12.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,

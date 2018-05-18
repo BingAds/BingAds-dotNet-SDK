@@ -153,7 +153,7 @@ namespace Microsoft.BingAds.V12.Bulk
         AdGroups = 2,
         
         /// <summary>
-        /// Include App Install Ad, Dynamic Search Ad, Expanded Text Ad, Product Ad, and Text Ad records in the download data.
+        /// Include App Install Ad, Dynamic Search Ad, Expanded Text Ad, Product Ad, Responsive Ad, and Text Ad records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ads = 3,
@@ -183,7 +183,7 @@ namespace Microsoft.BingAds.V12.Bulk
         CampaignTargetCriterions = 7,
         
         /// <summary>
-        /// Include Ad Group Age Criterion, Ad Group DayTime Criterion, Ad Group DeviceOS Criterion, Ad Group Gender Criterion, Ad Group Location Criterion, Ad Group Location Intent Criterion, Ad Group Negative Location Criterion, and Ad Group Radius Criterion records in the download data.
+        /// Include Ad Group Age Criterion, Ad Group Company Name Criterion, Ad Group DayTime Criterion, Ad Group DeviceOS Criterion, Ad Group Gender Criterion, Ad Group Industry Criterion, Ad Group Job Function Criterion, Ad Group Location Criterion, Ad Group Location Intent Criterion, Ad Group Negative Age Criterion, Ad Group Negative Company Name Criterion, Ad Group Negative Gender Criterion, Ad Group Negative Industry Criterion, Ad Group Negative Job Function Criterion, Ad Group Negative Location Criterion, and Ad Group Radius Criterion records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupTargetCriterions = 8,
@@ -339,19 +339,19 @@ namespace Microsoft.BingAds.V12.Bulk
         AdGroupCalloutAdExtensions = 33,
         
         /// <summary>
-        /// Reserved.
+        /// Include Sitelink Ad Extension records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SitelinkAdExtensions = 34,
         
         /// <summary>
-        /// Reserved.
+        /// Include Campaign Sitelink Ad Extension records in the download that represents the association relationship between a campaign and a sitelink ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignSitelinkAdExtensions = 35,
         
         /// <summary>
-        /// Reserved.
+        /// Include Ad Group Sitelink Ad Extension records in the download that each represent the association relationship between an ad group and a sitelink ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupSitelinkAdExtensions = 36,
@@ -537,19 +537,19 @@ namespace Microsoft.BingAds.V12.Bulk
         AdGroupNegativeInMarketAudienceAssociations = 66,
         
         /// <summary>
-        /// Include Custom Audience, In Market Audience, and Remarketing List records in the download data.
+        /// Include Custom Audience, In Market Audience, Product Audience, and Remarketing List records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audiences = 67,
         
         /// <summary>
-        /// Include Ad Group Custom Audience Association, Ad Group In Market Audience Association, and Ad Group Remarketing List Association records in the download data.
+        /// Include Ad Group Custom Audience Association, Ad Group In Market Audience Association, Ad Group Product Audience Association, and Ad Group Remarketing List Association records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupAudienceAssociations = 68,
         
         /// <summary>
-        /// Include Ad Group Negative Custom Audience Association, Ad Group Negative In Market Audience Association, and Ad Group Negative Remarketing List Association records in the download data.
+        /// Include Ad Group Negative Custom Audience Association, Ad Group Negative In Market Audience Association, Ad Group Negative Product Audience Association, and Ad Group Negative Remarketing List Association records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeAudienceAssociations = 69,
@@ -615,7 +615,7 @@ namespace Microsoft.BingAds.V12.Bulk
         AccountCalloutAdExtensions = 79,
         
         /// <summary>
-        /// Reserved.
+        /// Include Account Sitelink Ad Extension records in the download that represents the association relationship between an account and a sitelink ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountSitelinkAdExtensions = 80,
@@ -633,31 +633,31 @@ namespace Microsoft.BingAds.V12.Bulk
         AccountStructuredSnippetAdExtensions = 82,
         
         /// <summary>
-        /// Reserved.
+        /// Include Responsive Ad records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveAds = 83,
         
         /// <summary>
-        /// Reserved.
+        /// Include Responsive Ad Label records in the download that each represent a label applied to a responsive ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveAdLabels = 84,
         
         /// <summary>
-        /// Reserved.
+        /// Include Product Audience records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductAudiences = 85,
         
         /// <summary>
-        /// Reserved.
+        /// Include Ad Group Product Audience Association records in the download that each represent the association relationship between an ad group and a product audience.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupProductAudienceAssociations = 86,
         
         /// <summary>
-        /// Reserved.
+        /// Include Ad Group Negative Product Audience Association records in the download that each represent the association relationship between an ad group and a product audience exclusion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeProductAudienceAssociations = 87,

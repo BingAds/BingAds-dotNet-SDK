@@ -52,7 +52,10 @@ using System.ServiceModel.Channels;
 
 namespace Microsoft.BingAds.Internal
 {
-    internal interface IServiceClientFactory
+    /// <summary>
+    /// Reserved for internal use.
+    /// </summary>
+    public interface IServiceClientFactory
     {
         IChannelFactory<T> CreateChannelFactory<T>(ApiEnvironment env)
             where T: class;

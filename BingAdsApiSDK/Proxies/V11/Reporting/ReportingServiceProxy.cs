@@ -5120,13 +5120,13 @@ namespace Microsoft.BingAds.V11.Reporting
         Search = 1,
         
         /// <summary>
-        /// The report will contain content ads.
+        /// The report will contain data for content ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Content = 2,
         
         /// <summary>
-        /// The report will contain intent ads.
+        /// The report will contain data for audience ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Native = 16,
@@ -11089,7 +11089,7 @@ namespace Microsoft.BingAds.V11.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -11185,7 +11185,7 @@ namespace Microsoft.BingAds.V11.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Nielsen DMA? in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA® in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -14672,7 +14672,7 @@ namespace Microsoft.BingAds.V11.Reporting
         AudienceId = 8,
         
         /// <summary>
-        /// The audienc name.
+        /// The audience name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceName = 9,
@@ -18341,7 +18341,7 @@ namespace Microsoft.BingAds.V11.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,

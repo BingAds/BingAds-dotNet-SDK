@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,6 +47,9 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.BingAds.V11.Internal.Bulk;
 using Microsoft.BingAds.V11.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V11.Internal.Bulk.Entities;
@@ -99,6 +102,20 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// The historical performance data for the ad group.
         /// </summary>
         public PerformanceData PerformanceData { get; private set; }
+
+        public TargetSetting GetTargetSetting()
+        {
+            if (AdGroup.Settings == null || AdGroup.Settings.Count == 0) return null;
+
+            var targetSettings = AdGroup.Settings.Where(setting => setting is TargetSetting).ToList();
+
+            if (targetSettings.Count != 1)
+            {
+                throw new ArgumentException("Can only have 1 TargetSetting in AdGroup Settings");
+            }
+
+            return (TargetSetting)targetSettings[0];
+        }
 
         private static readonly IBulkMapping<BulkAdGroup>[] Mappings =
         {
@@ -200,14 +217,48 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
                 c => c.AdGroup.UrlCustomParameters.ToBulkString(),
                 (v, c) => c.AdGroup.UrlCustomParameters = v.ParseCustomParameters()
             ),
-            
-            new ComplexBulkMapping<BulkAdGroup>(BiddingSchemeToCsv, CsvToBiddingScheme),
 
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.PrivacyStatus,
+                c => c.AdGroup.PrivacyStatus.ToBulkString(),
+                (v, c) => c.AdGroup.PrivacyStatus = v.ParseOptional<AdGroupPrivacyStatus>()
+            ),
+            
             new SimpleBulkMapping<BulkAdGroup>(StringTable.RemarketingTargetingSetting,
                 c => c.AdGroup.RemarketingTargetingSetting.ToBulkString(),
                 (v, c) => c.AdGroup.RemarketingTargetingSetting = v.ParseOptional<RemarketingTargetingSetting>()
             ),
 
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.TargetSetting,
+                c =>
+                {
+                    var targetSetting = c.GetTargetSetting();
+
+                    return targetSetting == null ? null : targetSetting.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var details = v.ParseTargetSettingDetails();
+                    if (details == null) return;
+                    if (c.AdGroup.Settings == null)
+                    {
+                        c.AdGroup.Settings = new List<Setting>();
+                    }
+
+                    if (c.GetTargetSetting() != null)
+                    {
+                        throw new ArgumentException("Can only have 1 TargetSetting in AdGroup Settings");
+                    }
+
+                    c.AdGroup.Settings.Add(new TargetSetting
+                    {
+                        Type = "TargetSetting",
+                        Details = details
+                    });
+                }
+            ),
+
+            new ComplexBulkMapping<BulkAdGroup>(BiddingSchemeToCsv, CsvToBiddingScheme),
+            
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

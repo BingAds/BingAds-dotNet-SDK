@@ -532,6 +532,35 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             return languages;
         }
 
+        public static string WriteAudienceSupportedCampaignTypes(this IList<string> supportedCampaignTypes, string seperator)
+        {
+            if (supportedCampaignTypes == null)
+            {
+                return null;
+            }
+
+            if (supportedCampaignTypes.Count == 0)
+            {
+                return DeleteValue;
+            }
+
+            var text = string.Join(seperator, supportedCampaignTypes);
+
+            return text;
+        }
+
+        public static IList<string> ParseAudienceSupportedCampaignTypes(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
+            var supportedCampaignTypes = s.Split(new string[] { ";" }, StringSplitOptions.None).ToList();
+
+            return supportedCampaignTypes;
+        }
+
         public static string ToBulkString(this CustomParameters parameters)
         {
             if (parameters == null)

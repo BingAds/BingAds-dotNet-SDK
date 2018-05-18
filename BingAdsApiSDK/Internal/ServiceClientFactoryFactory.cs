@@ -51,9 +51,12 @@ using System;
 
 namespace Microsoft.BingAds.Internal
 {
-    internal static class ServiceClientFactoryFactory
+    /// <summary>
+    /// Reserved for internal use.
+    /// </summary>
+    public static class ServiceClientFactoryFactory
     {
-        internal static Func<IServiceClientFactory> CreateCustomClientFactory { get; set; }
+        public static Func<IServiceClientFactory> CreateCustomClientFactory { get; set; }
 
         public static IServiceClientFactory CreateServiceClientFactory()
         {

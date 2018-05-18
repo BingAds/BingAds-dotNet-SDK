@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -272,6 +272,8 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
         public const string Bid = "Bid";
 
+        public const string Profile = "Profile";
+        public const string ProfileId = "Profile Id";
         public const string BidAdjustment = "Bid Adjustment";
         public const string SubType = "Sub Type";
 
@@ -287,6 +289,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string SearchBid = "Search Bid";
         public const string ContentBid = "Content Bid";
         public const string AdRotation = "Ad Rotation";
+        public const string PrivacyStatus = "Privacy Status";
 
         public const string Account = "Account";
         public const string SyncTime = "Sync Time";
@@ -555,6 +558,9 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string BidStrategyTargetCpa = "Bid Strategy TargetCpa";
         public const string InheritedBidStrategyType = "Inherited Bid Strategy Type";
 
+        // Target and bid
+        public const string TargetSetting = "Target Setting";
+
         // Audience
         public const string Audience = "Audience";
         public const string RemarketingList = "Remarketing List";
@@ -566,6 +572,9 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string InMarketAudience = "In Market Audience";
         public const string AdGroupInMarketAudienceAssociation = "Ad Group In Market Audience Association";
         public const string AdGroupNegativeInMarketAudienceAssociation = "Ad Group Negative In Market Audience Association";
+        public const string ProductAudience = "Product Audience";
+        public const string AdGroupProductAudienceAssociation = "Ad Group Product Audience Association";
+        public const string AdGroupNegativeProductAudienceAssociation = "Ad Group Negative Product Audience Association";
         public const string Description = "Description";
         public const string MembershipDuration = "Membership Duration";
         public const string Scope = "Scope";
@@ -574,6 +583,9 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string RemarketingTargetingSetting = "Remarketing Targeting Setting";
         public const string RemarketingRule = "Remarketing Rule";
         public const string AudienceSearchSize = "Audience Search Size";
+        public const string AudienceNetworkSize = "Audience Network Size";
+        public const string SupportedCampaignTypes = "Supported Campaign Types";
+        public const string ProductAudienceType = "Product Audience Type";
 
         // Expanded Text Ad
         public const string ExpandedTextAd = "Expanded Text Ad";
@@ -581,6 +593,16 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string TitlePart2 = "Title Part 2";
         public const string Path1 = "Path 1";
         public const string Path2 = "Path 2";
+
+        // Responsive Ad
+        public const string ResponsiveAd = "Responsive Ad";
+        public const string CallToAction = "Call To Action";
+        public const string Headline = "Headline";
+        public const string LandscapeImageMediaId = "Landscape Image Media Id";
+        public const string LandscapeLogoMediaId = "Landscape Logo Media Id";
+        public const string LongHeadline = "Long Headline";
+        public const string SquareImageMediaId = "Square Image Media Id";
+        public const string SquareLogoMediaId = "Square Logo Media Id";
 
         // Structured Snippet Ad Extension
         public const string AccountStructuredSnippetAdExtension = "Account Structured Snippet Ad Extension";
@@ -616,11 +638,19 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
         // Target Criterions
         public const string AdGroupAgeCriterion = "Ad Group Age Criterion";
+        public const string AdGroupCompanyNameCriterion = "Ad Group Company Name Criterion";
         public const string AdGroupDayTimeCriterion = "Ad Group DayTime Criterion";
         public const string AdGroupDeviceCriterion = "Ad Group DeviceOS Criterion";
         public const string AdGroupGenderCriterion = "Ad Group Gender Criterion";
+        public const string AdGroupIndustryCriterion = "Ad Group Industry Criterion";
+        public const string AdGroupJobFunctionCriterion = "Ad Group Job Function Criterion";
         public const string AdGroupLocationCriterion = "Ad Group Location Criterion";
         public const string AdGroupLocationIntentCriterion = "Ad Group Location Intent Criterion";
+        public const string AdGroupNegativeAgeCriterion = "Ad Group Negative Age Criterion";
+        public const string AdGroupNegativeCompanyNameCriterion = "Ad Group Negative Company Name Criterion";
+        public const string AdGroupNegativeGenderCriterion = "Ad Group Negative Gender Criterion";
+        public const string AdGroupNegativeIndustryCriterion = "Ad Group Negative Industry Criterion";
+        public const string AdGroupNegativeJobFunctionCriterion = "Ad Group Negative Job Function Criterion";
         public const string AdGroupNegativeLocationCriterion = "Ad Group Negative Location Criterion";
         public const string AdGroupRadiusCriterion = "Ad Group Radius Criterion";
         public const string CampaignAgeCriterion = "Campaign Age Criterion";
@@ -642,6 +672,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string DynamicSearchAdLabel = "Dynamic Search Ad Label";
         public const string ExpandedTextAdLabel = "Expanded Text Ad Label";
         public const string ProductAdLabel = "Product Ad Label";
+        public const string ResponsiveAdLabel = "Responsive Ad Label";
         public const string TextAdLabel = "Text Ad Label";
 
         // Offline Conversions

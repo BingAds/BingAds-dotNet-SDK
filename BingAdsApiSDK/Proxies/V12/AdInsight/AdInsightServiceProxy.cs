@@ -5573,7 +5573,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time that users 18 through 24 years of age searched for the keyword.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double EighteenToTwentyFour
@@ -5593,7 +5593,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time that users 25 through 34 years of age searched for the keyword.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double TwentyFiveToThirtyFour
@@ -5613,7 +5613,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time that users 35 through 49 years of age searched for the keyword.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public double ThirtyFiveToFourtyNine
@@ -5633,7 +5633,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time that users 50 through 64 years of age searched for the keyword.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public double FiftyToSixtyFour
@@ -5653,7 +5653,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time that users 65 years of age or older searched for the keyword.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public double SixtyFiveAndAbove
@@ -6154,25 +6154,25 @@ namespace Microsoft.BingAds.V12.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// Request account level auction insight data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Account = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Request campaign level auction insight data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Campaign = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Request ad group level auction insight data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroup = 3,
         
         /// <summary>
-        /// Reserved.
+        /// Request keyword level auction insight data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 4,
@@ -6900,7 +6900,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         private Microsoft.BingAds.V12.AdInsight.AuctionSegment SegmentField;
         
         /// <summary>
-        /// Reserved.
+        /// Determines how you want the SegmentedKpis data segmented in the result from the GetAuctionInsightData operation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V12.AdInsight.AuctionSegment Segment
@@ -7311,44 +7311,44 @@ namespace Microsoft.BingAds.V12.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// The auction insight data is segmented by day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Day = 10,
         
         /// <summary>
-        /// Reserved.
+        /// The auction insight data is segmented by week.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Week = 20,
         
         /// <summary>
-        /// Reserved.
+        /// The auction insight data is segmented by month.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Month = 30,
         
         /// <summary>
-        /// Reserved.
+        /// The auction insight data is segmented by quarter.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Quarter = 40,
         
         /// <summary>
-        /// Reserved.
+        /// The auction insight data is segmented by day of week.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DayOfWeek = 60,
         
         /// <summary>
-        /// Reserved.
+        /// The auction insight data is segmented by device.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Device = 70,
     }
     
     /// <summary>
-    /// Defines an auction insight result.
+    /// Defines the auction insight results from calling the GetAuctionInsightData operation.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightresult?view=bingads-12">AuctionInsightResult Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightresult?view=bingads-12 for details.
@@ -7366,7 +7366,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<Microsoft.BingAds.V12.AdInsight.AuctionSegment> SegmentField;
+        private System.Collections.Generic.IList<Microsoft.BingAds.V12.AdInsight.AuctionSegment> SegmentsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V12.AdInsight.AuctionInsightEntry> EntriesField;
@@ -7390,27 +7390,27 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The segments if any were specified via one or more AuctionSegmentSearchParameter in the GetAuctionInsightData request.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<Microsoft.BingAds.V12.AdInsight.AuctionSegment> Segment
+        public System.Collections.Generic.IList<Microsoft.BingAds.V12.AdInsight.AuctionSegment> Segments
         {
             get
             {
-                return this.SegmentField;
+                return this.SegmentsField;
             }
             set
             {
-                if ((this.SegmentField.Equals(value) != true))
+                if ((object.ReferenceEquals(this.SegmentsField, value) != true))
                 {
-                    this.SegmentField = value;
-                    this.RaisePropertyChanged("Segment");
+                    this.SegmentsField = value;
+                    this.RaisePropertyChanged("Segments");
                 }
             }
         }
         
         /// <summary>
-        /// Reserved.
+        /// One or more auction insight entries i.e., one result per domain that you competed with in the auction.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.AdInsight.AuctionInsightEntry> Entries
@@ -7430,7 +7430,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percent of impressions that were used to generate the auction insight entries.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public double UsedImpressions
@@ -7450,7 +7450,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The number of keywords that were used to generate the auction insight entries.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public double UsedKeywords
@@ -7482,7 +7482,7 @@ namespace Microsoft.BingAds.V12.AdInsight
     }
     
     /// <summary>
-    /// Defines an auction insight entry.
+    /// Defines an auction insight entry for a domain.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightentry?view=bingads-12">AuctionInsightEntry Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightentry?view=bingads-12 for details.
@@ -7521,7 +7521,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The display URL of another advertiser who participates in the same auctions as you.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DisplayDomain
@@ -7541,7 +7541,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The auction insight key performance indicators across all segments for the display domain.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public Microsoft.BingAds.V12.AdInsight.AuctionInsightKpi AggregatedKpi
@@ -7561,7 +7561,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The list of auction insight key performance indicators for each unique combination of the requested segments.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.AdInsight.AuctionInsightKpi> SegmentedKpis
@@ -7611,7 +7611,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SegmentField;
+        private System.Collections.Generic.IList<string> SegmentsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ImpressionShareField;
@@ -7644,27 +7644,27 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The list of strings identifies a distinct combination of requested segments.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Segment
+        public System.Collections.Generic.IList<string> Segments
         {
             get
             {
-                return this.SegmentField;
+                return this.SegmentsField;
             }
             set
             {
-                if ((object.ReferenceEquals(this.SegmentField, value) != true))
+                if ((object.ReferenceEquals(this.SegmentsField, value) != true))
                 {
-                    this.SegmentField = value;
-                    this.RaisePropertyChanged("Segment");
+                    this.SegmentsField = value;
+                    this.RaisePropertyChanged("Segments");
                 }
             }
         }
         
         /// <summary>
-        /// Reserved.
+        /// The number of times an ad is shown on the Bing Network divided by the total available impressions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public double ImpressionShare
@@ -7684,7 +7684,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time competitors' ads showed up on the search results page when your ad was shown.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public double OverlapRate
@@ -7704,7 +7704,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The average position on the web page for ads that were delivered.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public double AveragePosition
@@ -7724,7 +7724,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time competitors' ads showed up higher than your ads on the search results page.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public double AboveRate
@@ -7744,7 +7744,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time your ad showed up in the mainline, the premium ad position above the organic search results.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public double TopOfPageRate
@@ -7764,7 +7764,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of time your ad showed up higher on the search results pages than your competitors or your ad showed when theirs did not.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public double OutrankingShare
@@ -9888,7 +9888,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.AdInsight.SuggestKeywordsFromExistingKeywordsResponse> SuggestKeywordsFromExistingKeywordsAsync(Microsoft.BingAds.V12.AdInsight.SuggestKeywordsFromExistingKeywordsRequest request);
         
         /// <summary>
-        /// Gets auction insight data.
+        /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12 for details.
@@ -9896,7 +9896,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>Includes the auction insight entries for the requested entity, date range, and segment search parameters.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V12/IAdInsightService/GetAuctionInsigh" +
             "tDataResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V12.AdInsight.AdApiFaultDetail), Action="Microsoft.Advertiser.AdInsight.Api.Service.V12/IAdInsightService/GetAuctionInsigh" +
@@ -9906,7 +9906,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         Microsoft.BingAds.V12.AdInsight.GetAuctionInsightDataResponse GetAuctionInsightData(Microsoft.BingAds.V12.AdInsight.GetAuctionInsightDataRequest request);
         
         /// <summary>
-        /// Gets auction insight data.
+        /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12 for details.
@@ -9914,7 +9914,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>Includes the auction insight entries for the requested entity, date range, and segment search parameters.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAuctionInsightData", ReplyAction="Microsoft.Advertiser.AdInsight.Api.Service.V12/IAdInsightService/GetAuctionInsigh" +
             "tDataResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.AdInsight.GetAuctionInsightDataResponse> GetAuctionInsightDataAsync(Microsoft.BingAds.V12.AdInsight.GetAuctionInsightDataRequest request);
@@ -12397,7 +12397,7 @@ namespace Microsoft.BingAds.V12.AdInsight
     }
     
     /// <summary>
-    /// Gets auction insight data.
+    /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12">GetAuctionInsightData Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12 for details.
@@ -12431,19 +12431,19 @@ namespace Microsoft.BingAds.V12.AdInsight
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The entity level that you want to request auction insight data.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V12", Order=0)]
         public Microsoft.BingAds.V12.AdInsight.EntityType EntityType;
         
         /// <summary>
-        /// Reserved.
+        /// The Bing Ads identifiers for up to 200 campaigns, ad groups, or keywords.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V12", Order=1)]
         public System.Collections.Generic.IList<long> EntityIds;
         
         /// <summary>
-        /// Reserved.
+        /// The search parameters define your criteria and filters for the auction insight data.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V12", Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.AdInsight.SearchParameter> SearchParameters;
@@ -12464,9 +12464,9 @@ namespace Microsoft.BingAds.V12.AdInsight
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12">GetAuctionInsightDataRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="EntityType">Reserved.</param>
-        /// <param name="EntityIds">Reserved.</param>
-        /// <param name="SearchParameters">Reserved.</param>
+        /// <param name="EntityType">The entity level that you want to request auction insight data.</param>
+        /// <param name="EntityIds">The Bing Ads identifiers for up to 200 campaigns, ad groups, or keywords.</param>
+        /// <param name="SearchParameters">The search parameters define your criteria and filters for the auction insight data.</param>
         public GetAuctionInsightDataRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V12.AdInsight.EntityType EntityType, System.Collections.Generic.IList<long> EntityIds, System.Collections.Generic.IList<Microsoft.BingAds.V12.AdInsight.SearchParameter> SearchParameters)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12483,7 +12483,7 @@ namespace Microsoft.BingAds.V12.AdInsight
     }
     
     /// <summary>
-    /// Gets auction insight data.
+    /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12">GetAuctionInsightData Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12 for details.
@@ -12499,7 +12499,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// Includes the auction insight entries for the requested entity, date range, and segment search parameters.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="Microsoft.Advertiser.AdInsight.Api.Service.V12", Order=0)]
         public Microsoft.BingAds.V12.AdInsight.AuctionInsightResult Result;
@@ -12520,7 +12520,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12">GetAuctionInsightDataResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="Result">Reserved.</param>
+        /// <param name="Result">Includes the auction insight entries for the requested entity, date range, and segment search parameters.</param>
         public GetAuctionInsightDataResponse(string TrackingId, Microsoft.BingAds.V12.AdInsight.AuctionInsightResult Result)
         {
             this.TrackingId = TrackingId;
@@ -13597,7 +13597,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         }
         
         /// <summary>
-        /// Gets auction insight data.
+        /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12 for details.
@@ -13605,14 +13605,14 @@ namespace Microsoft.BingAds.V12.AdInsight
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>Includes the auction insight entries for the requested entity, date range, and segment search parameters.</returns>
         public Microsoft.BingAds.V12.AdInsight.GetAuctionInsightDataResponse GetAuctionInsightData(Microsoft.BingAds.V12.AdInsight.GetAuctionInsightDataRequest request)
         {
             return base.Channel.GetAuctionInsightData(request);
         }
         
         /// <summary>
-        /// Gets auction insight data.
+        /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-12 for details.
@@ -13620,7 +13620,7 @@ namespace Microsoft.BingAds.V12.AdInsight
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>Includes the auction insight entries for the requested entity, date range, and segment search parameters.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V12.AdInsight.GetAuctionInsightDataResponse> GetAuctionInsightDataAsync(Microsoft.BingAds.V12.AdInsight.GetAuctionInsightDataRequest request)
         {
             return base.Channel.GetAuctionInsightDataAsync(request);

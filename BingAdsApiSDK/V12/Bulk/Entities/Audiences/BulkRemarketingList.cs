@@ -132,6 +132,16 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 c => c.RemarketingList.SearchSize.ToBulkString(),
                 (v, c) => c.RemarketingList.SearchSize = v.ParseOptional<long>()
             ),
+                        
+            new SimpleBulkMapping<BulkRemarketingList>(StringTable.AudienceNetworkSize,
+                c => c.RemarketingList.AudienceNetworkSize.ToBulkString(),
+                (v, c) => c.RemarketingList.AudienceNetworkSize = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkRemarketingList>(StringTable.SupportedCampaignTypes,
+                c => c.RemarketingList.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
+                (v, c) => c.RemarketingList.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

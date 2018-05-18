@@ -63,7 +63,7 @@ namespace Microsoft.BingAds.V11.Reporting
         /// Defines the status of a report.
         /// </summary>
         /// <remarks>
-        /// See <see href="http://msdn.microsoft.com/en-us/library/bb671578(v=msads.90).aspx">ReportRequestStatusType Value Set</see> http://msdn.microsoft.com/en-us/library/bb671578(v=msads.90).aspx for details.
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatustype">ReportRequestStatusType Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatustype for details.
         /// <para>Used by <see cref="ReportRequestStatus"/> data object.</para>
         /// </remarks>
         public ReportRequestStatusType Status { get; set; }

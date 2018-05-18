@@ -110,6 +110,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.CampaignStatus> StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TimeZoneField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -323,6 +326,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
+        /// The campaign sub type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string SubType
+        {
+            get
+            {
+                return this.SubTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SubTypeField, value) != true))
+                {
+                    this.SubTypeField = value;
+                    this.RaisePropertyChanged("SubType");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The time zone where the campaign operates.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -383,9 +406,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// The campaign type determines whether the campaign is a Bing Shopping campaign, Dynamic Search Ads campaign, or Search &amp; Content campaign.
+        /// The campaign type determines whether the campaign is an Audience, Dynamic Search Ads, Search &amp; Content, or Shopping campaign.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.CampaignType> CampaignType
         {
             get
@@ -405,7 +428,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The settings will vary by campaign type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.Setting> Settings
         {
             get
@@ -425,7 +448,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// The unique Bing Ads identifier of the Budget that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -445,7 +468,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <summary>
         /// Your ad language setting determines the language you will use when you write your ads and should be the language of your customers.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -735,6 +758,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.ShoppingSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.DynamicSearchAdsSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.TargetSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V11.CampaignManagement.CoOpSetting))]
     public partial class Setting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -1137,7 +1161,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the campaign level settings for a Bing Shopping Campaign.
+    /// Defines the campaign level settings for feed-based audience or shopping campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/shoppingsetting?view=bingads-11">ShoppingSetting Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/shoppingsetting?view=bingads-11 for details.
@@ -1303,7 +1327,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// The target settings that determines whether the Age, CompanyName, Gender, Industry, and JobFunction criterion type groups use the "target and bid" option or the "bid only" target option.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/targetsetting?view=bingads-11">TargetSetting Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/targetsetting?view=bingads-11 for details.
@@ -1319,7 +1343,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.TargetSettingDetail> DetailsField;
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether the Age, CompanyName, Gender, Industry, and JobFunction criterion type groups use the "target and bid" option or the "bid only" target option.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CampaignManagement.TargetSettingDetail> Details
@@ -1340,7 +1364,90 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the ad group level settings for feed-based cooperative bidding campaigns.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/coopsetting?view=bingads-11">CoOpSetting Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/coopsetting?view=bingads-11 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CoOpSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    [System.SerializableAttribute()]
+    public partial class CoOpSetting : Microsoft.BingAds.V11.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> BidBoostValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> BidMaxValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.BidOption> BidOptionField;
+        
+        /// <summary>
+        /// The percentage that allows your cooperative bid to flex.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> BidBoostValue
+        {
+            get
+            {
+                return this.BidBoostValueField;
+            }
+            set
+            {
+                if ((this.BidBoostValueField.Equals(value) != true))
+                {
+                    this.BidBoostValueField = value;
+                    this.RaisePropertyChanged("BidBoostValue");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The flat amount of your cooperative bid.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> BidMaxValue
+        {
+            get
+            {
+                return this.BidMaxValueField;
+            }
+            set
+            {
+                if ((this.BidMaxValueField.Equals(value) != true))
+                {
+                    this.BidMaxValueField = value;
+                    this.RaisePropertyChanged("BidMaxValue");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Determines whether or not to amplify your partner's bid.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.BidOption> BidOption
+        {
+            get
+            {
+                return this.BidOptionField;
+            }
+            set
+            {
+                if ((this.BidOptionField.Equals(value) != true))
+                {
+                    this.BidOptionField = value;
+                    this.RaisePropertyChanged("BidOption");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Determines whether you want to use the "target and bid" option or the "bid only" target option for the criterion type group.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/targetsettingdetail?view=bingads-11">TargetSettingDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/targetsettingdetail?view=bingads-11 for details.
@@ -1375,7 +1482,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The criterion type group that you want to set either the "target and bid" option or the "bid only" target option.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CampaignManagement.CriterionTypeGroup CriterionTypeGroup
@@ -1395,7 +1502,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether you want to use the "target and bid" option or the "bid only" target option for the criterion type group.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool TargetAndBid
@@ -1427,7 +1534,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// The type used to group criterions.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/criteriontypegroup?view=bingads-11">CriterionTypeGroup Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/criteriontypegroup?view=bingads-11 for details.
@@ -1439,40 +1546,65 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The gender criterion type group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Gender = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The age criterion type group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Age = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The audience criterion type group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audience = 3,
         
         /// <summary>
-        /// Reserved.
+        /// The company name criterion type group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompanyName = 4,
         
         /// <summary>
-        /// Reserved.
+        /// The job function criterion type group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JobFunction = 5,
         
         /// <summary>
-        /// Reserved.
+        /// The industry criterion type group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Industry = 6,
+    }
+    
+    /// <summary>
+    /// Determines whether or not to amplify your partner's bid.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/bidoption?view=bingads-11">BidOption Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/bidoption?view=bingads-11 for details.
+    /// <para>Used by <see cref="CoOpSetting"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BidOption", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum BidOption : int
+    {
+        
+        /// <summary>
+        /// A bid value ad group allows you to bid on products that your merchandising partner doesn't target.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidValue = 0,
+        
+        /// <summary>
+        /// A bid boost allows you to amplify your partner's bid.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidBoost = 1,
     }
     
     /// <summary>
@@ -2761,7 +2893,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Indicates whether or not your ad group target criteria e.g., ProfileCriterion are too narrow for ad groups in Audience campaigns.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupPrivacyStatus> PrivacyStatus
@@ -3238,7 +3370,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines possible values for ad group privacy status in Audience campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroupprivacystatus?view=bingads-11">AdGroupPrivacyStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroupprivacystatus?view=bingads-11 for details.
@@ -3250,25 +3382,25 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group is eligible to serve.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group is not eligible to serve because your ad group target criteria e.g., ProfileCriterion are too narrowly defined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TargetingTooNarrow = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The privacy evaluation is still in progress, and the ad group is not yet eligible to serve.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 3,
@@ -4282,7 +4414,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// A responsive ad format for Audience ads in the Microsoft Audience Network.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/responsivead?view=bingads-11">ResponsiveAd Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/responsivead?view=bingads-11 for details.
@@ -4318,7 +4450,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private string TextField;
         
         /// <summary>
-        /// Reserved.
+        /// The name of the business.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string BusinessName
@@ -4338,7 +4470,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// A brief, punchy reason for customers to click your ad right now.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.CallToAction> CallToAction
@@ -4358,7 +4490,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This is one of two possible headlines that could appear in your audience ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Headline
@@ -4378,7 +4510,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This is the identifier of the media corresponding to one of two possible aspect ratios for images that could appear in your audience ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> LandscapeImageMediaId
@@ -4398,7 +4530,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This is the identifier of the media corresponding to one of two possible aspect ratios for logos that could appear in your audience ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> LandscapeLogoMediaId
@@ -4418,7 +4550,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This is one of two possible headlines that could appear in your audience ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string LongHeadline
@@ -4438,7 +4570,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This is one of two possible aspect ratios for images that could appear in your audience ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> SquareImageMediaId
@@ -4458,7 +4590,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This is one of two possible aspect ratios for logos that could appear in your audience ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> SquareLogoMediaId
@@ -4478,7 +4610,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Depending on your audience ad's placement, this text will appear below or adjacent to your ad's long or short headline.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Text
@@ -4711,14 +4843,14 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         DynamicSearch = 5,
         
         /// <summary>
-        /// Reserved.
+        /// Refers to a ResponsiveAd.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveAd = 6,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible values for a brief, punchy reason for customers to click your ad right now.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/calltoaction?view=bingads-11">CallToAction Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/calltoaction?view=bingads-11 for details.
@@ -4730,127 +4862,127 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AddToCart = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ApplyNow = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookNow = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookTravel = 3,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Buy = 4,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BuyNow = 5,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ContactUs = 6,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Download = 7,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetQuote = 8,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Install = 9,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LearnMore = 10,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NoButton = 11,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OpenLink = 12,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OrderNow = 13,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RegisterNow = 14,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeMore = 15,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ShopNow = 16,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SignUp = 17,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Subscribe = 18,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 19,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VisitSite = 20,
@@ -10340,7 +10472,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         ImageAdExtension = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The media enabled entity is an ResponsiveAd.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveAd = 2,
@@ -10785,7 +10917,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         Webpage = 4,
         
         /// <summary>
-        /// Represents one or more AgeCriterion, DayTimeCriterion, DeviceCriterion, GenderCriterion, LocationCriterion, LocationIntentCriterion, and RadiusCriterion objects that can be managed together to show ads based on your target criteria.
+        /// Represents one or more AgeCriterion, DayTimeCriterion, DeviceCriterion, GenderCriterion, LocationCriterion, LocationIntentCriterion, ProfileCriterion, and RadiusCriterion objects that can be managed together to show ads based on your target criteria.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Targets = 8,
@@ -10857,25 +10989,25 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         RemarketingList = 16384,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is a company name profile criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompanyName = 32768,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is a job function profile criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JobFunction = 65536,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is an industry profile criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Industry = 131072,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is product audience association.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductAudience = 262144,
@@ -12072,7 +12204,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a criterion that can be used to show ads to users in a specific company, industry, or job function.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/profilecriterion?view=bingads-11">ProfileCriterion Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/profilecriterion?view=bingads-11 for details.
@@ -12091,7 +12223,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private Microsoft.BingAds.V11.CampaignManagement.ProfileType ProfileTypeField;
         
         /// <summary>
-        /// Reserved.
+        /// The identifier of the audience profile that you want to target.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long ProfileId
@@ -12111,7 +12243,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether the profile criterion corresponds to a company name, industry, or job function.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V11.CampaignManagement.ProfileType ProfileType
@@ -12294,7 +12426,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// People with unknown ages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
@@ -12355,7 +12487,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The gender is not known.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
@@ -12462,14 +12594,14 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         InMarket = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The audience is a product audience.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Product = 4,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible types of profile criterions.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/profiletype?view=bingads-11">ProfileType Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/profiletype?view=bingads-11 for details.
@@ -12483,19 +12615,19 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Target people at a specific company according to LinkedIn.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompanyName = 0,
         
         /// <summary>
-        /// Reserved.
+        /// Target people in a specific job function according to LinkedIn.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JobFunction = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Target people in a specific industry according to LinkedIn.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Industry = 2,
@@ -13045,6 +13177,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V11.CampaignManagement.BMCStoreSubType> SubTypeField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -13118,7 +13253,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Value will be true if the store is enabled for product ads in Bing Ads, and otherwise the value is false.
+        /// Reserved for internal use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsProductAdsEnabled
@@ -13157,6 +13292,26 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The Bing Merchant Center store sub type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.BMCStoreSubType> SubType
+        {
+            get
+            {
+                return this.SubTypeField;
+            }
+            set
+            {
+                if ((this.SubTypeField.Equals(value) != true))
+                {
+                    this.SubTypeField = value;
+                    this.RaisePropertyChanged("SubType");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -13167,6 +13322,25 @@ namespace Microsoft.BingAds.V11.CampaignManagement
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    /// <summary>
+    /// Defines the possible values for Bing Merchant Center store sub types.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/bmcstoresubtype?view=bingads-11">BMCStoreSubType Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/bmcstoresubtype?view=bingads-11 for details.
+    /// <para>Used by <see cref="BMCStore"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BMCStoreSubType", Namespace="https://bingads.microsoft.com/CampaignManagement/v11")]
+    public enum BMCStoreSubType : int
+    {
+        
+        /// <summary>
+        /// The Bing Merchant Center store supports Cooperative campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CoOp = 1,
     }
     
     /// <summary>
@@ -14486,7 +14660,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The total number of people who belong to this audience in the Audience network i.e., via Audience campaigns.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<long> AudienceNetworkSize
@@ -14646,7 +14820,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// The total number of people who belong to this audience.
+        /// The total number of people who belong to this audience in the Search network.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<long> SearchSize
@@ -14806,7 +14980,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a product audience that you can use to remarket products from your Bing Merchant Center store.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudience?view=bingads-11">ProductAudience Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudience?view=bingads-11 for details.
@@ -14825,7 +14999,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         private System.Nullable<long> TagIdField;
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether to remarket your products to general visitors, product searchers, product viewers, shopping cart abandoners, or past buyers.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.ProductAudienceType> ProductAudienceType
@@ -14845,7 +15019,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The Bing Ads identifier of the Universal Event Tracking (UET) tag that is used with the remarketing list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> TagId
@@ -15650,7 +15824,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible types of product audiences.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudiencetype?view=bingads-11">ProductAudienceType Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudiencetype?view=bingads-11 for details.
@@ -15663,31 +15837,31 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The audience includes general visitors.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GeneralVisitors = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The audience includes product searchers.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductSearchers = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The audience includes product viewers.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductViewers = 4,
         
         /// <summary>
-        /// Reserved.
+        /// The audience includes shopping cart abandoners.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ShoppingCartAbandoners = 8,
         
         /// <summary>
-        /// Reserved.
+        /// The audience includes past buyers.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PastBuyers = 16,
@@ -17943,7 +18117,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.SetNegativeSitesToAdGroupsResponse> SetNegativeSitesToAdGroupsAsync(Microsoft.BingAds.V11.CampaignManagement.SetNegativeSitesToAdGroupsRequest request);
         
         /// <summary>
-        /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+        /// Gets a temporary URL that you can use to download a file that contains identifiers for the geographical locations that you can target or exclude.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11">GetGeoLocationsFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11 for details.
@@ -17961,7 +18135,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         Microsoft.BingAds.V11.CampaignManagement.GetGeoLocationsFileUrlResponse GetGeoLocationsFileUrl(Microsoft.BingAds.V11.CampaignManagement.GetGeoLocationsFileUrlRequest request);
         
         /// <summary>
-        /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+        /// Gets a temporary URL that you can use to download a file that contains identifiers for the geographical locations that you can target or exclude.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11">GetGeoLocationsFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11 for details.
@@ -20579,7 +20753,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsResponse> GetLabelAssociationsByLabelIdsAsync(Microsoft.BingAds.V11.CampaignManagement.GetLabelAssociationsByLabelIdsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
@@ -20597,7 +20771,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlResponse GetProfileDataFileUrl(Microsoft.BingAds.V11.CampaignManagement.GetProfileDataFileUrlRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
@@ -20790,6 +20964,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public Microsoft.BingAds.V11.CampaignManagement.CampaignType CampaignType;
         
         /// <summary>
+        /// The Bing Shopping campaigns with SubType set to ShoppingCoOperative are not returned at all unless you set ReturnCoOpCampaigns true.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        public System.Nullable<bool> ReturnCoOpCampaigns;
+        
+        /// <summary>
         /// Constructor for the GetCampaignsByAccountIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -20807,7 +20987,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
         /// <param name="CampaignType">The type of campaign to get, for example SearchAndContent, Shopping, or DynamicSearchAds.</param>
-        public GetCampaignsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V11.CampaignManagement.CampaignType CampaignType)
+        /// <param name="ReturnCoOpCampaigns">The Bing Shopping campaigns with SubType set to ShoppingCoOperative are not returned at all unless you set ReturnCoOpCampaigns true.</param>
+        public GetCampaignsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V11.CampaignManagement.CampaignType CampaignType, System.Nullable<bool> ReturnCoOpCampaigns)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -20818,6 +20999,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.CampaignType = CampaignType;
+            this.ReturnCoOpCampaigns = ReturnCoOpCampaigns;
         }
     }
     
@@ -20920,6 +21102,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public Microsoft.BingAds.V11.CampaignManagement.CampaignType CampaignType;
         
         /// <summary>
+        /// The Bing Shopping campaigns with SubType set to ShoppingCoOperative are not returned at all unless you set ReturnCoOpCampaigns true.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=3)]
+        public System.Nullable<bool> ReturnCoOpCampaigns;
+        
+        /// <summary>
         /// Constructor for the GetCampaignsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -20938,7 +21126,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
         /// <param name="CampaignIds">A maximum of 100 identifiers of the campaigns to get from the specified account.</param>
         /// <param name="CampaignType">The type of campaigns to get, for example SearchAndContent, Shopping, or DynamicSearchAds.</param>
-        public GetCampaignsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> CampaignIds, Microsoft.BingAds.V11.CampaignManagement.CampaignType CampaignType)
+        /// <param name="ReturnCoOpCampaigns">The Bing Shopping campaigns with SubType set to ShoppingCoOperative are not returned at all unless you set ReturnCoOpCampaigns true.</param>
+        public GetCampaignsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> CampaignIds, Microsoft.BingAds.V11.CampaignManagement.CampaignType CampaignType, System.Nullable<bool> ReturnCoOpCampaigns)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -20950,6 +21139,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.AccountId = AccountId;
             this.CampaignIds = CampaignIds;
             this.CampaignType = CampaignType;
+            this.ReturnCoOpCampaigns = ReturnCoOpCampaigns;
         }
     }
     
@@ -21998,6 +22188,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields;
         
         /// <summary>
+        /// The ad groups within Bing Shopping campaigns with SubType set to ShoppingCoOperative are not returned at all unless you set ReturnCoOpAdGroups true.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=3)]
+        public System.Nullable<bool> ReturnCoOpAdGroups;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -22016,7 +22212,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <param name="CampaignId">The identifier of the campaign that contains the ad groups to get.</param>
         /// <param name="AdGroupIds">A maximum of 1,000 identifiers of the ad groups to get.</param>
         /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned AdGroup object.</param>
-        public GetAdGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AdGroupIds, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields)
+        /// <param name="ReturnCoOpAdGroups">The ad groups within Bing Shopping campaigns with SubType set to ShoppingCoOperative are not returned at all unless you set ReturnCoOpAdGroups true.</param>
+        public GetAdGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AdGroupIds, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields, System.Nullable<bool> ReturnCoOpAdGroups)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -22028,6 +22225,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.CampaignId = CampaignId;
             this.AdGroupIds = AdGroupIds;
             this.ReturnAdditionalFields = ReturnAdditionalFields;
+            this.ReturnCoOpAdGroups = ReturnCoOpAdGroups;
         }
     }
     
@@ -22132,6 +22330,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields;
         
         /// <summary>
+        /// The ad groups within Bing Shopping campaigns with SubType set to ShoppingCoOperative are not returned at all unless you set ReturnCoOpAdGroups true.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
+        public System.Nullable<bool> ReturnCoOpAdGroups;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupsByCampaignIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -22149,7 +22353,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign that contains the ad groups to get.</param>
         /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned AdGroup object.</param>
-        public GetAdGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields)
+        /// <param name="ReturnCoOpAdGroups">The ad groups within Bing Shopping campaigns with SubType set to ShoppingCoOperative are not returned at all unless you set ReturnCoOpAdGroups true.</param>
+        public GetAdGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Nullable<Microsoft.BingAds.V11.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields, System.Nullable<bool> ReturnCoOpAdGroups)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -22160,6 +22365,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.UserName = UserName;
             this.CampaignId = CampaignId;
             this.ReturnAdditionalFields = ReturnAdditionalFields;
+            this.ReturnCoOpAdGroups = ReturnCoOpAdGroups;
         }
     }
     
@@ -22598,7 +22804,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+    /// Gets a temporary URL that you can use to download a file that contains identifiers for the geographical locations that you can target or exclude.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11">GetGeoLocationsFileUrl Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11 for details.
@@ -22676,7 +22882,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+    /// Gets a temporary URL that you can use to download a file that contains identifiers for the geographical locations that you can target or exclude.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11">GetGeoLocationsFileUrl Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11 for details.
@@ -22692,7 +22898,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// The file URL that you can use to download the geographical location targeting codes for the version, language, and locale that you requested.
+        /// The file URL that you can use to download the geographical location data for the version, language, and locale that you requested.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public string FileUrl;
@@ -22704,7 +22910,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Nullable<System.DateTime> FileUrlExpiryTimeUtc;
         
         /// <summary>
-        /// The date and time that the geographical locations file for the specified version, language, and locale was last updated.
+        /// The date and time that the geographical location data for the specified version, language, and locale was last updated.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
         public System.DateTime LastModifiedTimeUtc;
@@ -22725,9 +22931,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11">GetGeoLocationsFileUrlResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11 for details.
         /// </remarks>
-        /// <param name="FileUrl">The file URL that you can use to download the geographical location targeting codes for the version, language, and locale that you requested.</param>
+        /// <param name="FileUrl">The file URL that you can use to download the geographical location data for the version, language, and locale that you requested.</param>
         /// <param name="FileUrlExpiryTimeUtc">The date and time that the provided file URL will expire.</param>
-        /// <param name="LastModifiedTimeUtc">The date and time that the geographical locations file for the specified version, language, and locale was last updated.</param>
+        /// <param name="LastModifiedTimeUtc">The date and time that the geographical location data for the specified version, language, and locale was last updated.</param>
         public GetGeoLocationsFileUrlResponse(string TrackingId, string FileUrl, System.Nullable<System.DateTime> FileUrlExpiryTimeUtc, System.DateTime LastModifiedTimeUtc)
         {
             this.TrackingId = TrackingId;
@@ -26906,7 +27112,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public System.Collections.Generic.IList<long> AdGroupCriterionIds;
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether or not to return ad group criterions where the AgeRange or GenderType values are Unknown.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public System.Nullable<bool> ReturnAgeGenderUnknownValue;
@@ -26940,7 +27146,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupcriterionsbyids?view=bingads-11">GetAdGroupCriterionsByIdsRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupcriterionsbyids?view=bingads-11 for details.
         /// </remarks>
         /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get.</param>
-        /// <param name="ReturnAgeGenderUnknownValue">Reserved.</param>
+        /// <param name="ReturnAgeGenderUnknownValue">Determines whether or not to return ad group criterions where the AgeRange or GenderType values are Unknown.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterions to get.</param>
         /// <param name="CriterionType">The type of criterion to get, for example Webpage.</param>
         public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupCriterionIds, System.Nullable<bool> ReturnAgeGenderUnknownValue, long AdGroupId, Microsoft.BingAds.V11.CampaignManagement.AdGroupCriterionType CriterionType)
@@ -27312,13 +27518,13 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// A list of unique identifiers that identify the criterion to delete.
+        /// A list of unique identifiers that identify the criterions to delete.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public System.Collections.Generic.IList<long> AdGroupCriterionIds;
         
         /// <summary>
-        /// The identifier of the ad group that owns the criterion to delete.
+        /// The identifier of the ad group that has the criterions you want to delete.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public long AdGroupId;
@@ -27345,8 +27551,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteadgroupcriterions?view=bingads-11">DeleteAdGroupCriterionsRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteadgroupcriterions?view=bingads-11 for details.
         /// </remarks>
-        /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterion to delete.</param>
-        /// <param name="AdGroupId">The identifier of the ad group that owns the criterion to delete.</param>
+        /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to delete.</param>
+        /// <param name="AdGroupId">The identifier of the ad group that has the criterions you want to delete.</param>
         /// <param name="CriterionType">The type of criterion to delete, for example Webpage.</param>
         public DeleteAdGroupCriterionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId, Microsoft.BingAds.V11.CampaignManagement.AdGroupCriterionType CriterionType)
         {
@@ -27576,6 +27782,12 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public string UserName;
         
         /// <summary>
+        /// The Bing Merchant Center stores with SubType set to CoOp are not returned at all unless you set ReturnCoOpStores true.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
+        public System.Nullable<bool> ReturnCoOpStores;
+        
+        /// <summary>
         /// Constructor for the GetBMCStoresByCustomerIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -27591,7 +27803,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-11">GetBMCStoresByCustomerIdRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-11 for details.
         /// </remarks>
-        public GetBMCStoresByCustomerIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName)
+        /// <param name="ReturnCoOpStores">The Bing Merchant Center stores with SubType set to CoOp are not returned at all unless you set ReturnCoOpStores true.</param>
+        public GetBMCStoresByCustomerIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Nullable<bool> ReturnCoOpStores)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -27600,6 +27813,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
             this.DeveloperToken = DeveloperToken;
             this.Password = Password;
             this.UserName = UserName;
+            this.ReturnCoOpStores = ReturnCoOpStores;
         }
     }
     
@@ -33128,7 +33342,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
@@ -33162,13 +33376,13 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The language and locale of the profile display names.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public string LanguageLocale;
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether you want company name, industry, or job function profile data.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public Microsoft.BingAds.V11.CampaignManagement.ProfileType ProfileType;
@@ -33189,8 +33403,8 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrlRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
         /// </remarks>
-        /// <param name="LanguageLocale">Reserved.</param>
-        /// <param name="ProfileType">Reserved.</param>
+        /// <param name="LanguageLocale">The language and locale of the profile display names.</param>
+        /// <param name="ProfileType">Determines whether you want company name, industry, or job function profile data.</param>
         public GetProfileDataFileUrlRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string LanguageLocale, Microsoft.BingAds.V11.CampaignManagement.ProfileType ProfileType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -33206,7 +33420,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
@@ -33222,19 +33436,19 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// The file URL that you can use to download the profile data for the profile type, language, and locale that you requested.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=0)]
         public string FileUrl;
         
         /// <summary>
-        /// Reserved.
+        /// The date and time that the provided file URL will expire.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=1)]
         public System.Nullable<System.DateTime> FileUrlExpiryTimeUtc;
         
         /// <summary>
-        /// Reserved.
+        /// The date and time that the profile data for the profile type, language, and locale was last updated.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v11", Order=2)]
         public System.DateTime LastModifiedTimeUtc;
@@ -33255,9 +33469,9 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrlResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
         /// </remarks>
-        /// <param name="FileUrl">Reserved.</param>
-        /// <param name="FileUrlExpiryTimeUtc">Reserved.</param>
-        /// <param name="LastModifiedTimeUtc">Reserved.</param>
+        /// <param name="FileUrl">The file URL that you can use to download the profile data for the profile type, language, and locale that you requested.</param>
+        /// <param name="FileUrlExpiryTimeUtc">The date and time that the provided file URL will expire.</param>
+        /// <param name="LastModifiedTimeUtc">The date and time that the profile data for the profile type, language, and locale was last updated.</param>
         public GetProfileDataFileUrlResponse(string TrackingId, string FileUrl, System.Nullable<System.DateTime> FileUrlExpiryTimeUtc, System.DateTime LastModifiedTimeUtc)
         {
             this.TrackingId = TrackingId;
@@ -33762,7 +33976,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+        /// Gets a temporary URL that you can use to download a file that contains identifiers for the geographical locations that you can target or exclude.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11">GetGeoLocationsFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11 for details.
@@ -33777,7 +33991,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Gets a temporary URL that you can use to download a file that contains the supported geographical location targeting codes.
+        /// Gets a temporary URL that you can use to download a file that contains identifiers for the geographical locations that you can target or exclude.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11">GetGeoLocationsFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getgeolocationsfileurl?view=bingads-11 for details.
@@ -36232,7 +36446,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.
@@ -36247,7 +36461,7 @@ namespace Microsoft.BingAds.V11.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getprofiledatafileurl?view=bingads-11 for details.

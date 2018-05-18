@@ -1028,7 +1028,7 @@ namespace Microsoft.BingAds.V12.CustomerBilling
         private System.Nullable<long> ReferenceIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double SpendCapAmountField;
+        private System.Nullable<double> SpendCapAmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> StartDateField;
@@ -1261,7 +1261,7 @@ namespace Microsoft.BingAds.V12.CustomerBilling
         /// The budget for this insertion order.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double SpendCapAmount
+        public System.Nullable<double> SpendCapAmount
         {
             get
             {
@@ -1425,7 +1425,7 @@ namespace Microsoft.BingAds.V12.CustomerBilling
         private System.Nullable<long> ReferenceIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double SpendCapAmountField;
+        private System.Nullable<double> SpendCapAmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> StartDateField;
@@ -1575,7 +1575,7 @@ namespace Microsoft.BingAds.V12.CustomerBilling
         /// The budget for this insertion order.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-        public double SpendCapAmount
+        public System.Nullable<double> SpendCapAmount
         {
             get
             {
