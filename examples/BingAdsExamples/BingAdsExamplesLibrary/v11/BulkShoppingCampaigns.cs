@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
 using Microsoft.BingAds.V11.Bulk;
@@ -38,7 +37,7 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId
 
-                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
+                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync(false))?.BMCStores;
                 if (stores == null)
                 {
                     OutputStatusMessage(

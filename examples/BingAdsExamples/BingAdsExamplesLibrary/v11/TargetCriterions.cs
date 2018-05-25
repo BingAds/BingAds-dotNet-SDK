@@ -33,7 +33,8 @@ namespace BingAdsExamplesLibrary.V11
                 var getCampaigns = (await CampaignManagementExampleHelper.GetCampaignsByIdsAsync(
                     accountId: authorizationData.AccountId,
                     campaignIds: campaignIds,
-                    campaignType: AllCampaignTypes)).Campaigns;
+                    campaignType: AllCampaignTypes,
+                    returnCoOpCampaigns: false)).Campaigns;
 
                 // Loop through all campaigns and ad groups to get the target criterion IDs.
 
@@ -107,7 +108,8 @@ namespace BingAdsExamplesLibrary.V11
 
                     var getAdGroups = (await CampaignManagementExampleHelper.GetAdGroupsByCampaignIdAsync(
                         campaignId,
-                        AdGroupAdditionalField.InheritedBidStrategyType
+                        AdGroupAdditionalField.InheritedBidStrategyType,
+                        false
                     )).AdGroups;
 
                     // Loop through all ad groups to get the target criterion IDs.

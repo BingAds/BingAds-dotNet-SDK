@@ -1,7 +1,3 @@
-// This source is subject to the Microsoft Public License.
-// See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL
-// All other rights reserved.
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +29,7 @@ namespace BingAdsExamplesLibrary.V11
 
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId
 
-                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
+                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync(false))?.BMCStores;
                 if (stores == null)
                 {
                     OutputStatusMessage(

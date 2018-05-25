@@ -541,7 +541,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
-                OutputStatusMessage(string.Format("Segment: {0}", dataObject.Segment));
+                OutputArrayOfString(dataObject.Segments);
                 OutputStatusMessage(string.Format("ImpressionShare: {0}", dataObject.ImpressionShare));
                 OutputStatusMessage(string.Format("OverlapRate: {0}", dataObject.OverlapRate));
                 OutputStatusMessage(string.Format("AveragePosition: {0}", dataObject.AveragePosition));
@@ -565,7 +565,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
-                OutputStatusMessage(string.Format("Segment: {0}", dataObject.Segment));
+                OutputArrayOfAuctionSegment(dataObject.Segments);
                 OutputArrayOfAuctionInsightEntry(dataObject.Entries);
                 OutputStatusMessage(string.Format("UsedImpressions: {0}", dataObject.UsedImpressions));
                 OutputStatusMessage(string.Format("UsedKeywords: {0}", dataObject.UsedKeywords));

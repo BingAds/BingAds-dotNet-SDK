@@ -1,37 +1,32 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Net;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V11.CampaignManagement;
+using Microsoft.BingAds.V12.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V11
+namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to download the comma separated value (CSV) file that contains geographical location information 
-    /// that can be used with Bing Ads location targeting.
+    /// This example demonstrates how to download the comma separated value (CSV) file that contains profile data 
+    /// that can be used with Bing Ads profile criteria.
     /// </summary>
-    public class GeographicalLocations : ExampleBase
+    public class DownloadProfileData : ExampleBase
     {
-        // The full path to the geographical locations file.
+        // The full path to the profile data.
 
-        private const string LocalFile = @"c:\geolocations\geolocations.csv";
+        private const string LocalFile = @"c:\profiledata\profiledata.csv";
 
-        // The language and locale of the geographical locations file available for download.
-        // This example uses 'en' (English). Supported locales are 'zh-Hant' (Traditional Chinese), 'en' (English), 'fr' (French), 
-        // 'de' (German), 'it' (Italian), 'pt-BR' (Portuguese - Brazil), and 'es' (Spanish). 
+        // The language and locale of the profile data available for download.
+        // This example uses 'en' (English). 
 
         private const string LanguageLocale = "en";
-
-        // The latest supported file format version is 2.0. 
-
-        private const string Version = "2.0";
-
+        
         public override string Description
         {
-            get { return "Geographical Locations | Campaign Management V11"; }
+            get { return "Download Profile Data | Campaign Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -39,7 +34,7 @@ namespace BingAdsExamplesLibrary.V11
 
             Stream responseStream = null;
             FileStream fileStream = null;
-            
+
             var fileInfo = new FileInfo(LocalFile);
 
             try
@@ -47,16 +42,19 @@ namespace BingAdsExamplesLibrary.V11
                 CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
                 CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
 
-                var getGeoLocationsFileUrlResponse = 
-                    await CampaignManagementExampleHelper.GetGeoLocationsFileUrlAsync(Version, LanguageLocale);
+                // Supported profile types are CompanyName, Industry, and JobFunction
+
+                var getProfileDataFileUrlResponse = await CampaignManagementExampleHelper.GetProfileDataFileUrlAsync(
+                    LanguageLocale,
+                    ProfileType.CompanyName);
 
                 // Going forward you should track the date and time of the previous download,  
                 // and compare it with the last modified time provided by the service.
-                var previousSyncTimeUtc = new DateTime(2017, 8, 10, 0, 0, 0, DateTimeKind.Utc);
+                var previousSyncTimeUtc = new DateTime(2018, 4, 26, 0, 0, 0, DateTimeKind.Utc);
 
-                var fileUrl = getGeoLocationsFileUrlResponse.FileUrl;
-                var fileUrlExpiryTimeUtc = getGeoLocationsFileUrlResponse.FileUrlExpiryTimeUtc;
-                var lastModifiedTimeUtc = getGeoLocationsFileUrlResponse.LastModifiedTimeUtc;
+                var fileUrl = getProfileDataFileUrlResponse.FileUrl;
+                var fileUrlExpiryTimeUtc = getProfileDataFileUrlResponse.FileUrlExpiryTimeUtc;
+                var lastModifiedTimeUtc = getProfileDataFileUrlResponse.LastModifiedTimeUtc;
 
                 OutputStatusMessage(string.Format("FileUrl: {0}\n", fileUrl));
                 OutputStatusMessage(string.Format("FileUrlExpiryTimeUtc: {0}\n", fileUrlExpiryTimeUtc));
@@ -67,7 +65,6 @@ namespace BingAdsExamplesLibrary.V11
                 {
                     DownloadFile(fileUrl, LocalFile);
                 }
-
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -75,16 +72,16 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V11.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -99,7 +96,7 @@ namespace BingAdsExamplesLibrary.V11
                 if (responseStream != null) responseStream.Close();
             }
         }
-                
+
         private void DownloadFile(string fileUrl, string localFile)
         {
             Stream responseStream = null;
@@ -111,9 +108,9 @@ namespace BingAdsExamplesLibrary.V11
             {
                 var request = (HttpWebRequest)WebRequest.Create(fileUrl);
                 request.AutomaticDecompression = DecompressionMethods.GZip;
-                
+
                 var response = (HttpWebResponse)request.GetResponse();
-                
+
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     fileStream = new FileStream(fileInfo.FullName, FileMode.Create);
@@ -122,7 +119,7 @@ namespace BingAdsExamplesLibrary.V11
                     {
                         responseStream.CopyTo(fileStream);
                     }
-                    OutputStatusMessage(string.Format("Downloaded the geographical locations to {0}.\n", localFile));
+                    OutputStatusMessage(string.Format("Downloaded the profile data to {0}.\n", localFile));
                 }
             }
             catch (WebException e)
