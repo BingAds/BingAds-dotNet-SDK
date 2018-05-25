@@ -45,13 +45,13 @@ namespace BingAdsExamplesLibrary.V12
                     CustomerId = authorizationData.CustomerId,
 
                     // Users with account level roles such as Advertiser Campaign Manager can be restricted to specific accounts. 
-                    // Users with customer level roles such as Super Admin can access all accounts within the user’s customer, 
+                    // Users with customer level roles such as Super Admin can access all accounts within the user's customer, 
                     // and their access cannot be restricted to specific accounts.
                     AccountIds = null,
 
                     // The user role, which determines the level of access that the user has to the accounts specified in the AccountIds element.
-                    // The identifier for an advertiser campaign manager is 12.
-                    RoleId = 12,
+                    // The identifier for an advertiser campaign manager is 16.
+                    RoleId = 16,
 
                     // The email address where the invitation should be sent. This element can contain a maximum of 100 characters.
                     Email = UserInviteRecipientEmail,

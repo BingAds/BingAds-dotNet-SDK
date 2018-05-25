@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BingAds, Version=11.12.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.BingAds.SDK.11.12.1\lib\netstandard2.0\Microsoft.BingAds.dll</HintPath>
+    <Reference Include="Microsoft.BingAds, Version=11.12.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.BingAds.SDK.11.12.2\lib\netstandard2.0\Microsoft.BingAds.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -43,6 +43,9 @@
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Http, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Http.4.4.0\lib\net461\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.ServiceModel.Primitives, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ServiceModel.Primitives.4.4.1\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
     </Reference>
@@ -94,6 +97,7 @@
     <Compile Include="v11\TargetCriterions.cs" />
     <Compile Include="v12\AdExtensions.cs" />
     <Compile Include="v12\AdInsightExampleHelper.cs" />
+    <Compile Include="v12\AudienceCampaigns.cs" />
     <Compile Include="v12\BudgetOpportunities.cs" />
     <Compile Include="v12\BulkAdExtensions.cs" />
     <Compile Include="v12\BulkAdGroupUpdate.cs" />
@@ -113,9 +117,11 @@
     <Compile Include="v12\CustomerBillingExampleHelper.cs" />
     <Compile Include="v12\CustomerManagementExampleHelper.cs" />
     <Compile Include="v12\CustomerSignup.cs" />
+    <Compile Include="v12\DownloadProfileData.cs" />
     <Compile Include="v12\DynamicSearchCampaigns.cs" />
     <Compile Include="v12\ExampleBase.cs" />
     <Compile Include="v12\GeographicalLocations.cs" />
+    <Compile Include="v12\ImageMedia.cs" />
     <Compile Include="v12\InviteUser.cs" />
     <Compile Include="v12\KeywordPlanner.cs" />
     <Compile Include="v12\KeywordsAds.cs" />

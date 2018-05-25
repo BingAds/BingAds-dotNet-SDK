@@ -370,7 +370,8 @@ namespace BingAdsExamplesLibrary.V11
                 
                 var getCampaigns = (await CampaignManagementExampleHelper.GetCampaignsByAccountIdAsync(
                     authorizationData.AccountId,
-                    AllCampaignTypes
+                    AllCampaignTypes,
+                    false
                 )).Campaigns;
 
                 var updateCampaigns = new List<Campaign>();
@@ -468,7 +469,8 @@ namespace BingAdsExamplesLibrary.V11
                     getCampaigns = (await CampaignManagementExampleHelper.GetCampaignsByIdsAsync(
                         authorizationData.AccountId,
                         getCampaignIds,
-                        CampaignType.SearchAndContent | CampaignType.Shopping | CampaignType.DynamicSearchAds
+                        CampaignType.SearchAndContent | CampaignType.Shopping | CampaignType.DynamicSearchAds,
+                        false
                     )).Campaigns;
 
                     OutputStatusMessage("List of campaigns with unshared budget AFTER budget update:\n");

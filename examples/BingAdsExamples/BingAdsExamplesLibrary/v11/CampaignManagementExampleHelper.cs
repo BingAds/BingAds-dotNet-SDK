@@ -527,12 +527,14 @@ namespace BingAdsExamplesLibrary.V11
         }
         public async Task<GetAdGroupsByCampaignIdResponse> GetAdGroupsByCampaignIdAsync(
             long campaignId,
-            AdGroupAdditionalField? returnAdditionalFields)
+            AdGroupAdditionalField? returnAdditionalFields,
+            bool? returnCoOpAdGroups)
         {
             var request = new GetAdGroupsByCampaignIdRequest
             {
                 CampaignId = campaignId,
-                ReturnAdditionalFields = returnAdditionalFields
+                ReturnAdditionalFields = returnAdditionalFields,
+                ReturnCoOpAdGroups = returnCoOpAdGroups
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdGroupsByCampaignIdAsync(r), request));
@@ -540,13 +542,15 @@ namespace BingAdsExamplesLibrary.V11
         public async Task<GetAdGroupsByIdsResponse> GetAdGroupsByIdsAsync(
             long campaignId,
             IList<long> adGroupIds,
-            AdGroupAdditionalField? returnAdditionalFields)
+            AdGroupAdditionalField? returnAdditionalFields,
+            bool? returnCoOpAdGroups)
         {
             var request = new GetAdGroupsByIdsRequest
             {
                 CampaignId = campaignId,
                 AdGroupIds = adGroupIds,
-                ReturnAdditionalFields = returnAdditionalFields
+                ReturnAdditionalFields = returnAdditionalFields,
+                ReturnCoOpAdGroups = returnCoOpAdGroups
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdGroupsByIdsAsync(r), request));
@@ -607,10 +611,12 @@ namespace BingAdsExamplesLibrary.V11
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAudiencesByIdsAsync(r), request));
         }
-        public async Task<GetBMCStoresByCustomerIdResponse> GetBMCStoresByCustomerIdAsync()
+        public async Task<GetBMCStoresByCustomerIdResponse> GetBMCStoresByCustomerIdAsync(
+            bool? returnCoOpStores)
         {
             var request = new GetBMCStoresByCustomerIdRequest
             {
+                ReturnCoOpStores = returnCoOpStores
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetBMCStoresByCustomerIdAsync(r), request));
@@ -659,12 +665,14 @@ namespace BingAdsExamplesLibrary.V11
         }
         public async Task<GetCampaignsByAccountIdResponse> GetCampaignsByAccountIdAsync(
             long accountId,
-            CampaignType campaignType)
+            CampaignType campaignType,
+            bool? returnCoOpCampaigns)
         {
             var request = new GetCampaignsByAccountIdRequest
             {
                 AccountId = accountId,
-                CampaignType = campaignType
+                CampaignType = campaignType,
+                ReturnCoOpCampaigns = returnCoOpCampaigns
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetCampaignsByAccountIdAsync(r), request));
@@ -672,13 +680,15 @@ namespace BingAdsExamplesLibrary.V11
         public async Task<GetCampaignsByIdsResponse> GetCampaignsByIdsAsync(
             long accountId,
             IList<long> campaignIds,
-            CampaignType campaignType)
+            CampaignType campaignType,
+            bool? returnCoOpCampaigns)
         {
             var request = new GetCampaignsByIdsRequest
             {
                 AccountId = accountId,
                 CampaignIds = campaignIds,
-                CampaignType = campaignType
+                CampaignType = campaignType,
+                ReturnCoOpCampaigns = returnCoOpCampaigns
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetCampaignsByIdsAsync(r), request));
@@ -2071,6 +2081,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("IsActive: {0}", dataObject.IsActive));
                 OutputStatusMessage(string.Format("IsProductAdsEnabled: {0}", dataObject.IsProductAdsEnabled));
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
+                OutputStatusMessage(string.Format("SubType: {0}", dataObject.SubType));
             }
         }
         public void OutputArrayOfBMCStore(IList<BMCStore> dataObjects)
@@ -2159,6 +2170,7 @@ namespace BingAdsExamplesLibrary.V11
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
                 OutputStatusMessage(string.Format("NativeBidAdjustment: {0}", dataObject.NativeBidAdjustment));
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
+                OutputStatusMessage(string.Format("SubType: {0}", dataObject.SubType));
                 OutputStatusMessage(string.Format("TimeZone: {0}", dataObject.TimeZone));
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", dataObject.TrackingUrlTemplate));
                 OutputCustomParameters(dataObject.UrlCustomParameters);
@@ -2309,6 +2321,26 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var dataObject in dataObjects)
                 {
                     OutputConversionGoalRevenue(dataObject);
+                    OutputStatusMessage("\n");
+                }
+            }
+        }
+        public void OutputCoOpSetting(CoOpSetting dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage(string.Format("BidBoostValue: {0}", dataObject.BidBoostValue));
+                OutputStatusMessage(string.Format("BidMaxValue: {0}", dataObject.BidMaxValue));
+                OutputStatusMessage(string.Format("BidOption: {0}", dataObject.BidOption));
+            }
+        }
+        public void OutputArrayOfCoOpSetting(IList<CoOpSetting> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputCoOpSetting(dataObject);
                     OutputStatusMessage("\n");
                 }
             }
@@ -3894,6 +3926,11 @@ namespace BingAdsExamplesLibrary.V11
             if (null != dataObject)
             {
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
+                var coopsetting = dataObject as CoOpSetting;
+                if(coopsetting != null)
+                {
+                    OutputCoOpSetting((CoOpSetting)dataObject);
+                }
                 var dynamicsearchadssetting = dataObject as DynamicSearchAdsSetting;
                 if(dynamicsearchadssetting != null)
                 {
@@ -4465,6 +4502,24 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var valueSet in valueSets)
                 {
                     OutputCriterionTypeGroup(valueSet);
+                }
+            }
+        }
+        public void OutputBidOption(BidOption valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(BidOption)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfBidOption(IList<BidOption> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputBidOption(valueSet);
                 }
             }
         }
@@ -5167,6 +5222,24 @@ namespace BingAdsExamplesLibrary.V11
                 foreach (var valueSet in valueSets)
                 {
                     OutputItemAction(valueSet);
+                }
+            }
+        }
+        public void OutputBMCStoreSubType(BMCStoreSubType valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(BMCStoreSubType)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfBMCStoreSubType(IList<BMCStoreSubType> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputBMCStoreSubType(valueSet);
                 }
             }
         }

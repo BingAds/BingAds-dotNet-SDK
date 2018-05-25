@@ -19,7 +19,7 @@ namespace BingAdsExamplesLibrary.V11
         /// It is important to note that the recipient can accept the invitation 
         /// and sign into Bing Ads with a Microsoft account different than the invitation email address.
         /// </summary>
-        const string UserInviteRecipientEmail = "urban.eric@outlook.com";//"<UserInviteRecipientEmailGoesHere>";
+        const string UserInviteRecipientEmail = "<UserInviteRecipientEmailGoesHere>";
         
         public override string Description
         {
@@ -30,11 +30,6 @@ namespace BingAdsExamplesLibrary.V11
         {
             try
             {
-                authorizationData.Authentication = new PasswordAuthentication("reseller_sbx", "bingads123");
-                
-                authorizationData.AccountId = 137889984;
-                authorizationData.CustomerId = 21018518;
-
                 OutputStatusMessage("You must edit this example to provide the email address (UserInviteRecipientEmail) for " +
                                     "the user invitation.");
                 OutputStatusMessage("You must use Super Admin credentials to send a user invitation.\n");
@@ -50,7 +45,7 @@ namespace BingAdsExamplesLibrary.V11
                     CustomerId = authorizationData.CustomerId,
 
                     // Users with account level roles such as Advertiser Campaign Manager can be restricted to specific accounts. 
-                    // Users with customer level roles such as Super Admin can access all accounts within the user’s customer, 
+                    // Users with customer level roles such as Super Admin can access all accounts within the user's customer, 
                     // and their access cannot be restricted to specific accounts.
                     AccountIds = null,
 
@@ -61,10 +56,10 @@ namespace BingAdsExamplesLibrary.V11
                     Email = UserInviteRecipientEmail,
 
                     // The first name of the user. This element can contain a maximum of 40 characters.
-                    FirstName = "Eric",
+                    FirstName = "FirstNameGoesHere",
 
                     // The last name of the user. This element can contain a maximum of 40 characters.
-                    LastName = "Urban",
+                    LastName = "LastNameGoesHere",
 
                     // The locale to use when sending correspondence to the user by email or postal mail. The default is EnglishUS.
                     Lcid = LCID.EnglishUS,

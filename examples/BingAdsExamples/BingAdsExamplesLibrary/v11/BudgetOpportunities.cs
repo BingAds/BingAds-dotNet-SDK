@@ -32,7 +32,8 @@ namespace BingAdsExamplesLibrary.V11
 
                 var campaigns = (await CampaignManagementExampleHelper.GetCampaignsByAccountIdAsync(
                     authorizationData.AccountId,
-                    AllCampaignTypes)).Campaigns;
+                    AllCampaignTypes,
+                    false)).Campaigns;
 
                 IList<BudgetOpportunity> opportunities = null;
 
