@@ -28,7 +28,7 @@ namespace BingAdsExamplesLibrary.V12
         private const string LandscapeImageMediaFileName = "imageresponsivead1200x628.png";
         private const string LandscapeLogoMediaFileName = "imageresponsivead1200x300.png";
         private const string SquareImageMediaFileName = "imageresponsivead1200x1200.png";
-        private const string SquareLogoMediaFileName = "imageresponsivead1200x1200.png";
+        private const string SquareLogoMediaFileName = "imageresponsivead1100x1100.png";
         private const string ImageAdExtensionMediaFileName = "imageadextension300x200.png";
 
         public override string Description

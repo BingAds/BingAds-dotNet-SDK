@@ -433,7 +433,8 @@ namespace BingAdsExamplesLibrary.V12
                //Scope = new AccountThroughAdGroupReportScope
                //{
                //    AccountIds = null,
-               //    Campaigns = new[] {
+               //    Campaigns = null,
+               //    AdGroups = new[] {
                //         new AdGroupReportScope
                //         {
                //             AccountId = accountId,
