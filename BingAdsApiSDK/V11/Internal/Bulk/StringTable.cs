@@ -294,6 +294,9 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string Account = "Account";
         public const string SyncTime = "Sync Time";
         public const string Name = "Name";
+        public const string MSCLKIDAutoTaggingEnabled = "MSCLKID Auto Tagging Enabled";
+
+
 
         public const string LastModifiedTime = "Modified Time";
 
@@ -442,6 +445,12 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string CampaignType = "Campaign Type";
         public const string CampaignPriority = "Priority";
         public const string LocalInventoryAdsEnabled = "LocalInventoryAdsEnabled";
+
+
+        // CoOp
+        public const string BidOption = "Bid Option";
+        public const string BidBoostValue = "Bid Boost Value";
+        public const string MaximumBid = "Maximum Bid";
 
         // Upgrade URL
         public const string FinalUrl = "Final Url";

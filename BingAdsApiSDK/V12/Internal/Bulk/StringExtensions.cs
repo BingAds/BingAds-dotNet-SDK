@@ -306,7 +306,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
         public static Bid ParseKeywordBid(this string s)
         {
-            if (string.IsNullOrEmpty(s))
+            if (string.IsNullOrEmpty(s) || s.Equals(DeleteValue))
             {
                 return new Bid() {Amount = null};
             }
@@ -937,6 +937,21 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             }
 
             throw new ArgumentException("Invalid Remarketing Rule");
+        }
+
+
+        public static bool? ParseMSCLKIDAutoTaggingEnabled(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            if (!bool.TryParse(s, out var result))
+            {
+                throw new ArgumentException(string.Format("Unknown values for MSCLKID Auto Tagging Enabled: {0}", s));
+            }
+            return result;
         }
 
         private static string GetCustomEventsRule(CustomEventsRule rule)

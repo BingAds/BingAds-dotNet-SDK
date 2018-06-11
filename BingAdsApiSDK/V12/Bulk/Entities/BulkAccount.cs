@@ -87,6 +87,18 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         /// </summary>
         public DateTime SyncTime { get; private set; }
 
+        /// <summary>
+        /// auto-tagging of the MSCLKID query string parameter is enabled or not.
+        /// Corresponds to the 'MSCLKID Auto Tagging Enabled' field in the bulk file. 
+        /// </summary>
+        public bool? MSCLKIDAutoTaggingEnabled { get; private set; }
+
+        /// <summary>
+        /// The tracking template to use as default for all URLs in your account.
+        /// Corresponds to the 'Tracking Template' field in the bulk file. 
+        /// </summary>
+        public string TrackingUrlTemplate { get; private set; }
+
         private static readonly IBulkMapping<BulkAccount>[] Mappings =
         {
             new SimpleBulkMapping<BulkAccount>(StringTable.Id,
@@ -102,6 +114,16 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             new SimpleBulkMapping<BulkAccount>(StringTable.SyncTime,
                 c => c.SyncTime.ToBulkString(),
                 (v, c) => c.SyncTime = v.ParseDateTime()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.MSCLKIDAutoTaggingEnabled,
+                c => c.MSCLKIDAutoTaggingEnabled?.ToString(),
+                (v, c) => c.MSCLKIDAutoTaggingEnabled = v.ParseMSCLKIDAutoTaggingEnabled()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.TrackingTemplate,
+                c => c.TrackingUrlTemplate.ToOptionalBulkString(),
+                (v, c) => c.TrackingUrlTemplate = v.GetValueOrEmptyString()
             )
         };
 

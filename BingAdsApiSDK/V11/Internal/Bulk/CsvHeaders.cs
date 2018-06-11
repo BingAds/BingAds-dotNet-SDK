@@ -234,6 +234,11 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             StringTable.ParentAdGroupCriterionId,
             StringTable.CampaignType,
             StringTable.CampaignPriority,
+            
+            // CoOp
+            StringTable.BidOption,
+            StringTable.BidBoostValue,
+            StringTable.MaximumBid,
 
             // Upgrade Url
             StringTable.FinalUrl,
@@ -393,6 +398,9 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             StringTable.ConversionTime,
             StringTable.ConversionValue,
             StringTable.MicrosoftClickId,
+
+            // Account
+            StringTable.MSCLKIDAutoTaggingEnabled,
         };
 
         /// <summary>

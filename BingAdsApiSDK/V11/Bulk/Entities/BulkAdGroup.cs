@@ -103,18 +103,36 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// </summary>
         public PerformanceData PerformanceData { get; private set; }
 
-        public TargetSetting GetTargetSetting()
+        public Setting GetSetting(Type settingType)
         {
-            if (AdGroup.Settings == null || AdGroup.Settings.Count == 0) return null;
-
-            var targetSettings = AdGroup.Settings.Where(setting => setting is TargetSetting).ToList();
-
-            if (targetSettings.Count != 1)
+            if (AdGroup.Settings == null || AdGroup.Settings.Count == 0)
             {
-                throw new ArgumentException("Can only have 1 TargetSetting in AdGroup Settings");
+                return AddAdGroupSetting(settingType);
+            }
+            var setting = AdGroup.Settings.Where(s => settingType.Name.Equals(s.Type)).ToList();
+
+            if (setting == null || setting.Count == 0)
+            {
+                return AddAdGroupSetting(settingType);
             }
 
-            return (TargetSetting)targetSettings[0];
+            if (setting.Count != 1)
+            {
+                throw new ArgumentException(string.Format("Can only have 1 {0} in AdGroup Settings", settingType.Name));
+            }
+            return setting[0];
+        }
+
+        private Setting AddAdGroupSetting(Type settingType)
+        {
+            var setting = (Setting)Activator.CreateInstance(settingType);
+            setting.Type = settingType.Name;
+            if (AdGroup.Settings == null)
+            {
+                AdGroup.Settings = new List<Setting>();
+            }
+            AdGroup.Settings.Add(setting);
+            return setting;
         }
 
         private static readonly IBulkMapping<BulkAdGroup>[] Mappings =
@@ -231,29 +249,68 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             new SimpleBulkMapping<BulkAdGroup>(StringTable.TargetSetting,
                 c =>
                 {
-                    var targetSetting = c.GetTargetSetting();
+                    var targetSetting = (TargetSetting)c.GetSetting(typeof(TargetSetting));
 
-                    return targetSetting == null ? null : targetSetting.ToBulkString();
+                    return targetSetting?.ToBulkString();
                 },
                 (v, c) =>
                 {
                     var details = v.ParseTargetSettingDetails();
-                    if (details == null) return;
-                    if (c.AdGroup.Settings == null)
+                    var targetSetting = (TargetSetting)c.GetSetting(typeof(TargetSetting));
+                    if (details != null && targetSetting != null)
                     {
-                        c.AdGroup.Settings = new List<Setting>();
+                        targetSetting.Details = details;
                     }
-
-                    if (c.GetTargetSetting() != null)
+                }
+            ),
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.BidOption,
+                c =>
+                {
+                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
+                    return setting?.BidOption.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
+                    var bidOption = v.ParseOptional<BidOption>();
+                    if(bidOption != null && setting != null)
                     {
-                        throw new ArgumentException("Can only have 1 TargetSetting in AdGroup Settings");
+                        setting.BidOption = bidOption;
                     }
+                }
+            ),
 
-                    c.AdGroup.Settings.Add(new TargetSetting
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.BidBoostValue,
+                c =>
+                {
+                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
+                    return setting?.BidBoostValue.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
+                    var bidBoostValue = v.ParseOptional<double>();
+                    if(bidBoostValue != null && setting != null)
                     {
-                        Type = "TargetSetting",
-                        Details = details
-                    });
+                        setting.BidBoostValue = bidBoostValue;
+                    }
+                }
+            ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.MaximumBid,
+                c =>
+                {
+                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
+                    return setting?.BidMaxValue.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
+                    var bidMaxValue = v.ParseOptional<double>();
+                    if(bidMaxValue != null && setting != null)
+                    {
+                        setting.BidMaxValue = bidMaxValue;
+                    }
                 }
             ),
 
