@@ -152,7 +152,7 @@ namespace BingAdsExamplesLibrary.V12
                 * Create a product ad. You must add at least one product ad to the ad group. 
                 * The product ad identifier can be used for reporting analytics.
                 * Use Merchant Promotions if you want tags to appear at the bottom of your product ad 
-                * as “special offer” links, helping to increase customer engagement. For details
+                * as "special offer" links, helping to increase customer engagement. For details
                 * on Merchant Promotions see https://help.bingads.microsoft.com/#apex/3/en/56805/0.
                 */
 
