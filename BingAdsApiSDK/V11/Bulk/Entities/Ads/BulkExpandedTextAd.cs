@@ -94,18 +94,22 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.Path1,
-                c => c.ExpandedTextAd.Path1,
-                (v, c) => c.ExpandedTextAd.Path1 = v
+                c => c.ExpandedTextAd.Path1.ToOptionalBulkString(),
+                (v, c) => c.ExpandedTextAd.Path1 = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.Path2,
-                c => c.ExpandedTextAd.Path2,
-                (v, c) => c.ExpandedTextAd.Path2 = v
+                c => c.ExpandedTextAd.Path2.ToOptionalBulkString(),
+                (v, c) => c.ExpandedTextAd.Path2 = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.Text,
                 c => c.ExpandedTextAd.Text,
                 (v, c) => c.ExpandedTextAd.Text = v
+            ),
+            new SimpleBulkMapping<BulkExpandedTextAd>(StringTable.DisplayUrl,
+                c => c.ExpandedTextAd.DisplayUrl.ToOptionalBulkString(),
+                (v, c) => c.ExpandedTextAd.DisplayUrl = v.GetValueOrEmptyString()
             ),
         };
 

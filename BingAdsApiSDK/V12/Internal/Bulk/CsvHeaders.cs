@@ -360,6 +360,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             StringTable.TitlePart2,
             StringTable.Path1,
             StringTable.Path2,
+            StringTable.Domain,
 
             // Responsive Ad
             StringTable.CallToAction,

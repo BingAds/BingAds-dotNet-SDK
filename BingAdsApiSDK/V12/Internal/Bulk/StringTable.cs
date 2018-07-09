@@ -594,6 +594,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string TitlePart2 = "Title Part 2";
         public const string Path1 = "Path 1";
         public const string Path2 = "Path 2";
+        public const string Domain = "Domain";
 
         // Responsive Ad
         public const string ResponsiveAd = "Responsive Ad";

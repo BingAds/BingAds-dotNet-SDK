@@ -97,7 +97,8 @@ namespace Microsoft.BingAds.Internal.OAuth
                 new KeyValuePair<string, string>("client_id", oAuthParameters.ClientId),
                 new KeyValuePair<string, string>("grant_type", oAuthParameters.GrantType),
                 new KeyValuePair<string, string>(oAuthParameters.GrantParamName, oAuthParameters.GrantValue),
-                new KeyValuePair<string, string>("redirect_uri", oAuthParameters.RedirectUri.ToString())
+                new KeyValuePair<string, string>("redirect_uri", oAuthParameters.RedirectUri.ToString()),
+                new KeyValuePair<string, string>("scope", "bingads.manage")
             };
 
             if (!string.IsNullOrEmpty(oAuthParameters.ClientSecret))

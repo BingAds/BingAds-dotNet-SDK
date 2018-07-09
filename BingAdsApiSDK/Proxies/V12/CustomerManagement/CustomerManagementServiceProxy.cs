@@ -4861,6 +4861,9 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<long> AccountIdsField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> LinkedAccountIdsField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -4929,6 +4932,26 @@ namespace Microsoft.BingAds.V12.CustomerManagement
                 {
                     this.AccountIdsField = value;
                     this.RaisePropertyChanged("AccountIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public System.Collections.Generic.IList<long> LinkedAccountIds
+        {
+            get
+            {
+                return this.LinkedAccountIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LinkedAccountIdsField, value) != true))
+                {
+                    this.LinkedAccountIdsField = value;
+                    this.RaisePropertyChanged("LinkedAccountIds");
                 }
             }
         }
@@ -9078,6 +9101,12 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public System.Nullable<long> UserId;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=1)]
+        public System.Nullable<bool> IncludeLinkedAccountIds;
+        
+        /// <summary>
         /// Constructor for the GetUserRequest request object.
         /// </summary>
         /// <remarks>
@@ -9094,7 +9123,8 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-12">GetUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-12 for details.
         /// </remarks>
         /// <param name="UserId">The identifier of the user to get.</param>
-        public GetUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> UserId)
+        /// <param name="IncludeLinkedAccountIds">Reserved.</param>
+        public GetUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> UserId, System.Nullable<bool> IncludeLinkedAccountIds)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -9102,6 +9132,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
             this.Password = Password;
             this.UserName = UserName;
             this.UserId = UserId;
+            this.IncludeLinkedAccountIds = IncludeLinkedAccountIds;
         }
     }
     
