@@ -190,7 +190,6 @@ namespace Microsoft.BingAds.Internal
             var factory = CreateChannelFactoryForStandardEndpoint<TClient>(env);
 
             factory.Endpoint.EndpointBehaviors.Add(new UserAgentBehavior());
-            factory.Endpoint.EndpointBehaviors.Add(new SimpleTraceBehavior());
 
             return factory;
         }
