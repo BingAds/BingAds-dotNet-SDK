@@ -57,9 +57,9 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property with ProfileCriterion that can be read and written as fields of the Ad Group Profile Criterion record in a bulk file. 
+    /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property with ProfileCriterion that can be read and written in a bulk file.
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Profile Criterion</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Bulk File Schema</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>

@@ -107,13 +107,13 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         {
             if (AdGroup.Settings == null || AdGroup.Settings.Count == 0)
             {
-                return AddAdGroupSetting(settingType);
+                return null;
             }
-            var setting = AdGroup.Settings.Where(s => settingType.Name.Equals(s.Type) ).ToList();
+            var setting = AdGroup.Settings.Where(s => s.GetType() == settingType).ToList();
 
-            if (setting == null || setting.Count == 0)
+            if (setting.Count == 0)
             {
-                return AddAdGroupSetting(settingType);
+                return null;
             }
 
             if (setting.Count != 1)
@@ -123,16 +123,20 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             return setting[0];
         }
 
-        private Setting AddAdGroupSetting(Type settingType)
+        private void AddSetting(Setting setting)
         {
-            var setting = (Setting) Activator.CreateInstance(settingType);
-            setting.Type = settingType.Name;
-            if (AdGroup.Settings == null)
+            var settings = new List<Setting>();
+            if (AdGroup.Settings != null)
             {
-                AdGroup.Settings = new List<Setting>();
+                // Deep copy in case Adgroup.Settings is a fixed collection e.g., array
+                foreach (var s in AdGroup.Settings)
+                {
+                    settings.Add(s);
+                }
             }
+
+            AdGroup.Settings = settings;
             AdGroup.Settings.Add(setting);
-            return setting;
         }
 
         private static readonly IBulkMapping<BulkAdGroup>[] Mappings =
@@ -231,63 +235,20 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 (v, c) =>
                 {
                     var details = v.ParseTargetSettingDetails();
-                    var targetSetting = (TargetSetting)c.GetSetting(typeof(TargetSetting));
-                    if (details != null && targetSetting != null)
+                    if (details != null)
                     {
-                        targetSetting.Details = details;
-                    }
-                }
-            ),
-            new SimpleBulkMapping<BulkAdGroup>(StringTable.BidOption,
-                c =>
-                {
-                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
-                    return setting?.BidOption.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
-                    var bidOption = v.ParseOptional<BidOption>();
-                    if(bidOption != null && setting != null)
-                    {
-                        setting.BidOption = bidOption;
+                        var setting = new TargetSetting
+                        {
+                            Details = details,
+                            Type = "TargetSetting"
+                        };
+
+                        c.AddSetting(setting);
                     }
                 }
             ),
 
-            new SimpleBulkMapping<BulkAdGroup>(StringTable.BidBoostValue,
-                c =>
-                {
-                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
-                    return setting?.BidBoostValue.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
-                    var bidBoostValue = v.ParseOptional<double>();
-                    if(bidBoostValue != null && setting != null)
-                    {
-                        setting.BidBoostValue = bidBoostValue;
-                    }
-                }
-            ),
-
-            new SimpleBulkMapping<BulkAdGroup>(StringTable.MaximumBid,
-                c =>
-                {
-                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
-                    return setting?.BidMaxValue.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
-                    var bidMaxValue = v.ParseOptional<double>();
-                    if(bidMaxValue != null && setting != null)
-                    {
-                        setting.BidMaxValue = bidMaxValue;
-                    }
-                }
-            ),
+            new ComplexBulkMapping<BulkAdGroup>(CoOpSettingToCsv, CsvToCoOpSetting),
 
             new ComplexBulkMapping<BulkAdGroup>(BiddingSchemeToCsv, CsvToBiddingScheme),
 
@@ -364,6 +325,46 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             {
                 values[StringTable.InheritedBidStrategyType] = inheritFromParentBiddingScheme.InheritedBidStrategyType;
             }
+        }
+
+
+        private static void CsvToCoOpSetting(RowValues values, BulkAdGroup c)
+        {
+
+            values.TryGetValue(StringTable.BidOption, out string bidOptionRowValue);
+            values.TryGetValue(StringTable.BidBoostValue, out string bidBoostValueRowValue);
+            values.TryGetValue(StringTable.MaximumBid, out string maximumBidRowValue);
+
+            var bidOptionValue = bidOptionRowValue?.ParseOptional<BidOption>();
+            var bidBoostValueValue = bidBoostValueRowValue?.ParseOptional<double>();
+            var maximumBidValue = maximumBidRowValue?.ParseOptional<double>();
+
+            if (bidOptionValue != null || bidBoostValueValue != null || maximumBidValue != null)
+            {
+                var setting = new CoOpSetting
+                {
+                    BidBoostValue = bidBoostValueValue,
+                    BidMaxValue = maximumBidValue,
+                    BidOption = bidOptionValue,
+                    Type = "CoOpSetting"
+                };
+
+                c.AddSetting(setting);
+            }
+        }
+
+        private static void CoOpSettingToCsv(BulkAdGroup c, RowValues values)
+        {
+            var setting = (CoOpSetting)c.GetSetting(typeof(CoOpSetting));
+
+            if (setting == null)
+            {
+                return;
+            }
+
+            values[StringTable.BidOption] = setting.BidOption.ToBulkString();
+            values[StringTable.BidBoostValue] = setting.BidBoostValue.ToBulkString();
+            values[StringTable.MaximumBid] = setting.BidMaxValue.ToBulkString();
         }
     }
 }

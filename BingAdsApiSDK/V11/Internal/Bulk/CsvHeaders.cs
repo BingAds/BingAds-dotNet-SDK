@@ -90,7 +90,6 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
             StringTable.BudgetName,
             StringTable.Budget,
             StringTable.BudgetType,
-            StringTable.KeywordVariantMatchEnabled,
             StringTable.LocalInventoryAdsEnabled,
 
             // Ad Group

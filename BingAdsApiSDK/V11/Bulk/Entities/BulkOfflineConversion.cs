@@ -93,7 +93,7 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
             new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionValue,
                 c => c.OfflineConversion.ConversionValue.ToBulkString(),
-                (v, c) => c.OfflineConversion.ConversionValue = v.Parse<double>()
+                (v, c) => c.OfflineConversion.ConversionValue = v.ParseOptional<double>()
             ),
 
             new SimpleBulkMapping<BulkOfflineConversion>(StringTable.MicrosoftClickId,

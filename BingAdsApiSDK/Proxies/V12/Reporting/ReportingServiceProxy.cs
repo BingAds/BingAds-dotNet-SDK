@@ -169,7 +169,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright (@2017 Microsoft Corporation.
+        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright (@2018 Microsoft Corporation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeReportFooter
@@ -13809,7 +13809,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Keyword = 12,
         
         /// <summary>
-        /// The value that identifies the entity that changed.If the change is an update to an element of the entity or is related to a target associated with a campaign or ad group, the AttributeChanged column contains the element of the entity that changed or the type of target that was changed.
+        /// The value that identifies the entity that changed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ItemChanged = 13,
@@ -13837,6 +13837,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewValue = 17,
+        
+        /// <summary>
+        /// The name of the entity that was updated.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EntityName = 18,
+        
+        /// <summary>
+        /// The Bing Ads system identifier of the entity that was updated.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EntityId = 19,
     }
     
     /// <summary>

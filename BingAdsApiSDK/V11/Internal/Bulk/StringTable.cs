@@ -224,8 +224,6 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
         public const string BudgetType = "Budget Type";
         public const string BudgetName = "Budget Name";
 
-        public const string KeywordVariantMatchEnabled = "KeywordVariantMatchEnabled";
-
         public const string AdGroup = "Ad Group";
         public const string Keyword = "Keyword";
 

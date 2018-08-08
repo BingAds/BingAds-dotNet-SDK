@@ -10623,7 +10623,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates;
         
         /// <summary>
-        /// Determines the order of results by the specified property of an account<br/><br/> You should only specify one OrderBy element in the array.
+        /// Determines the order of results by the specified property of an account<br/><br/>You should only specify one OrderBy element in the array.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v11", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OrderBy> Ordering;
@@ -10651,7 +10651,7 @@ namespace Microsoft.BingAds.V11.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-11">SearchAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-11 for details.
         /// </remarks>
         /// <param name="Predicates">Determines the request conditions.</param>
-        /// <param name="Ordering">Determines the order of results by the specified property of an account<br/><br/> You should only specify one OrderBy element in the array.</param>
+        /// <param name="Ordering">Determines the order of results by the specified property of an account<br/><br/>You should only specify one OrderBy element in the array.</param>
         /// <param name="PageInfo">Determines the index and size of  results per page.</param>
         public SearchAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V11.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V11.CustomerManagement.Paging PageInfo)
         {

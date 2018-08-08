@@ -6184,6 +6184,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MSCLKIDAutoTaggingEnabled = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdClickParallelTracking = 4,
     }
     
     /// <summary>
@@ -10630,6 +10636,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductAudience = 262144,
+        
+        /// <summary>
+        /// The ad group criterion is a similar remarketing list association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SimilarRemarketingList = 524288,
     }
     
     /// <summary>
@@ -12429,6 +12441,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Product = 8,
+        
+        /// <summary>
+        /// The audience is a similar remarketing list.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SimilarRemarketingList = 16,
     }
     
     /// <summary>
@@ -14055,6 +14073,24 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationIntent = 1024,
+        
+        /// <summary>
+        /// The campaign criterion is a company name profile criterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CompanyName = 32768,
+        
+        /// <summary>
+        /// The campaign criterion is a job function profile criterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobFunction = 65536,
+        
+        /// <summary>
+        /// The campaign criterion is an industry profile criterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Industry = 131072,
     }
     
     /// <summary>
@@ -14228,6 +14264,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V12.CampaignManagement.CustomAudience))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V12.CampaignManagement.InMarketAudience))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V12.CampaignManagement.ProductAudience))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V12.CampaignManagement.SimilarRemarketingList))]
     public partial class Audience : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -14280,7 +14317,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// The total number of people who belong to this audience in the Audience network i.e., via Audience campaigns.
+        /// The total number of people who are active members of this audience in the Audience network.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AudienceNetworkSize
@@ -14440,7 +14477,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// The total number of people who belong to this audience in the Search network.
+        /// The total number of people who are active members of this audience in the Search network.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> SearchSize
@@ -14654,6 +14691,43 @@ namespace Microsoft.BingAds.V12.CampaignManagement
                 {
                     this.TagIdField = value;
                     this.RaisePropertyChanged("TagId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an audience that is similar to one of your remarketing lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/similarremarketinglist?view=bingads-12">SimilarRemarketingList Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/similarremarketinglist?view=bingads-12 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SimilarRemarketingList", Namespace="https://bingads.microsoft.com/CampaignManagement/v12")]
+    [System.SerializableAttribute()]
+    public partial class SimilarRemarketingList : Microsoft.BingAds.V12.CampaignManagement.Audience
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long SourceIdField;
+        
+        /// <summary>
+        /// The Bing Ads identifier of the remarketing list that Bing Ads used to generate this similar audience.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long SourceId
+        {
+            get
+            {
+                return this.SourceIdField;
+            }
+            set
+            {
+                if ((this.SourceIdField.Equals(value) != true))
+                {
+                    this.SourceIdField = value;
+                    this.RaisePropertyChanged("SourceId");
                 }
             }
         }
@@ -21984,7 +22058,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AdGroup> AdGroups;
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether or not the service should use the AudienceAdsBidAdjustment element of each specified AdGroup during update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=2)]
         public bool UpdateAudienceAdsBidAdjustment;
@@ -22013,7 +22087,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign that owns the ad groups to update.</param>
         /// <param name="AdGroups">An array that can contain a maximum of 1,000 AdGroup objects to update.</param>
-        /// <param name="UpdateAudienceAdsBidAdjustment">Reserved.</param>
+        /// <param name="UpdateAudienceAdsBidAdjustment">Determines whether or not the service should use the AudienceAdsBidAdjustment element of each specified AdGroup during update.</param>
         /// <param name="ReturnInheritedBidStrategyTypes">Reserved for future use.</param>
         public UpdateAdGroupsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AdGroup> AdGroups, bool UpdateAudienceAdsBidAdjustment, System.Nullable<bool> ReturnInheritedBidStrategyTypes)
         {

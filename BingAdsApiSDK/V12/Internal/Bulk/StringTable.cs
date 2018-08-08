@@ -223,9 +223,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string BudgetId = "Budget Id";
         public const string BudgetType = "Budget Type";
         public const string BudgetName = "Budget Name";
-
-        public const string KeywordVariantMatchEnabled = "KeywordVariantMatchEnabled";
-
+        
         public const string AdGroup = "Ad Group";
         public const string Keyword = "Keyword";
 
@@ -656,9 +654,12 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string AdGroupNegativeLocationCriterion = "Ad Group Negative Location Criterion";
         public const string AdGroupRadiusCriterion = "Ad Group Radius Criterion";
         public const string CampaignAgeCriterion = "Campaign Age Criterion";
+        public const string CampaignCompanyNameCriterion = "Campaign Company Name Criterion";
         public const string CampaignDayTimeCriterion = "Campaign DayTime Criterion";
         public const string CampaignDeviceCriterion = "Campaign DeviceOS Criterion";
         public const string CampaignGenderCriterion = "Campaign Gender Criterion";
+        public const string CampaignIndustryCriterion = "Campaign Industry Criterion";
+        public const string CampaignJobFunctionCriterion = "Campaign Job Function Criterion";
         public const string CampaignLocationCriterion = "Campaign Location Criterion";
         public const string CampaignLocationIntentCriterion = "Campaign Location Intent Criterion";
         public const string CampaignNegativeLocationCriterion = "Campaign Negative Location Criterion";

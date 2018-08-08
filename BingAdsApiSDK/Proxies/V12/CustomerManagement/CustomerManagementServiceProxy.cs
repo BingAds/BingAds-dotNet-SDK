@@ -1297,7 +1297,8 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/address?view=bingads-12">Address Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/address?view=bingads-12 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> and <see cref="ContactInfo"/> data objects.</para>
+    /// <para>Used by <see cref="AdvertiserAccount"/>, <see cref="ContactInfo"/> and <see cref="Customer"/> data objects.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3044,6 +3045,9 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NumberField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V12.CustomerManagement.Address CustomerAddressField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3312,6 +3316,26 @@ namespace Microsoft.BingAds.V12.CustomerManagement
                 {
                     this.NumberField = value;
                     this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The customer's business address.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public Microsoft.BingAds.V12.CustomerManagement.Address CustomerAddress
+        {
+            get
+            {
+                return this.CustomerAddressField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CustomerAddressField, value) != true))
+                {
+                    this.CustomerAddressField = value;
+                    this.RaisePropertyChanged("CustomerAddress");
                 }
             }
         }
@@ -4937,7 +4961,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The list of linked accounts that the user can access as an agency on behalf of another customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public System.Collections.Generic.IList<long> LinkedAccountIds
@@ -5338,7 +5362,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Defines a predicate for the list of entities requested using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
+    /// Defines a predicate for the list of entities requested using one of the search operations, for example SearchAccounts, SearchClientLinks, SearchCustomers, or SearchUserInvitations.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/predicate?view=bingads-12">Predicate Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/predicate?view=bingads-12 for details.
@@ -7422,7 +7446,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of accounts that meet the specified criteria.</returns>
+        /// <returns>A list of accounts that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/SearchAccou" +
             "ntsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V12.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/SearchAccou" +
@@ -7440,7 +7464,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of accounts that meet the specified criteria.</returns>
+        /// <returns>A list of accounts that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/SearchAccou" +
             "ntsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V12.CustomerManagement.SearchAccountsRequest request);
@@ -7486,7 +7510,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of user invitations that meet the specified criteria.</returns>
+        /// <returns>A list of user invitations that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchUserInvitations", ReplyAction="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/SearchUserI" +
             "nvitationsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V12.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/SearchUserI" +
@@ -7504,10 +7528,42 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of user invitations that meet the specified criteria.</returns>
+        /// <returns>A list of user invitations that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchUserInvitations", ReplyAction="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/SearchUserI" +
             "nvitationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.SearchUserInvitationsResponse> SearchUserInvitationsAsync(Microsoft.BingAds.V12.CustomerManagement.SearchUserInvitationsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ValidateAddress", ReplyAction="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/ValidateAdd" +
+            "ressResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V12.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/ValidateAdd" +
+            "ressAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V12.CustomerManagement.ApiFault), Action="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/ValidateAdd" +
+            "ressApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V12.CustomerManagement.ValidateAddressResponse ValidateAddress(Microsoft.BingAds.V12.CustomerManagement.ValidateAddressRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ValidateAddress", ReplyAction="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/ValidateAdd" +
+            "ressResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.ValidateAddressResponse> ValidateAddressAsync(Microsoft.BingAds.V12.CustomerManagement.ValidateAddressRequest request);
     }
     
     /// <summary>
@@ -8017,6 +8073,12 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public long CustomerId;
         
         /// <summary>
+        /// Determines whether or not to return the Address element in the returned Customer object.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=1)]
+        public bool IncludeCustomerAddress;
+        
+        /// <summary>
         /// Constructor for the GetCustomerRequest request object.
         /// </summary>
         /// <remarks>
@@ -8033,7 +8095,8 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-12">GetCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-12 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer whose information you want to get.</param>
-        public GetCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
+        /// <param name="IncludeCustomerAddress">Determines whether or not to return the Address element in the returned Customer object.</param>
+        public GetCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, bool IncludeCustomerAddress)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -8041,6 +8104,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
             this.Password = Password;
             this.UserName = UserName;
             this.CustomerId = CustomerId;
+            this.IncludeCustomerAddress = IncludeCustomerAddress;
         }
     }
     
@@ -9101,7 +9165,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public System.Nullable<long> UserId;
         
         /// <summary>
-        /// Reserved.
+        /// Determines a) whether or not the CustomerRole objects that represent the user's permissions on agency-linked accounts should be returned, and b) whether or not the LinkedAccountIds element should be included in all returned CustomerRole objects.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=1)]
         public System.Nullable<bool> IncludeLinkedAccountIds;
@@ -9123,7 +9187,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-12">GetUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-12 for details.
         /// </remarks>
         /// <param name="UserId">The identifier of the user to get.</param>
-        /// <param name="IncludeLinkedAccountIds">Reserved.</param>
+        /// <param name="IncludeLinkedAccountIds">Determines a) whether or not the CustomerRole objects that represent the user's permissions on agency-linked accounts should be returned, and b) whether or not the LinkedAccountIds element should be included in all returned CustomerRole objects.</param>
         public GetUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> UserId, System.Nullable<bool> IncludeLinkedAccountIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10187,6 +10251,12 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public Microsoft.BingAds.V12.CustomerManagement.Paging PageInfo;
         
         /// <summary>
+        /// Determines whether or not to return the Address element in each returned Customer object.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=4)]
+        public bool IncludeCustomerAddress;
+        
+        /// <summary>
         /// Constructor for the SearchCustomersRequest request object.
         /// </summary>
         /// <remarks>
@@ -10206,7 +10276,8 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <param name="DateRange">Determines the minimum and maximum customer creation date range.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of a customer.</param>
         /// <param name="PageInfo">Determines the index and size of  results per page.</param>
-        public SearchCustomersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Predicate> Predicates, Microsoft.BingAds.V12.CustomerManagement.DateRange DateRange, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V12.CustomerManagement.Paging PageInfo)
+        /// <param name="IncludeCustomerAddress">Determines whether or not to return the Address element in each returned Customer object.</param>
+        public SearchCustomersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Predicate> Predicates, Microsoft.BingAds.V12.CustomerManagement.DateRange DateRange, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V12.CustomerManagement.Paging PageInfo, bool IncludeCustomerAddress)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -10217,6 +10288,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
             this.DateRange = DateRange;
             this.Ordering = Ordering;
             this.PageInfo = PageInfo;
+            this.IncludeCustomerAddress = IncludeCustomerAddress;
         }
     }
     
@@ -10539,7 +10611,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.OrderBy> Ordering;
         
         /// <summary>
-        /// Determines the index and size of  results per page.
+        /// Determines the index and size of results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=2)]
         public Microsoft.BingAds.V12.CustomerManagement.Paging PageInfo;
@@ -10562,7 +10634,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// </remarks>
         /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results.</param>
-        /// <param name="PageInfo">Determines the index and size of  results per page.</param>
+        /// <param name="PageInfo">Determines the index and size of results per page.</param>
         public SearchClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V12.CustomerManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10657,13 +10729,13 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Predicate> Predicates;
         
         /// <summary>
-        /// Determines the order of results by the specified property of an account<br/><br/> You should only specify one OrderBy element in the array.
+        /// Determines the order of results by the specified property of an account.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.OrderBy> Ordering;
         
         /// <summary>
-        /// Determines the index and size of  results per page.
+        /// Determines the index and size of results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=2)]
         public Microsoft.BingAds.V12.CustomerManagement.Paging PageInfo;
@@ -10685,8 +10757,8 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-12">SearchAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-12 for details.
         /// </remarks>
         /// <param name="Predicates">Determines the request conditions.</param>
-        /// <param name="Ordering">Determines the order of results by the specified property of an account<br/><br/> You should only specify one OrderBy element in the array.</param>
-        /// <param name="PageInfo">Determines the index and size of  results per page.</param>
+        /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
+        /// <param name="PageInfo">Determines the index and size of results per page.</param>
         public SearchAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V12.CustomerManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10717,7 +10789,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A  list of accounts that meet the specified criteria.
+        /// A list of accounts that meet the specified criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.AdvertiserAccount> Accounts;
@@ -10738,7 +10810,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-12">SearchAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="Accounts">A  list of accounts that meet the specified criteria.</param>
+        /// <param name="Accounts">A list of accounts that meet the specified criteria.</param>
         public SearchAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.AdvertiserAccount> Accounts)
         {
             this.TrackingId = TrackingId;
@@ -10933,7 +11005,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A  list of user invitations that meet the specified criteria.
+        /// A list of user invitations that meet the specified criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.UserInvitation> UserInvitations;
@@ -10954,11 +11026,135 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-12">SearchUserInvitationsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="UserInvitations">A  list of user invitations that meet the specified criteria.</param>
+        /// <param name="UserInvitations">A list of user invitations that meet the specified criteria.</param>
         public SearchUserInvitationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.UserInvitation> UserInvitations)
         {
             this.TrackingId = TrackingId;
             this.UserInvitations = UserInvitations;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ValidateAddressRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v12", IsWrapped=true)]
+    public partial class ValidateAddressRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v12")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v12")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v12")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v12")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v12")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=0)]
+        public Microsoft.BingAds.V12.CustomerManagement.Address Address;
+        
+        /// <summary>
+        /// Constructor for the ValidateAddressRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddressRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+        /// </remarks>
+        public ValidateAddressRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ValidateAddressRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddressRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+        /// </remarks>
+        /// <param name="Address">Reserved.</param>
+        public ValidateAddressRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V12.CustomerManagement.Address Address)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Address = Address;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ValidateAddressResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v12", IsWrapped=true)]
+    public partial class ValidateAddressResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v12")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=0)]
+        public Microsoft.BingAds.V12.CustomerManagement.Address OriginalAddress;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=1)]
+        public string Status;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=2)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Address> SuggestedAddresses;
+        
+        /// <summary>
+        /// Constructor for the ValidateAddressResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddressResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+        /// </remarks>
+        public ValidateAddressResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ValidateAddressResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddressResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+        /// </remarks>
+        /// <param name="OriginalAddress">Reserved.</param>
+        /// <param name="Status">Reserved.</param>
+        /// <param name="SuggestedAddresses">Reserved.</param>
+        public ValidateAddressResponse(string TrackingId, Microsoft.BingAds.V12.CustomerManagement.Address OriginalAddress, string Status, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Address> SuggestedAddresses)
+        {
+            this.TrackingId = TrackingId;
+            this.OriginalAddress = OriginalAddress;
+            this.Status = Status;
+            this.SuggestedAddresses = SuggestedAddresses;
         }
     }
     
@@ -11745,7 +11941,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of accounts that meet the specified criteria.</returns>
+        /// <returns>A list of accounts that meet the specified criteria.</returns>
         public Microsoft.BingAds.V12.CustomerManagement.SearchAccountsResponse SearchAccounts(Microsoft.BingAds.V12.CustomerManagement.SearchAccountsRequest request)
         {
             return base.Channel.SearchAccounts(request);
@@ -11760,7 +11956,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of accounts that meet the specified criteria.</returns>
+        /// <returns>A list of accounts that meet the specified criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V12.CustomerManagement.SearchAccountsRequest request)
         {
             return base.Channel.SearchAccountsAsync(request);
@@ -11805,7 +12001,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of user invitations that meet the specified criteria.</returns>
+        /// <returns>A list of user invitations that meet the specified criteria.</returns>
         public Microsoft.BingAds.V12.CustomerManagement.SearchUserInvitationsResponse SearchUserInvitations(Microsoft.BingAds.V12.CustomerManagement.SearchUserInvitationsRequest request)
         {
             return base.Channel.SearchUserInvitations(request);
@@ -11820,10 +12016,40 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of user invitations that meet the specified criteria.</returns>
+        /// <returns>A list of user invitations that meet the specified criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.SearchUserInvitationsResponse> SearchUserInvitationsAsync(Microsoft.BingAds.V12.CustomerManagement.SearchUserInvitationsRequest request)
         {
             return base.Channel.SearchUserInvitationsAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V12.CustomerManagement.ValidateAddressResponse ValidateAddress(Microsoft.BingAds.V12.CustomerManagement.ValidateAddressRequest request)
+        {
+            return base.Channel.ValidateAddress(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.ValidateAddressResponse> ValidateAddressAsync(Microsoft.BingAds.V12.CustomerManagement.ValidateAddressRequest request)
+        {
+            return base.Channel.ValidateAddressAsync(request);
         }
     }
 }

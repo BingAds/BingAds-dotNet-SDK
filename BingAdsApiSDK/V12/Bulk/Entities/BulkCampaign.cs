@@ -103,9 +103,9 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         /// Campaigns of type Audience can have zero or one ShoppingSetting. 
         /// </summary>
         /// <returns></returns>
-        private Setting GetCampaignSetting(Type campaignSettingType)
+        private Setting GetCampaignSetting(Type campaignSettingType, bool addifNotExist = false)
         {
-            if (Campaign.Settings == null)
+            if (Campaign.Settings == null && addifNotExist)
             {
                 AddCampaignSettings();
             }
@@ -251,7 +251,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting), true)) as ShoppingSetting;
                     var storeId = v.ParseOptional<long>();
                     if(storeId != null && setting != null)
                     {
@@ -268,7 +268,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting), true)) as ShoppingSetting;
                     var priority = v.ParseOptional<int>();
                     if(priority != null && setting != null)
                     {
@@ -285,7 +285,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting), true)) as ShoppingSetting;
                     var salesCountryCode = v;
                     if(salesCountryCode != null && setting != null)
                     {
@@ -302,7 +302,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;
+                    var setting = (c.GetCampaignSetting(typeof(ShoppingSetting), true)) as ShoppingSetting;
                     var localInventoryAdsEnabled = v.ParseOptional<bool>();
                     if(localInventoryAdsEnabled != null && setting != null)
                     {
@@ -333,7 +333,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting), true)) as DynamicSearchAdsSetting;
                     if (setting != null)
                     {
                         setting.DomainName = v;
@@ -349,7 +349,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting), true)) as DynamicSearchAdsSetting;
                     if (setting != null)
                     {
                         setting.Language = v;

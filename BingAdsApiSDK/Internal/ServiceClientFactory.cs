@@ -188,9 +188,7 @@ namespace Microsoft.BingAds.Internal
             where TClient : class
         {
             var factory = CreateChannelFactoryForStandardEndpoint<TClient>(env);
-
             factory.Endpoint.EndpointBehaviors.Add(new UserAgentBehavior());
-
             return factory;
         }
 

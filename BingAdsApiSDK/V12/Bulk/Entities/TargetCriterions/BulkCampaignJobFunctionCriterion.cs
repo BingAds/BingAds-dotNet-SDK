@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,73 +47,29 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using Microsoft.BingAds.V12.Internal.Bulk;
-using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
-using Microsoft.BingAds.V12.Internal.Bulk.Entities;
 using Microsoft.BingAds.V12.CampaignManagement;
+using Microsoft.BingAds.V12.Internal.Bulk;
+using Microsoft.BingAds.V12.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
 
-// ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a label that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkOfflineConversion.OfflineConversion"/> property that can be read and written as fields of the OfflineConversion record in a bulk file. 
+    /// This class exposes the <see cref="BiddableCampaignCriterion"/> property with ProfileCriterion that can be read and written as fields of the Campaign Job Function Criterion record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">OfflineConversion</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Job Function Criterion</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkOfflineConversion : SingleRecordBulkEntity
+    public class BulkCampaignJobFunctionCriterion : BulkCampaignProfileCriterion
     {
-        /// <summary>
-        /// The offline conversion.
-        /// </summary>
-        public OfflineConversion OfflineConversion { get; set; }
-
-        private static readonly IBulkMapping<BulkOfflineConversion>[] Mappings =
+        protected override ProfileType GetProfileType()
         {
-            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionCurrencyCode,
-                c => c.OfflineConversion.ConversionCurrencyCode,
-                (v, c) => c.OfflineConversion.ConversionCurrencyCode = v
-            ),
-
-            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionName,
-                c => c.OfflineConversion.ConversionName,
-                (v, c) => c.OfflineConversion.ConversionName = v
-            ),
-
-            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionTime,
-                c => c.OfflineConversion.ConversionTime.ToBulkString(),
-                (v, c) =>c.OfflineConversion.ConversionTime = v.ParseDateTime()
-            ),
-
-            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ConversionValue,
-                c => c.OfflineConversion.ConversionValue.ToBulkString(),
-                (v, c) => c.OfflineConversion.ConversionValue = v.ParseOptional<double>()
-            ),
-
-            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.MicrosoftClickId,
-                c => c.OfflineConversion.MicrosoftClickId,
-                (v, c) => c.OfflineConversion.MicrosoftClickId = v
-            ),
-        };
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            OfflineConversion = new OfflineConversion { };
-
-            values.ConvertToEntity(this, Mappings);
+            return ProfileType.JobFunction;
         }
 
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            ValidatePropertyNotNull(OfflineConversion, "OfflineConversion");
-
-            this.ConvertToValues(values, Mappings);
-        }
     }
 }

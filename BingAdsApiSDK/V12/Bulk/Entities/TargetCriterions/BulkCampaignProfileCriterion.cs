@@ -48,16 +48,16 @@
 //=====================================================================================================================================================
 
 using System;
-using Microsoft.BingAds.V11.CampaignManagement;
-using Microsoft.BingAds.V11.Internal.Bulk;
-using Microsoft.BingAds.V11.Internal.Bulk.Entities;
-using Microsoft.BingAds.V11.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V12.CampaignManagement;
+using Microsoft.BingAds.V12.Internal.Bulk;
+using Microsoft.BingAds.V12.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
 
-namespace Microsoft.BingAds.V11.Bulk.Entities
+namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="NegativeAdGroupCriterion"/> property with Profile Criterion that can be read and written in a bulk file.
+    /// This class exposes the <see cref="BiddableCampaignCriterion"/> property with ProfileCriterion that can be read and written in a bulk file.
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Bulk File Schema</see>. </para>
     /// </summary>
@@ -65,24 +65,18 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupNegativeProfileCriterion : SingleRecordBulkEntity
+    public abstract class BulkCampaignProfileCriterion : SingleRecordBulkEntity
     {
         /// <summary>
-        /// Defines a Negative Ad Group Criterion.
+        /// Defines a Biddable Campaign Criterion.
         /// </summary>
-        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
-
+        public BiddableCampaignCriterion BiddableCampaignCriterion { get; set; }
+        
         /// <summary>
-        /// The name of the campaign that contains the ad group.
-        /// Corresponds to the 'Campaign' field in the bulk file. 
+        /// The name of the Campaign that contains the criterion.
+        /// Corresponds to the 'Campaign' field in the bulk file.
         /// </summary>
         public string CampaignName { get; set; }
-
-        /// <summary>
-        /// The name of the ad group that contains the criterion.
-        /// Corresponds to the 'Ad Group' field in the bulk file.
-        /// </summary>
-        public string AdGroupName { get; set; }
 
         /// <summary>
         /// The display name of the profile.
@@ -90,48 +84,66 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
         /// </summary>
         public string ProfileName { get; set; }
 
-        private static readonly IBulkMapping<BulkAdGroupNegativeProfileCriterion>[] Mappings =
+        private static readonly IBulkMapping<BulkCampaignProfileCriterion>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.Status,
-                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
+            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.Status,
+                c => c.BiddableCampaignCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.Id,
-                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
+            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.Id,
+                c => c.BiddableCampaignCriterion.Id.ToBulkString(),
+                (v, c) => c.BiddableCampaignCriterion.Id = v.ParseOptional<long>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.ParentId,
-                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
+            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.ParentId,
+                c => c.BiddableCampaignCriterion.CampaignId.ToBulkString(true),
+                (v, c) => c.BiddableCampaignCriterion.CampaignId = v.Parse<long>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.Campaign,
+            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.Campaign,
                 c => c.CampaignName,
                 (v, c) => c.CampaignName = v
             ),
 
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.AdGroup,
-                c => c.AdGroupName,
-                (v, c) => c.AdGroupName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.Profile,
+            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.Profile,
                 c => c.ProfileName,
                 (v, c) => c.ProfileName = v
             ),
 
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.ProfileId,
+            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.BidAdjustment,
                 c =>
                 {
-                    var profileCriterion = c.NegativeAdGroupCriterion.Criterion as ProfileCriterion;
+                    var multiplicativeBid = c.BiddableCampaignCriterion?.CriterionBid as BidMultiplier;
+
+                    return multiplicativeBid?.Multiplier.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    if (c.BiddableCampaignCriterion == null) return;
+
+                    double? multiplier = v.ParseOptional<double>();
+                    if (multiplier != null)
+                    {
+                        ((BidMultiplier) c.BiddableCampaignCriterion.CriterionBid).Multiplier = multiplier.Value;
+                    }
+                    else
+                    {
+                        c.BiddableCampaignCriterion.CriterionBid = null;
+                    }
+                }
+            ),
+
+            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.ProfileId,
+                c =>
+                {
+                    var profileCriterion = c.BiddableCampaignCriterion.Criterion as ProfileCriterion;
 
                     return profileCriterion?.ProfileId.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var profileCriterion = c.NegativeAdGroupCriterion.Criterion as ProfileCriterion;
+                    var profileCriterion = c.BiddableCampaignCriterion.Criterion as ProfileCriterion;
 
                     if (profileCriterion != null && v.ParseOptional<long>() != null)
                     {
@@ -143,21 +155,25 @@ namespace Microsoft.BingAds.V11.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
+            ValidatePropertyNotNull(BiddableCampaignCriterion, typeof(BiddableCampaignCriterion).Name);
 
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            NegativeAdGroupCriterion = new NegativeAdGroupCriterion
+            BiddableCampaignCriterion = new BiddableCampaignCriterion
             {
                 Criterion = new ProfileCriterion()
                 {
                     Type = typeof(ProfileCriterion).Name,
                     ProfileType = GetProfileType()
                 },
-                Type = typeof(NegativeAdGroupCriterion).Name
+                CriterionBid = new BidMultiplier
+                {
+                    Type = typeof(BidMultiplier).Name,
+                },
+                Type = typeof(BiddableCampaignCriterion).Name
             };
 
             values.ConvertToEntity(this, Mappings);
