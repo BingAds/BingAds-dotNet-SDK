@@ -25,9 +25,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
                 CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
 
-                BulkServiceManager = new BulkServiceManager(authorizationData);
+                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
@@ -136,8 +138,7 @@ namespace BingAdsExamplesLibrary.V12
                     },
                 };
                 
-                // In this example only the second keyword should succeed. The Text of the first keyword exceeds the limit,
-                // and the third keyword is a duplicate of the second keyword. 
+                // In this example only the second keyword should succeed. The Text of the first keyword exceeds the limit.
 
                 var bulkKeywords = new [] {
                     new BulkKeyword{
@@ -168,24 +169,10 @@ namespace BingAdsExamplesLibrary.V12
                             BiddingScheme = new InheritFromParentBiddingScheme { },
                         },
                     },
-                    new BulkKeyword{
-                        AdGroupId = adGroupIdKey,
-                        Keyword = new Keyword
-                        {
-                            Bid = new Bid { Amount = 0.47 },
-                            Param2 = "10% Off",
-                            MatchType = MatchType.Phrase,
-                            Text = "Brand-A Shoes",
-                            // For keywords you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
-                            // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
-                            BiddingScheme = new InheritFromParentBiddingScheme { },
-                        },
-                    },
                 };
 
                 // In this example only the first 3 ads should succeed. 
-                // The TitlePart2 of the fourth ad is empty and not valid,
-                // and the fifth ad is a duplicate of the second ad. 
+                // The TitlePart2 of the fourth ad is empty and not valid.
 
                 var bulkExpandedTextAds = new [] {
                     new BulkExpandedTextAd
@@ -355,50 +342,6 @@ namespace BingAdsExamplesLibrary.V12
                                     new CustomParameter(){
                                         Key = "promoCode",
                                         Value = "PROMO4"
-                                    },
-                                    new CustomParameter(){
-                                        Key = "season",
-                                        Value = "summer"
-                                    },
-                                }
-                            },
-                        },
-                    },
-                    new BulkExpandedTextAd
-                    {
-                        AdGroupId = adGroupIdKey,
-                        ExpandedTextAd = new ExpandedTextAd
-                        {
-                            TitlePart1 = "Contoso",
-                            TitlePart2 = "Quick & Easy Setup",
-                            Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
-                            Path1 = "seattle",
-                            Path2 = "shoe sale",
-
-                            // With FinalUrls you can separate the tracking template, custom parameters, and 
-                            // landing page URLs. 
-                            FinalUrls = new[] {
-                                "http://www.contoso.com/womenshoesale"
-                            },
-                            // Final Mobile URLs can also be used if you want to direct the user to a different page 
-                            // for mobile devices.
-                            FinalMobileUrls = new[] {
-                                "http://mobile.contoso.com/womenshoesale"
-                            }, 
-                            // You could use a tracking template which would override the campaign level
-                            // tracking template. Tracking templates defined for lower level entities 
-                            // override those set for higher level entities.
-                            // In this example we are using the campaign level tracking template.
-                            TrackingUrlTemplate = null,
-
-                            // Set custom parameters that are specific to this ad, 
-                            // and can be used by the ad, ad group, campaign, or account level tracking template. 
-                            // In this example we are using the campaign level tracking template.
-                            UrlCustomParameters = new CustomParameters {
-                                Parameters = new[] {
-                                    new CustomParameter(){
-                                        Key = "promoCode",
-                                        Value = "PROMO5"
                                     },
                                     new CustomParameter(){
                                         Key = "season",

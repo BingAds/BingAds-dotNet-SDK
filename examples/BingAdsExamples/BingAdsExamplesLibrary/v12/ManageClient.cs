@@ -37,8 +37,12 @@ namespace BingAdsExamplesLibrary.V12
                                     "or unlink an existing client link.");
                 OutputStatusMessage("Login as a client Super Admin user to accept a client link invitation.\n");
 
-                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(this.OutputStatusMessage);
-                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = 
+                    new CustomerManagementExampleHelper(this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = 
+                    new ServiceClient<ICustomerManagementService>(authorizationData, environment);
 
                 UpdateClientLinksResponse updateClientLinksResponse = null;
 

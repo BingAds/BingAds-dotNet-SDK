@@ -34,8 +34,12 @@ namespace BingAdsExamplesLibrary.V12
                                     "the user invitation.");
                 OutputStatusMessage("You must use Super Admin credentials to send a user invitation.\n");
 
-                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(this.OutputStatusMessage);
-                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = 
+                    new CustomerManagementExampleHelper(this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = 
+                    new ServiceClient<ICustomerManagementService>(authorizationData, environment);
 
                 // Prepare to invite a new user
                 var userInvitation = new UserInvitation
@@ -140,7 +144,7 @@ namespace BingAdsExamplesLibrary.V12
                 // If a user has already accepted an invitation, you can call GetUser to view all user details.
                 if (confirmedUserInfo != null)
                 {
-                    var getUserResponse = (await CustomerManagementExampleHelper.GetUserAsync(confirmedUserInfo.Id));
+                    var getUserResponse = (await CustomerManagementExampleHelper.GetUserAsync(confirmedUserInfo.Id, true));
                     OutputStatusMessage("Found Requested User Details (Not necessarily related to above Invitation ID(s):");
                     CustomerManagementExampleHelper.OutputUser(getUserResponse.User);
                     OutputStatusMessage("Role Ids:");

@@ -122,11 +122,13 @@ namespace BingAdsExamplesLibrary.V12
             return (await CustomerManagementService.CallAsync((s, r) => s.GetAccountsInfoAsync(r), request));
         }
         public async Task<GetCustomerResponse> GetCustomerAsync(
-            long customerId)
+            long customerId,
+            bool includeCustomerAddress)
         {
             var request = new GetCustomerRequest
             {
-                CustomerId = customerId
+                CustomerId = customerId,
+                IncludeCustomerAddress = includeCustomerAddress
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.GetCustomerAsync(r), request));
@@ -154,11 +156,13 @@ namespace BingAdsExamplesLibrary.V12
             return (await CustomerManagementService.CallAsync((s, r) => s.GetCustomersInfoAsync(r), request));
         }
         public async Task<GetUserResponse> GetUserAsync(
-            long? userId)
+            long? userId,
+            bool? includeLinkedAccountIds)
         {
             var request = new GetUserRequest
             {
-                UserId = userId
+                UserId = userId,
+                IncludeLinkedAccountIds = includeLinkedAccountIds
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.GetUserAsync(r), request));
@@ -207,14 +211,16 @@ namespace BingAdsExamplesLibrary.V12
             IList<Predicate> predicates,
             DateRange dateRange,
             IList<OrderBy> ordering,
-            Paging pageInfo)
+            Paging pageInfo,
+            bool includeCustomerAddress)
         {
             var request = new SearchCustomersRequest
             {
                 Predicates = predicates,
                 DateRange = dateRange,
                 Ordering = ordering,
-                PageInfo = pageInfo
+                PageInfo = pageInfo,
+                IncludeCustomerAddress = includeCustomerAddress
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.SearchCustomersAsync(r), request));
@@ -316,6 +322,16 @@ namespace BingAdsExamplesLibrary.V12
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.UpdateUserRolesAsync(r), request));
+        }
+        public async Task<ValidateAddressResponse> ValidateAddressAsync(
+            Address address)
+        {
+            var request = new ValidateAddressRequest
+            {
+                Address = address
+            };
+
+            return (await CustomerManagementService.CallAsync((s, r) => s.ValidateAddressAsync(r), request));
         }
         public void OutputAccountInfo(AccountInfo dataObject)
         {
@@ -598,6 +614,7 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("CustomerLifeCycleStatus: {0}", dataObject.CustomerLifeCycleStatus));
                 OutputStatusMessage(string.Format("TimeStamp: {0}", dataObject.TimeStamp));
                 OutputStatusMessage(string.Format("Number: {0}", dataObject.Number));
+                OutputAddress(dataObject.CustomerAddress);
             }
         }
         public void OutputArrayOfCustomer(IList<Customer> dataObjects)
@@ -637,6 +654,7 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("RoleId: {0}", dataObject.RoleId));
                 OutputStatusMessage(string.Format("CustomerId: {0}", dataObject.CustomerId));
                 OutputArrayOfLong(dataObject.AccountIds);
+                OutputArrayOfLong(dataObject.LinkedAccountIds);
             }
         }
         public void OutputArrayOfCustomerRole(IList<CustomerRole> dataObjects)

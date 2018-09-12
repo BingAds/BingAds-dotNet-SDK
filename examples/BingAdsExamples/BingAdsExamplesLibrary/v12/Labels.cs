@@ -28,8 +28,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
+                CampaignManagementExampleHelper CampaignManagementExampleHelper =
+                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService =
+                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
 
                 // Specify one or more campaigns.
 

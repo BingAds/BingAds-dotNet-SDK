@@ -27,7 +27,9 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                BulkServiceManager = new BulkServiceManager(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
+                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
                 BulkServiceManager.StatusPollIntervalInMilliseconds = 5000;
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
