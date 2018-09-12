@@ -26,15 +26,25 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                #region CampaignThroughAdGroupSetup
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                // You will need to use the Campaign Management service to get the Bing Merchant Center Store Id. This will be used
-                // when creating a new Bing Shopping Campaign.
-                // For other operations such as adding product conditions, you can manage Bing Shopping Campaigns solely with the Bulk Service. 
+                // You will need to use the Campaign Management service to get the Bing Merchant Center Store Id. 
+                // This will be used when creating a new Bing Shopping Campaign.
+                // For other operations such as adding product conditions, 
+                // you can manage Bing Shopping Campaigns solely with the Bulk Service. 
 
                 CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                CampaignManagementExampleHelper.CampaignManagementService = 
+                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
 
+                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
+
+                var progress = new Progress<BulkOperationProgressInfo>(x =>
+                    OutputStatusMessage(string.Format("{0} % Complete",
+                        x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
+
+                #region CampaignThroughAdGroupSetup
+                
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId
 
                 IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
@@ -44,14 +54,7 @@ namespace BingAdsExamplesLibrary.V12
                         string.Format("You do not have any BMC stores registered for CustomerId {0}.\n", authorizationData.CustomerId)
                     );
                     return;
-                }
-
-                BulkServiceManager = new BulkServiceManager(authorizationData);
-
-                var progress = new Progress<BulkOperationProgressInfo>(x =>
-                    OutputStatusMessage(string.Format("{0} % Complete",
-                        x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
-                
+                }                
 
                 var uploadEntities = new List<BulkEntity>();
 

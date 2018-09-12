@@ -22,10 +22,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(this.OutputStatusMessage);
-                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null);
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = 
+                    new CustomerManagementExampleHelper(this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = 
+                    new ServiceClient<ICustomerManagementService>(authorizationData, environment);
+
+                var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null, true);
                 var user = getUserResponse.User;
 
                 // Only a user with the aggregator role (33) can sign up new customers. 

@@ -24,11 +24,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(this.OutputStatusMessage);
-                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                AdInsightExampleHelper AdInsightExampleHelper = 
+                    new AdInsightExampleHelper(this.OutputStatusMessage);
+                AdInsightExampleHelper.AdInsightService = 
+                    new ServiceClient<IAdInsightService>(authorizationData, environment);
+
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
+                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = 
+                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
 
                 var campaigns = (await CampaignManagementExampleHelper.GetCampaignsByAccountIdAsync(
                     authorizationData.AccountId,

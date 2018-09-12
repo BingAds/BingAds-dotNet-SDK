@@ -22,8 +22,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
+                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = 
+                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
 
                 // Before you can track conversions or target audiences using a remarketing list, 
                 // you need to create a UET tag in Bing Ads (web application or API) and then 

@@ -30,12 +30,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(this.OutputStatusMessage);
-                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                AdInsightExampleHelper AdInsightExampleHelper = 
+                    new AdInsightExampleHelper(this.OutputStatusMessage);
+                AdInsightExampleHelper.AdInsightService = 
+                    new ServiceClient<IAdInsightService>(authorizationData, environment);
 
-                BulkServiceManager = new BulkServiceManager(authorizationData);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
+                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
+
+                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(String.Format("{0} % Complete",

@@ -130,7 +130,7 @@ namespace BingAdsConsoleApp
                 // You must request user consent at least once through a web browser control. 
                 // Call the GetAuthorizationEndpoint method of the OAuthDesktopMobileAuthCodeGrant instance that you created above.
                 Console.WriteLine(string.Format(
-                    "The Bing Ads user must provide consent for your application to access their Bing Ads accounts.\n" +
+                    "To continue, a Bing Ads user must provide consent for your application to access their Bing Ads accounts.\n" +
                     "Open a new web browser and navigate to {0}.\n\n" +
                     "After the user has granted consent in the web browser for the application to access " +
                     "their Bing Ads accounts, please enter the response URI that includes " +
@@ -230,11 +230,14 @@ namespace BingAdsConsoleApp
                 DeveloperToken = Settings.Default["DeveloperToken"].ToString()
             };
 
+            ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)_authorizationData.Authentication).Environment;
+
             BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper CustomerManagementExampleHelper = 
                 new BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper(null);
-            CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(_authorizationData);
+            CustomerManagementExampleHelper.CustomerManagementService = 
+                new ServiceClient<ICustomerManagementService>(_authorizationData, environment);
 
-            var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null);
+            var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null, true);
             var user = getUserResponse.User;
 
             var predicate = new Predicate

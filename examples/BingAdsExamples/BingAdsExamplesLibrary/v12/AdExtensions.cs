@@ -26,8 +26,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
+                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = 
+                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
 
                 // Add a campaign that will later be associated with ad extensions. 
 
@@ -135,7 +139,11 @@ namespace BingAdsExamplesLibrary.V12
                     //new ImageAdExtension
                     //{
                     //    AlternativeText = "Image Extension Alt Text",
-                    //    ImageMediaIds = new long[] { (await CampaignManagementExampleHelper.AddMediaAsync(GetImageMedia())).MediaIds[0] }
+                    //    ImageMediaIds = new long[] {
+                    //        (await CampaignManagementExampleHelper.AddMediaAsync(
+                    //            authorizationData.AccountId, 
+                    //            GetImageMedia())).MediaIds[0]
+                    //    }
                     //},
                     new LocationAdExtension {
                         PhoneNumber = "206-555-0100",
@@ -249,7 +257,7 @@ namespace BingAdsExamplesLibrary.V12
                     }
                 };
 
-                // Get
+                // Get sitelink ad extensions
                 adExtensions = adExtensions.Concat(GetSampleSitelinkAdExtensions()).ToArray();
 
 
@@ -314,7 +322,6 @@ namespace BingAdsExamplesLibrary.V12
                     AdExtensionsTypeFilter.ImageAdExtension |
                     AdExtensionsTypeFilter.LocationAdExtension |
                     AdExtensionsTypeFilter.SitelinkAdExtension |
-                    // You should remove this flag if your customer is not enabled for price ad extensions.
                     AdExtensionsTypeFilter.PriceAdExtension |
                     AdExtensionsTypeFilter.ReviewAdExtension |
                     AdExtensionsTypeFilter.StructuredSnippetAdExtension;

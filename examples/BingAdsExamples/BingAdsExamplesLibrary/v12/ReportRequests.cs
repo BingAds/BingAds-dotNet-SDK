@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,28 +19,27 @@ namespace BingAdsExamplesLibrary.V12
     public class ReportRequests : ExampleBase
     {
         public static ReportingServiceManager ReportingServiceManager;
-
-        /// <summary>
-        /// The directory for the report file.
-        /// </summary>
-        protected const string FileDirectory = @"c:\reports\";
         
-        /// <summary>
-        /// The name of the report file.
-        /// </summary>
-        protected const string ResultFileName = @"result.csv";
-
         /// <summary>
         /// The report file extension type.
         /// </summary>
         protected const ReportFormat ReportFileFormat = ReportFormat.Csv;
+    
+        /// <summary>
+        /// The directory for the report file.
+        /// </summary>
+        protected const string FileDirectory = @"c:\reports\";
+
+        /// <summary>
+        /// The name of the report file.
+        /// </summary>
+        protected string ResultFileName = @"result." + ReportFileFormat.ToString().ToLower();
 
         /// <summary>
         /// The maximum amount of time (in milliseconds) that you want to wait for the report download.
         /// </summary>
         protected const int TimeoutInMilliseconds = 360000;
         
-
         public override string Description
         {
             get { return "Report Requests | Reporting V12"; }
@@ -49,26 +49,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                ReportingServiceManager = new ReportingServiceManager(authorizationData);
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
+                ReportingServiceManager = new ReportingServiceManager(authorizationData, environment);
                 ReportingServiceManager.StatusPollIntervalInMilliseconds = 5000;
 
                 // You can submit one of the example reports, or build your own.
-
-                var reportRequest = GetAccountPerformanceReportRequest(authorizationData.AccountId);
-                var adGroupPerformanceReportRequest = GetAdGroupPerformanceReportRequest(authorizationData.AccountId);
-                var audiencePerformanceReportRequest = GetAudiencePerformanceReportRequest(authorizationData.AccountId);
-                var budgetSummaryReportRequest = GetBudgetSummaryReportRequest(authorizationData.AccountId);
-                var campaignPerformanceReportRequest = GetCampaignPerformanceReportRequest(authorizationData.AccountId);
-                var keywordPerformanceReportRequest = GetKeywordPerformanceReportRequest(authorizationData.AccountId);
-                var productDimensionPerformanceReportRequest = GetProductDimensionPerformanceReportRequest(authorizationData.AccountId);
-                var productPartitionPerformanceReportRequest = GetProductPartitionPerformanceReportRequest(authorizationData.AccountId);
-                var searchCampaignChangeHistoryReportRequest = GetSearchCampaignChangeHistoryReportRequest(authorizationData.AccountId);
-                var ageGenderAudienceReportRequest = GetAgeGenderAudienceReportRequest(authorizationData.AccountId);
-                var productMatchCountReportRequest = GetProductMatchCountReportRequest(authorizationData.AccountId);
+                var reportRequest = GetReportRequest(authorizationData.AccountId);
 
                 var reportingDownloadParameters = new ReportingDownloadParameters
                 {
-                    ReportRequest = productPartitionPerformanceReportRequest,
+                    ReportRequest = reportRequest,
                     ResultFileDirectory = FileDirectory,
                     ResultFileName = ResultFileName,
                     OverwriteResultFile = true,
@@ -79,8 +70,8 @@ namespace BingAdsExamplesLibrary.V12
                 // return results. The ReportingServiceManager abstracts the details of checking for result file 
                 // completion, and you don't have to write any code for results polling.
 
-                OutputStatusMessage("Awaiting Background Completion . . .");
-                await BackgroundCompletionAsync(reportingDownloadParameters);
+                //OutputStatusMessage("Awaiting Background Completion . . .");
+                //await BackgroundCompletionAsync(reportingDownloadParameters);
 
                 // Option B - Submit and Download with ReportingServiceManager
                 // Submit the download request and then use the ReportingDownloadOperation result to 
@@ -104,6 +95,11 @@ namespace BingAdsExamplesLibrary.V12
                 // If you do not download the report within two days, you must request the report again.
                 //OutputStatusMessage("Awaiting Download Results . . .");
                 //await DownloadResultsAsync(requestId, authorizationData);
+
+                // Option D - Download the report in memory with ReportingServiceManager.DownloadReportAsync
+                // The DownloadReportAsync helper function downloads the report and summarizes results.
+                OutputStatusMessage("Awaiting DownloadReportAsync . . .");
+                await DownloadReportAsync(reportingDownloadParameters);
 
             }
             // Catch authentication exceptions
@@ -141,7 +137,7 @@ namespace BingAdsExamplesLibrary.V12
         /// return results. The ReportingServiceManager abstracts the details of checking for result file
         /// completion, and you don't have to write any code for results polling.
         /// </summary>
-        /// <param name="reportingDownloadParameters"></param>
+        /// <param name="reportingDownloadParameters">Includes the report request type, aggregation, time period, and result file path.</param>
         private async Task BackgroundCompletionAsync(ReportingDownloadParameters reportingDownloadParameters)
         {
             // You may optionally cancel the DownloadFileAsync operation after a specified time interval. 
@@ -157,7 +153,7 @@ namespace BingAdsExamplesLibrary.V12
         /// track status until the report is complete e.g. either using
         /// TrackAsync or GetStatusAsync.
         /// </summary>
-        /// <param name="reportRequest"></param>
+        /// <param name="reportRequest">Includes the report request type, aggregation, and time period.</param>
         /// <returns></returns>
         private async Task SubmitAndDownloadAsync(ReportRequest reportRequest)
         {
@@ -202,8 +198,8 @@ namespace BingAdsExamplesLibrary.V12
         /// to download the result file. Use TrackAsync to indicate that the application 
         /// should wait to ensure that the download status is completed.
         /// </summary>
-        /// <param name="requestId"></param>
-        /// <param name="authorizationData"></param>
+        /// <param name="requestId">A previous report request ID returned by the Reporting service.</param>
+        /// <param name="authorizationData">The Bing Ads user's credentials paired with your developer token.</param>
         /// <returns></returns>
         private async Task DownloadResultsAsync(
             string requestId,
@@ -229,52 +225,629 @@ namespace BingAdsExamplesLibrary.V12
             OutputStatusMessage(string.Format("Status: {0}", reportingOperationStatus.Status));
             OutputStatusMessage(string.Format("TrackingId: {0}\n", reportingOperationStatus.TrackingId));
         }
-
-        private KeywordPerformanceReportRequest GetKeywordPerformanceReportRequest(long accountId)
+        
+        /// <summary>
+        /// Download a report file and store the contents in-memory. 
+        /// </summary>
+        /// <param name="reportingDownloadParameters">Includes the report request type, aggregation, time period, and result file path.</param>
+        /// <returns></returns>
+        private async Task DownloadReportAsync(ReportingDownloadParameters reportingDownloadParameters)
         {
-            var report = new KeywordPerformanceReportRequest
-            {
-                Format = ReportFileFormat,
-                Language = ReportLanguage.English,
-                ReportName = "My Keyword Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
+            // You can get a Report object by submitting a new download request via ReportingServiceManager. 
+            // Although in this case you won’t work directly with the file, under the covers a request is 
+            // submitted to the Reporting service and the report file is downloaded to a local directory. 
 
+            Report reportContainer = (await ReportingServiceManager.DownloadReportAsync(
+                reportingDownloadParameters,
+                CancellationToken.None));
+
+            // Otherwise if you already have a report file that was downloaded via the API, 
+            // you can get a Report object via the ReportFileReader. 
+
+            //ReportFileReader reader = new ReportFileReader(
+            //    reportingDownloadParameters.ResultFileDirectory + reportingDownloadParameters.ResultFileName,
+            //    (ReportFormat)reportingDownloadParameters.ReportRequest.Format);
+            //Report reportContainer = reader.GetReport();
+
+            if(reportContainer == null)
+            {
+                OutputStatusMessage("There is no data for the submitted report request parameters.");
+                return;
+            }
+
+            // Once you have a Report object via either workflow above, you can access the metadata and report records. 
+
+            // Output the report metadata
+
+            long recordCount = reportContainer.ReportRecordCount;
+            OutputStatusMessage(string.Format("ReportName: {0}", reportContainer.ReportName));
+            OutputStatusMessage(string.Format("ReportTimeStart: {0}", reportContainer.ReportTimeStart));
+            OutputStatusMessage(string.Format("ReportTimeEnd: {0}", reportContainer.ReportTimeEnd));
+            OutputStatusMessage(string.Format("LastCompletedAvailableDate: {0}", reportContainer.LastCompletedAvailableDate.ToString()));
+            OutputStatusMessage(string.Format("ReportAggregation: {0}", reportContainer.ReportAggregation.ToString()));
+            OutputStatusMessage(string.Format("ReportColumns: {0}", string.Join("; ", reportContainer.ReportColumns)));
+            OutputStatusMessage(string.Format("ReportRecordCount: {0}", recordCount));
+
+            // Analyze and output performance statistics
+
+            IEnumerable<IReportRecord> reportRecordIterable = reportContainer.GetReportRecords();
+
+            int totalImpressions = 0;
+            int totalClicks = 0;
+            HashSet<string> distinctDevices = new HashSet<string>();
+            HashSet<string> distinctNetworks = new HashSet<string>();
+            foreach (IReportRecord record in reportContainer.GetReportRecords())
+            {
+                totalImpressions += record.GetIntegerValue("Impressions");
+                totalClicks += record.GetIntegerValue("Clicks");
+                distinctDevices.Add(record.GetStringValue("DeviceType"));
+                distinctNetworks.Add(record.GetStringValue("Network"));
+            }
+
+            OutputStatusMessage(String.Format("Total Impressions: {0}", totalImpressions));
+            OutputStatusMessage(string.Format("Total Clicks: {0}", totalClicks));
+            OutputStatusMessage(string.Format("Average Impressions: {0}", totalImpressions * 1.0 / recordCount));
+            OutputStatusMessage(string.Format("Average Clicks: {0}", totalClicks * 1.0 / recordCount));
+            OutputStatusMessage(string.Format("Distinct Devices: {0}", string.Join("; ", distinctDevices)));
+            OutputStatusMessage(string.Format("Distinct Networks: {0}", string.Join("; ", distinctNetworks)));
+            
+            // Be sure to close the report before you attempt to clean up files within the working directory.
+
+            reportContainer.Dispose();
+
+            // The CleanupTempFiles method removes all files (not sub-directories) within the working
+            //  directory, whether or not the files were created by this ReportingServiceManager instance. 
+            // If you are using a cloud service such as Microsoft Azure you'll want to ensure you do not
+            // exceed the file or directory limits. 
+
+            ReportingServiceManager.CleanupTempFiles();
+        }
+                
+        private ReportRequest GetReportRequest(
+            long accountId)
+        {
+            var aggregation = ReportAggregation.Daily;
+            var excludeColumnHeaders = false;
+            var excludeReportFooter = false;
+            var excludeReportHeader = false;
+            var time = new ReportTime
+            {
+                // You can either use a custom date range or predefined time.
+                CustomDateRangeEnd = null,
+                CustomDateRangeStart = null,
+                PredefinedTime = ReportTimePeriod.Yesterday,
+                ReportTimeZone = ReportTimeZone.PacificTimeUSCanadaTijuana
+            };
+            var returnOnlyCompleteData = false;
+
+            var accountPerformanceReportRequest = GetAccountPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var adGroupPerformanceReportRequest = GetAdGroupPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var adPerformanceReportRequest = GetAdPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var ageGenderAudienceReportRequest = GetAgeGenderAudienceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var audiencePerformanceReportRequest = GetAudiencePerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            // BudgetSummaryReportRequest does not contain a definition for Aggregation.
+            // BudgetSummaryReportRequest requires BudgetSummaryReportTime instead of ReportTime.
+            var budgetSummaryReportTime = new BudgetSummaryReportTime
+            {
+                CustomDateRangeEnd = time.CustomDateRangeEnd,
+                CustomDateRangeStart = time.CustomDateRangeStart,
+                PredefinedTime = time.PredefinedTime,
+                ReportTimeZone = time.ReportTimeZone
+            };
+            var budgetSummaryReportRequest = GetBudgetSummaryReportRequest(
+                    accountId: accountId,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: budgetSummaryReportTime);
+            var campaignPerformanceReportRequest = GetCampaignPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var keywordPerformanceReportRequest = GetKeywordPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            // NegativeKeywordConflictReportRequest does not contain a definition for Aggregation.
+            // NegativeKeywordConflictReportRequest does not contain a definition for Time.
+            var negativeKeywordConflictReportRequest = GetNegativeKeywordConflictReportRequest(
+                    accountId: accountId,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var productDimensionPerformanceReportRequest = GetProductDimensionPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            // ProductMatchCountReportRequest does not contain a definition for Filter.
+            var productMatchCountReportRequest = GetProductMatchCountReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var productPartitionPerformanceReportRequest = GetProductPartitionPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            // ProductSearchQueryPerformanceReportRequest does not contain a definition for Filter.
+            var productSearchQueryPerformanceReportRequest = GetProductSearchQueryPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var productPartitionUnitPerformanceReportRequest = GetProductPartitionUnitPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            // SearchCampaignChangeHistoryReportRequest does not contain a definition for Aggregation.
+            var searchCampaignChangeHistoryReportRequest = GetSearchCampaignChangeHistoryReportRequest(
+                    accountId: accountId,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+            var searchQueryPerformanceReportRequest = GetSearchQueryPerformanceReportRequest(
+                    accountId: accountId,
+                    aggregation: aggregation,
+                    excludeColumnHeaders: excludeColumnHeaders,
+                    excludeReportFooter: excludeReportFooter,
+                    excludeReportHeader: excludeReportHeader,
+                    format: ReportFileFormat,
+                    returnOnlyCompleteData: returnOnlyCompleteData,
+                    time: time);
+
+            // Return one of the above report types
+            return accountPerformanceReportRequest;
+        }
+
+        private ReportRequest GetAccountPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            var report = new AccountPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,                
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Account Performance Report",
+                Scope = new AccountReportScope
+                {
+                    AccountIds = new[] { accountId }
+                },
+                Filter = new AccountPerformanceReportFilter { }, 
+                Columns = new[]
+                {
+                    AccountPerformanceReportColumn.TimePeriod,
+                    AccountPerformanceReportColumn.AccountId,
+                    AccountPerformanceReportColumn.DeviceType,
+                    AccountPerformanceReportColumn.BidMatchType,
+                    AccountPerformanceReportColumn.Revenue,
+                    AccountPerformanceReportColumn.Assists,
+                    AccountPerformanceReportColumn.DeliveredMatchType,
+                    AccountPerformanceReportColumn.AveragePosition,
+                    AccountPerformanceReportColumn.Conversions,
+                    AccountPerformanceReportColumn.AdDistribution,
+                    AccountPerformanceReportColumn.Network,
+                    AccountPerformanceReportColumn.Clicks,
+                    AccountPerformanceReportColumn.Impressions,
+                    AccountPerformanceReportColumn.Ctr,
+                    AccountPerformanceReportColumn.AverageCpc,
+                    AccountPerformanceReportColumn.Spend,
+                },
+            };
+
+            return report;
+        }
+
+        private ReportRequest GetAdGroupPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            var report = new AdGroupPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Ad Group Performance Report",
                 Scope = new AccountThroughAdGroupReportScope
                 {
                     AccountIds = new[] { accountId },
-                    AdGroups = null,
+                    Campaigns = null,
+                    AdGroups = null
+                },
+                Filter = new AdGroupPerformanceReportFilter { },
+                Columns = new[]
+                {
+                    AdGroupPerformanceReportColumn.TimePeriod,
+                    AdGroupPerformanceReportColumn.AccountId,
+                    AdGroupPerformanceReportColumn.CampaignId,
+                    AdGroupPerformanceReportColumn.DeviceType,
+                    AdGroupPerformanceReportColumn.BidMatchType,
+                    AdGroupPerformanceReportColumn.QualityScore,
+                    AdGroupPerformanceReportColumn.AdRelevance,
+                    AdGroupPerformanceReportColumn.LandingPageExperience,
+                    AdGroupPerformanceReportColumn.Revenue,
+                    AdGroupPerformanceReportColumn.Assists,
+                    AdGroupPerformanceReportColumn.ExpectedCtr,
+                    AdGroupPerformanceReportColumn.DeliveredMatchType,
+                    AdGroupPerformanceReportColumn.AveragePosition,
+                    AdGroupPerformanceReportColumn.Conversions,
+                    AdGroupPerformanceReportColumn.AdDistribution,
+                    AdGroupPerformanceReportColumn.Network,
+                    AdGroupPerformanceReportColumn.Clicks,
+                    AdGroupPerformanceReportColumn.Impressions,
+                    AdGroupPerformanceReportColumn.Ctr,
+                    AdGroupPerformanceReportColumn.AverageCpc,
+                    AdGroupPerformanceReportColumn.Spend,
+                },
+            };
+
+            return report;
+        }
+
+        private ReportRequest GetAdPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            return new AdPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Ad Performance Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    Campaigns = null,
+                    AdGroups = null
+                },
+                Filter = new AdPerformanceReportFilter { },
+                Columns = new[]
+                {
+                    AdPerformanceReportColumn.TimePeriod,
+                    AdPerformanceReportColumn.AccountName,
+                    AdPerformanceReportColumn.AccountNumber,
+                    AdPerformanceReportColumn.AdGroupId,
+                    AdPerformanceReportColumn.AdGroupName,
+                    AdPerformanceReportColumn.AdGroupStatus,
+                    AdPerformanceReportColumn.AdId,
+                    AdPerformanceReportColumn.Assists,
+                    AdPerformanceReportColumn.CampaignName,
+                    AdPerformanceReportColumn.Language,
+                    AdPerformanceReportColumn.Spend,
+                    AdPerformanceReportColumn.Impressions,
+                    AdPerformanceReportColumn.Clicks,
+                    AdPerformanceReportColumn.Spend
+                },
+            };
+        }
+
+        private ReportRequest GetAgeGenderAudienceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            return new AgeGenderAudienceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Age Gender Audience Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    Campaigns = null,
+                    AdGroups = null
+                },
+                Filter = new AgeGenderAudienceReportFilter { },
+                Columns = new[]
+                {
+                    AgeGenderAudienceReportColumn.TimePeriod,
+                    AgeGenderAudienceReportColumn.AccountName,
+                    AgeGenderAudienceReportColumn.AccountNumber,
+                    AgeGenderAudienceReportColumn.AdGroupId,
+                    AgeGenderAudienceReportColumn.AdGroupName,
+                    AgeGenderAudienceReportColumn.AdGroupStatus,
+                    AgeGenderAudienceReportColumn.AgeGroup,
+                    AgeGenderAudienceReportColumn.Assists,
+                    AgeGenderAudienceReportColumn.CampaignName,
+                    AgeGenderAudienceReportColumn.Language,
+                    AgeGenderAudienceReportColumn.Spend,
+                    AgeGenderAudienceReportColumn.Impressions,
+                    AgeGenderAudienceReportColumn.Clicks,
+                    AgeGenderAudienceReportColumn.Spend
+                },
+            };
+        }
+
+        private ReportRequest GetAudiencePerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            return new AudiencePerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Audience Performance Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    Campaigns = null,
+                    AdGroups = null
+                },
+                Filter = new AudiencePerformanceReportFilter { },
+                Columns = new[]
+                {
+                    AudiencePerformanceReportColumn.TimePeriod,
+                    AudiencePerformanceReportColumn.AccountId,
+                    AudiencePerformanceReportColumn.CampaignId,
+                    AudiencePerformanceReportColumn.AudienceId,
+                    AudiencePerformanceReportColumn.AudienceName,
+                    AudiencePerformanceReportColumn.BidAdjustment,
+                    AudiencePerformanceReportColumn.TargetingSetting,
+                    AudiencePerformanceReportColumn.Clicks,
+                    AudiencePerformanceReportColumn.Impressions,
+                    AudiencePerformanceReportColumn.Ctr,
+                    AudiencePerformanceReportColumn.AverageCpc,
+                    AudiencePerformanceReportColumn.Spend,
+                },
+            };
+        }
+
+        private ReportRequest GetBudgetSummaryReportRequest(
+            long accountId,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            BudgetSummaryReportTime time)
+        {
+            var report = new BudgetSummaryReportRequest
+            {
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Budget Summary Report",                
+                Scope = new AccountThroughCampaignReportScope
+                {
+                    AccountIds = new[] { accountId }
+                }, 
+                Columns = new[]
+                {
+                    BudgetSummaryReportColumn.Date,
+                    BudgetSummaryReportColumn.MonthlyBudget,
+                    BudgetSummaryReportColumn.DailySpend,
+                    BudgetSummaryReportColumn.MonthToDateSpend,
+                    BudgetSummaryReportColumn.AccountId,
+                    BudgetSummaryReportColumn.AccountName,
+                    BudgetSummaryReportColumn.AccountNumber,
+                    BudgetSummaryReportColumn.CampaignId,
+                    BudgetSummaryReportColumn.CampaignName,
+                    BudgetSummaryReportColumn.CurrencyCode,
+                },
+            };
+
+            return report;
+        }
+
+        private ReportRequest GetCampaignPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            var report = new CampaignPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Campaign Performance Report",
+                Scope = new AccountThroughCampaignReportScope
+                {
+                    AccountIds = new[] { accountId },
                     Campaigns = null
                 },
-
-                Time = new ReportTime
+                Filter = new CampaignPerformanceReportFilter { },
+                Columns = new[]
                 {
-                    // You may either use a custom date range or predefined time.
-
-                    CustomDateRangeStart = new Date
-                    {
-                        Month = 1,
-                        Day = 1,
-                        Year = DateTime.Now.Year - 1
-                    },
-                    CustomDateRangeEnd = new Date
-                    {
-                        Month = 12,
-                        Day = 31,
-                        Year = DateTime.Now.Year - 1
-                    },
-
-                    //PredefinedTime = ReportTimePeriod.Yesterday
+                    CampaignPerformanceReportColumn.TimePeriod,
+                    CampaignPerformanceReportColumn.AccountId,
+                    CampaignPerformanceReportColumn.CampaignId,
+                    CampaignPerformanceReportColumn.DeviceType,
+                    CampaignPerformanceReportColumn.BidMatchType,
+                    CampaignPerformanceReportColumn.QualityScore,
+                    CampaignPerformanceReportColumn.AdRelevance,
+                    CampaignPerformanceReportColumn.LandingPageExperience,
+                    CampaignPerformanceReportColumn.Revenue,
+                    CampaignPerformanceReportColumn.Assists,
+                    CampaignPerformanceReportColumn.ExpectedCtr,
+                    CampaignPerformanceReportColumn.DeliveredMatchType,
+                    CampaignPerformanceReportColumn.AveragePosition,
+                    CampaignPerformanceReportColumn.Conversions,
+                    CampaignPerformanceReportColumn.AdDistribution,
+                    CampaignPerformanceReportColumn.Network,
+                    CampaignPerformanceReportColumn.Clicks,
+                    CampaignPerformanceReportColumn.Impressions,
+                    CampaignPerformanceReportColumn.Ctr,
+                    CampaignPerformanceReportColumn.AverageCpc,
+                    CampaignPerformanceReportColumn.Spend,
+                    CampaignPerformanceReportColumn.LowQualityClicks,
+                    CampaignPerformanceReportColumn.LowQualityConversionRate
                 },
+            };
 
-                // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new KeywordPerformanceReportFilter
-                //{
-                //    DeviceType = DeviceTypeReportFilter.Computer |
-                //                 DeviceTypeReportFilter.SmartPhone
-                //},
+            return report;
+        }
 
-                // Specify the attribute and data report columns. 
+        private KeywordPerformanceReportRequest GetKeywordPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            var report = new KeywordPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Keyword Performance Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    Campaigns = null,
+                    AdGroups = null
+                },
+                Filter = new KeywordPerformanceReportFilter { },
                 Columns = new[]
                 {
                     KeywordPerformanceReportColumn.TimePeriod,
@@ -302,372 +875,81 @@ namespace BingAdsExamplesLibrary.V12
                     KeywordPerformanceReportColumn.Network,
                     KeywordPerformanceReportColumn.AdId,
                     KeywordPerformanceReportColumn.AdType,
-                    KeywordPerformanceReportColumn.AdGroupId
+                    KeywordPerformanceReportColumn.AdGroupId,
                 },
-
-                // You may optionally sort by any KeywordPerformanceReportColumn, and optionally
-                // specify the maximum number of rows to return in the sorted report. 
-                Sort = new[]
-                {
-                    new KeywordPerformanceReportSort
-                        {
-                            SortColumn = KeywordPerformanceReportColumn.Clicks,
-                            SortOrder = SortOrder.Ascending
-                        }
-                },
-
-                MaxRows = 10,
             };
 
             return report;
         }
 
-        private ReportRequest GetCampaignPerformanceReportRequest(long accountId)
+        private ReportRequest GetNegativeKeywordConflictReportRequest(
+            long accountId,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
         {
-            var report = new CampaignPerformanceReportRequest
+            return new NegativeKeywordConflictReportRequest
             {
-                Format = ReportFileFormat,
-                Language = ReportLanguage.English,
-                ReportName = "My Campaign Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
-
-                Scope = new AccountThroughCampaignReportScope
-                {
-                    AccountIds = new[] { accountId },
-                    Campaigns = null
-                },
-
-                // Alternatively you can request data for a subset of campaigns.
-                //Scope = new AccountThroughCampaignReportScope
-                //{
-                //    AccountIds = null,
-                //    Campaigns = new [] {
-                //        new CampaignReportScope
-                //        {
-                //            AccountId = accountId,
-                //            CampaignId = <YourCampaignIdGoesHere>
-                //        }
-                //    }
-                //},
-
-                Time = new ReportTime
-                {
-                    // You may either use a custom date range or predefined time.
-
-                    //CustomDateRangeStart = new Date
-                    //{
-                    //    Month = 1,
-                    //    Day = 1,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-                    //CustomDateRangeEnd = new Date
-                    //{
-                    //    Month = 12,
-                    //    Day = 31,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-
-                    PredefinedTime = ReportTimePeriod.Yesterday
-                },
-
-                // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new CampaignPerformanceReportFilter
-                //{
-                //    DeviceType = DeviceTypeReportFilter.Computer |
-                //                 DeviceTypeReportFilter.SmartPhone
-                //},
-
-                // Specify the attribute and data report columns. 
-                Columns = new[]
-                {
-                    CampaignPerformanceReportColumn.TimePeriod,
-                    CampaignPerformanceReportColumn.AccountId,
-                    CampaignPerformanceReportColumn.CampaignId,
-                    CampaignPerformanceReportColumn.DeviceType,
-                    CampaignPerformanceReportColumn.BidMatchType,
-                    CampaignPerformanceReportColumn.QualityScore,
-                    CampaignPerformanceReportColumn.AdRelevance,
-                    CampaignPerformanceReportColumn.LandingPageExperience,
-                    CampaignPerformanceReportColumn.Revenue,
-                    CampaignPerformanceReportColumn.Assists,
-                    CampaignPerformanceReportColumn.ExpectedCtr,
-                    CampaignPerformanceReportColumn.DeliveredMatchType,
-                    CampaignPerformanceReportColumn.AveragePosition,
-                    CampaignPerformanceReportColumn.Conversions,
-                    CampaignPerformanceReportColumn.AdDistribution,
-                    CampaignPerformanceReportColumn.Network,
-                    CampaignPerformanceReportColumn.Clicks,
-                    CampaignPerformanceReportColumn.Impressions,
-                    CampaignPerformanceReportColumn.Ctr,
-                    CampaignPerformanceReportColumn.AverageCpc,
-                    CampaignPerformanceReportColumn.Spend,
-                    CampaignPerformanceReportColumn.LowQualityClicks,
-                    CampaignPerformanceReportColumn.LowQualityConversionRate
-                },
-
-            };
-
-            return report;
-        }
-
-
-        private ReportRequest GetAdGroupPerformanceReportRequest(long accountId)
-        {
-            var report = new AdGroupPerformanceReportRequest
-            {
-                Format = ReportFileFormat,
-                Language = ReportLanguage.English,
-                ReportName = "My Ad Group Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
-
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                ReportName = "My Negative Keyword Conflict Report",
                 Scope = new AccountThroughAdGroupReportScope
                 {
                     AccountIds = new[] { accountId },
                     Campaigns = null,
                     AdGroups = null
                 },
-
-               // Alternatively you can request data for a subset of campaigns or ad groups.
-               //Scope = new AccountThroughAdGroupReportScope
-               //{
-               //    AccountIds = null,
-               //    Campaigns = null,
-               //    AdGroups = new[] {
-               //         new AdGroupReportScope
-               //         {
-               //             AccountId = accountId,
-               //             CampaignId = <YourCampaignIdGoesHere>,
-               //             AdGroupId = <YourAdGroupIdGoesHere>
-               //         }
-               //    }
-               //},
-
-               Time = new ReportTime
-                {
-                    // You may either use a custom date range or predefined time.
-
-                    //CustomDateRangeStart = new Date
-                    //{
-                    //    Month = 1,
-                    //    Day = 1,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-                    //CustomDateRangeEnd = new Date
-                    //{
-                    //    Month = 12,
-                    //    Day = 31,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-
-                    PredefinedTime = ReportTimePeriod.Yesterday
-                },
-
-                // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new AdGroupPerformanceReportFilter
-                //{
-                //    DeviceType = DeviceTypeReportFilter.Computer |
-                //                 DeviceTypeReportFilter.SmartPhone
-                //},
-
-                // Specify the attribute and data report columns. 
+                Filter = new NegativeKeywordConflictReportFilter { }, 
                 Columns = new[]
                 {
-                    AdGroupPerformanceReportColumn.TimePeriod,
-                    AdGroupPerformanceReportColumn.AccountId,
-                    AdGroupPerformanceReportColumn.CampaignId,
-                    AdGroupPerformanceReportColumn.DeviceType,
-                    AdGroupPerformanceReportColumn.BidMatchType,
-                    AdGroupPerformanceReportColumn.QualityScore,
-                    AdGroupPerformanceReportColumn.AdRelevance,
-                    AdGroupPerformanceReportColumn.LandingPageExperience,
-                    AdGroupPerformanceReportColumn.Revenue,
-                    AdGroupPerformanceReportColumn.Assists,
-                    AdGroupPerformanceReportColumn.ExpectedCtr,
-                    AdGroupPerformanceReportColumn.DeliveredMatchType,
-                    AdGroupPerformanceReportColumn.AveragePosition,
-                    AdGroupPerformanceReportColumn.Conversions,
-                    AdGroupPerformanceReportColumn.AdDistribution,
-                    AdGroupPerformanceReportColumn.Network,
-                    AdGroupPerformanceReportColumn.Clicks,
-                    AdGroupPerformanceReportColumn.Impressions,
-                    AdGroupPerformanceReportColumn.Ctr,
-                    AdGroupPerformanceReportColumn.AverageCpc,
-                    AdGroupPerformanceReportColumn.Spend,
+                    NegativeKeywordConflictReportColumn.AccountName,
+                    NegativeKeywordConflictReportColumn.CampaignName,
+                    NegativeKeywordConflictReportColumn.ConflictLevel,
+                    NegativeKeywordConflictReportColumn.ConflictType,
+                    NegativeKeywordConflictReportColumn.AccountId,
+                    NegativeKeywordConflictReportColumn.AccountNumber,
+                    NegativeKeywordConflictReportColumn.AdGroupId,
+                    NegativeKeywordConflictReportColumn.AdGroupName,
+                    NegativeKeywordConflictReportColumn.CampaignId,
+                    NegativeKeywordConflictReportColumn.Keyword,
+                    NegativeKeywordConflictReportColumn.NegativeKeyword,
                 },
-
             };
-
-            return report;
         }
-
-        private ReportRequest GetAccountPerformanceReportRequest(long accountId)
-        {
-            var report = new AccountPerformanceReportRequest
-            {
-                Format = ReportFormat.Tsv,
-                Language = ReportLanguage.English,
-                ReportName = "My Account Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Weekly,
-
-                Scope = new AccountReportScope
-                {
-                    AccountIds = new[] { accountId }
-                },
-
-                Time = new ReportTime
-                {
-                    // You may either use a custom date range or predefined time.
-
-                    //CustomDateRangeStart = new Date
-                    //    {
-                    //        Month = DateTime.Now.Month,
-                    //        Day = DateTime.Now.Day,
-                    //        Year = DateTime.Now.Year - 1
-                    //    },
-                    //CustomDateRangeEnd = new Date
-                    //    {
-                    //    Month = DateTime.Now.Month,
-                    //    Day = DateTime.Now.Day,
-                    //    Year = DateTime.Now.Year
-                    //    },
-
-                    PredefinedTime = ReportTimePeriod.Yesterday
-                },
-
-                // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new AccountPerformanceReportFilter
-                //{
-                //    DeviceType = DeviceTypeReportFilter.Computer |
-                //                 DeviceTypeReportFilter.SmartPhone
-                //},
-
-                // Specify the attribute and data report columns. 
-                Columns = new[]
-                {
-                    AccountPerformanceReportColumn.TimePeriod,
-                    AccountPerformanceReportColumn.AccountId,
-                    AccountPerformanceReportColumn.DeviceType,
-                    AccountPerformanceReportColumn.BidMatchType,
-                    AccountPerformanceReportColumn.Revenue,
-                    AccountPerformanceReportColumn.Assists,
-                    AccountPerformanceReportColumn.DeliveredMatchType,
-                    AccountPerformanceReportColumn.AveragePosition,
-                    AccountPerformanceReportColumn.Conversions,
-                    AccountPerformanceReportColumn.AdDistribution,
-                    AccountPerformanceReportColumn.Network,
-                    AccountPerformanceReportColumn.Clicks,
-                    AccountPerformanceReportColumn.Impressions,
-                    AccountPerformanceReportColumn.Ctr,
-                    AccountPerformanceReportColumn.AverageCpc,
-                    AccountPerformanceReportColumn.Spend,
-                },
-
-            };
-
-            return report;
-        }
-
-        private ReportRequest GetBudgetSummaryReportRequest(long accountId)
-        {
-            var report = new BudgetSummaryReportRequest
-            {
-                Format = ReportFormat.Csv,
-                Language = ReportLanguage.English,
-                ReportName = "My Budget Summary Report",
-                ReturnOnlyCompleteData = false,
-                
-                Scope = new AccountThroughCampaignReportScope
-                {
-                    AccountIds = new[] { accountId }
-                },
-
-                Time = new BudgetSummaryReportTime
-                {
-                    // You may either use a custom date range or predefined time.
-
-                    //CustomDateRangeStart = new Date
-                    //    {
-                    //        Month = DateTime.Now.Month,
-                    //        Day = DateTime.Now.Day,
-                    //        Year = DateTime.Now.Year - 1
-                    //    },
-                    //CustomDateRangeEnd = new Date
-                    //    {
-                    //    Month = DateTime.Now.Month,
-                    //    Day = DateTime.Now.Day,
-                    //    Year = DateTime.Now.Year
-                    //    },
-
-                    PredefinedTime = ReportTimePeriod.ThisMonth
-                },
-                
-                // Specify the attribute and data report columns. 
-                Columns = new[]
-                {
-                    BudgetSummaryReportColumn.Date,
-                    BudgetSummaryReportColumn.MonthlyBudget,
-                    BudgetSummaryReportColumn.DailySpend,
-                    BudgetSummaryReportColumn.MonthToDateSpend,
-                    BudgetSummaryReportColumn.AccountId,
-                    BudgetSummaryReportColumn.AccountName,
-                    BudgetSummaryReportColumn.AccountNumber,
-                    BudgetSummaryReportColumn.CampaignId,
-                    BudgetSummaryReportColumn.CampaignName,
-                    BudgetSummaryReportColumn.CurrencyCode,
-                },
-
-            };
-
-            return report;
-        }
-
-        private ReportRequest GetProductDimensionPerformanceReportRequest(long accountId)
+        
+        private ReportRequest GetProductDimensionPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
         {
             return new ProductDimensionPerformanceReportRequest
             {
-                Format = ReportFileFormat,
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
                 ReportName = "My Product Dimension Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
-
                 Scope = new AccountThroughAdGroupReportScope
                 {
                     AccountIds = new[] { accountId },
                     AdGroups = null,
                     Campaigns = null
                 },
-
-                Time = new ReportTime
-                {
-                    // You may either use a custom date range or predefined time.
-
-                    //CustomDateRangeStart = new Date
-                    //{
-                    //    Month = 1,
-                    //    Day = 1,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-                    //CustomDateRangeEnd = new Date
-                    //{
-                    //    Month = 12,
-                    //    Day = 31,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-
-                    PredefinedTime = ReportTimePeriod.Yesterday
-                },
-
-                // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new ProductDimensionPerformanceReportFilter
-                //{
-                //    DeviceType = DeviceTypeReportFilter.Computer |
-                //                 DeviceTypeReportFilter.SmartPhone
-                //},
-
-                // Specify the attribute and data report columns. 
+                Filter = new ProductDimensionPerformanceReportFilter { },                
                 Columns = new[]
                 {
                     ProductDimensionPerformanceReportColumn.TimePeriod,
@@ -704,306 +986,37 @@ namespace BingAdsExamplesLibrary.V12
                     ProductDimensionPerformanceReportColumn.Title,
                     ProductDimensionPerformanceReportColumn.Impressions,
                     ProductDimensionPerformanceReportColumn.Clicks,
-                    ProductDimensionPerformanceReportColumn.Ctr,
-                    ProductDimensionPerformanceReportColumn.AverageCpc,
                     ProductDimensionPerformanceReportColumn.Spend
                 },
             };
         }
 
-        private ReportRequest GetProductPartitionPerformanceReportRequest(long accountId)
-        {
-            return new ProductPartitionPerformanceReportRequest
-            {
-                Format = ReportFileFormat,
-                ReportName = "My Product Partition Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
-
-                Scope = new AccountThroughAdGroupReportScope
-                {
-                    AccountIds = new[] { accountId },
-                    AdGroups = null,
-                    Campaigns = null
-                },
-
-                Time = new ReportTime
-                {
-                    // You may either use a custom date range or predefined time.
-
-                    //CustomDateRangeStart = new Date
-                    //{
-                    //    Month = 1,
-                    //    Day = 1,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-                    //CustomDateRangeEnd = new Date
-                    //{
-                    //    Month = 12,
-                    //    Day = 31,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-
-                    PredefinedTime = ReportTimePeriod.Yesterday
-                },
-
-                // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new ProductPartitionPerformanceReportFilter
-                //{
-                //    DeviceType = DeviceTypeReportFilter.Computer |
-                //                 DeviceTypeReportFilter.SmartPhone
-                //},
-
-                // Specify the attribute and data report columns. 
-                Columns = new[]
-                {
-                    ProductPartitionPerformanceReportColumn.TimePeriod,
-                    ProductPartitionPerformanceReportColumn.AccountId,
-                    ProductPartitionPerformanceReportColumn.CampaignId,
-                    ProductPartitionPerformanceReportColumn.AdGroupCriterionId,
-                    ProductPartitionPerformanceReportColumn.ProductGroup,
-                    ProductPartitionPerformanceReportColumn.PartitionType,
-                    ProductPartitionPerformanceReportColumn.BidMatchType,
-                    ProductPartitionPerformanceReportColumn.Clicks,
-                    ProductPartitionPerformanceReportColumn.Impressions,
-                    ProductPartitionPerformanceReportColumn.Ctr,
-                    ProductPartitionPerformanceReportColumn.AverageCpc,
-                    ProductPartitionPerformanceReportColumn.Spend,
-                },
-            };
-        }
-
-        private ReportRequest GetAudiencePerformanceReportRequest(long accountId)
-        {
-            return new AudiencePerformanceReportRequest
-            {
-                Format = ReportFileFormat,
-                ReportName = "My Audience Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
-
-                Scope = new AccountThroughAdGroupReportScope
-                {
-                    AccountIds = new[] { accountId },
-                    AdGroups = null,
-                    Campaigns = null
-                },
-
-                Time = new ReportTime
-                {
-                    // You may either use a custom date range or predefined time.
-
-                    //CustomDateRangeStart = new Date
-                    //{
-                    //    Month = 1,
-                    //    Day = 1,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-                    //CustomDateRangeEnd = new Date
-                    //{
-                    //    Month = 12,
-                    //    Day = 31,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-
-                    PredefinedTime = ReportTimePeriod.Yesterday
-                },
-
-                // Specify the attribute and data report columns. 
-                Columns = new[]
-                {
-                    AudiencePerformanceReportColumn.TimePeriod,
-                    AudiencePerformanceReportColumn.AccountId,
-                    AudiencePerformanceReportColumn.CampaignId,
-                    AudiencePerformanceReportColumn.AudienceId,
-                    AudiencePerformanceReportColumn.AudienceName,
-                    AudiencePerformanceReportColumn.BidAdjustment,
-                    AudiencePerformanceReportColumn.TargetingSetting,
-                    AudiencePerformanceReportColumn.Clicks,
-                    AudiencePerformanceReportColumn.Impressions,
-                    AudiencePerformanceReportColumn.Ctr,
-                    AudiencePerformanceReportColumn.AverageCpc,
-                    AudiencePerformanceReportColumn.Spend,
-                },
-            };
-        }
-
-
-        private ReportRequest GetSearchCampaignChangeHistoryReportRequest(long accountId)
-        {
-            var report = new SearchCampaignChangeHistoryReportRequest
-            {
-                Format = ReportFileFormat,
-                Language = ReportLanguage.English,
-                ReportName = "My Change History Performance Report",
-                ReturnOnlyCompleteData = false,
-
-                Scope = new AccountThroughAdGroupReportScope
-                {
-                    AccountIds = new[] { accountId },
-                    AdGroups = null,
-                    Campaigns = null
-                },
-
-                Time = new ReportTime
-                {
-                    // You may either use a custom date range or predefined time.
-
-                    //CustomDateRangeStart = new Date
-                    //{
-                    //    Month = 1,
-                    //    Day = 1,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-                    //CustomDateRangeEnd = new Date
-                    //{
-                    //    Month = 12,
-                    //    Day = 31,
-                    //    Year = DateTime.Now.Year - 1
-                    //},
-
-                    PredefinedTime = ReportTimePeriod.LastThreeMonths
-                },
-
-                // If you specify a filter, results may differ from data you see in the Bing Ads web application
-                //Filter = new SearchCampaignChangeHistoryReportFilter
-                //{
-                //    AdDistribution = AdDistributionReportFilter.Search | 
-                //                     AdDistributionReportFilter.Native
-                //},
-
-                // Specify the attribute and data report columns. 
-                Columns = new[]
-                {
-                    SearchCampaignChangeHistoryReportColumn.DateTime,
-                    SearchCampaignChangeHistoryReportColumn.AccountId,
-                    SearchCampaignChangeHistoryReportColumn.AdGroupId,
-                    SearchCampaignChangeHistoryReportColumn.AdGroupName,
-                    SearchCampaignChangeHistoryReportColumn.AdTitle,
-                    SearchCampaignChangeHistoryReportColumn.AttributeChanged,
-                    SearchCampaignChangeHistoryReportColumn.CampaignId,
-                    SearchCampaignChangeHistoryReportColumn.CampaignName,
-                    SearchCampaignChangeHistoryReportColumn.ChangedBy,
-                    SearchCampaignChangeHistoryReportColumn.DisplayUrl,
-                    SearchCampaignChangeHistoryReportColumn.HowChanged,
-                    SearchCampaignChangeHistoryReportColumn.ItemChanged,
-                    SearchCampaignChangeHistoryReportColumn.Keyword,
-                    SearchCampaignChangeHistoryReportColumn.NewValue,
-                    SearchCampaignChangeHistoryReportColumn.OldValue,
-                },
-                
-            };
-
-            return report;
-        }
-
-        private ReportRequest GetAgeGenderAudienceReportRequest(long accountId)
-        {
-            return new AgeGenderAudienceReportRequest
-            {
-                Format = ReportFileFormat,
-                ReportName = "My Age Gender Audience Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
-
-                Scope = new AccountThroughAdGroupReportScope
-                {
-                    AccountIds = new[] { accountId },
-                    AdGroups = null,
-                    Campaigns = null
-                },
-
-                Time = new ReportTime
-                {
-                    PredefinedTime = ReportTimePeriod.ThisMonth
-                },
-
-                // Specify the attribute and data report columns. 
-                Columns = new[]
-                {
-                    AgeGenderAudienceReportColumn.TimePeriod,
-                    AgeGenderAudienceReportColumn.AccountName,
-                    AgeGenderAudienceReportColumn.AccountNumber,
-                    AgeGenderAudienceReportColumn.AdGroupId,
-                    AgeGenderAudienceReportColumn.AdGroupName,
-                    AgeGenderAudienceReportColumn.AdGroupStatus,
-                    AgeGenderAudienceReportColumn.AgeGroup,
-                    AgeGenderAudienceReportColumn.Assists,
-                    AgeGenderAudienceReportColumn.CampaignName,
-                    AgeGenderAudienceReportColumn.Language,
-                    AgeGenderAudienceReportColumn.Spend,
-                    AgeGenderAudienceReportColumn.Impressions,
-                    AgeGenderAudienceReportColumn.Clicks,
-                    AgeGenderAudienceReportColumn.Spend
-                },
-            };
-        }
-
-
-        private ReportRequest GetAdPerformanceReportRequest(long accountId)
-        {
-            return new AdPerformanceReportRequest
-            {
-                Format = ReportFileFormat,
-                ReportName = "My Ad Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
-
-                Scope = new AccountThroughAdGroupReportScope
-                {
-                    AccountIds = new[] { accountId },
-                    AdGroups = null,
-                    Campaigns = null
-                },
-
-                Time = new ReportTime
-                {
-                    PredefinedTime = ReportTimePeriod.ThisMonth
-                },
-
-                // Specify the attribute and data report columns. 
-                Columns = new[]
-                {
-                    AdPerformanceReportColumn.TimePeriod,
-                    AdPerformanceReportColumn.AccountName,
-                    AdPerformanceReportColumn.AccountNumber,
-                    AdPerformanceReportColumn.AdGroupId,
-                    AdPerformanceReportColumn.AdGroupName,
-                    AdPerformanceReportColumn.AdGroupStatus,
-                    AdPerformanceReportColumn.AdId,
-                    AdPerformanceReportColumn.Assists,
-                    AdPerformanceReportColumn.CampaignName,
-                    AdPerformanceReportColumn.Language,
-                    AdPerformanceReportColumn.Spend,
-                    AdPerformanceReportColumn.Impressions,
-                    AdPerformanceReportColumn.Clicks,
-                    AdPerformanceReportColumn.Spend
-                },
-            };
-        }
-
-        private ReportRequest GetProductMatchCountReportRequest(long accountId)
+        private ReportRequest GetProductMatchCountReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
         {
             return new ProductMatchCountReportRequest
             {
-                Format = ReportFileFormat,
-                ReportName = "My Ad Performance Report",
-                ReturnOnlyCompleteData = false,
-                Aggregation = ReportAggregation.Daily,
-
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Product Match Count Report",
                 Scope = new AccountThroughAdGroupReportScope
                 {
                     AccountIds = new[] { accountId },
                     AdGroups = null,
                     Campaigns = null
                 },
-
-                Time = new ReportTime
-                {
-                    PredefinedTime = ReportTimePeriod.ThisMonth
-                },
-
-                // Specify the attribute and data report columns. 
                 Columns = new[]
                 {
                     ProductMatchCountReportColumn.AccountName,
@@ -1023,6 +1036,252 @@ namespace BingAdsExamplesLibrary.V12
                     ProductMatchCountReportColumn.ProductGroup
                 },
             };
+        }
+
+        private ReportRequest GetProductPartitionPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            return new ProductPartitionPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Product Partition Performance Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    AdGroups = null,
+                    Campaigns = null
+                },
+                Filter = new ProductPartitionPerformanceReportFilter { },
+                Columns = new[]
+                {
+                    ProductPartitionPerformanceReportColumn.TimePeriod,
+                    ProductPartitionPerformanceReportColumn.AccountId,
+                    ProductPartitionPerformanceReportColumn.CampaignId,
+                    ProductPartitionPerformanceReportColumn.AdGroupCriterionId,
+                    ProductPartitionPerformanceReportColumn.ProductGroup,
+                    ProductPartitionPerformanceReportColumn.PartitionType,
+                    ProductPartitionPerformanceReportColumn.BidMatchType,
+                    ProductPartitionPerformanceReportColumn.Clicks,
+                    ProductPartitionPerformanceReportColumn.Impressions,
+                    ProductPartitionPerformanceReportColumn.Ctr,
+                    ProductPartitionPerformanceReportColumn.AverageCpc,
+                    ProductPartitionPerformanceReportColumn.Spend,
+                },
+            };
+        }
+
+        private ReportRequest GetProductPartitionUnitPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            return new ProductPartitionUnitPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Product Partition Unit Performance Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    AdGroups = null,
+                    Campaigns = null
+                },
+                Filter = new ProductPartitionUnitPerformanceReportFilter { },
+                Columns = new[]
+                {
+                    ProductPartitionUnitPerformanceReportColumn.TimePeriod,
+                    ProductPartitionUnitPerformanceReportColumn.AccountId,
+                    ProductPartitionUnitPerformanceReportColumn.CampaignId,
+                    ProductPartitionUnitPerformanceReportColumn.AdGroupCriterionId,
+                    ProductPartitionUnitPerformanceReportColumn.ProductGroup,
+                    ProductPartitionUnitPerformanceReportColumn.BidMatchType,
+                    ProductPartitionUnitPerformanceReportColumn.Clicks,
+                    ProductPartitionUnitPerformanceReportColumn.Impressions,
+                    ProductPartitionUnitPerformanceReportColumn.Ctr,
+                    ProductPartitionUnitPerformanceReportColumn.AverageCpc,
+                    ProductPartitionUnitPerformanceReportColumn.Spend,
+                },
+            };
+        }
+
+        private ReportRequest GetProductSearchQueryPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            var report = new ProductSearchQueryPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Product Search Query Performance Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    Campaigns = null,
+                    AdGroups = null
+                },
+                Columns = new[]
+                {
+                    ProductSearchQueryPerformanceReportColumn.TimePeriod,
+                    ProductSearchQueryPerformanceReportColumn.AccountId,
+                    ProductSearchQueryPerformanceReportColumn.CampaignName,
+                    ProductSearchQueryPerformanceReportColumn.AccountName,
+                    ProductSearchQueryPerformanceReportColumn.AccountNumber,
+                    ProductSearchQueryPerformanceReportColumn.AdGroupCriterionId,
+                    ProductSearchQueryPerformanceReportColumn.CampaignId,
+                    ProductSearchQueryPerformanceReportColumn.DeviceType,
+                    ProductSearchQueryPerformanceReportColumn.PartitionType,
+                    ProductSearchQueryPerformanceReportColumn.ProductGroup,
+                    ProductSearchQueryPerformanceReportColumn.SearchQuery,
+                    ProductSearchQueryPerformanceReportColumn.Revenue,
+                    ProductSearchQueryPerformanceReportColumn.Assists,
+                    ProductSearchQueryPerformanceReportColumn.Conversions,
+                    ProductSearchQueryPerformanceReportColumn.Network,
+                    ProductSearchQueryPerformanceReportColumn.Clicks,
+                    ProductSearchQueryPerformanceReportColumn.Impressions,
+                    ProductSearchQueryPerformanceReportColumn.Ctr,
+                    ProductSearchQueryPerformanceReportColumn.AverageCpc,
+                    ProductSearchQueryPerformanceReportColumn.Spend,
+                    ProductSearchQueryPerformanceReportColumn.MerchantProductId
+                },
+
+            };
+
+            return report;
+        }
+        
+        private ReportRequest GetSearchCampaignChangeHistoryReportRequest(
+            long accountId,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        { 
+            var report = new SearchCampaignChangeHistoryReportRequest
+            {
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Search Campaign Change History Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    Campaigns = null,
+                    AdGroups = null
+                },
+                Filter = new SearchCampaignChangeHistoryReportFilter { },
+                Columns = new[]
+                {
+                    SearchCampaignChangeHistoryReportColumn.DateTime,
+                    SearchCampaignChangeHistoryReportColumn.AccountId,
+                    SearchCampaignChangeHistoryReportColumn.AdGroupId,
+                    SearchCampaignChangeHistoryReportColumn.AdGroupName,
+                    SearchCampaignChangeHistoryReportColumn.AdTitle,
+                    SearchCampaignChangeHistoryReportColumn.AttributeChanged,
+                    SearchCampaignChangeHistoryReportColumn.CampaignId,
+                    SearchCampaignChangeHistoryReportColumn.CampaignName,
+                    SearchCampaignChangeHistoryReportColumn.ChangedBy,
+                    SearchCampaignChangeHistoryReportColumn.DisplayUrl,
+                    SearchCampaignChangeHistoryReportColumn.HowChanged,
+                    SearchCampaignChangeHistoryReportColumn.ItemChanged,
+                    SearchCampaignChangeHistoryReportColumn.Keyword,
+                    SearchCampaignChangeHistoryReportColumn.NewValue,
+                    SearchCampaignChangeHistoryReportColumn.OldValue,
+                },                
+            };
+
+            return report;
+        }
+
+        private ReportRequest GetSearchQueryPerformanceReportRequest(
+            long accountId,
+            ReportAggregation aggregation,
+            bool excludeColumnHeaders,
+            bool excludeReportFooter,
+            bool excludeReportHeader,
+            ReportFormat format,
+            bool returnOnlyCompleteData,
+            ReportTime time)
+        {
+            var report = new SearchQueryPerformanceReportRequest
+            {
+                Aggregation = aggregation,
+                ExcludeColumnHeaders = excludeColumnHeaders,
+                ExcludeReportFooter = excludeReportFooter,
+                ExcludeReportHeader = excludeReportHeader,
+                Format = format,
+                ReturnOnlyCompleteData = returnOnlyCompleteData,
+                Time = time,
+                ReportName = "My Search Query Performance Report",
+                Scope = new AccountThroughAdGroupReportScope
+                {
+                    AccountIds = new[] { accountId },
+                    AdGroups = null,
+                    Campaigns = null
+                },
+                Filter = new SearchQueryPerformanceReportFilter { },
+                Columns = new[]
+                {
+                    SearchQueryPerformanceReportColumn.TimePeriod,
+                    SearchQueryPerformanceReportColumn.AccountId,
+                    SearchQueryPerformanceReportColumn.CampaignId,
+                    SearchQueryPerformanceReportColumn.DeviceType,
+                    SearchQueryPerformanceReportColumn.BidMatchType,
+                    SearchQueryPerformanceReportColumn.CampaignType,
+                    SearchQueryPerformanceReportColumn.SearchQuery,
+                    SearchQueryPerformanceReportColumn.Revenue,
+                    SearchQueryPerformanceReportColumn.Assists,
+                    SearchQueryPerformanceReportColumn.DeliveredMatchType,
+                    SearchQueryPerformanceReportColumn.AveragePosition,
+                    SearchQueryPerformanceReportColumn.Conversions,
+                    SearchQueryPerformanceReportColumn.Network,
+                    SearchQueryPerformanceReportColumn.Clicks,
+                    SearchQueryPerformanceReportColumn.Impressions,
+                    SearchQueryPerformanceReportColumn.Ctr,
+                    SearchQueryPerformanceReportColumn.AverageCpc,
+                    SearchQueryPerformanceReportColumn.Spend,
+                },
+            };
+
+            return report;
         }
     }
 }

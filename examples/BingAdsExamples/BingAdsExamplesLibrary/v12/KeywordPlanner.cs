@@ -23,8 +23,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
+                ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+
                 AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(this.OutputStatusMessage);
-                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(authorizationData);
+                AdInsightExampleHelper.AdInsightService = 
+                    new ServiceClient<IAdInsightService>(authorizationData, environment);
 
                 var getKeywordIdeaCategoriesResponse = await AdInsightExampleHelper.GetKeywordIdeaCategoriesAsync();
                 var categoryId = (long)(getKeywordIdeaCategoriesResponse?.KeywordIdeaCategories?.ToList()[0].CategoryId);
