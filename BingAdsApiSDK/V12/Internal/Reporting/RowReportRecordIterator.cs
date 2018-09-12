@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,33 +47,41 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System.Linq;
+using System;
 
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Internal.Reporting
 {
-    internal class RowValues : RowValuesBase
+    using System.Collections;
+    using System.Collections.Generic;
+    using V12.Reporting;
+
+    public class RowReportRecordIterator : IEnumerator<IReportRecord>
     {
+        private readonly RowReportStreamReader _reader;
 
-        public RowValues()
+        public RowReportRecordIterator(RowReportStreamReader reportStreamReader)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
+            this._reader = reportStreamReader;
         }
 
-        public RowValues(Dictionary<string, string> dict)
-        {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
+        public IReportRecord Current { get; private set; }
 
-            foreach (var pair in dict)
-            {
-                this[pair.Key] = pair.Value;
-            }
+        object IEnumerator.Current => this.Current;
+
+        public bool MoveNext()
+        {
+            // Parse the next row in the file.
+            if (_reader != null) Current = _reader.Read();
+            return Current != null;
         }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        public void Reset()
         {
+        }
+
+        public void Dispose()
+        {
+            _reader?.Dispose();
         }
     }
 }

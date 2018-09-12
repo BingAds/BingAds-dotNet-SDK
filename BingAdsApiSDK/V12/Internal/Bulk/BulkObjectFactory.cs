@@ -260,6 +260,9 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 {StringTable.TextAdLabel,  new EntityInfo(() => new BulkTextAdLabel())},
 
                 {StringTable.OfflineConversion,  new EntityInfo(() => new BulkOfflineConversion())},
+                {StringTable.SimilarRemarketingList,  new EntityInfo(() => new BulkSimilarRemarketingList())},
+                {StringTable.AdGroupSimilarRemarketingListAssociation,  new EntityInfo(() => new BulkAdGroupSimilarRemarketingListAssociation())},
+                {StringTable.AdGroupNegativeSimilarRemarketingListAssociation,  new EntityInfo(() => new BulkAdGroupNegativeSimilarRemarketingListAssociation())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

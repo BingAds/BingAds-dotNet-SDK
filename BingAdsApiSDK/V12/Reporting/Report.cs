@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,33 +47,47 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections;
 
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Reporting
 {
-    internal class RowValues : RowValuesBase
+    using Internal.Reporting;
+    using System;
+    using System.Collections.Generic;
+
+    public abstract class Report : IDisposable
     {
+        protected ReportHeader ReportHeader;
 
-        public RowValues()
+        protected IEnumerator<IReportRecord> recordIterator;
+
+        public string[] ReportColumns => ReportHeader.GetReportColumns();
+
+        public string ReportName => ReportHeader.GetReportName();
+
+        public long ReportRecordCount => ReportHeader.GetRecordCount();
+
+        public DateTime ReportTimeStart => ReportHeader.GetReportTimeStart();
+
+        public DateTime ReportTimeEnd => ReportHeader.GetReportTimeEnd();
+
+        public ReportAggregation ReportAggregation => ReportHeader.GetReportAggregation();
+
+        public DateTime LastCompletedAvailableDate => ReportHeader.GetLastCompletedAvailableDate();
+        
+        public bool PotentialIncompleteData => ReportHeader.GetPotentialIncompleteData();
+
+        public IEnumerable<IReportRecord> GetReportRecords()
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-        }
-
-        public RowValues(Dictionary<string, string> dict)
-        {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-
-            foreach (var pair in dict)
+            while (recordIterator.MoveNext())
             {
-                this[pair.Key] = pair.Value;
+                yield return recordIterator.Current;
             }
         }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        public void Dispose()
         {
+            recordIterator?.Dispose();
         }
     }
 }

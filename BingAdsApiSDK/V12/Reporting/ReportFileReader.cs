@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,33 +47,46 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Reporting
 {
-    internal class RowValues : RowValuesBase
+    using System.IO;
+
+    using Internal.Reporting;
+
+    public class ReportFileReader
     {
+        private Report report;
+        private string reportFilePath;
 
-        public RowValues()
+        public ReportFileReader(string filePath, ReportFormat format)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-        }
-
-        public RowValues(Dictionary<string, string> dict)
-        {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-
-            foreach (var pair in dict)
+            reportFilePath = filePath;
+            switch (format)
             {
-                this[pair.Key] = pair.Value;
+                case ReportFormat.Csv:
+                case ReportFormat.Tsv:
+                    report = new RowReport(filePath, format);
+                    break;
+                case ReportFormat.Xml:
+                    report = new XmlReport(filePath);
+                    break;
             }
         }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        public Report GetReport()
         {
+            return report;
+        }
+
+        public string GetReportFilePath()
+        {
+            return reportFilePath;
+        }
+
+        public void Dispose()
+        {
+            report?.Dispose();
+            report = null;
         }
     }
 }

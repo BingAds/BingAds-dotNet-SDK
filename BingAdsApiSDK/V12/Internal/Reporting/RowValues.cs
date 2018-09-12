@@ -50,30 +50,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Internal.Reporting
 {
-    internal class RowValues : RowValuesBase
+    public class RowValues : Microsoft.BingAds.V12.Internal.RowValuesBase
     {
-
-        public RowValues()
+        public RowValues(string[] columns, Dictionary<string, int> mappings)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-        }
-
-        public RowValues(Dictionary<string, string> dict)
-        {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-
-            foreach (var pair in dict)
-            {
-                this[pair.Key] = pair.Value;
-            }
-        }
-
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
-        {
+            _columns = columns;
+            _mappings = mappings;
         }
     }
 }

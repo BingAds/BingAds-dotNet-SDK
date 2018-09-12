@@ -578,6 +578,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string Description = "Description";
         public const string MembershipDuration = "Membership Duration";
         public const string Scope = "Scope";
+        public const string SourceId = "Source Id";
         public const string TagId = "UET Tag Id";
         public const string AudienceId = "Audience Id";
         public const string RemarketingRule = "Remarketing Rule";
@@ -585,6 +586,10 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string AudienceNetworkSize = "Audience Network Size";
         public const string SupportedCampaignTypes = "Supported Campaign Types";
         public const string ProductAudienceType = "Product Audience Type";
+        public const string SimilarRemarketingList = "Similar Remarketing List";
+        public const string AdGroupSimilarRemarketingListAssociation = "Ad Group Similar Remarketing List Association";
+        public const string AdGroupNegativeSimilarRemarketingListAssociation = "Ad Group Negative Similar Remarketing List Association";
+
 
         // Expanded Text Ad
         public const string ExpandedTextAd = "Expanded Text Ad";

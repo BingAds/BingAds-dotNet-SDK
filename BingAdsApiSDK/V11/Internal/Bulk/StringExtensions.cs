@@ -761,7 +761,7 @@ namespace Microsoft.BingAds.V11.Internal.Bulk
 
         public static string GetValueOrEmptyString(this string bulkString)
         {
-            if (string.IsNullOrEmpty(bulkString))
+            if (string.IsNullOrEmpty(bulkString) || bulkString.Equals(DeleteValue))
             {
                 return string.Empty;
             }

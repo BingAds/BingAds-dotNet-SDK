@@ -47,13 +47,12 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.IO;
-using System.ServiceModel;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.Internal.Utilities;
+using System;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Microsoft.BingAds.V11.Reporting
 {
@@ -176,6 +175,18 @@ namespace Microsoft.BingAds.V11.Reporting
         public Task<ReportingDownloadOperation> SubmitDownloadAsync(ReportRequest request)
         {
             return SubmitDownloadAsyncImpl(request);
+        }
+
+        /// <summary>
+        /// Removes all files from the working directory, whether the files are used by this ReportingServiceManager or by another instance.
+        /// </summary>
+        public void CleanupTempFiles()
+        {
+            DirectoryInfo workingDirectoryInfo = new DirectoryInfo(WorkingDirectory);
+            foreach (FileInfo file in workingDirectoryInfo.GetFiles())
+            {
+                file.Delete();
+            }
         }
 
         private async Task<ReportingDownloadOperation> SubmitDownloadAsyncImpl(ReportRequest request)

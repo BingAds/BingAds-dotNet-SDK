@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,32 +47,15 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Reporting
 {
-    internal class RowValues : RowValuesBase
+    public class CouldNotGetReportingMetadataException : Exception
     {
-
-        public RowValues()
-        {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-        }
-
-        public RowValues(Dictionary<string, string> dict)
-        {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-
-            foreach (var pair in dict)
-            {
-                this[pair.Key] = pair.Value;
-            }
-        }
-
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        public CouldNotGetReportingMetadataException(string metadataName) : base($"The report header property {metadataName} is empty or not found in the file.")
         {
         }
     }

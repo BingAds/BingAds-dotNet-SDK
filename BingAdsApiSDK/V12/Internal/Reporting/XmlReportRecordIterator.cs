@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,33 +47,84 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Internal.Reporting
 {
-    internal class RowValues : RowValuesBase
+    using System.Collections;
+    using System.IO;
+    using System.Xml;
+    using V12.Reporting;
+    public class XmlReportRecordIterator : IEnumerator<IReportRecord>
     {
+        private XmlReader _xmlReader;
+        private readonly string _xmlFilePath;
+        private bool disposed = false;
 
-        public RowValues()
+        public XmlReportRecordIterator(XmlReader reader, string filePath)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
+            this._xmlReader = reader;
+            this._xmlFilePath = filePath;
         }
 
-        public RowValues(Dictionary<string, string> dict)
+        public bool MoveNext()
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-
-            foreach (var pair in dict)
+            while (this._xmlReader.Read() && this._xmlReader.Name != "Row") ;
+            if (this._xmlReader.EOF)
             {
-                this[pair.Key] = pair.Value;
+                return false;
             }
+
+            Dictionary<string, string> rowValues = new Dictionary<string, string>();
+            while (this._xmlReader.Read() && this._xmlReader.Name != "Row")
+            {
+                var rowValue = this._xmlReader.GetAttribute("value");
+                var rowName = this._xmlReader.Name;
+                if (rowValue != null)
+                {
+                    rowValues.Add(rowName, rowValue);
+                }
+            }
+
+            Current = new XmlReportRecord(rowValues);
+            return true;
         }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        public void Reset()
         {
+            Dispose();
+            this._xmlReader = XmlReader.Create(this._xmlFilePath);
+        }
+
+        public IReportRecord Current { get; private set; }
+
+        object IEnumerator.Current => this.Current;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                // If disposing equals true, dispose all managed
+                // and unmanaged resources.
+                if (disposing)
+                {
+                    // Dispose managed resources.
+                }
+
+                _xmlReader?.Close();
+                _xmlReader = null;
+
+                // Note disposing has been done.
+                disposed = true;
+
+            }
         }
     }
 }

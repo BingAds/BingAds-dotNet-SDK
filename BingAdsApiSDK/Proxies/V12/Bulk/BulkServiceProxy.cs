@@ -661,6 +661,24 @@ namespace Microsoft.BingAds.V12.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeProductAudienceAssociations = 87,
+        
+        /// <summary>
+        /// Include Similar Remarketing List records in the download data.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SimilarRemarketingLists = 88,
+        
+        /// <summary>
+        /// Include Ad Group Similar Remarketing List Association records in the download that each represent the association relationship between an ad group and a similar remarketing list.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupSimilarRemarketingListAssociations = 89,
+        
+        /// <summary>
+        /// Include Ad Group Negative Similar Remarketing List Association records in the download that each represent the association relationship between an ad group and a similar remarketing list exclusion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupNegativeSimilarRemarketingListAssociations = 90,
     }
     
     /// <summary>

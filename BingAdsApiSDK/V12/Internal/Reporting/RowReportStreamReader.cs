@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,33 +47,43 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Internal.Reporting
 {
-    internal class RowValues : RowValuesBase
+    using System;
+    using System.IO;
+
+    using V12.Reporting;
+
+    public class RowReportStreamReader
     {
+        private RowReportRecordReader recordReader;
+        private CsvReportRecordReader csvReportRecordReader;
 
-        public RowValues()
+        public RowReportStreamReader(string filePath, ReportFormat format)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
+            csvReportRecordReader = RowReportRecordReaderFactory.CreateReportRecordReader(filePath, format);
+            recordReader = new RowReportRecordReader(csvReportRecordReader);
         }
 
-        public RowValues(Dictionary<string, string> dict)
+        public void ReadReportHeader(IRowReportHeaderParser reportHeaderParser)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
+            while (recordReader.ReadNextHeader(reportHeaderParser)) ;
+        }
 
-            foreach (var pair in dict)
+        public RowReportRecord Read()
+        {
+            if (!recordReader.MoveNext())
             {
-                this[pair.Key] = pair.Value;
+                return null;
             }
+
+            return recordReader.Current;
         }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        internal void Dispose()
         {
+            this.csvReportRecordReader.Dispose();
         }
     }
+    
 }

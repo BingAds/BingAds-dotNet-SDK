@@ -167,6 +167,28 @@ namespace Microsoft.BingAds.V12.Reporting
         }
 
         /// <summary>
+        /// Downloads the reporting file to a Report Object in async mode.
+        /// </summary>
+        /// <param name="parameters">Determines various download parameters, for example what entities to download and where the file should be downloaded.
+        /// Please see <see cref="ReportingDownloadParameters"/> for more information about available parameters.</param>
+        /// <param name="cancellationToken">Cancellation token that can be used to cancel the tracking of the reporting operation on the client. Doesn't cancel the actual reporting operation on the server.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result will be return a Object of Report.</returns>
+        /// <exception cref="FaultException{TDetail}">Thrown if a fault is returned from the Bing Ads service.</exception>
+        /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be refreshed due to an error received from the Microsoft Account authorization server.</exception>  
+        /// <exception cref="ReportingOperationCouldNotBeCompletedException">Thrown if the reporting operation has failed </exception>
+        public Task<Report> DownloadReportAsync(ReportingDownloadParameters parameters,
+            CancellationToken cancellationToken)
+        {
+            return DownloadReportAsyncImpl(parameters, cancellationToken);
+        }
+
+        private async Task<Report> DownloadReportAsyncImpl(ReportingDownloadParameters parameters, CancellationToken cancellationToken)
+        {
+            var resultFile = await this.DownloadFileAsyncImpl(parameters, cancellationToken).ConfigureAwait(false);
+            return resultFile != null ? new ReportFileReader(resultFile, parameters.ReportRequest.Format.GetValueOrDefault()).GetReport() : null;
+        }
+
+        /// <summary>
         /// Submits a download request to the Bing Ads reporting service with the specified parameters.
         /// </summary>
         /// <param name="request">Determines various download parameters, for example what entities to download. </param>
@@ -176,6 +198,18 @@ namespace Microsoft.BingAds.V12.Reporting
         public Task<ReportingDownloadOperation> SubmitDownloadAsync(ReportRequest request)
         {
             return SubmitDownloadAsyncImpl(request);
+        }
+
+        /// <summary>
+        /// Removes all files from the working directory, whether the files are used by this ReportingServiceManager or by another instance.
+        /// </summary>
+        public void CleanupTempFiles()
+        {
+            DirectoryInfo workingDirectoryInfo = new DirectoryInfo(WorkingDirectory);
+            foreach (FileInfo file in workingDirectoryInfo.GetFiles())
+            {
+                file.Delete();
+            }
         }
 
         private async Task<ReportingDownloadOperation> SubmitDownloadAsyncImpl(ReportRequest request)

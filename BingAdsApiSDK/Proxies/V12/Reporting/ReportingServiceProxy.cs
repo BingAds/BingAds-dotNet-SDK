@@ -269,7 +269,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// Determines whether you want the service to generate the report only if all the data has been processed and is available.
+        /// Determines whether or not the service must ensure that all the data has been processed and is available.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ReturnOnlyCompleteData
@@ -4692,7 +4692,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// Determines the time zone that you want the Reporting service to use for the selected date range.
+        /// Determines the time zone that is used to establish today's date.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V12.Reporting.ReportTimeZone> ReportTimeZone
@@ -5031,7 +5031,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 38,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 39,
@@ -5089,6 +5089,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 48,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 49,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 50,
     }
     
     /// <summary>
@@ -5143,7 +5155,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Search = 1,
         
         /// <summary>
-        /// The report will contain intent ads.
+        /// The report will contain audience ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audience = 16,
@@ -6268,7 +6280,7 @@ namespace Microsoft.BingAds.V12.Reporting
         LowQualityClicks = 18,
         
         /// <summary>
-        /// The low-quality clicks as a percentage.The formula for calculating the low quality clicks percentage is (LowQualityClicks / Clicks) x 100.
+        /// The low-quality clicks as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicksPercent = 19,
@@ -6280,7 +6292,7 @@ namespace Microsoft.BingAds.V12.Reporting
         LowQualityImpressions = 20,
         
         /// <summary>
-        /// The low-quality impressions as a percentage.The formula for calculating the percentage is (LowQualityImpressions / Impressions) x 100.
+        /// The low-quality impressions as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityImpressionsPercent = 21,
@@ -6292,7 +6304,7 @@ namespace Microsoft.BingAds.V12.Reporting
         LowQualityConversions = 22,
         
         /// <summary>
-        /// The low-quality conversion rate as a percentage.The formula for calculating the conversion rate is (LowQualityConversions / LowQualityClicks) x 100.
+        /// The low-quality conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityConversionRate = 23,
@@ -6304,7 +6316,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 24,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 25,
@@ -6400,7 +6412,7 @@ namespace Microsoft.BingAds.V12.Reporting
         PhoneImpressions = 40,
         
         /// <summary>
-        /// The number of total calls to the tracked phone number that showed with your ad.The formula for calculating the phone calls is ManualCalls + ClickCalls.
+        /// The number of total calls to the tracked phone number that showed with your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneCalls = 41,
@@ -6418,7 +6430,7 @@ namespace Microsoft.BingAds.V12.Reporting
         ClickCalls = 43,
         
         /// <summary>
-        /// The phone-through rate (Ptr).The formula for calculating the Ptr is (PhoneCalls / PhoneImpressions) x 100.
+        /// The phone-through rate (Ptr).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ptr = 44,
@@ -6454,7 +6466,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 49,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 50,
@@ -6466,7 +6478,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 51,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 52,
@@ -6478,13 +6490,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 53,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 54,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 55,
@@ -6548,6 +6560,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 65,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 66,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 67,
     }
     
     /// <summary>
@@ -7891,7 +7915,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Language = 21,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 22,
@@ -7987,7 +8011,7 @@ namespace Microsoft.BingAds.V12.Reporting
         PhoneImpressions = 37,
         
         /// <summary>
-        /// The number of total calls to the tracked phone number that showed with your ad.The formula for calculating the phone calls is ManualCalls + ClickCalls.
+        /// The number of total calls to the tracked phone number that showed with your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneCalls = 38,
@@ -8005,7 +8029,7 @@ namespace Microsoft.BingAds.V12.Reporting
         ClickCalls = 40,
         
         /// <summary>
-        /// The phone-through rate (Ptr).The formula for calculating the Ptr is (PhoneCalls / PhoneImpressions) x 100.
+        /// The phone-through rate (Ptr).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ptr = 41,
@@ -8041,7 +8065,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 46,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 47,
@@ -8053,7 +8077,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 48,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 49,
@@ -8065,13 +8089,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 50,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 51,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 52,
@@ -8111,6 +8135,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 58,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 59,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 60,
     }
     
     /// <summary>
@@ -8543,13 +8579,13 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 31,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 32,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
@@ -8561,7 +8597,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 34,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 35,
@@ -8573,13 +8609,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 36,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 37,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 38,
@@ -8679,6 +8715,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdLabels = 54,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 55,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 56,
     }
     
     /// <summary>
@@ -9367,13 +9415,13 @@ namespace Microsoft.BingAds.V12.Reporting
         TopVsOther = 43,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 44,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 45,
@@ -9385,7 +9433,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 46,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 47,
@@ -9397,13 +9445,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 48,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 49,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 50,
@@ -10046,13 +10094,13 @@ namespace Microsoft.BingAds.V12.Reporting
         TopVsOther = 26,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 27,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
@@ -10064,7 +10112,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 29,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 30,
@@ -10076,13 +10124,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 31,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 32,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 33,
@@ -10140,6 +10188,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 42,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 43,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 44,
     }
     
     /// <summary>
@@ -10571,7 +10631,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdDistribution = 8,
         
         /// <summary>
-        /// The age group of the audience who viewed the ad.The possible values are 13-17, 18-24, 25-34, 35-49, 50-64, and 65+.
+        /// The age group of the audience who viewed the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AgeGroup = 9,
@@ -10595,7 +10655,7 @@ namespace Microsoft.BingAds.V12.Reporting
         EstimatedClickPercent = 12,
         
         /// <summary>
-        /// The estimated click-through rate (Ctr) as a percentage.The formula for calculating the estimated click-through rate is (estimated clicks / estimated impressions) x 100.
+        /// The estimated click-through rate (Ctr) as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EstimatedCtr = 13,
@@ -10872,7 +10932,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdDistribution = 8,
         
         /// <summary>
-        /// The age group of the audience who viewed the ad.The possible values are 13-17, 18-24, 25-34, 35-49, 50-64, and 65+.
+        /// The age group of the audience who viewed the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AgeGroup = 9,
@@ -11566,13 +11626,13 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 31,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 32,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
@@ -11596,7 +11656,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 36,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 37,
@@ -11614,13 +11674,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 39,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 40,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 41,
@@ -11987,13 +12047,13 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 25,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 26,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 27,
@@ -12005,7 +12065,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 28,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 29,
@@ -12017,13 +12077,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 30,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 31,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 32,
@@ -12523,13 +12583,13 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 31,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 32,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
@@ -12541,7 +12601,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 34,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 35,
@@ -12553,13 +12613,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 36,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 37,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 38,
@@ -12587,6 +12647,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 42,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 43,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 44,
     }
     
     /// <summary>
@@ -12882,7 +12954,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Ctr = 12,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 13,
@@ -12912,7 +12984,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 17,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 18,
@@ -12930,13 +13002,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 20,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 21,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 22,
@@ -13282,7 +13354,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Conversions = 11,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 12,
@@ -13306,7 +13378,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 15,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
@@ -13548,7 +13620,7 @@ namespace Microsoft.BingAds.V12.Reporting
         NegativeKeyword = 9,
         
         /// <summary>
-        /// The entity level where the keyword and negative keyword conflict occurs.The possible values are AdGroup and Campaign.
+        /// The entity level where the keyword and negative keyword conflict occurs.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConflictLevel = 10,
@@ -13606,6 +13678,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 19,
+        
+        /// <summary>
+        /// The type of negative keyword conflict encountered.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConflictType = 20,
     }
     
     /// <summary>
@@ -14179,13 +14257,13 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 9,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 10,
         
         /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.The possible click types are ad title, image, phone number, driving directions, sitelink, and review.
+        /// Click type refers to each component of an ad that a customer can click.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 11,
@@ -14287,7 +14365,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TopVsOther = 27,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
@@ -14299,7 +14377,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 29,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 30,
@@ -14317,13 +14395,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 32,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 33,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 34,
@@ -14617,13 +14695,13 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 9,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 10,
         
         /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.The possible click types are ad title, image, phone number, driving directions, sitelink, and review.
+        /// Click type refers to each component of an ad that a customer can click.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 11,
@@ -14725,7 +14803,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TopVsOther = 27,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
@@ -14737,7 +14815,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 29,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 30,
@@ -14755,13 +14833,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 32,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 33,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 34,
@@ -15052,13 +15130,13 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 22,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 23,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 24,
@@ -15376,7 +15454,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 15,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
@@ -15448,7 +15526,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TopVsOther = 27,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
@@ -15460,7 +15538,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 29,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 30,
@@ -15472,13 +15550,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 31,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 32,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 33,
@@ -16535,7 +16613,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 42,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 43,
@@ -16619,7 +16697,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TotalClicksOnAdElements = 56,
         
         /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.The possible click types are ad title, image, phone number, driving directions, sitelink, and review.
+        /// Click type refers to each component of an ad that a customer can click.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 57,
@@ -17033,7 +17111,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TopVsOther = 31,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 32,
@@ -17051,13 +17129,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 34,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 35,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 36,
@@ -17141,13 +17219,13 @@ namespace Microsoft.BingAds.V12.Reporting
         TotalClicksOnAdElements = 49,
         
         /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.The possible click types are ad title, image, phone number, driving directions, sitelink, and review.
+        /// Click type refers to each component of an ad that a customer can click.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 50,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 51,
@@ -17543,7 +17621,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TopVsOther = 30,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 31,
@@ -17561,13 +17639,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 33,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 34,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 35,
@@ -17591,7 +17669,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomParameters = 38,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 39,
@@ -17913,7 +17991,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 10,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 11,
@@ -17961,7 +18039,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TotalClicksOnAdElements = 18,
         
         /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.The possible click types are ad title, image, phone number, driving directions, sitelink, and review.
+        /// Click type refers to each component of an ad that a customer can click.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 19,
@@ -18027,7 +18105,7 @@ namespace Microsoft.BingAds.V12.Reporting
         ConversionRate = 29,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 30,
@@ -18051,16 +18129,28 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerConversion = 33,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 34,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 35,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 36,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 37,
     }
     
     /// <summary>
@@ -18751,13 +18841,13 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 27,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 28,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 29,
@@ -18781,7 +18871,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 32,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 33,
@@ -18799,13 +18889,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 35,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 36,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 37,
@@ -19224,7 +19314,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 24,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 25,
@@ -19284,7 +19374,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerConversion = 34,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 35,
@@ -19296,7 +19386,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 36,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 37,
@@ -19308,16 +19398,28 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 38,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 39,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 40,
+        
+        /// <summary>
+        /// The Bing Ads assigned identifier of a customer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerId = 41,
+        
+        /// <summary>
+        /// The customer name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 42,
     }
     
     /// <summary>
@@ -19608,7 +19710,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 15,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
@@ -19710,7 +19812,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerConversion = 32,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
@@ -19722,7 +19824,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 34,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 35,
@@ -19734,13 +19836,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 36,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 37,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 38,
@@ -20073,7 +20175,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 20,
         
         /// <summary>
-        /// The operating system of the device reported in the DeviceType column.The possible values include Android, Blackberry, iOS, Other, Unknown, and Windows.If the operating system of the device cannot be determined or is not one of the operating systems that you can target, the value in this column will be Unknown.
+        /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 21,
@@ -20133,7 +20235,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerConversion = 30,
         
         /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.An ad is considered to have assisted the conversion if it was clicked before the most recently clicked ad that was credited with the conversion.
+        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 31,
@@ -20145,7 +20247,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 32,
         
         /// <summary>
-        /// The return on ad spend (ROAS).The formula for calculating the ROAS is (Revenue / Spend).
+        /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 33,
@@ -20157,13 +20259,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CostPerAssist = 34,
         
         /// <summary>
-        /// The revenue per conversion.The formula for calculating the revenue per conversion is (Revenue / Conversions).
+        /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 35,
         
         /// <summary>
-        /// The revenue per assist.The formula for calculating the revenue per assist is (Revenue / Assists).
+        /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 36,

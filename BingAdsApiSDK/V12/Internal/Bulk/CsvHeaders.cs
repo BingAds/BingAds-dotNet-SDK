@@ -346,6 +346,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             StringTable.MembershipDuration,
             StringTable.Scope,
             StringTable.TagId,
+            StringTable.SourceId,
             StringTable.AudienceId,
             StringTable.Audience,
             StringTable.RemarketingRule,

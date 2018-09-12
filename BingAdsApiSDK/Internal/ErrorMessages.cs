@@ -63,8 +63,8 @@ namespace Microsoft.BingAds.Internal
 
         public const string UriDoesntMatchState = "The state passed in Uri does not match the state value specified in authentication";
 
-        public const string UserDataAuthenticationIsNull = "UserData object has the Authentication property set to null. Please make sure it's not null before calling this method";
-        public const string UserDataDeveloperTokenIsNull = "UserData object has the DeveloperToken property set to null. Please make sure it's not null before calling this method";
+        public const string UserDataAuthenticationIsNull = "AuthorizationData object has the Authentication property set to null. Please make sure it's not null before calling this method";
+        public const string UserDataDeveloperTokenIsNull = "AuthorizationData object has the DeveloperToken property set to null. Please make sure it's not null before calling this method";
         
         public static string GetFullOAuthAccessTokenNotRequestedMessage(Type oAuthType)
         {

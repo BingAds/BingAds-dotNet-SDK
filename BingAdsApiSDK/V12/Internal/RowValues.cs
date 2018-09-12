@@ -50,30 +50,70 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Internal
 {
-    internal class RowValues : RowValuesBase
+    public class RowValuesBase
     {
+        protected string[] _columns;
 
-        public RowValues()
+        protected Dictionary<string, int> _mappings;
+
+        public string[] Columns
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
+            get { return _columns; }
         }
 
-        public RowValues(Dictionary<string, string> dict)
+        public RowValuesBase(string[] columns, Dictionary<string, int> mappings)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
+            _columns = columns;
+            _mappings = mappings;
+        }
 
-            foreach (var pair in dict)
+        public RowValuesBase()
+        {
+
+        }
+        public string this[string header]
+        {
+            get
             {
-                this[pair.Key] = pair.Value;
+                return _columns[_mappings[header]];
+            }
+            set
+            {
+                _columns[_mappings[header]] = value;
             }
         }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        public bool ContainsHeader(string header)
         {
+            return _mappings.ContainsKey(header);
+        }
+
+        public bool TryGetValue(string header, out string result)
+        {
+            int index;
+
+            if (!_mappings.TryGetValue(header, out index))
+            {
+                result = null;
+
+                return false;
+            }
+
+            result = _columns[index];
+
+            return true;
+        }
+
+        public Dictionary<string, string> ToDictionary()
+        {
+            return _mappings.Select(m => new { key = m.Key, value = _columns[m.Value] }).ToDictionary(x => x.key, x => x.value);
+        }
+
+        public string ToDebugString()
+        {
+            return string.Join("; ", _mappings.Select(m => string.Format("{0} = '{1}'", m.Key, _columns[m.Value])));
         }
     }
 }

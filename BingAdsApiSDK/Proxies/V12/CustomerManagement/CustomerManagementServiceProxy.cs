@@ -264,7 +264,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         Pending = 4,
         
         /// <summary>
-        /// Your account has been suspended and no ads are eligible for delivery because of potentially fraudulent activity.
+        /// Your account has been suspended because of suspicious activity, and no ads are eligible for delivery.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Suspended = 5,
@@ -7534,7 +7534,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.SearchUserInvitationsResponse> SearchUserInvitationsAsync(Microsoft.BingAds.V12.CustomerManagement.SearchUserInvitationsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether or not the submitted address is valid for Bing Ads accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
@@ -7552,7 +7552,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         Microsoft.BingAds.V12.CustomerManagement.ValidateAddressResponse ValidateAddress(Microsoft.BingAds.V12.CustomerManagement.ValidateAddressRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether or not the submitted address is valid for Bing Ads accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
@@ -11035,7 +11035,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Determines whether or not the submitted address is valid for Bing Ads accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
@@ -11063,7 +11063,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The address to validate.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=0)]
         public Microsoft.BingAds.V12.CustomerManagement.Address Address;
@@ -11084,7 +11084,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddressRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="Address">Reserved.</param>
+        /// <param name="Address">The address to validate.</param>
         public ValidateAddressRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V12.CustomerManagement.Address Address)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11097,7 +11097,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Determines whether or not the submitted address is valid for Bing Ads accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
@@ -11113,19 +11113,19 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// The address that was submitted for validation.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=0)]
         public Microsoft.BingAds.V12.CustomerManagement.Address OriginalAddress;
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether or not the submitted address is valid for Bing Ads accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=1)]
         public string Status;
         
         /// <summary>
-        /// Reserved.
+        /// One or more suggested addresses if the Status is either AddressValidWithSuggestions or AddressInvalidWithSuggestions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Address> SuggestedAddresses;
@@ -11146,9 +11146,9 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddressResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="OriginalAddress">Reserved.</param>
-        /// <param name="Status">Reserved.</param>
-        /// <param name="SuggestedAddresses">Reserved.</param>
+        /// <param name="OriginalAddress">The address that was submitted for validation.</param>
+        /// <param name="Status">Determines whether or not the submitted address is valid for Bing Ads accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.</param>
+        /// <param name="SuggestedAddresses">One or more suggested addresses if the Status is either AddressValidWithSuggestions or AddressInvalidWithSuggestions.</param>
         public ValidateAddressResponse(string TrackingId, Microsoft.BingAds.V12.CustomerManagement.Address OriginalAddress, string Status, System.Collections.Generic.IList<Microsoft.BingAds.V12.CustomerManagement.Address> SuggestedAddresses)
         {
             this.TrackingId = TrackingId;
@@ -12023,7 +12023,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether or not the submitted address is valid for Bing Ads accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.
@@ -12038,7 +12038,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether or not the submitted address is valid for Bing Ads accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-12 for details.

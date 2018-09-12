@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,33 +47,64 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Internal.Reporting
 {
-    internal class RowValues : RowValuesBase
-    {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
 
-        public RowValues()
+    public class CsvReportRecordReader : CsvLight, IEnumerator<string[]>
+    {
+        private bool disposed;
+
+        // Constructor 
+        public CsvReportRecordReader(FileStream reader, char delimiter): base(new StreamReader(reader, Encoding.UTF8), delimiter, true, false)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
         }
 
-        public RowValues(Dictionary<string, string> dict)
+        public string[] Current
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-
-            foreach (var pair in dict)
+            get
             {
-                this[pair.Key] = pair.Value;
+                if (Columns == null) throw new InvalidOperationException();
+                return Columns;
             }
         }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        object IEnumerator.Current => this.Current;
+
+        // IEnumarator Implementation 
+        public bool MoveNext()
         {
+            return ReadNextRecord();
         }
+
+        public void Reset()
+        {
+            Initialize(Stream, Delimeter, true, false);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                try
+                {
+                    if (disposing)
+                    {
+                        Stream.Dispose();
+                    }
+                }
+                finally
+                {
+                    base.Dispose(disposing);
+                }
+            }
+
+            this.disposed = true;
+        }
+
     }
 }

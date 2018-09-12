@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,33 +47,27 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Internal.Reporting
 {
-    internal class RowValues : RowValuesBase
+    using System.Collections.Generic;
+    using System.IO;
+    using V12.Reporting;
+
+    public class RowReportRecordReaderFactory
     {
-
-        public RowValues()
+        public static CsvReportRecordReader CreateReportRecordReader(string filePath, ReportFormat format)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-        }
-
-        public RowValues(Dictionary<string, string> dict)
-        {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-
-            foreach (var pair in dict)
+            switch (format)
             {
-                this[pair.Key] = pair.Value;
+                case ReportFormat.Csv:
+                    return new CsvReportRecordReader(
+                        new FileStream(filePath, FileMode.Open), ',');
+                case ReportFormat.Tsv:
+                    return new CsvReportRecordReader(
+                        new FileStream(filePath, FileMode.Open), '\t');
             }
-        }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
-        {
+            return null;
         }
     }
 }

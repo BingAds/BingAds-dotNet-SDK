@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 11.12
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,33 +47,82 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace Microsoft.BingAds.V12.Internal.Bulk
+namespace Microsoft.BingAds.V12.Internal.Reporting
 {
-    internal class RowValues : RowValuesBase
+    using Microsoft.BingAds.V12.Reporting;
+
+    public class XmlReportRecord : IReportRecord
     {
+        private Dictionary<string, string> rowValues;
 
-        public RowValues()
+        public XmlReportRecord(Dictionary<string, string> Values)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
+            this.rowValues = Values;
         }
 
-        public RowValues(Dictionary<string, string> dict)
+        public double GetDoubleValue(string header)
         {
-            _mappings = CsvHeaders.GetMappings();
-            _columns = new string[_mappings.Count];
-
-            foreach (var pair in dict)
+            if (this.rowValues.TryGetValue(header, out string value))
             {
-                this[pair.Key] = pair.Value;
+                value = value.Trim();
+                if (value == string.Empty) return 0.0;
+                if (value.EndsWith("%"))
+                {
+                    value = value.Replace("%", "");
+                    double result = Double.Parse(value) / 100.0;
+                    return result;
+                }
+                else
+                {
+                    Double result = Double.Parse(value);
+                    return result;
+                }
             }
+
+            throw new InvalidColumnException(header);
         }
 
-        public RowValues(string[] columns, Dictionary<string, int> mappings) : base(columns, mappings)
+        public long GetLongValue(string header)
         {
+            if (this.rowValues.TryGetValue(header, out string value))
+            {
+                if (value == string.Empty)
+                {
+                    return 0L;
+                }
+                long result = long.Parse(value.Trim());
+                return result;
+            }
+
+            throw new InvalidColumnException(header);
+        }
+
+        public int GetIntegerValue(string header)
+        {
+            if (this.rowValues.TryGetValue(header, out string value))
+            {
+                if (value == string.Empty)
+                {
+                    return 0;
+                }
+                int result = int.Parse(value.Trim());
+                return result;
+            }
+
+            throw new InvalidColumnException(header);
+        }
+
+        public string GetStringValue(string header)
+        {
+            if (this.rowValues.TryGetValue(header, out string value))
+            {
+                return value;
+            }
+
+            throw new InvalidColumnException(header);
         }
     }
 }
