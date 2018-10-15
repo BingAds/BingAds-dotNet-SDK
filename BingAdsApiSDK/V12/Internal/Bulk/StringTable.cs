@@ -595,6 +595,9 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string ExpandedTextAd = "Expanded Text Ad";
         public const string TitlePart1 = "Title Part 1";
         public const string TitlePart2 = "Title Part 2";
+        public const string TitlePart3 = "Title Part 3";
+        // Note: "Text" is effectively "Text Part 1" in the context of Expanded Text Ad.
+        public const string TextPart2 = "Text Part 2";
         public const string Path1 = "Path 1";
         public const string Path2 = "Path 2";
         public const string Domain = "Domain";

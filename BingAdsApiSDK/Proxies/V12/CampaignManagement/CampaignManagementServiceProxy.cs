@@ -20532,6 +20532,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Campaign> Campaigns;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=2)]
+        public System.Nullable<bool> IncludeDynamicSearchAdsSource;
+        
+        /// <summary>
         /// Constructor for the AddCampaignsRequest request object.
         /// </summary>
         /// <remarks>
@@ -20549,7 +20555,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account to add the campaigns to.</param>
         /// <param name="Campaigns">The list of campaigns to add to the specified account.</param>
-        public AddCampaignsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Campaign> Campaigns)
+        /// <param name="IncludeDynamicSearchAdsSource">Reserved.</param>
+        public AddCampaignsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Campaign> Campaigns, System.Nullable<bool> IncludeDynamicSearchAdsSource)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -20560,6 +20567,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.Campaigns = Campaigns;
+            this.IncludeDynamicSearchAdsSource = IncludeDynamicSearchAdsSource;
         }
     }
     
@@ -21052,6 +21060,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Campaign> Campaigns;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=2)]
+        public System.Nullable<bool> IncludeDynamicSearchAdsSource;
+        
+        /// <summary>
         /// Constructor for the UpdateCampaignsRequest request object.
         /// </summary>
         /// <remarks>
@@ -21069,7 +21083,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the campaign to update.</param>
         /// <param name="Campaigns">An array that can contain a maximum of 100 Campaign objects to update.</param>
-        public UpdateCampaignsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Campaign> Campaigns)
+        /// <param name="IncludeDynamicSearchAdsSource">Reserved.</param>
+        public UpdateCampaignsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Campaign> Campaigns, System.Nullable<bool> IncludeDynamicSearchAdsSource)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -21080,6 +21095,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.Campaigns = Campaigns;
+            this.IncludeDynamicSearchAdsSource = IncludeDynamicSearchAdsSource;
         }
     }
     

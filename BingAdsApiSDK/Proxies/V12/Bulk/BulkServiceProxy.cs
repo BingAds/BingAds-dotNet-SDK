@@ -679,6 +679,12 @@ namespace Microsoft.BingAds.V12.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeSimilarRemarketingListAssociations = 90,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Experiments = 91,
     }
     
     /// <summary>
@@ -2525,7 +2531,7 @@ namespace Microsoft.BingAds.V12.Bulk
         public string RequestStatus;
         
         /// <summary>
-        /// The URL that contains the download data.
+        /// The URL that contains the download data when the RequestStatus value is Completed.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=4)]
         public string ResultFileUrl;
@@ -2550,7 +2556,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// <param name="ForwardCompatibilityMap">The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.</param>
         /// <param name="PercentComplete">The progress completion percentage for system processing of the bulk download file.</param>
         /// <param name="RequestStatus">The status of the download.</param>
-        /// <param name="ResultFileUrl">The URL that contains the download data.</param>
+        /// <param name="ResultFileUrl">The URL that contains the download data when the RequestStatus value is Completed.</param>
         public GetBulkDownloadStatusResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V12.Bulk.OperationError> Errors, System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap, int PercentComplete, string RequestStatus, string ResultFileUrl)
         {
             this.TrackingId = TrackingId;

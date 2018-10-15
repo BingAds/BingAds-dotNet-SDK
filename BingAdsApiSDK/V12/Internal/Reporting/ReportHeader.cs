@@ -51,7 +51,7 @@ namespace Microsoft.BingAds.V12.Internal.Reporting
 {
     using System;
     using System.Text.RegularExpressions;
-
+    using Bulk;
     using V12.Reporting;
 
     /// <summary>
@@ -86,7 +86,7 @@ namespace Microsoft.BingAds.V12.Internal.Reporting
 
         public void SetLastCompletedAvailableDate(string strLastCompletedAvailableDate)
         {
-            this.lastCompletedAvailableDate = DateTime.Parse(strLastCompletedAvailableDate);
+            this.lastCompletedAvailableDate = strLastCompletedAvailableDate.ParseDateTime();
         }
 
         public string GetReportName()
@@ -106,7 +106,7 @@ namespace Microsoft.BingAds.V12.Internal.Reporting
 
         public void SetReportTimeStart(string strReportTime)
         {
-            this.reportTimeStart = DateTime.Parse(strReportTime);
+            this.reportTimeStart = strReportTime.ParseDateTime();
         }
 
         public DateTime GetReportTimeEnd()
@@ -116,7 +116,7 @@ namespace Microsoft.BingAds.V12.Internal.Reporting
 
         public void SetReportTimeEnd(string strReportTime)
         {
-            this.reportTimeEnd = DateTime.Parse(strReportTime);
+            this.reportTimeEnd = strReportTime.ParseDateTime();
         }
 
         public string GetReportTimeZone()

@@ -83,7 +83,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk.Entities
 
             new SimpleBulkMapping<BulkAdExtensionIdentifier>(StringTable.ParentId,
                 c => c.AccountId.ToString(CultureInfo.InvariantCulture),
-                (v, c) => c.AccountId = long.Parse(v)
+                (v, c) => c.AccountId = v.Parse<long>()
             )
         };
 

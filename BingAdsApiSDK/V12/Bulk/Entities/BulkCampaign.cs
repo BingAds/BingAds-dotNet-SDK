@@ -355,6 +355,30 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                         setting.Language = v;
                     }
                 }
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.Source,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    return setting == null ? null : setting.Source.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting), true)) as DynamicSearchAdsSetting;
+                    if (setting != null)
+                    {
+                        DynamicSearchAdsSource? source = v.ParseOptional<DynamicSearchAdsSource>();
+                        if (source != null)
+                        {
+                            setting.Source = source.Value;
+                        }
+                        else
+                        {
+                            setting.Source = DynamicSearchAdsSource.SystemIndex;
+                        }
+                    }
+                }
             )
         };
 

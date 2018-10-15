@@ -7427,6 +7427,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpandedText = 1024,
+        
+        /// <summary>
+        /// The report will include responsive ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveAd = 4096,
     }
     
     /// <summary>
