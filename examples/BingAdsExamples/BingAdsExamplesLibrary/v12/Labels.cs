@@ -109,7 +109,10 @@ namespace BingAdsExamplesLibrary.V12
                 CampaignManagementExampleHelper.OutputArrayOfLong(nullableLabelIds);
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(labelErrors);
 
-                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
+                    authorizationData.AccountId, 
+                    campaigns,
+                    false);
                 long?[] nullableCampaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
                 OutputStatusMessage("New Campaign Ids:");

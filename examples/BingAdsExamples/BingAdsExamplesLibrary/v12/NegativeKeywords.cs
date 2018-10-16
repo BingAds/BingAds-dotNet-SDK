@@ -49,7 +49,10 @@ namespace BingAdsExamplesLibrary.V12
                     }
                 };
 
-                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
+                    authorizationData.AccountId,
+                    campaigns,
+                    false);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
                 CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
