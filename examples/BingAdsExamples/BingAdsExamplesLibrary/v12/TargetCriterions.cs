@@ -227,7 +227,10 @@ namespace BingAdsExamplesLibrary.V12
             // Add the campaigns and ad groups
 
             OutputStatusMessage("Add campaigns:\n");
-            AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(authorizationData.AccountId, campaigns);
+            AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
+                authorizationData.AccountId,
+                campaigns,
+                false);
             long?[] nillableCampaignIds = addCampaignsResponse.CampaignIds.ToArray();
             BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
             CampaignManagementExampleHelper.OutputArrayOfLong(nillableCampaignIds);

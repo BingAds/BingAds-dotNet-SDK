@@ -101,12 +101,14 @@ namespace BingAdsExamplesLibrary.V12
         }
         public async Task<AddCampaignsResponse> AddCampaignsAsync(
             long accountId,
-            IList<Campaign> campaigns)
+            IList<Campaign> campaigns,
+            bool? includeDynamicSearchAdsSource)
         {
             var request = new AddCampaignsRequest
             {
                 AccountId = accountId,
-                Campaigns = campaigns
+                Campaigns = campaigns,
+                IncludeDynamicSearchAdsSource = includeDynamicSearchAdsSource
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.AddCampaignsAsync(r), request));
@@ -1101,12 +1103,14 @@ namespace BingAdsExamplesLibrary.V12
         }
         public async Task<UpdateCampaignsResponse> UpdateCampaignsAsync(
             long accountId,
-            IList<Campaign> campaigns)
+            IList<Campaign> campaigns,
+            bool? includeDynamicSearchAdsSource)
         {
             var request = new UpdateCampaignsRequest
             {
                 AccountId = accountId,
-                Campaigns = campaigns
+                Campaigns = campaigns,
+                IncludeDynamicSearchAdsSource = includeDynamicSearchAdsSource
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.UpdateCampaignsAsync(r), request));
