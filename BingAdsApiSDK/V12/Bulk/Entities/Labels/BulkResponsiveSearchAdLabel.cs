@@ -47,25 +47,26 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V11.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.Internal.Bulk;
+using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V12.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.CampaignManagement;
 
 // ReSharper disable once CheckNamespace
-
-namespace Microsoft.BingAds.V11.Bulk.Entities
+namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a campaign level structured snippet ad extension. 
-    /// This class exposes properties that can be read and written 
-    /// as fields of the Campaign Structured Snippet Ad Extension record in a bulk file. 
+    /// Represents a label that is applied to a responsive search ad. Each label can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkLabelAssociation.LabelAssociation"/> property that can be read and written as fields of the Responsive Search Ad Label record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Structured Snippet Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Responsive Search Ad Label</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCampaignStructuredSnippetAdExtension : BulkCampaignAdExtensionAssociation
+    public class BulkResponsiveSearchAdLabel : BulkLabelAssociation
     {
     }
 }

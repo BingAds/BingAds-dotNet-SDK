@@ -5769,7 +5769,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Defines a paging object for the list of entities returned using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
+    /// Defines a paging object that you can use to request objects in batches.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/paging?view=bingads-12">Paging Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/paging?view=bingads-12 for details.

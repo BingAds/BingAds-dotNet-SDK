@@ -49,14 +49,13 @@
 
 using System;
 using Microsoft.BingAds.Internal;
-using Microsoft.BingAds.V11.Bulk;
 
 namespace Microsoft.BingAds
 {
     /// <summary>
     /// Represents a user who intends to access the corresponding customer and account. 
     /// An instance of this class is required to authenticate with Bing Ads if you are using either 
-    /// <see cref="ServiceClient{TService}"/> or <see cref="BulkServiceManager"/>.
+    /// <see cref="ServiceClient{TService}"/>.
     /// </summary>
     public class AuthorizationData
     {

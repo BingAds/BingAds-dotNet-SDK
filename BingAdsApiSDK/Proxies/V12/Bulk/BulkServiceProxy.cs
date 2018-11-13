@@ -153,7 +153,7 @@ namespace Microsoft.BingAds.V12.Bulk
         AdGroups = 2,
         
         /// <summary>
-        /// Include App Install Ad, Dynamic Search Ad, Expanded Text Ad, Product Ad, Responsive Ad, and Text Ad records in the download data.
+        /// Include App Install Ad, Dynamic Search Ad, Expanded Text Ad, Product Ad, Responsive Ad, Responsive Search Ad, and Text Ad records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ads = 3,
@@ -357,19 +357,19 @@ namespace Microsoft.BingAds.V12.Bulk
         AdGroupSitelinkAdExtensions = 36,
         
         /// <summary>
-        /// Reserved for future use.
+        /// This deprecated value is reserved for internal use and will be removed from a future version of the Bing Ads API.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActionLinkAdExtensions = 37,
         
         /// <summary>
-        /// Reserved for future use.
+        /// This deprecated value is reserved for internal use and will be removed from a future version of the Bing Ads API.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignActionLinkAdExtensions = 38,
         
         /// <summary>
-        /// Reserved for future use.
+        /// This deprecated value is reserved for internal use and will be removed from a future version of the Bing Ads API.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupActionLinkAdExtensions = 39,
@@ -621,7 +621,7 @@ namespace Microsoft.BingAds.V12.Bulk
         AccountSitelinkAdExtensions = 80,
         
         /// <summary>
-        /// Reserved for future use.
+        /// This deprecated value is reserved for internal use and will be removed from a future version of the Bing Ads API.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountActionLinkAdExtensions = 81,
@@ -681,10 +681,46 @@ namespace Microsoft.BingAds.V12.Bulk
         AdGroupNegativeSimilarRemarketingListAssociations = 90,
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Experiments = 91,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ActionAdExtensions = 92,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignActionAdExtensions = 93,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupActionAdExtensions = 94,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountActionAdExtensions = 95,
+        
+        /// <summary>
+        /// Include Responsive Search Ad records in the download data.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveSearchAds = 96,
+        
+        /// <summary>
+        /// Include Responsive Search Ad Label records in the download that each represent a label applied to a responsive search ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveSearchAdLabels = 97,
     }
     
     /// <summary>

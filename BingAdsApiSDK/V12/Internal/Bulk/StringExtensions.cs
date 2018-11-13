@@ -49,14 +49,14 @@
 
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Globalization;
+using System.IO;
 using System.Linq;
-using System.Net.Http.Headers;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.BingAds.V12.CampaignManagement;
-using Microsoft.BingAds.V12.Bulk.Entities;
+using System.Runtime.Serialization.Json;
 
 namespace Microsoft.BingAds.V12.Internal.Bulk
 {
@@ -847,7 +847,107 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 }).Where(p => p != null).ToList()
             ;
         }
+        [DataContract]
+        internal class TextAssetLinkContract
+        {
+            // The Asset Id
+            [DataMember(Name="id", Order = 0, EmitDefaultValue = false)]
+            public long? Id { get; set; }
 
+            // The Asset Text
+            [DataMember(Name = "text", Order = 1)]
+            public string Text { get; set; }
+
+            // The AssetLink PinnedField
+            [DataMember(Name = "pinnedField", Order = 2, EmitDefaultValue = false)]
+            public string PinnedField { get; set; }
+
+            // The AssetLink EditorialStatus
+            [DataMember(Name = "editorialStatus", Order = 3, EmitDefaultValue = false)]
+            public string EditorialStatus { get; set; }
+
+            // The AssetLink AssetPerformanceLabel is reserved for future use.
+            [DataMember(Name = "assetPerformanceLabel", Order = 4, EmitDefaultValue = false)]
+            public string AssetPerformanceLabel { get; set; }
+
+            // The Asset Name is reserved for future use.
+            [DataMember(Name = "name", Order = 5, EmitDefaultValue = false)]
+            public string Name { get; set; }
+        }
+
+        public static string ToTextAssetLinksBulkString(this IList<AssetLink> assetLinks)
+        {
+            if (assetLinks == null || assetLinks.Count == 0)
+            {
+                return null;
+            }
+
+            var textAssetLinks = assetLinks.Where(s => s.Asset?.GetType() == typeof(TextAsset)).ToList();
+
+            if (textAssetLinks.Count == 0)
+            {
+                return null;
+            }
+
+            List<TextAssetLinkContract> textAssetLinkContracts = new List<TextAssetLinkContract>();
+            foreach (var textAssetLink in textAssetLinks)
+            {
+                var textAsset = (TextAsset)textAssetLink.Asset;
+                var textAssetLinkContract = new TextAssetLinkContract
+                {
+                    AssetPerformanceLabel = textAssetLink.AssetPerformanceLabel,
+                    Id = textAsset.Id,
+                    EditorialStatus = textAssetLink.EditorialStatus.ToBulkString(),
+                    Name = textAsset.Name,
+                    PinnedField = textAssetLink.PinnedField,
+                    Text = textAsset.Text
+                };
+                textAssetLinkContracts.Add(textAssetLinkContract);
+            }
+
+            MemoryStream ms = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<TextAssetLinkContract>));
+            ser.WriteObject(ms, textAssetLinkContracts);
+            byte[] json = ms.ToArray();
+            ms.Close();
+            return Encoding.UTF8.GetString(json, 0, json.Length);
+        }
+
+        public static List<AssetLink> ParseTextAssetLinks(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(s));
+            var serializer = new DataContractJsonSerializer(typeof(List<TextAssetLinkContract>));
+            var textAssetLinkContracts = (List<TextAssetLinkContract>)serializer.ReadObject(ms);
+
+            if (textAssetLinkContracts.Count == 0)
+            {
+                return null;
+            }
+
+            List<AssetLink> textAssetLinks = new List<AssetLink>();
+            foreach (var textAssetLinkContract in textAssetLinkContracts)
+            {
+                var assetLink = new AssetLink
+                {
+                    Asset = new TextAsset
+                    {
+                        Id = textAssetLinkContract.Id,
+                        Name = textAssetLinkContract.Name,
+                        Text = textAssetLinkContract.Text,
+                    },
+                    AssetPerformanceLabel = textAssetLinkContract.AssetPerformanceLabel,
+                    EditorialStatus = textAssetLinkContract.EditorialStatus.ParseOptional<AssetLinkEditorialStatus>(),
+                    PinnedField = textAssetLinkContract.PinnedField,
+                };
+                textAssetLinks.Add(assetLink);
+            }
+
+            return textAssetLinks;
+        }
 
         public static string ToUseSearcherTimeZoneBulkString(this bool? useSearcherTimeZone)
         {

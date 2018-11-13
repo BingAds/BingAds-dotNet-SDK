@@ -49,7 +49,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Microsoft.BingAds.Internal.OAuth
@@ -112,11 +114,13 @@ namespace Microsoft.BingAds.Internal.OAuth
 
             if (response.IsSuccessStatusCode)
             {
-                var serializer = new DataContractJsonSerializer(typeof(OAuthTokensContract));
+                var fragmentsSer = new DataContractJsonSerializer(typeof(Dictionary<string, string>), new DataContractJsonSerializerSettings()
+                {
+                    UseSimpleDictionaryFormat = true
+                });
 
-                var tokensContract = (OAuthTokensContract)serializer.ReadObject(stream);
-
-                return new OAuthTokens(tokensContract.AccessToken, tokensContract.AccessTokenExpiresInSeconds, tokensContract.RefreshToken);
+                var fragments = (Dictionary<string, string>)fragmentsSer.ReadObject(stream);
+                return new OAuthTokens(fragments["access_token"], Convert.ToInt32(fragments["expires_in"]), fragments["refresh_token"], fragments);
             }
             else
             {

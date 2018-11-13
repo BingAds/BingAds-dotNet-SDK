@@ -47,76 +47,81 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Linq;
-using Microsoft.BingAds.V11.Internal;
-using Microsoft.BingAds.V11.Internal.Bulk;
-using Microsoft.BingAds.V11.Internal.Bulk.Mappings;
-using Microsoft.BingAds.V11.Internal.Bulk.Entities;
-using Microsoft.BingAds.V11.CampaignManagement;
+using System;
+using System.Collections.Generic;
+using Microsoft.BingAds.V12.Internal.Bulk;
+using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V12.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.CampaignManagement;
 
 // ReSharper disable once CheckNamespace
-namespace Microsoft.BingAds.V11.Bulk.Entities
+namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents an image ad extension that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkImageAdExtension.ImageAdExtension"/> property that can be read and written 
-    /// as fields of the Image Ad Extension record in a bulk file. 
+    /// Represents a responsive search ad. 
+    /// This class exposes the <see cref="BulkResponsiveSearchAd.ResponsiveSearchAd"/> property that can be read and written as fields of the Responsive Search Ad record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Image Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Responsive Search Ad</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkImageAdExtension : BulkAdExtensionBase<ImageAdExtension>
+    public class BulkResponsiveSearchAd : BulkAd<ResponsiveSearchAd>
     {
         /// <summary>
-        /// The image ad extension.
+        /// <para>
+        /// The responsive search ad. 
+        /// </para>
         /// </summary>
-        public ImageAdExtension ImageAdExtension
+        public ResponsiveSearchAd ResponsiveSearchAd
         {
-            get { return AdExtension; }
-            set { AdExtension = value; }
+            get { return Ad; }
+            set { Ad = value; }
         }
 
-        private static readonly IBulkMapping<BulkImageAdExtension>[] Mappings =
+        private static readonly IBulkMapping<BulkResponsiveSearchAd>[] Mappings =
         {
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.DestinationUrl,
-                c => c.ImageAdExtension.DestinationUrl.ToOptionalBulkString(),
-                (v, c) => c.ImageAdExtension.DestinationUrl = v.GetValueOrEmptyString()
-            ), 
+            new SimpleBulkMapping<BulkResponsiveSearchAd>(StringTable.Description,
+                c => c.ResponsiveSearchAd.Descriptions == null ? null : c.ResponsiveSearchAd.Descriptions.ToTextAssetLinksBulkString(),
+                (v, c) => c.ResponsiveSearchAd.Descriptions = v.ParseTextAssetLinks()
+            ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.AltText,
-                c => c.ImageAdExtension.AlternativeText,
-                (v, c) => c.ImageAdExtension.AlternativeText = v
-            ), 
+            new SimpleBulkMapping<BulkResponsiveSearchAd>(StringTable.Headline,
+                c => c.ResponsiveSearchAd.Headlines == null ? null : c.ResponsiveSearchAd.Headlines.ToTextAssetLinksBulkString(),
+                (v, c) => c.ResponsiveSearchAd.Headlines = v.ParseTextAssetLinks()
+            ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.MediaIds,
-                c =>
-                {
-                    if (c.ImageAdExtension.ImageMediaIds == null)
-                    {
-                        return null;
-                    }
-                    return string.Join(";", c.ImageAdExtension.ImageMediaIds);
-                },
-                (v, c) => c.ImageAdExtension.ImageMediaIds = v.Split(';').Select(long.Parse).ToList()
-            ), 
-        }; 
+            new SimpleBulkMapping<BulkResponsiveSearchAd>(StringTable.Path1,
+                c => c.ResponsiveSearchAd.Path1.ToOptionalBulkString(),
+                (v, c) => c.ResponsiveSearchAd.Path1 = v.GetValueOrEmptyString()
+            ),
+
+            new SimpleBulkMapping<BulkResponsiveSearchAd>(StringTable.Path2,
+                c => c.ResponsiveSearchAd.Path2.ToOptionalBulkString(),
+                (v, c) => c.ResponsiveSearchAd.Path2 = v.GetValueOrEmptyString()
+            ),
+
+            new SimpleBulkMapping<BulkResponsiveSearchAd>(StringTable.Domain,
+                c => c.ResponsiveSearchAd.Domain.ToOptionalBulkString(),
+                (v, c) => c.ResponsiveSearchAd.Domain = v.GetValueOrEmptyString()
+            ),
+        };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            ImageAdExtension = new ImageAdExtension { Type = "ImageAdExtension" };
+            ResponsiveSearchAd = new ResponsiveSearchAd { Type = AdType.ResponsiveSearch };
 
             base.ProcessMappingsFromRowValues(values);
 
             values.ConvertToEntity(this, Mappings);
         }
 
+
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(ImageAdExtension, "ImageAdExtension");
+            ValidatePropertyNotNull(ResponsiveSearchAd, "ResponsiveSearchAd");
 
             base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 

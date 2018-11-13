@@ -49,7 +49,6 @@
 
 using System.Net.Http.Headers;
 using Microsoft.BingAds.Internal;
-using Microsoft.BingAds.V11.Bulk;
 
 namespace Microsoft.BingAds
 {

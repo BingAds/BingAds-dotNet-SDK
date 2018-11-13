@@ -156,7 +156,7 @@ namespace Microsoft.BingAds
                 throw new InvalidOperationException(ErrorMessages.UriDoesntContainExpiresIn);
             }
 
-            return OAuthTokens = new OAuthTokens(fragmentParts["access_token"], int.Parse(fragmentParts["expires_in"]), null);            
+            return OAuthTokens = new OAuthTokens(fragmentParts["access_token"], int.Parse(fragmentParts["expires_in"]), null, fragmentParts);
         }
     }
 }

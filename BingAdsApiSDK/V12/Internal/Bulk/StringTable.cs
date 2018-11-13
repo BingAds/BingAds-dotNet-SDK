@@ -612,6 +612,9 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string SquareImageMediaId = "Square Image Media Id";
         public const string SquareLogoMediaId = "Square Logo Media Id";
 
+        // Responsive Ad
+        public const string ResponsiveSearchAd = "Responsive Search Ad";
+
         // Structured Snippet Ad Extension
         public const string AccountStructuredSnippetAdExtension = "Account Structured Snippet Ad Extension";
         public const string CampaignStructuredSnippetAdExtension = "Campaign Structured Snippet Ad Extension";
@@ -684,6 +687,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string ExpandedTextAdLabel = "Expanded Text Ad Label";
         public const string ProductAdLabel = "Product Ad Label";
         public const string ResponsiveAdLabel = "Responsive Ad Label";
+        public const string ResponsiveSearchAdLabel = "Responsive Search Ad Label";
         public const string TextAdLabel = "Text Ad Label";
 
         // Offline Conversions

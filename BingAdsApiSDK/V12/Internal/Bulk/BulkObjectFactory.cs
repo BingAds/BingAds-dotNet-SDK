@@ -155,6 +155,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 {StringTable.AppInstallAd,                  new EntityInfo(() => new BulkAppInstallAd())},
                 {StringTable.ExpandedTextAd,                new EntityInfo(() => new BulkExpandedTextAd())},
                 {StringTable.ResponsiveAd,                new EntityInfo(() => new BulkResponsiveAd())},
+                {StringTable.ResponsiveSearchAd,                new EntityInfo(() => new BulkResponsiveSearchAd())},
                 {StringTable.Keyword,                       new EntityInfo(() => new BulkKeyword())},                
                  {StringTable.ImageAdExtension,              new EntityInfo(() => new BulkImageAdExtension())},
                 {StringTable.AccountImageAdExtension,      new EntityInfo(() => new BulkAccountImageAdExtension())},
@@ -257,6 +258,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 {StringTable.ExpandedTextAdLabel,  new EntityInfo(() => new BulkExpandedTextAdLabel())},
                 {StringTable.ProductAdLabel,  new EntityInfo(() => new BulkProductAdLabel())},
                 {StringTable.ResponsiveAdLabel,  new EntityInfo(() => new BulkResponsiveAdLabel())},
+                {StringTable.ResponsiveSearchAdLabel,  new EntityInfo(() => new BulkResponsiveSearchAdLabel())},
                 {StringTable.TextAdLabel,  new EntityInfo(() => new BulkTextAdLabel())},
 
                 {StringTable.OfflineConversion,  new EntityInfo(() => new BulkOfflineConversion())},

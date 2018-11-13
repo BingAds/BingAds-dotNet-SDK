@@ -47,7 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.Internal;
+using System.Collections.Generic;
 
 namespace Microsoft.BingAds
 {    
@@ -63,6 +63,7 @@ namespace Microsoft.BingAds
         private readonly string _accessToken;
         private readonly int _accessTokenExpiresInSeconds;
         private readonly string _refreshToken;
+        private readonly IDictionary<string, string> _responseFragments;
 
         /// <summary>
         /// Creates a new instance of this class.
@@ -70,35 +71,32 @@ namespace Microsoft.BingAds
         /// <param name="accessToken">Access token</param>
         /// <param name="accessTokenExpiresInSeconds">Access token expiration time</param>
         /// <param name="refreshToken">Refresh token</param>
-        internal OAuthTokens(string accessToken, int accessTokenExpiresInSeconds, string refreshToken)
+        internal OAuthTokens(string accessToken, int accessTokenExpiresInSeconds, string refreshToken, IDictionary<string, string> fragments = null)
         {
             _accessToken = accessToken;
             _accessTokenExpiresInSeconds = accessTokenExpiresInSeconds;
             _refreshToken = refreshToken;
+            _responseFragments = fragments;
         }
 
         /// <summary>
         /// OAuth access token that will be used for authorization in the Bing Ads services.
         /// </summary>
-        public string AccessToken
-        {
-            get { return _accessToken; }            
-        }
+        public string AccessToken => _accessToken;
 
         /// <summary>
         /// Expiration time for the corresponding access token in seconds.
         /// </summary>
-        public int AccessTokenExpiresInSeconds
-        {
-            get { return _accessTokenExpiresInSeconds; }            
-        }
+        public int AccessTokenExpiresInSeconds => _accessTokenExpiresInSeconds;
 
         /// <summary>
         /// OAuth refresh token that can be user to refresh an access token. 
         /// </summary>
-        public string RefreshToken
-        {
-            get { return _refreshToken; }            
-        }
+        public string RefreshToken => _refreshToken;
+
+        /// <summary>
+        /// OAuth WholeFragments.
+        /// </summary>
+        public IDictionary<string, string> ResponseFragments => _responseFragments;
     }
 }

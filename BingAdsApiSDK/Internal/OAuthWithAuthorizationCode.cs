@@ -163,7 +163,7 @@ namespace Microsoft.BingAds.Internal
                 throw new ArgumentNullException("oAuthTokens");
             }
 
-            OAuthTokens = new OAuthTokens(null, 0, oauthTokens.RefreshToken);
+            OAuthTokens = new OAuthTokens(null, 0, oauthTokens.RefreshToken, oauthTokens.ResponseFragments);
         }
 
         /// <summary>

@@ -57,7 +57,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a label that is applied to a campaign. Each label can be read or written in a bulk file. 
+    /// Represents a label that is applied to a responsive ad. Each label can be read or written in a bulk file. 
     /// This class exposes the <see cref="BulkLabelAssociation.LabelAssociation"/> property that can be read and written as fields of the Responsive Ad Label record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Responsive Ad Label</see>. </para>

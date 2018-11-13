@@ -5101,6 +5101,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 50,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClickSharePercent = 51,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionSharePercent = 52,
     }
     
     /// <summary>
@@ -6208,7 +6220,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignId = 6,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 7,
@@ -6572,6 +6584,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 67,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClickSharePercent = 68,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionSharePercent = 69,
     }
     
     /// <summary>
@@ -7117,7 +7141,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdType = 9,
         
         /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.If the destination URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL after substitution occurs.
+        /// The destination URL attribute of the ad, keyword, or ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 10,
@@ -7141,7 +7165,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Param3 = 13,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 14,
@@ -7255,46 +7279,58 @@ namespace Microsoft.BingAds.V12.Reporting
         TitlePart2 = 32,
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart3 = 33,
+        
+        /// <summary>
         /// The path 1 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Path1 = 33,
+        Path1 = 34,
         
         /// <summary>
         /// The path 2 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Path2 = 34,
+        Path2 = 35,
         
         /// <summary>
         /// The Final URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        FinalUrl = 35,
+        FinalUrl = 36,
         
         /// <summary>
         /// The Final Mobile URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        FinalMobileUrl = 36,
+        FinalMobileUrl = 37,
         
         /// <summary>
         /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        FinalAppUrl = 37,
+        FinalAppUrl = 38,
         
         /// <summary>
         /// The text attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdDescription = 38,
+        AdDescription = 39,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDescription2 = 40,
         
         /// <summary>
         /// The labels applied to the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdLabels = 39,
+        AdLabels = 41,
     }
     
     /// <summary>
@@ -7433,6 +7469,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveAd = 4096,
+        
+        /// <summary>
+        /// The report will include responsive search ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveSearchAd = 8192,
     }
     
     /// <summary>
@@ -7843,7 +7885,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupId = 8,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 9,
@@ -8153,6 +8195,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 60,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClickSharePercent = 61,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionSharePercent = 62,
     }
     
     /// <summary>
@@ -8459,280 +8513,292 @@ namespace Microsoft.BingAds.V12.Reporting
         AdDescription = 10,
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdDescription2 = 11,
+        
+        /// <summary>
         /// The ad type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdType = 11,
+        AdType = 12,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CurrencyCode = 12,
+        CurrencyCode = 13,
         
         /// <summary>
         /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdDistribution = 13,
+        AdDistribution = 14,
         
         /// <summary>
         /// The number of times an ad has been displayed on search results pages.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Impressions = 14,
+        Impressions = 15,
         
         /// <summary>
         /// Clicks are what you pay for.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Clicks = 15,
+        Clicks = 16,
         
         /// <summary>
         /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ctr = 16,
+        Ctr = 17,
         
         /// <summary>
         /// The average cost per click (CPC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AverageCpc = 17,
+        AverageCpc = 18,
         
         /// <summary>
         /// The cost per click (CPC) summed for each click.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 18,
+        Spend = 19,
         
         /// <summary>
         /// The average position of the ad on a webpage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AveragePosition = 19,
+        AveragePosition = 20,
         
         /// <summary>
         /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 20,
+        Conversions = 21,
         
         /// <summary>
         /// The conversion rate as a percentage.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ConversionRate = 21,
+        ConversionRate = 22,
         
         /// <summary>
         /// The cost per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerConversion = 22,
+        CostPerConversion = 23,
         
         /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.If the destination URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL after substitution occurs.
+        /// The destination URL attribute of the ad, keyword, or ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        DestinationUrl = 23,
+        DestinationUrl = 24,
         
         /// <summary>
         /// The device name attribute of a device OS target bid.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceType = 24,
+        DeviceType = 25,
         
         /// <summary>
         /// The language of the country the ad is served in.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Language = 25,
+        Language = 26,
         
         /// <summary>
         /// The ad display URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        DisplayUrl = 26,
+        DisplayUrl = 27,
         
         /// <summary>
         /// The ad status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdStatus = 27,
+        AdStatus = 28,
         
         /// <summary>
         /// The current network setting of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Network = 28,
+        Network = 29,
         
         /// <summary>
         /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        TopVsOther = 29,
+        TopVsOther = 30,
         
         /// <summary>
         /// The keyword bid match type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        BidMatchType = 30,
+        BidMatchType = 31,
         
         /// <summary>
         /// The match type used to deliver an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeliveredMatchType = 31,
+        DeliveredMatchType = 32,
         
         /// <summary>
         /// The operating system of the device reported in the DeviceType column.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        DeviceOS = 32,
+        DeviceOS = 33,
         
         /// <summary>
         /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Assists = 33,
+        Assists = 34,
         
         /// <summary>
         /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Revenue = 34,
+        Revenue = 35,
         
         /// <summary>
         /// The return on ad spend (ROAS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ReturnOnAdSpend = 35,
+        ReturnOnAdSpend = 36,
         
         /// <summary>
         /// The cost per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CostPerAssist = 36,
+        CostPerAssist = 37,
         
         /// <summary>
         /// The revenue per conversion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerConversion = 37,
+        RevenuePerConversion = 38,
         
         /// <summary>
         /// The revenue per assist.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        RevenuePerAssist = 38,
+        RevenuePerAssist = 39,
         
         /// <summary>
         /// The current tracking template of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        TrackingTemplate = 39,
+        TrackingTemplate = 40,
         
         /// <summary>
         /// The current custom parameters set of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CustomParameters = 40,
+        CustomParameters = 41,
         
         /// <summary>
         /// The Final URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        FinalUrl = 41,
+        FinalUrl = 42,
         
         /// <summary>
         /// The Final Mobile URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        FinalMobileUrl = 42,
+        FinalMobileUrl = 43,
         
         /// <summary>
         /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        FinalAppUrl = 43,
+        FinalAppUrl = 44,
         
         /// <summary>
         /// The account status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountStatus = 44,
+        AccountStatus = 45,
         
         /// <summary>
         /// The campaign status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignStatus = 45,
+        CampaignStatus = 46,
         
         /// <summary>
         /// The ad group status.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupStatus = 46,
+        AdGroupStatus = 47,
         
         /// <summary>
         /// The title part 1 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        TitlePart1 = 47,
+        TitlePart1 = 48,
         
         /// <summary>
         /// The title part 2 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        TitlePart2 = 48,
+        TitlePart2 = 49,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart3 = 50,
         
         /// <summary>
         /// The shorter of two possible responsive ad headlines for Audience campaigns.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Headline = 49,
+        Headline = 51,
         
         /// <summary>
         /// The longer of two possible responsive ad headlines for Audience campaigns.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        LongHeadline = 50,
+        LongHeadline = 52,
         
         /// <summary>
         /// Depending on your responsive ad's placement, your business's name may appear in your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        BusinessName = 51,
+        BusinessName = 53,
         
         /// <summary>
         /// The path 1 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Path1 = 52,
+        Path1 = 54,
         
         /// <summary>
         /// The path 2 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Path2 = 53,
+        Path2 = 55,
         
         /// <summary>
         /// The labels applied to the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdLabels = 54,
+        AdLabels = 56,
         
         /// <summary>
         /// The Bing Ads assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CustomerId = 55,
+        CustomerId = 57,
         
         /// <summary>
         /// The customer name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CustomerName = 56,
+        CustomerName = 58,
     }
     
     /// <summary>
@@ -8973,7 +9039,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified delivered match types.For example, you can use the filter to include data for ads that were delivered using the exact or phrase match type.
+        /// The report will include data for only the specified delivered match types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V12.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
@@ -9229,7 +9295,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdType = 11,
         
         /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.If the destination URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL after substitution occurs.
+        /// The destination URL attribute of the ad, keyword, or ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 12,
@@ -9241,7 +9307,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CurrentMaxCpc = 13,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 14,
@@ -9992,7 +10058,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdId = 8,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 9,
@@ -10004,7 +10070,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdDistribution = 10,
         
         /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.If the destination URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL after substitution occurs.
+        /// The destination URL attribute of the ad, keyword, or ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 11,
@@ -10390,7 +10456,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Date = 5,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 6,
@@ -10643,7 +10709,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AgeGroup = 9,
         
         /// <summary>
-        /// The gender of the audience who might have viewed the ad, if known.Possible values are Male and Female.
+        /// The gender of the audience who might have viewed the ad, if known.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Gender = 10,
@@ -11506,7 +11572,7 @@ namespace Microsoft.BingAds.V12.Reporting
         MetroArea = 10,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 11,
@@ -11945,7 +12011,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 8,
@@ -12457,7 +12523,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdType = 9,
         
         /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.If the destination URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL after substitution occurs.
+        /// The destination URL attribute of the ad, keyword, or ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 10,
@@ -13899,7 +13965,7 @@ namespace Microsoft.BingAds.V12.Reporting
         ItemChanged = 13,
         
         /// <summary>
-        /// Identifies the attribute or property of the entity from the ItemChanged column that changed.For a list of elements whose change history is reported, see the Attribute Changed column within Remarks.
+        /// Identifies the attribute or property of the entity from the ItemChanged column that changed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AttributeChanged = 14,
@@ -14447,6 +14513,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 40,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TitlePart3 = 41,
     }
     
     /// <summary>
@@ -16433,7 +16505,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 11,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
@@ -16631,7 +16703,7 @@ namespace Microsoft.BingAds.V12.Reporting
         SellerName = 44,
         
         /// <summary>
-        /// The report will include a column that contains the language for the product offer.For possible values see Ad Languages.
+        /// The report will include a column that contains the language for the product offer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 45,
@@ -16667,13 +16739,13 @@ namespace Microsoft.BingAds.V12.Reporting
         ImpressionLostToRankPercent = 50,
         
         /// <summary>
-        /// Shows you how much other advertisers are bidding on average on similar products as your current target.Use this information as a benchmark to compare your bidding strategy for a product group against that of other advertisers advertising similar products.
+        /// Shows you how much other advertisers are bidding on average on similar products as your current target.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkBid = 51,
         
         /// <summary>
-        /// Shows you how other product ads for similar products are performing on average based on how often people who see the ad end up clicking on it.If the benchmark CTR is significantly higher than the CTR for your product group, you might consider raising your bid for that product group, or improving the product information, particularly product images and titles.
+        /// Shows you how other product ads for similar products are performing on average based on how often people who see the ad end up clicking on it.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkCtr = 52,
@@ -16731,6 +16803,30 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StoreId = 61,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedImpressions = 62,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedClicks = 63,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClickSharePercent = 64,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionSharePercent = 65,
     }
     
     /// <summary>
@@ -17003,7 +17099,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CurrentMaxCpc = 12,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 13,
@@ -17099,7 +17195,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupStatus = 28,
         
         /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.If the destination URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL after substitution occurs.
+        /// The destination URL attribute of the ad, keyword, or ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 29,
@@ -17147,7 +17243,7 @@ namespace Microsoft.BingAds.V12.Reporting
         RevenuePerAssist = 36,
         
         /// <summary>
-        /// The report will include a column that contains the language for the product offer.For possible values see Ad Languages.
+        /// The report will include a column that contains the language for the product offer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 37,
@@ -17195,13 +17291,13 @@ namespace Microsoft.BingAds.V12.Reporting
         ImpressionLostToRankPercent = 44,
         
         /// <summary>
-        /// Shows you how much other advertisers are bidding on average on similar products as your current target.Use this information as a benchmark to compare your bidding strategy for a product group against that of other advertisers advertising similar products.
+        /// Shows you how much other advertisers are bidding on average on similar products as your current target.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkBid = 45,
         
         /// <summary>
-        /// Shows you how other product ads for similar products are performing on average based on how often people who see the ad end up clicking on it.If the benchmark CTR is significantly higher than the CTR for your product group, you might consider raising your bid for that product group, or improving the product information, particularly product images and titles.
+        /// Shows you how other product ads for similar products are performing on average based on how often people who see the ad end up clicking on it.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkCtr = 46,
@@ -17247,6 +17343,30 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocalStoreCode = 53,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedImpressions = 54,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedClicks = 55,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClickSharePercent = 56,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionSharePercent = 57,
     }
     
     /// <summary>
@@ -17513,7 +17633,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CurrentMaxCpc = 11,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
@@ -17609,7 +17729,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupStatus = 27,
         
         /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.If the destination URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL after substitution occurs.
+        /// The destination URL attribute of the ad, keyword, or ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 28,
@@ -17691,6 +17811,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocalStoreCode = 41,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedImpressions = 42,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedClicks = 43,
     }
     
     /// <summary>
@@ -17985,7 +18117,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 8,
         
         /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.If the destination URL contains dynamic text substitution parameters (for example, {param1}), the report will contain the URL after substitution occurs.
+        /// The destination URL attribute of the ad, keyword, or ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 9,
@@ -18157,6 +18289,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 37,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedImpressions = 38,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedClicks = 39,
     }
     
     /// <summary>
@@ -18751,7 +18895,7 @@ namespace Microsoft.BingAds.V12.Reporting
         City = 11,
         
         /// <summary>
-        /// The account currency type.For possible values, see Currencies.
+        /// The account currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
@@ -19426,6 +19570,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 42,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FeedUrl = 43,
     }
     
     /// <summary>
@@ -19758,7 +19908,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DynamicAdTargetStatus = 22,
         
         /// <summary>
-        /// A score from 0.0 to 1.0 that indicates the percentage of pages in the requested language that belong to a particular domain out of all the pages that Bing has indexed for the same language your website's domain.In other words coverage is the percentage of webpages that match a category and language divided by the total number of webpages using the same language in the domain.For example, if the category US/CA/SFO matches 500 english webpages and US/CA matches 1,000 english webpages, then the coverage will be 0.50 (50 percent).
+        /// A score from 0.0 to 1.0 that indicates the percentage of pages in the requested language that belong to a particular domain out of all the pages that Bing has indexed for the same language your website's domain.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WebsiteCoverage = 23,
