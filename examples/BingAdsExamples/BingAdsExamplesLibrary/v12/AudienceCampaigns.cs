@@ -173,9 +173,9 @@ namespace BingAdsExamplesLibrary.V12
                 var adGroupCompanyNameCriterion = new BiddableAdGroupCriterion
                 {
                     AdGroupId = (long)adGroupIds[0],
-                    CriterionBid = new FixedBid
+                    CriterionBid = new BidMultiplier
                     {
-                        Amount = 0.50
+                        Multiplier = 15
                     },
                     Criterion = new ProfileCriterion
                     {
@@ -188,9 +188,9 @@ namespace BingAdsExamplesLibrary.V12
                 var adGroupIndustryCriterion = new BiddableAdGroupCriterion
                 {
                     AdGroupId = (long)adGroupIds[0],
-                    CriterionBid = new FixedBid
+                    CriterionBid = new BidMultiplier
                     {
-                        Amount = 0.50
+                        Multiplier = 20
                     },
                     Criterion = new ProfileCriterion
                     {
@@ -203,9 +203,9 @@ namespace BingAdsExamplesLibrary.V12
                 var adGroupJobFunctionCriterion = new BiddableAdGroupCriterion
                 {
                     AdGroupId = (long)adGroupIds[0],
-                    CriterionBid = new FixedBid
+                    CriterionBid = new BidMultiplier
                     {
-                        Amount = 0.50
+                        Multiplier = 25
                     },
                     Criterion = new ProfileCriterion
                     {
