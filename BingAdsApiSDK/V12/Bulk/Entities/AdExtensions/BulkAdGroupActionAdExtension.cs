@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 12.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,24 +47,23 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V12.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.Internal.Bulk.Entities.AdExtensions;
 
-// ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a campaign level sitelink ad extension. 
+    /// Represents an ad group level action ad extension. 
     /// This class exposes properties that can be read and written 
-    /// as fields of the Campaign Sitelink Ad Extension record in a bulk file. 
+    /// as fields of the Ad Group Action Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Sitelink Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Action Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCampaignSitelinkAdExtension : BulkCampaignAdExtensionAssociation
+    public class BulkAdGroupActionAdExtension : BulkAdGroupAdExtensionAssociation
     {
     }
 }

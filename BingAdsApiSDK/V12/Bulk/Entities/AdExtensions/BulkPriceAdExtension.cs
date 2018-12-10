@@ -54,7 +54,6 @@ using Microsoft.BingAds.V12.Internal.Bulk.Entities;
 using Microsoft.BingAds.V12.CampaignManagement;
 
 // ReSharper disable once CheckNamespace
-
 namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>

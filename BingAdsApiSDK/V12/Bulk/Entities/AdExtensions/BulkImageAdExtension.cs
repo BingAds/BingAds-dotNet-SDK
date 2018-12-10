@@ -48,7 +48,6 @@
 //=====================================================================================================================================================
 
 using System.Linq;
-using Microsoft.BingAds.V12.Internal;
 using Microsoft.BingAds.V12.Internal.Bulk;
 using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V12.Internal.Bulk.Entities;

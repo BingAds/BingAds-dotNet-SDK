@@ -49,8 +49,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.BingAds.V12.Internal;
 using Microsoft.BingAds.V12.Internal.Bulk;
 using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V12.Internal.Bulk.Entities;

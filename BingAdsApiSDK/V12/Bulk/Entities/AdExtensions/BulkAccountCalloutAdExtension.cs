@@ -50,12 +50,11 @@
 using Microsoft.BingAds.V12.Internal.Bulk.Entities;
 
 // ReSharper disable once CheckNamespace
-
 namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a campaign level callout ad extension. 
+    /// Represents an account level callout ad extension. 
     /// This class exposes properties that can be read and written 
     /// as fields of the Account Callout Ad Extension record in a bulk file. 
     /// </para>

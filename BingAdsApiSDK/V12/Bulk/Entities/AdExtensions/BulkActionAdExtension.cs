@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 12.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,24 +47,85 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using Microsoft.BingAds.V12.Internal.Bulk;
+using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V12.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.CampaignManagement;
 
-// ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a campaign level sitelink ad extension. 
-    /// This class exposes properties that can be read and written 
-    /// as fields of the Campaign Sitelink Ad Extension record in a bulk file. 
+    /// Represents an action ad extension. 
+    /// This class exposes the <see cref="BulkActionAdExtension.ActionAdExtension"/> property that can be read and written 
+    /// as fields of the Action Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Sitelink Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Action Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCampaignSitelinkAdExtension : BulkCampaignAdExtensionAssociation
+    public class BulkActionAdExtension : BulkAdExtensionBase<ActionAdExtension>
     {
+        /// <summary>
+        /// The action ad extension.
+        /// </summary>
+        public ActionAdExtension ActionAdExtension
+        {
+            get { return AdExtension; }
+            set { AdExtension = value; }
+        }
+
+        private static readonly IBulkMapping<BulkActionAdExtension>[] Mappings =
+        {
+            new SimpleBulkMapping<BulkActionAdExtension>(StringTable.ActionType,
+                c => c.ActionAdExtension.ActionType.ToBulkString(),
+                (v, c) => c.AdExtension.ActionType = v.Parse<ActionAdExtensionActionType>()
+            ),
+
+            new SimpleBulkMapping<BulkActionAdExtension>(StringTable.FinalUrl,
+                c => c.ActionAdExtension.FinalUrls.WriteUrls("; "),
+                (v, c) => c.ActionAdExtension.FinalUrls = v.ParseUrls()
+            ),
+
+            new SimpleBulkMapping<BulkActionAdExtension>(StringTable.FinalMobileUrl,
+                c => c.ActionAdExtension.FinalMobileUrls.WriteUrls("; "),
+                (v, c) => c.ActionAdExtension.FinalMobileUrls = v.ParseUrls()
+            ),
+
+            new SimpleBulkMapping<BulkActionAdExtension>(StringTable.TrackingTemplate,
+                c => c.ActionAdExtension.TrackingUrlTemplate.ToOptionalBulkString(),
+                (v, c) => c.ActionAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
+            ),
+
+            new SimpleBulkMapping<BulkActionAdExtension>(StringTable.CustomParameter,
+                c => c.ActionAdExtension.UrlCustomParameters.ToBulkString(),
+                (v, c) => c.ActionAdExtension.UrlCustomParameters = v.ParseCustomParameters()
+            ),
+
+            new SimpleBulkMapping<BulkActionAdExtension>(StringTable.Language,
+                c => c.ActionAdExtension.Language.ToOptionalBulkString(),
+                (v, c) => c.AdExtension.Language = v.GetValueOrEmptyString()
+            ),
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            ActionAdExtension = new ActionAdExtension { Type = "ActionAdExtension" };
+
+            base.ProcessMappingsFromRowValues(values);
+
+            values.ConvertToEntity(this, Mappings);
+        }
+
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            ValidatePropertyNotNull(ActionAdExtension, "ActionAdExtension");
+
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+
+            this.ConvertToValues(values, Mappings);
+        }
     }
 }

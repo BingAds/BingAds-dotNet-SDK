@@ -54,7 +54,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a campaign level location ad extension. 
+    /// Represents an account level location ad extension. 
     /// This class exposes properties that can be read and written 
     /// as fields of the Account Location Ad Extension record in a bulk file. 
     /// </para>

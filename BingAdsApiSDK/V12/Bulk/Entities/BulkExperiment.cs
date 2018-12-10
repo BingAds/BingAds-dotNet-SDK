@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 12.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,24 +47,87 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V12.Internal.Bulk.Entities;
 
-// ReSharper disable once CheckNamespace
+using Microsoft.BingAds.V12.Internal.Bulk;
+using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V12.Internal.Bulk.Entities;
+using Microsoft.BingAds.V12.CampaignManagement;
+
 namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a campaign level sitelink ad extension. 
-    /// This class exposes properties that can be read and written 
-    /// as fields of the Campaign Sitelink Ad Extension record in a bulk file. 
+    /// Represents an experiment that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkExperiment.Experiment"/> property that can be read and written as fields of the Experiment record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Sitelink Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Experiment</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCampaignSitelinkAdExtension : BulkCampaignAdExtensionAssociation
+    public class BulkExperiment : SingleRecordBulkEntity
     {
+        /// <summary>
+        /// Defines an experiment within an account. 
+        /// </summary>
+        public Experiment Experiment { get; set; }
+        
+        private static readonly IBulkMapping<BulkExperiment>[] Mappings =
+        {
+            new SimpleBulkMapping<BulkExperiment>(StringTable.Id,
+                c => c.Experiment.Id.ToBulkString(),
+                (v, c) => c.Experiment.Id = v.ParseOptional<long>()
+                ),
+
+            new SimpleBulkMapping<BulkExperiment>(StringTable.Status,
+                c => c.Experiment.ExperimentStatus.ToOptionalBulkString(),
+                (v, c) => c.Experiment.ExperimentStatus = v.GetValueOrEmptyString()
+                ),
+
+            new SimpleBulkMapping<BulkExperiment>(StringTable.StartDate,
+                c => c.Experiment.StartDate.ToDateBulkString(),
+                (v, c) => c.Experiment.StartDate = v.ParseDate()
+                ),
+
+            new SimpleBulkMapping<BulkExperiment>(StringTable.EndDate,
+                c => c.Experiment.EndDate.ToDateBulkString(),
+                (v, c) => c.Experiment.EndDate = v.ParseDate()
+                ),
+
+            new SimpleBulkMapping<BulkExperiment>(StringTable.Name,
+                c => c.Experiment.Name,
+                (v, c) => c.Experiment.Name = v
+                ),
+
+            new SimpleBulkMapping<BulkExperiment>(StringTable.TrafficSplitPercent,
+                c => c.Experiment.TrafficSplitPercent.ToBulkString(),
+                (v, c) => c.Experiment.TrafficSplitPercent = v.ParseOptional<int>()
+                ),
+
+            new SimpleBulkMapping<BulkExperiment>(StringTable.BaseCampaignId,
+                c => c.Experiment.BaseCampaignId.ToBulkString(),
+                (v, c) => c.Experiment.BaseCampaignId = v.ParseOptional<long>()
+                ),
+
+            new SimpleBulkMapping<BulkExperiment>(StringTable.ExperimentCampaignId,
+                c => c.Experiment.ExperimentCampaignId.ToBulkString(),
+                (v, c) => c.Experiment.ExperimentCampaignId = v.ParseOptional<long>()
+                ),
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            Experiment = new Experiment();
+
+            values.ConvertToEntity(this, Mappings);
+        }
+
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            ValidatePropertyNotNull(Experiment, "Experiment");
+
+            this.ConvertToValues(values, Mappings);
+        }
     }
 }

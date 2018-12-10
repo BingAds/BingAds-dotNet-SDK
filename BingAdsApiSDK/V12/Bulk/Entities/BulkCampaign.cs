@@ -379,7 +379,13 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                         }
                     }
                 }
-            )
+            ),
+
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.ExperimentId,
+                c => c.Campaign.ExperimentId.ToBulkString(),
+                (v, c) => c.Campaign.ExperimentId = v.ParseOptional<long>()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

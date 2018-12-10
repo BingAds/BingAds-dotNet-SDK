@@ -5103,13 +5103,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 50,
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of clicks that went to your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 51,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times your ad is shown in the top position as a percentage of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 52,
@@ -6586,13 +6586,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 67,
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of clicks that went to your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 68,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times your ad is shown in the top position as a percentage of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 69,
@@ -7279,7 +7279,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TitlePart2 = 32,
         
         /// <summary>
-        /// Reserved.
+        /// The title part 3 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart3 = 33,
@@ -7315,13 +7315,13 @@ namespace Microsoft.BingAds.V12.Reporting
         FinalAppUrl = 38,
         
         /// <summary>
-        /// The text attribute of an ad.
+        /// The first ad description that appears below the path in your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 39,
         
         /// <summary>
-        /// Reserved.
+        /// The second ad description that appears below the path in your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription2 = 40,
@@ -7391,7 +7391,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Active = 1,
         
         /// <summary>
-        /// The report will contain ads that have been rejected by editorial review.
+        /// The report will contain ads that have failed editorial review.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rejected = 2,
@@ -8197,13 +8197,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 60,
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of clicks that went to your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 61,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times your ad is shown in the top position as a percentage of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 62,
@@ -8507,13 +8507,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AdTitle = 9,
         
         /// <summary>
-        /// The text attribute of an ad.
+        /// The first ad description that appears below the path in your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 10,
         
         /// <summary>
-        /// Reserved.
+        /// The second ad description that appears below the path in your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription2 = 11,
@@ -8747,7 +8747,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TitlePart2 = 49,
         
         /// <summary>
-        /// Reserved.
+        /// The title part 2 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart3 = 50,
@@ -12225,7 +12225,7 @@ namespace Microsoft.BingAds.V12.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> SearchQueriesField;
-        
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -12377,7 +12377,7 @@ namespace Microsoft.BingAds.V12.Reporting
                 }
             }
         }
-        
+
         /// <summary>
         /// The report will include data for only the keyword status.
         /// </summary>
@@ -13935,13 +13935,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupId = 8,
         
         /// <summary>
-        /// The ad title.
+        /// The ad title parts.This column will be empty if ItemChanged is not Ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdTitle = 9,
         
         /// <summary>
-        /// The text attribute of an ad.
+        /// The first ad description that appears below the path in your ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 10,
@@ -14515,7 +14515,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TitlePart2 = 40,
         
         /// <summary>
-        /// Reserved.
+        /// The title part 3 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart3 = 41,
@@ -16805,25 +16805,25 @@ namespace Microsoft.BingAds.V12.Reporting
         StoreId = 61,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Bing Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 62,
         
         /// <summary>
-        /// Reserved.
+        /// Clicks on your ads that have received co-bids from your manufacturer partners.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedClicks = 63,
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of clicks that went to your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 64,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times your ad is shown in the top position as a percentage of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 65,
@@ -17345,25 +17345,25 @@ namespace Microsoft.BingAds.V12.Reporting
         LocalStoreCode = 53,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Bing Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 54,
         
         /// <summary>
-        /// Reserved.
+        /// Clicks on your ads that have received co-bids from your manufacturer partners.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedClicks = 55,
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of clicks that went to your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 56,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times your ad is shown in the top position as a percentage of the total available impressions in the market you were targeting.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 57,
@@ -17813,13 +17813,13 @@ namespace Microsoft.BingAds.V12.Reporting
         LocalStoreCode = 41,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Bing Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 42,
         
         /// <summary>
-        /// Reserved.
+        /// Clicks on your ads that have received co-bids from your manufacturer partners.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedClicks = 43,
@@ -18291,13 +18291,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 37,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Bing Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 38,
         
         /// <summary>
-        /// Reserved.
+        /// Clicks on your ads that have received co-bids from your manufacturer partners.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedClicks = 39,
@@ -19130,7 +19130,10 @@ namespace Microsoft.BingAds.V12.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool ExcludeZeroClicksField;
-        
+
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> FeedUrlField;
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> LanguageCodeField;
         
@@ -19248,7 +19251,27 @@ namespace Microsoft.BingAds.V12.Reporting
                 }
             }
         }
-        
+
+        /// <summary>
+        /// If the value of this element is set to true, the report will include data for only the search terms whose final URL came from a page feed.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> FeedUrl
+        {
+            get
+            {
+                return this.FeedUrlField;
+            }
+            set
+            {
+                if ((this.FeedUrlField.Equals(value) != true))
+                {
+                    this.FeedUrlField = value;
+                    this.RaisePropertyChanged("FeedUrl");
+                }
+            }
+        }
+
         /// <summary>
         /// The report will include data for only websites that used the specified languages.
         /// </summary>
@@ -19572,7 +19595,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 42,
         
         /// <summary>
-        /// Reserved.
+        /// The feed URL will appear either as "True" or "False".
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FeedUrl = 43,

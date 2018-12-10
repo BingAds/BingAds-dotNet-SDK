@@ -47,8 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Reflection;
-
 namespace Microsoft.BingAds.V12.Internal.Bulk
 {
     internal class StringTable
@@ -223,7 +221,13 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string BudgetId = "Budget Id";
         public const string BudgetType = "Budget Type";
         public const string BudgetName = "Budget Name";
-        
+
+        public const string Experiment = "Experiment";
+        public const string TrafficSplitPercent = "Traffic Split Percent";
+        public const string BaseCampaignId = "Base Campaign Id";
+        public const string ExperimentCampaignId = "Experiment Campaign Id";
+        public const string ExperimentId = "Experiment Id";
+
         public const string AdGroup = "Ad Group";
         public const string Keyword = "Keyword";
 
@@ -551,6 +555,13 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string CampaignCalloutAdExtension = "Campaign Callout Ad Extension";
         public const string AdGroupCalloutAdExtension = "Ad Group Callout Ad Extension";
         public const string CalloutText = "Callout Text";
+
+        // Action Ad Extension
+        public const string ActionAdExtension = "Action Ad Extension";
+        public const string AccountActionAdExtension = "Account Action Ad Extension";
+        public const string CampaignActionAdExtension = "Campaign Action Ad Extension";
+        public const string AdGroupActionAdExtension = "Ad Group Action Ad Extension";
+        public const string ActionType = "Action Type";
 
         // AutoBidding
         public const string BidStrategyType = "Bid Strategy Type";

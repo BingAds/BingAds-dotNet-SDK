@@ -92,6 +92,12 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             StringTable.BudgetType,
             StringTable.LocalInventoryAdsEnabled,
 
+            // experiment
+            StringTable.TrafficSplitPercent,
+            StringTable.BaseCampaignId,
+            StringTable.ExperimentCampaignId,
+            StringTable.ExperimentId,
+
             // Ad Group
             StringTable.StartDate,
             StringTable.EndDate,
@@ -149,6 +155,9 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             StringTable.Version,
             StringTable.AdSchedule,
             StringTable.UseSearcherTimeZone,
+
+            // Action ad extension
+            StringTable.ActionType,
 
             // Site link ad extensions
             StringTable.SiteLinkExtensionOrder,

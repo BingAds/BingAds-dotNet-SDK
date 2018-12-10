@@ -249,7 +249,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The system generated identifier of the Experiment.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<long> ExperimentId
@@ -2579,7 +2579,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines a list of optional Campaign properties that you can request when calling GetCampaignsByAccountId and GetCampaignsByIds.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/campaignadditionalfield?view=bingads-12">CampaignAdditionalField Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/campaignadditionalfield?view=bingads-12 for details.
@@ -2592,7 +2592,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Request that the ExperimentId element be included within each returned Campaign object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExperimentId = 1,
@@ -4411,6 +4411,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private string HeadlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AssetLink> ImagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> LandscapeImageMediaIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4484,6 +4487,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
                 {
                     this.HeadlineField = value;
                     this.RaisePropertyChanged("Headline");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AssetLink> Images
+        {
+            get
+            {
+                return this.ImagesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ImagesField, value) != true))
+                {
+                    this.ImagesField = value;
+                    this.RaisePropertyChanged("Images");
                 }
             }
         }
@@ -5106,7 +5129,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/assetlink?view=bingads-12">AssetLink Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/assetlink?view=bingads-12 for details.
-    /// <para>Used by <see cref="ResponsiveSearchAd"/> data object.</para>
+    /// <para>Used by <see cref="ResponsiveAd"/> and <see cref="ResponsiveSearchAd"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5246,6 +5269,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     [System.Runtime.Serialization.DataContractAttribute(Name="Asset", Namespace="https://bingads.microsoft.com/CampaignManagement/v12")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V12.CampaignManagement.TextAsset))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V12.CampaignManagement.ImageAsset))]
     public partial class Asset : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -5426,6 +5450,135 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/imageasset?view=bingads-12">ImageAsset Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/imageasset?view=bingads-12 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImageAsset", Namespace="https://bingads.microsoft.com/CampaignManagement/v12")]
+    [System.SerializableAttribute()]
+    public partial class ImageAsset : Microsoft.BingAds.V12.CampaignManagement.Asset
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CropHeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CropWidthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CropXField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CropYField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubTypeField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CropHeight
+        {
+            get
+            {
+                return this.CropHeightField;
+            }
+            set
+            {
+                if ((this.CropHeightField.Equals(value) != true))
+                {
+                    this.CropHeightField = value;
+                    this.RaisePropertyChanged("CropHeight");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CropWidth
+        {
+            get
+            {
+                return this.CropWidthField;
+            }
+            set
+            {
+                if ((this.CropWidthField.Equals(value) != true))
+                {
+                    this.CropWidthField = value;
+                    this.RaisePropertyChanged("CropWidth");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CropX
+        {
+            get
+            {
+                return this.CropXField;
+            }
+            set
+            {
+                if ((this.CropXField.Equals(value) != true))
+                {
+                    this.CropXField = value;
+                    this.RaisePropertyChanged("CropX");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CropY
+        {
+            get
+            {
+                return this.CropYField;
+            }
+            set
+            {
+                if ((this.CropYField.Equals(value) != true))
+                {
+                    this.CropYField = value;
+                    this.RaisePropertyChanged("CropY");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SubType
+        {
+            get
+            {
+                return this.SubTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SubTypeField, value) != true))
+                {
+                    this.SubTypeField = value;
+                    this.RaisePropertyChanged("SubType");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a list of optional Ad properties that you can request when calling GetAdsByAdGroupId, GetAdsByEditorialStatus, and GetAdsByIds.
     /// </summary>
     /// <remarks>
@@ -5449,6 +5602,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TextPart2 = 2,
+        
+        /// <summary>
+        /// Request that the Images element be included within each returned ResponsiveAd object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Images = 4,
     }
     
     /// <summary>
@@ -6247,7 +6406,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the values that you use to determine whether an editorial rejection is appealable.
+    /// Defines the values that you use to determine whether an editorial issue is appealable.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealstatus?view=bingads-12">AppealStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealstatus?view=bingads-12 for details.
@@ -6259,19 +6418,19 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     {
         
         /// <summary>
-        /// The editorial rejection is appealable.
+        /// The editorial issue is appealable.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Appealable = 1,
         
         /// <summary>
-        /// The editorial rejection is appealable and an appeal has been submitted.
+        /// The editorial issue is appealable and an appeal has been submitted.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppealPending = 2,
         
         /// <summary>
-        /// The editorial rejection is not appealable.
+        /// The editorial issue is not appealable.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NotAppealable = 3,
@@ -7593,7 +7752,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an app ad extension that can be included in a text ad.
+    /// Defines an app ad extension that can be included in an ad.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/appadextension?view=bingads-12">AppAdExtension Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/appadextension?view=bingads-12 for details.
@@ -8178,7 +8337,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines an action ad extension with a call-to-action button.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/actionadextension?view=bingads-12">ActionAdExtension Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/actionadextension?view=bingads-12 for details.
@@ -8208,7 +8367,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private Microsoft.BingAds.V12.CampaignManagement.CustomParameters UrlCustomParametersField;
         
         /// <summary>
-        /// Reserved.
+        /// The text you choose here is what is displayed on your call-to-action button.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.CampaignManagement.ActionAdExtensionActionType ActionType
@@ -8228,7 +8387,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This is a mobile-friendly landing page URL when Action Extensions are served on mobile devices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -8248,7 +8407,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This is the link to your specific web page or form that corresponds to the action text.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -8268,7 +8427,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The language that the ad extension will be served in.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Language
@@ -8288,7 +8447,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The tracking template to use as a default for all FinalUrls and FinalMobileUrls.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -8308,7 +8467,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Your custom collection of key and value parameters for URL tracking.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V12.CampaignManagement.CustomParameters UrlCustomParameters
@@ -9109,7 +9268,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines the possible options for action text that can be displayed in an action ad extension.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/actionadextensionactiontype?view=bingads-12">ActionAdExtensionActionType Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/actionadextensionactiontype?view=bingads-12 for details.
@@ -9121,397 +9280,397 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ActNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActNow = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ApplyNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ApplyNow = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of BetNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BetNow = 3,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of BidNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidNow = 4,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of BookACar in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookACar = 5,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of BookHotel in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookHotel = 6,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of BookNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookNow = 7,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Browse in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Browse = 8,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of BuyNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BuyNow = 9,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ChatNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChatNow = 10,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Compare in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Compare = 11,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ContactUs in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ContactUs = 12,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Coupon in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Coupon = 13,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Donate in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Donate = 14,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Download in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Download = 15,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of EmailNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EmailNow = 16,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of EnrollNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnrollNow = 17,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Explore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Explore = 18,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of FileNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FileNow = 19,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of FindJob in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FindJob = 20,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of FreePlay in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FreePlay = 21,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of FreeQuote in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FreeQuote = 22,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of FreeTrial in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FreeTrial = 23,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of GetDeals in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetDeals = 24,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of GetOffer in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetOffer = 25,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of GetQuote in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetQuote = 26,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of JoinNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JoinNow = 27,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of LearnMore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LearnMore = 28,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ListenNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ListenNow = 29,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of LogIn in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LogIn = 30,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Message in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Message = 31,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of NewCars in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCars = 32,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of OrderNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OrderNow = 33,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of PlayGame in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PlayGame = 34,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of PlayNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PlayNow = 35,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of PostJob in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostJob = 36,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Register in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Register = 37,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of RentACar in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RentACar = 38,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of RentNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RentNow = 39,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Reserve in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Reserve = 40,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Sale in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sale = 41,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SaveNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SaveNow = 42,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Schedule in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Schedule = 43,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SeeMenu in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeMenu = 44,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SeeMore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeMore = 45,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SeeOffer in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeOffer = 46,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SellNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SellNow = 47,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ShopNOw in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ShopNow = 48,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Showtimes in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Showtimes = 49,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SignIn in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SignIn = 50,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SignUp in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SignUp = 51,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of StartFree in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartFree = 52,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of StartNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartNow = 53,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Subscribe in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Subscribe = 54,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of TestDrive in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TestDrive = 55,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of TryNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TryNow = 56,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of UsedCars in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UsedCars = 57,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ViewCars in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewCars = 58,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ViewNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewNow = 59,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ViewPlans in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewPlans = 60,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of VisitSite in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VisitSite = 61,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of VoteNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VoteNow = 62,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Watch in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Watch = 63,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of WatchMore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WatchMore = 64,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of WatchNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WatchNow = 65,
@@ -10495,7 +10654,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         PriceAdExtension = 256,
         
         /// <summary>
-        /// Reserved.
+        /// An ad extension that contains a call-to-action button.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActionAdExtension = 512,
@@ -18422,7 +18581,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an experiment where you split a campaign's budget and traffic, and then run an A/B test during a limited date range.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/experiment?view=bingads-12">Experiment Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/experiment?view=bingads-12 for details.
@@ -18478,7 +18637,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The Bing Ads identifier of the campaign used as the base for the experiment campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> BaseCampaignId
@@ -18498,7 +18657,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The date that the experiment will expire.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V12.CampaignManagement.Date EndDate
@@ -18518,7 +18677,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The Bing Ads identifier of the campaign that is created as a copy of the base campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ExperimentCampaignId
@@ -18538,7 +18697,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The status of the experiment.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ExperimentStatus
@@ -18558,7 +18717,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ExperimentType
@@ -18578,7 +18737,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The unique Bing Ads identifier of the experiment.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -18598,7 +18757,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The name of the experiment.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
@@ -18618,7 +18777,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The date that the experiment campaign can begin serving ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V12.CampaignManagement.Date StartDate
@@ -18638,7 +18797,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percentage of the base campaign's budget and ad traffic that you want to allocate for this experiment.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> TrafficSplitPercent
@@ -19583,7 +19742,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.UpdateKeywordsResponse> UpdateKeywordsAsync(Microsoft.BingAds.V12.CampaignManagement.UpdateKeywordsRequest request);
         
         /// <summary>
-        /// Appeals the editorial rejections of one or more ads or keywords that failed editorial review.
+        /// Appeals ads or keywords that failed editorial review.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12">AppealEditorialRejections Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12 for details.
@@ -19601,7 +19760,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         Microsoft.BingAds.V12.CampaignManagement.AppealEditorialRejectionsResponse AppealEditorialRejections(Microsoft.BingAds.V12.CampaignManagement.AppealEditorialRejectionsRequest request);
         
         /// <summary>
-        /// Appeals the editorial rejections of one or more ads or keywords that failed editorial review.
+        /// Appeals ads or keywords that failed editorial review.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12">AppealEditorialRejections Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12 for details.
@@ -19615,7 +19774,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.AppealEditorialRejectionsResponse> AppealEditorialRejectionsAsync(Microsoft.BingAds.V12.CampaignManagement.AppealEditorialRejectionsRequest request);
         
         /// <summary>
-        /// Gets the reasons why the specified entities failed editorial review and whether the rejection is appealable.
+        /// Gets the reasons why the specified entities failed editorial review and whether the issue is appealable.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12">GetEditorialReasonsByIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12 for details.
@@ -19633,7 +19792,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         Microsoft.BingAds.V12.CampaignManagement.GetEditorialReasonsByIdsResponse GetEditorialReasonsByIds(Microsoft.BingAds.V12.CampaignManagement.GetEditorialReasonsByIdsRequest request);
         
         /// <summary>
-        /// Gets the reasons why the specified entities failed editorial review and whether the rejection is appealable.
+        /// Gets the reasons why the specified entities failed editorial review and whether the issue is appealable.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12">GetEditorialReasonsByIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12 for details.
@@ -19871,7 +20030,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.DeleteAdExtensionsResponse> DeleteAdExtensionsAsync(Microsoft.BingAds.V12.CampaignManagement.DeleteAdExtensionsRequest request);
         
         /// <summary>
-        /// Gets editorial rejection reasons for the respective ad extension and entity associations.
+        /// Gets reasons for ad extension editorial issues.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12">GetAdExtensionsEditorialReasons Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12 for details.
@@ -19889,7 +20048,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         Microsoft.BingAds.V12.CampaignManagement.GetAdExtensionsEditorialReasonsResponse GetAdExtensionsEditorialReasons(Microsoft.BingAds.V12.CampaignManagement.GetAdExtensionsEditorialReasonsRequest request);
         
         /// <summary>
-        /// Gets editorial rejection reasons for the respective ad extension and entity associations.
+        /// Gets reasons for ad extension editorial issues.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12">GetAdExtensionsEditorialReasons Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12 for details.
@@ -21771,7 +21930,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.GetLabelAssociationsByLabelIdsResponse> GetLabelAssociationsByLabelIdsAsync(Microsoft.BingAds.V12.CampaignManagement.GetLabelAssociationsByLabelIdsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Adds experiments and creates experiment campaigns based on existing campaigns in an account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12">AddExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12 for details.
@@ -21789,7 +21948,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         Microsoft.BingAds.V12.CampaignManagement.AddExperimentsResponse AddExperiments(Microsoft.BingAds.V12.CampaignManagement.AddExperimentsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Adds experiments and creates experiment campaigns based on existing campaigns in an account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12">AddExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12 for details.
@@ -21803,7 +21962,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.AddExperimentsResponse> AddExperimentsAsync(Microsoft.BingAds.V12.CampaignManagement.AddExperimentsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Deletes one or more experiments.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12">DeleteExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12 for details.
@@ -21811,7 +21970,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteExperiments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v12/ICampaignManagementService/D" +
             "eleteExperimentsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v12/ICampaignManagementService/D" +
@@ -21821,7 +21980,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         Microsoft.BingAds.V12.CampaignManagement.DeleteExperimentsResponse DeleteExperiments(Microsoft.BingAds.V12.CampaignManagement.DeleteExperimentsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Deletes one or more experiments.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12">DeleteExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12 for details.
@@ -21829,13 +21988,13 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteExperiments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v12/ICampaignManagementService/D" +
             "eleteExperimentsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.DeleteExperimentsResponse> DeleteExperimentsAsync(Microsoft.BingAds.V12.CampaignManagement.DeleteExperimentsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Updates the specified experiments.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12">UpdateExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12 for details.
@@ -21843,7 +22002,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateExperiments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v12/ICampaignManagementService/U" +
             "pdateExperimentsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v12/ICampaignManagementService/U" +
@@ -21853,7 +22012,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         Microsoft.BingAds.V12.CampaignManagement.UpdateExperimentsResponse UpdateExperiments(Microsoft.BingAds.V12.CampaignManagement.UpdateExperimentsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Updates the specified experiments.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12">UpdateExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12 for details.
@@ -21861,13 +22020,13 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateExperiments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v12/ICampaignManagementService/U" +
             "pdateExperimentsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.UpdateExperimentsResponse> UpdateExperimentsAsync(Microsoft.BingAds.V12.CampaignManagement.UpdateExperimentsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets experiments by experiment identifiers.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12">GetExperimentsByIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12 for details.
@@ -21885,7 +22044,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         Microsoft.BingAds.V12.CampaignManagement.GetExperimentsByIdsResponse GetExperimentsByIds(Microsoft.BingAds.V12.CampaignManagement.GetExperimentsByIdsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets experiments by experiment identifiers.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12">GetExperimentsByIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12 for details.
@@ -22118,7 +22277,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public Microsoft.BingAds.V12.CampaignManagement.CampaignType CampaignType;
         
         /// <summary>
-        /// Reserved.
+        /// The list of additional properties that you want included within each returned Campaign object.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=2)]
         public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields;
@@ -22141,7 +22300,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
         /// <param name="CampaignType">The type of campaign to get, for example Search, Shopping, or DynamicSearchAds.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Campaign object.</param>
         public GetCampaignsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V12.CampaignManagement.CampaignType CampaignType, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -22256,7 +22415,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public Microsoft.BingAds.V12.CampaignManagement.CampaignType CampaignType;
         
         /// <summary>
-        /// Reserved.
+        /// The list of additional properties that you want included within each returned Campaign object.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=3)]
         public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields;
@@ -22280,7 +22439,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
         /// <param name="CampaignIds">A maximum of 100 identifiers of the campaigns to get from the specified account.</param>
         /// <param name="CampaignType">The type of campaigns to get, for example Search, Shopping, or DynamicSearchAds.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Campaign object.</param>
         public GetCampaignsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> CampaignIds, Microsoft.BingAds.V12.CampaignManagement.CampaignType CampaignType, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -25690,7 +25849,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Appeals the editorial rejections of one or more ads or keywords that failed editorial review.
+    /// Appeals ads or keywords that failed editorial review.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12">AppealEditorialRejections Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12 for details.
@@ -25776,7 +25935,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Appeals the editorial rejections of one or more ads or keywords that failed editorial review.
+    /// Appeals ads or keywords that failed editorial review.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12">AppealEditorialRejections Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12 for details.
@@ -25822,7 +25981,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the reasons why the specified entities failed editorial review and whether the rejection is appealable.
+    /// Gets the reasons why the specified entities failed editorial review and whether the issue is appealable.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12">GetEditorialReasonsByIds Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12 for details.
@@ -25908,7 +26067,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the reasons why the specified entities failed editorial review and whether the rejection is appealable.
+    /// Gets the reasons why the specified entities failed editorial review and whether the issue is appealable.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12">GetEditorialReasonsByIds Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12 for details.
@@ -26838,7 +26997,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Gets editorial rejection reasons for the respective ad extension and entity associations.
+    /// Gets reasons for ad extension editorial issues.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12">GetAdExtensionsEditorialReasons Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12 for details.
@@ -26924,7 +27083,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Gets editorial rejection reasons for the respective ad extension and entity associations.
+    /// Gets reasons for ad extension editorial issues.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12">GetAdExtensionsEditorialReasons Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12 for details.
@@ -34388,7 +34547,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Adds experiments and creates experiment campaigns based on existing campaigns in an account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12">AddExperiments Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12 for details.
@@ -34422,7 +34581,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The list of experiments to add.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Experiment> Experiments;
@@ -34443,7 +34602,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12">AddExperimentsRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="Experiments">Reserved.</param>
+        /// <param name="Experiments">The list of experiments to add.</param>
         public AddExperimentsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Experiment> Experiments)
         {
             this.ApplicationToken = ApplicationToken;
@@ -34458,7 +34617,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Adds experiments and creates experiment campaigns based on existing campaigns in an account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12">AddExperiments Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12 for details.
@@ -34474,13 +34633,13 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// A list of unique system identifiers corresponding to the experiments that were added.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=0)]
         public System.Collections.Generic.IList<System.Nullable<long>> ExperimentIds;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.BatchError> PartialErrors;
@@ -34501,8 +34660,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12">AddExperimentsResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="ExperimentIds">Reserved.</param>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="ExperimentIds">A list of unique system identifiers corresponding to the experiments that were added.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public AddExperimentsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> ExperimentIds, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -34512,7 +34671,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Deletes one or more experiments.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12">DeleteExperiments Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12 for details.
@@ -34546,7 +34705,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// A maximum of 100 experiment identifiers to delete.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=0)]
         public System.Collections.Generic.IList<long> ExperimentIds;
@@ -34567,7 +34726,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12">DeleteExperimentsRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="ExperimentIds">Reserved.</param>
+        /// <param name="ExperimentIds">A maximum of 100 experiment identifiers to delete.</param>
         public DeleteExperimentsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ExperimentIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -34582,7 +34741,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Deletes one or more experiments.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12">DeleteExperiments Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12 for details.
@@ -34598,7 +34757,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.BatchError> PartialErrors;
@@ -34619,7 +34778,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12">DeleteExperimentsResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public DeleteExperimentsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -34628,7 +34787,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Updates the specified experiments.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12">UpdateExperiments Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12 for details.
@@ -34662,7 +34821,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// An array of Experiment objects to update within the account.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Experiment> Experiments;
@@ -34683,7 +34842,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12">UpdateExperimentsRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="Experiments">Reserved.</param>
+        /// <param name="Experiments">An array of Experiment objects to update within the account.</param>
         public UpdateExperimentsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Experiment> Experiments)
         {
             this.ApplicationToken = ApplicationToken;
@@ -34698,7 +34857,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Updates the specified experiments.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12">UpdateExperiments Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12 for details.
@@ -34714,7 +34873,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.BatchError> PartialErrors;
@@ -34735,7 +34894,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12">UpdateExperimentsResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public UpdateExperimentsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -34744,7 +34903,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets experiments by experiment identifiers.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12">GetExperimentsByIds Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12 for details.
@@ -34778,13 +34937,13 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The identifiers of the experiments to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=0)]
         public System.Collections.Generic.IList<long> ExperimentIds;
         
         /// <summary>
-        /// Reserved.
+        /// Determines the index and size of experiment results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=1)]
         public Microsoft.BingAds.V12.CampaignManagement.Paging PageInfo;
@@ -34805,8 +34964,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12">GetExperimentsByIdsRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="ExperimentIds">Reserved.</param>
-        /// <param name="PageInfo">Reserved.</param>
+        /// <param name="ExperimentIds">The identifiers of the experiments to get.</param>
+        /// <param name="PageInfo">Determines the index and size of experiment results per page.</param>
         public GetExperimentsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ExperimentIds, Microsoft.BingAds.V12.CampaignManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -34822,7 +34981,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets experiments by experiment identifiers.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12">GetExperimentsByIds Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12 for details.
@@ -34838,13 +34997,13 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array of Experiment objects that corresponds directly to the experiment identifiers that you specified in the request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Experiment> Experiments;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.BatchError> PartialErrors;
@@ -34865,8 +35024,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12">GetExperimentsByIdsResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="Experiments">Reserved.</param>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="Experiments">An array of Experiment objects that corresponds directly to the experiment identifiers that you specified in the request.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetExperimentsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Experiment> Experiments, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -35900,7 +36059,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Appeals the editorial rejections of one or more ads or keywords that failed editorial review.
+        /// Appeals ads or keywords that failed editorial review.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12">AppealEditorialRejections Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12 for details.
@@ -35915,7 +36074,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Appeals the editorial rejections of one or more ads or keywords that failed editorial review.
+        /// Appeals ads or keywords that failed editorial review.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12">AppealEditorialRejections Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/appealeditorialrejections?view=bingads-12 for details.
@@ -35930,7 +36089,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the reasons why the specified entities failed editorial review and whether the rejection is appealable.
+        /// Gets the reasons why the specified entities failed editorial review and whether the issue is appealable.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12">GetEditorialReasonsByIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12 for details.
@@ -35945,7 +36104,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the reasons why the specified entities failed editorial review and whether the rejection is appealable.
+        /// Gets the reasons why the specified entities failed editorial review and whether the issue is appealable.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12">GetEditorialReasonsByIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/geteditorialreasonsbyids?view=bingads-12 for details.
@@ -36170,7 +36329,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Gets editorial rejection reasons for the respective ad extension and entity associations.
+        /// Gets reasons for ad extension editorial issues.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12">GetAdExtensionsEditorialReasons Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12 for details.
@@ -36185,7 +36344,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Gets editorial rejection reasons for the respective ad extension and entity associations.
+        /// Gets reasons for ad extension editorial issues.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12">GetAdExtensionsEditorialReasons Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadextensionseditorialreasons?view=bingads-12 for details.
@@ -37950,7 +38109,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Adds experiments and creates experiment campaigns based on existing campaigns in an account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12">AddExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12 for details.
@@ -37965,7 +38124,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Adds experiments and creates experiment campaigns based on existing campaigns in an account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12">AddExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/addexperiments?view=bingads-12 for details.
@@ -37980,7 +38139,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Deletes one or more experiments.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12">DeleteExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12 for details.
@@ -37988,14 +38147,14 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V12.CampaignManagement.DeleteExperimentsResponse DeleteExperiments(Microsoft.BingAds.V12.CampaignManagement.DeleteExperimentsRequest request)
         {
             return base.Channel.DeleteExperiments(request);
         }
         
         /// <summary>
-        /// Reserved.
+        /// Deletes one or more experiments.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12">DeleteExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/deleteexperiments?view=bingads-12 for details.
@@ -38003,14 +38162,14 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.DeleteExperimentsResponse> DeleteExperimentsAsync(Microsoft.BingAds.V12.CampaignManagement.DeleteExperimentsRequest request)
         {
             return base.Channel.DeleteExperimentsAsync(request);
         }
         
         /// <summary>
-        /// Reserved.
+        /// Updates the specified experiments.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12">UpdateExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12 for details.
@@ -38018,14 +38177,14 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V12.CampaignManagement.UpdateExperimentsResponse UpdateExperiments(Microsoft.BingAds.V12.CampaignManagement.UpdateExperimentsRequest request)
         {
             return base.Channel.UpdateExperiments(request);
         }
         
         /// <summary>
-        /// Reserved.
+        /// Updates the specified experiments.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12">UpdateExperiments Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/updateexperiments?view=bingads-12 for details.
@@ -38033,14 +38192,14 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V12.CampaignManagement.UpdateExperimentsResponse> UpdateExperimentsAsync(Microsoft.BingAds.V12.CampaignManagement.UpdateExperimentsRequest request)
         {
             return base.Channel.UpdateExperimentsAsync(request);
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets experiments by experiment identifiers.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12">GetExperimentsByIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12 for details.
@@ -38055,7 +38214,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets experiments by experiment identifiers.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12">GetExperimentsByIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getexperimentsbyids?view=bingads-12 for details.

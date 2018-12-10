@@ -52,6 +52,7 @@ using System.Collections.Generic;
 using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.V12.Bulk.Entities;
 using BulkAccount = Microsoft.BingAds.V12.Bulk.Entities.BulkAccount;
+using BulkAccountActionAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAccountActionAdExtension;
 using BulkAccountAppAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAccountAppAdExtension;
 using BulkAccountCalloutAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAccountCalloutAdExtension;
 using BulkAccountImageAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAccountImageAdExtension;
@@ -61,6 +62,7 @@ using BulkAccountReviewAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAcc
 using BulkAccountSitelinkAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAccountSitelinkAdExtension;
 using BulkAccountStructuredSnippetAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAccountStructuredSnippetAdExtension;
 using BulkAdGroup = Microsoft.BingAds.V12.Bulk.Entities.BulkAdGroup;
+using BulkAdGroupActionAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAdGroupActionAdExtension;
 using BulkAdGroupAppAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAdGroupAppAdExtension;
 using BulkAdGroupCalloutAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAdGroupCalloutAdExtension;
 using BulkAdGroupCustomAudienceAssociation = Microsoft.BingAds.V12.Bulk.Entities.BulkAdGroupCustomAudienceAssociation;
@@ -83,9 +85,12 @@ using BulkAdGroupStructuredSnippetAdExtension = Microsoft.BingAds.V12.Bulk.Entit
 using BulkAppAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkAppAdExtension;
 using BulkAppInstallAd = Microsoft.BingAds.V12.Bulk.Entities.BulkAppInstallAd;
 using BulkBudget = Microsoft.BingAds.V12.Bulk.Entities.BulkBudget;
+using BulkExperiment = Microsoft.BingAds.V12.Bulk.Entities.BulkExperiment;
+using BulkActionAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkActionAdExtension;
 using BulkCallAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkCallAdExtension;
 using BulkCalloutAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkCalloutAdExtension;
 using BulkCampaign = Microsoft.BingAds.V12.Bulk.Entities.BulkCampaign;
+using BulkCampaignActionAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkCampaignActionAdExtension;
 using BulkCampaignAppAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkCampaignAppAdExtension;
 using BulkCampaignCallAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkCampaignCallAdExtension;
 using BulkCampaignCalloutAdExtension = Microsoft.BingAds.V12.Bulk.Entities.BulkCampaignCalloutAdExtension;
@@ -178,6 +183,10 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 {StringTable.AccountCalloutAdExtension,    new EntityInfo(() => new BulkAccountCalloutAdExtension())},
                 {StringTable.CampaignCalloutAdExtension,    new EntityInfo(() => new BulkCampaignCalloutAdExtension())},
                 {StringTable.AdGroupCalloutAdExtension,     new EntityInfo(() => new BulkAdGroupCalloutAdExtension())},
+                {StringTable.ActionAdExtension,            new EntityInfo(() => new BulkActionAdExtension()) },
+                {StringTable.AccountActionAdExtension,    new EntityInfo(() => new BulkAccountActionAdExtension())},
+                {StringTable.CampaignActionAdExtension,    new EntityInfo(() => new BulkCampaignActionAdExtension())},
+                {StringTable.AdGroupActionAdExtension,     new EntityInfo(() => new BulkAdGroupActionAdExtension())},
                 {StringTable.StructuredSnippetAdExtension,  new EntityInfo(() => new BulkStructuredSnippetAdExtension()) },
                 {StringTable.AccountStructuredSnippetAdExtension,    new EntityInfo(() => new BulkAccountStructuredSnippetAdExtension())},
                 {StringTable.CampaignStructuredSnippetAdExtension,    new EntityInfo(() => new BulkCampaignStructuredSnippetAdExtension())},
@@ -215,6 +224,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 {StringTable.CampaignSitelinkAdExtension,  new EntityInfo(() => new BulkCampaignSitelinkAdExtension())},
                 {StringTable.AdGroupSitelinkAdExtension,   new EntityInfo(() => new BulkAdGroupSitelinkAdExtension())}, 
                 {StringTable.Budget,                        new EntityInfo(() => new BulkBudget())},
+                {StringTable.Experiment,                    new EntityInfo(() => new BulkExperiment())},
 
                 {StringTable.DynamicSearchAd,               new EntityInfo(() => new BulkDynamicSearchAd())},
                 {StringTable.AdGroupDynamicSearchAdTarget,  new EntityInfo(() => new BulkAdGroupDynamicSearchAdTarget())},
