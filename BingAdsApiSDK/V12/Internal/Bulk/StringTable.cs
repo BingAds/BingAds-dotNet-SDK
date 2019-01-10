@@ -577,15 +577,28 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string RemarketingList = "Remarketing List";
         public const string AdGroupRemarketingListAssociation = "Ad Group Remarketing List Association";
         public const string AdGroupNegativeRemarketingListAssociation = "Ad Group Negative Remarketing List Association";
+        public const string CampaignRemarketingListAssociation = "Campaign Remarketing List Association";
+        public const string CampaignNegativeRemarketingListAssociation = "Campaign Negative Remarketing List Association";
         public const string CustomAudience = "Custom Audience";
         public const string AdGroupCustomAudienceAssociation = "Ad Group Custom Audience Association";
         public const string AdGroupNegativeCustomAudienceAssociation = "Ad Group Negative Custom Audience Association";
+        public const string CampaignCustomAudienceAssociation = "Campaign Custom Audience Association";
+        public const string CampaignNegativeCustomAudienceAssociation = "Campaign Negative Custom Audience Association";
         public const string InMarketAudience = "In Market Audience";
         public const string AdGroupInMarketAudienceAssociation = "Ad Group In Market Audience Association";
         public const string AdGroupNegativeInMarketAudienceAssociation = "Ad Group Negative In Market Audience Association";
+        public const string CampaignInMarketAudienceAssociation = "Campaign In Market Audience Association";
+        public const string CampaignNegativeInMarketAudienceAssociation = "Campaign Negative In Market Audience Association";
         public const string ProductAudience = "Product Audience";
         public const string AdGroupProductAudienceAssociation = "Ad Group Product Audience Association";
         public const string AdGroupNegativeProductAudienceAssociation = "Ad Group Negative Product Audience Association";
+        public const string CampaignProductAudienceAssociation = "Campaign Product Audience Association";
+        public const string CampaignNegativeProductAudienceAssociation = "Campaign Negative Product Audience Association";
+        public const string SimilarRemarketingList = "Similar Remarketing List";
+        public const string AdGroupSimilarRemarketingListAssociation = "Ad Group Similar Remarketing List Association";
+        public const string AdGroupNegativeSimilarRemarketingListAssociation = "Ad Group Negative Similar Remarketing List Association";
+        public const string CampaignSimilarRemarketingListAssociation = "Campaign Similar Remarketing List Association";
+        public const string CampaignNegativeSimilarRemarketingListAssociation = "Campaign Negative Similar Remarketing List Association";
         public const string Description = "Description";
         public const string MembershipDuration = "Membership Duration";
         public const string Scope = "Scope";
@@ -597,9 +610,6 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string AudienceNetworkSize = "Audience Network Size";
         public const string SupportedCampaignTypes = "Supported Campaign Types";
         public const string ProductAudienceType = "Product Audience Type";
-        public const string SimilarRemarketingList = "Similar Remarketing List";
-        public const string AdGroupSimilarRemarketingListAssociation = "Ad Group Similar Remarketing List Association";
-        public const string AdGroupNegativeSimilarRemarketingListAssociation = "Ad Group Negative Similar Remarketing List Association";
 
 
         // Expanded Text Ad
@@ -607,7 +617,6 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string TitlePart1 = "Title Part 1";
         public const string TitlePart2 = "Title Part 2";
         public const string TitlePart3 = "Title Part 3";
-        // Note: "Text" is effectively "Text Part 1" in the context of Expanded Text Ad.
         public const string TextPart2 = "Text Part 2";
         public const string Path1 = "Path 1";
         public const string Path2 = "Path 2";
@@ -617,13 +626,14 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string ResponsiveAd = "Responsive Ad";
         public const string CallToAction = "Call To Action";
         public const string Headline = "Headline";
+        public const string Images = "Images";
         public const string LandscapeImageMediaId = "Landscape Image Media Id";
         public const string LandscapeLogoMediaId = "Landscape Logo Media Id";
         public const string LongHeadline = "Long Headline";
         public const string SquareImageMediaId = "Square Image Media Id";
         public const string SquareLogoMediaId = "Square Logo Media Id";
 
-        // Responsive Ad
+        // Responsive Search Ad
         public const string ResponsiveSearchAd = "Responsive Search Ad";
 
         // Structured Snippet Ad Extension

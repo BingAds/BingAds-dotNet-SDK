@@ -1186,7 +1186,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the campaign level settings for feed-based audience or shopping campaigns.
+    /// Defines the campaign level settings to leverage your Bing Merchant Center store.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/shoppingsetting?view=bingads-12">ShoppingSetting Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/shoppingsetting?view=bingads-12 for details.
@@ -2763,7 +2763,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Determines how often you'd like the ads in your ad group to show in relation to one another.
+        /// Ad rotation sets how often Bing Ads selects which ads to serve, if you have multiple ads within an ad group.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V12.CampaignManagement.AdRotation AdRotation
@@ -3435,13 +3435,13 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     {
         
         /// <summary>
-        /// Favor the best performing ads.
+        /// Bing Ads prioritizes the ad from the ad group that appears to have the best chance of performing well, based on auction characteristics or factors, such as keyword, search term, device or location.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OptimizeForClicks = 0,
         
         /// <summary>
-        /// Rotate ads evenly into the auction.
+        /// Bing Ads provides more balance in rotation between your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RotateAdsEvenly = 1,
@@ -4492,7 +4492,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Because audience ads are responsive, you can create multiple image assets with different sizes and aspect ratios so they can flexibly display across a variety of publishers and placements.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AssetLink> Images
@@ -4512,7 +4512,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// This is the identifier of the media corresponding to one of two possible aspect ratios for images that could appear in your audience ads.
+        /// The identifier of the image asset used for landscape images with 1.91:1 aspect ratio that could appear in your audience ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> LandscapeImageMediaId
@@ -4532,7 +4532,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// This is the identifier of the media corresponding to one of two possible aspect ratios for logos that could appear in your audience ads.
+        /// This element is reserved for internal use, and will be removed from a future version of the Bing Ads API.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> LandscapeLogoMediaId
@@ -4572,7 +4572,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// This is one of two possible aspect ratios for images that could appear in your audience ads.
+        /// The identifier of the image asset used for square images with 1:1 aspect ratio that could appear in your audience ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> SquareImageMediaId
@@ -4592,7 +4592,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// This is one of two possible aspect ratios for logos that could appear in your audience ads.
+        /// This element is reserved for internal use, and will be removed from a future version of the Bing Ads API.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> SquareLogoMediaId
@@ -5450,7 +5450,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Applies crop settings to stored image media for a specific aspect ratio.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/imageasset?view=bingads-12">ImageAsset Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/imageasset?view=bingads-12 for details.
@@ -5478,7 +5478,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private string SubTypeField;
         
         /// <summary>
-        /// Reserved.
+        /// The number of pixels to use from the image asset source, starting from the CropY position and moving upwards.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> CropHeight
@@ -5498,7 +5498,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The number of pixels to use from the image asset source, starting from the CropX position and moving to the right.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> CropWidth
@@ -5518,7 +5518,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Starting from the lower left corner of image asset source, this is the number of pixels to skip to the right on the x-axis before applying the CropWidth.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> CropX
@@ -5538,7 +5538,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Starting from the lower left corner of image asset source, this is the number of pixels to skip upwards on the y-axis before applying the CropHeight.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> CropY
@@ -5558,7 +5558,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Represents the aspect ratio for this image asset.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SubType

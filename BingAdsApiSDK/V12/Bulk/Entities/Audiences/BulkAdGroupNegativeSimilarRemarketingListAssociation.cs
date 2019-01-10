@@ -58,7 +58,6 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
     /// <summary>
     /// <para>
     /// Represents an Ad Group Negative Similar Remarketing List Association that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="NegativeAdGroupCriterion"/> property that can be read and written as fields of the Ad Group Negative Similar Remarketing List Association record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Negative Similar Remarketing List Association</see> </para>
     /// </summary>
@@ -66,101 +65,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupNegativeSimilarRemarketingListAssociation : SingleRecordBulkEntity
+    public class BulkAdGroupNegativeSimilarRemarketingListAssociation : BulkAdGroupNegativeAudienceAssociation
     {
-        /// <summary>
-        /// Defines an Negative Ad Group Criterion.
-        /// </summary>
-        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
-
-        /// <summary>
-        /// The name of the campaign that contains the ad group.
-        /// Corresponds to the 'Campaign' field in the bulk file. 
-        /// </summary>
-        public string CampaignName { get; set; }
-
-        /// <summary>
-        /// The <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group</see> that is associated with the Similar Remarketing List.
-        /// Corresponds to the 'Ad Group' field in the bulk file.
-        /// </summary>
-        public string AdGroupName { get; set; }
-
-        /// <summary>
-        /// The name of the Similar Remarketing List
-        /// Corresponds to the "Audience" field in the bulk file.
-        /// </summary>
-        public string SimilarRemarketingListName { get; set; }
-
-        private static readonly IBulkMapping<BulkAdGroupNegativeSimilarRemarketingListAssociation>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkAdGroupNegativeSimilarRemarketingListAssociation>(StringTable.Status,
-                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeSimilarRemarketingListAssociation>(StringTable.Id,
-                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeSimilarRemarketingListAssociation>(StringTable.ParentId,
-                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeSimilarRemarketingListAssociation>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeSimilarRemarketingListAssociation>(StringTable.AdGroup,
-                c => c.AdGroupName,
-                (v, c) => c.AdGroupName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeSimilarRemarketingListAssociation>(StringTable.Audience,
-                c => c.SimilarRemarketingListName,
-                (v, c) => c.SimilarRemarketingListName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeSimilarRemarketingListAssociation>(StringTable.AudienceId,
-                c =>
-                {
-                    var audienceCriterion = c.NegativeAdGroupCriterion?.Criterion as AudienceCriterion;
-
-                    return audienceCriterion != null ? audienceCriterion.AudienceId.ToBulkString() : null;
-                },
-                (v, c) =>
-                {
-                    var audienceCriterion = c.NegativeAdGroupCriterion?.Criterion as AudienceCriterion;
-
-                    if (audienceCriterion != null)
-                    {
-                        audienceCriterion.AudienceId = v.ParseOptional<long>();
-                    }
-                }
-            ),
-        };
-
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(NegativeAdGroupCriterion).Name);
-
-            this.ConvertToValues(values, Mappings);
-        }
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            NegativeAdGroupCriterion = new NegativeAdGroupCriterion
-            {
-                Criterion = new AudienceCriterion()
-                {
-                    Type = typeof(AudienceCriterion).Name,
-                },
-                Type = typeof(NegativeAdGroupCriterion).Name
-            };
-
-            values.ConvertToEntity(this, Mappings);
-        }
     }
 }

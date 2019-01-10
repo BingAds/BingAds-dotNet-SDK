@@ -98,6 +98,11 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 (v, c) => c.ResponsiveAd.Headline = v
             ),
 
+            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Images,
+                c => c.ResponsiveAd.Images == null ? null : c.ResponsiveAd.Images.ToImageAssetLinksBulkString(),
+                (v, c) => c.ResponsiveAd.Images = v.ParseImageAssetLinks()
+            ),
+
             new SimpleBulkMapping<BulkResponsiveAd>(StringTable.LongHeadline,
                 c => c.ResponsiveAd.LongHeadline,
                 (v, c) => c.ResponsiveAd.LongHeadline = v

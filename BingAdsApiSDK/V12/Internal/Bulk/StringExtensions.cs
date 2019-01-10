@@ -847,11 +847,139 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 }).Where(p => p != null).ToList()
             ;
         }
+
+
+        [DataContract]
+        internal class ImageAssetLinkContract
+        {
+            // The Asset Id
+            [DataMember(Name = "id", Order = 0, EmitDefaultValue = false)]
+            public long? Id { get; set; }
+
+            // The Asset SubType
+            [DataMember(Name = "subType", Order = 1)]
+            public string SubType { get; set; }
+
+            // The Asset CropHeight
+            [DataMember(Name = "cropHeight", Order = 2, EmitDefaultValue = false)]
+            public int? CropHeight { get; set; }
+
+            // The Asset CropWidth
+            [DataMember(Name = "cropWidth", Order = 3, EmitDefaultValue = false)]
+            public int? CropWidth { get; set; }
+
+            // The Asset CropX
+            [DataMember(Name = "cropX", Order = 4, EmitDefaultValue = false)]
+            public int? CropX { get; set; }
+
+            // The Asset CropY
+            [DataMember(Name = "cropY", Order = 5, EmitDefaultValue = false)]
+            public int? CropY { get; set; }
+
+            // The AssetLink PinnedField
+            [DataMember(Name = "pinnedField", Order = 6, EmitDefaultValue = false)]
+            public string PinnedField { get; set; }
+
+            // The AssetLink EditorialStatus
+            [DataMember(Name = "editorialStatus", Order = 7, EmitDefaultValue = false)]
+            public string EditorialStatus { get; set; }
+
+            // The AssetLink AssetPerformanceLabel is reserved for future use.
+            [DataMember(Name = "assetPerformanceLabel", Order = 8, EmitDefaultValue = false)]
+            public string AssetPerformanceLabel { get; set; }
+
+            // The Asset Name is reserved for future use.
+            [DataMember(Name = "name", Order = 9, EmitDefaultValue = false)]
+            public string Name { get; set; }
+        }
+
+        public static string ToImageAssetLinksBulkString(this IList<AssetLink> assetLinks)
+        {
+            if (assetLinks == null || assetLinks.Count == 0)
+            {
+                return null;
+            }
+
+            var imageAssetLinks = assetLinks.Where(s => s.Asset?.GetType() == typeof(ImageAsset)).ToList();
+
+            if (imageAssetLinks.Count == 0)
+            {
+                return null;
+            }
+
+            List<ImageAssetLinkContract> imageAssetLinkContracts = new List<ImageAssetLinkContract>();
+            foreach (var imageAssetLink in imageAssetLinks)
+            {
+                var imageAsset = (ImageAsset)imageAssetLink.Asset;
+                var imageAssetLinkContract = new ImageAssetLinkContract
+                {
+                    AssetPerformanceLabel = imageAssetLink.AssetPerformanceLabel,
+                    CropHeight = imageAsset.CropHeight,
+                    CropWidth = imageAsset.CropWidth,
+                    CropX = imageAsset.CropX,
+                    CropY = imageAsset.CropY,
+                    Id = imageAsset.Id,
+                    EditorialStatus = imageAssetLink.EditorialStatus.ToBulkString(),
+                    Name = imageAsset.Name,
+                    PinnedField = imageAssetLink.PinnedField,
+                    SubType = imageAsset.SubType
+                };
+                imageAssetLinkContracts.Add(imageAssetLinkContract);
+            }
+
+            MemoryStream ms = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<ImageAssetLinkContract>));
+            ser.WriteObject(ms, imageAssetLinkContracts);
+            byte[] json = ms.ToArray();
+            ms.Close();
+            return Encoding.UTF8.GetString(json, 0, json.Length);
+        }
+
+        public static List<AssetLink> ParseImageAssetLinks(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(s));
+            var serializer = new DataContractJsonSerializer(typeof(List<ImageAssetLinkContract>));
+            var imageAssetLinkContracts = (List<ImageAssetLinkContract>)serializer.ReadObject(ms);
+
+            if (imageAssetLinkContracts.Count == 0)
+            {
+                return null;
+            }
+
+            List<AssetLink> imageAssetLinks = new List<AssetLink>();
+            foreach (var imageAssetLinkContract in imageAssetLinkContracts)
+            {
+                var assetLink = new AssetLink
+                {
+                    Asset = new ImageAsset
+                    {
+                        CropHeight = imageAssetLinkContract.CropHeight,
+                        CropWidth = imageAssetLinkContract.CropWidth,
+                        CropX = imageAssetLinkContract.CropX,
+                        CropY = imageAssetLinkContract.CropY,
+                        Id = imageAssetLinkContract.Id,
+                        Name = imageAssetLinkContract.Name,
+                        SubType = imageAssetLinkContract.SubType,
+                    },
+                    AssetPerformanceLabel = imageAssetLinkContract.AssetPerformanceLabel,
+                    EditorialStatus = imageAssetLinkContract.EditorialStatus.ParseOptional<AssetLinkEditorialStatus>(),
+                    PinnedField = imageAssetLinkContract.PinnedField,
+                };
+                imageAssetLinks.Add(assetLink);
+            }
+
+            return imageAssetLinks;
+        }
+
         [DataContract]
         internal class TextAssetLinkContract
         {
             // The Asset Id
-            [DataMember(Name="id", Order = 0, EmitDefaultValue = false)]
+            [DataMember(Name = "id", Order = 0, EmitDefaultValue = false)]
             public long? Id { get; set; }
 
             // The Asset Text

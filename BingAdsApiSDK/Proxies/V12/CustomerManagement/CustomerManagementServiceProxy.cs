@@ -3843,7 +3843,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// The user's Bing Ads managed sign-in password.
+        /// This element is reserved for internal use and will be removed from a future version of the API.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Password
@@ -3863,7 +3863,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// The answer to the secret question that is specified in the SecretQuestion element.
+        /// This element is reserved for internal use and will be removed from a future version of the API.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SecretAnswer
@@ -3883,7 +3883,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// A question from a list of predefined questions that the user selects to use as his or her secret question.
+        /// This element is reserved for internal use and will be removed from a future version of the API.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V12.CustomerManagement.SecretQuestion SecretQuestion

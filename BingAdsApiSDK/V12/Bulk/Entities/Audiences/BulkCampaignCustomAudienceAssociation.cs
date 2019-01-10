@@ -57,15 +57,15 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents an Ad Group Negative Custom Audience Association that can be read or written in a bulk file. 
+    /// Represents an Campaign Custom Audience Association that can be read or written in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Negative Custom Audience Association</see> </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Custom Audience Association</see> </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupNegativeCustomAudienceAssociation : BulkAdGroupNegativeAudienceAssociation
+    public class BulkCampaignCustomAudienceAssociation : BulkCampaignAudienceAssociation
     {
     }
 }

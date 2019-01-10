@@ -129,6 +129,15 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             switch (Campaign.CampaignType)
             {
                 case CampaignType.Search:
+                    {
+                        Campaign.Settings = new List<Setting>
+                        {
+                            new TargetSetting
+                            {
+                                Type = typeof(TargetSetting).Name,
+                            },
+                        };
+                    }
                     break;
                 case CampaignType.Shopping:
                 case CampaignType.Audience:
@@ -136,9 +145,13 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                         Campaign.Settings = new List<Setting>
                         {
                             new ShoppingSetting
-                                {
-                                    Type = typeof(ShoppingSetting).Name,
-                                },
+                            {
+                                Type = typeof(ShoppingSetting).Name,
+                            },
+                            new TargetSetting
+                            {
+                                Type = typeof(TargetSetting).Name,
+                            },
                         };
                     }
                     break;
@@ -147,9 +160,13 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                         Campaign.Settings = new List<Setting>
                         {
                             new DynamicSearchAdsSetting
-                                {
-                                    Type = typeof(DynamicSearchAdsSetting).Name,
-                                },
+                            {
+                                Type = typeof(DynamicSearchAdsSetting).Name,
+                            },
+                            new TargetSetting
+                            {
+                                Type = typeof(TargetSetting).Name,
+                            },
                         };
                     }
                     break;
@@ -307,6 +324,23 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                     if(localInventoryAdsEnabled != null && setting != null)
                     {
                         setting.LocalInventoryAdsEnabled = localInventoryAdsEnabled;
+                    }
+                }
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.TargetSetting,
+                c =>
+                {
+                    var setting = (TargetSetting)c.GetCampaignSetting(typeof(TargetSetting));
+                    return setting?.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(TargetSetting), true)) as TargetSetting;
+                    var details = v.ParseTargetSettingDetails();
+                    if(details != null && setting != null)
+                    {
+                        setting.Details = details;
                     }
                 }
             ),

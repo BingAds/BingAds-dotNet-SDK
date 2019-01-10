@@ -8747,7 +8747,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TitlePart2 = 49,
         
         /// <summary>
-        /// The title part 2 attribute of an ad.
+        /// The title part 3 attribute of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart3 = 50,
@@ -12225,7 +12225,7 @@ namespace Microsoft.BingAds.V12.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> SearchQueriesField;
-
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -12377,7 +12377,7 @@ namespace Microsoft.BingAds.V12.Reporting
                 }
             }
         }
-
+        
         /// <summary>
         /// The report will include data for only the keyword status.
         /// </summary>
@@ -19130,10 +19130,10 @@ namespace Microsoft.BingAds.V12.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool ExcludeZeroClicksField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> FeedUrlField;
-
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> LanguageCodeField;
         
@@ -19251,9 +19251,9 @@ namespace Microsoft.BingAds.V12.Reporting
                 }
             }
         }
-
+        
         /// <summary>
-        /// If the value of this element is set to true, the report will include data for only the search terms whose final URL came from a page feed.
+        /// The feed URL will appear either as "True" or "False".
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> FeedUrl
@@ -19271,7 +19271,7 @@ namespace Microsoft.BingAds.V12.Reporting
                 }
             }
         }
-
+        
         /// <summary>
         /// The report will include data for only websites that used the specified languages.
         /// </summary>

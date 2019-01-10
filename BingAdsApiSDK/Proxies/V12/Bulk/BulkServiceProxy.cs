@@ -104,7 +104,7 @@ namespace Microsoft.BingAds.V12.Bulk
     {
         
         /// <summary>
-        /// Download the entity attributes records.
+        /// Download entity records e.g., campaigns and ad groups.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityData = 1,
@@ -116,13 +116,13 @@ namespace Microsoft.BingAds.V12.Bulk
         EntityPerformanceData = 2,
         
         /// <summary>
-        /// Download the quality score fields for the corresponding entity records.
+        /// Download the quality score fields i.e., Quality Score, Keyword Relevance, Landing Page Relevance, and Landing Page User Experience in the Ad Group, Campaign, and Keyword records.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScoreData = 4,
         
         /// <summary>
-        /// Download the bid suggestions records.
+        /// Download the keyword bid suggestion records.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidSuggestionsData = 8,
@@ -537,19 +537,19 @@ namespace Microsoft.BingAds.V12.Bulk
         AdGroupNegativeInMarketAudienceAssociations = 66,
         
         /// <summary>
-        /// Include Custom Audience, In Market Audience, Product Audience, and Remarketing List records in the download data.
+        /// Include Custom Audience, In Market Audience, Product Audience, Remarketing List, and Similar Remarketing List records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audiences = 67,
         
         /// <summary>
-        /// Include Ad Group Custom Audience Association, Ad Group In Market Audience Association, Ad Group Product Audience Association, and Ad Group Remarketing List Association records in the download data.
+        /// Include Ad Group Custom Audience Association, Ad Group In Market Audience Association, Ad Group Product Audience Association, Ad Group Remarketing List Association, and Ad Group Similar Remarketing List Association records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupAudienceAssociations = 68,
         
         /// <summary>
-        /// Include Ad Group Negative Custom Audience Association, Ad Group Negative In Market Audience Association, Ad Group Negative Product Audience Association, and Ad Group Negative Remarketing List Association records in the download data.
+        /// Include Ad Group Negative Custom Audience Association, Ad Group Negative In Market Audience Association, Ad Group Negative Product Audience Association, Ad Group Negative Remarketing List Association, and Ad Group Negative Similar Remarketing List Association records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeAudienceAssociations = 69,
@@ -721,6 +721,78 @@ namespace Microsoft.BingAds.V12.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveSearchAdLabels = 97,
+        
+        /// <summary>
+        /// Include Campaign Custom Audience Association, Campaign In Market Audience Association, Campaign Product Audience Association, Campaign Remarketing List Association, and Campaign Similar Remarketing List Association records in the download data.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignAudienceAssociations = 98,
+        
+        /// <summary>
+        /// Include Campaign Negative Custom Audience Association, Campaign Negative In Market Audience Association, Campaign Negative Product Audience Association, Campaign Negative Remarketing List Association, and Campaign Negative Similar Remarketing List Association records in the download data.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignNegativeAudienceAssociations = 99,
+        
+        /// <summary>
+        /// Include Campaign Custom Audience Association records in the download that each represent the association relationship between a campaign and a custom audience.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignCustomAudienceAssociations = 100,
+        
+        /// <summary>
+        /// Include Campaign Negative Custom Audience Association records in the download that each represent the association relationship between a campaign and a custom audience exclusion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignNegativeCustomAudienceAssociations = 101,
+        
+        /// <summary>
+        /// Include Campaign In Market Audience Association records in the download that each represent the association relationship between a campaign and an in-market audience.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignInMarketAudienceAssociations = 102,
+        
+        /// <summary>
+        /// Include Campaign Negative In Market Audience Association records in the download that each represent the association relationship between a campaign and an in-market audience exclusion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignNegativeInMarketAudienceAssociations = 103,
+        
+        /// <summary>
+        /// Include Campaign Product Audience Association records in the download that each represent the association relationship between a campaign and a product audience.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignProductAudienceAssociations = 104,
+        
+        /// <summary>
+        /// Include Campaign Negative Product Audience Association records in the download that each represent the association relationship between a campaign and a product audience exclusion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignNegativeProductAudienceAssociations = 105,
+        
+        /// <summary>
+        /// Include Campaign Remarketing List Association records in the download that each represent the association relationship between a campaign and a remarketing list.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignRemarketingListAssociations = 106,
+        
+        /// <summary>
+        /// Include Campaign Negative Remarketing List Association records in the download that each represent the association relationship between a campaign and a remarketing list exclusion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignNegativeRemarketingListAssociations = 107,
+        
+        /// <summary>
+        /// Include Campaign Similar Remarketing List Association records in the download that each represent the association relationship between a campaign and a similar remarketing list.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignSimilarRemarketingListAssociations = 108,
+        
+        /// <summary>
+        /// Include Campaign Negative Similar Remarketing List Association records in the download that each represent the association relationship between a campaign and a similar remarketing list exclusion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignNegativeSimilarRemarketingListAssociations = 109,
     }
     
     /// <summary>

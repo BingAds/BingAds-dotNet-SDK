@@ -209,16 +209,29 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 {StringTable.RemarketingList,               new EntityInfo(() => new BulkRemarketingList())},
                 {StringTable.AdGroupRemarketingListAssociation, new EntityInfo(() => new BulkAdGroupRemarketingListAssociation())},
                 {StringTable.AdGroupNegativeRemarketingListAssociation, new EntityInfo(() => new BulkAdGroupNegativeRemarketingListAssociation())},
+                {StringTable.CampaignRemarketingListAssociation, new EntityInfo(() => new BulkCampaignRemarketingListAssociation())},
+                {StringTable.CampaignNegativeRemarketingListAssociation, new EntityInfo(() => new BulkCampaignNegativeRemarketingListAssociation())},
+                {StringTable.SimilarRemarketingList,  new EntityInfo(() => new BulkSimilarRemarketingList())},
+                {StringTable.AdGroupSimilarRemarketingListAssociation,  new EntityInfo(() => new BulkAdGroupSimilarRemarketingListAssociation())},
+                {StringTable.AdGroupNegativeSimilarRemarketingListAssociation,  new EntityInfo(() => new BulkAdGroupNegativeSimilarRemarketingListAssociation())},
+                {StringTable.CampaignSimilarRemarketingListAssociation,  new EntityInfo(() => new BulkCampaignSimilarRemarketingListAssociation())},
+                {StringTable.CampaignNegativeSimilarRemarketingListAssociation,  new EntityInfo(() => new BulkCampaignNegativeSimilarRemarketingListAssociation())},
                 {StringTable.CustomAudience,               new EntityInfo(() => new BulkCustomAudience())},
                 {StringTable.AdGroupCustomAudienceAssociation, new EntityInfo(() => new BulkAdGroupCustomAudienceAssociation())},
                 {StringTable.AdGroupNegativeCustomAudienceAssociation, new EntityInfo(() => new BulkAdGroupNegativeCustomAudienceAssociation())},
+                {StringTable.CampaignCustomAudienceAssociation, new EntityInfo(() => new BulkCampaignCustomAudienceAssociation())},
+                {StringTable.CampaignNegativeCustomAudienceAssociation, new EntityInfo(() => new BulkCampaignNegativeCustomAudienceAssociation())},
                 {StringTable.InMarketAudience,               new EntityInfo(() => new BulkInMarketAudience())},
                 {StringTable.AdGroupInMarketAudienceAssociation, new EntityInfo(() => new BulkAdGroupInMarketAudienceAssociation())},
                 {StringTable.AdGroupNegativeInMarketAudienceAssociation, new EntityInfo(() => new BulkAdGroupNegativeInMarketAudienceAssociation())},
+                {StringTable.CampaignInMarketAudienceAssociation, new EntityInfo(() => new BulkCampaignInMarketAudienceAssociation())},
+                {StringTable.CampaignNegativeInMarketAudienceAssociation, new EntityInfo(() => new BulkCampaignNegativeInMarketAudienceAssociation())},
                 {StringTable.ProductAudience,               new EntityInfo(() => new BulkProductAudience())},
                 {StringTable.AdGroupProductAudienceAssociation, new EntityInfo(() => new BulkAdGroupProductAudienceAssociation())},
                 {StringTable.AdGroupNegativeProductAudienceAssociation, new EntityInfo(() => new BulkAdGroupNegativeProductAudienceAssociation())},
-                
+                {StringTable.CampaignProductAudienceAssociation, new EntityInfo(() => new BulkCampaignProductAudienceAssociation())},
+                {StringTable.CampaignNegativeProductAudienceAssociation, new EntityInfo(() => new BulkCampaignNegativeProductAudienceAssociation())},
+
                 {StringTable.SitelinkAdExtension,          new EntityInfo(() => new BulkSitelinkAdExtension())},
                 {StringTable.AccountSitelinkAdExtension,  new EntityInfo(() => new BulkAccountSitelinkAdExtension())},
                 {StringTable.CampaignSitelinkAdExtension,  new EntityInfo(() => new BulkCampaignSitelinkAdExtension())},
@@ -272,9 +285,6 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                 {StringTable.TextAdLabel,  new EntityInfo(() => new BulkTextAdLabel())},
 
                 {StringTable.OfflineConversion,  new EntityInfo(() => new BulkOfflineConversion())},
-                {StringTable.SimilarRemarketingList,  new EntityInfo(() => new BulkSimilarRemarketingList())},
-                {StringTable.AdGroupSimilarRemarketingListAssociation,  new EntityInfo(() => new BulkAdGroupSimilarRemarketingListAssociation())},
-                {StringTable.AdGroupNegativeSimilarRemarketingListAssociation,  new EntityInfo(() => new BulkAdGroupNegativeSimilarRemarketingListAssociation())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>
