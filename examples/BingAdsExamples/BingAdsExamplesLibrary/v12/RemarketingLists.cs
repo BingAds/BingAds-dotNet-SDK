@@ -9,7 +9,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to associate remarketing lists with a new ad group.
+    /// How to associate remarketing lists with a new ad group.
     /// </summary>
     public class RemarketingLists : ExampleBase
     {
@@ -26,20 +26,22 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper =
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService =
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                // Before you can track conversions or target audiences using a remarketing list, 
-                // you need to create a UET tag in Bing Ads (web application or API) and then 
-                // add the UET tag tracking code to every page of your website. For more information, please see 
-                // Universal Event Tracking at https://docs.microsoft.com/en-us/bingads/guides/universal-event-tracking.
+                // Before you can track conversions or target audiences using a remarketing list 
+                // you need to create a UET tag, and then add the UET tag tracking code to every page of your website.
+                // For more information, please see Universal Event Tracking at https://go.microsoft.com/fwlink/?linkid=829965.
 
                 // First you should call the GetUetTagsByIds operation to check whether a tag has already been created. 
                 // You can leave the TagIds element null or empty to request all UET tags available for the customer.
 
-                var uetTags = (await CampaignManagementExampleHelper.GetUetTagsByIdsAsync(null))?.UetTags;
+                OutputStatusMessage("-----\nGetUetTagsByIds:");
+                var uetTags = (await CampaignManagementExampleHelper.GetUetTagsByIdsAsync(
+                    tagIds: null))?.UetTags;
 
                 // If you do not already have a UET tag that can be used, or if you need another UET tag, 
                 // call the AddUetTags service operation to create a new UET tag. If the call is successful, 
@@ -53,34 +55,29 @@ namespace BingAdsExamplesLibrary.V12
                         Description = "My First Uet Tag",
                         Name = "New Uet Tag",
                     };
-                    uetTags = (await CampaignManagementExampleHelper.AddUetTagsAsync(new[] { uetTag })).UetTags;
+                    OutputStatusMessage("-----\nAddUetTags:");
+                    uetTags = (await CampaignManagementExampleHelper.AddUetTagsAsync(
+                        uetTags: new[] { uetTag })).UetTags;
                 }
 
                 if (uetTags == null || uetTags.Count < 1)
                 {
                     OutputStatusMessage(
-                        string.Format("You do not have any UET tags registered for CustomerId {0}.\n", authorizationData.CustomerId)
+                        string.Format("You do not have any UET tags registered for CustomerId {0}.", authorizationData.CustomerId)
                     );
                     return;
                 }
 
-                OutputStatusMessage("List of all UET Tags:\n");
-                foreach (var uetTag in uetTags)
-                {
-                    CampaignManagementExampleHelper.OutputUetTag(uetTag);
-                }
+                OutputStatusMessage("List of all UET Tags:");
+                CampaignManagementExampleHelper.OutputArrayOfUetTag(uetTags);
 
                 // After you retreive the tracking script from the AddUetTags or GetUetTagsByIds operation, 
-                // the next step is to add the UET tag tracking code to your website. We recommend that you, 
-                // or your website administrator, add it to your entire website in either the head or body sections. 
-                // If your website has a master page, then that is the best place to add it because you add it once 
-                // and it is included on all pages. For more information, please see 
-                // Universal Event Tracking at https://docs.microsoft.com/en-us/bingads/guides/universal-event-tracking.
+                // the next step is to add the UET tag tracking code to your website. 
 
                 // We will use the same UET tag for the remainder of this example.
                 var tagId = uetTags[0].Id;
-
-                // Add a remarketing list that depend on the UET Tag Id retreived above.
+                
+                // Add remarketing lists that depend on the UET Tag Id retreived above.
 
                 var addAudiences = new[] {
                     new RemarketingList
@@ -89,17 +86,20 @@ namespace BingAdsExamplesLibrary.V12
                         MembershipDuration = 30,
                         Name = "Remarketing List with CustomEventsRule " + DateTime.UtcNow,
                         ParentId = authorizationData.AccountId,
+                        // The rule definition is translated to the following logical expression: 
+                        // (Category Equals video) and (Action Equals play) and (Label Equals trailer) 
+                        // and (Value Equals 5)
                         Rule = new CustomEventsRule
                         {
                             // The type of user interaction you want to track.
                             Action = "play",
-                            ActionOperator = StringOperator.Contains,
+                            ActionOperator = StringOperator.Equals,
                             // The category of event you want to track. 
                             Category = "video",
-                            CategoryOperator = StringOperator.Contains,
+                            CategoryOperator = StringOperator.Equals,
                             // The name of the element that caused the action.
                             Label = "trailer",
-                            LabelOperator = StringOperator.Contains,
+                            LabelOperator = StringOperator.Equals,
                             // A numerical value associated with that event. 
                             // Could be length of the video played etc.
                             Value = 5.00m,
@@ -361,144 +361,42 @@ namespace BingAdsExamplesLibrary.V12
                 // RemarketingList extends the Audience base class. 
                 // We manage remarketing lists with Audience operations.
 
-                var addAudiencesResponse = await CampaignManagementExampleHelper.AddAudiencesAsync(addAudiences);
-                var audienceIds = addAudiencesResponse.AudienceIds;
-
-                // You must already have at least one remarketing list for the remainder of this example. 
-
-                if (audienceIds.Count < 1)
-                {
-                    return;
-                }
-
-                var updateAudiences = new[] {
-                    new RemarketingList
-                    {
-                        Id = audienceIds[0],
-                        // The ParentId cannot be updated, even if you update the rule type.
-                        // You can either send the same value or leave ParentId empty.
-                        ParentId = authorizationData.AccountId,
-                        Rule = new CustomEventsRule
-                        {
-                            // For both add and update remarketing list operations, you must include one or more  
-                            // of the following events: 
-                            // Action, Category, Label, or Value.
-
-                            // For example if you do not include Action during update, 
-                            // any existing ActionOperator and Action settings will be deleted.
-                            Action = null,
-                            //ActionOperator = null,
-                            Category = "video",
-                            CategoryOperator = StringOperator.Equals,
-                            // You cannot update the operator unless you also include the expression.
-                            // The following attempt to update LabelOperator will result in an error.
-                            Label = null,
-                            LabelOperator = StringOperator.Equals,
-                            // You must specify the previous settings unless you want
-                            // them replaced during the update conversion goal operation.
-                            Value = 5.00m,
-                            ValueOperator = NumberOperator.Equals,
-                        },
-                        // The Scope cannot be updated, even if you update the rule type.
-                        // You can either send the same value or leave Scope empty.
-                        Scope = EntityScope.Account,
-                        // You can update the tag as needed. In this example we will explicitly use the same UET tag.
-                        // To keep the UET tag unchanged, you can also leave this element nil or empty.
-                        TagId = tagId,
-                    },
-                    new RemarketingList
-                    {
-                        // You can change the remarketing rule type e.g. in this example a remarketing list
-                        // with the PageVisitorsRule had been created above at index 1. 
-                        // Now we are using the returned identifier at index 1 to update the type from 
-                        // PageVisitorsRule to PageVisitorsWhoDidNotVisitAnotherPageRule.
-                        Id = audienceIds[1],
-                        Rule = new PageVisitorsWhoDidNotVisitAnotherPageRule
-                        {
-                            // If you want to keep any of the previous rule items, 
-                            // then you must explicitly set them again during update.
-                            ExcludeRuleItemGroups = new []
-                            {
-                                new RuleItemGroup
-                                {
-                                    Items = new []
-                                    {
-                                        new StringRuleItem
-                                        {
-                                            Operand = "Url",
-                                            Operator = StringOperator.Contains,
-                                            Value = "C"
-                                        },
-                                    }
-                                },
-                            },
-                            // If you leave the entire list of rule item groups null,
-                            // then previous settings will be retained. 
-                            IncludeRuleItemGroups = null,
-                        },
-                    },
-                    new RemarketingList
-                    {
-                        Id = audienceIds[2],
-                        Rule = new PageVisitorsRule
-                        {
-                            // If you want to keep any of the previous rule items, 
-                            // then you must explicitly set them again during update.
-                            RuleItemGroups = new []
-                            {
-                                new RuleItemGroup
-                                {
-                                    Items = new []
-                                    {
-                                        new StringRuleItem
-                                        {
-                                            Operand = "Url",
-                                            Operator = StringOperator.Contains,
-                                            Value = "X"
-                                        },
-                                        new StringRuleItem
-                                        {
-                                            Operand = "ReferrerUrl",
-                                            Operator = StringOperator.DoesNotContain,
-                                            Value = "Z"
-                                        },
-                                    }
-                                },
-                            },
-                        },
-                    },
-                    new RemarketingList
-                    {
-                        Id = audienceIds[3],
-                        MembershipDuration = 20,
-                        // If not specified during update, the previous rule settings are retained.
-                        Rule = null,
-                    },
-                };
-
-                var updateAudiencesResponse = await CampaignManagementExampleHelper.UpdateAudiencesAsync(updateAudiences);
-                OutputStatusMessage("Updated audiences. List of errors (if applicable):\n");
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(updateAudiencesResponse.PartialErrors);
-
+                OutputStatusMessage("-----\nAddAudiences:");
+                var addAudiencesResponse = await CampaignManagementExampleHelper.AddAudiencesAsync(
+                    audiences: addAudiences);
+                long?[] audienceIds = addAudiencesResponse.AudienceIds.ToArray();
+                BatchError[] audienceErrors = addAudiencesResponse.PartialErrors.ToArray();
+                OutputStatusMessage("AudienceIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(audienceIds);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(audienceErrors);
+                
                 // Add an ad group in a campaign. The ad group will later be associated with remarketing lists. 
 
                 var campaigns = new[]{
                     new Campaign
                     {
-                        Name = "Women's Shoes " + DateTime.UtcNow,
-                        Description = "Red shoes line.",
-
-                        // You must choose to set either the shared  budget ID or daily amount.
-                        // You can set one or the other, but you may not set both.
-                        BudgetId = null,
-                        DailyBudget = 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
-                        BiddingScheme = new EnhancedCpcBiddingScheme(),
-
+                        DailyBudget = 50,
+                        Description = "Red shoes line.",
+                        Languages = new string[] { "All" },
+                        Name = "Women's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     },
                 };
 
+                OutputStatusMessage("-----\nAddCampaigns:");
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
+                    accountId: authorizationData.AccountId,
+                    campaigns: campaigns,
+                    includeDynamicSearchAdsSource: false);
+                long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
+                BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("CampaignIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
+                
                 var adGroups = new[] {
                     new AdGroup
                     {
@@ -510,76 +408,53 @@ namespace BingAdsExamplesLibrary.V12
                             Year = DateTime.UtcNow.Year + 1
                         },
                         CpcBid = new Bid { Amount = 0.09 },
-                        Language = "English",
-                        TrackingUrlTemplate = null,
 
                         // Applicable for all remarketing lists that are associated with this ad group. TargetAndBid indicates 
                         // that you want to show ads only to people included in the remarketing list, with the option to change
                         // the bid amount. Ads in this ad group will only show to people included in the remarketing list.
                         Settings = new[]
-                    {
-                        new TargetSetting
                         {
-                            // Each target setting detail is delimited by a semicolon (;) in the Bulk file
-                            Details = new []
+                            new TargetSetting
                             {
-                                new TargetSettingDetail
+                                Details = new []
                                 {
-                                    CriterionTypeGroup = CriterionTypeGroup.Audience,
-                                    TargetAndBid = true
+                                    new TargetSettingDetail
+                                    {
+                                        CriterionTypeGroup = CriterionTypeGroup.Audience,
+                                        TargetAndBid = true
+                                    }
                                 }
                             }
-                        }
-                    },
+                        },
                     }
                 };
-
-
-                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
-                    authorizationData.AccountId, 
-                    campaigns,
-                    false);
-                long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
-                BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
-
-                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignIds[0], adGroups, null);
+                
+                OutputStatusMessage("-----\nAddAdGroups:");
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync(
+                    campaignId: (long)campaignIds[0],
+                    adGroups: adGroups,
+                    returnInheritedBidStrategyTypes: false);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("AdGroupIds:");
                 CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
+                OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
 
-                // If the campaign or ad group add operations failed then we cannot continue this example. 
+                // Associate all of the remarketing lists created above with the new ad group.
 
-                if (adGroupIds == null || adGroupIds.Length < 1)
+                var adGroupRemarketingListAssociations = new List<AdGroupCriterion>();                               
+                
+                foreach (var audienceId in audienceIds)
                 {
-                    return;
-                }
-
-                var adGroupRemarketingListAssociations = new List<AdGroupCriterion>();
-
-                // This example associates all of the remarketing lists with the new ad group.
-
-                var getAudienceIds = new List<long>();
-                foreach (var listId in audienceIds)
-                {
-                    getAudienceIds.Add((long)listId);
-                }
-                var remarketingLists = (await CampaignManagementExampleHelper.GetAudiencesByIdsAsync(
-                    getAudienceIds,
-                    AudienceType.RemarketingList)).Audiences;
-
-                foreach (var remarketingList in remarketingLists)
-                {
-                    if (remarketingList.Id != null)
+                    if(audienceId != null)
                     {
                         var biddableAdGroupCriterion = new BiddableAdGroupCriterion
                         {
                             AdGroupId = (long)adGroupIds[0],
                             Criterion = new AudienceCriterion
                             {
-                                AudienceId = (long)remarketingList.Id,
+                                AudienceId = audienceId,
                                 AudienceType = AudienceType.RemarketingList,
                             },
                             CriterionBid = new BidMultiplier
@@ -590,77 +465,36 @@ namespace BingAdsExamplesLibrary.V12
                         };
 
                         adGroupRemarketingListAssociations.Add(biddableAdGroupCriterion);
-
-                        OutputStatusMessage(string.Format("Associating the following remarketing list with AdGroup Id {0}.\n", (long)adGroupIds[0]));
-                        CampaignManagementExampleHelper.OutputRemarketingList((RemarketingList)remarketingList);
                     }
                 }
+                
+                OutputStatusMessage("-----\nAddAdGroupCriterions:");
+                CampaignManagementExampleHelper.OutputArrayOfAdGroupCriterion(adGroupRemarketingListAssociations);
+                AddAdGroupCriterionsResponse addAdGroupCriterionsResponse = await CampaignManagementExampleHelper.AddAdGroupCriterionsAsync(
+                        adGroupCriterions: adGroupRemarketingListAssociations,
+                        criterionType: AdGroupCriterionType.Audience);
+                long?[] nullableAdGroupCriterionIds = addAdGroupCriterionsResponse.AdGroupCriterionIds.ToArray();
+                OutputStatusMessage("AdGroupCriterionIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(nullableAdGroupCriterionIds);
+                BatchErrorCollection[] adGroupCriterionErrors =
+                    addAdGroupCriterionsResponse.NestedPartialErrors.ToArray();
+                OutputStatusMessage("NestedPartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(adGroupCriterionErrors);
+                
+                // Delete the campaign and everything it contains e.g., ad groups and ads.
 
-                var addAdGroupCriterionsResponse = await CampaignManagementExampleHelper.AddAdGroupCriterionsAsync(
-                    adGroupRemarketingListAssociations,
-                    AdGroupCriterionType.Audience);
+                OutputStatusMessage("-----\nDeleteCampaigns:");
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(
+                    accountId: authorizationData.AccountId,
+                    campaignIds: new[] { (long)campaignIds[0] });
+                OutputStatusMessage(string.Format("Deleted Campaign Id {0}", campaignIds[0]));
 
-                var adGroupCriterionIds = new List<long>();
-                foreach (long id in addAdGroupCriterionsResponse.AdGroupCriterionIds)
-                {
-                    adGroupCriterionIds.Add(id);
-                }
+                // Delete the remarketing lists.
 
-                var getAdGroupCriterionsByIdsResponse = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    adGroupCriterionIds,
-                    (long)adGroupIds[0],
-                    AdGroupCriterionType.RemarketingList);
-
-                foreach (var adGroupRemarketingListAssociation in getAdGroupCriterionsByIdsResponse.AdGroupCriterions)
-                {
-                    OutputStatusMessage("The following ad group remarketing list association was added.\n");
-                    CampaignManagementExampleHelper.OutputArrayOfAdGroupCriterion(new AdGroupCriterion[] { adGroupRemarketingListAssociation });
-                }
-
-                // You can store the association IDs which can be used to update or delete associations later. 
-
-                var nullableAdGroupCriterionIds = addAdGroupCriterionsResponse.AdGroupCriterionIds;
-
-                // If the associations were added and retrieved successfully let's practice updating and deleting one of them.
-
-                if (nullableAdGroupCriterionIds != null && nullableAdGroupCriterionIds.Count > 0)
-                {
-                    var updateAdGroupRemarketingListAssociation = new BiddableAdGroupCriterion
-                    {
-                        AdGroupId = (long)adGroupIds[0],
-                        Criterion = new AudienceCriterion
-                        {
-                            AudienceType = AudienceType.RemarketingList,
-                        },
-                        CriterionBid = new BidMultiplier
-                        {
-                            Multiplier = 10.00,
-                        },
-                        Id = nullableAdGroupCriterionIds[0],
-                        Status = AdGroupCriterionStatus.Active,
-                    };
-
-                    var updateAdGroupCriterionsResponse = await CampaignManagementExampleHelper.UpdateAdGroupCriterionsAsync(
-                        new BiddableAdGroupCriterion[] { updateAdGroupRemarketingListAssociation },
-                        AdGroupCriterionType.Audience
-                    );
-
-                    var deleteAdGroupCriterionsResponse = await CampaignManagementExampleHelper.DeleteAdGroupCriterionsAsync(
-                        adGroupCriterionIds,
-                        (long)adGroupIds[0],
-                        AdGroupCriterionType.Audience
-                    );
-                }
-
-                // Delete the campaign, ad group, and ad group remarketing list associations that were previously added. 
-
-                var deleteCampaignsResponse = (await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] }));
-                OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", campaignIds[0]));
-
-                // Delete the remarketing list.
-
-                var deleteAudiencesResponse = (await CampaignManagementExampleHelper.DeleteAudiencesAsync(new[] { (long)audienceIds[0] }));
-                OutputStatusMessage(string.Format("Deleted Audience Id {0}\n", audienceIds[0]));
+                OutputStatusMessage("-----\nDeleteAudiences:");
+                await CampaignManagementExampleHelper.DeleteAudiencesAsync(
+                    audienceIds: new[] { (long)audienceIds[0] });
+                OutputStatusMessage(string.Format("Deleted Audience Id {0}", audienceIds[0]));
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -10,20 +9,19 @@ using System.Globalization;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to invite a user to manage Bing Ads accounts.
+    /// How to invite a user to manage your advertising accounts.
     /// </summary>
     public class InviteUser : ExampleBase
     {
-        /// <summary>
-        /// Specify the email address where the invitation should be sent. 
-        /// It is important to note that the recipient can accept the invitation 
-        /// and sign into Bing Ads with a Microsoft account different than the invitation email address.
-        /// </summary>
-        const string UserInviteRecipientEmail = "<UserInviteRecipientEmailGoesHere>";
+        // Specify the email address where the invitation should be sent. 
+        // The recipient can accept the invitation and sign up 
+        // with credentials that differ from the invitation email address.
+
+        const string UserInviteRecipientEmail = "UserInviteRecipientEmailGoesHere";
         
         public override string Description
         {
-            get { return "Invite a User to Manage Bing Ads accounts | Customer Management V12"; }
+            get { return "Invite a User to Manage accounts | Customer Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -32,14 +30,15 @@ namespace BingAdsExamplesLibrary.V12
             {
                 OutputStatusMessage("You must edit this example to provide the email address (UserInviteRecipientEmail) for " +
                                     "the user invitation.");
-                OutputStatusMessage("You must use Super Admin credentials to send a user invitation.\n");
+                OutputStatusMessage("You must use Super Admin credentials to send a user invitation.");
 
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CustomerManagementExampleHelper CustomerManagementExampleHelper = 
-                    new CustomerManagementExampleHelper(this.OutputStatusMessage);
-                CustomerManagementExampleHelper.CustomerManagementService = 
-                    new ServiceClient<ICustomerManagementService>(authorizationData, environment);
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
                 // Prepare to invite a new user
                 var userInvitation = new UserInvitation
@@ -57,13 +56,13 @@ namespace BingAdsExamplesLibrary.V12
                     // The identifier for an advertiser campaign manager is 16.
                     RoleId = 16,
 
-                    // The email address where the invitation should be sent. This element can contain a maximum of 100 characters.
+                    // The email address where the invitation should be sent. 
                     Email = UserInviteRecipientEmail,
 
-                    // The first name of the user. This element can contain a maximum of 40 characters.
+                    // The first name of the user. 
                     FirstName = "FirstNameGoesHere",
 
-                    // The last name of the user. This element can contain a maximum of 40 characters.
+                    // The last name of the user. 
                     LastName = "LastNameGoesHere",
 
                     // The locale to use when sending correspondence to the user by email or postal mail. The default is EnglishUS.
@@ -72,8 +71,11 @@ namespace BingAdsExamplesLibrary.V12
 
                 // Once you send a user invitation, there is no option to rescind the invitation using the API.
                 // You can delete a pending invitation in the Accounts & Billing -> Users tab of the Bing Ads web application. 
-                var userInvitationId = (await CustomerManagementExampleHelper.SendUserInvitationAsync(userInvitation))?.UserInvitationId;
-                OutputStatusMessage(string.Format("Sent new user invitation to {0}.\n", UserInviteRecipientEmail));
+
+                OutputStatusMessage("-----\nSendUserInvitation:");
+                var userInvitationId = (await CustomerManagementExampleHelper.SendUserInvitationAsync(
+                    userInvitation: userInvitation))?.UserInvitationId;
+                OutputStatusMessage(string.Format("Sent new user invitation to {0}.", UserInviteRecipientEmail));
 
                 // It is possible to have multiple pending invitations sent to the same email address, 
                 // which have not yet expired. It is also possible for those invitations to have specified 
@@ -84,17 +86,11 @@ namespace BingAdsExamplesLibrary.V12
                 // is through the Bing Ads web application. You can find both pending and accepted invitations 
                 // in the Users section of Accounts & Billing.
 
-                // Since a recipient can accept the invitation and sign into Bing Ads with a Microsoft account different 
-                // than the invitation email address, you cannot determine with certainty the mapping from UserInvitation 
-                // to accepted User. You can search by the invitation ID (returned by SendUserInvitations), 
-                // only to the extent of finding out whether or not the invitation has been accepted or has expired. 
+                // Since a recipient can accept the invitation with credentials that differ from 
+                // the invitation email address, you cannot determine with certainty the mapping from UserInvitation 
+                // to accepted User. You can only determine whether the invitation has been accepted or has expired. 
                 // The SearchUserInvitations operation returns all pending invitations, whether or not they have expired. 
                 // Accepted invitations are not included in the SearchUserInvitations response.  
-
-                // This example searches for all user invitations of the customer that you manage,
-                // and then filters the search results to find the invitation sent above.
-                // Note: In this example the invitation (sent above) should be active and not expired. You can set a breakpoint 
-                // and then either accept or delete the invitation in the Bing Ads web application to change the invitation status.
 
                 var predicate = new Predicate
                 {
@@ -102,53 +98,36 @@ namespace BingAdsExamplesLibrary.V12
                     Operator = PredicateOperator.In,
                     Value = authorizationData.CustomerId.ToString(CultureInfo.InvariantCulture)
                 };
-                
-                var userInvitations = (await CustomerManagementExampleHelper.SearchUserInvitationsAsync(new[] { predicate }))?.UserInvitations;
-                OutputStatusMessage("Existing UserInvitation(s):\n");
+
+                OutputStatusMessage("-----\nSearchUserInvitations:");
+                var userInvitations = (await CustomerManagementExampleHelper.SearchUserInvitationsAsync(
+                    predicates: new[] { predicate }))?.UserInvitations;
+                OutputStatusMessage("UserInvitations:");
                 CustomerManagementExampleHelper.OutputArrayOfUserInvitation(userInvitations);
 
-                // Determine whether the invitation has been accepted or has expired.
-                // If you specified a valid InvitationId, and if the invitation is not found, 
-                // then the recipient has accepted the invitation. 
-                // If the invitation is found, and if the expiration date is later than the current date and time,
-                // then the invitation is still pending and has not yet expired. 
-                var pendingInvitation = userInvitations.SingleOrDefault(invitation => 
-                    invitation.Id == userInvitationId && 
-                    DateTime.Compare(invitation.ExpirationDate.ToUniversalTime(), DateTime.UtcNow) > 0);
-
-                // You can send a new invitation if the invitation was either not found, has expired, 
-                // or the user has accepted the invitation. This example does not send a new invitation if the 
-                // invitationId was found and has not yet expired, i.e. the invitation is pending.
-                if (pendingInvitation == null)
-                {
-                    // Once you send a user invitation, there is no option to rescind the invitation using the API.
-                    // You can delete a pending invitation in the Accounts & Billing -> Users tab of the Bing Ads web application. 
-                    userInvitationId = (await CustomerManagementExampleHelper.SendUserInvitationAsync(userInvitation))?.UserInvitationId;
-                    OutputStatusMessage(string.Format("Sent new user invitation to {0}.\n", UserInviteRecipientEmail));
-                }
-                else
-                {
-                    OutputStatusMessage(string.Format("UserInvitationId {0} is pending.\n", userInvitationId));
-                }
-
                 // After the invitation has been accepted, you can call GetUsersInfo and GetUser to access the Bing Ads user details. 
-                // Once again though, since a recipient can accept the invitation and sign into Bing Ads with a Microsoft account 
-                // different than the invitation email address, you cannot determine with certainty the mapping from UserInvitation 
-                // to accepted User. With the user ID returned by GetUsersInfo or GetUser, you can call DeleteUser to remove the user.
+                // Once again though, since a recipient can accept the invitation with credentials that differ from 
+                // the invitation email address, you cannot determine with certainty the mapping from UserInvitation 
+                // to accepted User. 
 
+                OutputStatusMessage("-----\nGetUsersInfo:");
                 var usersInfo = (await CustomerManagementExampleHelper.GetUsersInfoAsync(
-                    authorizationData.CustomerId,
-                    null))?.UsersInfo;
-                var confirmedUserInfo = usersInfo.SingleOrDefault(info => info.UserName == UserInviteRecipientEmail);
+                    customerId: authorizationData.CustomerId,
+                    statusFilter: null))?.UsersInfo;
+                OutputStatusMessage("UsersInfo:");
+                CustomerManagementExampleHelper.OutputArrayOfUserInfo(usersInfo);
 
-                // If a user has already accepted an invitation, you can call GetUser to view all user details.
-                if (confirmedUserInfo != null)
+                foreach (var info in usersInfo)
                 {
-                    var getUserResponse = (await CustomerManagementExampleHelper.GetUserAsync(confirmedUserInfo.Id, true));
-                    OutputStatusMessage("Found Requested User Details (Not necessarily related to above Invitation ID(s):");
-                    CustomerManagementExampleHelper.OutputUser(getUserResponse.User);
-                    OutputStatusMessage("Role Ids:");
-                    OutputStatusMessage(string.Join("; ", getUserResponse.CustomerRoles.Select(role => string.Format("{0}", role.RoleId))));
+                    OutputStatusMessage("-----\nGetUser:");
+                    var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(
+                        userId: info.Id,
+                        includeLinkedAccountIds: true);
+                    var user = getUserResponse.User;
+                    OutputStatusMessage("User:");
+                    CustomerManagementExampleHelper.OutputUser(user);
+                    OutputStatusMessage("CustomerRoles:");
+                    CustomerManagementExampleHelper.OutputArrayOfCustomerRole(getUserResponse.CustomerRoles);
                 }
             }
             // Catch authentication exceptions

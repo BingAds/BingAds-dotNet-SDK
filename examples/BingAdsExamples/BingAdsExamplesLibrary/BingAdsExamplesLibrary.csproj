@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.BingAds, Version=11.12.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.BingAds.SDK.11.12.7\lib\netstandard2.0\Microsoft.BingAds.dll</HintPath>
+    <Reference Include="Microsoft.BingAds, Version=12.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BingAdsApiSDK\bin\Debug\netstandard2.0\Microsoft.BingAds.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -61,44 +62,49 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="v12\AdExtensions.cs" />
     <Compile Include="v12\AdInsightExampleHelper.cs" />
-    <Compile Include="v12\AudienceCampaigns.cs" />
+    <Compile Include="v12\BulkBudgets.cs" />
+    <Compile Include="v12\ProfileCriteria.cs" />
+    <Compile Include="v12\ResponsiveAds.cs" />
     <Compile Include="v12\BudgetOpportunities.cs" />
+    <Compile Include="v12\Budgets.cs" />
     <Compile Include="v12\BulkAdExtensions.cs" />
     <Compile Include="v12\BulkAdGroupUpdate.cs" />
-    <Compile Include="v12\BulkDynamicSearchCampaigns.cs" />
+    <Compile Include="v12\BulkDynamicSearchAds.cs" />
     <Compile Include="v12\BulkExampleBase.cs" />
     <Compile Include="v12\BulkExampleHelper.cs" />
-    <Compile Include="v12\BulkKeywordsAds.cs" />
+    <Compile Include="v12\BulkExpandedTextAds.cs" />
     <Compile Include="v12\BulkNegativeKeywords.cs" />
     <Compile Include="v12\BulkNegativeSites.cs" />
     <Compile Include="v12\BulkProductPartitionUpdateBid.cs" />
     <Compile Include="v12\BulkRemarketingLists.cs" />
+    <Compile Include="v12\BulkResponsiveAds.cs" />
+    <Compile Include="v12\BulkResponsiveSearchAds.cs" />
     <Compile Include="v12\BulkServiceManagerDemo.cs" />
-    <Compile Include="v12\BulkShoppingCampaigns.cs" />
-    <Compile Include="v12\BulkTargetCriterions.cs" />
+    <Compile Include="v12\BulkProductAds.cs" />
     <Compile Include="v12\CampaignManagementExampleHelper.cs" />
     <Compile Include="v12\ConversionGoals.cs" />
     <Compile Include="v12\CustomerBillingExampleHelper.cs" />
     <Compile Include="v12\CustomerManagementExampleHelper.cs" />
     <Compile Include="v12\CustomerSignup.cs" />
-    <Compile Include="v12\DownloadProfileData.cs" />
-    <Compile Include="v12\DynamicSearchCampaigns.cs" />
+    <Compile Include="v12\DynamicSearchAds.cs" />
     <Compile Include="v12\ExampleBase.cs" />
+    <Compile Include="v12\Experiments.cs" />
     <Compile Include="v12\GeographicalLocations.cs" />
     <Compile Include="v12\ImageMedia.cs" />
     <Compile Include="v12\InviteUser.cs" />
     <Compile Include="v12\KeywordPlanner.cs" />
-    <Compile Include="v12\KeywordsAds.cs" />
+    <Compile Include="v12\ExpandedTextAds.cs" />
     <Compile Include="v12\Labels.cs" />
-    <Compile Include="v12\ManageClient.cs" />
+    <Compile Include="v12\ClientLinks.cs" />
     <Compile Include="v12\NegativeKeywords.cs" />
     <Compile Include="v12\OfflineConversions.cs" />
     <Compile Include="v12\RemarketingLists.cs" />
     <Compile Include="v12\ReportingExampleHelper.cs" />
     <Compile Include="v12\ReportRequests.cs" />
+    <Compile Include="v12\ResponsiveSearchAds.cs" />
     <Compile Include="v12\SearchUserAccounts.cs" />
-    <Compile Include="v12\ShoppingCampaigns.cs" />
-    <Compile Include="v12\TargetCriterions.cs" />
+    <Compile Include="v12\ProductAds.cs" />
+    <Compile Include="v12\TargetCriteria.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

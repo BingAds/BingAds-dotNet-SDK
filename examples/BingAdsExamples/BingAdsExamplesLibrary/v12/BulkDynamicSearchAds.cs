@@ -9,14 +9,13 @@ using Microsoft.BingAds.V12.AdInsight;
 using Microsoft.BingAds.V12.Bulk;
 using Microsoft.BingAds.V12.Bulk.Entities;
 using Microsoft.BingAds.V12.CampaignManagement;
-using System.Threading;
 
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example uses the Bing Ads Bulk service to setup a Dynamic Search Ads (DSA) campaign.
+    /// How to setup a Dynamic Search Ads (DSA) campaign with the Bulk service.
     /// </summary>
-    public class BulkDynamicSearchCampaigns : BulkExampleBase
+    public class BulkDynamicSearchAds : BulkExampleBase
     {
         public const string DOMAIN_NAME = "contoso.com";
         public const string LANGUAGE = "EN";
@@ -32,24 +31,22 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                AdInsightExampleHelper AdInsightExampleHelper = 
-                    new AdInsightExampleHelper(this.OutputStatusMessage);
-                AdInsightExampleHelper.AdInsightService = 
-                    new ServiceClient<IAdInsightService>(authorizationData, environment);
+                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                // Used to output the Campaign Management objects within Bulk entities.
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
 
-                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
-
-                var progress = new Progress<BulkOperationProgressInfo>(x =>
-                    OutputStatusMessage(String.Format("{0} % Complete",
-                        x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
+                BulkServiceManager = new BulkServiceManager(
+                    authorizationData: authorizationData,
+                    apiEnvironment: environment);
 
                 var uploadEntities = new List<BulkEntity>();
-
-                #region Add
-
+                
                 // To get started with dynamic search ads, first you'll need to add a new Campaign 
                 // with its type set to DynamicSearchAds. When you create the campaign, you'll need to 
                 // include a DynamicSearchAdsSetting that specifies the target website domain and language.
@@ -60,7 +57,12 @@ namespace BingAdsExamplesLibrary.V12
                     Campaign = new Campaign
                     {
                         Id = campaignIdKey,
+                        BudgetType = Microsoft.BingAds.V12.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
+                        DailyBudget = 50,
                         CampaignType = CampaignType.DynamicSearchAds,
+                        Languages = new string[] { "All" },
+                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        TimeZone = "PacificTimeUSCanadaTijuana",
                         Settings = new[] {
                             new DynamicSearchAdsSetting
                             {
@@ -68,32 +70,12 @@ namespace BingAdsExamplesLibrary.V12
                                 Language = "English"
                             }
                         },
-
-                        Name = "Women's Shoes " + DateTime.UtcNow,
-                        Description = "Red shoes line.",
-
-                        // You must choose to set either the shared  budget ID or daily amount.
-                        // You can set one or the other, but you may not set both.
-                        BudgetId = null,
-                        DailyBudget = 50,
-                        BudgetType = Microsoft.BingAds.V12.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
-
-                        // You can set your campaign bid strategy to Enhanced CPC (EnhancedCpcBiddingScheme) 
-                        // and then, at any time, set an individual ad group bid strategy to 
-                        // Manual CPC (ManualCpcBiddingScheme).
-                        BiddingScheme = new EnhancedCpcBiddingScheme { },
-
-                        TimeZone = "PacificTimeUSCanadaTijuana",
-
-                        // Used with CustomParameters defined in lower level entities such as ads.
-                        TrackingUrlTemplate =
-                            "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     },
                 };
 
                 uploadEntities.Add(bulkCampaign);
 
-                // Next, create a new AdGroup within the dynamic search ads campaign. 
+                // Create a new ad group within the dynamic search ads campaign. 
 
                 var bulkAdGroup = new BulkAdGroup
                 {
@@ -109,18 +91,13 @@ namespace BingAdsExamplesLibrary.V12
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
                         },
-                        Language = "English",
-                        Status = AdGroupStatus.Active,
-
-                        // For ad groups you can use either of the InheritFromParentBiddingScheme or ManualCpcBiddingScheme objects. 
-                        // If you do not set this element, then InheritFromParentBiddingScheme is used by default.
-                        BiddingScheme = new ManualCpcBiddingScheme { },
+                        CpcBid = new Bid { Amount = 0.09 },
                     },
                 };
 
                 uploadEntities.Add(bulkAdGroup);
 
-                // You can add one or more Webpage criterion to each ad group that helps determine 
+                // You can add one or more Webpage criteria to each ad group that helps determine 
                 // whether or not to serve dynamic search ads.
 
                 var adGroupWebpagePositivePageContent = new BulkAdGroupDynamicSearchAdTarget
@@ -147,28 +124,6 @@ namespace BingAdsExamplesLibrary.V12
                                 CriterionName = "Ad Group Webpage Positive Page Content Criterion"
                             },
                         },
-                        // DestinationUrl and FinalUrls are not supported with Webpage criterion. 
-                        // The Final URL is dynamically created at the ad level.
-                        DestinationUrl = null,
-                        FinalUrls = null,
-                        
-                        // In this example we are deferring to the campaign level tracking template.
-                        TrackingUrlTemplate = null,
-
-                        // Set custom parameters that are specific to this webpage criterion.
-                        UrlCustomParameters = new CustomParameters
-                        {
-                            Parameters = new[] {
-                                new CustomParameter(){
-                                    Key = "promoCode",
-                                    Value = "PROMO1"
-                                },
-                                new CustomParameter(){
-                                    Key = "season",
-                                    Value = "summer"
-                                },
-                            }
-                        }
                     }
                 };
                 uploadEntities.Add(adGroupWebpagePositivePageContent);
@@ -176,13 +131,16 @@ namespace BingAdsExamplesLibrary.V12
                 // To discover the categories that you can use for Webpage criterion (positive or negative), 
                 // use the GetDomainCategories operation with the Ad Insight service.
 
+                OutputStatusMessage("-----\nGetDomainCategories:");
                 var getDomainCategoriesResponse = await AdInsightExampleHelper.GetDomainCategoriesAsync(
-                    categoryName: null, 
-                    domainName: DOMAIN_NAME, 
+                    categoryName: null,
+                    domainName: DOMAIN_NAME,
                     language: LANGUAGE);
                 var categories = getDomainCategoriesResponse.Categories;
+                AdInsightExampleHelper.OutputArrayOfDomainCategory(categories);
 
                 // If any categories are available let's use one as a condition.
+
                 if (categories.Count > 0)
                 {
                     var adGroupWebpagePositiveCategory = new BulkAdGroupDynamicSearchAdTarget
@@ -273,7 +231,7 @@ namespace BingAdsExamplesLibrary.V12
                 uploadEntities.Add(campaignWebpageNegative);
 
 
-                // Finally you can add a DynamicSearchAd into the ad group. The ad title and display URL 
+                // Finally you must add at least one DynamicSearchAd into the ad group. The ad title and display URL 
                 // are generated automatically based on the website domain and language that you want to target.
 
                 var bulkDynamicSearchAd = new BulkDynamicSearchAd
@@ -285,28 +243,10 @@ namespace BingAdsExamplesLibrary.V12
                         Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
                         Path1 = "seattle",
                         Path2 = "shoe sale",
-
-                        // You cannot set FinalUrls. The Final URL will be a dynamically selected landing page.
+                        // You cannot set FinalUrls for dynamic search ads. 
+                        // The Final URL will be a dynamically selected landing page.
                         // The final URL is distinct from the path that customers will see and click on in your ad.
                         FinalUrls = null,
-                        
-                        // In this example we are deferring to the campaign level tracking template.
-                        TrackingUrlTemplate = null,
-
-                        // Set custom parameters that are specific to this ad.
-                        UrlCustomParameters = new CustomParameters
-                        {
-                            Parameters = new[] {
-                                new CustomParameter(){
-                                    Key = "promoCode",
-                                    Value = "PROMO1"
-                                },
-                                new CustomParameter(){
-                                    Key = "season",
-                                    Value = "summer"
-                                },
-                            }
-                        }
                     },
                 };
 
@@ -314,10 +254,12 @@ namespace BingAdsExamplesLibrary.V12
                 
                 // Upload and write the output
 
-                OutputStatusMessage("Adding campaign, ad group, criterions, and ads . . .\n");
+                OutputStatusMessage("-----\nAdding campaign, ad group, criterions, and ads...");
 
                 var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
+
+                OutputStatusMessage("Upload results:");
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
@@ -339,123 +281,7 @@ namespace BingAdsExamplesLibrary.V12
 
                 Reader.Dispose();
 
-                #endregion Add
-
-                #region Update
-
-                uploadEntities = new List<BulkEntity>();
-
-                // You can update the bid for BiddableAdGroupCriterion
-
-                var updateBid = new FixedBid
-                {
-                    Amount = 0.75
-                };
-
-                // You can update the Webpage criterion name but cannot update the conditions. 
-                // To update the conditions you must delete the criterion and add a new criterion.
-                // This update attempt will return an error.
-
-                var updateCriterionAttemptFailure = new Webpage
-                {
-                    Parameter = new WebpageParameter
-                    {
-                        Conditions = new[]
-                        {
-                            new WebpageCondition
-                            {
-                                Argument = "Books",
-                                Operand = WebpageConditionOperand.PageContent,
-                            }
-                        },
-                        CriterionName = "Update Attempt Failure"
-                    },
-                };
-
-                var updateCriterionAttemptSuccess = new Webpage
-                {
-                    Parameter = new WebpageParameter
-                    {
-                        CriterionName = "Update Attempt Success"
-                    },
-                };
-
-                foreach (var adGroupDynamicSearchAdTargetResult in adGroupDynamicSearchAdTargetResults)
-                {
-                    var biddableAdGroupCriterion = adGroupDynamicSearchAdTargetResult.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
-                    if (biddableAdGroupCriterion != null)
-                    {
-                        ((BiddableAdGroupCriterion)adGroupDynamicSearchAdTargetResult.BiddableAdGroupCriterion).CriterionBid = updateBid;
-                        adGroupDynamicSearchAdTargetResult.BiddableAdGroupCriterion.Criterion = updateCriterionAttemptSuccess;
-                        uploadEntities.Add(adGroupDynamicSearchAdTargetResult);
-                    }
-                }
-
-                foreach (var adGroupNegativeDynamicSearchAdTargetResult in adGroupNegativeDynamicSearchAdTargetResults)
-                {
-                    var negativeAdGroupCriterion = adGroupNegativeDynamicSearchAdTargetResult.NegativeAdGroupCriterion as NegativeAdGroupCriterion;
-                    if (negativeAdGroupCriterion != null)
-                    {
-                        adGroupNegativeDynamicSearchAdTargetResult.NegativeAdGroupCriterion.Criterion = updateCriterionAttemptFailure;
-                        uploadEntities.Add(adGroupNegativeDynamicSearchAdTargetResult);
-                    }
-                }
-
-                OutputStatusMessage("Updating Ad Group Webpage Criterion . . . \n");
-
-                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
-                downloadEntities = Reader.ReadEntities().ToList();
-
-                adGroupDynamicSearchAdTargetResults = downloadEntities.OfType<BulkAdGroupDynamicSearchAdTarget>().ToList();
-                OutputBulkAdGroupDynamicSearchAdTargets(adGroupDynamicSearchAdTargetResults);
-
-                adGroupNegativeDynamicSearchAdTargetResults = downloadEntities.OfType<BulkAdGroupNegativeDynamicSearchAdTarget>().ToList();
-                OutputBulkAdGroupNegativeDynamicSearchAdTargets(adGroupNegativeDynamicSearchAdTargetResults);
-
-                Reader.Dispose();
-
-
-                #endregion Update
-
-                #region Get
-                
-                var entities = new[] {
-                    DownloadEntity.AdGroupDynamicSearchAdTargets,
-                    DownloadEntity.AdGroupNegativeDynamicSearchAdTargets
-                };
-
-                var downloadParameters = new DownloadParameters
-                {
-                    CampaignIds = null,
-                    DataScope = DataScope.EntityData | DataScope.EntityPerformanceData,
-                    PerformanceStatsDateRange = new PerformanceStatsDateRange { PredefinedTime = ReportTimePeriod.LastFourWeeks },
-                    DownloadEntities = entities,
-                    FileType = FileType,
-                    LastSyncTimeInUTC = null,
-                    ResultFileDirectory = FileDirectory,
-                    ResultFileName = DownloadFileName,
-                    OverwriteResultFile = true
-                };
-
-                // You may optionally cancel the DownloadFileAsync operation after a specified time interval. 
-                var tokenSource = new CancellationTokenSource();
-                tokenSource.CancelAfter(TimeoutInMilliseconds);
-
-                var resultFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters, progress, tokenSource.Token);
-                OutputStatusMessage(String.Format("Download result file: {0}\n", resultFilePath));
-
-                #endregion Get
-
-                #region CleanUp
-
-                // Delete the campaign, ad group, criterion, and ad that were previously added. 
-                // You should remove this operation if you want to view the added entities in the 
-                // Bing Ads web application or another tool.
-
-                // You must set the Id field to the corresponding entity identifier, and the Status field to Deleted.
-
-                // When you delete a BulkCampaign, the dependent entities such as BulkAdGroup 
-                // are deleted without being specified explicitly.  
+                // Delete the campaign and everything it contains e.g., ad groups and ads.
 
                 uploadEntities = new List<BulkEntity>();
 
@@ -465,16 +291,17 @@ namespace BingAdsExamplesLibrary.V12
                     uploadEntities.Add(campaignResult);
                 }
 
-                OutputStatusMessage("\nDeleting DSA campaign, criterions, and ad . . .\n");
+                OutputStatusMessage("-----\nDeleting DSA campaign, criterions, and ad...");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
+
+                OutputStatusMessage("Upload results:");
+
                 campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
 
                 Reader.Dispose();
-
-                #endregion Cleanup
             }
             // Catch Microsoft Account authorization exceptions.
             catch (OAuthTokenRequestException ex)

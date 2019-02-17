@@ -14,38 +14,9 @@ namespace BingAdsConsoleApp
 {
     class Program
     {
-        // Uncomment any examples that you want to run. 
+        // Set any examples that you want to run. 
         private static readonly ExampleBase[] _examples =
         {
-            /*
-            new BingAdsExamplesLibrary.V12.Labels(),
-            new BingAdsExamplesLibrary.V12.OfflineConversions(),
-            new BingAdsExamplesLibrary.V12.KeywordPlanner(),
-            new BingAdsExamplesLibrary.V12.BudgetOpportunities(),
-            new BingAdsExamplesLibrary.V12.BulkServiceManagerDemo(),
-            new BingAdsExamplesLibrary.V12.BulkAdExtensions(),
-            new BingAdsExamplesLibrary.V12.AdExtensions(),
-            new BingAdsExamplesLibrary.V12.BulkKeywordsAds(),
-            new BingAdsExamplesLibrary.V12.KeywordsAds(),
-            new BingAdsExamplesLibrary.V12.BulkNegativeKeywords(),
-            new BingAdsExamplesLibrary.V12.NegativeKeywords(),
-            new BingAdsExamplesLibrary.V12.BulkAdGroupUpdate(),
-            new BingAdsExamplesLibrary.V12.BulkProductPartitionUpdateBid(),
-            new BingAdsExamplesLibrary.V12.ConversionGoals(),
-            new BingAdsExamplesLibrary.V12.BulkRemarketingLists(),
-            new BingAdsExamplesLibrary.V12.RemarketingLists(),
-            new BingAdsExamplesLibrary.V12.BulkShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V12.ShoppingCampaigns(),
-            new BingAdsExamplesLibrary.V12.DynamicSearchCampaigns(),
-            new BingAdsExamplesLibrary.V12.BulkTargetCriterions(),
-            new BingAdsExamplesLibrary.V12.TargetCriterions(),
-            new BingAdsExamplesLibrary.V12.GeographicalLocations(),
-            new BingAdsExamplesLibrary.V12.BulkNegativeSites(),
-            new BingAdsExamplesLibrary.V12.InviteUser(),
-            new BingAdsExamplesLibrary.V12.CustomerSignup(),
-            new BingAdsExamplesLibrary.V12.ManageClient(),
-            new BingAdsExamplesLibrary.V12.ReportRequests(),
-            */
             new BingAdsExamplesLibrary.V12.SearchUserAccounts(),
         };
 
@@ -57,13 +28,14 @@ namespace BingAdsConsoleApp
             try
             {
                 Authentication authentication = AuthenticateWithOAuth();
-
-                // Most Bing Ads service operations require account and customer ID. 
+                
                 // This utiltiy operation sets the global authorization data instance 
                 // to the first account that the current authenticated user can access. 
-                SetAuthorizationDataAsync(authentication).Wait();
 
-                // Run all of the examples that were included above.
+                SetAuthorizationDataAsync(authentication).Wait();
+                
+                // Run all of the examples that are included above.
+
                 foreach (var example in _examples)
                 {
                     example.RunAsync(_authorizationData).Wait();
@@ -94,7 +66,7 @@ namespace BingAdsConsoleApp
                 OutputStatusMessage(string.Join("; ",
                     ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CustomerManagement.ApiFault> ex)
+            catch (FaultException<ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ",
                     ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
@@ -112,7 +84,8 @@ namespace BingAdsConsoleApp
                 ApiEnvironment.Sandbox : ApiEnvironment.Production;
             var oAuthDesktopMobileAuthCodeGrant = new OAuthDesktopMobileAuthCodeGrant(
                 Settings.Default["ClientId"].ToString(),
-                apiEnvironment);
+                apiEnvironment
+            );
 
             // It is recommended that you specify a non guessable 'state' request parameter to help prevent
             // cross site request forgery (CSRF). 
@@ -128,30 +101,32 @@ namespace BingAdsConsoleApp
             else
             {
                 // You must request user consent at least once through a web browser control. 
-                // Call the GetAuthorizationEndpoint method of the OAuthDesktopMobileAuthCodeGrant instance that you created above.
                 Console.WriteLine(string.Format(
-                    "To continue, a Bing Ads user must provide consent for your application to access their Bing Ads accounts.\n" +
-                    "Open a new web browser and navigate to {0}.\n\n" +
-                    "After the user has granted consent in the web browser for the application to access " +
-                    "their Bing Ads accounts, please enter the response URI that includes " +
-                    "the authorization 'code' parameter: \n", oAuthDesktopMobileAuthCodeGrant.GetAuthorizationEndpoint()));
-
-                // Request access and refresh tokens using the URI that you provided manually during program execution.
+                    "Open a new web browser and navigate to {0}\n\n" +
+                    "Grant consent in the web browser for the application to access " +
+                    "your advertising accounts, and then enter the response URI that includes " +
+                    "the authorization 'code' parameter: \n", oAuthDesktopMobileAuthCodeGrant.GetAuthorizationEndpoint())
+                );
+                
+                // After consent has been granted, read the reponse URI that should contain the authorization code.
                 var responseUri = new Uri(Console.ReadLine());
 
                 if (oAuthDesktopMobileAuthCodeGrant.State != ClientState)
                     throw new HttpRequestException("The OAuth response state does not match the client request state.");
 
+                // Request access and refresh tokens.
                 oAuthDesktopMobileAuthCodeGrant.RequestAccessAndRefreshTokensAsync(responseUri).Wait();
+
+                // Store the refresh token for future use as needed. 
                 SaveRefreshToken(oAuthDesktopMobileAuthCodeGrant.OAuthTokens.RefreshToken);
             }
 
             // It is important to save the most recent refresh token whenever new OAuth tokens are received. 
             // You will want to subscribe to the NewOAuthTokensReceived event handler. 
-            // When calling Bing Ads services with ServiceClient<TService>, BulkServiceManager, or ReportingServiceManager, 
-            // each instance will refresh your access token automatically if they detect the AuthenticationTokenExpired (109) error code. 
+            // Each instance of ServiceClient<TService>, BulkServiceManager, or ReportingServiceManager 
+            // will refresh your access token automatically if they detect the AuthenticationTokenExpired (109) error code. 
             oAuthDesktopMobileAuthCodeGrant.NewOAuthTokensReceived +=
-                    (sender, tokens) => SaveRefreshToken(tokens.NewRefreshToken);
+                (sender, tokens) => SaveRefreshToken(tokens.NewRefreshToken);
 
             return oAuthDesktopMobileAuthCodeGrant;
         }
@@ -233,12 +208,20 @@ namespace BingAdsConsoleApp
             ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)_authorizationData.Authentication).Environment;
 
             BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper CustomerManagementExampleHelper = 
-                new BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper(null);
-            CustomerManagementExampleHelper.CustomerManagementService = 
-                new ServiceClient<ICustomerManagementService>(_authorizationData, environment);
+                new BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper(
+                    OutputStatusMessageDefault: null);
+            CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(
+                    authorizationData: _authorizationData, 
+                    environment: environment);
 
-            var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null, true);
+            var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(
+                    userId: null,
+                    includeLinkedAccountIds: true);
             var user = getUserResponse.User;
+
+            // Search for the accounts that the user can access.
+            // To retrieve more than 100 accounts, increase the page size up to 1,000.
+            // To retrieve more than 1,000 accounts you'll need to add paging.
 
             var predicate = new Predicate
             {
@@ -250,7 +233,7 @@ namespace BingAdsConsoleApp
             var paging = new Paging
             {
                 Index = 0,
-                Size = 10
+                Size = 100
             };
 
             var request = new SearchAccountsRequest
@@ -261,9 +244,9 @@ namespace BingAdsConsoleApp
             };
 
             var accounts = (await CustomerManagementExampleHelper.SearchAccountsAsync(
-                new[] { predicate },
-                null,
-                paging)).Accounts.ToArray();
+                    predicates: new[] { predicate },
+                    ordering: null,
+                    pageInfo: paging))?.Accounts.ToArray();
             
             if (accounts.Length <= 0) return;
 

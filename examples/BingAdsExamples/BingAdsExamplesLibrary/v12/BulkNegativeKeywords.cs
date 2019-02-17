@@ -12,7 +12,7 @@ using Microsoft.BingAds.V12.CampaignManagement;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to add negative keywords using the BulkServiceManager class.
+    /// How to add negative keywords with the Bulk service.
     /// </summary>
     public class BulkNegativeKeywords : BulkExampleBase
     {
@@ -27,44 +27,39 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                // Used to output the Campaign Management objects within Bulk entities.
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
 
-                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
+                BulkServiceManager = new BulkServiceManager(
+                    authorizationData: authorizationData,
+                    apiEnvironment: environment);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
-                #region Add
+                var uploadEntities = new List<BulkEntity>();
 
-                // Prepare the bulk entities that you want to upload. Each bulk entity contains the corresponding campaign management object, 
-                // and additional elements needed to read from and write to a bulk file. 
+                // Define a campaign 
 
                 var bulkCampaign = new BulkCampaign
                 {
-                    // ClientId may be used to associate records in the bulk upload file with records in the results file. The value of this field 
-                    // is not used or stored by the server; it is simply copied from the uploaded record to the corresponding result record.
-                    // Note: This bulk file Client Id is not related to an application Client Id for OAuth. 
                     ClientId = "YourClientIdGoesHere",
                     Campaign = new Campaign
                     {
-                        // When using the Campaign Management service, the Id cannot be set. In the context of a BulkCampaign, the Id is optional 
-                        // and may be used as a negative reference key during bulk upload. For example the same negative value set for the campaign Id 
-                        // will be used when associating this new campaign with a new negative keyword in the BulkCampaignNegativeKeyword object below. 
                         Id = campaignIdKey,
-                        Name = "Women's Shoes " + DateTime.UtcNow,
-                        Description = "Red shoes line.",
-
-                        // You must choose to set either the shared  budget ID or daily amount.
-                        // You can set one or the other, but you may not set both.
-                        BudgetId = null,
-                        DailyBudget = 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
-                        BiddingScheme = new EnhancedCpcBiddingScheme(),
-
+                        DailyBudget = 50,
+                        CampaignType = CampaignType.Search,
+                        Languages = new string[] { "All" },
+                        Name = "Women's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     }
                 };
+                uploadEntities.Add(bulkCampaign);
+
+                // Define a set of negative keywords that can be applied to the campaign.
 
                 var bulkCampaignNegativeKeywords = new BulkCampaignNegativeKeyword[] {
                     new BulkCampaignNegativeKeyword {
@@ -101,12 +96,16 @@ namespace BingAdsExamplesLibrary.V12
                     },
                 };
 
-                // Negative keywords can be added and deleted from a shared negative keyword list. The negative keyword list can be shared or associated with multiple campaigns.
-                // You can create up to 20 negative keyword lists per account and share or associate them with any campaign in the same account. 
+                foreach (var bulkCampaignNegativeKeyword in bulkCampaignNegativeKeywords)
+                {
+                    uploadEntities.Add(bulkCampaignNegativeKeyword);
+                }
+
+                // Negative keywords can also be added and deleted from a shared negative keyword list. 
+                // The negative keyword list can be shared or associated with multiple campaigns. 
+
                 // To create a negative keyword list, upload a BulkNegativeKeywordList (Negative Keyword List record type). 
-                // For each negative keyword that you want to add to the list, upload a BulkSharedNegativeKeyword (Shared Negative Keyword record type). 
-                // To associate the negative keyword list with a campaign, also upload a BulkCampaignNegativeKeywordList (Campaign Negative Keyword List Association record type). 
-                
+
                 var bulkNegativeKeywordList = new BulkNegativeKeywordList
                 {
                     NegativeKeywordList = new NegativeKeywordList
@@ -117,6 +116,11 @@ namespace BingAdsExamplesLibrary.V12
                         Name = "My NKW List",
                     },
                 };
+
+                uploadEntities.Add(bulkNegativeKeywordList);
+
+                // For each negative keyword that you want to add to the list, 
+                // upload a BulkSharedNegativeKeyword (Shared Negative Keyword record type). 
 
                 var bulkSharedNegativeKeywords = new BulkSharedNegativeKeyword[] {
                     new BulkSharedNegativeKeyword {
@@ -137,6 +141,14 @@ namespace BingAdsExamplesLibrary.V12
                     },
                 };
 
+                foreach (var bulkSharedNegativeKeyword in bulkSharedNegativeKeywords)
+                {
+                    uploadEntities.Add(bulkSharedNegativeKeyword);
+                }
+
+                // To associate the negative keyword list with a campaign, 
+                // also upload a BulkCampaignNegativeKeywordList (Campaign Negative Keyword List Association record type). 
+
                 var bulkCampaignNegativeKeywordList = new BulkCampaignNegativeKeywordList
                 {
                     SharedEntityAssociation = new SharedEntityAssociation
@@ -148,25 +160,16 @@ namespace BingAdsExamplesLibrary.V12
                     }
                 };
                 
-                var uploadEntities = new List<BulkEntity>();
-                uploadEntities.Add(bulkCampaign);
-
-                foreach (var bulkCampaignNegativeKeyword in bulkCampaignNegativeKeywords)
-                {
-                    uploadEntities.Add(bulkCampaignNegativeKeyword);
-                }
-
-                uploadEntities.Add(bulkNegativeKeywordList);
-                foreach (var bulkSharedNegativeKeyword in bulkSharedNegativeKeywords)
-                {
-                    uploadEntities.Add(bulkSharedNegativeKeyword);
-                }
                 uploadEntities.Add(bulkCampaignNegativeKeywordList);
 
                 // Upload and write the output
 
+                OutputStatusMessage("-----\nAdding the campaign and negative keywords...");
+
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
+
+                OutputStatusMessage("Upload results:");
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
@@ -184,47 +187,37 @@ namespace BingAdsExamplesLibrary.V12
                 OutputBulkCampaignNegativeKeywordLists(campaignNegativeKeywordListResults);
 
                 Reader.Dispose();
-
-                #endregion Add
-
-                #region CleanUp
-
-                //Delete the campaign and negative keywords that were previously added. 
-                //You should remove this region if you want to view the added entities in the 
-                //Bing Ads web application or another tool.
-
-                //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted.
-
-                //When you delete a BulkCampaign, the dependent entities such as BulkCampaignNegativeKeyword 
-                //are deleted without being specified explicitly.  
-                //When you delete a BulkNegativeKeywordList, the dependent entities such as BulkSharedNegativeKeyword 
-                //are deleted without being specified explicitly.
+                
+                // Delete the campaign and everything it contains e.g., ad groups and ads.
+                // Delete the account's shared negative keyword list. 
 
                 uploadEntities = new List<BulkEntity>();
-                
+
                 foreach (var campaignResult in campaignResults)
                 {
                     campaignResult.Campaign.Status = CampaignStatus.Deleted;
                     uploadEntities.Add(campaignResult);
                 }
-
+                
                 foreach (var negativeKeywordListResult in negativeKeywordListResults)
                 {
                     negativeKeywordListResult.Status = Status.Deleted;
                     uploadEntities.Add(negativeKeywordListResult);
                 }
-
+                
                 // Upload and write the output
 
-                OutputStatusMessage("\nDeleting campaign and negative keywords . . .\n");
+                OutputStatusMessage("-----\nDeleting the campaign and everything it contains e.g., ad groups and ads...");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
+
+                OutputStatusMessage("Upload results:");
+
                 OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
                 OutputBulkNegativeKeywordLists(downloadEntities.OfType<BulkNegativeKeywordList>().ToList());
-                Reader.Dispose();
 
-                #endregion Cleanup
+                Reader.Dispose();
             }
             // Catch Microsoft Account authorization exceptions.
             catch (OAuthTokenRequestException ex)

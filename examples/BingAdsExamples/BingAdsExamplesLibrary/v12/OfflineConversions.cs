@@ -9,7 +9,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to send Bing Ads your offline conversions using the Campaign Management service.
+    /// How to send Bing Ads your offline conversions using the Campaign Management service.
     /// </summary>
     public class OfflineConversions : ExampleBase
     {
@@ -26,12 +26,15 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper =
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService =
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                var offlineConversionGoalName = "My Offline Conversion Goal " + DateTime.UtcNow;
+                // A conversion goal cannot be deleted, so even if this is a test
+                // please choose an appropriate name accordingly. 
+                var offlineConversionGoalName = "My Offline Conversion Goal";
 
                 var conversionGoals = new ConversionGoal[]
                 {
@@ -60,15 +63,30 @@ namespace BingAdsExamplesLibrary.V12
                     },
                 };
 
-                OutputStatusMessage("Add conversion goal...\n");
-                var addConversionGoalsResponse = await CampaignManagementExampleHelper.AddConversionGoalsAsync(conversionGoals);
-
-                List<long> conversionGoalIds = GetNonNullableIds(addConversionGoalsResponse.ConversionGoalIds);
+                OutputStatusMessage("-----\nAddConversionGoals:");
+                var addConversionGoalsResponse = await CampaignManagementExampleHelper.AddConversionGoalsAsync(
+                    conversionGoals: conversionGoals);
+                var conversionGoalIds = addConversionGoalsResponse.ConversionGoalIds.ToArray();
+                BatchError[] conversionGoalErrors = addConversionGoalsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("ConversionGoalIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(conversionGoalIds);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(conversionGoalErrors);
+                
+                List<long> goalIds = GetNonNullableIds(conversionGoalIds);
+                
                 var conversionGoalTypes = ConversionGoalType.OfflineConversion;
-                var getConversionGoals =
-                    (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
 
+                OutputStatusMessage("-----\nGetConversionGoalsByIds:");
+                var getConversionGoalsResponse = (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(
+                        conversionGoalIds: goalIds,
+                        conversionGoalTypes: conversionGoalTypes));
+                var getConversionGoals = getConversionGoalsResponse.ConversionGoals;
+                conversionGoalErrors = getConversionGoalsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("ConversionGoals:");
                 CampaignManagementExampleHelper.OutputArrayOfConversionGoal(getConversionGoals);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(conversionGoalErrors);
 
                 // Every time you create a new OfflineConversionGoal via either the Bing Ads web application or Campaign Management API, 
                 // the MSCLKIDAutoTaggingEnabled value of the corresponding AccountProperty is set to 'true' automatically.
@@ -77,10 +95,16 @@ namespace BingAdsExamplesLibrary.V12
                 var accountPropertyNames = new List<AccountPropertyName>();
                 accountPropertyNames.Add(AccountPropertyName.MSCLKIDAutoTaggingEnabled);
 
-                OutputStatusMessage("Get account properties...\n");
-                var getAccountPropertiesResponse = await CampaignManagementExampleHelper.GetAccountPropertiesAsync(accountPropertyNames);
-                CampaignManagementExampleHelper.OutputArrayOfAccountProperty(getAccountPropertiesResponse.AccountProperties);
-
+                OutputStatusMessage("-----\nGetAccountProperties:");
+                var getAccountPropertiesResponse = await CampaignManagementExampleHelper.GetAccountPropertiesAsync(
+                    accountPropertyNames: accountPropertyNames);
+                var accountProperties = getAccountPropertiesResponse.AccountProperties;
+                BatchError[] accountPropertiesErrors = getAccountPropertiesResponse.PartialErrors.ToArray();
+                OutputStatusMessage("AccountProperties:");
+                CampaignManagementExampleHelper.OutputArrayOfAccountProperty(accountProperties);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(accountPropertiesErrors);
+                
                 var offlineConversions = new[]
                 {
                     new OfflineConversion
@@ -106,14 +130,15 @@ namespace BingAdsExamplesLibrary.V12
                     }
                 };
 
-                // After the OfflineConversionGoal is set up, wait two hours before sending Bing Ads the offline conversions. 
+                // After the OfflineConversionGoal is set up, wait two hours before submitting the offline conversions. 
                 // This example would not succeed in production because we created the goal very recently i.e., 
                 // please see above call to AddConversionGoalsAsync. 
 
-                OutputStatusMessage("Apply the offline conversion...\n");
-                var applyOfflineConversionsResponse = await CampaignManagementExampleHelper.ApplyOfflineConversionsAsync(offlineConversions);
-                CampaignManagementExampleHelper.OutputArrayOfOfflineConversion(offlineConversions);
-
+                OutputStatusMessage("-----\nApplyOfflineConversions:");
+                var applyOfflineConversionsResponse = await CampaignManagementExampleHelper.ApplyOfflineConversionsAsync(
+                    offlineConversions: offlineConversions);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(applyOfflineConversionsResponse.PartialErrors);
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)

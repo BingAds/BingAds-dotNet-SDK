@@ -101,10 +101,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdApiError * * *");
                 OutputStatusMessage(string.Format("Code: {0}", dataObject.Code));
                 OutputStatusMessage(string.Format("Detail: {0}", dataObject.Detail));
                 OutputStatusMessage(string.Format("ErrorCode: {0}", dataObject.ErrorCode));
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
+                OutputStatusMessage("* * * End OutputAdApiError * * *");
             }
         }
         public void OutputArrayOfAdApiError(IList<AdApiError> dataObjects)
@@ -113,8 +115,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdApiError(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdApiError(dataObject);
+                    }
                 }
             }
         }
@@ -122,7 +126,10 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdApiFaultDetail * * *");
+                OutputStatusMessage("Errors:");
                 OutputArrayOfAdApiError(dataObject.Errors);
+                OutputStatusMessage("* * * End OutputAdApiFaultDetail * * *");
             }
         }
         public void OutputArrayOfAdApiFaultDetail(IList<AdApiFaultDetail> dataObjects)
@@ -131,8 +138,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdApiFaultDetail(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdApiFaultDetail(dataObject);
+                    }
                 }
             }
         }
@@ -140,8 +149,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputApiFaultDetail * * *");
+                OutputStatusMessage("BatchErrors:");
                 OutputArrayOfBatchError(dataObject.BatchErrors);
+                OutputStatusMessage("OperationErrors:");
                 OutputArrayOfOperationError(dataObject.OperationErrors);
+                OutputStatusMessage("* * * End OutputApiFaultDetail * * *");
             }
         }
         public void OutputArrayOfApiFaultDetail(IList<ApiFaultDetail> dataObjects)
@@ -150,8 +163,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputApiFaultDetail(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputApiFaultDetail(dataObject);
+                    }
                 }
             }
         }
@@ -159,17 +174,19 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputApplicationFault * * *");
                 OutputStatusMessage(string.Format("TrackingId: {0}", dataObject.TrackingId));
                 var adapifaultdetail = dataObject as AdApiFaultDetail;
-                if(adapifaultdetail != null)
+                if(null != adapifaultdetail)
                 {
                     OutputAdApiFaultDetail((AdApiFaultDetail)dataObject);
                 }
                 var apifaultdetail = dataObject as ApiFaultDetail;
-                if(apifaultdetail != null)
+                if(null != apifaultdetail)
                 {
                     OutputApiFaultDetail((ApiFaultDetail)dataObject);
                 }
+                OutputStatusMessage("* * * End OutputApplicationFault * * *");
             }
         }
         public void OutputArrayOfApplicationFault(IList<ApplicationFault> dataObjects)
@@ -178,8 +195,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputApplicationFault(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputApplicationFault(dataObject);
+                    }
                 }
             }
         }
@@ -187,19 +206,22 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputBatchError * * *");
                 OutputStatusMessage(string.Format("Code: {0}", dataObject.Code));
                 OutputStatusMessage(string.Format("Details: {0}", dataObject.Details));
                 OutputStatusMessage(string.Format("ErrorCode: {0}", dataObject.ErrorCode));
                 OutputStatusMessage(string.Format("FieldPath: {0}", dataObject.FieldPath));
+                OutputStatusMessage("ForwardCompatibilityMap:");
                 OutputArrayOfKeyValuePairOfstringstring(dataObject.ForwardCompatibilityMap);
                 OutputStatusMessage(string.Format("Index: {0}", dataObject.Index));
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
                 var editorialerror = dataObject as EditorialError;
-                if(editorialerror != null)
+                if(null != editorialerror)
                 {
                     OutputEditorialError((EditorialError)dataObject);
                 }
+                OutputStatusMessage("* * * End OutputBatchError * * *");
             }
         }
         public void OutputArrayOfBatchError(IList<BatchError> dataObjects)
@@ -208,8 +230,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputBatchError(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputBatchError(dataObject);
+                    }
                 }
             }
         }
@@ -217,8 +241,10 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputCampaignScope * * *");
                 OutputStatusMessage(string.Format("CampaignId: {0}", dataObject.CampaignId));
                 OutputStatusMessage(string.Format("ParentAccountId: {0}", dataObject.ParentAccountId));
+                OutputStatusMessage("* * * End OutputCampaignScope * * *");
             }
         }
         public void OutputArrayOfCampaignScope(IList<CampaignScope> dataObjects)
@@ -227,8 +253,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputCampaignScope(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputCampaignScope(dataObject);
+                    }
                 }
             }
         }
@@ -236,9 +264,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDate * * *");
                 OutputStatusMessage(string.Format("Day: {0}", dataObject.Day));
                 OutputStatusMessage(string.Format("Month: {0}", dataObject.Month));
                 OutputStatusMessage(string.Format("Year: {0}", dataObject.Year));
+                OutputStatusMessage("* * * End OutputDate * * *");
             }
         }
         public void OutputArrayOfDate(IList<Date> dataObjects)
@@ -247,8 +277,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDate(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDate(dataObject);
+                    }
                 }
             }
         }
@@ -256,11 +288,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputEditorialError * * *");
                 OutputStatusMessage(string.Format("Appealable: {0}", dataObject.Appealable));
                 OutputStatusMessage(string.Format("DisapprovedText: {0}", dataObject.DisapprovedText));
                 OutputStatusMessage(string.Format("Location: {0}", dataObject.Location));
                 OutputStatusMessage(string.Format("PublisherCountry: {0}", dataObject.PublisherCountry));
                 OutputStatusMessage(string.Format("ReasonCode: {0}", dataObject.ReasonCode));
+                OutputStatusMessage("* * * End OutputEditorialError * * *");
             }
         }
         public void OutputArrayOfEditorialError(IList<EditorialError> dataObjects)
@@ -269,8 +303,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputEditorialError(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputEditorialError(dataObject);
+                    }
                 }
             }
         }
@@ -278,10 +314,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputOperationError * * *");
                 OutputStatusMessage(string.Format("Code: {0}", dataObject.Code));
                 OutputStatusMessage(string.Format("Details: {0}", dataObject.Details));
                 OutputStatusMessage(string.Format("ErrorCode: {0}", dataObject.ErrorCode));
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
+                OutputStatusMessage("* * * End OutputOperationError * * *");
             }
         }
         public void OutputArrayOfOperationError(IList<OperationError> dataObjects)
@@ -290,8 +328,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputOperationError(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputOperationError(dataObject);
+                    }
                 }
             }
         }
@@ -299,9 +339,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputPerformanceStatsDateRange * * *");
+                OutputStatusMessage("CustomDateRangeEnd:");
                 OutputDate(dataObject.CustomDateRangeEnd);
+                OutputStatusMessage("CustomDateRangeStart:");
                 OutputDate(dataObject.CustomDateRangeStart);
                 OutputStatusMessage(string.Format("PredefinedTime: {0}", dataObject.PredefinedTime));
+                OutputStatusMessage("* * * End OutputPerformanceStatsDateRange * * *");
             }
         }
         public void OutputArrayOfPerformanceStatsDateRange(IList<PerformanceStatsDateRange> dataObjects)
@@ -310,8 +354,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputPerformanceStatsDateRange(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputPerformanceStatsDateRange(dataObject);
+                    }
                 }
             }
         }
@@ -429,7 +475,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the string: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }
@@ -439,7 +485,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the long: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }
@@ -449,7 +495,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the nillable long: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }
@@ -459,7 +505,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the int: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }
@@ -469,7 +515,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the nillable int: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }

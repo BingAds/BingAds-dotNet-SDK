@@ -9,7 +9,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to manage UET tags and conversion goals.
+    /// How to manage UET tags and conversion goals.
     /// </summary>
     public class ConversionGoals : ExampleBase
     {
@@ -24,85 +24,66 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = 
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                // Before you can track conversions or target audiences using a remarketing list, 
-                // you need to create a UET tag in Bing Ads (web application or API) and then 
-                // add the UET tag tracking code to every page of your website. For more information, please see 
-                // Universal Event Tracking at https://docs.microsoft.com/en-us/bingads/guides/universal-event-tracking.
+                // Before you can track conversions or target audiences using a remarketing list 
+                // you need to create a UET tag, and then add the UET tag tracking code to every page of your website.
+                // For more information, please see Universal Event Tracking at https://go.microsoft.com/fwlink/?linkid=829965.
 
                 // First you should call the GetUetTagsByIds operation to check whether a tag has already been created. 
                 // You can leave the TagIds element null or empty to request all UET tags available for the customer.
 
-                var uetTags = (await CampaignManagementExampleHelper.GetUetTagsByIdsAsync(null)).UetTags;
+                OutputStatusMessage("-----\nGetUetTagsByIds:");
+                var getUetTagsByIdsResponse = (await CampaignManagementExampleHelper.GetUetTagsByIdsAsync(
+                    tagIds: null));
+                var uetTags = getUetTagsByIdsResponse.UetTags.ToArray();
+                BatchError[] uetTagErrors = getUetTagsByIdsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("UetTags:");
+                CampaignManagementExampleHelper.OutputArrayOfUetTag(uetTags);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(uetTagErrors);
 
                 // If you do not already have a UET tag that can be used, or if you need another UET tag, 
                 // call the AddUetTags service operation to create a new UET tag. If the call is successful, 
                 // the tracking script that you should add to your website is included in a corresponding 
                 // UetTag within the response message. 
 
-                if (uetTags == null || uetTags.Count < 1)
+                if (uetTags == null || uetTags.Length < 1)
                 {
                     var uetTag = new UetTag
                     {
                         Description = "My First Uet Tag",
                         Name = "New Uet Tag",
                     };
-                    uetTags = (await CampaignManagementExampleHelper.AddUetTagsAsync(new[] { uetTag })).UetTags;
+                    OutputStatusMessage("-----\nAddUetTags:");
+                    var addUetTagsResponse = await CampaignManagementExampleHelper.AddUetTagsAsync(
+                        uetTags: uetTags);
+                    uetTags = addUetTagsResponse.UetTags.ToArray();
+                    uetTagErrors = addUetTagsResponse.PartialErrors.ToArray();
+                    OutputStatusMessage("UetTags:");
+                    CampaignManagementExampleHelper.OutputArrayOfUetTag(uetTags);
+                    OutputStatusMessage("PartialErrors:");
+                    CampaignManagementExampleHelper.OutputArrayOfBatchError(uetTagErrors);
                 }
 
-                if (uetTags == null || uetTags.Count < 1)
+                if (uetTags == null || uetTags.Length < 1)
                 {
                     OutputStatusMessage(
-                        string.Format("You do not have any UET tags registered for CustomerId {0}.\n", authorizationData.CustomerId)
+                        string.Format("You do not have any UET tags registered for CustomerId {0}.", authorizationData.CustomerId)
                     );
                     return;
                 }
 
-                OutputStatusMessage("List of all UET Tags:\n");
-                foreach (var uetTag in uetTags)
-                {
-                    CampaignManagementExampleHelper.OutputUetTag(uetTag);
-                }
-
-
                 // After you retreive the tracking script from the AddUetTags or GetUetTagsByIds operation, 
-                // the next step is to add the UET tag tracking code to your website. We recommend that you, 
-                // or your website administrator, add it to your entire website in either the head or body sections. 
-                // If your website has a master page, then that is the best place to add it because you add it once 
-                // and it is included on all pages. For more information, please see 
-                // Universal Event Tracking at https://docs.microsoft.com/en-us/bingads/guides/universal-event-tracking.
-
-
+                // the next step is to add the UET tag tracking code to your website.
                 // We will use the same UET tag for the remainder of this example.
 
-                var tagId = uetTags[0].Id;
-
-                // Optionally you can update the name and description of a UetTag with the UpdateUetTags operation.
-
-                OutputStatusMessage("UET Tag BEFORE update:\n");
-                CampaignManagementExampleHelper.OutputUetTag(uetTags[0]);
-
-                uetTags = new[]
-                {
-                    new UetTag
-                    {
-                        Description = "Updated Uet Tag Description",
-                        Id = tagId,
-                        Name = "Updated Uet Tag Name " + DateTime.UtcNow,
-                    }
-                };
-
-                await CampaignManagementExampleHelper.UpdateUetTagsAsync(uetTags);
-
-                uetTags = (await CampaignManagementExampleHelper.GetUetTagsByIdsAsync(new[] { (long)tagId })).UetTags;
-
-                OutputStatusMessage("UET Tag AFTER update:\n");
-                CampaignManagementExampleHelper.OutputUetTag(uetTags[0]);
-
+                var tagId = uetTags[0].Id;                               
+                
                 // Add conversion goals that depend on the UET Tag Id retreived above.
                 // Please note that you cannot delete conversion goals. If you want to stop 
                 // tracking conversions for the goal, you can set the goal status to Paused.
@@ -114,7 +95,7 @@ namespace BingAdsExamplesLibrary.V12
                         ConversionWindowInMinutes = 30,
                         CountType = ConversionGoalCountType.All,
                         MinimumDurationInSeconds = 60,
-                        Name = "My Duration Goal " + DateTime.UtcNow,
+                        Name = "My Duration Goal",
                         Revenue = new ConversionGoalRevenue
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
@@ -138,7 +119,7 @@ namespace BingAdsExamplesLibrary.V12
                         // The name of the element that caused the action.
                         LabelExpression = "trailer",
                         LabelOperator = ExpressionOperator.Contains,
-                        Name = "My Event Goal " + DateTime.UtcNow,
+                        Name = "My Event Goal",
                         Revenue = new ConversionGoalRevenue
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
@@ -158,7 +139,7 @@ namespace BingAdsExamplesLibrary.V12
                         ConversionWindowInMinutes = 30,
                         CountType = ConversionGoalCountType.All,
                         MinimumPagesViewed = 5,
-                        Name = "My Pages Viewed Per Visit Goal " + DateTime.UtcNow,
+                        Name = "My Pages Viewed Per Visit Goal",
                         Revenue = new ConversionGoalRevenue
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
@@ -173,7 +154,7 @@ namespace BingAdsExamplesLibrary.V12
                     {
                         ConversionWindowInMinutes = 30,
                         CountType = ConversionGoalCountType.All,
-                        Name = "My Url Goal " + DateTime.UtcNow,
+                        Name = "My Url Goal",
                         Revenue = new ConversionGoalRevenue
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
@@ -194,7 +175,7 @@ namespace BingAdsExamplesLibrary.V12
                         AppStoreId = "AppStoreIdGoesHere",
                         ConversionWindowInMinutes = 30,
                         CountType = ConversionGoalCountType.All,
-                        Name = "My App Install Goal " + DateTime.UtcNow,
+                        Name = "My App Install Goal",
                         Revenue = new ConversionGoalRevenue
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
@@ -211,14 +192,19 @@ namespace BingAdsExamplesLibrary.V12
                     },
                 };
 
-                var addConversionGoalsResponse = await CampaignManagementExampleHelper.AddConversionGoalsAsync(conversionGoals);
+                OutputStatusMessage("-----\nAddConversionGoals:");
+                var addConversionGoalsResponse = await CampaignManagementExampleHelper.AddConversionGoalsAsync(
+                    conversionGoals: conversionGoals);
+                var goalIds = addConversionGoalsResponse.ConversionGoalIds.ToArray();
+                BatchError[] conversionGoalErrors = addConversionGoalsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("ConversionGoalIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(goalIds);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(conversionGoalErrors);
 
                 // Find the conversion goals that were added successfully. 
 
-                List<long> conversionGoalIds = GetNonNullableIds(addConversionGoalsResponse.ConversionGoalIds);
-
-                OutputStatusMessage("List of errors returned from AddConversionGoals (if any):\n");
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(addConversionGoalsResponse.PartialErrors);
+                List<long> conversionGoalIds = GetNonNullableIds(goalIds);
 
                 var conversionGoalTypes =
                     ConversionGoalType.AppInstall |
@@ -227,14 +213,18 @@ namespace BingAdsExamplesLibrary.V12
                     ConversionGoalType.PagesViewedPerVisit |
                     ConversionGoalType.Url;
 
-                var getConversionGoals = 
-                    (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
+                OutputStatusMessage("-----\nGetConversionGoalsByIds:");
+                var getConversionGoalsResponse =  (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(
+                        conversionGoalIds: conversionGoalIds,
+                        conversionGoalTypes: conversionGoalTypes));
+                var getConversionGoals = getConversionGoalsResponse.ConversionGoals;
+                conversionGoalErrors = getConversionGoalsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("ConversionGoals:");
+                CampaignManagementExampleHelper.OutputArrayOfConversionGoal(getConversionGoals);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(conversionGoalErrors);
 
-                OutputStatusMessage("List of conversion goals BEFORE update:\n");
-                foreach (var conversionGoal in getConversionGoals)
-                {
-                    CampaignManagementExampleHelper.OutputConversionGoal(conversionGoal);
-                }
+                // Update the conversion goals
 
                 var updateConversionGoals = new ConversionGoal[]
                 {
@@ -247,7 +237,7 @@ namespace BingAdsExamplesLibrary.V12
                         // at index 1 to update the type from EventGoal to DurationGoal.
                         Id = conversionGoalIds[1],
                         MinimumDurationInSeconds = 120,
-                        Name = "My Updated Duration Goal " + DateTime.UtcNow,
+                        Name = "My Updated Duration Goal",
                         Revenue = new ConversionGoalRevenue
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
@@ -266,8 +256,7 @@ namespace BingAdsExamplesLibrary.V12
                     {
                         // For both add and update conversion goal operations, you must include one or more  
                         // of the following events: 
-                        // ActionExpression, CategoryExpression, LabelExpression, or Value.
-                        
+                        // ActionExpression, CategoryExpression, LabelExpression, or Value.                        
                         // For example if you do not include ActionExpression during update, 
                         // any existing ActionOperator and ActionExpression settings will be deleted.
                         ActionExpression = null,
@@ -279,7 +268,7 @@ namespace BingAdsExamplesLibrary.V12
                         // The following attempt to update LabelOperator will result in an error.
                         LabelExpression = null,
                         LabelOperator = ExpressionOperator.Equals,
-                        Name = "My Updated Event Goal " + DateTime.UtcNow,
+                        Name = "My Updated Event Goal",
                         Revenue = new ConversionGoalRevenue
                         {
                             Type = ConversionGoalRevenueType.FixedValue,
@@ -294,7 +283,7 @@ namespace BingAdsExamplesLibrary.V12
                     new PagesViewedPerVisitGoal
                     {
                         Id = conversionGoalIds[2],
-                        Name = "My Updated Pages Viewed Per Visit Goal " + DateTime.UtcNow,
+                        Name = "My Updated Pages Viewed Per Visit Goal",
                         // When updating a conversion goal, if the Revenue element is nil or empty then none 
                         // of the nested properties will be updated. However, if this element is not nil or empty 
                         // then you are effectively replacing any existing revenue properties. For example to delete 
@@ -306,24 +295,29 @@ namespace BingAdsExamplesLibrary.V12
                         Id = conversionGoalIds[3],
                         Name = "My Updated Url Goal" + DateTime.UtcNow,
                         // If not specified during update, the previous Url settings are retained.
-                        UrlExpression = null,
+                        // If the expression is set, then the operator must also be set, and vice versa.
+                        UrlExpression = "contoso",
                         UrlOperator = ExpressionOperator.BeginsWith
                     }
                 };
 
-                var updateConversionGoalsResponse = await CampaignManagementExampleHelper.UpdateConversionGoalsAsync(updateConversionGoals);
+                OutputStatusMessage("-----\nUpdateConversionGoals:");
+                var updateConversionGoalsResponse = await CampaignManagementExampleHelper.UpdateConversionGoalsAsync(
+                    conversionGoals: updateConversionGoals);
+                conversionGoalErrors = updateConversionGoalsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(conversionGoalErrors);
 
-                OutputStatusMessage("List of errors returned from UpdateConversionGoals (if any):\n");
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(updateConversionGoalsResponse.PartialErrors);
-
-                getConversionGoals = 
-                    (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(conversionGoalIds, conversionGoalTypes)).ConversionGoals;
-
-                OutputStatusMessage("List of conversion goals AFTER update:\n");
-                foreach (var conversionGoal in getConversionGoals)
-                {
-                    CampaignManagementExampleHelper.OutputConversionGoal(conversionGoal);
-                }
+                OutputStatusMessage("-----\nGetConversionGoalsByIds:");
+                getConversionGoals = (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(
+                        conversionGoalIds: conversionGoalIds, 
+                        conversionGoalTypes: conversionGoalTypes)).ConversionGoals;
+                getConversionGoals = getConversionGoalsResponse.ConversionGoals;
+                conversionGoalErrors = getConversionGoalsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("ConversionGoals:");
+                CampaignManagementExampleHelper.OutputArrayOfConversionGoal(getConversionGoals);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(conversionGoalErrors);
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)

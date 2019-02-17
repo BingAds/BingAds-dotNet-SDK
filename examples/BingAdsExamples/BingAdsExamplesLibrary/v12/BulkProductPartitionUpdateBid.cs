@@ -13,8 +13,7 @@ using Microsoft.BingAds.V12.CampaignManagement;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to update product partitions for Bing Shopping Campaigns
-    /// using the BulkServiceManager class.
+    /// How to update product partitions for Bing Shopping Campaigns with the Bulk service.
     /// </summary>
     public class BulkProductPartitionUpdateBid : BulkExampleBase
     {
@@ -29,13 +28,22 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                // Used to output the Campaign Management objects within Bulk entities.
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
 
-                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
+                BulkServiceManager = new BulkServiceManager(
+                    authorizationData: authorizationData,
+                    apiEnvironment: environment);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
+
+                var tokenSource = new CancellationTokenSource();
+                tokenSource.CancelAfter(TimeoutInMilliseconds);
+
+                // In this example we will download all product partitions across all ad groups in the account.
 
                 var downloadParameters = new DownloadParameters
                 {
@@ -46,11 +54,25 @@ namespace BingAdsExamplesLibrary.V12
                     LastSyncTimeInUTC = null
                 };
 
-                // Download all product partitions across all ad groups in the account.
-                var bulkFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters);
-                OutputStatusMessage("Downloaded all product partitions across all ad groups in the account.\n");
+                OutputStatusMessage("-----\nDownloading all product partitions across all ad groups in the account.");
 
-                Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
+                var bulkFilePath = await BulkServiceManager.DownloadFileAsync(
+                    parameters: downloadParameters,
+                    progress: progress,
+                    cancellationToken: tokenSource.Token);
+
+                OutputStatusMessage("Download results:");
+
+                Reader = new BulkFileReader(
+                    filePath: bulkFilePath,
+                    resultFileType: ResultFileType.FullDownload,
+                    fileFormat: FileType);
+
+                Reader = new BulkFileReader(
+                    filePath: bulkFilePath,
+                    resultFileType: ResultFileType.FullDownload,
+                    fileFormat: FileType);
+
                 var bulkAdGroupProductPartitions = Reader.ReadEntities().ToList().OfType<BulkAdGroupProductPartition>().ToList();
                 OutputBulkAdGroupProductPartitions(bulkAdGroupProductPartitions);
                 
@@ -64,8 +86,9 @@ namespace BingAdsExamplesLibrary.V12
                     if (biddableAdGroupCriterion != null && 
                         (((ProductPartition)biddableAdGroupCriterion.Criterion).PartitionType == ProductPartitionType.Unit))
                     {
-                        // We will increase all bids by some predetermined amount or percentage as an example.
-                        // For best performance, only upload the properties that you want to update.
+                        // For example, let's increase all bids by some predetermined amount.
+                        // For best performance, only upload the properties that you want to update e.g.,
+                        // create a new BulkAdGroupProductPartition and only set the required properties. 
 
                         uploadEntities.Add(new BulkAdGroupProductPartition
                         {
@@ -95,7 +118,7 @@ namespace BingAdsExamplesLibrary.V12
                 }
                 else
                 {
-                    OutputStatusMessage("No product partitions in account. \n");
+                    OutputStatusMessage("No product partitions in the account. \n");
                 }
 
                 OutputStatusMessage("Program execution completed\n");

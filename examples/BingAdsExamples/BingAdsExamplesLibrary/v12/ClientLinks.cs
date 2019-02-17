@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.V12.CustomerManagement;
 using Microsoft.BingAds;
 
-
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to use agency credentials to invite a client, 
-    /// and use client credentials to accept the invitation. 
+    /// How to use agency credentials to invite a client, and use client credentials to accept the invitation.
     /// Run this sample multiple times alternating between agency and client credentials 
     /// to update and observe the status change, for example from LinkPending to LinkAccepted to Active. 
     /// </summary>
-    public class ManageClient : ExampleBase
+    public class ClientLinks : ExampleBase
     {
-        private const int ClientAccountId = 0; //<ClientAccountIdGoesHere>;
+        // REQUIRED: The Client Account Id that you want to access.
+        private long ClientAccountId = 0; 
 
         public override string Description
         {
@@ -29,24 +28,23 @@ namespace BingAdsExamplesLibrary.V12
         {
             try
             {
-                OutputStatusMessage("You must edit the ManageClient.cs file to provide the ClientAccountId for " +
-                                    "the client link.");
-                OutputStatusMessage("When adding a client link, the client link's ManagingCustomerId is set to the CustomerId of the current " +
-                                    "authenticated user, who must be a Super Admin of the agency.");
-                OutputStatusMessage("Login as an agency Super Admin user to send a client link invitation, " +
-                                    "or unlink an existing client link.");
-                OutputStatusMessage("Login as a client Super Admin user to accept a client link invitation.\n");
+                OutputStatusMessage("You must edit this example to provide the ClientAccountId for the client link." +
+                    "When adding a client link, the client link's ManagingCustomerId is set to the CustomerId " +
+                    "of the current authenticated user, who must be a Super Admin of the agency." +
+                    "Login as an agency Super Admin user to send a client link invitation, or unlink an existing client link." +
+                    "Login as a client Super Admin user to accept a client link invitation.");
 
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CustomerManagementExampleHelper CustomerManagementExampleHelper = 
-                    new CustomerManagementExampleHelper(this.OutputStatusMessage);
-                CustomerManagementExampleHelper.CustomerManagementService = 
-                    new ServiceClient<ICustomerManagementService>(authorizationData, environment);
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
                 UpdateClientLinksResponse updateClientLinksResponse = null;
 
-                // Specify the client link search criteria
+                // Set the client link search criteria.
 
                 var pageInfo = new Paging
                 {
@@ -67,13 +65,16 @@ namespace BingAdsExamplesLibrary.V12
                     Value = ClientAccountId.ToString(CultureInfo.InvariantCulture)
                 };
 
-                // Search for client links that match the specified criteria.
+                // Search for client links that match the criteria.
 
-                var clientLinks = (await CustomerManagementExampleHelper.SearchClientLinksAsync(
-                    new[] { predicate },
-                    new[] { ordering },
-                    pageInfo
-                    ))?.ClientLinks;
+                OutputStatusMessage("-----\nSearchClientLinks:");
+                var searchClientLinksResponse = (await CustomerManagementExampleHelper.SearchClientLinksAsync(
+                    predicates: new[] { predicate },
+                    ordering: new[] { ordering },
+                    pageInfo: pageInfo));
+                var clientLinks = searchClientLinksResponse?.ClientLinks;
+                OutputStatusMessage("ClientLinks:");
+                CustomerManagementExampleHelper.OutputArrayOfClientLink(clientLinks);
 
                 // Determine whether the agency is already managing the specified client account. 
                 // If a link exists with status either Active, LinkInProgress, LinkPending, 
@@ -85,7 +86,8 @@ namespace BingAdsExamplesLibrary.V12
                 if (clientLinks.Count > 0)
                 {
                     clientLink = clientLinks[0];
-                    OutputStatusMessage(string.Format("Current ClientLink Status: {0}.\n", clientLink.Status));
+                    OutputStatusMessage("Using the first client link as an example.");
+                    OutputStatusMessage(string.Format("Current ClientLink Status: {0}.", clientLink.Status));
 
                     switch (clientLink.Status)
                     {
@@ -93,18 +95,20 @@ namespace BingAdsExamplesLibrary.V12
                         // which would terminate the existing relationship with the client. 
                         case ClientLinkStatus.Active:
                             clientLink.Status = ClientLinkStatus.UnlinkRequested;
-                            updateClientLinksResponse = await CustomerManagementExampleHelper.UpdateClientLinksAsync(new[] { clientLink });
-                            OutputStatusMessage("UpdateClientLinks : UnlinkRequested.\n");
+                            OutputStatusMessage("-----\nUpdateClientLinks:");
+                            updateClientLinksResponse = await CustomerManagementExampleHelper.UpdateClientLinksAsync(
+                                clientLinks: new[] { clientLink });
+                            OutputStatusMessage("UnlinkRequested");
                             newLinkRequired = false;
                             break;
                         // Waiting on a system status transition or waiting for the StartDate.
                         case ClientLinkStatus.LinkAccepted:
-                            OutputStatusMessage("The status is transitioning towards LinkInProgress.\n");
+                            OutputStatusMessage("The status is transitioning towards LinkInProgress");
                             newLinkRequired = false;
                             break;
                         // Waiting on a system status transition.
                         case ClientLinkStatus.LinkInProgress:
-                            OutputStatusMessage("The status is transitioning towards Active.\n");
+                            OutputStatusMessage("The status is transitioning towards Active");
                             newLinkRequired = false;
                             break;
                         // When the status is LinkPending, either the agency or client may update the status.
@@ -113,37 +117,36 @@ namespace BingAdsExamplesLibrary.V12
                         // If the client does not accept or decline the invitation within 30 days, and if the agency
                         // does not update the status to LinkCanceled, the system updates the status to LinkExpired.
                         case ClientLinkStatus.LinkPending:
-                            /*
-                            clientLink.Status = ClientLinkStatus.LinkCanceled;
-                            updateClientLinksResponse = UpdateClientLinks(new[] { clientLink });
-                            WriteMessage(string.Format("The agency updated status: LinkCanceled.\n");
-                             */
                             clientLink.Status = ClientLinkStatus.LinkAccepted;
-                            updateClientLinksResponse = await CustomerManagementExampleHelper.UpdateClientLinksAsync(new[] { clientLink });
-                            OutputStatusMessage("UpdateClientLinks: LinkAccepted.\n");
+                            OutputStatusMessage("-----\nUpdateClientLinks:");
+                            updateClientLinksResponse = await CustomerManagementExampleHelper.UpdateClientLinksAsync(
+                                clientLinks: new[] { clientLink });
+                            OutputStatusMessage("LinkAccepted");
                             newLinkRequired = false;
                             break;
                         // Waiting on a system status transition.
                         case ClientLinkStatus.UnlinkInProgress:
-                            OutputStatusMessage("The status is transitioning towards Inactive.\n");
+                            OutputStatusMessage("The status is transitioning towards Inactive");
                             newLinkRequired = false;
                             break;
                         // Waiting on a system status transition.
                         case ClientLinkStatus.UnlinkPending:
-                            OutputStatusMessage("The status is transitioning towards Inactive.\n");
+                            OutputStatusMessage("The status is transitioning towards Inactive");
                             newLinkRequired = false;
                             break;
                         // The link lifecycle has ended.  
                         default:
-                            OutputStatusMessage("A new client link invitation is required.\n");
+                            OutputStatusMessage("A new client link invitation is required");
                             break;
                     }
                     
-                    // Print errors if any occurred when updating the client link.
+                    // Output errors if any occurred when updating the client link.
 
                     if (updateClientLinksResponse != null)
                     {
+                        OutputStatusMessage("OperationErrors:");
                         CustomerManagementExampleHelper.OutputArrayOfOperationError(updateClientLinksResponse.OperationErrors);
+                        OutputStatusMessage("PartialErrors:");
                         foreach (List<OperationError> operationErrors in updateClientLinksResponse.PartialErrors)
                         {
                             CustomerManagementExampleHelper.OutputArrayOfOperationError(operationErrors);
@@ -167,28 +170,27 @@ namespace BingAdsExamplesLibrary.V12
                         SuppressNotification = true
                     };
 
-                    var addClientLinksResponse = await CustomerManagementExampleHelper.AddClientLinksAsync(new[] { clientLink });
-
-                    // Print errors if any occurred when adding the client link.
-                    
+                    OutputStatusMessage("-----\nAddClientLinks:");
+                    var addClientLinksResponse = await CustomerManagementExampleHelper.AddClientLinksAsync(
+                        clientLinks: new[] { clientLink });
+                    OutputStatusMessage("OperationErrors:");
                     CustomerManagementExampleHelper.OutputArrayOfOperationError(addClientLinksResponse.OperationErrors);
+                    OutputStatusMessage("PartialErrors:");
                     foreach (List<OperationError> operationErrors in addClientLinksResponse.PartialErrors)
                     {
                         CustomerManagementExampleHelper.OutputArrayOfOperationError(operationErrors);
                     }
-
-                    OutputStatusMessage(string.Format("The user attempted to add a new ClientLink.\n"));
-                    OutputStatusMessage(string.Format("Login as the client Super Admin to accept the agency's request to manage AccountId {0}.\n", ClientAccountId));
                 }
 
-                // Get and print the current client link
+                // Output the client links after any status updates above.
 
-                clientLinks = (await CustomerManagementExampleHelper.SearchClientLinksAsync(
-                    new[] { predicate },
-                    new[] { ordering },
-                    pageInfo
-                    ))?.ClientLinks;
-
+                OutputStatusMessage("-----\nSearchClientLinks:");
+                searchClientLinksResponse = (await CustomerManagementExampleHelper.SearchClientLinksAsync(
+                    predicates: new[] { predicate },
+                    ordering: new[] { ordering },
+                    pageInfo: pageInfo));
+                clientLinks = searchClientLinksResponse?.ClientLinks;
+                OutputStatusMessage("ClientLinks:");
                 CustomerManagementExampleHelper.OutputArrayOfClientLink(clientLinks);
             }
             // Catch authentication exceptions
