@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.V12.CustomerManagement;
 using Microsoft.BingAds;
 
-
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how a reseller can call SignupCustomer to create a new customer and account.
+    /// How a reseller can call SignupCustomer to create a new customer and account.
     /// </summary>
     public class CustomerSignup : ExampleBase
     {
@@ -24,42 +23,43 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CustomerManagementExampleHelper CustomerManagementExampleHelper = 
-                    new CustomerManagementExampleHelper(this.OutputStatusMessage);
-                CustomerManagementExampleHelper.CustomerManagementService = 
-                    new ServiceClient<ICustomerManagementService>(authorizationData, environment);
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null, true);
+                OutputStatusMessage("-----\nGetUser:");
+                var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(
+                    userId: null, 
+                    includeLinkedAccountIds: true);
                 var user = getUserResponse.User;
+                OutputStatusMessage("User:");
+                CustomerManagementExampleHelper.OutputUser(user);
+                OutputStatusMessage("CustomerRoles:");
+                CustomerManagementExampleHelper.OutputArrayOfCustomerRole(getUserResponse.CustomerRoles);
 
                 // Only a user with the aggregator role (33) can sign up new customers. 
-                // If the user does not have the aggregator role, then do not continue.                
+                // If the user does not have the aggregator role, then do not continue.    
+                
                 if (!getUserResponse.CustomerRoles.Select(role => role.RoleId).Contains(33))
                 {
                     OutputStatusMessage("Only a user with the aggregator role (33) can sign up new customers.");
                     return;
                 }
-
-                // For Customer.CustomerAddress and Account.BusinessAddress, you can use the same address 
-                // as your aggregator user, although you must set Id and TimeStamp to null.
-                var userAddress = user.ContactInfo.Address;
-                userAddress.Id = null;
-                userAddress.TimeStamp = null;
-
+                
                 var customer = new Customer
                 {
                     // The primary business segment of the customer, for example, automotive, food, or entertainment.
                     Industry = Industry.Other,
 
-                    // The primary country where the customer operates. This country will be the 
-                    // default country for ad groups in the customer’s campaigns.
+                    // The primary country where the customer operates. 
                     MarketCountry = "US",
 
-                    // The primary language that the customer uses. This language will be the 
-                    // default language for ad groups in the customer’s campaigns.
+                    // The primary language that the customer uses. 
                     MarketLanguage = LanguageType.English,
 
-                    // The name of the customer. This element can contain a maximum of 100 characters.
+                    // The name of the customer. 
                     Name = "Child Customer " + DateTime.UtcNow,
                 };
                 
@@ -77,39 +77,33 @@ namespace BingAdsExamplesLibrary.V12
                         StateOrProvince = "WA",                        
                     },
 
-                    // The type of currency that is used to settle the account. The service uses the currency information for billing purposes.
+                    // The type of currency that is used to settle the account. 
+                    // The service uses the currency information for billing purposes.
                     CurrencyCode = CurrencyCode.USD,
 
-                    // Optionally you can set up each account with auto tagging.
-                    // The AutoTagType is an account level setting that determines whether to append or replace 
-                    // the supported UTM tracking codes within the final URL of ads delivered. The default value is 'Inactive', and
-                    // Bing Ads will not append any UTM tracking codes to your ad or keyword final URL.
-                    AutoTagType = AutoTagType.Inactive,
-
-                    // The name of the account. The name can contain a maximum of 100 characters and must be unique within the customer.
+                    // The name of the account. 
                     Name = "Child Account " + DateTime.UtcNow,
 
-                    // The identifier of the customer that owns the account. In the Bing Ads API operations 
-                    // that require a customer identifier, this is the identifier that you set the CustomerId SOAP header to.
+                    // The identifier of the customer that owns the account. 
                     ParentCustomerId = (long)user.CustomerId,
 
-                    // The list of key and value strings for tax information.
                     // The TaxId (VAT identifier) is optional. If specified, The VAT identifier must be valid 
                     // in the country that you specified in the BusinessAddress element. Without a VAT registration 
                     // number or exemption certificate, taxes might apply based on your business location.
                     TaxInformation = null,
 
-                    // The time-zone value to use for campaigns in this account.
+                    // The default time-zone for campaigns in this account.
                     TimeZone = TimeZoneType.PacificTimeUSCanadaTijuana,
                 };
 
                 // Signup a new customer and account for the reseller. 
+                OutputStatusMessage("-----\nSignupCustomer:");
                 var signupCustomerResponse = await CustomerManagementExampleHelper.SignupCustomerAsync(
-                    customer,
-                    account,
-                    user.CustomerId);
+                    customer: customer,
+                    account: account,
+                    parentCustomerId: user.CustomerId);
 
-                OutputStatusMessage(string.Format("New Customer and Account:\n"));
+                OutputStatusMessage("New Customer and Account:");
 
                 // This is the identifier that you will use to set the CustomerId 
                 // element in most of the Bing Ads API service operations.

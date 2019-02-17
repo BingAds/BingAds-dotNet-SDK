@@ -1,7 +1,5 @@
 using System;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading;
@@ -9,12 +7,10 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.V12.Reporting;
 using Microsoft.BingAds;
 
-
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to request and retrieve performance reports
-    /// using the ReportingServiceManager class.
+    /// How to request and retrieve performance reports with the Reporting service. 
     /// </summary>
     public class ReportRequests : ExampleBase
     {
@@ -51,7 +47,9 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                ReportingServiceManager = new ReportingServiceManager(authorizationData, environment);
+                ReportingServiceManager = new ReportingServiceManager(
+                    authorizationData: authorizationData, 
+                    apiEnvironment: environment);
                 ReportingServiceManager.StatusPollIntervalInMilliseconds = 5000;
 
                 // You can submit one of the example reports, or build your own.
@@ -184,8 +182,8 @@ namespace BingAdsExamplesLibrary.V12
             //}
 
             var resultFilePath = await reportingDownloadOperation.DownloadResultFileAsync(
-                FileDirectory,
-                ResultFileName,
+                localResultDirectoryName: FileDirectory,
+                localResultFileName: ResultFileName,
                 decompress: true,
                 overwrite: true);   // Set this value true if you want to overwrite the same file.
 
@@ -199,7 +197,7 @@ namespace BingAdsExamplesLibrary.V12
         /// should wait to ensure that the download status is completed.
         /// </summary>
         /// <param name="requestId">A previous report request ID returned by the Reporting service.</param>
-        /// <param name="authorizationData">The Bing Ads user's credentials paired with your developer token.</param>
+        /// <param name="authorizationData">The user's credentials paired with your developer token.</param>
         /// <returns></returns>
         private async Task DownloadResultsAsync(
             string requestId,
@@ -216,8 +214,8 @@ namespace BingAdsExamplesLibrary.V12
             var reportingOperationStatus = await reportingDownloadOperation.TrackAsync(tokenSource.Token);
 
             var resultFilePath = await reportingDownloadOperation.DownloadResultFileAsync(
-                FileDirectory,
-                ResultFileName,
+                localResultDirectoryName: FileDirectory,
+                localResultFileName: ResultFileName,
                 decompress: true,
                 overwrite: true);   // Set this value true if you want to overwrite the same file.
 
@@ -234,12 +232,12 @@ namespace BingAdsExamplesLibrary.V12
         private async Task DownloadReportAsync(ReportingDownloadParameters reportingDownloadParameters)
         {
             // You can get a Report object by submitting a new download request via ReportingServiceManager. 
-            // Although in this case you won’t work directly with the file, under the covers a request is 
+            // Although in this case you wonï¿½t work directly with the file, under the covers a request is 
             // submitted to the Reporting service and the report file is downloaded to a local directory. 
 
             Report reportContainer = (await ReportingServiceManager.DownloadReportAsync(
-                reportingDownloadParameters,
-                CancellationToken.None));
+                parameters: reportingDownloadParameters,
+                cancellationToken: CancellationToken.None));
 
             // Otherwise if you already have a report file that was downloaded via the API, 
             // you can get a Report object via the ReportFileReader. 
@@ -300,7 +298,7 @@ namespace BingAdsExamplesLibrary.V12
             // If you are using a cloud service such as Microsoft Azure you'll want to ensure you do not
             // exceed the file or directory limits. 
 
-            ReportingServiceManager.CleanupTempFiles();
+            //ReportingServiceManager.CleanupTempFiles();
         }
                 
         private ReportRequest GetReportRequest(
@@ -477,7 +475,7 @@ namespace BingAdsExamplesLibrary.V12
                     time: time);
 
             // Return one of the above report types
-            return accountPerformanceReportRequest;
+            return campaignPerformanceReportRequest;
         }
 
         private ReportRequest GetAccountPerformanceReportRequest(
@@ -522,6 +520,7 @@ namespace BingAdsExamplesLibrary.V12
                     AccountPerformanceReportColumn.Impressions,
                     AccountPerformanceReportColumn.Ctr,
                     AccountPerformanceReportColumn.AverageCpc,
+                    AccountPerformanceReportColumn.ImpressionSharePercent,
                     AccountPerformanceReportColumn.Spend,
                 },
             };
@@ -776,7 +775,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             var report = new CampaignPerformanceReportRequest
             {
-                Aggregation = aggregation,
+                Aggregation = ReportAggregation.Hourly, //aggregation,
                 ExcludeColumnHeaders = excludeColumnHeaders,
                 ExcludeReportFooter = excludeReportFooter,
                 ExcludeReportHeader = excludeReportHeader,
@@ -795,6 +794,8 @@ namespace BingAdsExamplesLibrary.V12
                     CampaignPerformanceReportColumn.TimePeriod,
                     CampaignPerformanceReportColumn.AccountId,
                     CampaignPerformanceReportColumn.CampaignId,
+                    CampaignPerformanceReportColumn.CampaignName,
+                    CampaignPerformanceReportColumn.CampaignStatus,
                     CampaignPerformanceReportColumn.DeviceType,
                     CampaignPerformanceReportColumn.BidMatchType,
                     CampaignPerformanceReportColumn.QualityScore,

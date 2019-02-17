@@ -8,18 +8,17 @@ using Microsoft.BingAds.V12.Bulk;
 using Microsoft.BingAds.V12.Bulk.Entities;
 using Microsoft.BingAds.V12.CampaignManagement;
 using System.Threading;
-using System.Collections.Generic;
 
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates ad group updates using the BulkServiceManager class.
+    /// How to make Bulk updates across ad groups with the Bulk service.  
     /// </summary>
     public class BulkAdGroupUpdate : BulkExampleBase
     {
         public override string Description
         {
-            get { return "Update Ad Groups with BulkServiceManager | Bulk V12"; }
+            get { return "Update Ad Groups | Bulk V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -28,50 +27,48 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
+                // Used to output the Campaign Management objects within Bulk entities.
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
 
-                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
-                BulkServiceManager.StatusPollIntervalInMilliseconds = 5000;
+                BulkServiceManager = new BulkServiceManager(
+                    authorizationData: authorizationData,
+                    apiEnvironment: environment);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
-                #region Download
-
+                var tokenSource = new CancellationTokenSource();
+                tokenSource.CancelAfter(TimeoutInMilliseconds);
+                
                 // In this example we will download all ad groups in the account.
-
-                var entities = new[] {
-                    DownloadEntity.AdGroups,
-                };
-
-                // You can limit by specific campaign IDs and request performance data.
-
+                
                 var downloadParameters = new DownloadParameters
                 {
-                    CampaignIds = null,
                     DataScope = DataScope.EntityData,
-                    PerformanceStatsDateRange = null,
-                    DownloadEntities = entities,
+                    DownloadEntities = new[] { DownloadEntity.AdGroups },
                     FileType = FileType,
                     LastSyncTimeInUTC = null,
                     ResultFileDirectory = FileDirectory,
                     ResultFileName = DownloadFileName,
                     OverwriteResultFile = true
                 };
-                
-                // You can submit a download or upload request and the BulkServiceManager will automatically 
-                // return results. The BulkServiceManager abstracts the details of checking for result file 
-                // completion, and you don't have to write any code for results polling.
 
-                var bulkFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters);
-                OutputStatusMessage("Downloaded all ad groups in the account.\n");
-                
-                #endregion Download
+                OutputStatusMessage("-----\nDownloading all ad groups in the account.");
 
-                #region Parse
+                var bulkFilePath = await BulkServiceManager.DownloadFileAsync(
+                    parameters: downloadParameters,
+                    progress: progress,
+                    cancellationToken: tokenSource.Token);
 
-                Reader = new BulkFileReader(bulkFilePath, ResultFileType.FullDownload, FileType);
+                OutputStatusMessage("Download results:");
+
+                Reader = new BulkFileReader(
+                    filePath: bulkFilePath,
+                    resultFileType: ResultFileType.FullDownload,
+                    fileFormat: FileType);
+
                 var bulkAdGroups = Reader.ReadEntities().ToList().OfType<BulkAdGroup>().ToList();
                 OutputBulkAdGroups(bulkAdGroups);
 
@@ -86,7 +83,7 @@ namespace BingAdsExamplesLibrary.V12
                 foreach (var bulkAdGroup in bulkAdGroups)
                 {
                     var adGroup = bulkAdGroup.AdGroup;
-                    if (adGroup != null && bulkAdGroup.IsExpired)
+                    if (adGroup != null && bulkAdGroup.AdGroup.Status.ToString().CompareTo("Active") != 0)
                     {
                         // For best performance, only upload the properties that you want to update.
 
@@ -110,11 +107,7 @@ namespace BingAdsExamplesLibrary.V12
 
                 Reader.Dispose();
                 Writer.Dispose();
-
-                #endregion Parse
-
-                #region Upload
-                
+                                
                 // Upload the local file that we already prepared
 
                 var fileUploadParameters = new FileUploadParameters
@@ -127,69 +120,24 @@ namespace BingAdsExamplesLibrary.V12
                     ResponseMode = ResponseMode.ErrorsAndResults
                 };
 
-                var resultFilePath = await BulkServiceManager.UploadFileAsync(fileUploadParameters, progress, CancellationToken.None);
-                OutputStatusMessage("Updated ad groups.\n");
+                OutputStatusMessage("-----\nActivating the ad groups...");
 
-                Reader = new BulkFileReader(resultFilePath, ResultFileType.Upload, FileType);
+                var resultFilePath = await BulkServiceManager.UploadFileAsync(
+                    parameters: fileUploadParameters,
+                    progress: progress,
+                    cancellationToken: tokenSource.Token);
+
+                Reader = new BulkFileReader(
+                    filePath: resultFilePath,
+                    resultFileType: ResultFileType.Upload,
+                    fileFormat: FileType);
+
+                OutputStatusMessage("Upload results:");
+
                 bulkAdGroups = Reader.ReadEntities().ToList().OfType<BulkAdGroup>().ToList();
                 OutputBulkAdGroups(bulkAdGroups);
-                Reader.Dispose();
 
-                #endregion Upload
-
-
-                #region Entities
-
-                // We can make the same update without explicitly reading or writing a local file.
-                // When working with entities a file is downloaded to the temp directory,
-                // although you don't need to manage it.
-
-                var downloadEntities = await BulkServiceManager.DownloadEntitiesAsync(downloadParameters);
-                OutputStatusMessage("Downloaded all ad groups in the account.\n");
-                bulkAdGroups = downloadEntities.ToList().OfType<BulkAdGroup>().ToList();
-                OutputBulkAdGroups(bulkAdGroups);
-
-                var uploadEntities = new List<BulkEntity>();
-                
-                foreach (var bulkAdGroup in bulkAdGroups)
-                {
-                    var adGroup = bulkAdGroup.AdGroup;
-                    if (adGroup != null && bulkAdGroup.IsExpired)
-                    {
-                        // Instead of Writer.WriteEntity, we will add to the in-memory list
-
-                        uploadEntities.Add(new BulkAdGroup
-                        {
-                            CampaignId = bulkAdGroup.CampaignId,
-                            AdGroup = new AdGroup
-                            {
-                                Id = adGroup.Id,
-                                EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
-                                {
-                                    Month = nextMonth.Month,
-                                    Day = nextMonth.Day,
-                                    Year = nextMonth.Year
-                                },
-                                Status = AdGroupStatus.Active,
-                            }
-                        });
-                    }
-                }
-
-                var entityUploadParameters = new EntityUploadParameters
-                {
-                    Entities = uploadEntities,
-                    ResponseMode = ResponseMode.ErrorsAndResults,
-                };
-
-                var resultEntities = await BulkServiceManager.UploadEntitiesAsync(entityUploadParameters, progress, CancellationToken.None);
-                OutputStatusMessage("Updated ad groups.\n");
-
-                bulkAdGroups = resultEntities.ToList().OfType<BulkAdGroup>().ToList();
-                OutputBulkAdGroups(bulkAdGroups);
-
-                #endregion Entities
-
+                Reader.Dispose();  
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)

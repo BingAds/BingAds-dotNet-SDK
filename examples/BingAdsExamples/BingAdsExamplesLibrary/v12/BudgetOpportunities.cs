@@ -7,11 +7,10 @@ using Microsoft.BingAds.V12.AdInsight;
 using Microsoft.BingAds.V12.CampaignManagement;
 using Microsoft.BingAds;
 
-
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to get the budget opportunities for each campaign in the current authenticated account.
+    /// How to get the budget opportunities for each campaign in the current authenticated account.
     /// </summary>
     public class BudgetOpportunities : ExampleBase
     {
@@ -26,29 +25,38 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                AdInsightExampleHelper AdInsightExampleHelper = 
-                    new AdInsightExampleHelper(this.OutputStatusMessage);
-                AdInsightExampleHelper.AdInsightService = 
-                    new ServiceClient<IAdInsightService>(authorizationData, environment);
+                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = 
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
+                OutputStatusMessage("-----\nGetCampaignsByAccountId:");
                 var campaigns = (await CampaignManagementExampleHelper.GetCampaignsByAccountIdAsync(
-                    authorizationData.AccountId,
-                    AllCampaignTypes)).Campaigns;
+                    accountId: authorizationData.AccountId,
+                    campaignType: AllCampaignTypes,
+                    returnAdditionalFields: CampaignAdditionalField.ExperimentId)).Campaigns;
+                OutputStatusMessage("Campaigns:");
+                CampaignManagementExampleHelper.OutputArrayOfCampaign(campaigns);
 
                 IList<BudgetOpportunity> opportunities = null;
 
-                // Get the budget opportunities for each campaign in the current authenticated account.
+                // Get the budget opportunities for each campaign in the current account.
 
                 foreach (var campaign in campaigns)
                 {
                     if (campaign.Id != null)
                     {
-                        opportunities = (await AdInsightExampleHelper.GetBudgetOpportunitiesAsync((long)campaign.Id)).Opportunities;
+                        OutputStatusMessage("-----\nGetBudgetOpportunities:");
+                        opportunities = (await AdInsightExampleHelper.GetBudgetOpportunitiesAsync(
+                            campaignId: (long)campaign.Id)).Opportunities;
+                        OutputStatusMessage("Opportunities:");
                         AdInsightExampleHelper.OutputArrayOfBudgetOpportunity(opportunities);
                     }
                 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -10,22 +9,13 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to set up Audience campaigns
-    /// with the Campaign Management service.
+    /// How to apply Profile Criteria e.g., LinkedIn targeting with the Campaign Management service.
     /// </summary>
-    public class AudienceCampaigns : ExampleBase
+    public class ProfileCriteria : ExampleBase
     {
-        // You'll need to add media before you can run this example. 
-        // For details, see ImageMedia.cs
-
-        public const long LandscapeImageMediaId = 0;
-        public const long LandscapeLogoMediaId = 0;
-        public const long SquareImageMediaId = 0;
-        public const long SquareLogoMediaId = 0;
-        
         public override string Description
         {
-            get { return "Audience Campaigns | Campaign Management V12"; }
+            get { return "Profile Criteria | Campaign Management V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -34,27 +24,42 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = 
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                // Setup an Audience campaign with one ad group and a responsive ad.
+                // Create an Audience campaign with one ad group.
 
                 var campaigns = new[]{
                     new Campaign
                     {
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
                         // CampaignType must be set for Audience campaigns
                         CampaignType = CampaignType.Audience,
+                        DailyBudget = 50,
+                        Description = "Red shoes line.",
                         // Languages must be set for Audience campaigns
                         Languages = new string[] { "All" },
                         Name = "Women's Shoes " + DateTime.UtcNow,
-                        Description = "Red shoes line.",
-                        DailyBudget = 50,
-                        BudgetType = BudgetLimitType.DailyBudgetStandard,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     },
                 };
+
+                OutputStatusMessage("-----\nAddCampaigns:");
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
+                    accountId: authorizationData.AccountId,
+                    campaigns: campaigns,
+                    includeDynamicSearchAdsSource: false);
+                long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
+                BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("CampaignIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
+
+                // Add an ad group within the campaign.
 
                 var adGroups = new[] {
                     new AdGroup
@@ -67,20 +72,16 @@ namespace BingAdsExamplesLibrary.V12
                             Year = DateTime.UtcNow.Year + 1
                         },
                         CpcBid = new Bid { Amount = 0.09 },
-                        // Language cannot be set for ad groups in Audience campaigns
-                        Language = null,
                         // Network cannot be set for ad groups in Audience campaigns
                         Network = null,
                         Settings = new[]
                         {
                             new TargetSetting
                             {
-                                // By including the corresponding TargetSettingDetail, 
-                                // this example sets the "target and bid" option for 
-                                // CompanyName, Industry, and JobFunction. We will only deliver ads to 
-                                // people who meet at least one of your criteria.
+                                // Sets the "target and bid" option for CompanyName, Industry, and JobFunction. 
+                                // Microsoft will only deliver ads to people who meet at least one of your criteria.
                                 // By default the "bid only" option is set for Audience, Age, and Gender.
-                                // We will deliver ads to all audiences, ages, and genders, if they meet
+                                // Microsoft will deliver ads to all audiences, ages, and genders, if they meet
                                 // your company name, industry, or job function criteria. 
                                 Details = new []
                                 {
@@ -105,66 +106,18 @@ namespace BingAdsExamplesLibrary.V12
                     }
                 };
 
-                var ads = new Ad[] {
-                    new ResponsiveAd
-                    {
-                        // Not applicable for responsive ads
-                        AdFormatPreference = null,
-                        BusinessName = "Contoso",
-                        CallToAction = CallToAction.AddToCart,
-                        // Not applicable for responsive ads
-                        DevicePreference = null,
-                        EditorialStatus = null,
-                        FinalAppUrls = null,
-                        FinalMobileUrls = new[] {
-                            "http://mobile.contoso.com/womenshoesale"
-                        },
-                        FinalUrls = new[] {
-                            "http://www.contoso.com/womenshoesale"
-                        },
-                        ForwardCompatibilityMap = null,
-                        Headline = "Fast & Easy Setup",
-                        Id = null,
-                        LandscapeImageMediaId = LandscapeImageMediaId,
-                        LandscapeLogoMediaId = LandscapeLogoMediaId,
-                        LongHeadline = "Find New Customers & Increase Sales!",
-                        SquareImageMediaId = SquareImageMediaId,
-                        SquareLogoMediaId = SquareLogoMediaId,
-                        Status = null,
-                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
-                        TrackingUrlTemplate = null,
-                        Type = null,
-                        UrlCustomParameters = null,
-                    }
-                };
-
-                // Add the campaign, ad group, and ad
-
-                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
-                    authorizationData.AccountId, 
-                    campaigns,
-                    false);
-                long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
-                BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
-
+                OutputStatusMessage("-----\nAddAdGroups:");
                 AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync(
-                    (long)campaignIds[0], 
-                    adGroups,
-                    false);
+                    campaignId: (long)campaignIds[0],
+                    adGroups: adGroups,
+                    returnInheritedBidStrategyTypes: false);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("AdGroupIds:");
                 CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
+                OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
-                
-                AddAdsResponse addAdsResponse = await CampaignManagementExampleHelper.AddAdsAsync((long)adGroupIds[0], ads);
-                long?[] adIds = addAdsResponse.AdIds.ToArray();
-                BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
-                CampaignManagementExampleHelper.OutputArrayOfLong(adIds);
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(adErrors);
-
-
+                                
                 // Whether or not the "target and bid" option has been set for a given
                 // criterion type group, you can set bid adjustments for specific criteria.
 
@@ -227,26 +180,26 @@ namespace BingAdsExamplesLibrary.V12
                 };
                 adGroupCriterions.Add(adGroupNegativeAgeCriterion);
 
-                OutputStatusMessage("Adding Ad Group Criteria . . . \n");
+                OutputStatusMessage("-----\nAddAdGroupCriterions:");
                 CampaignManagementExampleHelper.OutputArrayOfAdGroupCriterion(adGroupCriterions);
-                AddAdGroupCriterionsResponse addAdGroupCriterionsResponse =
-                    await CampaignManagementExampleHelper.AddAdGroupCriterionsAsync(
-                        adGroupCriterions, 
-                        AdGroupCriterionType.Targets);
+                AddAdGroupCriterionsResponse addAdGroupCriterionsResponse = await CampaignManagementExampleHelper.AddAdGroupCriterionsAsync(
+                        adGroupCriterions: adGroupCriterions,
+                        criterionType: AdGroupCriterionType.Targets);
                 long?[] adGroupCriterionIds = addAdGroupCriterionsResponse.AdGroupCriterionIds.ToArray();
-                OutputStatusMessage("New Ad Group Criterion Ids:\n");
+                OutputStatusMessage("AdGroupCriterionIds:");
                 CampaignManagementExampleHelper.OutputArrayOfLong(adGroupCriterionIds);
                 BatchErrorCollection[] adGroupCriterionErrors =
                     addAdGroupCriterionsResponse.NestedPartialErrors.ToArray();
-                OutputStatusMessage("\nAddAdGroupCriterions Errors:\n");
+                OutputStatusMessage("NestedPartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(adGroupCriterionErrors);
-                
-                // Delete the campaign, ad group, criteria, and ad that were previously added. 
-                // You should remove this line if you want to view the added entities in the 
-                // Bing Ads web application or another tool.
 
-                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
-                OutputStatusMessage(string.Format("\nDeleted Campaign Id {0}\n", campaignIds[0]));
+                // Delete the campaign and everything it contains e.g., ad groups and ads.
+
+                OutputStatusMessage("-----\nDeleteCampaigns:");
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(
+                    accountId: authorizationData.AccountId,
+                    campaignIds: new[] { (long)campaignIds[0] });
+                OutputStatusMessage(string.Format("Deleted Campaign Id {0}", campaignIds[0]));
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -254,16 +207,16 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));

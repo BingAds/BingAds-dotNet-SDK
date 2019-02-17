@@ -7,6 +7,8 @@ using Microsoft.BingAds.V12.CampaignManagement;
 using System.Threading.Tasks;
 using Microsoft.BingAds.V12.Internal.Bulk.Entities;
 using Microsoft.BingAds.V12.Internal.Bulk.Entities.AdExtensions;
+using System.Globalization;
+using System.Threading;
 
 namespace BingAdsExamplesLibrary.V12
 {
@@ -63,6 +65,7 @@ namespace BingAdsExamplesLibrary.V12
 
         protected long accountIdKey = -1;
         protected long tagIdKey = -2;
+        protected long actionAdExtensionIdKey = -10;
         protected long appAdExtensionIdKey = -11;
         protected long callAdExtensionIdKey = -12;
         protected long calloutAdExtensionIdKey = -13;
@@ -89,7 +92,9 @@ namespace BingAdsExamplesLibrary.V12
         protected long dynamicSearchAdIdKey = -11115;
         protected long expandedTextAdIdKey = -11116;
         protected long productAdIdKey = -11117;
-        protected long textAdIdKey = -11118;
+        protected long responsiveAdIdKey = -11118;
+        protected long responsiveSearchAdIdKey = -11119;
+        protected long textAdIdKey = -11120;
 
         protected CampaignManagementExampleHelper CampaignManagementExampleHelper;
         
@@ -102,6 +107,13 @@ namespace BingAdsExamplesLibrary.V12
         /// <returns></returns>
         protected async Task<BulkFileReader> WriteEntitiesAndUploadFileAsync(IEnumerable<BulkEntity> uploadEntities)
         {
+            var progress = new Progress<BulkOperationProgressInfo>(x =>
+                OutputStatusMessage(string.Format("{0} % Complete",
+                    x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
+
+            var tokenSource = new CancellationTokenSource();
+            tokenSource.CancelAfter(TimeoutInMilliseconds);
+
             Writer = new BulkFileWriter(FileDirectory + UploadFileName);
 
             foreach (var entity in uploadEntities)
@@ -121,7 +133,10 @@ namespace BingAdsExamplesLibrary.V12
                 ResponseMode = ResponseMode.ErrorsAndResults
             };
 
-            var bulkFilePath = await BulkServiceManager.UploadFileAsync(fileUploadParameters);
+            var bulkFilePath = await BulkServiceManager.UploadFileAsync(
+                parameters: fileUploadParameters, 
+                progress: progress,
+                cancellationToken: tokenSource.Token);
 
             return new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
         }
@@ -133,7 +148,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAccount: \n");
+                OutputStatusMessage("BulkAccount:");
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("CustomerId: {0}", entity.CustomerId));
                 OutputStatusMessage(string.Format("Id: {0}", entity.Id));
@@ -149,14 +164,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroup: \n");
+                OutputStatusMessage("BulkAdGroup:");
                 OutputStatusMessage(string.Format("CampaignId: {0}", entity.CampaignId));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("IsExpired: {0}", entity.IsExpired));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-
-                OutputBulkPerformanceData(entity.PerformanceData);
+                
                 OutputBulkQualityScoreData(entity.QualityScoreData);
 
                 // Output the Campaign Management AdGroup Object
@@ -178,7 +192,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupAgeCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupAgeCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -203,7 +217,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupDayTimeCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupDayTimeCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -228,7 +242,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupDeviceCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupDeviceCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -253,7 +267,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupGenderCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupGenderCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -278,7 +292,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupLocationCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupLocationCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -303,7 +317,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupLocationIntentCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupLocationIntentCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -328,7 +342,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupNegativeLocationCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupNegativeLocationCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -353,7 +367,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupRadiusCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupRadiusCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -378,7 +392,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 if (entity != null)
                 {
-                    OutputStatusMessage("\nBulkAdGroupProfileCriterion: \n");
+                    OutputStatusMessage("BulkAdGroupProfileCriterion:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -395,13 +409,39 @@ namespace BingAdsExamplesLibrary.V12
         }
 
         /// <summary>
+        /// Outputs the list of BulkAdGroupActionAdExtension.
+        /// </summary>
+        protected void OutputBulkAdGroupActionAdExtensions(IEnumerable<BulkAdGroupActionAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("BulkAdGroupActionAdExtension:");
+                if (entity.AdExtensionIdToEntityIdAssociation != null)
+                {
+                    OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
+                    OutputStatusMessage(string.Format("EntityId (Ad Group Id): {0}", entity.AdExtensionIdToEntityIdAssociation.EntityId));
+                }
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("EditorialStatus: {0}", entity.EditorialStatus));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+                OutputStatusMessage(string.Format("Status: {0}", entity.Status));
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
         /// Outputs the list of BulkAdGroupAppAdExtension.
         /// </summary>
         protected void OutputBulkAdGroupAppAdExtensions(IEnumerable<BulkAdGroupAppAdExtension> bulkEntities)
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroupAppAdExtension: \n");
+                OutputStatusMessage("BulkAdGroupAppAdExtension:");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -427,7 +467,33 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroupImageAdExtension: \n");
+                OutputStatusMessage("BulkAdGroupImageAdExtension:");
+                if (entity.AdExtensionIdToEntityIdAssociation != null)
+                {
+                    OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
+                    OutputStatusMessage(string.Format("EntityId (Ad Group Id): {0}", entity.AdExtensionIdToEntityIdAssociation.EntityId));
+                }
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("EditorialStatus: {0}", entity.EditorialStatus));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+                OutputStatusMessage(string.Format("Status: {0}", entity.Status));
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkAdGroupPriceAdExtension.
+        /// </summary>
+        protected void OutputBulkAdGroupPriceAdExtensions(IEnumerable<BulkAdGroupPriceAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("BulkAdGroupPriceAdExtension:");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -453,7 +519,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroupNegativeKeyword: \n");
+                OutputStatusMessage("BulkAdGroupNegativeKeyword:");
                 OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
@@ -484,7 +550,7 @@ namespace BingAdsExamplesLibrary.V12
                 // BulkAdGroupNegativeSites prior to upload.
                 if (entity.NegativeSites.Count == 0)
                 {
-                    OutputStatusMessage("\nBulkAdGroupNegativeSites: \n");
+                    OutputStatusMessage("BulkAdGroupNegativeSites:");
                     OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -505,12 +571,34 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroupNegativeSite: \n");
+                OutputStatusMessage("BulkAdGroupNegativeSite:");
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 OutputStatusMessage(string.Format("Website: {0}", entity.Website));
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkActionAdExtension.
+        /// </summary>
+        protected void OutputBulkActionAdExtensions(IEnumerable<BulkActionAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("BulkActionAdExtension:");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management ActionAdExtension Object
+                CampaignManagementExampleHelper.OutputAdExtension(entity.ActionAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -526,13 +614,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAppAdExtension: \n");
+                OutputStatusMessage("BulkAppAdExtension:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management AppAdExtension Object
-                CampaignManagementExampleHelper.OutputAppAdExtension(entity.AppAdExtension);
+                CampaignManagementExampleHelper.OutputAdExtension(entity.AppAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -548,13 +636,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCallAdExtension: \n");
+                OutputStatusMessage("BulkCallAdExtension:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management CallAdExtension Object
-                CampaignManagementExampleHelper.OutputCallAdExtension(entity.CallAdExtension);
+                CampaignManagementExampleHelper.OutputAdExtension(entity.CallAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -570,13 +658,35 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCalloutAdExtension: \n");
+                OutputStatusMessage("BulkCalloutAdExtension:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management CalloutAdExtension Object
-                CampaignManagementExampleHelper.OutputCalloutAdExtension(entity.CalloutAdExtension);
+                CampaignManagementExampleHelper.OutputAdExtension(entity.CalloutAdExtension);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkPriceAdExtension.
+        /// </summary>
+        protected void OutputBulkPriceAdExtensions(IEnumerable<BulkPriceAdExtension> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("BulkPriceAdExtension:");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management PriceAdExtension Object
+                CampaignManagementExampleHelper.OutputAdExtension(entity.PriceAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -592,13 +702,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkReviewAdExtension: \n");
+                OutputStatusMessage("BulkReviewAdExtension:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management ReviewAdExtension Object
-                CampaignManagementExampleHelper.OutputReviewAdExtension(entity.ReviewAdExtension);
+                CampaignManagementExampleHelper.OutputAdExtension(entity.ReviewAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -616,7 +726,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkBudget: \n");
+                OutputStatusMessage("BulkBudget:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -638,12 +748,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaign: \n");
+                OutputStatusMessage("BulkCampaign:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-
-                OutputBulkPerformanceData(entity.PerformanceData);
+                
                 OutputBulkQualityScoreData(entity.QualityScoreData);
 
                 // Output the Campaign Management Campaign Object
@@ -663,7 +772,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignAppAdExtension: \n");
+                OutputStatusMessage("BulkCampaignAppAdExtension:");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -688,7 +797,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignCallAdExtension: \n");
+                OutputStatusMessage("BulkCampaignCallAdExtension:");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -713,7 +822,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignCalloutAdExtension: \n");
+                OutputStatusMessage("BulkCampaignCalloutAdExtension:");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -738,7 +847,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignReviewAdExtension: \n");
+                OutputStatusMessage("BulkCampaignReviewAdExtension:");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -763,7 +872,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignImageAdExtension: \n");
+                OutputStatusMessage("BulkCampaignImageAdExtension:");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -788,7 +897,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignLocationAdExtension: \n");
+                OutputStatusMessage("BulkCampaignLocationAdExtension:");
                 if (entity.AdExtensionIdToEntityIdAssociation != null)
                 {
                     OutputStatusMessage(string.Format("AdExtensionId: {0}", entity.AdExtensionIdToEntityIdAssociation.AdExtensionId));
@@ -813,7 +922,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignNegativeKeyword: \n");
+                OutputStatusMessage("BulkCampaignNegativeKeyword:");
                 OutputStatusMessage(string.Format("CampaignId: {0}", entity.CampaignId));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
@@ -838,7 +947,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignNegativeKeywordList: \n");
+                OutputStatusMessage("BulkCampaignNegativeKeywordList:");
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
@@ -873,7 +982,7 @@ namespace BingAdsExamplesLibrary.V12
                 // BulkCampaignNegativeSites prior to upload.
                 if (entity.NegativeSites.Count == 0)
                 {
-                    OutputStatusMessage("\nBulkCampaignNegativeSites: \n");
+                    OutputStatusMessage("BulkCampaignNegativeSites:");
                     OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                     OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                     OutputStatusMessage(string.Format("Status: {0}", entity.Status));
@@ -893,7 +1002,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignNegativeSite: \n");
+                OutputStatusMessage("BulkCampaignNegativeSite:");
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
@@ -913,24 +1022,30 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
+                var bulkAdGroupActionAdExtension = entity as BulkAdGroupActionAdExtension;
+                if (bulkAdGroupActionAdExtension != null)
+                    OutputStatusMessage("BulkAdGroupActionAdExtension:");
                 var bulkAdGroupAppAdExtension = entity as BulkAdGroupAppAdExtension;
                 if (bulkAdGroupAppAdExtension != null)
-                    OutputStatusMessage("\nBulkAdGroupAppAdExtension:\n");
+                    OutputStatusMessage("BulkAdGroupAppAdExtension:");
                 var bulkAdGroupCalloutAdExtension = entity as BulkAdGroupCalloutAdExtension;
                 if (bulkAdGroupCalloutAdExtension != null)
-                    OutputStatusMessage("\nBulkAdGroupCalloutAdExtension:\n");
+                    OutputStatusMessage("BulkAdGroupCalloutAdExtension:");
                 var bulkAdGroupImageAdExtension = entity as BulkAdGroupImageAdExtension;
                 if (bulkAdGroupImageAdExtension != null)
-                    OutputStatusMessage("\nBulkAdGroupImageAdExtension:\n");
+                    OutputStatusMessage("BulkAdGroupImageAdExtension:");
+                var bulkAdGroupPriceAdExtension = entity as BulkAdGroupPriceAdExtension;
+                if (bulkAdGroupPriceAdExtension != null)
+                    OutputStatusMessage("BulkAdGroupPriceAdExtension:");
                 var bulkAdGroupReviewAdExtension = entity as BulkAdGroupReviewAdExtension;
                 if (bulkAdGroupReviewAdExtension != null)
-                    OutputStatusMessage("\nBulkAdGroupReviewAdExtension:\n");
+                    OutputStatusMessage("BulkAdGroupReviewAdExtension:");
                 var bulkAdGroupSitelinkAdExtension = entity as BulkAdGroupSitelinkAdExtension;
                 if (bulkAdGroupSitelinkAdExtension != null)
-                    OutputStatusMessage("\nBulkAdGroupSitelinkAdExtension:\n");
+                    OutputStatusMessage("BulkAdGroupSitelinkAdExtension:");
                 var bulkAdGroupStructuredSnippetAdExtension = entity as BulkAdGroupStructuredSnippetAdExtension;
                 if (bulkAdGroupStructuredSnippetAdExtension != null)
-                    OutputStatusMessage("\nBulkAdGroupStructuredSnippetAdExtension:\n");
+                    OutputStatusMessage("BulkAdGroupStructuredSnippetAdExtension:");
 
                 // Output the properties specific to BulkAdGroupAdExtensionAssociation
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
@@ -947,30 +1062,36 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
+                var bulkCampaignActionAdExtension = entity as BulkCampaignActionAdExtension;
+                if (bulkCampaignActionAdExtension != null)
+                    OutputStatusMessage("BulkCampaignActionAdExtension:");
                 var bulkCampaignAppAdExtension = entity as BulkCampaignAppAdExtension;
                 if (bulkCampaignAppAdExtension != null)
-                    OutputStatusMessage("\nBulkCampaignAppAdExtension:\n");
+                    OutputStatusMessage("BulkCampaignAppAdExtension:");
                 var bulkCampaignCallAdExtension = entity as BulkCampaignCallAdExtension;
                 if (bulkCampaignCallAdExtension != null)
-                    OutputStatusMessage("\nBulkCampaignCallAdExtension:\n");
+                    OutputStatusMessage("BulkCampaignCallAdExtension:");
                 var bulkCampaignCalloutAdExtension = entity as BulkCampaignCalloutAdExtension;
                 if (bulkCampaignCalloutAdExtension != null)
-                    OutputStatusMessage("\nBulkCampaignCalloutAdExtension:\n");
+                    OutputStatusMessage("BulkCampaignCalloutAdExtension:");
                 var bulkCampaignImageAdExtension = entity as BulkCampaignImageAdExtension;
                 if (bulkCampaignImageAdExtension != null)
-                    OutputStatusMessage("\nBulkCampaignImageAdExtension:\n");
+                    OutputStatusMessage("BulkCampaignImageAdExtension:");
                 var bulkCampaignLocationAdExtension = entity as BulkCampaignLocationAdExtension;
                 if (bulkCampaignLocationAdExtension != null)
-                    OutputStatusMessage("\nBulkCampaignLocationAdExtension:\n");
+                    OutputStatusMessage("BulkCampaignLocationAdExtension:");
+                var bulkCampaignPriceAdExtension = entity as BulkCampaignPriceAdExtension;
+                if (bulkCampaignPriceAdExtension != null)
+                    OutputStatusMessage("BulkCampaignPriceAdExtension:");
                 var bulkCampaignReviewAdExtension = entity as BulkCampaignReviewAdExtension;
                 if (bulkCampaignReviewAdExtension != null)
-                    OutputStatusMessage("\nBulkCampaignReviewAdExtension:\n");
+                    OutputStatusMessage("BulkCampaignReviewAdExtension:");
                 var bulkCampaignSitelinkAdExtension = entity as BulkCampaignSitelinkAdExtension;
                 if (bulkCampaignSitelinkAdExtension != null)
-                    OutputStatusMessage("\nBulkCampaignSitelinkAdExtension:\n");
+                    OutputStatusMessage("BulkCampaignSitelinkAdExtension:");
                 var bulkCampaignStructuredSnippetAdExtension = entity as BulkCampaignStructuredSnippetAdExtension;
                 if (bulkCampaignStructuredSnippetAdExtension != null)
-                    OutputStatusMessage("\nBulkCampaignStructuredSnippetAdExtension:\n");
+                    OutputStatusMessage("BulkCampaignStructuredSnippetAdExtension:");
 
                 // Output the properties specific to BulkCampaignAdExtensionAssociation
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
@@ -995,8 +1116,6 @@ namespace BingAdsExamplesLibrary.V12
             OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
             OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
-            OutputBulkPerformanceData(entity.PerformanceData);
-
             if (entity.HasErrors)
             {
                 OutputBulkErrors(entity.Errors);
@@ -1010,13 +1129,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkImageAdExtension: \n");
+                OutputStatusMessage("BulkImageAdExtension:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management ImageAdExtension Object
-                CampaignManagementExampleHelper.OutputImageAdExtension(entity.ImageAdExtension);
+                CampaignManagementExampleHelper.OutputAdExtension(entity.ImageAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1032,14 +1151,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkKeyword: \n");
+                OutputStatusMessage("BulkKeyword:");
                 OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-
-                OutputBulkPerformanceData(entity.PerformanceData);
+                
                 OutputBulkQualityScoreData(entity.QualityScoreData);
                 OutputBulkBidSuggestions(entity.BidSuggestions);
 
@@ -1059,13 +1177,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkLocationAdExtension: \n");
+                OutputStatusMessage("BulkLocationAdExtension:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management LocationAdExtension Object
-                CampaignManagementExampleHelper.OutputLocationAdExtension(entity.LocationAdExtension);
+                CampaignManagementExampleHelper.OutputAdExtension(entity.LocationAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1081,7 +1199,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkNegativeKeywordList: \n");
+                OutputStatusMessage("BulkNegativeKeywordList:");
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 CampaignManagementExampleHelper.OutputNegativeKeywordList(entity.NegativeKeywordList);
@@ -1093,29 +1211,7 @@ namespace BingAdsExamplesLibrary.V12
                 }
             }
         }
-
-        /// <summary>
-        /// Outputs the list of BulkPriceAdExtension.
-        /// </summary>
-        protected void OutputBulkPriceAdExtensions(IEnumerable<BulkPriceAdExtension> bulkEntities)
-        {
-            foreach (var entity in bulkEntities)
-            {
-                OutputStatusMessage("\nBulkPriceAdExtension: \n");
-                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
-                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
-                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
-
-                // Output the Campaign Management PriceAdExtension Object
-                CampaignManagementExampleHelper.OutputPriceAdExtension(entity.PriceAdExtension);
-
-                if (entity.HasErrors)
-                {
-                    OutputBulkErrors(entity.Errors);
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Outputs the list of BulkProductAd.
         /// </summary>
@@ -1123,17 +1219,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkProductAd: \n");
+                OutputStatusMessage("BulkProductAd:");
                 OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
-                OutputBulkPerformanceData(entity.PerformanceData);
-
                 // Output the Campaign Management ProductAd Object
-                CampaignManagementExampleHelper.OutputProductAd(entity.ProductAd);
+                CampaignManagementExampleHelper.OutputAd(entity.ProductAd);
 
                 if (entity.HasErrors)
                 {
@@ -1149,7 +1243,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignProductScope: \n");
+                OutputStatusMessage("BulkCampaignProductScope:");
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -1162,7 +1256,7 @@ namespace BingAdsExamplesLibrary.V12
                     OutputBulkErrors(entity.Errors);
                 }
 
-                OutputStatusMessage("\n");
+                OutputStatusMessage("");
             }
         }
 
@@ -1173,7 +1267,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroupProductPartition: \n");
+                OutputStatusMessage("BulkAdGroupProductPartition:");
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
@@ -1203,7 +1297,7 @@ namespace BingAdsExamplesLibrary.V12
                     OutputBulkErrors(entity.Errors);
                 }
 
-                OutputStatusMessage("\n");
+                OutputStatusMessage("");
             }
         }
 
@@ -1214,7 +1308,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkSharedNegativeKeyword: \n");
+                OutputStatusMessage("BulkSharedNegativeKeyword:");
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
                 CampaignManagementExampleHelper.OutputNegativeKeyword(entity.NegativeKeyword);
@@ -1235,12 +1329,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkSitelinkAdExtension: \n");
+                OutputStatusMessage("BulkSitelinkAdExtension:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management SitelinkAdExtension Object
-                CampaignManagementExampleHelper.OutputSitelinkAdExtension(entity.SitelinkAdExtension);
+                CampaignManagementExampleHelper.OutputAdExtension(entity.SitelinkAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1256,12 +1350,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkStructuredSnippetAdExtension: \n");
+                OutputStatusMessage("BulkStructuredSnippetAdExtension:");
                 OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management StructuredSnippetAdExtension Object
-                CampaignManagementExampleHelper.OutputStructuredSnippetAdExtension(entity.StructuredSnippetAdExtension);
+                CampaignManagementExampleHelper.OutputAdExtension(entity.StructuredSnippetAdExtension);
 
                 if (entity.HasErrors)
                 {
@@ -1277,17 +1371,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkDynamicSearchAd: \n");
+                OutputStatusMessage("BulkDynamicSearchAd:");
                 OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
-                OutputBulkPerformanceData(entity.PerformanceData);
-
                 // Output the Campaign Management DynamicSearchAd Object
-                CampaignManagementExampleHelper.OutputDynamicSearchAd(entity.DynamicSearchAd);
+                CampaignManagementExampleHelper.OutputAd(entity.DynamicSearchAd);
 
                 if (entity.HasErrors)
                 {
@@ -1303,17 +1395,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkExpandedTextAd: \n");
+                OutputStatusMessage("BulkExpandedTextAd:");
                 OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
-                OutputBulkPerformanceData(entity.PerformanceData);
-
                 // Output the Campaign Management ExpandedTextAd Object
-                CampaignManagementExampleHelper.OutputExpandedTextAd(entity.ExpandedTextAd);
+                CampaignManagementExampleHelper.OutputAd(entity.ExpandedTextAd);
 
                 if (entity.HasErrors)
                 {
@@ -1329,17 +1419,39 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkResponsiveAd: \n");
+                OutputStatusMessage("BulkResponsiveAd:");
                 OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
-                OutputBulkPerformanceData(entity.PerformanceData);
-
                 // Output the Campaign Management ResponsiveAd Object
-                CampaignManagementExampleHelper.OutputResponsiveAd(entity.ResponsiveAd);
+                CampaignManagementExampleHelper.OutputAd(entity.ResponsiveAd);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkResponsiveSearchAd.
+        /// </summary>
+        protected void OutputBulkResponsiveSearchAds(IEnumerable<BulkResponsiveSearchAd> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("BulkResponsiveSearchAd:");
+                OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+
+                // Output the Campaign Management ResponsiveSearchAd Object
+                CampaignManagementExampleHelper.OutputAd(entity.ResponsiveSearchAd);
 
                 if (entity.HasErrors)
                 {
@@ -1355,17 +1467,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkTextAd: \n");
+                OutputStatusMessage("BulkTextAd:");
                 OutputStatusMessage(string.Format("AdGroupId: {0}", entity.AdGroupId));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
-                OutputBulkPerformanceData(entity.PerformanceData);
-
                 // Output the Campaign Management TextAd Object
-                CampaignManagementExampleHelper.OutputTextAd(entity.TextAd);
+                CampaignManagementExampleHelper.OutputAd(entity.TextAd);
 
                 if (entity.HasErrors)
                 {
@@ -1381,13 +1491,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkRemarketingList: \n");
+                OutputStatusMessage("BulkRemarketingList:");
                 OutputStatusMessage(string.Format("Status: {0}", entity.Status));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
 
                 // Output the Campaign Management RemarketingList Object
-                CampaignManagementExampleHelper.OutputRemarketingList(entity.RemarketingList);
+                CampaignManagementExampleHelper.OutputAudience(entity.RemarketingList);
 
                 if (entity.HasErrors)
                 {
@@ -1403,7 +1513,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroupRemarketingListAssociation: \n");
+                OutputStatusMessage("BulkAdGroupRemarketingListAssociation:");
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
@@ -1426,7 +1536,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkCampaignNegativeDynamicSearchAdTarget: \n");
+                OutputStatusMessage("BulkCampaignNegativeDynamicSearchAdTarget:");
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
                 OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
@@ -1448,7 +1558,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroupNegativeDynamicSearchAdTarget: \n");
+                OutputStatusMessage("BulkAdGroupNegativeDynamicSearchAdTarget:");
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
@@ -1471,7 +1581,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             foreach (var entity in bulkEntities)
             {
-                OutputStatusMessage("\nBulkAdGroupDynamicSearchAdTarget: \n");
+                OutputStatusMessage("BulkAdGroupDynamicSearchAdTarget:");
                 OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
                 OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
                 OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
@@ -1488,27 +1598,7 @@ namespace BingAdsExamplesLibrary.V12
         }
 
         /// <summary>
-        /// Outputs the PerformanceData
-        /// </summary>
-        private void OutputBulkPerformanceData(PerformanceData performanceData)
-        {
-            if (performanceData != null)
-            {
-                OutputStatusMessage("PerformanceData: ");
-                OutputStatusMessage(string.Format("AverageCostPerClick: {0}", performanceData.AverageCostPerClick));
-                OutputStatusMessage(string.Format("AverageCostPerThousandImpressions: {0}", performanceData.AverageCostPerThousandImpressions));
-                OutputStatusMessage(string.Format("AveragePosition: {0}", performanceData.AveragePosition));
-                OutputStatusMessage(string.Format("Clicks: {0}", performanceData.Clicks));
-                OutputStatusMessage(string.Format("ClickThroughRate: {0}", performanceData.ClickThroughRate));
-                OutputStatusMessage(string.Format("Conversions: {0}", performanceData.Conversions));
-                OutputStatusMessage(string.Format("CostPerConversion: {0}", performanceData.CostPerConversion));
-                OutputStatusMessage(string.Format("Impressions: {0}", performanceData.Impressions));
-                OutputStatusMessage(string.Format("Spend: {0}", performanceData.Spend));
-            }
-        }
-
-        /// <summary>
-        /// Outputs the PerformanceData
+        /// Outputs the QualityScoreData
         /// </summary>
         private void OutputBulkQualityScoreData(QualityScoreData qualityScoreData)
         {
@@ -1550,17 +1640,14 @@ namespace BingAdsExamplesLibrary.V12
         }
 
         #region BulkEntityExamples
-
-
-        protected BulkEntity GetExampleBulkCampaign()
+        
+        protected BulkEntity GetBulkCampaign()
         {
-            // Map properties in the Bulk file to the BulkAdGroup
+            // Map properties in the Bulk file to the BulkCampaign
             var bulkCampaign = new BulkCampaign
             {
                 // 'Parent Id' column header in the Bulk file
-                // This is not required for upload because the parent account identifier is set 
-                // with the CustomerAccountId header element in the Bulk upload service request.
-                // AccountId = OptionalAccountIdHere,
+                AccountId = 0,
                 // 'Client Id' column header in the Bulk file
                 ClientId = "ClientIdGoesHere",
 
@@ -1569,7 +1656,7 @@ namespace BingAdsExamplesLibrary.V12
                 Campaign = new Campaign
                 {
                     // 'Bid Strategy Type' column header in the Bulk file
-                    BiddingScheme = new EnhancedCpcBiddingScheme(),
+                    BiddingScheme = new EnhancedCpcBiddingScheme { },
                     // 'Budget Id' column header in the Bulk file
                     BudgetId = null,
                     // 'Budget Type' column header in the Bulk file
@@ -1578,27 +1665,46 @@ namespace BingAdsExamplesLibrary.V12
                     CampaignType = CampaignType.Search,
                     // 'Budget' column header in the Bulk file
                     DailyBudget = 50,
-                    // 'Description' column header in the Bulk file
-                    Description = "Red shoes line.",
+                    // 'Experiment Id' column header in the Bulk file
+                    ExperimentId = null,
                     // 'Id' column header in the Bulk file
                     Id = campaignIdKey,
                     // 'Language' column header in the Bulk file
-                    Languages = null,
-                    // 'Name' column header in the Bulk file
+                    Languages = new string[] { "All" },
+                    // 'Campaign' column header in the Bulk file
                     Name = "Women's Shoes " + DateTime.UtcNow,
                     // 'Bid Adjustment' column header in the Bulk file
-                    AudienceAdsBidAdjustment = null,
+                    AudienceAdsBidAdjustment = 10,
+                    Settings = new Setting[]
+                    {
+                        // 'Target Setting' column header in the Bulk file
+                        new TargetSetting
+                        {
+                            // Each target setting detail is delimited by a semicolon (;) in the Bulk file
+                            Details = new TargetSettingDetail[]
+                            {
+                                new TargetSettingDetail
+                                {
+                                    CriterionTypeGroup = CriterionTypeGroup.Audience,
+                                    TargetAndBid = false
+                                }
+                            }
+                        }
+                    },
                     // 'Status' column header in the Bulk file
-                    Status = CampaignStatus.Paused,
+                    Status = CampaignStatus.Active,
+                    // 'Sub Type' column header in the Bulk file
+                    SubType = null,
                     // 'Time Zone' column header in the Bulk file
                     TimeZone = "PacificTimeUSCanadaTijuana",
                     // 'Tracking Template' column header in the Bulk file
-                    TrackingUrlTemplate =
-                        "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}",
+                    TrackingUrlTemplate = null,
                     // 'Custom Parameter' column header in the Bulk file
                     UrlCustomParameters = new CustomParameters
                     {
-                        Parameters = new[] {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[]
+                        {
                             new CustomParameter(){
                                 Key = "promoCode",
                                 Value = "PROMO1"
@@ -1607,15 +1713,15 @@ namespace BingAdsExamplesLibrary.V12
                                 Key = "season",
                                 Value = "summer"
                             },
-                        }
+                        },
                     },
-                }
+                },
             };
 
             return bulkCampaign;
         }
 
-        protected BulkEntity GetExampleBulkAdGroup()
+        protected BulkEntity GetBulkAdGroup()
         {
             // Map properties in the Bulk file to the BulkAdGroup
             var bulkAdGroup = new BulkAdGroup
@@ -1650,7 +1756,7 @@ namespace BingAdsExamplesLibrary.V12
                     // 'Id' column header in the Bulk file
                     Id = adGroupIdKey,
                     // 'Language' column header in the Bulk file
-                    Language = "English",
+                    Language = null,
                     // 'Ad Group' column header in the Bulk file
                     Name = "Women's Red Shoe Sale",
                     // 'Network Distribution' column header in the Bulk file
@@ -1708,7 +1814,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkAdGroup;
         }
 
-        protected BulkEntity GetExampleBulkCampaignAgeCriterion()
+        protected BulkEntity GetBulkCampaignAgeCriterion()
         {
             // Map properties in the Bulk file to the BulkCampaignAgeCriterion
             var bulkCampaignAgeCriterion = new BulkCampaignAgeCriterion
@@ -1750,7 +1856,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkCampaignAgeCriterion;
         }
 
-        protected BulkEntity GetExampleBulkCampaignDayTimeCriterion()
+        protected BulkEntity GetBulkCampaignDayTimeCriterion()
         {
             // Map properties in the Bulk file to the BulkCampaignDayTimeCriterion
             var bulkCampaignDayTimeCriterion = new BulkCampaignDayTimeCriterion
@@ -1804,7 +1910,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkCampaignDayTimeCriterion;
         }
 
-        protected List<BulkCampaignDeviceCriterion> GetExampleBulkCampaignDeviceCriterions()
+        protected List<BulkCampaignDeviceCriterion> GetBulkCampaignDeviceCriterions()
         {
             var bulkCampaignDeviceCriterions = new[] {
                 // Map properties in the Bulk file to the BulkCampaignDeviceCriterion
@@ -1880,7 +1986,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkCampaignDeviceCriterions.ToList();
         }
 
-        protected BulkEntity GetExampleBulkCampaignGenderCriterion()
+        protected BulkEntity GetBulkCampaignGenderCriterion()
         {
             // Map properties in the Bulk file to the BulkCampaignGenderCriterion
             var bulkCampaignGenderCriterion = new BulkCampaignGenderCriterion
@@ -1922,7 +2028,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkCampaignGenderCriterion;
         }
 
-        protected BulkEntity GetExampleBulkCampaignLocationCriterion()
+        protected BulkEntity GetBulkCampaignLocationCriterion()
         {
             // Map properties in the Bulk file to the BulkCampaignLocationCriterion
             var bulkCampaignLocationCriterion = new BulkCampaignLocationCriterion
@@ -1967,7 +2073,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkCampaignLocationCriterion;
         }
 
-        protected BulkEntity GetExampleBulkCampaignLocationIntentCriterion()
+        protected BulkEntity GetBulkCampaignLocationIntentCriterion()
         {
             // Map properties in the Bulk file to the BulkCampaignLocationIntentCriterion
             var bulkCampaignLocationIntentCriterion = new BulkCampaignLocationIntentCriterion
@@ -2005,7 +2111,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkCampaignLocationIntentCriterion;
         }
 
-        protected BulkEntity GetExampleBulkCampaignNegativeLocationCriterion()
+        protected BulkEntity GetBulkCampaignNegativeLocationCriterion()
         {
             // Map properties in the Bulk file to the BulkCampaignNegativeLocationCriterion
             var bulkCampaignNegativeLocationCriterion = new BulkCampaignNegativeLocationCriterion
@@ -2044,7 +2150,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkCampaignNegativeLocationCriterion;
         }
 
-        protected BulkEntity GetExampleBulkCampaignRadiusCriterion()
+        protected BulkEntity GetBulkCampaignRadiusCriterion()
         {
             // Map properties in the Bulk file to the BulkCampaignRadiusCriterion
             var bulkCampaignRadiusCriterion = new BulkCampaignRadiusCriterion
@@ -2098,7 +2204,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkCampaignRadiusCriterion;
         }
 
-        protected BulkEntity GetExampleBulkAdGroupAgeCriterion()
+        protected BulkEntity GetBulkAdGroupAgeCriterion()
         {
             // Map properties in the Bulk file to the BulkAdGroupAgeCriterion
             var bulkAdGroupAgeCriterion = new BulkAdGroupAgeCriterion
@@ -2143,7 +2249,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkAdGroupAgeCriterion;
         }
 
-        protected BulkEntity GetExampleBulkAdGroupDayTimeCriterion()
+        protected BulkEntity GetBulkAdGroupDayTimeCriterion()
         {
             // Map properties in the Bulk file to the BulkAdGroupDayTimeCriterion
             var bulkAdGroupDayTimeCriterion = new BulkAdGroupDayTimeCriterion
@@ -2200,7 +2306,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkAdGroupDayTimeCriterion;
         }
 
-        protected List<BulkAdGroupDeviceCriterion> GetExampleBulkAdGroupDeviceCriterions()
+        protected List<BulkAdGroupDeviceCriterion> GetBulkAdGroupDeviceCriterions()
         {
             var bulkAdGroupDeviceCriterions = new[] {
                 // Map properties in the Bulk file to the BulkAdGroupDeviceCriterion
@@ -2279,7 +2385,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkAdGroupDeviceCriterions.ToList();
         }
 
-        protected BulkEntity GetExampleBulkAdGroupGenderCriterion()
+        protected BulkEntity GetBulkAdGroupGenderCriterion()
         {
             // Map properties in the Bulk file to the BulkAdGroupGenderCriterion
             var bulkAdGroupGenderCriterion = new BulkAdGroupGenderCriterion
@@ -2324,7 +2430,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkAdGroupGenderCriterion;
         }
 
-        protected BulkEntity GetExampleBulkAdGroupLocationCriterion()
+        protected BulkEntity GetBulkAdGroupLocationCriterion()
         {
             // Map properties in the Bulk file to the BulkAdGroupLocationCriterion
             var bulkAdGroupLocationCriterion = new BulkAdGroupLocationCriterion
@@ -2372,7 +2478,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkAdGroupLocationCriterion;
         }
 
-        protected BulkEntity GetExampleBulkAdGroupLocationIntentCriterion()
+        protected BulkEntity GetBulkAdGroupLocationIntentCriterion()
         {
             // Map properties in the Bulk file to the BulkAdGroupLocationIntentCriterion
             var bulkAdGroupLocationIntentCriterion = new BulkAdGroupLocationIntentCriterion
@@ -2413,7 +2519,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkAdGroupLocationIntentCriterion;
         }
 
-        protected BulkEntity GetExampleBulkAdGroupNegativeLocationCriterion()
+        protected BulkEntity GetBulkAdGroupNegativeLocationCriterion()
         {
             // Map properties in the Bulk file to the BulkAdGroupNegativeLocationCriterion
             var bulkAdGroupNegativeLocationCriterion = new BulkAdGroupNegativeLocationCriterion
@@ -2455,7 +2561,7 @@ namespace BingAdsExamplesLibrary.V12
             return bulkAdGroupNegativeLocationCriterion;
         }
 
-        protected BulkEntity GetExampleBulkAdGroupRadiusCriterion()
+        protected BulkEntity GetBulkAdGroupRadiusCriterion()
         {
             // Map properties in the Bulk file to the BulkAdGroupRadiusCriterion
             var bulkAdGroupRadiusCriterion = new BulkAdGroupRadiusCriterion
@@ -2510,6 +2616,89 @@ namespace BingAdsExamplesLibrary.V12
             };
 
             return bulkAdGroupRadiusCriterion;
+        }
+
+        protected BulkEntity GetBulkActionAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkActionAdExtension
+            var bulkActionAdExtension = new BulkActionAdExtension
+            {
+                // 'Parent Id' column header in the Bulk file
+                AccountId = 0,
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // ActionAdExtension object of the Campaign Management service.
+                ActionAdExtension = new ActionAdExtension
+                {
+                    // 'Id' column header in the Bulk file
+                    Id = actionAdExtensionIdKey,
+                    // 'Action Type' column header in the Bulk file
+                    ActionType = ActionAdExtensionActionType.ActNow,
+                    // 'Mobile Final Url' column header in the Bulk file
+                    FinalMobileUrls = new string[]
+                    {
+                        "https://mobile.contoso.com/womenshoesale"
+                    },
+                    // 'Final Url' column header in the Bulk file
+                    FinalUrls = new string[]
+                    {
+                        "https://www.contoso.com/womenshoesale"
+                    },
+                    // 'Language' column header in the Bulk file
+                    Language = "English",
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                    // 'Ad Schedule' column header in the Bulk file
+                    Scheduling = new Schedule
+                    {
+                        // Each day and time range is delimited by a semicolon (;) in the Bulk file
+                        DayTimeRanges = new[]
+                            {
+                                // Within each day and time range the format is Day[StartHour:StartMinue-EndHour:EndMinute].
+                                new DayTime
+                                {
+                                    Day = Day.Monday,
+                                    StartHour = 9,
+                                    StartMinute = Minute.Zero,
+                                    EndHour = 21,
+                                    EndMinute = Minute.Zero,
+                                },
+                            },
+                        // 'End Date' column header in the Bulk file
+                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        {
+                            Month = 12,
+                            Day = 31,
+                            Year = DateTime.UtcNow.Year + 1
+                        },
+                        // 'Start Date' column header in the Bulk file
+                        StartDate = null,
+                        // 'Use Searcher Time Zone' column header in the Bulk file
+                        UseSearcherTimeZone = false,
+                    },
+                    // 'Status' column header in the Bulk file
+                    Status = AdExtensionStatus.Active,
+                },
+            };
+
+            return bulkActionAdExtension;
         }
 
         protected BulkEntity GetBulkAppAdExtension()
@@ -3255,100 +3444,7 @@ namespace BingAdsExamplesLibrary.V12
 
             return bulkRemarketingList;
         }
-
-        protected BulkEntity GetBulkAdGroup()
-        {
-            // Map properties in the Bulk file to the BulkAdGroup
-            var bulkAdGroup = new BulkAdGroup
-            {
-                // 'Campaign' column header in the Bulk file
-                CampaignName = "ParentCampaignNameGoesHere",
-                // 'Parent Id' column header in the Bulk file
-                CampaignId = campaignIdKey,
-                // 'Client Id' column header in the Bulk file
-                ClientId = "ClientIdGoesHere",
-
-                // Map properties in the Bulk file to the 
-                // AdGroup object of the Campaign Management service.
-                AdGroup = new AdGroup
-                {
-                    // 'Ad Rotation' column header in the Bulk file
-                    AdRotation = new AdRotation
-                    {
-                        Type = AdRotationType.RotateAdsEvenly
-                    },
-                    // 'Bid Strategy Type' column header in the Bulk file
-                    BiddingScheme = new ManualCpcBiddingScheme { },
-                    // 'End Date' column header in the Bulk file
-                    EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
-                    {
-                        Month = 12,
-                        Day = 31,
-                        Year = DateTime.UtcNow.Year + 1
-                    },
-                    // 'Id' column header in the Bulk file
-                    Id = adGroupIdKey,
-                    // 'Language' column header in the Bulk file
-                    Language = "English",
-                    // 'Ad Group' column header in the Bulk file
-                    Name = "Women's Red Shoe Sale",
-                    // 'Bid Adjustment' column header in the Bulk file
-                    AudienceAdsBidAdjustment = 10,
-                    // 'Network Distribution' column header in the Bulk file
-                    Network = Network.OwnedAndOperatedAndSyndicatedSearch,
-                    // 'Target Setting' column header in the Bulk file
-                    Settings = new[]
-                    {
-                        new TargetSetting
-                        {
-                            // Each target setting detail is delimited by a semicolon (;) in the Bulk file
-                            Details = new []
-                            {
-                                new TargetSettingDetail
-                                {
-                                    CriterionTypeGroup = CriterionTypeGroup.Audience,
-                                    TargetAndBid = true
-                                }
-                            }
-                        }
-                    },
-                    // 'Cpc Bid' column header in the Bulk file
-                    CpcBid = new Bid
-                    {
-                        Amount = 0.10
-                    },
-                    // 'Start Date' column header in the Bulk file
-                    StartDate = new Microsoft.BingAds.V12.CampaignManagement.Date
-                    {
-                        Month = DateTime.UtcNow.Month,
-                        Day = DateTime.UtcNow.Day,
-                        Year = DateTime.UtcNow.Year
-                    },
-                    // 'Status' column header in the Bulk file
-                    Status = AdGroupStatus.Paused,
-                    // 'Tracking Template' column header in the Bulk file
-                    TrackingUrlTemplate = null,
-                    // 'Custom Parameter' column header in the Bulk file
-                    UrlCustomParameters = new CustomParameters
-                    {
-                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
-                        Parameters = new[] {
-                            new CustomParameter(){
-                                Key = "promoCode",
-                                Value = "PROMO1"
-                            },
-                            new CustomParameter(){
-                                Key = "season",
-                                Value = "summer"
-                            },
-                        }
-                    },
-                },
-            };
-
-            return bulkAdGroup;
-        }
-
+                
         protected BulkEntity GetBulkAdGroupAppAdExtension()
         {
             // Map properties in the Bulk file to the BulkAdGroupAppAdExtension
@@ -3818,116 +3914,34 @@ namespace BingAdsExamplesLibrary.V12
                 // 'Client Id' column header in the Bulk file
                 ClientId = "ClientIdGoesHere",
                 // 'Audience' column header in the Bulk file
-                RemarketingListName = "My Remarketing List " + DateTime.UtcNow,
+                AudienceName = "My Remarketing List " + DateTime.UtcNow,
             };
 
             return bulkAdGroupRemarketingListAssociation;
         }
 
-        protected List<BulkEntity> GetBulkCampaigns()
+        protected BulkEntity GetBulkCampaignActionAdExtension()
         {
-            var uploadEntities = new List<BulkEntity>();
-
-            for (int i = 0; i < 3; i++)
+            // Map properties in the Bulk file to the BulkCampaignActionAdExtension
+            var bulkCampaignActionAdExtension = new BulkCampaignActionAdExtension
             {
-                // Map properties in the Bulk file to the BulkCampaign
-                var bulkCampaign = new BulkCampaign
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
                 {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = actionAdExtensionIdKey,
                     // 'Parent Id' column header in the Bulk file
-                    AccountId = 0,
-                    // 'Client Id' column header in the Bulk file
-                    ClientId = "ClientIdGoesHere",
+                    EntityId = campaignIdKey,
+                },
 
-                    // Map properties in the Bulk file to the 
-                    // Campaign object of the Campaign Management service.
-                    Campaign = new Campaign
-                    {
-                        // 'Bid Strategy Type' column header in the Bulk file
-                        BiddingScheme = new EnhancedCpcBiddingScheme { },
-                        // 'Budget Id' column header in the Bulk file
-                        BudgetId = null,
-                        // 'Budget Type' column header in the Bulk file
-                        BudgetType = BudgetLimitType.DailyBudgetStandard,
-                        // 'Campaign Type' column header in the Bulk file
-                        CampaignType = null,
-                        // 'Budget' column header in the Bulk file
-                        DailyBudget = 50,
-                        // 'Description' column header in the Bulk file
-                        Description = "Red shoes line.",
-                        // 'Id' column header in the Bulk file
-                        Id = campaignIdKey,
-                        // 'Language' column header in the Bulk file
-                        Languages = null,
-                        // 'Campaign' column header in the Bulk file
-                        Name = "Women's Shoes " + DateTime.UtcNow,
-                        // 'Bid Adjustment' column header in the Bulk file
-                        AudienceAdsBidAdjustment = 10,
-                        // 'Settings are not applicable for the Search campaign type
-                        Settings = null,
-                        // 'Status' column header in the Bulk file
-                        Status = CampaignStatus.Active,
-                        // 'Time Zone' column header in the Bulk file
-                        TimeZone = "PacificTimeUSCanadaTijuana",
-                        // 'Tracking Template' column header in the Bulk file
-                        TrackingUrlTemplate = null,
-                        // 'Custom Parameter' column header in the Bulk file
-                        UrlCustomParameters = new CustomParameters
-                        {
-                            // Each custom parameter is delimited by a semicolon (;) in the Bulk file
-                            Parameters = new[] {
-                                new CustomParameter(){
-                                    Key = "promoCode",
-                                    Value = "PROMO1"
-                                },
-                                new CustomParameter(){
-                                    Key = "season",
-                                    Value = "summer"
-                                },
-                            }
-                        },
-                    },
-                };
-
-                uploadEntities.Add(bulkCampaign);
-            }
-
-            // Set properties specific to the Search campaign type
-            ((BulkCampaign)uploadEntities[0]).Campaign.Id = searchCampaignIdKey;
-            ((BulkCampaign)uploadEntities[0]).Campaign.Name = "Search " + DateTime.UtcNow;
-            ((BulkCampaign)uploadEntities[0]).Campaign.CampaignType = CampaignType.Search;
-
-            // Set properties specific to the Shopping campaign type
-            ((BulkCampaign)uploadEntities[1]).Campaign.Id = shoppingCampaignIdKey;
-            ((BulkCampaign)uploadEntities[1]).Campaign.Name = "Shopping " + DateTime.UtcNow;
-            // EnhancedCpcBiddingScheme is not supported for shopping campaigns.
-            // 'Bid Strategy Type' column header in the Bulk file
-            ((BulkCampaign)uploadEntities[1]).Campaign.BiddingScheme = null;
-            ((BulkCampaign)uploadEntities[1]).Campaign.CampaignType = CampaignType.Shopping;
-            ((BulkCampaign)uploadEntities[1]).Campaign.Settings = new[] {
-                new ShoppingSetting {
-                    // 'Priority' column header in the Bulk file
-                    Priority = 0,
-                    // 'Country Code' column header in the Bulk file
-                    SalesCountryCode = "US",
-                    // 'Store Id' column header in the Bulk file
-                    StoreId = null // StoreIdGoesHere
-                }
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
             };
 
-            // Set properties specific to the DynamicSearchAds campaign type
-            ((BulkCampaign)uploadEntities[2]).Campaign.Id = dynamicSearchAdsCampaignIdKey;
-            ((BulkCampaign)uploadEntities[2]).Campaign.Name = "DynamicSearchAds " + DateTime.UtcNow;
-            ((BulkCampaign)uploadEntities[2]).Campaign.CampaignType = CampaignType.DynamicSearchAds;
-            ((BulkCampaign)uploadEntities[2]).Campaign.Settings = new[] {
-                new DynamicSearchAdsSetting {
-                    // 'Website' column header in the Bulk file
-                    DomainName = "contoso.com",
-                    // 'Domain Language' column header in the Bulk file
-                    Language = "EN"
-                }
-            };
-
-            return uploadEntities;
+            return bulkCampaignActionAdExtension;
         }
 
         protected BulkEntity GetBulkCampaignAppAdExtension()
@@ -4048,6 +4062,30 @@ namespace BingAdsExamplesLibrary.V12
             };
 
             return bulkCampaignLocationAdExtension;
+        }
+
+        protected BulkEntity GetBulkCampaignPriceAdExtension()
+        {
+            // Map properties in the Bulk file to the BulkCampaignPriceAdExtension
+            var bulkCampaignPriceAdExtension = new BulkCampaignPriceAdExtension
+            {
+                // Map properties in the Bulk file to the 
+                // AdExtensionIdToEntityIdAssociation object of the Campaign Management service.
+                AdExtensionIdToEntityIdAssociation = new AdExtensionIdToEntityIdAssociation
+                {
+                    // 'Id' column header in the Bulk file
+                    AdExtensionId = priceAdExtensionIdKey,
+                    // 'Parent Id' column header in the Bulk file
+                    EntityId = campaignIdKey,
+                },
+
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+                // 'Status' column header in the Bulk file
+                Status = Status.Active,
+            };
+
+            return bulkCampaignPriceAdExtension;
         }
 
         protected BulkEntity GetBulkCampaignReviewAdExtension()
@@ -4701,6 +4739,209 @@ namespace BingAdsExamplesLibrary.V12
             };
 
             return bulkProductAd;
+        }
+
+        protected BulkEntity GetBulkResponsiveAd()
+        {
+            // Map properties in the Bulk file to the BulkResponsiveAd
+            var bulkResponsiveAd = new BulkResponsiveAd
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = "AdGroupNameHere",
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // ResponsiveAd object of the Campaign Management service.
+                ResponsiveAd = new ResponsiveAd
+                {
+                    // 'Call To Action' column header in the Bulk file
+                    CallToAction = CallToAction.AddToCart,
+                    // 'Mobile Final Url' column header in the Bulk file
+                    FinalMobileUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://mobile.contoso.com/womenshoesale"
+                    },
+                                // 'Final Url' column header in the Bulk file
+                                FinalUrls = new[] {
+                        // Each Url is delimited by a semicolon (;) in the Bulk file
+                        "http://www.contoso.com/womenshoesale"
+                    },
+                    // 'Headline' column header in the Bulk file
+                    Headline = "Short Headline Here",
+                    // 'Id' column header in the Bulk file
+                    Id = null,
+                    // 'Images' column header in the Bulk file
+                    Images = new[]
+                    {
+                        // Each AssetLink is represented as a JSON list item in the Bulk file.
+                        new AssetLink
+                        {
+                            Asset = new ImageAsset
+                            {
+                                CropHeight = null,
+                                CropWidth = null,
+                                CropX = null,
+                                CropY = null,
+                                Id = null, // You must set this Id,
+                                SubType = "LandscapeImageMedia"
+                            },
+                        },
+                    },
+                    // 'Landscape Image Media Id' column header in the Bulk file
+                    LandscapeImageMediaId = null,
+                    // 'Landscape Logo Media Id' column header in the Bulk file
+                    LandscapeLogoMediaId = null,
+                    // 'Long Headline' column header in the Bulk file
+                    LongHeadline = "Long Headline Here",
+                    // 'Status' column header in the Bulk file
+                    Status = AdStatus.Active,
+                    // 'Square Image Media Id' column header in the Bulk file
+                    SquareImageMediaId = null,
+                    // 'Square Logo Media Id' column header in the Bulk file
+                    SquareLogoMediaId = null,
+                    // 'Text' column header in the Bulk file
+                    Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                            new CustomParameter(){
+                                Key = "promoCode",
+                                Value = "PROMO1"
+                            },
+                            new CustomParameter(){
+                                Key = "season",
+                                Value = "summer"
+                            },
+                        }
+                    },
+                },
+            };
+
+            return bulkResponsiveAd;
+        }
+
+        protected BulkEntity GetBulkResponsiveSearchAd()
+        {
+            // Map properties in the Bulk file to the BulkResponsiveSearchAd
+            var bulkResponsiveSearchAd = new BulkResponsiveSearchAd
+            {
+                // 'Parent Id' column header in the Bulk file
+                AdGroupId = adGroupIdKey,
+                // 'Ad Group' column header in the Bulk file
+                AdGroupName = "AdGroupNameHere",
+                // 'Campaign' column header in the Bulk file
+                CampaignName = "ParentCampaignNameGoesHere",
+                // 'Client Id' column header in the Bulk file
+                ClientId = "ClientIdGoesHere",
+
+                // Map properties in the Bulk file to the 
+                // ResponsiveSearchAd object of the Campaign Management service.
+                ResponsiveSearchAd = new ResponsiveSearchAd
+                {
+                    // 'Ad Format Preference' column header in the Bulk file
+                    AdFormatPreference = "All",
+                    // 'Description' column header in the Bulk file
+                    Descriptions = new AssetLink[]
+                    {
+                        // Each AssetLink is represented as a JSON list item in the Bulk file.
+                        new AssetLink
+                        {
+                            Asset = new TextAsset
+                            {
+                                Id = null,
+                                Text = "Find New Customers & Increase Sales!"
+                            },
+                            PinnedField = "Description1"
+                        },
+                        new AssetLink
+                        {
+                            Asset = new TextAsset
+                            {
+                                Id = null,
+                                Text = "Start Advertising on Contoso Today."
+                            },
+                            PinnedField = "Description2"
+                        },
+                    },
+                    // 'Mobile Final Url' column header in the Bulk file
+                    FinalMobileUrls = new[] {
+                            // Each Url is delimited by a semicolon (;) in the Bulk file
+                            "http://mobile.contoso.com/womenshoesale"
+                        },
+                    // 'Final Url' column header in the Bulk file
+                    FinalUrls = new[] {
+                            "http://www.contoso.com/womenshoesale"
+                        },
+                    // 'Headline' column header in the Bulk file
+                    Headlines = new AssetLink[]
+                    {
+                        // Each AssetLink is represented as a JSON list item in the Bulk file.
+                        new AssetLink
+                        {
+                            Asset = new TextAsset
+                            {
+                                Id = null,
+                                Text = "Contoso"
+                            },
+                            PinnedField = "Headline1"
+                        },
+                        new AssetLink
+                        {
+                            Asset = new TextAsset
+                            {
+                                Id = null,
+                                Text = "Quick & Easy Setup"
+                            },
+                            PinnedField = null
+                        },
+                        new AssetLink
+                        {
+                            Asset = new TextAsset
+                            {
+                                Id = null,
+                                Text = "Seemless Integration"
+                            },
+                            PinnedField = null
+                        },
+                    },
+                    // 'Id' column header in the Bulk file
+                    Id = responsiveSearchAdIdKey,
+                    // 'Path 1' column header in the Bulk file
+                    Path1 = "seattle",
+                    // 'Path 2' column header in the Bulk file
+                    Path2 = "shoe sale",
+                    // 'Status' column header in the Bulk file
+                    Status = AdStatus.Active,
+                    // 'Tracking Template' column header in the Bulk file
+                    TrackingUrlTemplate = null,
+                    // 'Custom Parameter' column header in the Bulk file
+                    UrlCustomParameters = new CustomParameters
+                    {
+                        // Each custom parameter is delimited by a semicolon (;) in the Bulk file
+                        Parameters = new[] {
+                                new CustomParameter(){
+                                    Key = "promoCode",
+                                    Value = "PROMO1"
+                                },
+                                new CustomParameter(){
+                                    Key = "season",
+                                    Value = "summer"
+                                },
+                            }
+                    },
+                },
+            };
+
+            return bulkResponsiveSearchAd;
         }
 
         protected BulkEntity GetBulkTextAd()

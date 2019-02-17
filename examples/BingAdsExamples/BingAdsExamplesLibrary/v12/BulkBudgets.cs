@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -12,13 +12,13 @@ using Microsoft.BingAds.V12.CampaignManagement;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// How to add negative sites with the Bulk service.
+    /// How to create shared budgets with the Bulk service.
     /// </summary>
-    public class BulkNegativeSites : BulkExampleBase
+    public class BulkBudgets : BulkExampleBase
     {
         public override string Description
         {
-            get { return "Negative Sites | Bulk V12"; }
+            get { return "Shared Budgets | Bulk V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -34,104 +34,83 @@ namespace BingAdsExamplesLibrary.V12
                 BulkServiceManager = new BulkServiceManager(
                     authorizationData: authorizationData,
                     apiEnvironment: environment);
-
-                var progress = new Progress<BulkOperationProgressInfo>(x =>
-                    OutputStatusMessage(string.Format("{0} % Complete",
-                        x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
                 
                 var uploadEntities = new List<BulkEntity>();
 
-                // Define a campaign 
+                // Add a budget that can be shared by campaigns in the same account.                
+                // Map properties in the Bulk file to the BulkBudget.
+
+                var bulkBudget = new BulkBudget
+                {
+                    // 'Parent Id' column header in the Bulk file
+                    AccountId = 0,
+
+                    // Map properties in the Bulk file to the 
+                    // Budget object of the Campaign Management service.
+                    Budget = new Budget
+                    {
+                        // 'Budget' column header in the Bulk file
+                        Amount = 50,
+                        // 'Budget Type' column header in the Bulk file
+                        BudgetType = BudgetLimitType.DailyBudgetAccelerated,
+                        // 'Budget Name' column header in the Bulk file
+                        Name = "My Shared Budget " + DateTime.UtcNow,
+                        // 'Id' column header in the Bulk file
+                        Id = budgetIdKey,
+                    },
+
+                    // 'Client Id' column header in the Bulk file
+                    ClientId = "ClientIdGoesHere",
+                    // 'Status' column header in the Bulk file
+                    Status = Status.Active
+                };
+
+                uploadEntities.Add(bulkBudget);
 
                 var bulkCampaign = new BulkCampaign
                 {
-                    ClientId = "YourClientIdGoesHere",
                     Campaign = new Campaign
                     {
+                        // You must set either the shared budget ID or daily amount.
+                        BudgetId = budgetIdKey,
+                        DailyBudget = null,
+                        BudgetType = null,
                         Id = campaignIdKey,
-                        BudgetType = BudgetLimitType.DailyBudgetStandard,
-                        DailyBudget = 50,
-                        CampaignType = CampaignType.Search,
                         Languages = new string[] { "All" },
                         Name = "Women's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     }
                 };
-
+                                
                 uploadEntities.Add(bulkCampaign);
 
-                // Define a set of negative sites that can be applied to the campaign.
-                // You can set one negative site via the BulkCampaignNegativeSite (singular) bulk entity, 
-                // or multiple negative sites via the BulkCampaignNegativeSites (plural) bulk entity.
-                //
-                // If you upload a BulkCampaignNegativeSites bulk entity, then you are effectively replacing any existing 
-                // negative sites assigned to the campaign. 
-                // 
-                // When the SDK writes a BulkCampaignNegativeSites entity to the bulk upload file, 
-                // an extra Campaign Negative Site record is included where the Status is Deleted and the 
-                // Website field is empty. (This is the record that deletes any existing campaign negative sites.)
-                // 
-                // If you include additional BulkCampaignNegativeSite or BulkCampaignNegativeSites in the same upload, 
-                // they will also be included in the set of negative sites applied to the campaign.
-
-                var bulkCampaignNegativeSite = new BulkCampaignNegativeSite[] {
-                    new BulkCampaignNegativeSite {
-                        CampaignId = campaignIdKey,
-                        Website = "contoso.com/negativesite1"
-                    },
-                    new BulkCampaignNegativeSite {
-                        CampaignId = campaignIdKey,
-                        Website = "contoso.com/negativesite2"
-                    },
-                };
-
-                foreach (var campaignNegativeSite in bulkCampaignNegativeSite)
-                {
-                    uploadEntities.Add(campaignNegativeSite);
-                }
-
-                var bulkCampaignNegativeSites = new BulkCampaignNegativeSites {
-                    CampaignNegativeSites = new CampaignNegativeSites
-                    {
-                        CampaignId = campaignIdKey,
-                        NegativeSites = new string[]
-                        {
-                            "contoso.com/negativesite3",
-                            "contoso.com/negativesite4",
-                        }
-                    }
-                };
-
-                uploadEntities.Add(bulkCampaignNegativeSites);
-                                
                 // Upload and write the output
 
-                OutputStatusMessage("-----\nApplying negative sites to a new campaign...");
+                OutputStatusMessage("-----\nAdding shared budget and campaign...");
 
-                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
 
                 OutputStatusMessage("Upload results:");
 
+                var budgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(budgetResults);
+
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
-
-                // If the upload result file contains a Campaign Negative Site record where the Status is Deleted  
-                // and the Website field is empty, the SDK represents all negative sites for the campaign 
-                // via a BulkCampaignNegativeSites (plural) object. Otherwise the SDK represents negative sites 
-                // for the campaign via one or more BulkCampaignNegativeSite (singlular) objects.
-
-                var campaignNegativeSiteResults = downloadEntities.OfType<BulkCampaignNegativeSite>().ToList();
-                OutputBulkCampaignNegativeSite(campaignNegativeSiteResults);
                 
-                var campaignNegativeSitesResults = downloadEntities.OfType<BulkCampaignNegativeSites>().ToList();
-                OutputBulkCampaignNegativeSites(campaignNegativeSitesResults);
-
                 Reader.Dispose();
-
+                
                 // Delete the campaign and everything it contains e.g., ad groups and ads.
+                // Delete the account's shared budget. 
 
                 uploadEntities = new List<BulkEntity>();
+
+                foreach (var budgetResult in budgetResults)
+                {
+                    budgetResult.Status = Status.Deleted;
+                    uploadEntities.Add(budgetResult);
+                }
 
                 foreach (var campaignResult in campaignResults)
                 {
@@ -141,17 +120,19 @@ namespace BingAdsExamplesLibrary.V12
 
                 // Upload and write the output
 
-                OutputStatusMessage("-----\nDeleting the campaign and everything it contains e.g., ad groups and ads...");
+                OutputStatusMessage("-----\nDeleting the campaign and shared budget...");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
 
                 OutputStatusMessage("Upload results:");
 
-                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
-                OutputBulkNegativeKeywordLists(downloadEntities.OfType<BulkNegativeKeywordList>().ToList());
+                budgetResults = downloadEntities.OfType<BulkBudget>().ToList();
+                OutputBulkBudgets(budgetResults);
+                campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                OutputBulkCampaigns(campaignResults);
 
-                Reader.Dispose();
+                Reader.Dispose();                
             }
             // Catch Microsoft Account authorization exceptions.
             catch (OAuthTokenRequestException ex)

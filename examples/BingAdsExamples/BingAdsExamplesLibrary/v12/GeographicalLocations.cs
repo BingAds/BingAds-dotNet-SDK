@@ -10,7 +10,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to download the comma separated value (CSV) file that contains geographical location information 
+    /// How to download the comma separated value (CSV) file that contains geographical location information 
     /// that can be used with Bing Ads location targeting.
     /// </summary>
     public class GeographicalLocations : ExampleBase
@@ -46,13 +46,16 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper =
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService =
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                var getGeoLocationsFileUrlResponse = 
-                    await CampaignManagementExampleHelper.GetGeoLocationsFileUrlAsync(Version, LanguageLocale);
+                OutputStatusMessage("-----\nGetGeoLocationsFileUrl:");
+                var getGeoLocationsFileUrlResponse = await CampaignManagementExampleHelper.GetGeoLocationsFileUrlAsync(
+                    version: Version,
+                    languageLocale: LanguageLocale);
 
                 // Going forward you should track the date and time of the previous download,  
                 // and compare it with the last modified time provided by the service.
@@ -62,9 +65,9 @@ namespace BingAdsExamplesLibrary.V12
                 var fileUrlExpiryTimeUtc = getGeoLocationsFileUrlResponse.FileUrlExpiryTimeUtc;
                 var lastModifiedTimeUtc = getGeoLocationsFileUrlResponse.LastModifiedTimeUtc;
 
-                OutputStatusMessage(string.Format("FileUrl: {0}\n", fileUrl));
-                OutputStatusMessage(string.Format("FileUrlExpiryTimeUtc: {0}\n", fileUrlExpiryTimeUtc));
-                OutputStatusMessage(string.Format("LastModifiedTimeUtc: {0}\n", lastModifiedTimeUtc));
+                OutputStatusMessage(string.Format("FileUrl: {0}", fileUrl));
+                OutputStatusMessage(string.Format("FileUrlExpiryTimeUtc: {0}", fileUrlExpiryTimeUtc));
+                OutputStatusMessage(string.Format("LastModifiedTimeUtc: {0}", lastModifiedTimeUtc));
 
                 // Download the file if it was modified since the previous download.
                 if (DateTime.Compare(previousSyncTimeUtc, lastModifiedTimeUtc) < 0)
@@ -126,7 +129,7 @@ namespace BingAdsExamplesLibrary.V12
                     {
                         responseStream.CopyTo(fileStream);
                     }
-                    OutputStatusMessage(string.Format("Downloaded the geographical locations to {0}.\n", localFile));
+                    OutputStatusMessage(string.Format("Downloaded the file to {0}.", localFile));
                 }
             }
             catch (WebException e)

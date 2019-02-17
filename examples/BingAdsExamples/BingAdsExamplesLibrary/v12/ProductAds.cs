@@ -9,9 +9,9 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to apply product conditions for Bing Shopping Campaigns.
+    /// How to apply product conditions for Bing Shopping Campaigns.
     /// </summary>
-    public class ShoppingCampaigns : ExampleBase
+    public class ProductAds : ExampleBase
     {
         public override string Description
         {
@@ -24,34 +24,38 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper =
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService =
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                // Get a list of all Bing Merchant Center stores associated with your CustomerId
+                // Get a list of all Bing Merchant Center stores associated with your CustomerId.
 
+                OutputStatusMessage("-----\nGetBMCStoresByCustomerId:");
                 IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
-                if (stores == null)
+                if (stores == null || stores.Count <= 0)
                 {
                     OutputStatusMessage(
-                        string.Format("You do not have any BMC stores registered for CustomerId {0}.\n", authorizationData.CustomerId)
+                        string.Format("You do not have any BMC stores registered for CustomerId {0}.", authorizationData.CustomerId)
                     );
                     return;
                 }
 
-                #region ManageCampaign
+                OutputStatusMessage("BMCStores:");
+                CampaignManagementExampleHelper.OutputArrayOfBMCStore(stores);
 
-                /* Add a new Bing Shopping campaign that will be associated with a ProductScope criterion.
-                 *  - Set the CampaignType element of the Campaign to Shopping.
-                 *  - Create a ShoppingSetting instance and set its Priority (0, 1, or 2), SalesCountryCode, and StoreId elements. 
-                 *    Add this shopping setting to the Settings list of the Campaign.
-                 */
+                // Create a Shopping campaign with product conditions.
 
                 var campaigns = new[] {
                     new Campaign
                     {
                         CampaignType = CampaignType.Shopping,
+                        Languages = new string[] { "All" },
+                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Description = "Red shoes line.",
+                        DailyBudget = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
                         Settings = new[] {
                             new ShoppingSetting() {
                                 Priority = 0,
@@ -59,38 +63,25 @@ namespace BingAdsExamplesLibrary.V12
                                 StoreId = (int)stores[0].Id
                             }
                         },
-                        Name = "Bing Shopping Campaign " + DateTime.UtcNow,
-                        Description = "Bing Shopping Campaign Example.",
-
-                        // You must choose to set either the shared  budget ID or daily amount.
-                        // You can set one or the other, but you may not set both.
-                        BudgetId = null,
-                        DailyBudget = 50,
-                        BudgetType = BudgetLimitType.DailyBudgetStandard,
-
                         TimeZone = "PacificTimeUSCanadaTijuana",
-
-                        // Used with CustomParameters defined in lower level entities such as ad group criterion.
-                        TrackingUrlTemplate =
-                            "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     }
                 };
 
+                OutputStatusMessage("-----\nAddCampaigns:");
                 AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
-                    authorizationData.AccountId,
-                    campaigns,
-                    false);
+                    accountId: authorizationData.AccountId,
+                    campaigns: campaigns,
+                    includeDynamicSearchAdsSource: false);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("CampaignIds:");
                 CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
                 long campaignId = (long)campaignIds[0];
 
-                /* Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
-                 * Use the product scope criterion to include a subset of your product catalog, for example a specific brand, 
-                 * category, or product type. A campaign can only be associated with one ProductScope, which contains a list 
-                 * of up to 7 ProductCondition. You'll also be able to specify more specific product conditions for each ad group.
-                 */
+                // Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
+                // You'll also be able to add more specific product conditions for each ad group.
 
                 var campaignCriterions = new BiddableCampaignCriterion[] {
                     new BiddableCampaignCriterion() {
@@ -108,68 +99,76 @@ namespace BingAdsExamplesLibrary.V12
                                 },
                             }
                         },
+                        Status = CampaignCriterionStatus.Active
                     }
                 };
 
-                var addCampaignCriterionsResponse = await (CampaignManagementExampleHelper.AddCampaignCriterionsAsync(
-                    campaignCriterions,
-                    CampaignCriterionType.ProductScope)
-                );
-
-                #endregion ManageCampaign
-
-                #region ManageAdGroup
+                OutputStatusMessage("-----\nAddCampaignCriterions:");
+                var addCampaignCriterionsResponse = await CampaignManagementExampleHelper.AddCampaignCriterionsAsync(
+                    campaignCriterions: campaignCriterions,
+                    criterionType: CampaignCriterionType.ProductScope);
+                long?[] campaignCriterionIds = addCampaignCriterionsResponse.CampaignCriterionIds.ToArray();
+                OutputStatusMessage("CampaignCriterionIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignCriterionIds);
+                BatchErrorCollection[] campaignCriterionErrors =
+                    addCampaignCriterionsResponse.NestedPartialErrors.ToArray();
+                OutputStatusMessage("NestedPartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(campaignCriterionErrors);
 
                 // Create the ad group that will have the product partitions.
 
-                var adGroups = new[]{
+                var adGroups = new[] {
                     new AdGroup
                     {
-                        Name = "Product Categories",
+                        Name = "Women's Red Shoe Sale",
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date {
+                        EndDate = new Date {
                             Month = 12,
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
                         },
-                        Language = "English",
-                        CpcBid = new Bid { Amount = 0.090 }
+                        CpcBid = new Bid { Amount = 0.09 },
                     }
                 };
 
-                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)campaignId, adGroups, null);
+                OutputStatusMessage("-----\nAddAdGroups:");
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync(
+                    campaignId: (long)campaignIds[0],
+                    adGroups: adGroups,
+                    returnInheritedBidStrategyTypes: false);
                 long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
                 BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("AdGroupIds:");
                 CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
+                OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
                 long adGroupId = (long)adGroupIds[0];
 
-                #region BidAllProducts
+                // Bid all products
 
                 var helper = new PartitionActionHelper(adGroupId);
 
                 var root = helper.AddUnit(
-                    null,
-                    new ProductCondition { Operand = "All", Attribute = null },
-                    0.35,
-                    false
-                );
+                    parent: null,
+                    condition: new ProductCondition { Operand = "All", Attribute = null },
+                    bidAmount: 0.35,
+                    isNegative: false);
 
-                OutputStatusMessage("Applying only the root as a Unit with a bid . . . \n");
-                var applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
+                OutputStatusMessage("-----\nApplyProductPartitionActions:");
+                OutputStatusMessage("Applying only the root as a Unit with a bid...");
+                var applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(
+                    criterionActions: helper.PartitionActions);
 
+                OutputStatusMessage("-----\nGetAdGroupCriterionsByIds:");
                 var adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    null,
-                    adGroupId,
-                    AdGroupCriterionType.ProductPartition
-                );
+                    adGroupCriterionIds: null,
+                    adGroupId: adGroupId,
+                    criterionType: AdGroupCriterionType.ProductPartition);
 
                 OutputStatusMessage("The ad group's product partition only has a tree root node: \n");
                 OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
 
-                /*
-                 * Let's update the bid of the root Unit we just added.
-                 */
+                // Let's update the bid of the root Unit we just added.
 
                 BiddableAdGroupCriterion updatedRoot = new BiddableAdGroupCriterion
                 {
@@ -183,41 +182,34 @@ namespace BingAdsExamplesLibrary.V12
                 helper = new PartitionActionHelper(adGroupId);
                 helper.UpdatePartition(updatedRoot);
 
-                OutputStatusMessage("Updating the bid for the tree root node . . . \n");
-                await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
+                OutputStatusMessage("-----\nApplyProductPartitionActions:");
+                OutputStatusMessage("Updating the bid for the tree root node...");
+                await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(
+                    criterionActions: helper.PartitionActions);
 
+                OutputStatusMessage("-----\nGetAdGroupCriterionsByIds:");
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    null,
-                    adGroupId,
-                    AdGroupCriterionType.ProductPartition
-                );
+                    adGroupCriterionIds: null,
+                    adGroupId: adGroupId,
+                    criterionType: AdGroupCriterionType.ProductPartition);
 
                 OutputStatusMessage("Updated the bid for the tree root node: \n");
                 OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
-
-                #endregion BidAllProducts
-
-                #region InitializeTree
-
-                /*
-                 * Now we will overwrite any existing tree root, and build a product partition group tree structure in multiple steps. 
-                 * You could build the entire tree in a single call since there are less than 5,000 nodes; however, 
-                 * we will build it in steps to demonstrate how to use the results from ApplyProductPartitionActions to update the tree. 
-                 * 
-                 * For a list of validation rules, see the Product Ads technical guide:
-                 * https://docs.microsoft.com/en-us/bingads/guides/product-ads
-                 */
+                
+                // Initialize and overwrite any existing tree root, and build a product partition group tree structure in multiple steps. 
+                // You could build the entire tree in a single call since there are less than 5,000 nodes; however, 
+                // we will build it in steps to demonstrate how to use the results from ApplyProductPartitionActions to update the tree. 
 
                 helper = new PartitionActionHelper(adGroupId);
 
-                /*
-                 * Check whether a root node exists already.
-                 */
+                // Check whether a root node exists already.
+
+                OutputStatusMessage("-----\nGetAdGroupCriterionsByIds:");
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    null,
-                    adGroupId,
-                    AdGroupCriterionType.ProductPartition
-                );
+                    adGroupCriterionIds: null,
+                    adGroupId: adGroupId,
+                    criterionType: AdGroupCriterionType.ProductPartition);
+
                 var existingRoot = GetRootNode(adGroupCriterions?.AdGroupCriterions);
                 if (existingRoot != null)
                 {
@@ -228,66 +220,56 @@ namespace BingAdsExamplesLibrary.V12
                     null,
                     new ProductCondition { Operand = "All", Attribute = null }
                 );
+                
+                // The direct children of any node must have the same Operand. 
+                // For this example we will use CategoryL1 nodes as children of the root. 
+                // For a list of valid CategoryL1 through CategoryL5 values, see the Bing Category Taxonomy:
+                // http://go.microsoft.com/fwlink?LinkId=507666
 
-                /*
-                 * The direct children of any node must have the same Operand. 
-                 * For this example we will use CategoryL1 nodes as children of the root. 
-                 * For a list of valid CategoryL1 through CategoryL5 values, see the Bing Category Taxonomy:
-                 * http://go.microsoft.com/fwlink?LinkId=507666
-                 */
                 var animalsSubdivision = helper.AddSubdivision(
-                    root,
-                    new ProductCondition { Operand = "CategoryL1", Attribute = "Animals & Pet Supplies" }
-                );
+                    parent: root,
+                    condition: new ProductCondition { Operand = "CategoryL1", Attribute = "Animals & Pet Supplies" });
 
-                /*
-                 * If you use a CategoryL2 node, it must be a descendant (child or later) of a CategoryL1 node. 
-                 * In other words you cannot have a CategoryL2 node as parent of a CategoryL1 node. 
-                 * For this example we will a CategoryL2 node as child of the CategoryL1 Animals & Pet Supplies node. 
-                 */
+                // If you use a CategoryL2 node, it must be a descendant (child or later) of a CategoryL1 node. 
+                // In other words you cannot have a CategoryL2 node as parent of a CategoryL1 node. 
+                // For this example we will a CategoryL2 node as child of the CategoryL1 Animals & Pet Supplies node. 
+
                 var petSuppliesSubdivision = helper.AddSubdivision(
-                    animalsSubdivision,
-                    new ProductCondition { Operand = "CategoryL2", Attribute = "Pet Supplies" }
-                );
+                    parent: animalsSubdivision,
+                    condition: new ProductCondition { Operand = "CategoryL2", Attribute = "Pet Supplies" });
 
                 var brandA = helper.AddUnit(
-                    petSuppliesSubdivision,
-                    new ProductCondition { Operand = "Brand", Attribute = "Brand A" },
-                    0.35,
-                    false
-                );
-
-                /*
-                 * If you won't bid on Brand B, set the helper method's bidAmount to '0' and isNegative to true. 
-                 * The helper method will create a NegativeAdGroupCriterion and apply the condition.
-                 */
+                    parent: petSuppliesSubdivision,
+                    condition: new ProductCondition { Operand = "Brand", Attribute = "Brand A" },
+                    bidAmount: 0.35,
+                    isNegative: false);
+                                
+                // If you won't bid on Brand B, set the helper method's bidAmount to '0' and isNegative to true. 
+                // The helper method will create a NegativeAdGroupCriterion and apply the condition.
+                
                 var brandB = helper.AddUnit(
-                    petSuppliesSubdivision,
-                    new ProductCondition { Operand = "Brand", Attribute = "Brand B" },
-                    0,
-                    true
-                );
+                    parent: petSuppliesSubdivision,
+                    condition: new ProductCondition { Operand = "Brand", Attribute = "Brand B" },
+                    bidAmount: 0,
+                    isNegative: true);
 
                 var otherBrands = helper.AddUnit(
-                    petSuppliesSubdivision,
-                    new ProductCondition { Operand = "Brand", Attribute = null },
-                    0.35,
-                    false
-                );
+                    parent: petSuppliesSubdivision,
+                    condition: new ProductCondition { Operand = "Brand", Attribute = null },
+                    bidAmount: 0.35,
+                    isNegative: false);
 
                 var otherPetSupplies = helper.AddUnit(
-                    animalsSubdivision,
-                    new ProductCondition { Operand = "CategoryL2", Attribute = null },
-                    0.35,
-                    false
-                );
+                    parent: animalsSubdivision,
+                    condition: new ProductCondition { Operand = "CategoryL2", Attribute = null },
+                    bidAmount: 0.35,
+                    isNegative: false);
 
                 var electronics = helper.AddUnit(
-                    root,
-                    new ProductCondition { Operand = "CategoryL1", Attribute = "Electronics" },
-                    0.35,
-                    false
-                );
+                    parent: root,
+                    condition: new ProductCondition { Operand = "CategoryL1", Attribute = "Electronics" },
+                    bidAmount: 0.35,
+                    isNegative: false);
 
                 var otherCategoryL1 = helper.AddUnit(
                     root,
@@ -296,69 +278,60 @@ namespace BingAdsExamplesLibrary.V12
                     false
                 );
 
-                OutputStatusMessage("Applying product partitions to the ad group . . . \n");
-                applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
+                OutputStatusMessage("-----\nApplyProductPartitionActions:");
+                OutputStatusMessage("Applying product partitions to the ad group...");
+                applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(
+                    criterionActions: helper.PartitionActions);
 
                 // To retrieve product partitions after they have been applied, call GetAdGroupCriterionsByIds. 
                 // The product partition with ParentCriterionId set to null is the root node.
 
+                OutputStatusMessage("-----\nGetAdGroupCriterionsByIds:");
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    null,
-                    adGroupId,
-                    AdGroupCriterionType.ProductPartition
-                );
-
-                /*
-                 * The product partition group tree now has 9 nodes. 
+                    adGroupCriterionIds: null,
+                    adGroupId: adGroupId,
+                    criterionType: AdGroupCriterionType.ProductPartition);
+                
+                // The product partition group tree now has 9 nodes. 
                  
-                   All other (Root Node)
-                    |
-                    +-- Animals & Pet Supplies (CategoryL1)
-                    |    |
-                    |    +-- Pet Supplies (CategoryL2)
-                    |    |    |
-                    |    |    +-- Brand A
-                    |    |    |    
-                    |    |    +-- Brand B
-                    |    |    |    
-                    |    |    +-- All other (Brand)
-                    |    |         
-                    |    +-- All other (CategoryL2)
-                    |        
-                    +-- Electronics (CategoryL1)
-                    |   
-                    +-- All other (CategoryL1)
-
-                 */
-
+                //All other (Root Node)
+                // |
+                // +-- Animals & Pet Supplies (CategoryL1)
+                // |    |
+                // |    +-- Pet Supplies (CategoryL2)
+                // |    |    |
+                // |    |    +-- Brand A
+                // |    |    |    
+                // |    |    +-- Brand B
+                // |    |    |    
+                // |    |    +-- All other (Brand)
+                // |    |         
+                // |    +-- All other (CategoryL2)
+                // |        
+                // +-- Electronics (CategoryL1)
+                // |   
+                // +-- All other (CategoryL1)
+                
                 OutputStatusMessage("The product partition group tree now has 9 nodes: \n");
                 OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
-
-                #endregion InitializeTree
-
-                #region UpdateTree
-
-                /*
-                 * Let's replace the Electronics (CategoryL1) node created above with an Electronics (CategoryL1) node that 
-                 * has children i.e. Brand C (Brand), Brand D (Brand), and All other (Brand) as follows: 
+                
+                // Let's replace the Electronics (CategoryL1) node created above with an Electronics (CategoryL1) node that 
+                // has children i.e. Brand C (Brand), Brand D (Brand), and All other (Brand) as follows: 
                  
-                    Electronics (CategoryL1)
-                    |
-                    +-- Brand C (Brand)
-                    |
-                    +-- Brand D (Brand)
-                    |
-                    +-- All other (Brand)
+                //Electronics (CategoryL1)
+                //|
+                //+-- Brand C (Brand)
+                //|
+                //+-- Brand D (Brand)
+                //|
+                //+-- All other (Brand)
            
-                 */
-
                 helper = new PartitionActionHelper(adGroupId);
 
-                /*
-                 * To replace a node we must know its Id and its ParentCriterionId. In this case the parent of the node 
-                 * we are replacing is All other (Root Node), and was created at Index 1 of the previous ApplyProductPartitionActions call. 
-                 * The node that we are replacing is Electronics (CategoryL1), and was created at Index 8. 
-                 */
+                // To replace a node we must know its Id and its ParentCriterionId. In this case the parent of the node 
+                // we are replacing is All other (Root Node), and was created at Index 1 of the previous ApplyProductPartitionActions call. 
+                // The node that we are replacing is Electronics (CategoryL1), and was created at Index 8. 
+
                 var rootId = applyProductPartitionActionsResponse.AdGroupCriterionIds[1];
                 electronics.Id = applyProductPartitionActionsResponse.AdGroupCriterionIds[8];
                 helper.DeletePartition(electronics);
@@ -366,113 +339,100 @@ namespace BingAdsExamplesLibrary.V12
                 var parent = new BiddableAdGroupCriterion() { Id = rootId };
 
                 var electronicsSubdivision = helper.AddSubdivision(
-                    parent,
-                    new ProductCondition { Operand = "CategoryL1", Attribute = "Electronics" }
+                    parent: parent,
+                    condition: new ProductCondition { Operand = "CategoryL1", Attribute = "Electronics" }
                 );
 
                 var brandC = helper.AddUnit(
-                    electronicsSubdivision,
-                    new ProductCondition { Operand = "Brand", Attribute = "Brand C" },
-                    0.35,
-                    false
-                );
+                    parent: electronicsSubdivision,
+                    condition: new ProductCondition { Operand = "Brand", Attribute = "Brand C" },
+                    bidAmount: 0.35,
+                    isNegative: false);
 
                 var brandD = helper.AddUnit(
-                    electronicsSubdivision,
-                    new ProductCondition { Operand = "Brand", Attribute = "Brand D" },
-                    0.35,
-                    false
-                );
+                    parent: electronicsSubdivision,
+                    condition: new ProductCondition { Operand = "Brand", Attribute = "Brand D" },
+                    bidAmount: 0.35,
+                    isNegative: false);
 
                 var otherElectronicsBrands = helper.AddUnit(
-                    electronicsSubdivision,
-                    new ProductCondition { Operand = "Brand", Attribute = null },
-                    0.35,
-                    false
-                );
+                    parent: electronicsSubdivision,
+                    condition: new ProductCondition { Operand = "Brand", Attribute = null },
+                    bidAmount: 0.35,
+                    isNegative: false);
 
+                OutputStatusMessage("-----\nApplyProductPartitionActions:");
                 OutputStatusMessage(
-                    "Updating the product partition group to refine Electronics (CategoryL1) with 3 child nodes . . . \n"
+                    "Updating the product partition group to refine Electronics (CategoryL1) with 3 child nodes..."
                 );
-                applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(helper.PartitionActions);
+                applyProductPartitionActionsResponse = await CampaignManagementExampleHelper.ApplyProductPartitionActionsAsync(
+                    criterionActions: helper.PartitionActions);
 
+                OutputStatusMessage("-----\nGetAdGroupCriterionsByIds:");
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
-                    null,
-                    adGroupId,
-                    AdGroupCriterionType.ProductPartition
-                );
-
-                /*
-                 * The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1):
+                    adGroupCriterionIds: null,
+                    adGroupId: adGroupId,
+                    criterionType: AdGroupCriterionType.ProductPartition);
+                
+                // The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1):
                  
-                   All other (Root Node)
-                    |
-                    +-- Animals & Pet Supplies (CategoryL1)
-                    |    |
-                    |    +-- Pet Supplies (CategoryL2)
-                    |    |    |
-                    |    |    +-- Brand A
-                    |    |    |    
-                    |    |    +-- Brand B
-                    |    |    |    
-                    |    |    +-- All other (Brand)
-                    |    |         
-                    |    +-- All other (CategoryL2)
-                    |        
-                    +-- Electronics (CategoryL1)
-                    |    |
-                    |    +-- Brand C (Brand)
-                    |    |
-                    |    +-- Brand D (Brand)
-                    |    |
-                    |    +-- All other (Brand)
-                    |   
-                    +-- All other (CategoryL1)
-                 
-                 */
+                //All other (Root Node)
+                // |
+                // +-- Animals & Pet Supplies (CategoryL1)
+                // |    |
+                // |    +-- Pet Supplies (CategoryL2)
+                // |    |    |
+                // |    |    +-- Brand A
+                // |    |    |    
+                // |    |    +-- Brand B
+                // |    |    |    
+                // |    |    +-- All other (Brand)
+                // |    |         
+                // |    +-- All other (CategoryL2)
+                // |        
+                // +-- Electronics (CategoryL1)
+                // |    |
+                // |    +-- Brand C (Brand)
+                // |    |
+                // |    +-- Brand D (Brand)
+                // |    |
+                // |    +-- All other (Brand)
+                // |   
+                // +-- All other (CategoryL1)
 
                 OutputStatusMessage(
                     "The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1): \n"
                 );
                 OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
-
-                #endregion UpdateTree
-
-                #endregion ManageAdGroup
-
-                #region ManageAds
-
-                /*
-                * Create a product ad. You must add at least one product ad to the ad group. 
-                * The product ad identifier can be used for reporting analytics.
-                * Use Merchant Promotions if you want tags to appear at the bottom of your product ad 
-                * as "special offer" links, helping to increase customer engagement. For details
-                * on Merchant Promotions see https://help.bingads.microsoft.com/#apex/3/en/56805/0.
-                */
+                
+                // Create a product ad. You must add at least one product ad to the ad group. 
+                // The product ad identifier can be used for reporting analytics.
+                // Use Merchant Promotions if you want tags to appear at the bottom of your product ad 
+                // as "special offer" links, helping to increase customer engagement. For details
+                // on Merchant Promotions see https://help.bingads.microsoft.com/#apex/3/en/56805/0.
 
                 var ads = new Ad[] {
                     new ProductAd {}
                 };
 
-                AddAdsResponse addAdsResponse = await CampaignManagementExampleHelper.AddAdsAsync((long)adGroupIds[0], ads);
+                OutputStatusMessage("-----\nAddAds:");
+                AddAdsResponse addAdsResponse = await CampaignManagementExampleHelper.AddAdsAsync(
+                    adGroupId: (long)adGroupIds[0],
+                    ads: ads);
                 long?[] adIds = addAdsResponse.AdIds.ToArray();
                 BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("AdIds:");
                 CampaignManagementExampleHelper.OutputArrayOfLong(adIds);
+                OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(adErrors);
 
-                #endregion ManageAds
+                // Delete the campaign and everything it contains e.g., ad groups and ads.
 
-                #region CleanUp
-
-                /* Delete the campaign, ad group, criterion, and ad that were previously added. 
-                 * You should remove this region if you want to view the added entities in the 
-                 * Bing Ads web application or another tool.
-                 */
-
-                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { campaignId });
-                OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", campaignId));
-
-                #endregion CleanUp
+                OutputStatusMessage("-----\nDeleteCampaigns:");
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(
+                    accountId: authorizationData.AccountId,
+                    campaignIds: new[] { (long)campaignIds[0] });
+                OutputStatusMessage(string.Format("Deleted Campaign Id {0}", campaignIds[0]));
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)

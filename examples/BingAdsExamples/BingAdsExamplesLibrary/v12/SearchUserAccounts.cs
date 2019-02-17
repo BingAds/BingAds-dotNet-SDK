@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.V12.CustomerManagement;
 using Microsoft.BingAds;
 
-
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to search for accounts that can be managed by the current authenticated user.
+    /// How to search for accounts that can be managed by the current authenticated user.
     /// </summary>
     public class SearchUserAccounts : ExampleBase
     {
@@ -24,16 +23,26 @@ namespace BingAdsExamplesLibrary.V12
             try
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
-
-                CustomerManagementExampleHelper CustomerManagementExampleHelper = 
-                    new CustomerManagementExampleHelper(this.OutputStatusMessage);
-                CustomerManagementExampleHelper.CustomerManagementService = 
-                    new ServiceClient<ICustomerManagementService>(authorizationData, environment);
-
-                var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(null, true);
+                
+                CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
+                
+                OutputStatusMessage("-----\nGetUser:");
+                var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(
+                    userId: null,
+                    includeLinkedAccountIds: true);
                 var user = getUserResponse.User;
+                OutputStatusMessage("User:");
+                CustomerManagementExampleHelper.OutputUser(user);
+                OutputStatusMessage("CustomerRoles:");
+                CustomerManagementExampleHelper.OutputArrayOfCustomerRole(getUserResponse.CustomerRoles);
 
-                // Search for the Bing Ads accounts that the user can access.
+                // Search for the accounts that the user can access.
+                // To retrieve more than 100 accounts, increase the page size up to 1,000.
+                // To retrieve more than 1,000 accounts you'll need to add paging.
 
                 var predicate = new Predicate
                 {
@@ -45,30 +54,31 @@ namespace BingAdsExamplesLibrary.V12
                 var paging = new Paging
                 {
                     Index = 0,
-                    Size = 10
+                    Size = 100
                 };
-
-                var request = new SearchAccountsRequest
-                {
-                    Ordering = null,
-                    PageInfo = paging,
-                    Predicates = new[] { predicate }
-                };
-
+                
+                OutputStatusMessage("-----\nSearchAccounts:");
                 var accounts = (await CustomerManagementExampleHelper.SearchAccountsAsync(
-                    new[] { predicate },
-                    null,
-                    paging
-                    ))?.Accounts.ToArray();
+                    predicates: new[] { predicate },
+                    ordering: null,
+                    pageInfo: paging))?.Accounts.ToArray();
+                OutputStatusMessage("Accounts:");
+                CustomerManagementExampleHelper.OutputArrayOfAdvertiserAccount(accounts);
 
-                OutputStatusMessage("The user can access the following Bing Ads accounts: \n");
+                HashSet<long> distinctCustomerIds = new HashSet<long>();
                 foreach (var account in accounts)
                 {
-                    CustomerManagementExampleHelper.OutputAdvertiserAccount(account);
+                    distinctCustomerIds.Add(account.ParentCustomerId);
+                }
 
+                foreach (var customerId in distinctCustomerIds)
+                {
                     // You can find out which pilot features the customer is able to use. 
                     // Each account could belong to a different customer, so use the customer ID in each account.
-                    var featurePilotFlags = (await CustomerManagementExampleHelper.GetCustomerPilotFeaturesAsync(account.ParentCustomerId)).FeaturePilotFlags;
+                    OutputStatusMessage("-----\nGetCustomerPilotFeatures:");
+                    OutputStatusMessage(string.Format("Requested by CustomerId: {0}", customerId));
+                    var featurePilotFlags = (await CustomerManagementExampleHelper.GetCustomerPilotFeaturesAsync(
+                        customerId: customerId)).FeaturePilotFlags;
                     OutputStatusMessage("Customer Pilot flags:");
                     OutputStatusMessage(string.Join("; ", featurePilotFlags.Select(flag => string.Format("{0}", flag))));
                 }

@@ -41,10 +41,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAccountPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("DeviceOS: {0}", dataObject.DeviceOS));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("* * * End OutputAccountPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfAccountPerformanceReportFilter(IList<AccountPerformanceReportFilter> dataObjects)
@@ -53,8 +55,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAccountPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAccountPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -62,11 +66,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAccountPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAccountPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAccountPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAccountPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfAccountPerformanceReportRequest(IList<AccountPerformanceReportRequest> dataObjects)
@@ -75,8 +85,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAccountPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAccountPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -84,7 +96,10 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAccountReportScope * * *");
+                OutputStatusMessage("AccountIds:");
                 OutputArrayOfLong(dataObject.AccountIds);
+                OutputStatusMessage("* * * End OutputAccountReportScope * * *");
             }
         }
         public void OutputArrayOfAccountReportScope(IList<AccountReportScope> dataObjects)
@@ -93,8 +108,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAccountReportScope(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAccountReportScope(dataObject);
+                    }
                 }
             }
         }
@@ -102,9 +119,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAccountThroughAdGroupReportScope * * *");
+                OutputStatusMessage("AccountIds:");
                 OutputArrayOfLong(dataObject.AccountIds);
+                OutputStatusMessage("AdGroups:");
                 OutputArrayOfAdGroupReportScope(dataObject.AdGroups);
+                OutputStatusMessage("Campaigns:");
                 OutputArrayOfCampaignReportScope(dataObject.Campaigns);
+                OutputStatusMessage("* * * End OutputAccountThroughAdGroupReportScope * * *");
             }
         }
         public void OutputArrayOfAccountThroughAdGroupReportScope(IList<AccountThroughAdGroupReportScope> dataObjects)
@@ -113,8 +135,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAccountThroughAdGroupReportScope(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAccountThroughAdGroupReportScope(dataObject);
+                    }
                 }
             }
         }
@@ -122,8 +146,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAccountThroughCampaignReportScope * * *");
+                OutputStatusMessage("AccountIds:");
                 OutputArrayOfLong(dataObject.AccountIds);
+                OutputStatusMessage("Campaigns:");
                 OutputArrayOfCampaignReportScope(dataObject.Campaigns);
+                OutputStatusMessage("* * * End OutputAccountThroughCampaignReportScope * * *");
             }
         }
         public void OutputArrayOfAccountThroughCampaignReportScope(IList<AccountThroughCampaignReportScope> dataObjects)
@@ -132,8 +160,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAccountThroughCampaignReportScope(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAccountThroughCampaignReportScope(dataObject);
+                    }
                 }
             }
         }
@@ -141,10 +171,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdApiError * * *");
                 OutputStatusMessage(string.Format("Code: {0}", dataObject.Code));
                 OutputStatusMessage(string.Format("Detail: {0}", dataObject.Detail));
                 OutputStatusMessage(string.Format("ErrorCode: {0}", dataObject.ErrorCode));
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
+                OutputStatusMessage("* * * End OutputAdApiError * * *");
             }
         }
         public void OutputArrayOfAdApiError(IList<AdApiError> dataObjects)
@@ -153,8 +185,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdApiError(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdApiError(dataObject);
+                    }
                 }
             }
         }
@@ -162,7 +196,10 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdApiFaultDetail * * *");
+                OutputStatusMessage("Errors:");
                 OutputArrayOfAdApiError(dataObject.Errors);
+                OutputStatusMessage("* * * End OutputAdApiFaultDetail * * *");
             }
         }
         public void OutputArrayOfAdApiFaultDetail(IList<AdApiFaultDetail> dataObjects)
@@ -171,8 +208,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdApiFaultDetail(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdApiFaultDetail(dataObject);
+                    }
                 }
             }
         }
@@ -180,6 +219,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdDynamicTextPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
@@ -187,7 +227,9 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("AdType: {0}", dataObject.AdType));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
                 OutputStatusMessage(string.Format("KeywordStatus: {0}", dataObject.KeywordStatus));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputAdDynamicTextPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfAdDynamicTextPerformanceReportFilter(IList<AdDynamicTextPerformanceReportFilter> dataObjects)
@@ -196,8 +238,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdDynamicTextPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdDynamicTextPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -205,11 +249,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdDynamicTextPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAdDynamicTextPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAdDynamicTextPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAdDynamicTextPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfAdDynamicTextPerformanceReportRequest(IList<AdDynamicTextPerformanceReportRequest> dataObjects)
@@ -218,8 +268,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdDynamicTextPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdDynamicTextPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -227,12 +279,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdExtensionByAdReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceOS: {0}", dataObject.DeviceOS));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("* * * End OutputAdExtensionByAdReportFilter * * *");
             }
         }
         public void OutputArrayOfAdExtensionByAdReportFilter(IList<AdExtensionByAdReportFilter> dataObjects)
@@ -241,8 +295,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdExtensionByAdReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdExtensionByAdReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -250,11 +306,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdExtensionByAdReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAdExtensionByAdReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAdExtensionByAdReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAdExtensionByAdReportRequest * * *");
             }
         }
         public void OutputArrayOfAdExtensionByAdReportRequest(IList<AdExtensionByAdReportRequest> dataObjects)
@@ -263,8 +325,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdExtensionByAdReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdExtensionByAdReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -272,12 +336,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdExtensionByKeywordReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceOS: {0}", dataObject.DeviceOS));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
                 OutputStatusMessage(string.Format("KeywordStatus: {0}", dataObject.KeywordStatus));
+                OutputStatusMessage("* * * End OutputAdExtensionByKeywordReportFilter * * *");
             }
         }
         public void OutputArrayOfAdExtensionByKeywordReportFilter(IList<AdExtensionByKeywordReportFilter> dataObjects)
@@ -286,8 +352,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdExtensionByKeywordReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdExtensionByKeywordReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -295,11 +363,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdExtensionByKeywordReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAdExtensionByKeywordReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAdExtensionByKeywordReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAdExtensionByKeywordReportRequest * * *");
             }
         }
         public void OutputArrayOfAdExtensionByKeywordReportRequest(IList<AdExtensionByKeywordReportRequest> dataObjects)
@@ -308,8 +382,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdExtensionByKeywordReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdExtensionByKeywordReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -317,12 +393,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdExtensionDetailReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceOS: {0}", dataObject.DeviceOS));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("* * * End OutputAdExtensionDetailReportFilter * * *");
             }
         }
         public void OutputArrayOfAdExtensionDetailReportFilter(IList<AdExtensionDetailReportFilter> dataObjects)
@@ -331,8 +409,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdExtensionDetailReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdExtensionDetailReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -340,11 +420,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdExtensionDetailReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAdExtensionDetailReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAdExtensionDetailReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAdExtensionDetailReportRequest * * *");
             }
         }
         public void OutputArrayOfAdExtensionDetailReportRequest(IList<AdExtensionDetailReportRequest> dataObjects)
@@ -353,8 +439,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdExtensionDetailReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdExtensionDetailReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -362,13 +450,16 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdGroupPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceOS: {0}", dataObject.DeviceOS));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
+                OutputStatusMessage("* * * End OutputAdGroupPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfAdGroupPerformanceReportFilter(IList<AdGroupPerformanceReportFilter> dataObjects)
@@ -377,8 +468,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdGroupPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdGroupPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -386,11 +479,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdGroupPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAdGroupPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAdGroupPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAdGroupPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfAdGroupPerformanceReportRequest(IList<AdGroupPerformanceReportRequest> dataObjects)
@@ -399,8 +498,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdGroupPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdGroupPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -408,9 +509,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdGroupReportScope * * *");
                 OutputStatusMessage(string.Format("AccountId: {0}", dataObject.AccountId));
                 OutputStatusMessage(string.Format("CampaignId: {0}", dataObject.CampaignId));
                 OutputStatusMessage(string.Format("AdGroupId: {0}", dataObject.AdGroupId));
+                OutputStatusMessage("* * * End OutputAdGroupReportScope * * *");
             }
         }
         public void OutputArrayOfAdGroupReportScope(IList<AdGroupReportScope> dataObjects)
@@ -419,8 +522,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdGroupReportScope(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdGroupReportScope(dataObject);
+                    }
                 }
             }
         }
@@ -428,6 +533,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
@@ -435,7 +541,9 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("AdType: {0}", dataObject.AdType));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputAdPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfAdPerformanceReportFilter(IList<AdPerformanceReportFilter> dataObjects)
@@ -444,8 +552,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -453,11 +563,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAdPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAdPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAdPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAdPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfAdPerformanceReportRequest(IList<AdPerformanceReportRequest> dataObjects)
@@ -466,8 +582,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAdPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAdPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -475,11 +593,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAgeGenderAudienceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputAgeGenderAudienceReportFilter * * *");
             }
         }
         public void OutputArrayOfAgeGenderAudienceReportFilter(IList<AgeGenderAudienceReportFilter> dataObjects)
@@ -488,8 +609,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAgeGenderAudienceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAgeGenderAudienceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -497,11 +620,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAgeGenderAudienceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAgeGenderAudienceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAgeGenderAudienceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAgeGenderAudienceReportRequest * * *");
             }
         }
         public void OutputArrayOfAgeGenderAudienceReportRequest(IList<AgeGenderAudienceReportRequest> dataObjects)
@@ -510,8 +639,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAgeGenderAudienceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAgeGenderAudienceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -519,11 +650,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAgeGenderDemographicReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputAgeGenderDemographicReportFilter * * *");
             }
         }
         public void OutputArrayOfAgeGenderDemographicReportFilter(IList<AgeGenderDemographicReportFilter> dataObjects)
@@ -532,8 +666,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAgeGenderDemographicReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAgeGenderDemographicReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -541,11 +677,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAgeGenderDemographicReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAgeGenderDemographicReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAgeGenderDemographicReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAgeGenderDemographicReportRequest * * *");
             }
         }
         public void OutputArrayOfAgeGenderDemographicReportRequest(IList<AgeGenderDemographicReportRequest> dataObjects)
@@ -554,8 +696,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAgeGenderDemographicReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAgeGenderDemographicReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -563,8 +707,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputApiFaultDetail * * *");
+                OutputStatusMessage("BatchErrors:");
                 OutputArrayOfBatchError(dataObject.BatchErrors);
+                OutputStatusMessage("OperationErrors:");
                 OutputArrayOfOperationError(dataObject.OperationErrors);
+                OutputStatusMessage("* * * End OutputApiFaultDetail * * *");
             }
         }
         public void OutputArrayOfApiFaultDetail(IList<ApiFaultDetail> dataObjects)
@@ -573,8 +721,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputApiFaultDetail(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputApiFaultDetail(dataObject);
+                    }
                 }
             }
         }
@@ -582,17 +732,19 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputApplicationFault * * *");
                 OutputStatusMessage(string.Format("TrackingId: {0}", dataObject.TrackingId));
                 var adapifaultdetail = dataObject as AdApiFaultDetail;
-                if(adapifaultdetail != null)
+                if(null != adapifaultdetail)
                 {
                     OutputAdApiFaultDetail((AdApiFaultDetail)dataObject);
                 }
                 var apifaultdetail = dataObject as ApiFaultDetail;
-                if(apifaultdetail != null)
+                if(null != apifaultdetail)
                 {
                     OutputApiFaultDetail((ApiFaultDetail)dataObject);
                 }
+                OutputStatusMessage("* * * End OutputApplicationFault * * *");
             }
         }
         public void OutputArrayOfApplicationFault(IList<ApplicationFault> dataObjects)
@@ -601,8 +753,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputApplicationFault(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputApplicationFault(dataObject);
+                    }
                 }
             }
         }
@@ -610,9 +764,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAudiencePerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("* * * End OutputAudiencePerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfAudiencePerformanceReportFilter(IList<AudiencePerformanceReportFilter> dataObjects)
@@ -621,8 +777,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAudiencePerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAudiencePerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -630,11 +788,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputAudiencePerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfAudiencePerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputAudiencePerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputAudiencePerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfAudiencePerformanceReportRequest(IList<AudiencePerformanceReportRequest> dataObjects)
@@ -643,8 +807,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputAudiencePerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputAudiencePerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -652,11 +818,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputBatchError * * *");
                 OutputStatusMessage(string.Format("Code: {0}", dataObject.Code));
                 OutputStatusMessage(string.Format("Details: {0}", dataObject.Details));
                 OutputStatusMessage(string.Format("ErrorCode: {0}", dataObject.ErrorCode));
                 OutputStatusMessage(string.Format("Index: {0}", dataObject.Index));
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
+                OutputStatusMessage("* * * End OutputBatchError * * *");
             }
         }
         public void OutputArrayOfBatchError(IList<BatchError> dataObjects)
@@ -665,8 +833,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputBatchError(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputBatchError(dataObject);
+                    }
                 }
             }
         }
@@ -674,9 +844,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputBudgetSummaryReportRequest * * *");
+                OutputStatusMessage("Columns:");
                 OutputArrayOfBudgetSummaryReportColumn(dataObject.Columns);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughCampaignReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputBudgetSummaryReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputBudgetSummaryReportRequest * * *");
             }
         }
         public void OutputArrayOfBudgetSummaryReportRequest(IList<BudgetSummaryReportRequest> dataObjects)
@@ -685,8 +860,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputBudgetSummaryReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputBudgetSummaryReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -694,10 +871,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputBudgetSummaryReportTime * * *");
+                OutputStatusMessage("CustomDateRangeEnd:");
                 OutputDate(dataObject.CustomDateRangeEnd);
+                OutputStatusMessage("CustomDateRangeStart:");
                 OutputDate(dataObject.CustomDateRangeStart);
                 OutputStatusMessage(string.Format("PredefinedTime: {0}", dataObject.PredefinedTime));
                 OutputStatusMessage(string.Format("ReportTimeZone: {0}", dataObject.ReportTimeZone));
+                OutputStatusMessage("* * * End OutputBudgetSummaryReportTime * * *");
             }
         }
         public void OutputArrayOfBudgetSummaryReportTime(IList<BudgetSummaryReportTime> dataObjects)
@@ -706,8 +887,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputBudgetSummaryReportTime(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputBudgetSummaryReportTime(dataObject);
+                    }
                 }
             }
         }
@@ -715,9 +898,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputCallDetailReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("* * * End OutputCallDetailReportFilter * * *");
             }
         }
         public void OutputArrayOfCallDetailReportFilter(IList<CallDetailReportFilter> dataObjects)
@@ -726,8 +911,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputCallDetailReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputCallDetailReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -735,11 +922,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputCallDetailReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfCallDetailReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputCallDetailReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputCallDetailReportRequest * * *");
             }
         }
         public void OutputArrayOfCallDetailReportRequest(IList<CallDetailReportRequest> dataObjects)
@@ -748,8 +941,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputCallDetailReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputCallDetailReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -757,11 +952,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputCampaignPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("DeviceOS: {0}", dataObject.DeviceOS));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
+                OutputStatusMessage("* * * End OutputCampaignPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfCampaignPerformanceReportFilter(IList<CampaignPerformanceReportFilter> dataObjects)
@@ -770,8 +967,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputCampaignPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputCampaignPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -779,11 +978,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputCampaignPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfCampaignPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputCampaignPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughCampaignReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputCampaignPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfCampaignPerformanceReportRequest(IList<CampaignPerformanceReportRequest> dataObjects)
@@ -792,8 +997,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputCampaignPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputCampaignPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -801,8 +1008,10 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputCampaignReportScope * * *");
                 OutputStatusMessage(string.Format("AccountId: {0}", dataObject.AccountId));
                 OutputStatusMessage(string.Format("CampaignId: {0}", dataObject.CampaignId));
+                OutputStatusMessage("* * * End OutputCampaignReportScope * * *");
             }
         }
         public void OutputArrayOfCampaignReportScope(IList<CampaignReportScope> dataObjects)
@@ -811,8 +1020,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputCampaignReportScope(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputCampaignReportScope(dataObject);
+                    }
                 }
             }
         }
@@ -820,13 +1031,16 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputConversionPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
                 OutputStatusMessage(string.Format("KeywordStatus: {0}", dataObject.KeywordStatus));
+                OutputStatusMessage("Keywords:");
                 OutputArrayOfString(dataObject.Keywords);
+                OutputStatusMessage("* * * End OutputConversionPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfConversionPerformanceReportFilter(IList<ConversionPerformanceReportFilter> dataObjects)
@@ -835,8 +1049,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputConversionPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputConversionPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -844,11 +1060,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputConversionPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfConversionPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputConversionPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputConversionPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfConversionPerformanceReportRequest(IList<ConversionPerformanceReportRequest> dataObjects)
@@ -857,8 +1079,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputConversionPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputConversionPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -866,9 +1090,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDate * * *");
                 OutputStatusMessage(string.Format("Day: {0}", dataObject.Day));
                 OutputStatusMessage(string.Format("Month: {0}", dataObject.Month));
                 OutputStatusMessage(string.Format("Year: {0}", dataObject.Year));
+                OutputStatusMessage("* * * End OutputDate * * *");
             }
         }
         public void OutputArrayOfDate(IList<Date> dataObjects)
@@ -877,8 +1103,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDate(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDate(dataObject);
+                    }
                 }
             }
         }
@@ -886,13 +1114,16 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDestinationUrlPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputDestinationUrlPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfDestinationUrlPerformanceReportFilter(IList<DestinationUrlPerformanceReportFilter> dataObjects)
@@ -901,8 +1132,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDestinationUrlPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDestinationUrlPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -910,11 +1143,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDestinationUrlPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfDestinationUrlPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputDestinationUrlPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputDestinationUrlPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfDestinationUrlPerformanceReportRequest(IList<DestinationUrlPerformanceReportRequest> dataObjects)
@@ -923,8 +1162,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDestinationUrlPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDestinationUrlPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -932,12 +1173,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDSAAutoTargetPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("BidStrategyType: {0}", dataObject.BidStrategyType));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DynamicAdTargetStatus: {0}", dataObject.DynamicAdTargetStatus));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputDSAAutoTargetPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfDSAAutoTargetPerformanceReportFilter(IList<DSAAutoTargetPerformanceReportFilter> dataObjects)
@@ -946,8 +1190,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDSAAutoTargetPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDSAAutoTargetPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -955,11 +1201,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDSAAutoTargetPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfDSAAutoTargetPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputDSAAutoTargetPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputDSAAutoTargetPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfDSAAutoTargetPerformanceReportRequest(IList<DSAAutoTargetPerformanceReportRequest> dataObjects)
@@ -968,8 +1220,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDSAAutoTargetPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDSAAutoTargetPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -977,11 +1231,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDSACategoryPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputDSACategoryPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfDSACategoryPerformanceReportFilter(IList<DSACategoryPerformanceReportFilter> dataObjects)
@@ -990,8 +1247,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDSACategoryPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDSACategoryPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -999,11 +1258,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDSACategoryPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfDSACategoryPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputDSACategoryPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputDSACategoryPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfDSACategoryPerformanceReportRequest(IList<DSACategoryPerformanceReportRequest> dataObjects)
@@ -1012,8 +1277,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDSACategoryPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDSACategoryPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1021,13 +1288,18 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDSASearchQueryPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("ExcludeZeroClicks: {0}", dataObject.ExcludeZeroClicks));
+                OutputStatusMessage(string.Format("FeedUrl: {0}", dataObject.FeedUrl));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("SearchQueries:");
                 OutputArrayOfString(dataObject.SearchQueries);
+                OutputStatusMessage("* * * End OutputDSASearchQueryPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfDSASearchQueryPerformanceReportFilter(IList<DSASearchQueryPerformanceReportFilter> dataObjects)
@@ -1036,8 +1308,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDSASearchQueryPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDSASearchQueryPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1045,11 +1319,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputDSASearchQueryPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfDSASearchQueryPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputDSASearchQueryPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputDSASearchQueryPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfDSASearchQueryPerformanceReportRequest(IList<DSASearchQueryPerformanceReportRequest> dataObjects)
@@ -1058,8 +1338,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputDSASearchQueryPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputDSASearchQueryPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1067,12 +1349,16 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputGeographicPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("CountryCode:");
                 OutputArrayOfString(dataObject.CountryCode);
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputGeographicPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfGeographicPerformanceReportFilter(IList<GeographicPerformanceReportFilter> dataObjects)
@@ -1081,8 +1367,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputGeographicPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputGeographicPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1090,11 +1378,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputGeographicPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfGeographicPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputGeographicPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputGeographicPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfGeographicPerformanceReportRequest(IList<GeographicPerformanceReportRequest> dataObjects)
@@ -1103,8 +1397,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputGeographicPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputGeographicPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1112,14 +1408,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputGoalsAndFunnelsReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceOS: {0}", dataObject.DeviceOS));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("GoalIds:");
                 OutputArrayOfLong(dataObject.GoalIds);
                 OutputStatusMessage(string.Format("KeywordStatus: {0}", dataObject.KeywordStatus));
+                OutputStatusMessage("* * * End OutputGoalsAndFunnelsReportFilter * * *");
             }
         }
         public void OutputArrayOfGoalsAndFunnelsReportFilter(IList<GoalsAndFunnelsReportFilter> dataObjects)
@@ -1128,8 +1427,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputGoalsAndFunnelsReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputGoalsAndFunnelsReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1137,11 +1438,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputGoalsAndFunnelsReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfGoalsAndFunnelsReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputGoalsAndFunnelsReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputGoalsAndFunnelsReportRequest * * *");
             }
         }
         public void OutputArrayOfGoalsAndFunnelsReportRequest(IList<GoalsAndFunnelsReportRequest> dataObjects)
@@ -1150,8 +1457,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputGoalsAndFunnelsReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputGoalsAndFunnelsReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1159,9 +1468,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputKeywordPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
+                OutputStatusMessage("AdRelevance:");
                 OutputArrayOfInt(dataObject.AdRelevance);
                 OutputStatusMessage(string.Format("AdType: {0}", dataObject.AdType));
                 OutputStatusMessage(string.Format("BidMatchType: {0}", dataObject.BidMatchType));
@@ -1169,12 +1480,18 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeliveredMatchType: {0}", dataObject.DeliveredMatchType));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("ExpectedCtr:");
                 OutputArrayOfInt(dataObject.ExpectedCtr);
                 OutputStatusMessage(string.Format("KeywordStatus: {0}", dataObject.KeywordStatus));
+                OutputStatusMessage("Keywords:");
                 OutputArrayOfString(dataObject.Keywords);
+                OutputStatusMessage("LandingPageExperience:");
                 OutputArrayOfInt(dataObject.LandingPageExperience);
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("QualityScore:");
                 OutputArrayOfInt(dataObject.QualityScore);
+                OutputStatusMessage("* * * End OutputKeywordPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfKeywordPerformanceReportFilter(IList<KeywordPerformanceReportFilter> dataObjects)
@@ -1183,8 +1500,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputKeywordPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputKeywordPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1192,13 +1511,20 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputKeywordPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfKeywordPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputKeywordPerformanceReportFilter(dataObject.Filter);
                 OutputStatusMessage(string.Format("MaxRows: {0}", dataObject.MaxRows));
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Sort:");
                 OutputArrayOfKeywordPerformanceReportSort(dataObject.Sort);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputKeywordPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfKeywordPerformanceReportRequest(IList<KeywordPerformanceReportRequest> dataObjects)
@@ -1207,8 +1533,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputKeywordPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputKeywordPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1216,8 +1544,10 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputKeywordPerformanceReportSort * * *");
                 OutputStatusMessage(string.Format("SortColumn: {0}", dataObject.SortColumn));
                 OutputStatusMessage(string.Format("SortOrder: {0}", dataObject.SortOrder));
+                OutputStatusMessage("* * * End OutputKeywordPerformanceReportSort * * *");
             }
         }
         public void OutputArrayOfKeywordPerformanceReportSort(IList<KeywordPerformanceReportSort> dataObjects)
@@ -1226,8 +1556,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputKeywordPerformanceReportSort(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputKeywordPerformanceReportSort(dataObject);
+                    }
                 }
             }
         }
@@ -1235,10 +1567,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputNegativeKeywordConflictReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("KeywordStatus: {0}", dataObject.KeywordStatus));
+                OutputStatusMessage("* * * End OutputNegativeKeywordConflictReportFilter * * *");
             }
         }
         public void OutputArrayOfNegativeKeywordConflictReportFilter(IList<NegativeKeywordConflictReportFilter> dataObjects)
@@ -1247,8 +1581,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputNegativeKeywordConflictReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputNegativeKeywordConflictReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1256,9 +1592,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputNegativeKeywordConflictReportRequest * * *");
+                OutputStatusMessage("Columns:");
                 OutputArrayOfNegativeKeywordConflictReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputNegativeKeywordConflictReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("* * * End OutputNegativeKeywordConflictReportRequest * * *");
             }
         }
         public void OutputArrayOfNegativeKeywordConflictReportRequest(IList<NegativeKeywordConflictReportRequest> dataObjects)
@@ -1267,8 +1608,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputNegativeKeywordConflictReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputNegativeKeywordConflictReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1276,10 +1619,12 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputOperationError * * *");
                 OutputStatusMessage(string.Format("Code: {0}", dataObject.Code));
                 OutputStatusMessage(string.Format("Details: {0}", dataObject.Details));
                 OutputStatusMessage(string.Format("ErrorCode: {0}", dataObject.ErrorCode));
                 OutputStatusMessage(string.Format("Message: {0}", dataObject.Message));
+                OutputStatusMessage("* * * End OutputOperationError * * *");
             }
         }
         public void OutputArrayOfOperationError(IList<OperationError> dataObjects)
@@ -1288,8 +1633,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputOperationError(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputOperationError(dataObject);
+                    }
                 }
             }
         }
@@ -1297,12 +1644,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductDimensionPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputProductDimensionPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfProductDimensionPerformanceReportFilter(IList<ProductDimensionPerformanceReportFilter> dataObjects)
@@ -1311,8 +1661,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductDimensionPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductDimensionPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1320,11 +1672,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductDimensionPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfProductDimensionPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputProductDimensionPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputProductDimensionPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfProductDimensionPerformanceReportRequest(IList<ProductDimensionPerformanceReportRequest> dataObjects)
@@ -1333,8 +1691,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductDimensionPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductDimensionPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1342,10 +1702,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductMatchCountReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfProductMatchCountReportColumn(dataObject.Columns);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputProductMatchCountReportRequest * * *");
             }
         }
         public void OutputArrayOfProductMatchCountReportRequest(IList<ProductMatchCountReportRequest> dataObjects)
@@ -1354,8 +1719,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductMatchCountReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductMatchCountReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1363,12 +1730,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductPartitionPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputProductPartitionPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfProductPartitionPerformanceReportFilter(IList<ProductPartitionPerformanceReportFilter> dataObjects)
@@ -1377,8 +1747,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductPartitionPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductPartitionPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1386,11 +1758,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductPartitionPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfProductPartitionPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputProductPartitionPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputProductPartitionPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfProductPartitionPerformanceReportRequest(IList<ProductPartitionPerformanceReportRequest> dataObjects)
@@ -1399,8 +1777,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductPartitionPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductPartitionPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1408,12 +1788,15 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductPartitionUnitPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputProductPartitionUnitPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfProductPartitionUnitPerformanceReportFilter(IList<ProductPartitionUnitPerformanceReportFilter> dataObjects)
@@ -1422,8 +1805,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductPartitionUnitPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductPartitionUnitPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1431,11 +1816,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductPartitionUnitPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfProductPartitionUnitPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputProductPartitionUnitPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputProductPartitionUnitPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfProductPartitionUnitPerformanceReportRequest(IList<ProductPartitionUnitPerformanceReportRequest> dataObjects)
@@ -1444,8 +1835,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductPartitionUnitPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductPartitionUnitPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1453,14 +1846,18 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductSearchQueryPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
                 OutputStatusMessage(string.Format("AdType: {0}", dataObject.AdType));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
                 OutputStatusMessage(string.Format("ExcludeZeroClicks: {0}", dataObject.ExcludeZeroClicks));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("SearchQueries:");
                 OutputArrayOfString(dataObject.SearchQueries);
+                OutputStatusMessage("* * * End OutputProductSearchQueryPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfProductSearchQueryPerformanceReportFilter(IList<ProductSearchQueryPerformanceReportFilter> dataObjects)
@@ -1469,8 +1866,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductSearchQueryPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductSearchQueryPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1478,11 +1877,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProductSearchQueryPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfProductSearchQueryPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputProductSearchQueryPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputProductSearchQueryPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfProductSearchQueryPerformanceReportRequest(IList<ProductSearchQueryPerformanceReportRequest> dataObjects)
@@ -1491,8 +1896,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProductSearchQueryPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProductSearchQueryPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1500,11 +1907,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProfessionalDemographicsAudienceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputProfessionalDemographicsAudienceReportFilter * * *");
             }
         }
         public void OutputArrayOfProfessionalDemographicsAudienceReportFilter(IList<ProfessionalDemographicsAudienceReportFilter> dataObjects)
@@ -1513,8 +1923,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProfessionalDemographicsAudienceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProfessionalDemographicsAudienceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1522,11 +1934,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputProfessionalDemographicsAudienceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfProfessionalDemographicsAudienceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputProfessionalDemographicsAudienceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputProfessionalDemographicsAudienceReportRequest * * *");
             }
         }
         public void OutputArrayOfProfessionalDemographicsAudienceReportRequest(IList<ProfessionalDemographicsAudienceReportRequest> dataObjects)
@@ -1535,8 +1953,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputProfessionalDemographicsAudienceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputProfessionalDemographicsAudienceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1544,11 +1964,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputPublisherUsagePerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputPublisherUsagePerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfPublisherUsagePerformanceReportFilter(IList<PublisherUsagePerformanceReportFilter> dataObjects)
@@ -1557,8 +1980,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputPublisherUsagePerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputPublisherUsagePerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1566,11 +1991,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputPublisherUsagePerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfPublisherUsagePerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputPublisherUsagePerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputPublisherUsagePerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfPublisherUsagePerformanceReportRequest(IList<PublisherUsagePerformanceReportRequest> dataObjects)
@@ -1579,8 +2010,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputPublisherUsagePerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputPublisherUsagePerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1588,6 +2021,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputReportRequest * * *");
                 OutputStatusMessage(string.Format("ExcludeColumnHeaders: {0}", dataObject.ExcludeColumnHeaders));
                 OutputStatusMessage(string.Format("ExcludeReportFooter: {0}", dataObject.ExcludeReportFooter));
                 OutputStatusMessage(string.Format("ExcludeReportHeader: {0}", dataObject.ExcludeReportHeader));
@@ -1596,170 +2030,171 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("ReportName: {0}", dataObject.ReportName));
                 OutputStatusMessage(string.Format("ReturnOnlyCompleteData: {0}", dataObject.ReturnOnlyCompleteData));
                 var accountperformancereportrequest = dataObject as AccountPerformanceReportRequest;
-                if(accountperformancereportrequest != null)
+                if(null != accountperformancereportrequest)
                 {
                     OutputAccountPerformanceReportRequest((AccountPerformanceReportRequest)dataObject);
                 }
                 var addynamictextperformancereportrequest = dataObject as AdDynamicTextPerformanceReportRequest;
-                if(addynamictextperformancereportrequest != null)
+                if(null != addynamictextperformancereportrequest)
                 {
                     OutputAdDynamicTextPerformanceReportRequest((AdDynamicTextPerformanceReportRequest)dataObject);
                 }
                 var adextensionbyadreportrequest = dataObject as AdExtensionByAdReportRequest;
-                if(adextensionbyadreportrequest != null)
+                if(null != adextensionbyadreportrequest)
                 {
                     OutputAdExtensionByAdReportRequest((AdExtensionByAdReportRequest)dataObject);
                 }
                 var adextensionbykeywordreportrequest = dataObject as AdExtensionByKeywordReportRequest;
-                if(adextensionbykeywordreportrequest != null)
+                if(null != adextensionbykeywordreportrequest)
                 {
                     OutputAdExtensionByKeywordReportRequest((AdExtensionByKeywordReportRequest)dataObject);
                 }
                 var adextensiondetailreportrequest = dataObject as AdExtensionDetailReportRequest;
-                if(adextensiondetailreportrequest != null)
+                if(null != adextensiondetailreportrequest)
                 {
                     OutputAdExtensionDetailReportRequest((AdExtensionDetailReportRequest)dataObject);
                 }
                 var adgroupperformancereportrequest = dataObject as AdGroupPerformanceReportRequest;
-                if(adgroupperformancereportrequest != null)
+                if(null != adgroupperformancereportrequest)
                 {
                     OutputAdGroupPerformanceReportRequest((AdGroupPerformanceReportRequest)dataObject);
                 }
                 var adperformancereportrequest = dataObject as AdPerformanceReportRequest;
-                if(adperformancereportrequest != null)
+                if(null != adperformancereportrequest)
                 {
                     OutputAdPerformanceReportRequest((AdPerformanceReportRequest)dataObject);
                 }
                 var agegenderaudiencereportrequest = dataObject as AgeGenderAudienceReportRequest;
-                if(agegenderaudiencereportrequest != null)
+                if(null != agegenderaudiencereportrequest)
                 {
                     OutputAgeGenderAudienceReportRequest((AgeGenderAudienceReportRequest)dataObject);
                 }
                 var agegenderdemographicreportrequest = dataObject as AgeGenderDemographicReportRequest;
-                if(agegenderdemographicreportrequest != null)
+                if(null != agegenderdemographicreportrequest)
                 {
                     OutputAgeGenderDemographicReportRequest((AgeGenderDemographicReportRequest)dataObject);
                 }
                 var audienceperformancereportrequest = dataObject as AudiencePerformanceReportRequest;
-                if(audienceperformancereportrequest != null)
+                if(null != audienceperformancereportrequest)
                 {
                     OutputAudiencePerformanceReportRequest((AudiencePerformanceReportRequest)dataObject);
                 }
                 var budgetsummaryreportrequest = dataObject as BudgetSummaryReportRequest;
-                if(budgetsummaryreportrequest != null)
+                if(null != budgetsummaryreportrequest)
                 {
                     OutputBudgetSummaryReportRequest((BudgetSummaryReportRequest)dataObject);
                 }
                 var calldetailreportrequest = dataObject as CallDetailReportRequest;
-                if(calldetailreportrequest != null)
+                if(null != calldetailreportrequest)
                 {
                     OutputCallDetailReportRequest((CallDetailReportRequest)dataObject);
                 }
                 var campaignperformancereportrequest = dataObject as CampaignPerformanceReportRequest;
-                if(campaignperformancereportrequest != null)
+                if(null != campaignperformancereportrequest)
                 {
                     OutputCampaignPerformanceReportRequest((CampaignPerformanceReportRequest)dataObject);
                 }
                 var conversionperformancereportrequest = dataObject as ConversionPerformanceReportRequest;
-                if(conversionperformancereportrequest != null)
+                if(null != conversionperformancereportrequest)
                 {
                     OutputConversionPerformanceReportRequest((ConversionPerformanceReportRequest)dataObject);
                 }
                 var destinationurlperformancereportrequest = dataObject as DestinationUrlPerformanceReportRequest;
-                if(destinationurlperformancereportrequest != null)
+                if(null != destinationurlperformancereportrequest)
                 {
                     OutputDestinationUrlPerformanceReportRequest((DestinationUrlPerformanceReportRequest)dataObject);
                 }
                 var dsaautotargetperformancereportrequest = dataObject as DSAAutoTargetPerformanceReportRequest;
-                if(dsaautotargetperformancereportrequest != null)
+                if(null != dsaautotargetperformancereportrequest)
                 {
                     OutputDSAAutoTargetPerformanceReportRequest((DSAAutoTargetPerformanceReportRequest)dataObject);
                 }
                 var dsacategoryperformancereportrequest = dataObject as DSACategoryPerformanceReportRequest;
-                if(dsacategoryperformancereportrequest != null)
+                if(null != dsacategoryperformancereportrequest)
                 {
                     OutputDSACategoryPerformanceReportRequest((DSACategoryPerformanceReportRequest)dataObject);
                 }
                 var dsasearchqueryperformancereportrequest = dataObject as DSASearchQueryPerformanceReportRequest;
-                if(dsasearchqueryperformancereportrequest != null)
+                if(null != dsasearchqueryperformancereportrequest)
                 {
                     OutputDSASearchQueryPerformanceReportRequest((DSASearchQueryPerformanceReportRequest)dataObject);
                 }
                 var geographicperformancereportrequest = dataObject as GeographicPerformanceReportRequest;
-                if(geographicperformancereportrequest != null)
+                if(null != geographicperformancereportrequest)
                 {
                     OutputGeographicPerformanceReportRequest((GeographicPerformanceReportRequest)dataObject);
                 }
                 var goalsandfunnelsreportrequest = dataObject as GoalsAndFunnelsReportRequest;
-                if(goalsandfunnelsreportrequest != null)
+                if(null != goalsandfunnelsreportrequest)
                 {
                     OutputGoalsAndFunnelsReportRequest((GoalsAndFunnelsReportRequest)dataObject);
                 }
                 var keywordperformancereportrequest = dataObject as KeywordPerformanceReportRequest;
-                if(keywordperformancereportrequest != null)
+                if(null != keywordperformancereportrequest)
                 {
                     OutputKeywordPerformanceReportRequest((KeywordPerformanceReportRequest)dataObject);
                 }
                 var negativekeywordconflictreportrequest = dataObject as NegativeKeywordConflictReportRequest;
-                if(negativekeywordconflictreportrequest != null)
+                if(null != negativekeywordconflictreportrequest)
                 {
                     OutputNegativeKeywordConflictReportRequest((NegativeKeywordConflictReportRequest)dataObject);
                 }
                 var productdimensionperformancereportrequest = dataObject as ProductDimensionPerformanceReportRequest;
-                if(productdimensionperformancereportrequest != null)
+                if(null != productdimensionperformancereportrequest)
                 {
                     OutputProductDimensionPerformanceReportRequest((ProductDimensionPerformanceReportRequest)dataObject);
                 }
                 var productmatchcountreportrequest = dataObject as ProductMatchCountReportRequest;
-                if(productmatchcountreportrequest != null)
+                if(null != productmatchcountreportrequest)
                 {
                     OutputProductMatchCountReportRequest((ProductMatchCountReportRequest)dataObject);
                 }
                 var productpartitionperformancereportrequest = dataObject as ProductPartitionPerformanceReportRequest;
-                if(productpartitionperformancereportrequest != null)
+                if(null != productpartitionperformancereportrequest)
                 {
                     OutputProductPartitionPerformanceReportRequest((ProductPartitionPerformanceReportRequest)dataObject);
                 }
                 var productpartitionunitperformancereportrequest = dataObject as ProductPartitionUnitPerformanceReportRequest;
-                if(productpartitionunitperformancereportrequest != null)
+                if(null != productpartitionunitperformancereportrequest)
                 {
                     OutputProductPartitionUnitPerformanceReportRequest((ProductPartitionUnitPerformanceReportRequest)dataObject);
                 }
                 var productsearchqueryperformancereportrequest = dataObject as ProductSearchQueryPerformanceReportRequest;
-                if(productsearchqueryperformancereportrequest != null)
+                if(null != productsearchqueryperformancereportrequest)
                 {
                     OutputProductSearchQueryPerformanceReportRequest((ProductSearchQueryPerformanceReportRequest)dataObject);
                 }
                 var professionaldemographicsaudiencereportrequest = dataObject as ProfessionalDemographicsAudienceReportRequest;
-                if(professionaldemographicsaudiencereportrequest != null)
+                if(null != professionaldemographicsaudiencereportrequest)
                 {
                     OutputProfessionalDemographicsAudienceReportRequest((ProfessionalDemographicsAudienceReportRequest)dataObject);
                 }
                 var publisherusageperformancereportrequest = dataObject as PublisherUsagePerformanceReportRequest;
-                if(publisherusageperformancereportrequest != null)
+                if(null != publisherusageperformancereportrequest)
                 {
                     OutputPublisherUsagePerformanceReportRequest((PublisherUsagePerformanceReportRequest)dataObject);
                 }
                 var searchcampaignchangehistoryreportrequest = dataObject as SearchCampaignChangeHistoryReportRequest;
-                if(searchcampaignchangehistoryreportrequest != null)
+                if(null != searchcampaignchangehistoryreportrequest)
                 {
                     OutputSearchCampaignChangeHistoryReportRequest((SearchCampaignChangeHistoryReportRequest)dataObject);
                 }
                 var searchqueryperformancereportrequest = dataObject as SearchQueryPerformanceReportRequest;
-                if(searchqueryperformancereportrequest != null)
+                if(null != searchqueryperformancereportrequest)
                 {
                     OutputSearchQueryPerformanceReportRequest((SearchQueryPerformanceReportRequest)dataObject);
                 }
                 var shareofvoicereportrequest = dataObject as ShareOfVoiceReportRequest;
-                if(shareofvoicereportrequest != null)
+                if(null != shareofvoicereportrequest)
                 {
                     OutputShareOfVoiceReportRequest((ShareOfVoiceReportRequest)dataObject);
                 }
                 var userlocationperformancereportrequest = dataObject as UserLocationPerformanceReportRequest;
-                if(userlocationperformancereportrequest != null)
+                if(null != userlocationperformancereportrequest)
                 {
                     OutputUserLocationPerformanceReportRequest((UserLocationPerformanceReportRequest)dataObject);
                 }
+                OutputStatusMessage("* * * End OutputReportRequest * * *");
             }
         }
         public void OutputArrayOfReportRequest(IList<ReportRequest> dataObjects)
@@ -1768,8 +2203,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1777,8 +2214,10 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputReportRequestStatus * * *");
                 OutputStatusMessage(string.Format("ReportDownloadUrl: {0}", dataObject.ReportDownloadUrl));
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
+                OutputStatusMessage("* * * End OutputReportRequestStatus * * *");
             }
         }
         public void OutputArrayOfReportRequestStatus(IList<ReportRequestStatus> dataObjects)
@@ -1787,8 +2226,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputReportRequestStatus(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputReportRequestStatus(dataObject);
+                    }
                 }
             }
         }
@@ -1796,10 +2237,14 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputReportTime * * *");
+                OutputStatusMessage("CustomDateRangeEnd:");
                 OutputDate(dataObject.CustomDateRangeEnd);
+                OutputStatusMessage("CustomDateRangeStart:");
                 OutputDate(dataObject.CustomDateRangeStart);
                 OutputStatusMessage(string.Format("PredefinedTime: {0}", dataObject.PredefinedTime));
                 OutputStatusMessage(string.Format("ReportTimeZone: {0}", dataObject.ReportTimeZone));
+                OutputStatusMessage("* * * End OutputReportTime * * *");
             }
         }
         public void OutputArrayOfReportTime(IList<ReportTime> dataObjects)
@@ -1808,8 +2253,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputReportTime(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputReportTime(dataObject);
+                    }
                 }
             }
         }
@@ -1817,9 +2264,11 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputSearchCampaignChangeHistoryReportFilter * * *");
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("HowChanged: {0}", dataObject.HowChanged));
                 OutputStatusMessage(string.Format("ItemChanged: {0}", dataObject.ItemChanged));
+                OutputStatusMessage("* * * End OutputSearchCampaignChangeHistoryReportFilter * * *");
             }
         }
         public void OutputArrayOfSearchCampaignChangeHistoryReportFilter(IList<SearchCampaignChangeHistoryReportFilter> dataObjects)
@@ -1828,8 +2277,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputSearchCampaignChangeHistoryReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputSearchCampaignChangeHistoryReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1837,10 +2288,16 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputSearchCampaignChangeHistoryReportRequest * * *");
+                OutputStatusMessage("Columns:");
                 OutputArrayOfSearchCampaignChangeHistoryReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputSearchCampaignChangeHistoryReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputSearchCampaignChangeHistoryReportRequest * * *");
             }
         }
         public void OutputArrayOfSearchCampaignChangeHistoryReportRequest(IList<SearchCampaignChangeHistoryReportRequest> dataObjects)
@@ -1849,8 +2306,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputSearchCampaignChangeHistoryReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputSearchCampaignChangeHistoryReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1858,6 +2317,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputSearchQueryPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
                 OutputStatusMessage(string.Format("AdStatus: {0}", dataObject.AdStatus));
@@ -1866,8 +2326,11 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("DeliveredMatchType: {0}", dataObject.DeliveredMatchType));
                 OutputStatusMessage(string.Format("ExcludeZeroClicks: {0}", dataObject.ExcludeZeroClicks));
                 OutputStatusMessage(string.Format("KeywordStatus: {0}", dataObject.KeywordStatus));
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("SearchQueries:");
                 OutputArrayOfString(dataObject.SearchQueries);
+                OutputStatusMessage("* * * End OutputSearchQueryPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfSearchQueryPerformanceReportFilter(IList<SearchQueryPerformanceReportFilter> dataObjects)
@@ -1876,8 +2339,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputSearchQueryPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputSearchQueryPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1885,11 +2350,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputSearchQueryPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfSearchQueryPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputSearchQueryPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputSearchQueryPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfSearchQueryPerformanceReportRequest(IList<SearchQueryPerformanceReportRequest> dataObjects)
@@ -1898,8 +2369,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputSearchQueryPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputSearchQueryPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1907,6 +2380,7 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputShareOfVoiceReportFilter * * *");
                 OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
                 OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
@@ -1916,8 +2390,11 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("DeliveredMatchType: {0}", dataObject.DeliveredMatchType));
                 OutputStatusMessage(string.Format("DeviceType: {0}", dataObject.DeviceType));
                 OutputStatusMessage(string.Format("KeywordStatus: {0}", dataObject.KeywordStatus));
+                OutputStatusMessage("Keywords:");
                 OutputArrayOfString(dataObject.Keywords);
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputShareOfVoiceReportFilter * * *");
             }
         }
         public void OutputArrayOfShareOfVoiceReportFilter(IList<ShareOfVoiceReportFilter> dataObjects)
@@ -1926,8 +2403,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputShareOfVoiceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputShareOfVoiceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1935,11 +2414,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputShareOfVoiceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfShareOfVoiceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputShareOfVoiceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputShareOfVoiceReportRequest * * *");
             }
         }
         public void OutputArrayOfShareOfVoiceReportRequest(IList<ShareOfVoiceReportRequest> dataObjects)
@@ -1948,8 +2433,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputShareOfVoiceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputShareOfVoiceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -1957,9 +2444,13 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputUserLocationPerformanceReportFilter * * *");
                 OutputStatusMessage(string.Format("AdDistribution: {0}", dataObject.AdDistribution));
+                OutputStatusMessage("CountryCode:");
                 OutputArrayOfString(dataObject.CountryCode);
+                OutputStatusMessage("LanguageCode:");
                 OutputArrayOfString(dataObject.LanguageCode);
+                OutputStatusMessage("* * * End OutputUserLocationPerformanceReportFilter * * *");
             }
         }
         public void OutputArrayOfUserLocationPerformanceReportFilter(IList<UserLocationPerformanceReportFilter> dataObjects)
@@ -1968,8 +2459,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputUserLocationPerformanceReportFilter(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputUserLocationPerformanceReportFilter(dataObject);
+                    }
                 }
             }
         }
@@ -1977,11 +2470,17 @@ namespace BingAdsExamplesLibrary.V12
         {
             if (null != dataObject)
             {
+                OutputStatusMessage("* * * Begin OutputUserLocationPerformanceReportRequest * * *");
                 OutputStatusMessage(string.Format("Aggregation: {0}", dataObject.Aggregation));
+                OutputStatusMessage("Columns:");
                 OutputArrayOfUserLocationPerformanceReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
                 OutputUserLocationPerformanceReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
                 OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("Time:");
                 OutputReportTime(dataObject.Time);
+                OutputStatusMessage("* * * End OutputUserLocationPerformanceReportRequest * * *");
             }
         }
         public void OutputArrayOfUserLocationPerformanceReportRequest(IList<UserLocationPerformanceReportRequest> dataObjects)
@@ -1990,8 +2489,10 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var dataObject in dataObjects)
                 {
-                    OutputUserLocationPerformanceReportRequest(dataObject);
-                    OutputStatusMessage("\n");
+                    if (null != dataObject)
+                    {
+                        OutputUserLocationPerformanceReportRequest(dataObject);
+                    }
                 }
             }
         }
@@ -2991,7 +3492,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the string: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }
@@ -3001,7 +3502,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the long: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }
@@ -3011,7 +3512,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the nillable long: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }
@@ -3021,7 +3522,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the int: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }
@@ -3031,7 +3532,7 @@ namespace BingAdsExamplesLibrary.V12
             {
                 foreach (var item in items)
                 {
-                    OutputStatusMessage(string.Format("Value of the nillable int: {0}", item));
+                    OutputStatusMessage(string.Format("{0}", item));
                 }
             }
         }

@@ -9,7 +9,8 @@ namespace BingAdsExamplesLibrary.V12
     /// </summary>
     public abstract class ExampleBase : BingAdsExamplesLibrary.ExampleBase
     {     
-        protected static CampaignType AllCampaignTypes = 
+        protected static CampaignType AllCampaignTypes =
+            CampaignType.Audience |
             CampaignType.DynamicSearchAds |
             CampaignType.Search |
             CampaignType.Shopping;
@@ -20,6 +21,8 @@ namespace BingAdsExamplesLibrary.V12
             AdType.DynamicSearch,
             AdType.ExpandedText,
             AdType.Product,
+            AdType.ResponsiveAd,
+            AdType.ResponsiveSearch,
             AdType.Text
         };
 

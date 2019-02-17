@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
 using Microsoft.BingAds.V12.Bulk;
@@ -13,13 +12,13 @@ using Microsoft.BingAds.V12.CampaignManagement;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// How to associate remarketing lists with a new ad group with the Bulk service.
+    /// How to create Expanded Text Ads with the Bulk service.
     /// </summary>
-    public class BulkRemarketingLists : BulkExampleBase
+    public class BulkExpandedTextAds : BulkExampleBase
     {
         public override string Description
         {
-            get { return "Bulk Remarketing List Associations | Bulk V12"; }
+            get { return "Expanded Text Ads | Bulk V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -40,65 +39,26 @@ namespace BingAdsExamplesLibrary.V12
                     OutputStatusMessage(string.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
-                var tokenSource = new CancellationTokenSource();
-                tokenSource.CancelAfter(TimeoutInMilliseconds);
-
-                var downloadParameters = new DownloadParameters
-                {
-                    DownloadEntities = new[] { DownloadEntity.RemarketingLists },
-                    ResultFileDirectory = FileDirectory,
-                    ResultFileName = DownloadFileName,
-                    OverwriteResultFile = true,
-                    LastSyncTimeInUTC = null
-                };
-
-                OutputStatusMessage("-----\nDownloading all remarketing lists that the current user can associate with ad groups.");
-
-                var bulkFilePath = await BulkServiceManager.DownloadFileAsync(
-                    parameters: downloadParameters,
-                    progress: progress,
-                    cancellationToken: tokenSource.Token);
-
-                OutputStatusMessage("Download results:");
-
-                Reader = new BulkFileReader(
-                    filePath: bulkFilePath,
-                    resultFileType: ResultFileType.FullDownload,
-                    fileFormat: FileType);
-                                
-                var downloadEntities = Reader.ReadEntities().ToList();
-
-                var remarketingListResults = downloadEntities.OfType<BulkRemarketingList>().ToList();
-                OutputBulkRemarketingLists(remarketingListResults);
-
-                Reader.Dispose();
-
-                // You must have at least one remarketing list. 
-
-                if (remarketingListResults.Count < 1)
-                {
-                    OutputStatusMessage("There are no remarketing lists in the account.");
-                    return;
-                }
-
                 var uploadEntities = new List<BulkEntity>();
 
-                // Add an ad group in a campaign. The ad group will later be associated with remarketing lists.
-
+                // Add a search campaign.
+                
                 var bulkCampaign = new BulkCampaign
                 {
-                    ClientId = "YourClientIdGoesHere",
                     Campaign = new Campaign
                     {
-                        Id = campaignIdKey,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
                         DailyBudget = 50,
+                        CampaignType = CampaignType.Search,
+                        Id = campaignIdKey,
                         Languages = new string[] { "All" },
                         Name = "Women's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
-                    }
+                    },
                 };
                 uploadEntities.Add(bulkCampaign);
+
+                // Add an ad group within the campaign.
 
                 var bulkAdGroup = new BulkAdGroup
                 {
@@ -115,63 +75,50 @@ namespace BingAdsExamplesLibrary.V12
                             Year = DateTime.UtcNow.Year + 1
                         },
                         CpcBid = new Bid { Amount = 0.09 },
-                        // Applicable for all remarketing lists that are associated with this ad group. TargetAndBid indicates 
-                        // that you want to show ads only to people included in the remarketing list, with the option to change
-                        // the bid amount. Ads in this ad group will only show to people included in the remarketing list.
-                        Settings = new[]
-                        {
-                            new TargetSetting
-                            {
-                                Details = new []
-                                {
-                                    new TargetSettingDetail
-                                    {
-                                        CriterionTypeGroup = CriterionTypeGroup.Audience,
-                                        TargetAndBid = true
-                                    }
-                                }
-                            }
+                    },
+                };
+                uploadEntities.Add(bulkAdGroup);
+
+                // Add keywords and ads within the ad group.
+
+                var bulkKeyword = new BulkKeyword{
+                    AdGroupId = adGroupIdKey,
+                    Keyword = new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Phrase,
+                        Text = "Brand-A Shoes",
+                    },                    
+                };
+                uploadEntities.Add(bulkKeyword);
+
+                var bulkExpandedTextAd = new BulkExpandedTextAd
+                {
+                    AdGroupId = adGroupIdKey,
+                    ExpandedTextAd = new ExpandedTextAd
+                    {
+                        TitlePart1 = "Contoso",
+                        TitlePart2 = "Quick & Easy Setup",
+                        TitlePart3 = "Seemless Integration",
+                        Text = "Find New Customers & Increase Sales!",
+                        TextPart2 = "Start Advertising on Contoso Today.",
+                        Path1 = "seattle",
+                        Path2 = "shoe sale",
+                        FinalUrls = new[] {
+                            "http://www.contoso.com/womenshoesale"
                         },
                     },
                 };
-
-                uploadEntities.Add(bulkAdGroup);
-                
-                // For example, associate all of the remarketing lists with the new ad group.
-
-                foreach (var remarketingList in remarketingListResults)
-                {
-                    if (remarketingList.RemarketingList != null && remarketingList.RemarketingList.Id != null)
-                    {
-                        var bulkAdGroupRemarketingListAssociation = new BulkAdGroupRemarketingListAssociation
-                        {
-                            ClientId = "MyBulkAdGroupRemarketingListAssociation " + remarketingList.RemarketingList.Id,
-                            BiddableAdGroupCriterion = new BiddableAdGroupCriterion
-                            {
-                                AdGroupId = adGroupIdKey,
-                                Criterion = new AudienceCriterion
-                                {
-                                    AudienceId = (long)remarketingList.RemarketingList.Id,
-                                    AudienceType = AudienceType.RemarketingList,
-                                },
-                                CriterionBid = new BidMultiplier
-                                {
-                                    Multiplier = 20.00,
-                                },
-                                Status = AdGroupCriterionStatus.Paused,
-                            },
-                        };
-                        uploadEntities.Add(bulkAdGroupRemarketingListAssociation);
-                    }
-                }
+                uploadEntities.Add(bulkExpandedTextAd);
 
                 // Upload and write the output
 
-                OutputStatusMessage("-----\nAdding campaign, ad group, and ad group remarketing list associations...");
+                OutputStatusMessage("-----\nAdding campaign, ad group, keyword, and ad...");
 
-                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
-                downloadEntities = Reader.ReadEntities().ToList();
-                
+                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                var downloadEntities = Reader.ReadEntities().ToList();
+
                 OutputStatusMessage("Upload results:");
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
@@ -180,21 +127,24 @@ namespace BingAdsExamplesLibrary.V12
                 var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
                 OutputBulkAdGroups(adGroupResults);
 
-                var adGroupRemarketingListResults = downloadEntities.OfType<BulkAdGroupRemarketingListAssociation>().ToList();
-                OutputBulkAdGroupRemarketingListAssociations(adGroupRemarketingListResults);
+                var keywordResults = downloadEntities.OfType<BulkKeyword>().ToList();
+                OutputBulkKeywords(keywordResults);
+
+                var expandedTextAdResults = downloadEntities.OfType<BulkExpandedTextAd>().ToList();
+                OutputBulkExpandedTextAds(expandedTextAdResults);
 
                 Reader.Dispose();
                 
                 // Delete the campaign and everything it contains e.g., ad groups and ads.
 
                 uploadEntities = new List<BulkEntity>();
-
+                
                 foreach (var campaignResult in campaignResults)
                 {
                     campaignResult.Campaign.Status = CampaignStatus.Deleted;
                     uploadEntities.Add(campaignResult);
                 }
-
+                
                 // Upload and write the output
 
                 OutputStatusMessage("-----\nDeleting the campaign and everything it contains e.g., ad groups and ads...");
@@ -204,8 +154,8 @@ namespace BingAdsExamplesLibrary.V12
 
                 OutputStatusMessage("Upload results:");
 
-                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
-                OutputBulkNegativeKeywordLists(downloadEntities.OfType<BulkNegativeKeywordList>().ToList());
+                campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                OutputBulkCampaigns(campaignResults);
 
                 Reader.Dispose();
             }

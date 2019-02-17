@@ -11,12 +11,19 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to add, get, and delete extensions for an account's ad extension library, 
-    /// set, get, and delete the extension associations with a campaign, and determine why an extension failed 
+    /// How to manage ad extensions for an account's ad extension library, 
+    /// associate the extensions with a campaign, and determine why an extension failed 
     /// editorial review.
     /// </summary>
     public class AdExtensions : ExampleBase
     {
+        // To run this example you'll need to provide your own image.  
+        // For required aspect ratios and recommended dimensions please see 
+        // Image remarks at https://go.microsoft.com/fwlink/?linkid=872754.
+
+        private const string MediaFilePath = "c:\\dev\\media\\";
+        private const string ImageAdExtensionMediaFileName = "imageadextension300x200.png";
+
         public override string Description
         {
             get { return "Ad Extensions | Campaign Management V12"; }
@@ -28,45 +35,73 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper = 
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = 
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                // Add a campaign that will later be associated with ad extensions. 
+                // Add a campaign to associate with ad extensions. 
 
                 var campaigns = new[] {
                     new Campaign
                     {
-                        Name = "Women's Shoes " + DateTime.UtcNow,
-                        Description = "Red shoes line.",
-
-                        // You must choose to set either the shared  budget ID or daily amount.
-                        // You can set one or the other, but you may not set both.
-                        BudgetId = null,
-                        DailyBudget = 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
-                        BiddingScheme = new EnhancedCpcBiddingScheme(),
-
+                        DailyBudget = 50,
+                        Description = "Red shoes line.",
+                        Languages = new string[] { "All" },
+                        Name = "Women's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
-
-                        // Used with FinalUrls shown in the sitelinks that we will add below.
-                        TrackingUrlTemplate =
-                            "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     }
                 };
 
+                OutputStatusMessage("-----\nAddCampaigns:");
                 AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
-                    authorizationData.AccountId, 
-                    campaigns,
-                    false);
+                    accountId: authorizationData.AccountId,
+                    campaigns: campaigns,
+                    includeDynamicSearchAdsSource: false);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
+                BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("CampaignIds:");
                 CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(addCampaignsResponse?.PartialErrors);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
+                
+                // Create media for the image ad extension that we'll add later. 
 
-                // Specify the extensions.
+                var imageAdExtensionMedia = GetImageMedia(
+                    "Image15x10",
+                    MediaFilePath + ImageAdExtensionMediaFileName,
+                    System.Drawing.Imaging.ImageFormat.Png);
+
+                var media = new Media[]
+                {
+                    imageAdExtensionMedia
+                };
+
+                // Add the media to the account's library.
+
+                OutputStatusMessage("-----\nAddMedia:");
+                AddMediaResponse addMediaResponse = await CampaignManagementExampleHelper.AddMediaAsync(
+                    accountId: authorizationData.AccountId,
+                    media: media);
+                long[] mediaIds = addMediaResponse.MediaIds.ToArray();
+                OutputStatusMessage("MediaIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(mediaIds);
+
+                // Add the extensions to the account's library.
 
                 var adExtensions = new AdExtension[] {
+                    new ActionAdExtension
+                    {
+                        ActionType = ActionAdExtensionActionType.ActNow,
+                        FinalUrls = new string[]
+                        {
+                            "http://www.contoso.com/womenshoesale"
+                        },
+                        Language = "English",
+                        Status = AdExtensionStatus.Active,
+                    },
                     //new AppAdExtension
                     //{
                     //    AppPlatform = "Windows",
@@ -78,11 +113,9 @@ namespace BingAdsExamplesLibrary.V12
                         CountryCode = "US",
                         PhoneNumber = "2065550100",
                         IsCallOnly = false,
+                        // Include the call extension Monday - Friday from 9am - 9pm
+                        // in the account's time zone.
                         Scheduling = new Schedule {
-
-                            // For this example assume the call center is open Monday - Friday from 9am - 9pm
-                            // in the account's time zone.
-
                             UseSearcherTimeZone = false,
                             DayTimeRanges = new[]
                             {
@@ -139,15 +172,11 @@ namespace BingAdsExamplesLibrary.V12
                     {
                         Text = "Callout Text"
                     },
-                    //new ImageAdExtension
-                    //{
-                    //    AlternativeText = "Image Extension Alt Text",
-                    //    ImageMediaIds = new long[] {
-                    //        (await CampaignManagementExampleHelper.AddMediaAsync(
-                    //            authorizationData.AccountId, 
-                    //            GetImageMedia())).MediaIds[0]
-                    //    }
-                    //},
+                    new ImageAdExtension
+                    {
+                        AlternativeText = "Image Extension Alt Text",
+                        ImageMediaIds = mediaIds
+                    },
                     new LocationAdExtension {
                         PhoneNumber = "206-555-0100",
                         CompanyName = "Contoso Shoes",
@@ -159,11 +188,9 @@ namespace BingAdsExamplesLibrary.V12
                             CountryCode = "US",
                             PostalCode = "98608"
                         },
+                        // Include the location extension every Saturday morning
+                        // in the search user's time zone.
                         Scheduling = new Schedule {
-
-                            // For this example assume you want to drive traffic every Saturday morning
-                            // in the search user's time zone.
-
                             UseSearcherTimeZone = true,
                             DayTimeRanges = new[]
                             {
@@ -187,6 +214,7 @@ namespace BingAdsExamplesLibrary.V12
                     new PriceAdExtension
                     {
                         Language = "English",
+                        PriceExtensionType = PriceExtensionType.Events,
                         TableRows = new PriceTableRow[]
                         {
                             new PriceTableRow
@@ -229,29 +257,22 @@ namespace BingAdsExamplesLibrary.V12
                                 PriceUnit = PriceUnit.PerDay,
                             },
                         },
-                        PriceExtensionType = PriceExtensionType.Events,
-                        TrackingUrlTemplate = "http://tracker.com?url={lpurl}&matchtype={matchtype}",
-                        UrlCustomParameters = new CustomParameters
-                        {
-                            // Each custom parameter is delimited by a semicolon (;) in the Bulk file
-                            Parameters = new[] {
-                                new CustomParameter(){
-                                    Key = "promoCode",
-                                    Value = "PROMO1"
-                                },
-                                new CustomParameter(){
-                                    Key = "season",
-                                    Value = "summer"
-                                },
-                            }
-                        },
                     },
                     new ReviewAdExtension
                     {
                         IsExact = true,
                         Source = "Review Source Name",
                         Text = "Review Text",
-                        Url = "http://review.contoso.com" // The Url of the third-party review. This is not your business Url.
+                        // The Url of the third-party review. This is not your business Url.
+                        Url = "http://review.contoso.com" 
+                    },
+                    new SitelinkAdExtension {
+                        Description1 = "Simple & Transparent.",
+                        Description2 = "No Upfront Cost.",
+                        DisplayText = "Women's Shoe Sale",
+                        FinalUrls = new[] {
+                            "http://www.contoso.com/womenshoesale"
+                        },
                     },
                     new StructuredSnippetAdExtension
                     {
@@ -260,20 +281,15 @@ namespace BingAdsExamplesLibrary.V12
                     }
                 };
 
-                // Get sitelink ad extensions
-                adExtensions = adExtensions.Concat(GetSampleSitelinkAdExtensions()).ToArray();
-
-
-                // Add all extensions to the account's ad extension library
-                var addAdExtensionsResponse = (await CampaignManagementExampleHelper.AddAdExtensionsAsync(
-                    authorizationData.AccountId,
-                    adExtensions
-                ));
+                OutputStatusMessage("-----\nAddAdExtensions:");
+                var addAdExtensionsResponse = await CampaignManagementExampleHelper.AddAdExtensionsAsync(
+                    accountId: authorizationData.AccountId,
+                    adExtensions: adExtensions);
+                OutputStatusMessage("AdExtensionIdentities:");
                 var adExtensionIdentities = addAdExtensionsResponse?.AdExtensionIdentities;
+                OutputStatusMessage("NestedPartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchErrorCollection(addAdExtensionsResponse?.NestedPartialErrors);
-
-                OutputStatusMessage("Added ad extensions.\n");
-
+                
                 // DeleteAdExtensionsAssociations, SetAdExtensionsAssociations, and GetAdExtensionsEditorialReasons 
                 // operations each require a list of type AdExtensionIdToEntityIdAssociation.
                 var adExtensionIdToEntityIdAssociations = new List<AdExtensionIdToEntityIdAssociation>();
@@ -298,124 +314,128 @@ namespace BingAdsExamplesLibrary.V12
                     }
                 }
 
-                // Associate the specified ad extensions with the respective campaigns or ad groups. 
-                await CampaignManagementExampleHelper.SetAdExtensionsAssociationsAsync(
-                    authorizationData.AccountId,
-                    adExtensionIdToEntityIdAssociations,
-                    AssociationType.Campaign
-                );
+                // Associate the ad extensions with the campaign. 
 
-                OutputStatusMessage("Set ad extension associations.\n");
+                OutputStatusMessage("-----\nSetAdExtensionsAssociations:");
+                var setAdExtensionsAssociationsResponse = await CampaignManagementExampleHelper.SetAdExtensionsAssociationsAsync(
+                    accountId: authorizationData.AccountId,
+                    adExtensionIdToEntityIdAssociations: adExtensionIdToEntityIdAssociations,
+                    associationType: AssociationType.Campaign);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(setAdExtensionsAssociationsResponse?.PartialErrors);
 
-                // Get editorial rejection reasons for the respective ad extension and entity associations.
-                var getAdExtensionsEditorialReasonsResponse =
-                    (await CampaignManagementExampleHelper.GetAdExtensionsEditorialReasonsAsync(
-                        authorizationData.AccountId,
-                        adExtensionIdToEntityIdAssociations,
-                        AssociationType.Campaign
-                    ));
+                // Get editorial rejection reasons for the ad extension and entity associations.
+
+                OutputStatusMessage("-----\nGetAdExtensionsEditorialReasons:");
+                var getAdExtensionsEditorialReasonsResponse = await CampaignManagementExampleHelper.GetAdExtensionsEditorialReasonsAsync(
+                        accountId: authorizationData.AccountId,
+                        adExtensionIdToEntityIdAssociations: adExtensionIdToEntityIdAssociations,
+                        associationType: AssociationType.Campaign);
+                OutputStatusMessage("EditorialReasons:");
                 var adExtensionEditorialReasonCollection =
                     (AdExtensionEditorialReasonCollection[])getAdExtensionsEditorialReasonsResponse?.EditorialReasons;
+                CampaignManagementExampleHelper.OutputArrayOfAdExtensionEditorialReasonCollection(adExtensionEditorialReasonCollection);
+                OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionsEditorialReasonsResponse?.PartialErrors);
+                
+                // Get only the location ad extensions and then remove scheduling.
 
-                AdExtensionsTypeFilter adExtensionsTypeFilter =
-                    AdExtensionsTypeFilter.AppAdExtension |
-                    AdExtensionsTypeFilter.CallAdExtension |
-                    AdExtensionsTypeFilter.CalloutAdExtension |
-                    AdExtensionsTypeFilter.ImageAdExtension |
-                    AdExtensionsTypeFilter.LocationAdExtension |
-                    AdExtensionsTypeFilter.SitelinkAdExtension |
-                    AdExtensionsTypeFilter.PriceAdExtension |
-                    AdExtensionsTypeFilter.ReviewAdExtension |
-                    AdExtensionsTypeFilter.StructuredSnippetAdExtension;
-
-                // Get all ad extensions added above.
-                var getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
-                    authorizationData.AccountId,
-                    adExtensionIds,
-                    adExtensionsTypeFilter
-                ));
-                adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionsByIdsResponse?.PartialErrors);
-
-                OutputStatusMessage("List of ad extensions that were added above:\n");
-                CampaignManagementExampleHelper.OutputArrayOfAdExtension(adExtensions);
-
-                // Get only the location extensions and remove scheduling.
-
-                adExtensionsTypeFilter = AdExtensionsTypeFilter.LocationAdExtension;
-
-                getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
-                    authorizationData.AccountId,
-                    adExtensionIds,
-                    adExtensionsTypeFilter
-                ));
-                adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
+                AdExtensionsTypeFilter adExtensionsTypeFilter = AdExtensionsTypeFilter.LocationAdExtension;
 
                 // In this example partial errors will be returned for indices where the ad extensions 
-                // are not location ad extensions because we only requested AdExtensionsTypeFilter.LocationAdExtension.
+                // are not location ad extensions.
                 // This is an example, and ideally you would only send the required ad extension IDs.
 
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionsByIdsResponse?.PartialErrors);
-
+                OutputStatusMessage("-----\nGetAdExtensionsByIds:");
+                var getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
+                    accountId: authorizationData.AccountId,
+                    adExtensionIds: adExtensionIds,
+                    adExtensionType: adExtensionsTypeFilter));
+                adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
+                BatchError[] getAdExtensionErrors = getAdExtensionsByIdsResponse?.PartialErrors.ToArray();
+                OutputStatusMessage("AdExtensions:");
+                CampaignManagementExampleHelper.OutputArrayOfAdExtension(adExtensions);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionErrors);
+                
                 var updateExtensions = new List<AdExtension>();
                 var updateExtensionIds = new List<long>();
 
                 foreach (var extension in adExtensions)
                 {
-                    // GetAdExtensionsByIds will return a nil element if the request filters / conditions were not met.
+                    // GetAdExtensionsByIds will return a nil element if the request conditions were not met.
                     if (extension != null && extension.Id != null)
                     {
                         // Remove read-only elements that would otherwise cause the update operation to fail.
                         var updateExtension = SetReadOnlyAdExtensionElementsToNull(extension);
-
+                        
                         // If you set the Scheduling element null, any existing scheduling set for the ad extension will remain unchanged. 
                         // If you set this to any non-null Schedule object, you are effectively replacing existing scheduling 
                         // for the ad extension. In this example, we will remove any existing scheduling by setting this element  
                         // to an empty Schedule object.
                         updateExtension.Scheduling = new Schedule { };
-
                         updateExtensions.Add(updateExtension);
                         updateExtensionIds.Add((long)updateExtension.Id);
                     }
                 }
 
-                OutputStatusMessage("Removing scheduling from the location ad extensions..\n");
-                await CampaignManagementExampleHelper.UpdateAdExtensionsAsync(authorizationData.AccountId, updateExtensions);
+                OutputStatusMessage("-----\nUpdateAdExtensions:");                
+                await CampaignManagementExampleHelper.UpdateAdExtensionsAsync(
+                    accountId: authorizationData.AccountId, 
+                    adExtensions: updateExtensions);
+                OutputStatusMessage("Removed scheduling from the location ad extensions.");
 
                 // Get only the location extensions to output the result.
 
-                getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
-                    authorizationData.AccountId,
-                    updateExtensionIds,
-                    adExtensionsTypeFilter
-                ));
+                OutputStatusMessage("-----\nGetAdExtensionsByIds:");
+                getAdExtensionsByIdsResponse = await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
+                    accountId: authorizationData.AccountId,
+                    adExtensionIds: updateExtensionIds,
+                    adExtensionType: adExtensionsTypeFilter);
                 adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionsByIdsResponse?.PartialErrors);
-
-                OutputStatusMessage("List of ad extensions that were updated above:\n");
+                getAdExtensionErrors = getAdExtensionsByIdsResponse?.PartialErrors.ToArray();
+                OutputStatusMessage("AdExtensions:");
                 CampaignManagementExampleHelper.OutputArrayOfAdExtension(adExtensions);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(getAdExtensionErrors);
 
                 // Delete the ad extension associations, ad extensions, and campaign, that were previously added.  
                 // At this point the ad extensions are still available in the account's ad extensions library. 
 
+                OutputStatusMessage("-----\nDeleteAdExtensionsAssociations:");
                 await CampaignManagementExampleHelper.DeleteAdExtensionsAssociationsAsync(
                     authorizationData.AccountId,
                     adExtensionIdToEntityIdAssociations,
-                    AssociationType.Campaign
-                );
-                OutputStatusMessage("Deleted ad extension associations.\n");
+                    AssociationType.Campaign);
+                OutputStatusMessage("Deleted ad extension associations.");
 
-                // Delete the ad extensions from the account’s ad extension library.
+                // Delete the ad extensions from the account's ad extension library.
 
+                OutputStatusMessage("-----\nDeleteAdExtensions:");
                 await CampaignManagementExampleHelper.DeleteAdExtensionsAsync(
                     authorizationData.AccountId,
-                    adExtensionIds
-                );
-                OutputStatusMessage("Deleted ad extensions.\n");
+                    adExtensionIds);
+                OutputStatusMessage("Deleted ad extensions.");
 
-                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)campaignIds[0] });
-                OutputStatusMessage(string.Format("Deleted Campaign Id {0}\n", (long)campaignIds[0]));
+                // Delete the account's media that was used for the image ad extension.
+
+                OutputStatusMessage("-----\nDeleteMedia:");
+                await CampaignManagementExampleHelper.DeleteMediaAsync(
+                    accountId: authorizationData.AccountId,
+                    mediaIds: mediaIds);
+
+                foreach (var id in mediaIds)
+                {
+                    OutputStatusMessage(string.Format("Deleted Media Id {0}", id));
+                }
+
+                // Delete the campaign and everything it contains e.g., ad groups and ads.
+
+                OutputStatusMessage("-----\nDeleteCampaigns:");
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(
+                    accountId: authorizationData.AccountId,
+                    campaignIds: new[] { (long)campaignIds[0] });
+                OutputStatusMessage(string.Format("Deleted Campaign Id {0}", campaignIds[0]));
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -452,148 +472,44 @@ namespace BingAdsExamplesLibrary.V12
             }
         }
 
-        private IList<Media> GetImageMedia()
+        /// <summary>
+        /// Get image media that can be managed with the Campaign Management API.
+        /// </summary>
+        /// <param name="mediaType">The media type reflects the aspect ratio.</param>
+        /// <param name="imageFileName">The file name and path.</param>
+        /// <param name="imageFormat">For supported image formats see <see href="https://go.microsoft.com/fwlink/?linkid=872754">Image remarks</see>.</param>
+        /// <returns>A Campaign Management Image object.</returns>
+        private Microsoft.BingAds.V12.CampaignManagement.Image GetImageMedia(
+            string mediaType,
+            string imageFileName,
+            System.Drawing.Imaging.ImageFormat imageFormat)
         {
-            var media = new List<Media>();
             var image = new Microsoft.BingAds.V12.CampaignManagement.Image();
+            image.Data = GetBmpBase64String(imageFileName, imageFormat);
+            image.MediaType = mediaType;
+            image.Type = "Image";
 
-            // This example uses an image with 1.5:1 aspect ratio.
-            // For more information about available aspect ratios and min / max dimensions,
-            // see the Image data object reference documentation.
-
-            image.Data = GetImage15x10Data();
-            image.Type = "Image15x10";
-            image.MediaType = "Image";
-            media.Add(image);
-
-            var request = new AddMediaRequest
-            {
-                Media = media
-            };
-
-            return media;
+            return image;
         }
 
-        public string GetImage15x10Data()
+        /// <summary>
+        /// Get the image media as base64 string.
+        /// </summary>
+        /// <param name="imageFileName">The file name and path.</param>
+        /// <param name="imageFormat">For supported image formats see <see href="https://go.microsoft.com/fwlink/?linkid=872754">Image remarks</see>.</param>
+        /// <returns></returns>
+        private string GetBmpBase64String(
+            string imageFileName,
+            System.Drawing.Imaging.ImageFormat imageFormat)
         {
-            var png = new System.Drawing.Bitmap("blankimageadextension.png");
+            var bmp = new Bitmap(imageFileName);
             using (MemoryStream ms = new MemoryStream())
             {
-                png.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                bmp.Save(ms, imageFormat);
                 byte[] imageBytes = ms.ToArray();
                 string base64String = Convert.ToBase64String(imageBytes);
                 return base64String;
             }
-        }
-
-        // Gets an example SitelinkAdExtension list. 
-        private SitelinkAdExtension[] GetSampleSitelinkAdExtensions()
-        {
-            return new[] {
-                new SitelinkAdExtension {
-                    Description1 = "Simple & Transparent.",
-                    Description2 = "No Upfront Cost.",
-                    DisplayText = "Women's Shoe Sale 1",
-
-                    // With FinalUrls you can separate the tracking template, custom parameters, and 
-                    // landing page URLs. 
-                    FinalUrls = new[] {
-                        "http://www.contoso.com/womenshoesale"
-                    },
-                    // Final Mobile URLs can also be used if you want to direct the user to a different page 
-                    // for mobile devices.
-                    FinalMobileUrls = new[] {
-                        "http://mobile.contoso.com/womenshoesale"
-                    },
-                    // You could use a tracking template which would override the campaign level
-                    // tracking template. Tracking templates defined for lower level entities 
-                    // override those set for higher level entities.
-                    // In this example we are using the campaign level tracking template.
-                    TrackingUrlTemplate = null,
-
-                    // Set custom parameters that are specific to this ad extension, 
-                    // and can be used by the ad extension, ad group, campaign, or account level tracking template. 
-                    // In this example we are using the campaign level tracking template.
-                    UrlCustomParameters = new CustomParameters
-                    {
-                        Parameters = new[] {
-                            new CustomParameter(){
-                                Key = "promoCode",
-                                Value = "PROMO1"
-                            },
-                            new CustomParameter(){
-                                Key = "season",
-                                Value = "summer"
-                            },
-                        }
-                    },
-                },
-                new SitelinkAdExtension
-                {
-                    Description1 = "Do Amazing Things With Contoso.",
-                    Description2 = "Read Our Case Studies.",
-                    DisplayText = "Women's Shoe Sale 2",
-
-                    // With FinalUrls you can separate the tracking template, custom parameters, and 
-                    // landing page URLs. 
-                    FinalUrls = new[] {
-                        "http://www.contoso.com/womenshoesale"
-                    },
-                    // Final Mobile URLs can also be used if you want to direct the user to a different page 
-                    // for mobile devices.
-                    FinalMobileUrls = new[] {
-                        "http://mobile.contoso.com/womenshoesale"
-                    },
-
-                    Scheduling = new Schedule {
-
-                        // For this example assume you want to drive traffic every Saturday morning
-                        // in the search user's time zone.
-
-                        UseSearcherTimeZone = true,
-                        DayTimeRanges = new[]
-                        {
-                            new DayTime
-                            {
-                                Day = Day.Saturday,
-                                StartHour = 9,
-                                StartMinute = Minute.Zero,
-                                EndHour = 12,
-                                EndMinute = Minute.Zero,
-                            },
-                        },
-                        StartDate = null,
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date {
-                            Month = 12,
-                            Day = 31,
-                            Year = DateTime.UtcNow.Year + 1
-                        },
-                    },
-
-                    // You could use a tracking template which would override the campaign level
-                    // tracking template. Tracking templates defined for lower level entities 
-                    // override those set for higher level entities.
-                    // In this example we are using the campaign level tracking template.
-                    TrackingUrlTemplate = null,
-
-                    // Set custom parameters that are specific to this ad extension, 
-                    // and can be used by the ad extension, ad group, campaign, or account level tracking template. 
-                    // In this example we are using the campaign level tracking template.
-                    UrlCustomParameters = new CustomParameters
-                    {
-                        Parameters = new[] {
-                            new CustomParameter(){
-                                Key = "promoCode",
-                                Value = "PROMO2"
-                            },
-                            new CustomParameter(){
-                                Key = "season",
-                                Value = "summer"
-                            },
-                        }
-                    },
-                }
-            };
-        }
+        }        
     }
 }

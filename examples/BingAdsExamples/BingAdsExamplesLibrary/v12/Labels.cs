@@ -9,7 +9,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to add labels and associate them with
+    /// How to add labels and associate them with
     /// campaigns, ad groups, keywords, and ads.
     /// </summary>
     public class Labels : ExampleBase
@@ -30,68 +30,72 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                CampaignManagementExampleHelper CampaignManagementExampleHelper =
-                    new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService =
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
+                CampaignManagementExampleHelper CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                // Specify one or more campaigns.
+                // Add an ad group in a campaign. Later we will create labels for them. 
+                // Although not included in this example you can also create labels for ads and keywords. 
 
                 var campaigns = new[]{
                     new Campaign
                     {
-                        Name = "Women's Shoes " + DateTime.UtcNow,
-                        Description = "Red shoes line.",
-                        DailyBudget = 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
+                        DailyBudget = 50,
+                        CampaignType = CampaignType.Search,
+                        Description = "Red shoes line.",
+                        Languages = new string[] { "All" },
+                        Name = "Women's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     },
                 };
+
+                OutputStatusMessage("-----\nAddCampaigns:");
+                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
+                    accountId: authorizationData.AccountId,
+                    campaigns: campaigns,
+                    includeDynamicSearchAdsSource: false);
+                long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
+                BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("CampaignIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(campaignIds);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
 
                 var adGroups = new[] {
                     new AdGroup
                     {
                         Name = "Women's Red Shoe Sale",
                         StartDate = null,
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date {
+                        EndDate = new Date {
                             Month = 12,
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
                         },
                         CpcBid = new Bid { Amount = 0.09 },
-                        Language = "English",
                     }
                 };
 
-                var keywords = new[]
-                {
-                    new Keyword
-                    {
-                        Bid = new Bid { Amount = 0.47 },
-                        Param2 = "10% Off",
-                        MatchType = MatchType.Phrase,
-                        Text = "Brand-A Shoes",
-                    },
-                };
-
-                var ads = new Ad[] {
-                    new ExpandedTextAd
-                    {
-                        TitlePart1 = "Contoso",
-                        TitlePart2 = "Fast & Easy Setup",
-                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
-                        Path1 = "seattle",
-                        Path2 = "shoe sale",
-                        FinalUrls = new[] {
-                            "http://www.contoso.com/womenshoesale"
-                        },
-                    },
-                };
+                OutputStatusMessage("-----\nAddAdGroups:");
+                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync(
+                    campaignId: (long)campaignIds[0],
+                    adGroups: adGroups,
+                    returnInheritedBidStrategyTypes: false);
+                long?[] adGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
+                BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("AdGroupIds:");
+                CampaignManagementExampleHelper.OutputArrayOfLong(adGroupIds);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
+                
+                // Add labels and associate them with the campaign and ad group.
 
                 var random = new Random();
                 var labels = new List<Label>();
 
-                for (var labelIndex = 0; labelIndex < 50; labelIndex++)
+                for (var labelIndex = 0; labelIndex < 5; labelIndex++)
                 {
                     var color = string.Format("#{0:X6}", random.Next(0x100000));
                     labels.Add(new Label
@@ -102,178 +106,107 @@ namespace BingAdsExamplesLibrary.V12
                     });
                 }
 
+                OutputStatusMessage("-----\nAddLabels:");
                 AddLabelsResponse addLabelsResponse = await CampaignManagementExampleHelper.AddLabelsAsync(labels);
                 long?[] nullableLabelIds = addLabelsResponse.LabelIds.ToArray();
                 BatchError[] labelErrors = addLabelsResponse.PartialErrors.ToArray();
-                OutputStatusMessage("New Label Ids:");
+                OutputStatusMessage("LabelIds:");
                 CampaignManagementExampleHelper.OutputArrayOfLong(nullableLabelIds);
+                OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(labelErrors);
-
-                AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
-                    authorizationData.AccountId, 
-                    campaigns,
-                    false);
-                long?[] nullableCampaignIds = addCampaignsResponse.CampaignIds.ToArray();
-                BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
-                OutputStatusMessage("New Campaign Ids:");
-                CampaignManagementExampleHelper.OutputArrayOfLong(nullableCampaignIds);
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
-
-                AddAdGroupsResponse addAdGroupsResponse = await CampaignManagementExampleHelper.AddAdGroupsAsync((long)nullableCampaignIds[0], adGroups, null);
-                long?[] nullableAdGroupIds = addAdGroupsResponse.AdGroupIds.ToArray();
-                BatchError[] adGroupErrors = addAdGroupsResponse.PartialErrors.ToArray();
-                OutputStatusMessage("New Ad Group Ids:");
-                CampaignManagementExampleHelper.OutputArrayOfLong(nullableAdGroupIds);
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(adGroupErrors);
-
-                AddKeywordsResponse addKeywordsResponse = await CampaignManagementExampleHelper.AddKeywordsAsync((long)nullableAdGroupIds[0], keywords, null);
-                long?[] nullableKeywordIds = addKeywordsResponse.KeywordIds.ToArray();
-                BatchError[] keywordErrors = addKeywordsResponse.PartialErrors.ToArray();
-                OutputStatusMessage("New Keyword Ids:");
-                CampaignManagementExampleHelper.OutputArrayOfLong(nullableKeywordIds);
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(keywordErrors);
-
-                AddAdsResponse addAdsResponse = await CampaignManagementExampleHelper.AddAdsAsync((long)nullableAdGroupIds[0], ads);
-                long?[] nullableAdIds = addAdsResponse.AdIds.ToArray();
-                BatchError[] adErrors = addAdsResponse.PartialErrors.ToArray();
-                OutputStatusMessage("New Ad Ids:");
-                CampaignManagementExampleHelper.OutputArrayOfLong(nullableAdIds);
-                CampaignManagementExampleHelper.OutputArrayOfBatchError(adErrors);
-
+                
                 var labelIds = GetNonNullableIds(nullableLabelIds);
 
-                OutputStatusMessage("\nGet all the labels that we added above...");
-
+                OutputStatusMessage("-----\nGetLabelsByIds:");
                 var getLabelsByIdsResponse = await CampaignManagementExampleHelper.GetLabelsByIdsAsync(
-                    labelIds,
-                    new Paging
+                    labelIds: labelIds,
+                    pageInfo: new Paging
                     {
                         Index = 0,
                         Size = MaxGetLabelsByIds
                     }
                 );
-                CampaignManagementExampleHelper.OutputArrayOfLabel(getLabelsByIdsResponse.Labels);
-
-                OutputStatusMessage("\nUpdate the label color and then retrieve the labels again to confirm the changes....");
-
-                var updateLabels = new List<Label>();
-                foreach (var label in getLabelsByIdsResponse.Labels)
-                {
-                    label.ColorCode = string.Format("#{0:X6}", random.Next(0x100000));
-                    updateLabels.Add(label);
-                }
-                var updateLabelsResponse = await CampaignManagementExampleHelper.UpdateLabelsAsync(updateLabels);
-
-                getLabelsByIdsResponse = await CampaignManagementExampleHelper.GetLabelsByIdsAsync(
-                    labelIds,
-                    new Paging
-                    {
-                        Index = 0,
-                        Size = MaxGetLabelsByIds
-                    }
-                );
-                CampaignManagementExampleHelper.OutputArrayOfLabel(getLabelsByIdsResponse.Labels);
-
-                var campaignLabelAssociations = CreateExampleLabelAssociationsByEntityId((long)nullableCampaignIds[0], labelIds);
-                OutputStatusMessage("\nAssociating all of the labels with a campaign...");
+                var getLabels = getLabelsByIdsResponse.Labels;
+                labelErrors = getLabelsByIdsResponse.PartialErrors.ToArray();
+                OutputStatusMessage("Labels:");
+                CampaignManagementExampleHelper.OutputArrayOfLabel(getLabels);
+                OutputStatusMessage("PartialErrors:");
+                CampaignManagementExampleHelper.OutputArrayOfBatchError(labelErrors);
+                
+                var campaignLabelAssociations = CreateExampleLabelAssociationsByEntityId((long)campaignIds[0], labelIds);
+                OutputStatusMessage("-----\nAssociating all of the labels with a campaign...");
                 CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(campaignLabelAssociations);
-                var setLabelAssociationsResponse = await CampaignManagementExampleHelper.SetLabelAssociationsAsync(EntityType.Campaign, campaignLabelAssociations);
-
-                var adGroupLabelAssociations = CreateExampleLabelAssociationsByEntityId((long)nullableAdGroupIds[0], labelIds);
-                OutputStatusMessage("\nAssociating all of the labels with an ad group...");
+                var setLabelAssociationsResponse = await CampaignManagementExampleHelper.SetLabelAssociationsAsync(
+                    entityType: EntityType.Campaign, 
+                    labelAssociations: campaignLabelAssociations);
+                
+                var adGroupLabelAssociations = CreateExampleLabelAssociationsByEntityId((long)adGroupIds[0], labelIds);
+                OutputStatusMessage("-----\nAssociating all of the labels with an ad group...");
                 CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(adGroupLabelAssociations);
-                setLabelAssociationsResponse = await CampaignManagementExampleHelper.SetLabelAssociationsAsync(EntityType.AdGroup, adGroupLabelAssociations);
-
-                var keywordLabelAssociations = CreateExampleLabelAssociationsByEntityId((long)nullableKeywordIds[0], labelIds);
-                OutputStatusMessage("\nAssociating all of the labels with a keyword...");
-                CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(keywordLabelAssociations);
-                setLabelAssociationsResponse = await CampaignManagementExampleHelper.SetLabelAssociationsAsync(EntityType.Keyword, keywordLabelAssociations);
-
-                var adLabelAssociations = CreateExampleLabelAssociationsByEntityId((long)nullableAdIds[0], labelIds);
-                OutputStatusMessage("\nAssociating all of the labels with an ad...");
-                CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(adLabelAssociations);
-                setLabelAssociationsResponse = await CampaignManagementExampleHelper.SetLabelAssociationsAsync(EntityType.Ad, adLabelAssociations);
-
-
-                OutputStatusMessage("\nUse paging to get all campaign label associations...");
+                setLabelAssociationsResponse = await CampaignManagementExampleHelper.SetLabelAssociationsAsync(
+                    entityType: EntityType.AdGroup,
+                    labelAssociations: adGroupLabelAssociations);
+                
+                OutputStatusMessage("-----\nUse paging to get all campaign label associations...");
                 var getLabelAssociationsByLabelIds = await GetLabelAssociationsByLabelIdsHelperAsync(
                     CampaignManagementExampleHelper,
-                    EntityType.Campaign,
-                    labelIds);
+                    entityType: EntityType.Campaign,
+                    labelIds: labelIds);
                 CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(getLabelAssociationsByLabelIds);
 
-                OutputStatusMessage("\nUse paging to get all ad group label associations...");
+                OutputStatusMessage("-----\nUse paging to get all ad group label associations...");
                 getLabelAssociationsByLabelIds = await GetLabelAssociationsByLabelIdsHelperAsync(
-                    CampaignManagementExampleHelper,
-                    EntityType.AdGroup,
-                    labelIds);
+                    CampaignManagementExampleHelper: CampaignManagementExampleHelper,
+                    entityType: EntityType.AdGroup,
+                    labelIds: labelIds);
                 CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(getLabelAssociationsByLabelIds);
-
-                OutputStatusMessage("\nUse paging to get all keyword label associations...");
-                getLabelAssociationsByLabelIds = await GetLabelAssociationsByLabelIdsHelperAsync(
-                    CampaignManagementExampleHelper,
-                    EntityType.Keyword,
-                    labelIds);
-                CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(getLabelAssociationsByLabelIds);
-
-                OutputStatusMessage("\nUse paging to get all ad label associations...");
-                getLabelAssociationsByLabelIds = await GetLabelAssociationsByLabelIdsHelperAsync(
-                    CampaignManagementExampleHelper,
-                    EntityType.Ad,
-                    labelIds);
-                CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(getLabelAssociationsByLabelIds);
-
-                OutputStatusMessage("\nGet all label associations for all specified campaigns...");
+                
+                OutputStatusMessage("-----\nGet label associations for the campaigns...");
                 var getLabelAssociationsByEntityIds = await GetLabelAssociationsByEntityIdsHelperAsync(
-                    CampaignManagementExampleHelper,
-                    EntityType.Campaign,
-                    GetNonNullableIds(nullableCampaignIds)
+                    CampaignManagementExampleHelper: CampaignManagementExampleHelper,
+                    entityType: EntityType.Campaign,
+                    entityIds: GetNonNullableIds(campaignIds)
                 );
                 CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(getLabelAssociationsByEntityIds);
 
-                OutputStatusMessage("\nGet all label associations for all specified ad groups...");
+                OutputStatusMessage("-----\nGet label associations for the ad groups...");
                 getLabelAssociationsByEntityIds = await GetLabelAssociationsByEntityIdsHelperAsync(
-                    CampaignManagementExampleHelper,
-                    EntityType.AdGroup,
-                    GetNonNullableIds(nullableAdGroupIds)
+                    CampaignManagementExampleHelper: CampaignManagementExampleHelper,
+                    entityType: EntityType.AdGroup,
+                    entityIds: GetNonNullableIds(adGroupIds)
                 );
                 CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(getLabelAssociationsByEntityIds);
+                
+                OutputStatusMessage("-----\nDelete all label associations that we set above...");
 
-                OutputStatusMessage("\nGet all label associations for all specified keywords...");
-                getLabelAssociationsByEntityIds = await GetLabelAssociationsByEntityIdsHelperAsync(
-                    CampaignManagementExampleHelper,
-                    EntityType.Keyword,
-                    GetNonNullableIds(nullableKeywordIds)
-                );
-                CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(getLabelAssociationsByEntityIds);
+                // Deleting the associations is not necessary if you are deleting the corresponding campaign(s), as the 
+                // contained ad groups, ads, and associations would also be deleted.
 
-                OutputStatusMessage("\nGet all label associations for all specified ads...");
-                getLabelAssociationsByEntityIds = await GetLabelAssociationsByEntityIdsHelperAsync(
-                    CampaignManagementExampleHelper,
-                    EntityType.Ad,
-                    GetNonNullableIds(nullableAdIds)
-                );
-                CampaignManagementExampleHelper.OutputArrayOfLabelAssociation(getLabelAssociationsByEntityIds);
+                var deleteLabelAssociationsResponse = await CampaignManagementExampleHelper.DeleteLabelAssociationsAsync(
+                    entityType: EntityType.Campaign,
+                    labelAssociations: campaignLabelAssociations);
+                deleteLabelAssociationsResponse = await CampaignManagementExampleHelper.DeleteLabelAssociationsAsync(
+                    entityType: EntityType.AdGroup,
+                    labelAssociations: adGroupLabelAssociations);
+                
+                // Delete the account's labels. 
 
-                OutputStatusMessage("\nDelete all label associations that we set above....");
+                OutputStatusMessage("-----\nDeleteLabels:");
+                var deleteLabelsResponse = await CampaignManagementExampleHelper.DeleteLabelsAsync(
+                    labelIds: labelIds);
 
-                // This is not necessary if you are deleting the corresponding campaign(s), as the 
-                // contained ad groups, keywords, ads, and associations would also be deleted.
+                foreach (var id in labelIds)
+                {
+                    OutputStatusMessage(string.Format("Deleted Label Id {0}", id));
+                }
 
-                var deleteLabelAssociationsResponse = await CampaignManagementExampleHelper.DeleteLabelAssociationsAsync(EntityType.Campaign, campaignLabelAssociations);
-                deleteLabelAssociationsResponse = await CampaignManagementExampleHelper.DeleteLabelAssociationsAsync(EntityType.AdGroup, adGroupLabelAssociations);
-                deleteLabelAssociationsResponse = await CampaignManagementExampleHelper.DeleteLabelAssociationsAsync(EntityType.Keyword, keywordLabelAssociations);
-                deleteLabelAssociationsResponse = await CampaignManagementExampleHelper.DeleteLabelAssociationsAsync(EntityType.Ad, adLabelAssociations);
+                // Delete the campaign and everything it contains e.g., ad groups and ads.
 
-                OutputStatusMessage("\nDelete all labels that we added above....");
-
-                // Deleting the campaign(s) removes the corresponding label associations but not remove the labels.
-
-                var deleteLabelsResponse = await CampaignManagementExampleHelper.DeleteLabelsAsync(labelIds);
-
-                OutputStatusMessage("\nDelete the campaign, ad group, keyword, and ad that were added above....");
-
-                await CampaignManagementExampleHelper.DeleteCampaignsAsync(authorizationData.AccountId, new[] { (long)nullableCampaignIds[0] });
+                OutputStatusMessage("-----\nDeleteCampaigns:");
+                await CampaignManagementExampleHelper.DeleteCampaignsAsync(
+                    accountId: authorizationData.AccountId,
+                    campaignIds: new[] { (long)campaignIds[0] });
+                OutputStatusMessage(string.Format("Deleted Campaign Id {0}", campaignIds[0]));
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -337,9 +270,9 @@ namespace BingAdsExamplesLibrary.V12
                 while (!foundLastPage)
                 {
                     var getLabelAssociationsByLabelIds = await CampaignManagementExampleHelper.GetLabelAssociationsByLabelIdsAsync(
-                        entityType,
-                        getLabelIds,
-                        new Paging
+                        entityType: entityType,
+                        labelIds: getLabelIds,
+                        pageInfo: new Paging
                         {
                             Index = labelAssociationsPageIndex++,
                             Size = MaxPagingSize
@@ -369,8 +302,8 @@ namespace BingAdsExamplesLibrary.V12
                     entityIds.Skip(entityIdsPageIndex++ * MaxEntityIdsForGetLabelAssociations).Take(MaxEntityIdsForGetLabelAssociations).ToList();
 
                 var getLabelAssociationsByEntityIds = await CampaignManagementExampleHelper.GetLabelAssociationsByEntityIdsAsync(
-                    getEntityIds,
-                    entityType
+                    entityIds: getEntityIds,
+                    entityType: entityType
                 ).ConfigureAwait(continueOnCapturedContext: false);
 
                 labelAssociations.AddRange(getLabelAssociationsByEntityIds.LabelAssociations);

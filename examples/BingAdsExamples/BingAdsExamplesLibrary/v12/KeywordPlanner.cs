@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.BingAds.V12.AdInsight;
 using Microsoft.BingAds;
 
-
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to get keyword ideas and traffic estimates for search advertising campaigns.
+    /// How to get keyword ideas and traffic estimates for search advertising campaigns.
     /// </summary>
     public class KeywordPlanner : ExampleBase
     {
@@ -25,12 +24,19 @@ namespace BingAdsExamplesLibrary.V12
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
 
-                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(this.OutputStatusMessage);
-                AdInsightExampleHelper.AdInsightService = 
-                    new ServiceClient<IAdInsightService>(authorizationData, environment);
+                AdInsightExampleHelper AdInsightExampleHelper = new AdInsightExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                AdInsightExampleHelper.AdInsightService = new ServiceClient<IAdInsightService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
+                // Use the GetKeywordIdeaCategories operation to get a list of valid category identifiers.
+                // A category identifier will be used in the CategorySearchParameter below.
+
+                OutputStatusMessage("-----\nGetKeywordIdeaCategories:");
                 var getKeywordIdeaCategoriesResponse = await AdInsightExampleHelper.GetKeywordIdeaCategoriesAsync();
                 var categoryId = (long)(getKeywordIdeaCategoriesResponse?.KeywordIdeaCategories?.ToList()[0].CategoryId);
+                OutputStatusMessage(string.Format("CategoryId {0} will be used in the CategorySearchParameter below", categoryId));
 
                 // You must specify the attributes that you want in each returned KeywordIdea.
 
@@ -63,15 +69,15 @@ namespace BingAdsExamplesLibrary.V12
                     {
                         EndDate = new DayMonthAndYear
                         {
-                            Day = endDateTime.Day,
-                            Month = endDateTime.Month,
-                            Year = endDateTime.Year
+                            Day = 30,
+                            Month = 9,
+                            Year = 2018
                         },
                         StartDate = new DayMonthAndYear
                         {
-                            Day = endDateTime.Day,
-                            Month = endDateTime.Month + 1,
-                            Year = endDateTime.Year - 1
+                            Day = 1,
+                            Month = 9,
+                            Year = 2018
                         },
                     },
                     
@@ -104,6 +110,7 @@ namespace BingAdsExamplesLibrary.V12
                             "running",
                         },
                     },
+
                     // The UrlSearchParameter corresponds to filling in 'Your landing page' under
                     // 'Search for new keywords using a phrase, website, or category' in the 
                     // Bing Ads web application's Keyword Planner tool.
@@ -228,6 +235,7 @@ namespace BingAdsExamplesLibrary.V12
                     // workflow in the Bing Ads web application.
                     // The DeviceSearchParameter is optional and by default the keyword ideas data
                     // are aggregated for all devices.
+
                     new DeviceSearchParameter
                     {
                         Device = new DeviceCriterion
@@ -240,6 +248,7 @@ namespace BingAdsExamplesLibrary.V12
 
                 // If ExpandIdeas is false, the QuerySearchParameter is required.
 
+                OutputStatusMessage("-----\nGetKeywordIdeas:");
                 var getKeywordIdeasResponse = await AdInsightExampleHelper.GetKeywordIdeasAsync(
                     expandIdeas: true,
                     ideaAttributes: ideaAttributes,
@@ -248,10 +257,10 @@ namespace BingAdsExamplesLibrary.V12
                 var keywordIdeas = getKeywordIdeasResponse?.KeywordIdeas;
                 if(keywordIdeas == null || keywordIdeas.Count < 1)
                 {
-                    OutputStatusMessage("No keyword ideas are available for the specified search parameters.\n");
+                    OutputStatusMessage("No keyword ideas are available for the search parameters.");
                     return;
                 }
-
+                OutputStatusMessage("KeywordIdeas:");
                 AdInsightExampleHelper.OutputArrayOfKeywordIdea(keywordIdeas);
 
                 // Let's get traffic estimates for each returned keyword idea.
@@ -376,9 +385,10 @@ namespace BingAdsExamplesLibrary.V12
                     },
                 };
 
-                var getKeywordTrafficEstimatesResponse = 
-                    await AdInsightExampleHelper.GetKeywordTrafficEstimatesAsync(campaignEstimators: campaigns);
-
+                OutputStatusMessage("-----\nGetKeywordTrafficEstimates:");
+                var getKeywordTrafficEstimatesResponse = await AdInsightExampleHelper.GetKeywordTrafficEstimatesAsync(
+                    campaignEstimators: campaigns);
+                OutputStatusMessage("CampaignEstimates:");
                 AdInsightExampleHelper.OutputArrayOfCampaignEstimate(getKeywordTrafficEstimatesResponse?.CampaignEstimates);
             }
             // Catch authentication exceptions

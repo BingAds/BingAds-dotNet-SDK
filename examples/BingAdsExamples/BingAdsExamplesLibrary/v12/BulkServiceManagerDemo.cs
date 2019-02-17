@@ -6,21 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.BingAds;
 using Microsoft.BingAds.V12.Bulk;
 using Microsoft.BingAds.V12.Bulk.Entities;
-using Microsoft.BingAds.V12.CampaignManagement;
 using System.Threading;
 using System.Collections.Generic;
 
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates multiple ways to download entities such as keywords, 
-    /// using the BulkServiceManager class.
+    /// How to download entities such as campaigns and ads with the Bulk service.
     /// </summary>
     public class BulkServiceManagerDemo : BulkExampleBase
     {
         public override string Description
         {
-            get { return "Bulk Service Manager Upload and Download Demo | Bulk V12"; }
+            get { return "Bulk Service Manager Download Demo | Bulk V12"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -28,43 +26,29 @@ namespace BingAdsExamplesLibrary.V12
             try
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
-
-                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
+                
+                BulkServiceManager = new BulkServiceManager(
+                    authorizationData: authorizationData,
+                    apiEnvironment: environment);
                 BulkServiceManager.StatusPollIntervalInMilliseconds = 5000;
+
+                // Track download or upload progress
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
-                #region Upload
+                // Some BulkServiceManager operations can be cancelled after a time interval. 
 
-                // In this example we'll upload a new campaign and then delete it. 
-
-                var uploadEntities = new List<BulkEntity>();
-                uploadEntities.Add(GetExampleBulkCampaign());
-
-                OutputStatusMessage("Uploading a campaign with UploadEntitiesAsync . . .");
-                var resultEntities = await UploadEntitiesAsync(uploadEntities, progress);
-
-                uploadEntities = new List<BulkEntity>();
-                foreach(var campaignResult in resultEntities.OfType<BulkCampaign>().ToList())
-                {
-                    campaignResult.Campaign.Status = CampaignStatus.Deleted;
-                    uploadEntities.Add(campaignResult);
-                }
-
-                OutputStatusMessage("Deleting a campaign with UploadEntitiesAsync . . .");
-                resultEntities = await UploadEntitiesAsync(uploadEntities, progress);
+                var tokenSource = new CancellationTokenSource();
+                tokenSource.CancelAfter(TimeoutInMilliseconds);
                 
-                #endregion Upload
+                // Download all campaigns, ad groups, and ads in the account.
 
-                #region Download
-
-                // In this example we will download all campaigns, ad groups, and ads in the account.
                 var entities = new[] {
                     DownloadEntity.Campaigns,
                     DownloadEntity.AdGroups,
-                    DownloadEntity.Ads
+                    DownloadEntity.Ads,
                 };
 
                 // DownloadParameters is used for Option A below.
@@ -72,7 +56,6 @@ namespace BingAdsExamplesLibrary.V12
                 {
                     CampaignIds = null,
                     DataScope = DataScope.EntityData | DataScope.QualityScoreData,
-                    PerformanceStatsDateRange = new PerformanceStatsDateRange { PredefinedTime = ReportTimePeriod.LastFourWeeks },
                     DownloadEntities = entities,
                     FileType = FileType,
                     LastSyncTimeInUTC = null,
@@ -86,7 +69,6 @@ namespace BingAdsExamplesLibrary.V12
                 {
                     CampaignIds = null,
                     DataScope = DataScope.EntityData | DataScope.QualityScoreData,
-                    PerformanceStatsDateRange = new PerformanceStatsDateRange { PredefinedTime = ReportTimePeriod.LastFourWeeks },
                     DownloadEntities = entities,
                     FileType = FileType,
                     LastSyncTimeInUTC = null
@@ -97,22 +79,40 @@ namespace BingAdsExamplesLibrary.V12
                 // return results. The BulkServiceManager abstracts the details of checking for result file 
                 // completion, and you don't have to write any code for results polling.
 
-                OutputStatusMessage("Awaiting Background Completion with DownloadFileAsync . . .");
-                await BackgroundCompletionAsync(downloadParameters, progress);
+                OutputStatusMessage("-----\nAwaiting Background Completion with DownloadFileAsync...");
+                await BackgroundCompletionAsync(
+                    downloadParameters: downloadParameters,
+                    progress: progress,
+                    cancellationToken: tokenSource.Token);
 
                 // Alternatively we can use DownloadEntitiesAsync if we want to work with the entities in memory.
                 // If you enable this option the result file from BackgroundCompletionAsync will also be deleted
                 // if written to the same working directory.
-                OutputStatusMessage("Awaiting Background Completion with DownloadEntitiesAsync . . .");
-                var downloadEntities = await DownloadEntitiesAsync(downloadParameters, progress);
+                OutputStatusMessage("-----\nAwaiting Background Completion with DownloadEntitiesAsync...");
+                var downloadEntities = await DownloadEntitiesAsync(
+                    downloadParameters: downloadParameters,
+                    progress: progress,
+                    cancellationToken: tokenSource.Token);
 
                 // Option B - Submit and Download with BulkServiceManager
                 // Submit the download request and then use the BulkDownloadOperation result to 
                 // track status until the download is complete e.g. either using
                 // TrackAsync or GetStatusAsync.
 
-                //OutputStatusMessage("Awaiting Submit and Download . . .");
-                //await SubmitAndDownloadAsync(submitDownloadParameters);
+                OutputStatusMessage("-----\nAwaiting Submit, Track, and Download...");
+                await SubmitTrackDownloadAsync(
+                    submitDownloadParameters: submitDownloadParameters,
+                    progress: progress,
+                    cancellationToken: tokenSource.Token);
+
+                // A second variation of Option B. 
+                // See SubmitTrackDownloadAsync for details. 
+
+                OutputStatusMessage("-----\nAwaiting Submit, Poll, and Download...");
+                await SubmitTrackDownloadAsync(
+                    submitDownloadParameters: submitDownloadParameters,
+                    progress: progress,
+                    cancellationToken: tokenSource.Token);
 
                 // Option C - Download Results with BulkServiceManager
                 // If for any reason you have to resume from a previous application state, 
@@ -120,16 +120,21 @@ namespace BingAdsExamplesLibrary.V12
                 // to download the result file. 
 
                 // For example you might have previously retrieved a request ID using SubmitDownloadAsync.
-                //var bulkDownloadOperation = await BulkService.SubmitDownloadAsync(submitDownloadParameters);
-                //var requestId = bulkDownloadOperation.RequestId;
+
+                var bulkDownloadOperation = await BulkServiceManager.SubmitDownloadAsync(
+                    parameters: submitDownloadParameters);
+                var requestId = bulkDownloadOperation.RequestId;
 
                 // Given the request ID above, you can resume the workflow and download the bulk file.
                 // The download request identifier is valid for two days. 
                 // If you do not download the bulk file within two days, you must request it again.
-                //OutputStatusMessage("Awaiting Download Results . . .");
-                //await DownloadResultsAsync(requestId, authorizationData);
 
-                #endregion Download
+                OutputStatusMessage("-----\nAwaiting Download Results...");
+                await DownloadResultsAsync(
+                    requestId: requestId,
+                    authorizationData: authorizationData,
+                    progress: progress,
+                    cancellationToken: tokenSource.Token);
             }
             // Catch authentication exceptions
             catch (OAuthTokenRequestException ex)
@@ -172,7 +177,8 @@ namespace BingAdsExamplesLibrary.V12
         /// <returns></returns>
         protected async Task<List<BulkEntity>> UploadEntitiesAsync(
             IEnumerable<BulkEntity> uploadEntities,
-            Progress<BulkOperationProgressInfo> progress)
+            Progress<BulkOperationProgressInfo> progress,
+            CancellationToken cancellationToken)
         {
             // The system temp directory will be used if another working directory is not specified. If you are 
             // using a cloud service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
@@ -192,12 +198,15 @@ namespace BingAdsExamplesLibrary.V12
             // The UploadEntitiesAsync method returns IEnumerable<BulkEntity>, so the result file will not
             // be accessible e.g. for CleanupTempFiles until you iterate over the result e.g. via ToList().
 
-            var resultEntities = (await BulkServiceManager.UploadEntitiesAsync(entityUploadParameters)).ToList();
+            var resultEntities = (await BulkServiceManager.UploadEntitiesAsync(
+                parameters: entityUploadParameters,
+                progress: progress,
+                cancellationToken: cancellationToken)).ToList();
 
             // The CleanupTempFiles method removes all files (not sub-directories) within the working directory, 
             // whether or not the files were created by this BulkServiceManager instance. 
 
-            BulkServiceManager.CleanupTempFiles();
+            //BulkServiceManager.CleanupTempFiles();
 
             return resultEntities;
         }
@@ -209,7 +218,8 @@ namespace BingAdsExamplesLibrary.V12
         /// <returns></returns>
         protected async Task<List<BulkEntity>> DownloadEntitiesAsync(
             DownloadParameters downloadParameters,
-            Progress<BulkOperationProgressInfo> progress)
+            Progress<BulkOperationProgressInfo> progress,
+            CancellationToken cancellationToken)
         {
             // The system temp directory will be used if another working directory is not specified. If you are 
             // using a cloud service such as Azure you'll want to ensure you do not exceed the file or directory limits. 
@@ -220,12 +230,15 @@ namespace BingAdsExamplesLibrary.V12
             // The DownloadEntitiesAsync method returns IEnumerable<BulkEntity>, so the download file will not
             // be accessible e.g. for CleanupTempFiles until you iterate over the result e.g. via ToList().
 
-            var resultEntities = (await BulkServiceManager.DownloadEntitiesAsync(downloadParameters)).ToList();
+            var resultEntities = (await BulkServiceManager.DownloadEntitiesAsync(
+                parameters: downloadParameters,
+                progress: progress,
+                cancellationToken: cancellationToken)).ToList();
 
             // The CleanupTempFiles method removes all files (not sub-directories) within the working directory, 
             // whether or not the files were created by this BulkServiceManager instance. 
 
-            BulkServiceManager.CleanupTempFiles();
+            //BulkServiceManager.CleanupTempFiles();
 
             return resultEntities;
         }
@@ -240,59 +253,77 @@ namespace BingAdsExamplesLibrary.V12
         /// <returns></returns>
         private async Task BackgroundCompletionAsync(
             DownloadParameters downloadParameters, 
-            Progress<BulkOperationProgressInfo> progress)
+            Progress<BulkOperationProgressInfo> progress,
+            CancellationToken cancellationToken)
         {
-            // You may optionally cancel the DownloadFileAsync operation after a specified time interval. 
-            var tokenSource = new CancellationTokenSource();
-            tokenSource.CancelAfter(TimeoutInMilliseconds);
-
-            var resultFilePath = await BulkServiceManager.DownloadFileAsync(downloadParameters, progress, tokenSource.Token);
-            OutputStatusMessage(string.Format("Download result file: {0}\n", resultFilePath));
+            var resultFilePath = await BulkServiceManager.DownloadFileAsync(
+                parameters: downloadParameters, 
+                progress: progress, 
+                cancellationToken: cancellationToken);
+            OutputStatusMessage(string.Format("Download result file: {0}", resultFilePath));
         }
 
         /// <summary>
         /// Submit the download request and then use the BulkDownloadOperation result to 
-        /// track status until the download is complete e.g. either using
-        /// TrackAsync or GetStatusAsync.
+        /// track status until the download is complete using TrackAsync.
         /// </summary>
         /// <param name="submitDownloadParameters"></param>
         /// <returns></returns>
-        private async Task SubmitAndDownloadAsync(SubmitDownloadParameters submitDownloadParameters)
+        private async Task SubmitTrackDownloadAsync(
+            SubmitDownloadParameters submitDownloadParameters,
+            Progress<BulkOperationProgressInfo> progress,
+            CancellationToken cancellationToken)
         {
             var bulkDownloadOperation = await BulkServiceManager.SubmitDownloadAsync(submitDownloadParameters);
-
-            // You may optionally cancel the TrackAsync operation after a specified time interval. 
-            var tokenSource = new CancellationTokenSource();
-            tokenSource.CancelAfter(TimeoutInMilliseconds);
-
-            BulkOperationStatus<DownloadStatus> downloadStatus = await bulkDownloadOperation.TrackAsync(null, tokenSource.Token);
-
-            // You can use TrackAsync to poll until complete as shown above, 
-            // or use custom polling logic with GetStatusAsync as shown below.
-
-            //BulkOperationStatus<DownloadStatus> downloadStatus;
-            //var waitTime = new TimeSpan(0, 0, 5);
-
-            //for (int i = 0; i < 24; i++)
-            //{
-            //    Thread.Sleep(waitTime);
-
-            //    downloadStatus = await bulkDownloadOperation.GetStatusAsync();
-
-            //    if (downloadStatus.Status == DownloadStatus.Completed)
-            //    {
-            //        break;
-            //    }
-            //}
-
+            
+            BulkOperationStatus<DownloadStatus> downloadStatus = await bulkDownloadOperation.TrackAsync(
+                progress: progress,
+                cancellationToken: cancellationToken);
+            
             var resultFilePath = await bulkDownloadOperation.DownloadResultFileAsync(
-                FileDirectory,
-                ResultFileName,
+                localResultDirectoryName: FileDirectory,
+                localResultFileName: ResultFileName,
                 decompress: true,
                 overwrite: true // Set this value true if you want to overwrite the same file.
             );   
 
-            OutputStatusMessage(string.Format("Download result file: {0}\n", resultFilePath));
+            OutputStatusMessage(string.Format("Download result file: {0}", resultFilePath));
+        }
+
+        /// <summary>
+        /// Submit the download request and then use the BulkDownloadOperation result to 
+        /// track status until the download is complete using GetStatusAsync.
+        /// </summary>
+        /// <param name="submitDownloadParameters"></param>
+        /// <returns></returns>
+        private async Task SubmitPollDownloadAsync(
+            SubmitDownloadParameters submitDownloadParameters)
+        {
+            var bulkDownloadOperation = await BulkServiceManager.SubmitDownloadAsync(submitDownloadParameters);
+            
+            BulkOperationStatus<DownloadStatus> downloadStatus;
+            var waitTime = new TimeSpan(0, 0, 5);
+
+            for (int i = 0; i < 24; i++)
+            {
+                Thread.Sleep(waitTime);
+
+                downloadStatus = await bulkDownloadOperation.GetStatusAsync();
+
+                if (downloadStatus.Status == DownloadStatus.Completed)
+                {
+                    break;
+                }
+            }
+
+            var resultFilePath = await bulkDownloadOperation.DownloadResultFileAsync(
+                localResultDirectoryName: FileDirectory,
+                localResultFileName: ResultFileName,
+                decompress: true,
+                overwrite: true // Set this value true if you want to overwrite the same file.
+            );
+
+            OutputStatusMessage(string.Format("Download result file: {0}", resultFilePath));
         }
 
         /// <summary>
@@ -306,27 +337,27 @@ namespace BingAdsExamplesLibrary.V12
         /// <returns></returns>
         private async Task DownloadResultsAsync(
             string requestId,
-            AuthorizationData authorizationData)
+            AuthorizationData authorizationData,
+            Progress<BulkOperationProgressInfo> progress,
+            CancellationToken cancellationToken)
         {
-            // You may optionally cancel the TrackAsync operation after a specified time interval. 
-            var tokenSource = new CancellationTokenSource();
-            tokenSource.CancelAfter(TimeoutInMilliseconds);
-
             var bulkDownloadOperation = new BulkDownloadOperation(requestId, authorizationData);
 
             // Use TrackAsync to indicate that the application should wait to ensure that 
             // the download status is completed.
-            var bulkOperationStatus = await bulkDownloadOperation.TrackAsync(null, tokenSource.Token);
+            var bulkOperationStatus = await bulkDownloadOperation.TrackAsync(
+                progress: progress,
+                cancellationToken: cancellationToken);
 
             var resultFilePath = await bulkDownloadOperation.DownloadResultFileAsync(
-                FileDirectory,
-                ResultFileName,
+                localResultDirectoryName: FileDirectory,
+                localResultFileName: ResultFileName,
                 decompress: true,
                 overwrite: true);   // Set this value true if you want to overwrite the same file.
 
             OutputStatusMessage(string.Format("Download result file: {0}", resultFilePath));
             OutputStatusMessage(string.Format("Status: {0}", bulkOperationStatus.Status));
-            OutputStatusMessage(string.Format("TrackingId: {0}\n", bulkOperationStatus.TrackingId));
+            OutputStatusMessage(string.Format("TrackingId: {0}", bulkOperationStatus.TrackingId));
         }
     }
 }

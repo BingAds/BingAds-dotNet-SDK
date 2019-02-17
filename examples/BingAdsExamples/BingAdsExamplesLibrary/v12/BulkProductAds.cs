@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
 using Microsoft.BingAds.V12.Bulk;
@@ -12,10 +13,9 @@ using Microsoft.BingAds.V12.CampaignManagement;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// This example demonstrates how to apply product conditions for Bing Shopping Campaigns
-    /// using the BulkServiceManager class.
+    /// How to apply product conditions for Bing Shopping Campaigns with the Bulk service.
     /// </summary>
-    public class BulkShoppingCampaigns : BulkExampleBase
+    public class BulkProductAds : BulkExampleBase
     {
         public override string Description
         {
@@ -27,85 +27,64 @@ namespace BingAdsExamplesLibrary.V12
             try
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
+                
+                // The Bing Merchant Center Store Id cannot be retrieved via the Bulk service, 
+                // so we'll use the Campaign Management service i.e., the GetBMCStoresByCustomerId service operation below.
 
-                // You will need to use the Campaign Management service to get the Bing Merchant Center Store Id. 
-                // This will be used when creating a new Bing Shopping Campaign.
-                // For other operations such as adding product conditions, 
-                // you can manage Bing Shopping Campaigns solely with the Bulk Service. 
+                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(
+                    OutputStatusMessageDefault: this.OutputStatusMessage);
+                CampaignManagementExampleHelper.CampaignManagementService = new ServiceClient<ICampaignManagementService>(
+                    authorizationData: authorizationData,
+                    environment: environment);
 
-                CampaignManagementExampleHelper = new CampaignManagementExampleHelper(this.OutputStatusMessage);
-                CampaignManagementExampleHelper.CampaignManagementService = 
-                    new ServiceClient<ICampaignManagementService>(authorizationData, environment);
-
-                BulkServiceManager = new BulkServiceManager(authorizationData, environment);
+                BulkServiceManager = new BulkServiceManager(
+                    authorizationData: authorizationData,
+                    apiEnvironment: environment);
 
                 var progress = new Progress<BulkOperationProgressInfo>(x =>
                     OutputStatusMessage(string.Format("{0} % Complete",
                         x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
 
-                #region CampaignThroughAdGroupSetup
-                
-                // Get a list of all Bing Merchant Center stores associated with your CustomerId
+                // Get a list of all Bing Merchant Center stores associated with your CustomerId.
 
+                OutputStatusMessage("-----\nGetBMCStoresByCustomerId:");
                 IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
                 if (stores == null)
                 {
                     OutputStatusMessage(
-                        string.Format("You do not have any BMC stores registered for CustomerId {0}.\n", authorizationData.CustomerId)
+                        string.Format("You do not have any BMC stores registered for CustomerId {0}.", authorizationData.CustomerId)
                     );
                     return;
                 }                
 
                 var uploadEntities = new List<BulkEntity>();
 
-                /* Add a new Bing Shopping campaign that will be associated with a ProductScope criterion.
-                 *  - Set the CampaignType element of the Campaign to Shopping.
-                 *  - Create a ShoppingSetting instance and set its Priority (0, 1, or 2), SalesCountryCode, and StoreId elements. 
-                 *    Add this shopping setting to the Settings list of the Campaign.
-                 */
+                // Create a Shopping campaign with product conditions.
 
                 var bulkCampaign = new BulkCampaign
                 {
-                    // ClientId may be used to associate records in the bulk upload file with records in the results file. The value of this field 
-                    // is not used or stored by the server; it is simply copied from the uploaded record to the corresponding result record.
-                    // Note: This bulk file Client Id is not related to an application Client Id for OAuth. 
-                    ClientId = "YourClientIdGoesHere",
                     Campaign = new Campaign
                     {
-                        // When using the Campaign Management service, the Id cannot be set. In the context of a BulkCampaign, the Id is optional 
-                        // and may be used as a negative reference key during bulk upload. For example the same negative value set for the campaign Id 
-                        // will be used when associating this new campaign with a new campaign product scope in the BulkCampaignProductScope object below. 
                         Id = campaignIdKey,
                         CampaignType = CampaignType.Shopping,
-                        Settings = new[] { 
+                        Languages = new string[] { "All" },
+                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        DailyBudget = 50,
+                        BudgetType = BudgetLimitType.DailyBudgetStandard,
+                        Settings = new[] {
                             new ShoppingSetting() {
                                 Priority = 0,
                                 SalesCountryCode = "US",
                                 StoreId = (int)stores[0].Id
                             }
                         },
-                        Name = "Bing Shopping Campaign " + DateTime.UtcNow,
-                        Description = "Bing Shopping Campaign Example.",
-
-                        // You must choose to set either the shared  budget ID or daily amount.
-                        // You can set one or the other, but you may not set both.
-                        BudgetId = null,
-                        DailyBudget = 50,
-                        BudgetType = BudgetLimitType.DailyBudgetStandard,
-
                         TimeZone = "PacificTimeUSCanadaTijuana",
-
-                        // Used with CustomParameters defined in lower level entities such as ad group criterion.
-                        TrackingUrlTemplate =
-                            "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}"
                     }
                 };
+                uploadEntities.Add(bulkCampaign);
 
-                /* Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
-                 * Use the product scope criterion to include a subset of your product catalog, for example a specific brand, 
-                 * category, or product type. A campaign can only be associated with one ProductScope, which contains a list 
-                 * of up to 7 ProductCondition. You'll also be able to specify more specific product conditions for each ad group.
-                 */
+                // Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
+                // You'll also be able to add more specific product conditions for each ad group.
 
                 var bulkCampaignProductScope = new BulkCampaignProductScope
                 {
@@ -126,11 +105,12 @@ namespace BingAdsExamplesLibrary.V12
                                 },
                             }
                         },
+                        Status = CampaignCriterionStatus.Active
                     },
-                    Status = Status.Active,
                 };
+                uploadEntities.Add(bulkCampaignProductScope);
 
-                // Specify one or more ad groups.
+                // Create the ad group that will have the product partitions.
 
                 var bulkAdGroup = new BulkAdGroup
                 {
@@ -138,7 +118,7 @@ namespace BingAdsExamplesLibrary.V12
                     AdGroup = new AdGroup
                     {
                         Id = adGroupIdKey,
-                        Name = "Product Categories",
+                        Name = "Women's Red Shoe Sale",
                         StartDate = null,
                         EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
                         {
@@ -146,34 +126,32 @@ namespace BingAdsExamplesLibrary.V12
                             Day = 31,
                             Year = DateTime.UtcNow.Year + 1
                         },
-                        Language = "English",
-                        Status = AdGroupStatus.Active
+                        CpcBid = new Bid { Amount = 0.09 },
                     },
                 };
+                uploadEntities.Add(bulkAdGroup);
 
-                /*
-                * Create a product ad. You must add at least one product ad to the ad group. 
-                * The product ad identifier can be used for reporting analytics.
-                * Use Merchant Promotions if you want tags to appear at the bottom of your product ad 
-                * as "special offer" links, helping to increase customer engagement. For details
-                * on Merchant Promotions see https://help.bingads.microsoft.com/#apex/3/en/56805/0.
-                */
+                // Create a product ad. You must add at least one product ad to the ad group. 
+                // The product ad identifier can be used for reporting analytics.
+                // Use Merchant Promotions if you want tags to appear at the bottom of your product ad 
+                // as "special offer" links, helping to increase customer engagement. For details
+                // on Merchant Promotions see https://help.bingads.microsoft.com/#apex/3/en/56805/0.
 
                 var bulkProductAd = new BulkProductAd
                 {
                     AdGroupId = adGroupIdKey,
                     ProductAd = new ProductAd {}
                 };
-
-                uploadEntities.Add(bulkCampaign);
-                uploadEntities.Add(bulkAdGroup);
-                uploadEntities.Add(bulkCampaignProductScope);
                 uploadEntities.Add(bulkProductAd);
 
                 // Upload and write the output
 
+                OutputStatusMessage("-----\nAdding the campaign, product scope, ad group, and ad...");
+                
                 var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
+
+                OutputStatusMessage("Upload results:");
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
@@ -181,17 +159,15 @@ namespace BingAdsExamplesLibrary.V12
                 var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
                 OutputBulkAdGroups(adGroupResults);
 
-                var productAdResults = downloadEntities.OfType<BulkProductAd>().ToList();
-                OutputBulkProductAds(productAdResults);
-
                 var campaignProductScopeResults = downloadEntities.OfType<BulkCampaignProductScope>().ToList();
                 OutputBulkCampaignProductScopes(campaignProductScopeResults);
 
+                var productAdResults = downloadEntities.OfType<BulkProductAd>().ToList();
+                OutputBulkProductAds(productAdResults);
+                                
                 Reader.Dispose();
-
-                #endregion CampaignThroughAdGroupSetup
-
-                #region BidAllProducts
+                
+                // Bid all products
 
                 var adGroupId = (long)adGroupResults[0].AdGroup.Id;
 
@@ -205,18 +181,16 @@ namespace BingAdsExamplesLibrary.V12
                     "root"
                 );
 
-                OutputStatusMessage("Applying only the root as a Unit with a bid . . . \n");
+                OutputStatusMessage("-----\nApplying only the root as a Unit with a bid...");
                 var applyBulkProductPartitionActionsResults =
                     await ApplyBulkProductPartitionActions(helper.PartitionActions);
 
                 var productPartitions = await GetBulkAdGroupProductPartitionTree(adGroupId);
 
-                OutputStatusMessage("The ad group's product partition only has a tree root node: \n");
+                OutputStatusMessage("The ad group's product partition only has a tree root node:");
                 OutputProductPartitions(productPartitions);
 
-                /*
-                 * Let's update the bid of the root Unit we just added.
-                 */
+                // Let's update the bid of the root Unit we just added.
 
                 var updatedRoot = GetNodeByClientId(applyBulkProductPartitionActionsResults, "root");
                 var bid = new FixedBid
@@ -228,32 +202,21 @@ namespace BingAdsExamplesLibrary.V12
                 helper = new ProductPartitionHelper(adGroupId);
                 helper.UpdatePartition(updatedRoot);
 
-                OutputStatusMessage("Updating the bid for the tree root node . . . \n");
+                OutputStatusMessage("Updating the bid for the tree root node...");
                 await ApplyBulkProductPartitionActions(helper.PartitionActions);
 
                 productPartitions = await GetBulkAdGroupProductPartitionTree(adGroupId);
 
-                OutputStatusMessage("Updated the bid for the tree root node: \n");
+                OutputStatusMessage("Updated the bid for the tree root node:");
                 OutputProductPartitions(productPartitions);
 
-                #endregion BidAllProducts
-
-                #region InitializeTree
-
-                /*
-                 * Now we will overwrite any existing tree root, and build a product partition group tree structure in multiple steps. 
-                 * You could build the entire tree in a single call since there are less than 20,000 nodes; however, 
-                 * we will build it in steps to demonstrate how to use the results from bulk upload to update the tree. 
-                 * 
-                 * For a list of validation rules, see the Product Ads technical guide:
-                 * https://docs.microsoft.com/en-us/bingads/guides/product-ads
-                 */
+                // Initialize and overwrite any existing tree root, and build a product partition group tree structure in multiple steps. 
+                // You could build the entire tree in a single call since there are less than 20,000 nodes; however, 
+                // we will build it in steps to demonstrate how to use the results from bulk upload to update the tree. 
 
                 helper = new ProductPartitionHelper(adGroupId);
 
-                /*
-                 * Check whether a root node exists already.
-                 */
+                // Check whether a root node exists already.
 
                 var existingRoot = GetNodeByClientId(applyBulkProductPartitionActionsResults, "root");
                 if (existingRoot != null)
@@ -268,23 +231,21 @@ namespace BingAdsExamplesLibrary.V12
                     "root"
                 );
 
-                /*
-                 * The direct children of any node must have the same Operand. 
-                 * For this example we will use CategoryL1 nodes as children of the root. 
-                 * For a list of valid CategoryL1 through CategoryL5 values, see the Bing Category Taxonomy:
-                 * http://go.microsoft.com/fwlink?LinkId=507666
-                 */
+                // The direct children of any node must have the same Operand. 
+                // For this example we will use CategoryL1 nodes as children of the root. 
+                // For a list of valid CategoryL1 through CategoryL5 values, see the Bing Category Taxonomy:
+                // http://go.microsoft.com/fwlink?LinkId=507666
+
                 var animalsSubdivision = helper.AddSubdivision(
                     root,
                     new ProductCondition { Operand = "CategoryL1", Attribute = "Animals & Pet Supplies" },
                     "animalsSubdivision"
                 );
 
-                /*
-                 * If you use a CategoryL2 node, it must be a descendant (child or later) of a CategoryL1 node. 
-                 * In other words you cannot have a CategoryL2 node as parent of a CategoryL1 node. 
-                 * For this example we will a CategoryL2 node as child of the CategoryL1 Animals & Pet Supplies node. 
-                 */
+                // If you use a CategoryL2 node, it must be a descendant (child or later) of a CategoryL1 node. 
+                // In other words you cannot have a CategoryL2 node as parent of a CategoryL1 node. 
+                // For this example we will a CategoryL2 node as child of the CategoryL1 Animals & Pet Supplies node. 
+
                 var petSuppliesSubdivision = helper.AddSubdivision(
                     animalsSubdivision,
                     new ProductCondition { Operand = "CategoryL2", Attribute = "Pet Supplies" },
@@ -299,10 +260,9 @@ namespace BingAdsExamplesLibrary.V12
                     "brandA"
                 );
 
-                /*
-                 * If you won't bid on Brand B, set the helper method's bidAmount to '0' and isNegative to true. 
-                 * The helper method will create a NegativeAdGroupCriterion and apply the condition.
-                 */
+                // If you won't bid on Brand B, set the helper method's bidAmount to '0' and isNegative to true. 
+                // The helper method will create a NegativeAdGroupCriterion and apply the condition.
+
                 var brandB = helper.AddUnit(
                     petSuppliesSubdivision,
                     new ProductCondition { Operand = "Brand", Attribute = "Brand B" },
@@ -343,62 +303,51 @@ namespace BingAdsExamplesLibrary.V12
                     "otherCategoryL1"
                 );
 
-                OutputStatusMessage("Applying product partitions to the ad group . . . \n");
+                OutputStatusMessage("-----\nApplying product partitions to the ad group...");
                 applyBulkProductPartitionActionsResults =
                     await ApplyBulkProductPartitionActions(helper.PartitionActions);
 
                 productPartitions = await GetBulkAdGroupProductPartitionTree(adGroupId);
 
-                /*
-                 * The product partition group tree now has 9 nodes. 
-                 
-                   All other (Root Node)
-                    |
-                    +-- Animals & Pet Supplies (CategoryL1)
-                    |    |
-                    |    +-- Pet Supplies (CategoryL2)
-                    |    |    |
-                    |    |    +-- Brand A
-                    |    |    |    
-                    |    |    +-- Brand B
-                    |    |    |    
-                    |    |    +-- All other (Brand)
-                    |    |         
-                    |    +-- All other (CategoryL2)
-                    |        
-                    +-- Electronics (CategoryL1)
-                    |   
-                    +-- All other (CategoryL1)
+                // The product partition group tree now has 9 nodes. 
 
-                 */
+                //All other (Root Node)
+                // |
+                // +-- Animals & Pet Supplies (CategoryL1)
+                // |    |
+                // |    +-- Pet Supplies (CategoryL2)
+                // |    |    |
+                // |    |    +-- Brand A
+                // |    |    |    
+                // |    |    +-- Brand B
+                // |    |    |    
+                // |    |    +-- All other (Brand)
+                // |    |         
+                // |    +-- All other (CategoryL2)
+                // |        
+                // +-- Electronics (CategoryL1)
+                // |   
+                // +-- All other (CategoryL1)
 
-                OutputStatusMessage("The product partition group tree now has 9 nodes: \n");
+                OutputStatusMessage("The product partition group tree now has 9 nodes:");
                 OutputProductPartitions(productPartitions);
 
-                #endregion InitializeTree
+                // Let's replace the Electronics (CategoryL1) node created above with an Electronics (CategoryL1) node that 
+                // has children i.e. Brand C (Brand), Brand D (Brand), and All other (Brand) as follows: 
 
-                #region UpdateTree
-
-                /*
-                 * Let's replace the Electronics (CategoryL1) node created above with an Electronics (CategoryL1) node that 
-                 * has children i.e. Brand C (Brand), Brand D (Brand), and All other (Brand) as follows: 
-                 
-                    Electronics (CategoryL1)
-                    |
-                    +-- Brand C (Brand)
-                    |
-                    +-- Brand D (Brand)
-                    |
-                    +-- All other (Brand)
-           
-                 */
+                //Electronics (CategoryL1)
+                //|
+                //+-- Brand C (Brand)
+                //|
+                //+-- Brand D (Brand)
+                //|
+                //+-- All other (Brand)
 
                 helper = new ProductPartitionHelper(adGroupId);
 
-                /*
-                 * To replace a node we must know its Id and its ParentCriterionId. In this case the parent of the node 
-                 * we are replacing is All other (Root Node). The node that we are replacing is Electronics (CategoryL1). 
-                 */
+                // To replace a node we must know its Id and its ParentCriterionId. In this case the parent of the node 
+                // we are replacing is All other (Root Node). The node that we are replacing is Electronics (CategoryL1). 
+
                 var rootId = GetNodeByClientId(applyBulkProductPartitionActionsResults, "root").AdGroupCriterion.Id;
                 electronics.AdGroupCriterion.Id = GetNodeByClientId(applyBulkProductPartitionActionsResults, "electronics").AdGroupCriterion.Id;
                 helper.DeletePartition(electronics);
@@ -446,52 +395,38 @@ namespace BingAdsExamplesLibrary.V12
 
                 productPartitions = await GetBulkAdGroupProductPartitionTree(adGroupId);
 
-                /*
-                 * The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1):
-                 
-                   All other (Root Node)
-                    |
-                    +-- Animals & Pet Supplies (CategoryL1)
-                    |    |
-                    |    +-- Pet Supplies (CategoryL2)
-                    |    |    |
-                    |    |    +-- Brand A
-                    |    |    |    
-                    |    |    +-- Brand B
-                    |    |    |    
-                    |    |    +-- All other (Brand)
-                    |    |         
-                    |    +-- All other (CategoryL2)
-                    |        
-                    +-- Electronics (CategoryL1)
-                    |    |
-                    |    +-- Brand C (Brand)
-                    |    |
-                    |    +-- Brand D (Brand)
-                    |    |
-                    |    +-- All other (Brand)
-                    |   
-                    +-- All other (CategoryL1)
-                 
-                 */
+                // The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1):
+
+                //All other (Root Node)
+                // |
+                // +-- Animals & Pet Supplies (CategoryL1)
+                // |    |
+                // |    +-- Pet Supplies (CategoryL2)
+                // |    |    |
+                // |    |    +-- Brand A
+                // |    |    |    
+                // |    |    +-- Brand B
+                // |    |    |    
+                // |    |    +-- All other (Brand)
+                // |    |         
+                // |    +-- All other (CategoryL2)
+                // |        
+                // +-- Electronics (CategoryL1)
+                // |    |
+                // |    +-- Brand C (Brand)
+                // |    |
+                // |    +-- Brand D (Brand)
+                // |    |
+                // |    +-- All other (Brand)
+                // |   
+                // +-- All other (CategoryL1)
 
                 OutputStatusMessage(
                     "The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1): \n"
                 );
                 OutputProductPartitions(productPartitions);
 
-                #endregion UpdateTree
-
-                #region CleanUp
-
-                //Delete the campaign, ad group, criterion, and ad that were previously added. 
-                //You should remove this region if you want to view the added entities in the 
-                //Bing Ads web application or another tool.
-
-                //You must set the Id field to the corresponding entity identifier, and the Status field to Deleted.
-
-                //When you delete a BulkCampaign, the dependent entities such as BulkAdGroup and BulkAdGroupProductPartition 
-                //are deleted without being specified explicitly.  
+                // Delete the campaign and everything it contains e.g., ad groups and ads.
 
                 uploadEntities = new List<BulkEntity>();
 
@@ -503,17 +438,17 @@ namespace BingAdsExamplesLibrary.V12
 
                 // Upload and write the output
 
-                OutputStatusMessage(
-                    "Deleting the campaign, product conditions, ad group, product partitions, and product ad... \n"
-                );
+                OutputStatusMessage("-----\nDeleting the campaign and everything it contains e.g., ad groups and ads...");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
-                OutputBulkCampaigns(downloadEntities.OfType<BulkCampaign>().ToList());
+
+                OutputStatusMessage("Upload results:");
+
+                campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                OutputBulkCampaigns(campaignResults);
 
                 Reader.Dispose();
-
-                #endregion Cleanup
             }
             // Catch Microsoft Account authorization exceptions.
             catch (OAuthTokenRequestException ex)
@@ -584,22 +519,37 @@ namespace BingAdsExamplesLibrary.V12
                 ResponseMode = ResponseMode.ErrorsAndResults
             };
 
-            Writer = new BulkFileWriter(FileDirectory + UploadFileName);
+            var progress = new Progress<BulkOperationProgressInfo>(x =>
+                    OutputStatusMessage(string.Format("{0} % Complete",
+                        x.PercentComplete.ToString(CultureInfo.InvariantCulture))));
+
+            var tokenSource = new CancellationTokenSource();
+            tokenSource.CancelAfter(TimeoutInMilliseconds);
+
+            Writer = new BulkFileWriter(
+                filePath: FileDirectory + UploadFileName);
+
             foreach (var partitionAction in partitionActions)
             {
                 Writer.WriteEntity(partitionAction);
             }
             Writer.Dispose();
 
-            var bulkFilePath =
-                await BulkServiceManager.UploadFileAsync(fileUploadParameters);
-            Reader = new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
+            var bulkFilePath = await BulkServiceManager.UploadFileAsync(
+                parameters: fileUploadParameters,
+                progress: progress,
+                cancellationToken: tokenSource.Token);
+
+            Reader = new BulkFileReader(
+                filePath: bulkFilePath, 
+                resultFileType: ResultFileType.Upload, 
+                fileFormat: FileType);
+
+            OutputStatusMessage("Upload results:");
 
             var downloadEntities = Reader.ReadEntities().ToList();
             var bulkAdGroupProductPartitionResults = downloadEntities.OfType<BulkAdGroupProductPartition>().ToList();
-
-            // Add this output line if you want to view details of each BulkAdGroupProductPartition. 
-            //OutputBulkAdGroupProductPartitions(bulkAdGroupProductPartitionResults);
+            OutputBulkAdGroupProductPartitions(bulkAdGroupProductPartitionResults);
 
             Reader.Dispose();
 
@@ -778,34 +728,6 @@ namespace BingAdsExamplesLibrary.V12
                         {
                             Amount = bidAmount
                         },
-
-                        // This destination URL is used if specified; otherwise, the destination URL is determined 
-                        // by the corresponding value of the 'Link' that you specified for the product offer 
-                        // in your Bing Merchant Center catalog.
-                        DestinationUrl = null,
-
-                        // You could use a tracking template which would override the campaign level
-                        // tracking template. Tracking templates defined for lower level entities 
-                        // override those set for higher level entities.
-                        // In this example we are using the campaign level tracking template.
-                        TrackingUrlTemplate = null,
-
-                        // Set custom parameters that are specific to this criterion, 
-                        // and can be used by the criterion, ad group, campaign, or account level tracking template. 
-                        // In this example we are using the campaign level tracking template.
-                        UrlCustomParameters = new CustomParameters
-                        {
-                            Parameters = new[] {
-                                new CustomParameter(){
-                                    Key = "promoCode",
-                                    Value = "PROMO1"
-                                },
-                                new CustomParameter(){
-                                    Key = "season",
-                                    Value = "summer"
-                                },
-                            }
-                        }
                     };
                 }
 
