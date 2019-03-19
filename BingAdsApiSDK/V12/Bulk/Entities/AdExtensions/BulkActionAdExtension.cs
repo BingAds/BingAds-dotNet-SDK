@@ -77,35 +77,42 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             set { AdExtension = value; }
         }
 
+        public string ActionText { get; set; }
+
+
         private static readonly IBulkMapping<BulkActionAdExtension>[] Mappings =
         {
+            new SimpleBulkMapping<BulkActionAdExtension>(StringTable.ActionText,
+                c => c.ActionText,
+                (v, c) => c.ActionText = v
+            ),
             new SimpleBulkMapping<BulkActionAdExtension>(StringTable.ActionType,
                 c => c.ActionAdExtension.ActionType.ToBulkString(),
                 (v, c) => c.AdExtension.ActionType = v.Parse<ActionAdExtensionActionType>()
             ),
 
             new SimpleBulkMapping<BulkActionAdExtension>(StringTable.FinalUrl,
-                c => c.ActionAdExtension.FinalUrls.WriteUrls("; "),
+                c => c.ActionAdExtension.FinalUrls.WriteUrls("; ", c.ActionAdExtension.Id),
                 (v, c) => c.ActionAdExtension.FinalUrls = v.ParseUrls()
             ),
 
             new SimpleBulkMapping<BulkActionAdExtension>(StringTable.FinalMobileUrl,
-                c => c.ActionAdExtension.FinalMobileUrls.WriteUrls("; "),
+                c => c.ActionAdExtension.FinalMobileUrls.WriteUrls("; ", c.ActionAdExtension.Id),
                 (v, c) => c.ActionAdExtension.FinalMobileUrls = v.ParseUrls()
             ),
 
             new SimpleBulkMapping<BulkActionAdExtension>(StringTable.TrackingTemplate,
-                c => c.ActionAdExtension.TrackingUrlTemplate.ToOptionalBulkString(),
+                c => c.ActionAdExtension.TrackingUrlTemplate.ToOptionalBulkString(c.ActionAdExtension.Id),
                 (v, c) => c.ActionAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkActionAdExtension>(StringTable.CustomParameter,
-                c => c.ActionAdExtension.UrlCustomParameters.ToBulkString(),
+                c => c.ActionAdExtension.UrlCustomParameters.ToBulkString(c.ActionAdExtension.Id),
                 (v, c) => c.ActionAdExtension.UrlCustomParameters = v.ParseCustomParameters()
             ),
 
             new SimpleBulkMapping<BulkActionAdExtension>(StringTable.Language,
-                c => c.ActionAdExtension.Language.ToOptionalBulkString(),
+                c => c.ActionAdExtension.Language.ToOptionalBulkString(c.ActionAdExtension.Id),
                 (v, c) => c.AdExtension.Language = v.GetValueOrEmptyString()
             ),
         };

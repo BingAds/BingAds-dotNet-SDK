@@ -186,7 +186,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ), 
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.DestinationUrl,
-                c => c.Keyword.DestinationUrl.ToOptionalBulkString(),
+                c => c.Keyword.DestinationUrl.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.DestinationUrl = v.GetValueOrEmptyString()
             ),
  
@@ -201,42 +201,42 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ), 
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Bid,
-                c => c.Keyword.Bid.ToKeywordBidBulkString(),
+                c => c.Keyword.Bid.ToKeywordBidBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.Bid = v.ParseKeywordBid()
             ), 
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Param1,
-                c => c.Keyword.Param1.ToOptionalBulkString(),
+                c => c.Keyword.Param1.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.Param1 = v.GetValueOrEmptyString()
             ), 
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Param2,
-                c => c.Keyword.Param2.ToOptionalBulkString(),
+                c => c.Keyword.Param2.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.Param2 = v.GetValueOrEmptyString()
             ), 
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Param3,
-                c => c.Keyword.Param3.ToOptionalBulkString(),
+                c => c.Keyword.Param3.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.Param3 = v.GetValueOrEmptyString()
             ), 
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.FinalUrl,
-                c => c.Keyword.FinalUrls.WriteUrls("; "),
+                c => c.Keyword.FinalUrls.WriteUrls("; ", c.Keyword.Id),
                 (v, c) => c.Keyword.FinalUrls = v.ParseUrls()
             ), 
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.FinalMobileUrl,
-                c => c.Keyword.FinalMobileUrls.WriteUrls("; "),
+                c => c.Keyword.FinalMobileUrls.WriteUrls("; ", c.Keyword.Id),
                 (v, c) => c.Keyword.FinalMobileUrls = v.ParseUrls()
             ), 
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.TrackingTemplate,
-                c => c.Keyword.TrackingUrlTemplate.ToOptionalBulkString(),
+                c => c.Keyword.TrackingUrlTemplate.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.CustomParameter,
-                c => c.Keyword.UrlCustomParameters.ToBulkString(),
+                c => c.Keyword.UrlCustomParameters.ToBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.UrlCustomParameters = v.ParseCustomParameters()
             ),
 

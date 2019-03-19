@@ -1,17 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>12.0.3</Version>
+    <Version>12.0.4</Version>
     <QInstrumentForCoverage>false</QInstrumentForCoverage> 
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AnyCPU'">
     <DocumentationFile>.\Microsoft.BingAds.xml</DocumentationFile>
-	<NoWarn>1591,1574</NoWarn>
+    <NoWarn>1591,1574</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Http" Version="4.5.1" />
-	<PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
-	<PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.5.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
   </ItemGroup>
 
 </Project>
+

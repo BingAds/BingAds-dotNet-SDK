@@ -7406,7 +7406,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.UpdateClientLinksResponse> UpdateClientLinksAsync(Microsoft.BingAds.V12.CustomerManagement.UpdateClientLinksRequest request);
         
         /// <summary>
-        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
+        /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12 for details.
@@ -7424,7 +7424,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         Microsoft.BingAds.V12.CustomerManagement.SearchClientLinksResponse SearchClientLinks(Microsoft.BingAds.V12.CustomerManagement.SearchClientLinksRequest request);
         
         /// <summary>
-        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
+        /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12 for details.
@@ -7470,7 +7470,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V12.CustomerManagement.SearchAccountsRequest request);
         
         /// <summary>
-        /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
+        /// Sends an email invitation for someone to manage your Bing Ads accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12 for details.
@@ -7488,7 +7488,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         Microsoft.BingAds.V12.CustomerManagement.SendUserInvitationResponse SendUserInvitation(Microsoft.BingAds.V12.CustomerManagement.SendUserInvitationRequest request);
         
         /// <summary>
-        /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
+        /// Sends an email invitation for someone to manage your Bing Ads accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12 for details.
@@ -10571,7 +10571,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
+    /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12">SearchClientLinks Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12 for details.
@@ -10649,7 +10649,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
+    /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12">SearchClientLinks Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12 for details.
@@ -10819,7 +10819,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
+    /// Sends an email invitation for someone to manage your Bing Ads accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12">SendUserInvitation Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12 for details.
@@ -10881,7 +10881,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
+    /// Sends an email invitation for someone to manage your Bing Ads accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12">SendUserInvitation Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12 for details.
@@ -11903,7 +11903,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
+        /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12 for details.
@@ -11918,7 +11918,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// This feature is not supported in sandbox.Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
+        /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-12 for details.
@@ -11963,7 +11963,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
+        /// Sends an email invitation for someone to manage your Bing Ads accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12 for details.
@@ -11978,7 +11978,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// Sends an invitation for  a Microsoft account user to manage one or more Bing Ads customer accounts.
+        /// Sends an email invitation for someone to manage your Bing Ads accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-12 for details.

@@ -194,17 +194,17 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             return string.Format("{0}/{1}/{2}", date.Month, date.Day, date.Year);
         }
 
-        public static string ToScheduleDateBulkString(this Date date)
+        public static string ToScheduleDateBulkString(this Date date, long? id)
         {
             if (date == null || (date.Month == 0 && date.Day == 0 && date.Year == 0))
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
 
             return string.Format("{0}/{1}/{2}", date.Month, date.Day, date.Year);
         }
 
-        public static string ToAdRotationBulkString(this AdRotation adRotation)
+        public static string ToAdRotationBulkString(this AdRotation adRotation, long? id)
         {
             if (adRotation == null)
             {
@@ -213,7 +213,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
             if (adRotation.Type == null)
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
 
             return adRotation.Type.ToBulkString();
@@ -289,7 +289,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             return new FixedBid { Amount = s.Parse<double>() };
         }
 
-        public static string ToKeywordBidBulkString(this Bid bid)
+        public static string ToKeywordBidBulkString(this Bid bid, long? id)
         {
             if (bid == null)
             {
@@ -298,7 +298,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
             if (bid.Amount == null)
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
 
             return bid.Amount.ToBulkString();
@@ -314,7 +314,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             return new Bid {Amount = s.Parse<double>()};
         }
 
-        public static string ToBidBulkString(this Bid bid)
+        public static string ToBidBulkString(this Bid bid, long? id)
         {
             if (bid == null)
             {
@@ -323,7 +323,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
             if (bid.Amount == null)
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
 
             return bid.Amount.ToBulkString();
@@ -456,22 +456,23 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             }
         }
 
-        public static string ToOptionalBulkString(this string sourceString)
+        public static string ToOptionalBulkString(this string sourceString, long? id)
         {
             if (sourceString == null)
             {
                 return null;
             }
 
-            if (sourceString == string.Empty)
+            if (sourceString == string.Empty && id > 0)
             {
+                // This convertion apply to update only. When id > 0, it is an update operation.
                 return DeleteValue;
             }
 
             return sourceString;
         }
 
-        public static string WriteUrls(this IList<string> urls, string seperator)
+        public static string WriteUrls(this IList<string> urls, string seperator, long? id)
         {
             if (urls == null)
             {
@@ -480,7 +481,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
             if (urls.Count == 0)
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
 
             var text = string.Join(seperator, urls);
@@ -505,14 +506,9 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
         public static string WriteCampaignLanguages(this IList<string> languages, string seperator)
         {
-            if (languages == null)
+            if (languages == null || languages.Count == 0)
             {
                 return null;
-            }
-
-            if (languages.Count == 0)
-            {
-                return DeleteValue;
             }
 
             var text = string.Join(seperator, languages);
@@ -534,14 +530,9 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
         public static string WriteAudienceSupportedCampaignTypes(this IList<string> supportedCampaignTypes, string seperator)
         {
-            if (supportedCampaignTypes == null)
+            if (supportedCampaignTypes == null || supportedCampaignTypes.Count == 0)
             {
                 return null;
-            }
-
-            if (supportedCampaignTypes.Count == 0)
-            {
-                return DeleteValue;
             }
 
             var text = string.Join(seperator, supportedCampaignTypes);
@@ -561,7 +552,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             return supportedCampaignTypes;
         }
 
-        public static string ToBulkString(this CustomParameters parameters)
+        public static string ToBulkString(this CustomParameters parameters, long? id)
         {
             if (parameters == null)
             {
@@ -570,7 +561,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
             if (parameters.Parameters == null || parameters.Parameters.Count == 0)
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
 
             return string.Join("; ",
@@ -580,7 +571,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
                             EscapeParameterText(entry.Value))));
         }
 
-        public static string ToBulkString(this TargetSetting targetSetting)
+        public static string ToBulkString(this TargetSetting targetSetting, long? id)
         {
             if (targetSetting == null)
             {
@@ -589,7 +580,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
             if (targetSetting.Details == null || targetSetting.Details.Count == 0)
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
             
             return string.Join("; ",
@@ -764,11 +755,11 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             return text;
         }
 
-        public static string ToDayTimeRangesBulkString(this IList<DayTime> dayTimeRanges)
+        public static string ToDayTimeRangesBulkString(this IList<DayTime> dayTimeRanges, long? id)
         {
             if (dayTimeRanges == null || dayTimeRanges.Count == 0)
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
 
             return string.Join(";",
@@ -1102,7 +1093,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             return result;
         }
 
-        public static string ToCriterionNameBulkString(this WebpageParameter webpageParameter)
+        public static string ToCriterionNameBulkString(this WebpageParameter webpageParameter, long? id)
         {
             if (webpageParameter == null || webpageParameter.CriterionName == null)
             {
@@ -1111,7 +1102,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
             if (webpageParameter.CriterionName.Length == 0)
             {
-                return DeleteValue;
+                return id > 0 ? DeleteValue : null;
             }
 
             return webpageParameter.CriterionName;

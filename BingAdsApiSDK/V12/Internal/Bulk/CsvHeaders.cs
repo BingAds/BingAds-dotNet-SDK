@@ -158,6 +158,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
 
             // Action ad extension
             StringTable.ActionType,
+            StringTable.ActionText,
 
             // Site link ad extensions
             StringTable.SiteLinkExtensionOrder,

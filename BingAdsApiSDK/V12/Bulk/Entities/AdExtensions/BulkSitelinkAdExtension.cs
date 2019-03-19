@@ -85,7 +85,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         private static readonly IBulkMapping<BulkSitelinkAdExtension>[] Mappings =
         {
             new SimpleBulkMapping<BulkSitelinkAdExtension>(StringTable.SiteLinkDestinationUrl,
-                c => c.SitelinkAdExtension.DestinationUrl.ToOptionalBulkString(),
+                c => c.SitelinkAdExtension.DestinationUrl.ToOptionalBulkString(c.SitelinkAdExtension.Id),
                 (v, c) => c.SitelinkAdExtension.DestinationUrl = v.GetValueOrEmptyString()
             ),
 
@@ -105,22 +105,22 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkSitelinkAdExtension>(StringTable.FinalUrl,
-                c => c.SitelinkAdExtension.FinalUrls.WriteUrls("; "),
+                c => c.SitelinkAdExtension.FinalUrls.WriteUrls("; ", c.SitelinkAdExtension.Id),
                 (v, c) => c.SitelinkAdExtension.FinalUrls = v.ParseUrls()
             ),
 
             new SimpleBulkMapping<BulkSitelinkAdExtension>(StringTable.FinalMobileUrl,
-                c => c.SitelinkAdExtension.FinalMobileUrls.WriteUrls("; "),
+                c => c.SitelinkAdExtension.FinalMobileUrls.WriteUrls("; ", c.SitelinkAdExtension.Id),
                 (v, c) => c.SitelinkAdExtension.FinalMobileUrls = v.ParseUrls()
             ),
 
             new SimpleBulkMapping<BulkSitelinkAdExtension>(StringTable.TrackingTemplate,
-                c => c.SitelinkAdExtension.TrackingUrlTemplate.ToOptionalBulkString(),
+                c => c.SitelinkAdExtension.TrackingUrlTemplate.ToOptionalBulkString(c.SitelinkAdExtension.Id),
                 (v, c) => c.SitelinkAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkSitelinkAdExtension>(StringTable.CustomParameter,
-                c => c.SitelinkAdExtension.UrlCustomParameters.ToBulkString(),
+                c => c.SitelinkAdExtension.UrlCustomParameters.ToBulkString(c.SitelinkAdExtension.Id),
                 (v, c) => c.SitelinkAdExtension.UrlCustomParameters = v.ParseCustomParameters()
             ),
         };

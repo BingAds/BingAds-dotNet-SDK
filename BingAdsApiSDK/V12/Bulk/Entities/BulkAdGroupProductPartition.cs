@@ -300,7 +300,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 
                     if (criterion != null)
                     {
-                        return criterion.DestinationUrl.ToOptionalBulkString();
+                        return criterion.DestinationUrl.ToOptionalBulkString(criterion.Id);
                     }
 
                     return null;
@@ -323,7 +323,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 
                     if (criterion != null)
                     {
-                        return criterion.FinalUrls.WriteUrls("; ");
+                        return criterion.FinalUrls.WriteUrls("; ", criterion.Id);
                     }
 
                     return null;
@@ -346,7 +346,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 
                     if (criterion != null)
                     {
-                        return criterion.FinalMobileUrls.WriteUrls("; ");
+                        return criterion.FinalMobileUrls.WriteUrls("; ", criterion.Id);
                     }
 
                     return null;
@@ -369,7 +369,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 
                     if (criterion != null)
                     {
-                        return criterion.TrackingUrlTemplate.ToOptionalBulkString();
+                        return criterion.TrackingUrlTemplate.ToOptionalBulkString(criterion.Id);
                     }
 
                     return null;
@@ -392,7 +392,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 
                     if (criterion != null)
                     {
-                        return criterion.UrlCustomParameters.ToBulkString();
+                        return criterion.UrlCustomParameters.ToBulkString(c.AdGroupCriterion.Id);
                     }
 
                     return null;

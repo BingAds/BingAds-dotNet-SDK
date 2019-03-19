@@ -102,12 +102,12 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ),
             
             new SimpleBulkMapping<BulkPriceAdExtension>(StringTable.TrackingTemplate,
-                c => c.PriceAdExtension.TrackingUrlTemplate.ToOptionalBulkString(),
+                c => c.PriceAdExtension.TrackingUrlTemplate.ToOptionalBulkString(c.PriceAdExtension.Id),
                 (v, c) => c.PriceAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkPriceAdExtension>(StringTable.CustomParameter,
-                c => c.PriceAdExtension.UrlCustomParameters.ToBulkString(),
+                c => c.PriceAdExtension.UrlCustomParameters.ToBulkString(c.PriceAdExtension.Id),
                 (v, c) => c.PriceAdExtension.UrlCustomParameters = v.ParseCustomParameters()
             ),
 

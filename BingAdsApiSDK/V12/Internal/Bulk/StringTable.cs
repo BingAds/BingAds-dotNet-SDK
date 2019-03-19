@@ -562,6 +562,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string CampaignActionAdExtension = "Campaign Action Ad Extension";
         public const string AdGroupActionAdExtension = "Ad Group Action Ad Extension";
         public const string ActionType = "Action Type";
+        public const string ActionText = "Action Text";
 
         // AutoBidding
         public const string BidStrategyType = "Bid Strategy Type";

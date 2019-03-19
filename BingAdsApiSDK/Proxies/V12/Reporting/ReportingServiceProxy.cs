@@ -169,7 +169,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright (@2018 Microsoft Corporation.
+        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright (@2019 Microsoft Corporation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeReportFooter
@@ -1427,7 +1427,7 @@ namespace Microsoft.BingAds.V12.Reporting
     }
     
     /// <summary>
-    /// Defines an age and gender audience report request for Audience campaigns.
+    /// Defines an age and gender audience report request.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportrequest?view=bingads-12">AgeGenderAudienceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportrequest?view=bingads-12 for details.
@@ -1552,7 +1552,7 @@ namespace Microsoft.BingAds.V12.Reporting
     }
     
     /// <summary>
-    /// Defines a professional demographics audience report request for Audience campaigns.
+    /// Defines a professional demographics audience report request.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-12">ProfessionalDemographicsAudienceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-12 for details.
@@ -4559,7 +4559,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// An array of a maximum of 1,000 account identifiers that identifies the account data to include in the report.
+        /// A list of up to 1,000 account identifiers to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
@@ -6114,7 +6114,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// An array of account identifiers that identifies the account data to include in the report.
+        /// A list of up to 1,000 account identifiers to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
@@ -6134,7 +6134,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// An array of CampaignReportScope objects that identifies the campaign data to include in the report.
+        /// A list of up to 300 campaigns to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.Reporting.CampaignReportScope> Campaigns
@@ -6596,6 +6596,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 69,
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 70,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 71,
     }
     
     /// <summary>
@@ -6997,7 +7009,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// An array of account identifiers that identifies the account data to include in the report.
+        /// A list of up to 1,000 account identifiers to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
@@ -7017,7 +7029,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// An array of AdGroupReportScope objects that identifies the ad group data to include in the report.
+        /// A list of up to 300 ad groups to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.Reporting.AdGroupReportScope> AdGroups
@@ -7037,7 +7049,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// An array of CampaignReportScope objects that identifies the campaign data to include in the report.
+        /// A list of up to 300 campaigns to include in the report.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.Reporting.CampaignReportScope> Campaigns
@@ -8207,6 +8219,18 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 62,
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 63,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 64,
     }
     
     /// <summary>
@@ -8799,6 +8823,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 58,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 59,
     }
     
     /// <summary>
@@ -9587,6 +9617,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FirstPageBid = 60,
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 61,
     }
     
     /// <summary>
@@ -10272,6 +10308,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 44,
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 45,
     }
     
     /// <summary>
@@ -11083,7 +11125,7 @@ namespace Microsoft.BingAds.V12.Reporting
     }
     
     /// <summary>
-    /// Defines the criteria to use to filter the professional demographics audience report for Audience campaigns.
+    /// Defines the criteria to use to filter the professional demographics audience report.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-12">ProfessionalDemographicsAudienceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-12 for details.
@@ -13935,7 +13977,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupId = 8,
         
         /// <summary>
-        /// The ad title parts.This column will be empty if ItemChanged is not Ad.
+        /// The ad title parts.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdTitle = 9,

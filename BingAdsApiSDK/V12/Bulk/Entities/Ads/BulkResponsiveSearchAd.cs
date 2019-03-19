@@ -94,17 +94,17 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkResponsiveSearchAd>(StringTable.Path1,
-                c => c.ResponsiveSearchAd.Path1.ToOptionalBulkString(),
+                c => c.ResponsiveSearchAd.Path1.ToOptionalBulkString(c.ResponsiveSearchAd.Id),
                 (v, c) => c.ResponsiveSearchAd.Path1 = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkResponsiveSearchAd>(StringTable.Path2,
-                c => c.ResponsiveSearchAd.Path2.ToOptionalBulkString(),
+                c => c.ResponsiveSearchAd.Path2.ToOptionalBulkString(c.ResponsiveSearchAd.Id),
                 (v, c) => c.ResponsiveSearchAd.Path2 = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkResponsiveSearchAd>(StringTable.Domain,
-                c => c.ResponsiveSearchAd.Domain.ToOptionalBulkString(),
+                c => c.ResponsiveSearchAd.Domain.ToOptionalBulkString(c.ResponsiveSearchAd.Id),
                 (v, c) => c.ResponsiveSearchAd.Domain = v.GetValueOrEmptyString()
             ),
         };

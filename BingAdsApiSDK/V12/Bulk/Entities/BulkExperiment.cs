@@ -81,8 +81,8 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 ),
 
             new SimpleBulkMapping<BulkExperiment>(StringTable.Status,
-                c => c.Experiment.ExperimentStatus.ToOptionalBulkString(),
-                (v, c) => c.Experiment.ExperimentStatus = v.GetValueOrEmptyString()
+                c => c.Experiment.ExperimentStatus,
+                (v, c) => c.Experiment.ExperimentStatus = v
                 ),
 
             new SimpleBulkMapping<BulkExperiment>(StringTable.StartDate,

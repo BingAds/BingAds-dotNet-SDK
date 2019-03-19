@@ -2777,7 +2777,7 @@ namespace Microsoft.BingAds.V12.Bulk
         public string RequestId;
         
         /// <summary>
-        /// The URL where you may submit your bulk upload file with  HTTP POST.
+        /// The URL where you may submit your bulk upload file via HTTP POST.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=1)]
         public string UploadUrl;
@@ -2799,7 +2799,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         /// <param name="RequestId">The identifier of the upload request.</param>
-        /// <param name="UploadUrl">The URL where you may submit your bulk upload file with  HTTP POST.</param>
+        /// <param name="UploadUrl">The URL where you may submit your bulk upload file via HTTP POST.</param>
         public GetBulkUploadUrlResponse(string TrackingId, string RequestId, string UploadUrl)
         {
             this.TrackingId = TrackingId;

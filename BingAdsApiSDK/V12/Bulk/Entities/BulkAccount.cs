@@ -122,7 +122,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkAccount>(StringTable.TrackingTemplate,
-                c => c.TrackingUrlTemplate.ToOptionalBulkString(),
+                c => c.TrackingUrlTemplate.ToOptionalBulkString(c.Id),
                 (v, c) => c.TrackingUrlTemplate = v.GetValueOrEmptyString()
             )
         };

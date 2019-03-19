@@ -148,7 +148,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 {
                     if (c.BiddableAdGroupCriterion != null)
                     {
-                        return c.BiddableAdGroupCriterion.TrackingUrlTemplate.ToOptionalBulkString();
+                        return c.BiddableAdGroupCriterion.TrackingUrlTemplate.ToOptionalBulkString(c.BiddableAdGroupCriterion.Id);
                     }
 
                     return null;
@@ -167,7 +167,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 {
                     if (c.BiddableAdGroupCriterion != null)
                     {
-                        return c.BiddableAdGroupCriterion.UrlCustomParameters.ToBulkString();
+                        return c.BiddableAdGroupCriterion.UrlCustomParameters.ToBulkString(c.BiddableAdGroupCriterion.Id);
                     }
 
                     return null;
@@ -223,7 +223,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 {
                     var webpage = c.BiddableAdGroupCriterion.Criterion as Webpage;
 
-                    return webpage != null ? webpage.Parameter.ToCriterionNameBulkString() : null;
+                    return webpage != null ? webpage.Parameter.ToCriterionNameBulkString(c.BiddableAdGroupCriterion.Id) : null;
                 },
                 (v, c) =>
                 {

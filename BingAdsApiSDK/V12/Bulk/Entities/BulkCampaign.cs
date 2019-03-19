@@ -332,7 +332,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 c =>
                 {
                     var setting = (TargetSetting)c.GetCampaignSetting(typeof(TargetSetting));
-                    return setting?.ToBulkString();
+                    return setting?.ToBulkString(c.Campaign.Id);
                 },
                 (v, c) =>
                 {
@@ -348,12 +348,12 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             new ComplexBulkMapping<BulkCampaign>(BudgetToCsv, CsvToBudget),
             
             new SimpleBulkMapping<BulkCampaign>(StringTable.TrackingTemplate,
-                c => c.Campaign.TrackingUrlTemplate.ToOptionalBulkString(),
+                c => c.Campaign.TrackingUrlTemplate.ToOptionalBulkString(c.Campaign.Id),
                 (v, c) => c.Campaign.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.CustomParameter,
-                c => c.Campaign.UrlCustomParameters.ToBulkString(),
+                c => c.Campaign.UrlCustomParameters.ToBulkString(c.Campaign.Id),
                 (v, c) => c.Campaign.UrlCustomParameters = v.ParseCustomParameters()
             ),
 
@@ -561,21 +561,21 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             var maxClicksBiddingScheme = biddingScheme as MaxClicksBiddingScheme;
             if (maxClicksBiddingScheme != null)
             {
-                values[StringTable.BidStrategyMaxCpc] = maxClicksBiddingScheme.MaxCpc.ToBidBulkString();
+                values[StringTable.BidStrategyMaxCpc] = maxClicksBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
             }
             else
             {
                 var maxConversionsBiddingScheme = c.Campaign.BiddingScheme as MaxConversionsBiddingScheme;
                 if (maxConversionsBiddingScheme != null)
                 {
-                    values[StringTable.BidStrategyMaxCpc] = maxConversionsBiddingScheme.MaxCpc.ToBidBulkString();
+                    values[StringTable.BidStrategyMaxCpc] = maxConversionsBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
                 }
                 else
                 {
                     var targetCpaBiddingScheme = c.Campaign.BiddingScheme as TargetCpaBiddingScheme;
                     if (targetCpaBiddingScheme != null)
                     {
-                        values[StringTable.BidStrategyMaxCpc] = targetCpaBiddingScheme.MaxCpc.ToBidBulkString();
+                        values[StringTable.BidStrategyMaxCpc] = targetCpaBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
                         values[StringTable.BidStrategyTargetCpa] = targetCpaBiddingScheme.TargetCpa.ToBulkString();
                     }
                 }

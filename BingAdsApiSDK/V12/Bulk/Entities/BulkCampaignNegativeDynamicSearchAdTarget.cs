@@ -149,7 +149,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 {
                     var webpage = c.NegativeCampaignCriterion.Criterion as Webpage;
 
-                    return webpage != null ? webpage.Parameter.ToCriterionNameBulkString() : null;
+                    return webpage != null ? webpage.Parameter.ToCriterionNameBulkString(c.NegativeCampaignCriterion.Id) : null;
                 },
                 (v, c) =>
                 {

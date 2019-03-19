@@ -101,7 +101,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk.Entities
             ), 
 
             new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.AdSchedule,
-                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.DayTimeRanges.ToDayTimeRangesBulkString(),
+                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.DayTimeRanges.ToDayTimeRangesBulkString(c.AdExtension.Id),
                 (v, c) =>
                 {
                     if (c.AdExtension.Scheduling == null)
@@ -112,7 +112,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk.Entities
                 }
             ),
             new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.StartDate,
-                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.StartDate.ToScheduleDateBulkString(),
+                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.StartDate.ToScheduleDateBulkString(c.AdExtension.Id),
                 (v, c) =>
                 {
                     if (c.AdExtension.Scheduling == null)
@@ -124,7 +124,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.EndDate,
-                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.EndDate.ToScheduleDateBulkString(),
+                c => c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.EndDate.ToScheduleDateBulkString(c.AdExtension.Id),
                 (v, c) =>
                 {
                     if (c.AdExtension.Scheduling == null)

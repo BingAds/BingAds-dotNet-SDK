@@ -101,6 +101,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private System.Nullable<long> ExperimentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -269,6 +272,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -431,7 +454,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <summary>
         /// The campaign type determines whether the campaign is an Audience, Dynamic Search Ads, Search, or Shopping campaign.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.CampaignType> CampaignType
         {
             get
@@ -451,7 +474,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <summary>
         /// The settings will vary by campaign type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.Setting> Settings
         {
             get
@@ -471,7 +494,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <summary>
         /// The unique Bing Ads identifier of the Budget that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -491,7 +514,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <summary>
         /// Your ad language setting determines the language you will use when you write your ads and should be the language of your customers.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -2579,7 +2602,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a list of optional Campaign properties that you can request when calling GetCampaignsByAccountId and GetCampaignsByIds.
+    /// Defines a list of optional campaign properties that you can request when calling GetCampaignsByAccountId and GetCampaignsByIds.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/campaignadditionalfield?view=bingads-12">CampaignAdditionalField Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/campaignadditionalfield?view=bingads-12 for details.
@@ -2596,6 +2619,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExperimentId = 1,
+        
+        /// <summary>
+        /// Request that the FinalUrlSuffix element be included within each returned Campaign object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 2,
     }
     
     /// <summary>
@@ -2716,6 +2745,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V12.CampaignManagement.Date EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
@@ -2858,6 +2890,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
                 {
                     this.EndDateField = value;
                     this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
                 }
             }
         }
@@ -3448,6 +3500,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a list of optional ad group properties that you can request when calling GetAdGroupsByCampaignId and GetAdGroupsByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroupadditionalfield?view=bingads-12">AdGroupAdditionalField Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroupadditionalfield?view=bingads-12 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdGroupsByCampaignId">GetAdGroupsByCampaignId</see> and <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v12")]
+    public enum AdGroupAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the FinalUrlSuffix element be included within each returned AdGroup object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 1,
+    }
+    
+    /// <summary>
     /// Defines an object that contains the negative site URLs of an ad group.
     /// </summary>
     /// <remarks>
@@ -3572,6 +3644,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
@@ -3702,6 +3777,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
                 {
                     this.FinalMobileUrlsField = value;
                     this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
                 }
             }
         }
@@ -5579,7 +5674,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a list of optional Ad properties that you can request when calling GetAdsByAdGroupId, GetAdsByEditorialStatus, and GetAdsByIds.
+    /// Defines a list of optional ad properties that you can request when calling GetAdsByAdGroupId, GetAdsByEditorialStatus, and GetAdsByIds.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adadditionalfield?view=bingads-12">AdAdditionalField Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adadditionalfield?view=bingads-12 for details.
@@ -5608,6 +5703,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Images = 4,
+        
+        /// <summary>
+        /// Request that the FinalUrlSuffix element be included within each returned Ad object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 8,
     }
     
     /// <summary>
@@ -5644,6 +5745,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
@@ -5806,6 +5910,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
                 {
                     this.FinalMobileUrlsField = value;
                     this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
                 }
             }
         }
@@ -6146,6 +6270,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 3,
+    }
+    
+    /// <summary>
+    /// Defines a list of optional keyword properties that you can request when calling GetKeywordsByAdGroupId, GetKeywordsByEditorialStatus, and GetKeywordsByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/keywordadditionalfield?view=bingads-12">KeywordAdditionalField Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/keywordadditionalfield?view=bingads-12 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetKeywordsByAdGroupId">GetKeywordsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByEditorialStatus">GetKeywordsByEditorialStatus</see> and <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v12")]
+    public enum KeywordAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the FinalUrlSuffix element be included within each returned Keyword object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 1,
     }
     
     /// <summary>
@@ -6924,6 +7068,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdClickParallelTracking = 4,
+        
+        /// <summary>
+        /// Used to get or set the account's Final URL Suffix.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 8,
     }
     
     /// <summary>
@@ -7559,6 +7709,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -7631,7 +7784,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Not supported for image ad extensions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AppUrl> FinalAppUrls
@@ -7651,7 +7804,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Not supported for image ad extensions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -7671,7 +7824,27 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Not supported for image ad extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Not supported for image ad extensions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -7711,7 +7884,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Not supported for image ad extensions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -7731,7 +7904,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Not supported for image ad extensions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V12.CampaignManagement.CustomParameters UrlCustomParameters
@@ -7781,6 +7954,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
@@ -7907,6 +8083,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
                 {
                     this.FinalMobileUrlsField = value;
                     this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
                 }
             }
         }
@@ -8147,6 +8343,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -8276,6 +8475,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The landing page URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -8355,6 +8574,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -8367,7 +8589,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private Microsoft.BingAds.V12.CampaignManagement.CustomParameters UrlCustomParametersField;
         
         /// <summary>
-        /// The text you choose here is what is displayed on your call-to-action button.
+        /// The action type that you choose here, as well as the Language that you set, determines the text that is displayed on your call-to-action button.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V12.CampaignManagement.ActionAdExtensionActionType ActionType
@@ -8402,6 +8624,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
                 {
                     this.FinalMobileUrlsField = value;
                     this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
                 }
             }
         }
@@ -8561,6 +8803,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LanguageField;
         
         private Microsoft.BingAds.V12.CampaignManagement.PriceExtensionType PriceExtensionTypeField;
@@ -8573,6 +8818,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V12.CampaignManagement.CustomParameters UrlCustomParametersField;
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
+                }
+            }
+        }
         
         /// <summary>
         /// The language for the ad copy of your price ad extension.
@@ -10661,6 +10926,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a list of optional ad extension properties that you can request when calling GetAdExtensionsAssociations and GetAdExtensionsByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adextensionadditionalfield?view=bingads-12">AdExtensionAdditionalField Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adextensionadditionalfield?view=bingads-12 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see> and <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v12")]
+    public enum AdExtensionAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the FinalUrlSuffix element be included within each returned ActionAdExtension, AppAdExtension, ImageAdExtension, PriceAdExtension, and SitelinkAdExtension object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 1,
+    }
+    
+    /// <summary>
     /// Defines an object that associates an ad extension to a supported entity, for example ad group or campaign.
     /// </summary>
     /// <remarks>
@@ -12031,6 +12316,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a list of optional ad group criterion properties that you can request when calling GetAdGroupCriterionsByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroupcriterionadditionalfield?view=bingads-12">AdGroupCriterionAdditionalField Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroupcriterionadditionalfield?view=bingads-12 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdGroupCriterionsByIds">GetAdGroupCriterionsByIds</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupCriterionAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v12")]
+    public enum AdGroupCriterionAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the FinalUrlSuffix element be included within each returned BiddableAdGroupCriterion object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 1,
+    }
+    
+    /// <summary>
     /// Defines a criterion that you want applied to the specified ad group.
     /// </summary>
     /// <remarks>
@@ -12294,6 +12599,9 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -12398,6 +12706,26 @@ namespace Microsoft.BingAds.V12.CampaignManagement
                 {
                     this.FinalMobileUrlsField = value;
                     this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
                 }
             }
         }
@@ -13655,7 +13983,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the possible age range values that you can use to target ads to People.
+    /// Defines the possible age range values that you can use to target ads to people.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/agerange?view=bingads-12">AgeRange Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/agerange?view=bingads-12 for details.
@@ -13722,13 +14050,13 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         Unknown = 0,
         
         /// <summary>
-        /// The gender is male.
+        /// The gender is identified as male.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Male = 1,
         
         /// <summary>
-        /// The gender is female.
+        /// The gender is identified as female.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Female = 2,
@@ -15461,6 +15789,30 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         LocationIntent = 1024,
         
         /// <summary>
+        /// The campaign criterion is an audience criterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Audience = 2048,
+        
+        /// <summary>
+        /// The campaign criterion is a custom audience association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomAudience = 4096,
+        
+        /// <summary>
+        /// The campaign criterion is an in-market audience association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InMarketAudience = 8192,
+        
+        /// <summary>
+        /// The campaign criterion is a remarketing list association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RemarketingList = 16384,
+        
+        /// <summary>
         /// The campaign criterion is a company name profile criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -15477,6 +15829,18 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Industry = 131072,
+        
+        /// <summary>
+        /// The campaign criterion is product audience association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductAudience = 262144,
+        
+        /// <summary>
+        /// The campaign criterion is a similar remarketing list association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SimilarRemarketingList = 524288,
     }
     
     /// <summary>
@@ -23519,6 +23883,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<long> AdGroupIds;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned ad group.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -23536,7 +23906,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign that contains the ad groups to get.</param>
         /// <param name="AdGroupIds">A maximum of 1,000 identifiers of the ad groups to get.</param>
-        public GetAdGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AdGroupIds)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad group.</param>
+        public GetAdGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AdGroupIds, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -23547,6 +23918,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.UserName = UserName;
             this.CampaignId = CampaignId;
             this.AdGroupIds = AdGroupIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -23645,6 +24017,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public long CampaignId;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned ad group.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupsByCampaignIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -23661,7 +24039,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupsbycampaignid?view=bingads-12">GetAdGroupsByCampaignIdRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupsbycampaignid?view=bingads-12 for details.
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign that contains the ad groups to get.</param>
-        public GetAdGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad group.</param>
+        public GetAdGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -23671,6 +24050,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.CampaignId = CampaignId;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -24573,7 +24953,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AdType> AdTypes;
         
         /// <summary>
-        /// The list of additional properties that you want included within each returned Ad object.
+        /// The list of additional properties that you want included within each returned ad.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=3)]
         public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdAdditionalField> ReturnAdditionalFields;
@@ -24597,7 +24977,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <param name="AdGroupId">The identifier of the ad group to retrieve the ads from.</param>
         /// <param name="EditorialStatus">The editorial review status that the ads must have to be returned.</param>
         /// <param name="AdTypes">One or more types of ads to return.</param>
-        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Ad object.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad.</param>
         public GetAdsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V12.CampaignManagement.AdEditorialStatus EditorialStatus, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AdType> AdTypes, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -24713,7 +25093,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AdType> AdTypes;
         
         /// <summary>
-        /// The list of additional properties that you want included within each returned Ad object.
+        /// The list of additional properties that you want included within each returned ad.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=3)]
         public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdAdditionalField> ReturnAdditionalFields;
@@ -24737,7 +25117,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <param name="AdGroupId">The identifier of the ad group that contains the ads to get.</param>
         /// <param name="AdIds">A maximum of 20 identifiers of the requested ads.</param>
         /// <param name="AdTypes">One or more types of ads to return.</param>
-        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Ad object.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad.</param>
         public GetAdsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> AdIds, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AdType> AdTypes, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -24855,7 +25235,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AdType> AdTypes;
         
         /// <summary>
-        /// The list of additional properties that you want included within each returned Ad object.
+        /// The list of additional properties that you want included within each returned ad.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=2)]
         public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdAdditionalField> ReturnAdditionalFields;
@@ -24878,7 +25258,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group to retrieve the ads from.</param>
         /// <param name="AdTypes">One or more ad types to retrieve.</param>
-        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned Ad object.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad.</param>
         public GetAdsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<Microsoft.BingAds.V12.CampaignManagement.AdType> AdTypes, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -25383,6 +25763,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public Microsoft.BingAds.V12.CampaignManagement.KeywordEditorialStatus EditorialStatus;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned keyword.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetKeywordsByEditorialStatusRequest request object.
         /// </summary>
         /// <remarks>
@@ -25400,7 +25786,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group that contains the keywords to retrieve.</param>
         /// <param name="EditorialStatus">The review status of the keywords to retrieve.</param>
-        public GetKeywordsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V12.CampaignManagement.KeywordEditorialStatus EditorialStatus)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned keyword.</param>
+        public GetKeywordsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V12.CampaignManagement.KeywordEditorialStatus EditorialStatus, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -25411,6 +25798,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
             this.EditorialStatus = EditorialStatus;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -25507,6 +25895,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<long> KeywordIds;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned keyword.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetKeywordsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -25524,7 +25918,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group whose keywords you want to get.</param>
         /// <param name="KeywordIds">A maximum of 1,000 identifiers of the keywords to get.</param>
-        public GetKeywordsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> KeywordIds)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned keyword.</param>
+        public GetKeywordsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> KeywordIds, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -25535,6 +25930,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
             this.KeywordIds = KeywordIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -25633,6 +26029,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public long AdGroupId;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned keyword.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetKeywordsByAdGroupIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -25649,7 +26051,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getkeywordsbyadgroupid?view=bingads-12">GetKeywordsByAdGroupIdRequest</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getkeywordsbyadgroupid?view=bingads-12 for details.
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group that keywords are returned for.</param>
-        public GetKeywordsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned keyword.</param>
+        public GetKeywordsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -25659,6 +26062,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -26661,6 +27065,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public Microsoft.BingAds.V12.CampaignManagement.AdExtensionsTypeFilter AdExtensionType;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned ad extension.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdExtensionsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -26679,7 +27089,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <param name="AccountId">The identifier of the account that owns the ad extensions.</param>
         /// <param name="AdExtensionIds">A list of ad extension identifiers.</param>
         /// <param name="AdExtensionType">The types of ad extensions that the list of identifiers contains.</param>
-        public GetAdExtensionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdExtensionIds, Microsoft.BingAds.V12.CampaignManagement.AdExtensionsTypeFilter AdExtensionType)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad extension.</param>
+        public GetAdExtensionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdExtensionIds, Microsoft.BingAds.V12.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -26691,6 +27102,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.AccountId = AccountId;
             this.AdExtensionIds = AdExtensionIds;
             this.AdExtensionType = AdExtensionType;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -27327,6 +27739,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public System.Collections.Generic.IList<long> EntityIds;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned ad extension.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=4)]
+        public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdExtensionsAssociationsRequest request object.
         /// </summary>
         /// <remarks>
@@ -27346,7 +27764,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <param name="AdExtensionType">Filters the returned associations by ad extension type.</param>
         /// <param name="AssociationType">Filters the returned associations by entity type.</param>
         /// <param name="EntityIds">The list of entity identifiers by which you may request the respective ad extension associations.</param>
-        public GetAdExtensionsAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V12.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, Microsoft.BingAds.V12.CampaignManagement.AssociationType AssociationType, System.Collections.Generic.IList<long> EntityIds)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad extension.</param>
+        public GetAdExtensionsAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V12.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, Microsoft.BingAds.V12.CampaignManagement.AssociationType AssociationType, System.Collections.Generic.IList<long> EntityIds, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -27359,6 +27778,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.AdExtensionType = AdExtensionType;
             this.AssociationType = AssociationType;
             this.EntityIds = EntityIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -28361,6 +28781,12 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         public Microsoft.BingAds.V12.CampaignManagement.AdGroupCriterionType CriterionType;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned ad group criterion.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v12", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdGroupCriterionAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupCriterionsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -28379,7 +28805,8 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterions to get.</param>
         /// <param name="CriterionType">The type of criterion to get, for example Webpage.</param>
-        public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId, Microsoft.BingAds.V12.CampaignManagement.AdGroupCriterionType CriterionType)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad group criterion.</param>
+        public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId, Microsoft.BingAds.V12.CampaignManagement.AdGroupCriterionType CriterionType, System.Nullable<Microsoft.BingAds.V12.CampaignManagement.AdGroupCriterionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -28391,6 +28818,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
             this.AdGroupCriterionIds = AdGroupCriterionIds;
             this.AdGroupId = AdGroupId;
             this.CriterionType = CriterionType;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

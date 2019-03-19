@@ -99,7 +99,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkTextAd>(StringTable.DestinationUrl,
-                c => c.TextAd.DestinationUrl.ToOptionalBulkString(),
+                c => c.TextAd.DestinationUrl.ToOptionalBulkString(c.TextAd.Id),
                 (v, c) => c.TextAd.DestinationUrl = v.GetValueOrEmptyString()
             ),
         };

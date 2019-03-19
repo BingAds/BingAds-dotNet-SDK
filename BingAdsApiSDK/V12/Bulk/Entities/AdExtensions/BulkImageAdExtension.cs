@@ -82,7 +82,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         private static readonly IBulkMapping<BulkImageAdExtension>[] Mappings =
         {
             new SimpleBulkMapping<BulkImageAdExtension>(StringTable.DestinationUrl,
-                c => c.ImageAdExtension.DestinationUrl.ToOptionalBulkString(),
+                c => c.ImageAdExtension.DestinationUrl.ToOptionalBulkString(c.ImageAdExtension.Id),
                 (v, c) => c.ImageAdExtension.DestinationUrl = v.GetValueOrEmptyString()
             ), 
 
@@ -94,7 +94,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             new SimpleBulkMapping<BulkImageAdExtension>(StringTable.MediaIds,
                 c =>
                 {
-                    if (c.ImageAdExtension.ImageMediaIds == null)
+                    if (c.ImageAdExtension.ImageMediaIds == null || c.ImageAdExtension.ImageMediaIds.Count == 0)
                     {
                         return null;
                     }

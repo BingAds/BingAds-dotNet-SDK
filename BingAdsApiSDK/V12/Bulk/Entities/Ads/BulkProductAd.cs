@@ -84,7 +84,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         private static readonly IEnumerable<IBulkMapping<BulkProductAd>> Mappings = new IBulkMapping<BulkProductAd>[]
         {            
             new SimpleBulkMapping<BulkProductAd>(StringTable.PromotionalText,
-                c => c.ProductAd.PromotionalText.ToOptionalBulkString(),
+                c => c.ProductAd.PromotionalText.ToOptionalBulkString(c.ProductAd.Id),
                 (v, c) => c.ProductAd.PromotionalText = v.GetValueOrEmptyString()
             )
         };

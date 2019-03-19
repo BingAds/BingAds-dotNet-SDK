@@ -94,7 +94,7 @@ namespace Microsoft.BingAds.V12.Bulk
         private ApiEnvironment? _apiEnvironment;
 
         /// <summary>
-        /// The time interval in milliseconds between two status polling attempts. The default value is 15000 (15 seconds).
+        /// The time interval in milliseconds between two status polling attempts. The default value is 1000 (1 seconds).
         /// </summary>
         public int StatusPollIntervalInMilliseconds { get; set; }
 

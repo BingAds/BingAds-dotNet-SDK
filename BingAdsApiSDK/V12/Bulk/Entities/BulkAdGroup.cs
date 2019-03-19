@@ -89,11 +89,6 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         public AdGroup AdGroup { get; set; }
 
         /// <summary>
-        /// Indicates whether the AdGroup is expired.
-        /// </summary>
-        public bool IsExpired { get; private set; }
-
-        /// <summary>
         /// The quality score data for the ad group.
         /// </summary>
         public QualityScoreData QualityScoreData { get; private set; }
@@ -147,18 +142,8 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.Status,
-                c => c.IsExpired ? "Expired" : c.AdGroup.Status.ToBulkString(),
-                (v, c) =>
-                {
-                    if (v == "Expired")
-                    {
-                        c.IsExpired = true;
-                    }
-                    else
-                    {
-                        c.AdGroup.Status = v.ParseOptional<AdGroupStatus>();
-                    }
-                }
+                c => c.AdGroup.Status.ToBulkString(),
+                (v, c) =>c.AdGroup.Status = v.ParseOptional<AdGroupStatus>()
                 ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.ParentId,
@@ -191,7 +176,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ),
             
             new SimpleBulkMapping<BulkAdGroup>(StringTable.AdRotation,
-                c => c.AdGroup.AdRotation.ToAdRotationBulkString(),
+                c => c.AdGroup.AdRotation.ToAdRotationBulkString(c.AdGroup.Id),
                 (v, c) => c.AdGroup.AdRotation = v.ParseAdRotation()
                 ),
             
@@ -201,7 +186,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 ),
             
             new SimpleBulkMapping<BulkAdGroup>(StringTable.Language,
-                c => c.AdGroup.Language.ToOptionalBulkString(),
+                c => c.AdGroup.Language.ToOptionalBulkString(c.AdGroup.Id),
                 (v, c) => c.AdGroup.Language = v.GetValueOrEmptyString()
                 ),
 
@@ -211,12 +196,12 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 ),
                         
             new SimpleBulkMapping<BulkAdGroup>(StringTable.TrackingTemplate,
-                c => c.AdGroup.TrackingUrlTemplate.ToOptionalBulkString(),
+                c => c.AdGroup.TrackingUrlTemplate.ToOptionalBulkString(c.AdGroup.Id),
                 (v, c) => c.AdGroup.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.CustomParameter,
-                c => c.AdGroup.UrlCustomParameters.ToBulkString(),
+                c => c.AdGroup.UrlCustomParameters.ToBulkString(c.AdGroup.Id),
                 (v, c) => c.AdGroup.UrlCustomParameters = v.ParseCustomParameters()
             ),
 
@@ -230,7 +215,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 {
                     var targetSetting = (TargetSetting)c.GetSetting(typeof(TargetSetting));
 
-                    return targetSetting?.ToBulkString();
+                    return targetSetting?.ToBulkString(c.AdGroup.Id);
                 },
                 (v, c) =>
                 {

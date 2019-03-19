@@ -61,6 +61,7 @@ namespace Microsoft.BingAds.Internal
     {
         private static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
         {
+			// v12
             {
                 typeof (V12.CustomerBilling.ICustomerBillingService), new ServiceInfo
                 {
@@ -103,6 +104,7 @@ namespace Microsoft.BingAds.Internal
                     SandboxUrl = "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v12/BulkService.svc"
                 }
             },
+			// end v12
         };
 
         private static readonly Type[] ServiceTypes;
@@ -123,7 +125,7 @@ namespace Microsoft.BingAds.Internal
                 typeof (V12.CustomerManagement.ICustomerManagementService),
                 typeof (V12.Bulk.IBulkService),
                 typeof (V12.CampaignManagement.ICampaignManagementService),
-                typeof (V12.AdInsight.IAdInsightService)
+                typeof (V12.AdInsight.IAdInsightService),
             };
 
             ConfigurationNamesByInterfaceTypes = new Dictionary<Type, string>();

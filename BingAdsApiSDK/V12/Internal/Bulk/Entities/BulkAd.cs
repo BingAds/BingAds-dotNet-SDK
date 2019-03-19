@@ -136,22 +136,22 @@ namespace Microsoft.BingAds.V12.Internal.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkAd<T>>(StringTable.FinalUrl,
-                c => c.Ad.FinalUrls.WriteUrls("; "),
+                c => c.Ad.FinalUrls.WriteUrls("; ", c.Ad.Id),
                 (v, c) => c.Ad.FinalUrls = v.ParseUrls()
             ), 
 
             new SimpleBulkMapping<BulkAd<T>>(StringTable.FinalMobileUrl,
-                c => c.Ad.FinalMobileUrls.WriteUrls("; "),
+                c => c.Ad.FinalMobileUrls.WriteUrls("; ", c.Ad.Id),
                 (v, c) => c.Ad.FinalMobileUrls = v.ParseUrls()
             ), 
 
             new SimpleBulkMapping<BulkAd<T>>(StringTable.TrackingTemplate,
-                c => c.Ad.TrackingUrlTemplate.ToOptionalBulkString(),
+                c => c.Ad.TrackingUrlTemplate.ToOptionalBulkString(c.Ad.Id),
                 (v, c) => c.Ad.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
             new SimpleBulkMapping<BulkAd<T>>(StringTable.CustomParameter,
-                c => c.Ad.UrlCustomParameters.ToBulkString(),
+                c => c.Ad.UrlCustomParameters.ToBulkString(c.Ad.Id),
                 (v, c) => c.Ad.UrlCustomParameters = v.ParseCustomParameters()
             ), 
         };

@@ -88,7 +88,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ), 
 
             new SimpleBulkMapping<BulkLocationAdExtension>(StringTable.PhoneNumber,
-                c => c.LocationAdExtension.PhoneNumber.ToOptionalBulkString(),
+                c => c.LocationAdExtension.PhoneNumber.ToOptionalBulkString(c.LocationAdExtension.Id),
                 (v, c) => c.LocationAdExtension.PhoneNumber = v.GetValueOrEmptyString()
             ), 
 
@@ -103,7 +103,7 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             ), 
 
             new SimpleBulkMapping<BulkLocationAdExtension>(StringTable.AddressLine2,
-                c => GetAddressPart(c, x => x.StreetAddress2.ToOptionalBulkString()),
+                c => GetAddressPart(c, x => x.StreetAddress2.ToOptionalBulkString(c.LocationAdExtension.Id)),
                 (v, c) => SetAddressPart(c, x => x.StreetAddress2 = v.GetValueOrEmptyString())
             ), 
 
