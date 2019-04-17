@@ -1,5 +1,5 @@
 //=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 12.0
+// Bing Ads .NET SDK ver. 12.13
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -242,6 +242,10 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
 
             new ComplexBulkMapping<BulkKeyword>(BiddingSchemeToCsv, CsvToBiddingScheme),
 
+            new SimpleBulkMapping<BulkKeyword>(StringTable.FinalUrlSuffix,
+                c => c.Keyword.FinalUrlSuffix.ToOptionalBulkString(c.Keyword.Id),
+                (v, c) => c.Keyword.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

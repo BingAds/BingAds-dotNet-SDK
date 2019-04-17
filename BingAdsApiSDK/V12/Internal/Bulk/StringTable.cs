@@ -1,5 +1,5 @@
 //=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 12.0
+// Bing Ads .NET SDK ver. 12.13
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -719,5 +719,8 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string ConversionTime = "Conversion Time";
         public const string ConversionValue = "Conversion Value";
         public const string MicrosoftClickId = "Microsoft Click Id";
+
+        // Final Url Suffix
+        public const string FinalUrlSuffix = "Final Url Suffix";
     }
 }

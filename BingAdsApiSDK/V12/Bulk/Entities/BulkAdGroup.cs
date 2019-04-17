@@ -1,5 +1,5 @@
 //=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 12.0
+// Bing Ads .NET SDK ver. 12.13
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -236,6 +236,11 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             new ComplexBulkMapping<BulkAdGroup>(CoOpSettingToCsv, CsvToCoOpSetting),
 
             new ComplexBulkMapping<BulkAdGroup>(BiddingSchemeToCsv, CsvToBiddingScheme),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.FinalUrlSuffix,
+                c => c.AdGroup.FinalUrlSuffix.ToOptionalBulkString(c.AdGroup.Id),
+                (v, c) => c.AdGroup.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
 
         };
 

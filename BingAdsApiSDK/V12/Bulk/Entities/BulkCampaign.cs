@@ -1,5 +1,5 @@
 //=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 12.0
+// Bing Ads .NET SDK ver. 12.13
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -419,6 +419,11 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.ExperimentId,
                 c => c.Campaign.ExperimentId.ToBulkString(),
                 (v, c) => c.Campaign.ExperimentId = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.FinalUrlSuffix,
+                c => c.Campaign.FinalUrlSuffix.ToOptionalBulkString(c.Campaign.Id),
+                (v, c) => c.Campaign.FinalUrlSuffix = v.GetValueOrEmptyString()
             ),
         };
 

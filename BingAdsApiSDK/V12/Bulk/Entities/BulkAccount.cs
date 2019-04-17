@@ -1,5 +1,5 @@
 //=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 12.0
+// Bing Ads .NET SDK ver. 12.13
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -99,6 +99,13 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         /// </summary>
         public string TrackingUrlTemplate { get; private set; }
 
+        /// <summary>
+        /// The Final Url Suffix in the account.
+        /// Corresponds to the 'Final Url Suffix' field in the bulk file. 
+        /// </summary>
+        public string FinalUrlSuffix { get; private set; }
+
+
         private static readonly IBulkMapping<BulkAccount>[] Mappings =
         {
             new SimpleBulkMapping<BulkAccount>(StringTable.Id,
@@ -124,6 +131,11 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
             new SimpleBulkMapping<BulkAccount>(StringTable.TrackingTemplate,
                 c => c.TrackingUrlTemplate.ToOptionalBulkString(c.Id),
                 (v, c) => c.TrackingUrlTemplate = v.GetValueOrEmptyString()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.FinalUrlSuffix,
+            c => c.FinalUrlSuffix.ToOptionalBulkString(c.Id),
+            (v, c) => c.FinalUrlSuffix = v.GetValueOrEmptyString()
             )
         };
 

@@ -1,5 +1,5 @@
 //=====================================================================================================================================================
-// Bing Ads .NET SDK ver. 12.0
+// Bing Ads .NET SDK ver. 12.13
 // 
 // Copyright (c) Microsoft Corporation
 // 
@@ -410,6 +410,9 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             
             // Account
             StringTable.MSCLKIDAutoTaggingEnabled,
+
+            //Final Url Suffix
+            StringTable.FinalUrlSuffix,
         };
 
         /// <summary>
