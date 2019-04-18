@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V12.CustomerManagement;
+using Microsoft.BingAds.V13.CustomerManagement;
 using BingAdsConsoleApp.Properties;
 using BingAdsExamplesLibrary;
 using System.IO;
@@ -17,7 +17,7 @@ namespace BingAdsConsoleApp
         // Set any examples that you want to run. 
         private static readonly ExampleBase[] _examples =
         {
-            new BingAdsExamplesLibrary.V12.SearchUserAccounts(),
+            new BingAdsExamplesLibrary.V13.BulkAdExtensions(),
         };
 
         private static AuthorizationData _authorizationData;
@@ -207,16 +207,15 @@ namespace BingAdsConsoleApp
 
             ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)_authorizationData.Authentication).Environment;
 
-            BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper CustomerManagementExampleHelper = 
-                new BingAdsExamplesLibrary.V12.CustomerManagementExampleHelper(
+            BingAdsExamplesLibrary.V13.CustomerManagementExampleHelper CustomerManagementExampleHelper = 
+                new BingAdsExamplesLibrary.V13.CustomerManagementExampleHelper(
                     OutputStatusMessageDefault: null);
             CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(
                     authorizationData: _authorizationData, 
                     environment: environment);
 
             var getUserResponse = await CustomerManagementExampleHelper.GetUserAsync(
-                    userId: null,
-                    includeLinkedAccountIds: true);
+                    userId: null);
             var user = getUserResponse.User;
 
             // Search for the accounts that the user can access.

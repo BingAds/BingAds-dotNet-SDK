@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V12.CampaignManagement;
+using Microsoft.BingAds.V13.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V12
+namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
     /// How to apply product conditions for Bing Shopping Campaigns.
@@ -15,7 +15,7 @@ namespace BingAdsExamplesLibrary.V12
     {
         public override string Description
         {
-            get { return "Bing Shopping Campaigns | Campaign Management V12"; }
+            get { return "Bing Shopping Campaigns | Campaign Management V13"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -53,7 +53,6 @@ namespace BingAdsExamplesLibrary.V12
                         CampaignType = CampaignType.Shopping,
                         Languages = new string[] { "All" },
                         Name = "Women's Shoes " + DateTime.UtcNow,
-                        Description = "Red shoes line.",
                         DailyBudget = 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
                         Settings = new[] {
@@ -70,8 +69,7 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage("-----\nAddCampaigns:");
                 AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
                     accountId: authorizationData.AccountId,
-                    campaigns: campaigns,
-                    includeDynamicSearchAdsSource: false);
+                    campaigns: campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
                 OutputStatusMessage("CampaignIds:");
@@ -163,8 +161,7 @@ namespace BingAdsExamplesLibrary.V12
                 var adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition,
-                    returnAdditionalFields: AdGroupCriterionAdditionalField.FinalUrlSuffix);
+                    criterionType: AdGroupCriterionType.ProductPartition);
 
                 OutputStatusMessage("The ad group's product partition only has a tree root node: \n");
                 OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
@@ -192,8 +189,7 @@ namespace BingAdsExamplesLibrary.V12
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition,
-                    returnAdditionalFields: AdGroupCriterionAdditionalField.FinalUrlSuffix);
+                    criterionType: AdGroupCriterionType.ProductPartition);
 
                 OutputStatusMessage("Updated the bid for the tree root node: \n");
                 OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
@@ -210,8 +206,7 @@ namespace BingAdsExamplesLibrary.V12
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition,
-                    returnAdditionalFields: AdGroupCriterionAdditionalField.FinalUrlSuffix);
+                    criterionType: AdGroupCriterionType.ProductPartition);
 
                 var existingRoot = GetRootNode(adGroupCriterions?.AdGroupCriterions);
                 if (existingRoot != null)
@@ -293,8 +288,7 @@ namespace BingAdsExamplesLibrary.V12
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition,
-                    returnAdditionalFields: AdGroupCriterionAdditionalField.FinalUrlSuffix);
+                    criterionType: AdGroupCriterionType.ProductPartition);
                 
                 // The product partition group tree now has 9 nodes. 
                  
@@ -376,8 +370,7 @@ namespace BingAdsExamplesLibrary.V12
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition,
-                    returnAdditionalFields: AdGroupCriterionAdditionalField.FinalUrlSuffix);
+                    criterionType: AdGroupCriterionType.ProductPartition);
                 
                 // The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1):
                  
@@ -445,16 +438,16 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
