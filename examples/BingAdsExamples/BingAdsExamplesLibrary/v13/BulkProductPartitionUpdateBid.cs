@@ -6,11 +6,11 @@ using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.BingAds;
-using Microsoft.BingAds.V12.Bulk;
-using Microsoft.BingAds.V12.Bulk.Entities;
-using Microsoft.BingAds.V12.CampaignManagement;
+using Microsoft.BingAds.V13.Bulk;
+using Microsoft.BingAds.V13.Bulk.Entities;
+using Microsoft.BingAds.V13.CampaignManagement;
 
-namespace BingAdsExamplesLibrary.V12
+namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
     /// How to update product partitions for Bing Shopping Campaigns with the Bulk service.
@@ -19,7 +19,7 @@ namespace BingAdsExamplesLibrary.V12
     {
         public override string Description
         {
-            get { return "Product Partition Bid Update | Bulk V12"; }
+            get { return "Product Partition Bid Update | Bulk V13"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -67,7 +67,7 @@ namespace BingAdsExamplesLibrary.V12
                     filePath: bulkFilePath,
                     resultFileType: ResultFileType.FullDownload,
                     fileFormat: FileType);
-
+                
                 var bulkAdGroupProductPartitions = Reader.ReadEntities().ToList().OfType<BulkAdGroupProductPartition>().ToList();
                 OutputBulkAdGroupProductPartitions(bulkAdGroupProductPartitions);
                 
@@ -125,21 +125,21 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Bulk service exceptions
-            catch (FaultException<Microsoft.BingAds.V12.Bulk.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.Bulk.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.Bulk.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.Bulk.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));

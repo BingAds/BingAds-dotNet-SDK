@@ -1,16 +1,16 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using Microsoft.BingAds.V12.Bulk;
-using Microsoft.BingAds.V12.Bulk.Entities;
-using Microsoft.BingAds.V12.CampaignManagement;
+using Microsoft.BingAds.V13.Bulk;
+using Microsoft.BingAds.V13.Bulk.Entities;
+using Microsoft.BingAds.V13.CampaignManagement;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V12.Internal.Bulk.Entities;
-using Microsoft.BingAds.V12.Internal.Bulk.Entities.AdExtensions;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities.AdExtensions;
 using System.Globalization;
 using System.Threading;
 
-namespace BingAdsExamplesLibrary.V12
+namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
     /// Provides default file paths and custom example implementations for a subset of BulkServiceManager and BulkOperation methods. 
@@ -1746,7 +1746,7 @@ namespace BingAdsExamplesLibrary.V12
                     // 'Bid Strategy Type' column header in the Bulk file
                     BiddingScheme = new ManualCpcBiddingScheme { },
                     // 'End Date' column header in the Bulk file
-                    EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                    EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                     {
                         Month = 12,
                         Day = 31,
@@ -1782,7 +1782,7 @@ namespace BingAdsExamplesLibrary.V12
                         Amount = 0.10
                     },
                     // 'Start Date' column header in the Bulk file
-                    StartDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                    StartDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                     {
                         Month = DateTime.UtcNow.Month,
                         Day = DateTime.UtcNow.Day,
@@ -2681,7 +2681,7 @@ namespace BingAdsExamplesLibrary.V12
                                 },
                             },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -2741,7 +2741,7 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -2805,7 +2805,7 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -2858,7 +2858,7 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -2974,7 +2974,7 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -3033,7 +3033,7 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -3194,7 +3194,7 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -3283,7 +3283,7 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -3339,7 +3339,7 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                         // 'End Date' column header in the Bulk file
-                        EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date
+                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
                             Month = 12,
                             Day = 31,
@@ -4791,18 +4791,10 @@ namespace BingAdsExamplesLibrary.V12
                             },
                         },
                     },
-                    // 'Landscape Image Media Id' column header in the Bulk file
-                    LandscapeImageMediaId = null,
-                    // 'Landscape Logo Media Id' column header in the Bulk file
-                    LandscapeLogoMediaId = null,
                     // 'Long Headline' column header in the Bulk file
-                    LongHeadline = "Long Headline Here",
+                    LongHeadlineString = "Long Headline Here",
                     // 'Status' column header in the Bulk file
                     Status = AdStatus.Active,
-                    // 'Square Image Media Id' column header in the Bulk file
-                    SquareImageMediaId = null,
-                    // 'Square Logo Media Id' column header in the Bulk file
-                    SquareLogoMediaId = null,
                     // 'Text' column header in the Bulk file
                     Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
                     // 'Tracking Template' column header in the Bulk file

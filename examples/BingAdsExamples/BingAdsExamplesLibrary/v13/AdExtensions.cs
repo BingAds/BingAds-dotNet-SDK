@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V12.CampaignManagement;
+using Microsoft.BingAds.V13.CampaignManagement;
 using Microsoft.BingAds;
 
-namespace BingAdsExamplesLibrary.V12
+namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
     /// How to manage ad extensions for an account's ad extension library, 
@@ -26,7 +26,7 @@ namespace BingAdsExamplesLibrary.V12
 
         public override string Description
         {
-            get { return "Ad Extensions | Campaign Management V12"; }
+            get { return "Ad Extensions | Campaign Management V13"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -48,7 +48,6 @@ namespace BingAdsExamplesLibrary.V12
                     {
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
                         DailyBudget = 50,
-                        Description = "Red shoes line.",
                         Languages = new string[] { "All" },
                         Name = "Women's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
@@ -58,8 +57,7 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage("-----\nAddCampaigns:");
                 AddCampaignsResponse addCampaignsResponse = await CampaignManagementExampleHelper.AddCampaignsAsync(
                     accountId: authorizationData.AccountId,
-                    campaigns: campaigns,
-                    includeDynamicSearchAdsSource: false);
+                    campaigns: campaigns);
                 long?[] campaignIds = addCampaignsResponse.CampaignIds.ToArray();
                 BatchError[] campaignErrors = addCampaignsResponse.PartialErrors.ToArray();
                 OutputStatusMessage("CampaignIds:");
@@ -161,7 +159,7 @@ namespace BingAdsExamplesLibrary.V12
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date {
+                            EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date {
                                 Month = 12,
                                 Day = 31,
                                 Year = DateTime.UtcNow.Year + 1
@@ -180,7 +178,7 @@ namespace BingAdsExamplesLibrary.V12
                     new LocationAdExtension {
                         PhoneNumber = "206-555-0100",
                         CompanyName = "Contoso Shoes",
-                        Address = new Microsoft.BingAds.V12.CampaignManagement.Address {
+                        Address = new Microsoft.BingAds.V13.CampaignManagement.Address {
                             StreetAddress = "1234 Washington Place",
                             StreetAddress2 = "Suite 1210",
                             CityName = "Woodinville",
@@ -204,7 +202,7 @@ namespace BingAdsExamplesLibrary.V12
                                 },
                             },
                             StartDate = null,
-                            EndDate = new Microsoft.BingAds.V12.CampaignManagement.Date {
+                            EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date {
                                 Month = 12,
                                 Day = 31,
                                 Year = DateTime.UtcNow.Year + 1
@@ -350,8 +348,7 @@ namespace BingAdsExamplesLibrary.V12
                 var getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
                     accountId: authorizationData.AccountId,
                     adExtensionIds: adExtensionIds,
-                    adExtensionType: adExtensionsTypeFilter,
-                    returnAdditionalFields: AdExtensionAdditionalField.FinalUrlSuffix));
+                    adExtensionType: adExtensionsTypeFilter));
                 adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
                 BatchError[] getAdExtensionErrors = getAdExtensionsByIdsResponse?.PartialErrors.ToArray();
                 OutputStatusMessage("AdExtensions:");
@@ -392,8 +389,7 @@ namespace BingAdsExamplesLibrary.V12
                 getAdExtensionsByIdsResponse = await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
                     accountId: authorizationData.AccountId,
                     adExtensionIds: updateExtensionIds,
-                    adExtensionType: adExtensionsTypeFilter,
-                    returnAdditionalFields: AdExtensionAdditionalField.FinalUrlSuffix);
+                    adExtensionType: adExtensionsTypeFilter);
                 adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
                 getAdExtensionErrors = getAdExtensionsByIdsResponse?.PartialErrors.ToArray();
                 OutputStatusMessage("AdExtensions:");
@@ -445,26 +441,26 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("Couldn't get OAuth tokens. Error: {0}. Description: {1}", ex.Details.Error, ex.Details.Description));
             }
             // Catch Campaign Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.ApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CampaignManagement.EditorialApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CampaignManagement.EditorialApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
                 OutputStatusMessage(string.Join("; ", ex.Detail.BatchErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
             // Catch Customer Management service exceptions
-            catch (FaultException<Microsoft.BingAds.V12.CustomerManagement.AdApiFaultDetail> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.Errors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
-            catch (FaultException<Microsoft.BingAds.V12.CustomerManagement.ApiFault> ex)
+            catch (FaultException<Microsoft.BingAds.V13.CustomerManagement.ApiFault> ex)
             {
                 OutputStatusMessage(string.Join("; ", ex.Detail.OperationErrors.Select(error => string.Format("{0}: {1}", error.Code, error.Message))));
             }
@@ -481,12 +477,12 @@ namespace BingAdsExamplesLibrary.V12
         /// <param name="imageFileName">The file name and path.</param>
         /// <param name="imageFormat">For supported image formats see <see href="https://go.microsoft.com/fwlink/?linkid=872754">Image remarks</see>.</param>
         /// <returns>A Campaign Management Image object.</returns>
-        private Microsoft.BingAds.V12.CampaignManagement.Image GetImageMedia(
+        private Microsoft.BingAds.V13.CampaignManagement.Image GetImageMedia(
             string mediaType,
             string imageFileName,
             System.Drawing.Imaging.ImageFormat imageFormat)
         {
-            var image = new Microsoft.BingAds.V12.CampaignManagement.Image();
+            var image = new Microsoft.BingAds.V13.CampaignManagement.Image();
             image.Data = GetBmpBase64String(imageFileName, imageFormat);
             image.MediaType = mediaType;
             image.Type = "Image";
