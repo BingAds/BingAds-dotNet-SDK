@@ -1696,7 +1696,7 @@ namespace Microsoft.BingAds.V12.CustomerBilling
     {
         
         /// <summary>
-        /// You need to approve or decline an order that Bing Ads created for your account.
+        /// You need to approve or decline an order that Microsoft Advertising created for your account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PendingUserReview = 1,
@@ -1708,7 +1708,7 @@ namespace Microsoft.BingAds.V12.CustomerBilling
         Active = 2,
         
         /// <summary>
-        /// You have declined an order created by Bing Ads, or the order you created has been declined.
+        /// You have declined an order created by Microsoft Advertising, or the order you created has been declined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Declined = 3,
@@ -1720,7 +1720,7 @@ namespace Microsoft.BingAds.V12.CustomerBilling
         Expired = 4,
         
         /// <summary>
-        /// You have canceled an order that you created or that was created by Bing Ads.
+        /// You have canceled an order that you created or that was created by Microsoft Advertising.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Canceled = 5,

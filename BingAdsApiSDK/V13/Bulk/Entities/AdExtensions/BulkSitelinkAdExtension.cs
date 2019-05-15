@@ -123,6 +123,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.SitelinkAdExtension.UrlCustomParameters.ToBulkString(c.SitelinkAdExtension.Id),
                 (v, c) => c.SitelinkAdExtension.UrlCustomParameters = v.ParseCustomParameters()
             ),
+            new SimpleBulkMapping<BulkSitelinkAdExtension>(StringTable.FinalUrlSuffix,
+                c => c.SitelinkAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.AdExtension.Id),
+                (v, c) => c.SitelinkAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

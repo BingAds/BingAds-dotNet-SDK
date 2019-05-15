@@ -101,8 +101,13 @@ namespace Microsoft.BingAds
         /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, ApiEnvironment? environment = ApiEnvironment.Production)
-            : base(clientId, clientSecret, redirectionUri, environment)
+        public OAuthWebAuthCodeGrant(
+            string clientId, 
+            string clientSecret, 
+            Uri redirectionUri, 
+            ApiEnvironment? environment = ApiEnvironment.Production,
+            bool requireLiveConnect = false)
+            : base(clientId, clientSecret, redirectionUri, environment, requireLiveConnect)
         {
             if (redirectionUri == null)
             {
@@ -143,8 +148,14 @@ namespace Microsoft.BingAds
         /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, string refreshToken, ApiEnvironment? environment = ApiEnvironment.Production)
-            : base(clientId, clientSecret, redirectionUri, refreshToken, environment)
+        public OAuthWebAuthCodeGrant(
+            string clientId, 
+            string clientSecret, 
+            Uri redirectionUri, 
+            string refreshToken, 
+            ApiEnvironment? environment = ApiEnvironment.Production,
+            bool requireLiveConnect = false)
+            : base(clientId, clientSecret, redirectionUri, refreshToken, environment, requireLiveConnect)
         {
             if (clientSecret == null)
             {
@@ -181,8 +192,14 @@ namespace Microsoft.BingAds
         /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        public OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, OAuthTokens oAuthTokens, ApiEnvironment? environment = ApiEnvironment.Production)
-            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment)
+        public OAuthWebAuthCodeGrant(
+            string clientId, 
+            string clientSecret, 
+            Uri redirectionUri, 
+            OAuthTokens oAuthTokens, 
+            ApiEnvironment? environment = ApiEnvironment.Production,
+            bool requireLiveConnect = false)
+            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment, requireLiveConnect)
         {
             if (clientSecret == null)
             {
@@ -190,8 +207,14 @@ namespace Microsoft.BingAds
             }
         }
 
-        internal OAuthWebAuthCodeGrant(string clientId, string clientSecret, Uri redirectionUri, IOAuthService oauthService, ApiEnvironment env)
-            : base(clientId, clientSecret, redirectionUri, oauthService, env)
+        internal OAuthWebAuthCodeGrant(
+            string clientId, 
+            string clientSecret, 
+            Uri redirectionUri, 
+            IOAuthService oauthService, 
+            ApiEnvironment env,
+            bool requireLiveConnect)
+            : base(clientId, clientSecret, redirectionUri, oauthService, env, requireLiveConnect)
         {
         }
     }

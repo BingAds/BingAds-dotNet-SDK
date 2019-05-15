@@ -6282,7 +6282,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         private long CategoryIdField;
         
         /// <summary>
-        /// The Bing Ads identifier for the keyword category.
+        /// The Microsoft Advertising identifier for the keyword category.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long CategoryId
@@ -6900,7 +6900,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the keyword.
+        /// The Microsoft Advertising identifier of the keyword.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -6989,7 +6989,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         private long LocationIdField;
         
         /// <summary>
-        /// The Bing Ads identifier of the location that you want to target.
+        /// The Microsoft Advertising identifier of the location that you want to target.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long LocationId
@@ -7200,7 +7200,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Competition levels are defined by the number of advertisers bidding on this keyword, relative to all other keywords across Bing Ads.
+    /// Competition levels are defined by the number of advertisers bidding on this keyword, relative to all other keywords across Microsoft Advertising.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/competitionlevel?view=bingads-13">CompetitionLevel Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/competitionlevel?view=bingads-13 for details.
@@ -7593,7 +7593,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The number of times an ad is shown on the Bing Network divided by the total available impressions.
+        /// The number of times an ad is shown on the Microsoft Advertising Network divided by the total available impressions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public double ImpressionShare
@@ -7950,7 +7950,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the keyword idea category.
+        /// The Microsoft Advertising identifier of the keyword idea category.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long CategoryId
@@ -8185,7 +8185,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Determined by the number of advertisers bidding on this keyword, relative to all other keywords across Bing Ads.
+        /// Determined by the number of advertisers bidding on this keyword, relative to all other keywords across Microsoft Advertising.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.AdInsight.CompetitionLevel> Competition
@@ -8664,7 +8664,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the negative keyword.
+        /// The Microsoft Advertising identifier of the negative keyword.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -12352,7 +12352,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         public Microsoft.BingAds.V13.AdInsight.EntityType EntityType;
         
         /// <summary>
-        /// The Bing Ads identifiers for up to 200 campaigns, ad groups, or keywords.
+        /// The Microsoft Advertising identifiers for up to 200 campaigns, ad groups, or keywords.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
         public System.Collections.Generic.IList<long> EntityIds;
@@ -12380,7 +12380,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         /// <param name="EntityType">The entity level that you want to request auction insight data.</param>
-        /// <param name="EntityIds">The Bing Ads identifiers for up to 200 campaigns, ad groups, or keywords.</param>
+        /// <param name="EntityIds">The Microsoft Advertising identifiers for up to 200 campaigns, ad groups, or keywords.</param>
         /// <param name="SearchParameters">The search parameters define your criteria and filters for the auction insight data.</param>
         public GetAuctionInsightDataRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.AdInsight.EntityType EntityType, System.Collections.Generic.IList<long> EntityIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.SearchParameter> SearchParameters)
         {

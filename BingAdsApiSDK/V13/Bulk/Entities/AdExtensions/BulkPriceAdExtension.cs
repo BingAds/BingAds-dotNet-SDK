@@ -115,6 +115,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 PriceTableRowsToRowValues,
                 RowValuesToPriceTableRows
             ),
+
+            new SimpleBulkMapping<BulkPriceAdExtension>(StringTable.FinalUrlSuffix,
+                c => c.PriceAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.AdExtension.Id),
+                (v, c) => c.PriceAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
         };
 
         private static void RowValuesToPriceTableRows(RowValues values, BulkPriceAdExtension c)

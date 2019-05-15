@@ -115,6 +115,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.ActionAdExtension.Language.ToOptionalBulkString(c.ActionAdExtension.Id),
                 (v, c) => c.AdExtension.Language = v.GetValueOrEmptyString()
             ),
+
+            new SimpleBulkMapping<BulkActionAdExtension>(StringTable.FinalUrlSuffix,
+                c => c.ActionAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.AdExtension.Id),
+                (v, c) => c.ActionAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

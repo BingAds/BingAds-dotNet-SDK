@@ -48,6 +48,7 @@
 //=====================================================================================================================================================
 
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.BingAds.Internal.OAuth;
 using Microsoft.BingAds.Internal.Utilities;
@@ -69,7 +70,7 @@ namespace Microsoft.BingAds.Internal
         private readonly string _optionalClientSecret;
 
         private readonly Uri _redirectionUri;
-
+        
         private readonly IOAuthService _oauthService;
 
         /// <summary>
@@ -86,6 +87,7 @@ namespace Microsoft.BingAds.Internal
         /// The URI to which the user of the app will be redirected after receiving user consent.
         /// </summary>
         public override Uri RedirectionUri => _redirectionUri;
+
 
         /// <summary>
         /// Occurs when a new refresh token is received.
@@ -118,8 +120,14 @@ namespace Microsoft.BingAds.Internal
         /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, string refreshToken, ApiEnvironment? environment)
-            : this(clientId, optionalClientSecret, redirectionUri, environment)
+        protected OAuthWithAuthorizationCode(
+            string clientId, 
+            string optionalClientSecret, 
+            Uri redirectionUri, 
+            string refreshToken, 
+            ApiEnvironment? environment,
+            bool requireLiveConnect)
+            : this(clientId, optionalClientSecret, redirectionUri, environment, requireLiveConnect)
         {
             if (refreshToken == null)
             {
@@ -155,8 +163,14 @@ namespace Microsoft.BingAds.Internal
         /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, OAuthTokens oauthTokens, ApiEnvironment? environment)
-            : this(clientId, optionalClientSecret, redirectionUri, environment)
+        protected OAuthWithAuthorizationCode(
+            string clientId, 
+            string optionalClientSecret, 
+            Uri redirectionUri, 
+            OAuthTokens oauthTokens, 
+            ApiEnvironment? environment,
+            bool requireLiveConnect)
+            : this(clientId, optionalClientSecret, redirectionUri, environment, requireLiveConnect)
         {
             if (oauthTokens == null || oauthTokens.RefreshToken == null)
             {
@@ -188,16 +202,27 @@ namespace Microsoft.BingAds.Internal
         /// For more information, see <see href="https://tools.ietf.org/html/rfc6749#section-2.1.1">Redirection Uri section of the OAuth 2.0 spec</see>.
         /// </para>
         /// </remarks>
-        protected OAuthWithAuthorizationCode(string clientId, string optionalClientSecret, Uri redirectionUri, ApiEnvironment? environment)
-            :  base(clientId, environment)
+        protected OAuthWithAuthorizationCode(
+            string clientId, 
+            string optionalClientSecret, 
+            Uri redirectionUri, 
+            ApiEnvironment? environment,
+            bool requireLiveConnect)
+            :  base(clientId, environment, requireLiveConnect)
         {
             _optionalClientSecret = optionalClientSecret;
             _oauthService = new UriOAuthService(Environment);
-            _redirectionUri = redirectionUri?? _oauthService.RedirectionUri();
+            _redirectionUri = redirectionUri?? _oauthService.RedirectionUri(requireLiveConnect);
         }
 
-        internal OAuthWithAuthorizationCode(string clientId, string clientSecret, Uri redirectionUri, IOAuthService oauthService, ApiEnvironment env)
-            : base(clientId, env)
+        internal OAuthWithAuthorizationCode(
+            string clientId, 
+            string clientSecret, 
+            Uri redirectionUri, 
+            IOAuthService oauthService, 
+            ApiEnvironment env,
+            bool requireLiveConnect)
+            : base(clientId, env, requireLiveConnect)
         {
             if (redirectionUri == null)
             {
@@ -220,8 +245,10 @@ namespace Microsoft.BingAds.Internal
                 ClientId = ClientId,
                 ResponseType = "code",
                 RedirectUri = _redirectionUri,
-                State = State
-            }, Environment);
+                State = State,
+            }, 
+            Environment, 
+            RequireLiveConnect);
         }
 
         /// <summary>
@@ -275,8 +302,8 @@ namespace Microsoft.BingAds.Internal
                 RedirectUri = RedirectionUri,
                 GrantType = "authorization_code",
                 GrantParamName = "code",
-                GrantValue = code
-            }).ConfigureAwait(false);
+                GrantValue = code,
+            }, RequireLiveConnect).ConfigureAwait(false);
 
             RaiseNewTokensReceivedEvent();
 
@@ -306,11 +333,11 @@ namespace Microsoft.BingAds.Internal
             {
                 ClientId = ClientId,
                 ClientSecret = _optionalClientSecret,
-                RedirectUri = RedirectionUri,
+                RedirectUri = null,
                 GrantType = "refresh_token",
                 GrantParamName = "refresh_token",
-                GrantValue = refreshToken
-            }).ConfigureAwait(false);
+                GrantValue = refreshToken,
+            }, RequireLiveConnect).ConfigureAwait(false);
 
             RaiseNewTokensReceivedEvent();
 

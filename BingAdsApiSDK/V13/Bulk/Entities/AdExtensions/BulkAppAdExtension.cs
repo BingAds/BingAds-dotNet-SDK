@@ -99,7 +99,12 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkAppAdExtension>(StringTable.Text,
                 c => c.AppAdExtension.DisplayText,
                 (v, c) => c.AdExtension.DisplayText = v
-            ), 
+            ),
+
+            new SimpleBulkMapping<BulkAppAdExtension>(StringTable.FinalUrlSuffix,
+                c => c.AppAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.AdExtension.Id),
+                (v, c) => c.AppAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

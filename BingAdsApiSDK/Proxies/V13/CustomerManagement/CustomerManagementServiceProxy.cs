@@ -921,7 +921,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated account number that is used to identify the account in the Bing Ads web application.
+        /// The system generated account number that is used to identify the account in the Microsoft Advertising web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public string Number
@@ -2341,7 +2341,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Defines possible payment methods for a Bing Ads account.
+    /// Defines possible payment methods for a Microsoft Advertising account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/paymentmethodtype?view=bingads-13">PaymentMethodType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/paymentmethodtype?view=bingads-13 for details.
@@ -2377,7 +2377,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         ElectronicFundsTransfer = 4,
         
         /// <summary>
-        /// A payment service that allows customers to pay for their Bing Ads transactions online.
+        /// A payment service that allows customers to pay for their Microsoft Advertising transactions online.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PayPal = 5,
@@ -2971,26 +2971,26 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     {
         
         /// <summary>
-        /// Bing Ads will not append any UTM tracking codes to your ad or keyword final URL.
+        /// Microsoft Advertising will not append any UTM tracking codes to your ad or keyword final URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 0,
         
         /// <summary>
-        /// Bing Ads will automatically append the supported UTM tracking codes, and preserve any existing UTM tracking codes that you added to your ad or keyword's final URL.
+        /// Microsoft Advertising will automatically append the supported UTM tracking codes, and preserve any existing UTM tracking codes that you added to your ad or keyword's final URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Preserve = 1,
         
         /// <summary>
-        /// Bing Ads will automatically append the supported UTM tracking codes, and replace any of the existing and supported UTM tracking codes that you added to your ad or keyword's final URL.
+        /// Microsoft Advertising will automatically append the supported UTM tracking codes, and replace any of the existing and supported UTM tracking codes that you added to your ad or keyword's final URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Replace = 2,
     }
     
     /// <summary>
-    /// Defines a customer object that contains one or more Bing Ads accounts.
+    /// Defines a customer object that contains one or more Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customer?view=bingads-13">Customer Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customer?view=bingads-13 for details.
@@ -3301,7 +3301,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// A system-generated customer number that is used in the Bing Ads web application.
+        /// A system-generated customer number that is used in the Microsoft Advertising web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public string Number
@@ -3723,7 +3723,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the user.
+        /// The Microsoft Advertising identifier of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -4984,7 +4984,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string CustomerLinkPermission
@@ -5313,7 +5313,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated account number that is used to identify the account in the Bing Ads web application.
+        /// The system generated account number that is used to identify the account in the Microsoft Advertising web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string AccountNumber
@@ -7585,7 +7585,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request);
         
         /// <summary>
-        /// Sends an email invitation for someone to manage your Bing Ads accounts.
+        /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
@@ -7603,7 +7603,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationResponse SendUserInvitation(Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationRequest request);
         
         /// <summary>
-        /// Sends an email invitation for someone to manage your Bing Ads accounts.
+        /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
@@ -7649,7 +7649,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsResponse> SearchUserInvitationsAsync(Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsRequest request);
         
         /// <summary>
-        /// Determines whether or not the submitted address is valid for Bing Ads accounts.
+        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
@@ -7667,7 +7667,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.ValidateAddressResponse ValidateAddress(Microsoft.BingAds.V13.CustomerManagement.ValidateAddressRequest request);
         
         /// <summary>
-        /// Determines whether or not the submitted address is valid for Bing Ads accounts.
+        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
@@ -7681,7 +7681,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.ValidateAddressResponse> ValidateAddressAsync(Microsoft.BingAds.V13.CustomerManagement.ValidateAddressRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -7699,7 +7699,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse GetLinkedAccountsAndCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -8038,7 +8038,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public long AccountId;
         
         /// <summary>
-        /// A system-generated account number that is used to identify the account in the Bing Ads web application.
+        /// A system-generated account number that is used to identify the account in the Microsoft Advertising web application.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public string AccountNumber;
@@ -8066,7 +8066,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountId">A system-generated account identifier corresponding to the new account specified in the request.</param>
-        /// <param name="AccountNumber">A system-generated account number that is used to identify the account in the Bing Ads web application.</param>
+        /// <param name="AccountNumber">A system-generated account number that is used to identify the account in the Microsoft Advertising web application.</param>
         /// <param name="CreateTime">The date and time that the account was added.</param>
         public AddAccountResponse(string TrackingId, long AccountId, string AccountNumber, System.DateTime CreateTime)
         {
@@ -8502,7 +8502,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public long CustomerId;
         
         /// <summary>
-        /// A system-generated customer number that is used in the Bing Ads web application.
+        /// A system-generated customer number that is used in the Microsoft Advertising web application.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public string CustomerNumber;
@@ -8514,7 +8514,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public System.Nullable<long> AccountId;
         
         /// <summary>
-        /// A system-generated account number that is used to identify the account in the Bing Ads web application.
+        /// A system-generated account number that is used to identify the account in the Microsoft Advertising web application.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
         public string AccountNumber;
@@ -8542,9 +8542,9 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">A system-generated customer identifier corresponding to the new customer specified in the request.</param>
-        /// <param name="CustomerNumber">A system-generated customer number that is used in the Bing Ads web application.</param>
+        /// <param name="CustomerNumber">A system-generated customer number that is used in the Microsoft Advertising web application.</param>
         /// <param name="AccountId">A system-generated account identifier corresponding to the new account specified in the request.</param>
-        /// <param name="AccountNumber">A system-generated account number that is used to identify the account in the Bing Ads web application.</param>
+        /// <param name="AccountNumber">A system-generated account number that is used to identify the account in the Microsoft Advertising web application.</param>
         /// <param name="CreateTime">The date and time that the account was added.</param>
         public SignupCustomerResponse(string TrackingId, long CustomerId, string CustomerNumber, System.Nullable<long> AccountId, string AccountNumber, System.DateTime CreateTime)
         {
@@ -10942,7 +10942,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Sends an email invitation for someone to manage your Bing Ads accounts.
+    /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
@@ -11004,7 +11004,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Sends an email invitation for someone to manage your Bing Ads accounts.
+    /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
@@ -11158,7 +11158,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Determines whether or not the submitted address is valid for Bing Ads accounts.
+    /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
@@ -11220,7 +11220,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Determines whether or not the submitted address is valid for Bing Ads accounts.
+    /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
@@ -11242,7 +11242,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public Microsoft.BingAds.V13.CustomerManagement.Address OriginalAddress;
         
         /// <summary>
-        /// Determines whether or not the submitted address is valid for Bing Ads accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.
+        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public string Status;
@@ -11270,7 +11270,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddressResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         /// <param name="OriginalAddress">The address that was submitted for validation.</param>
-        /// <param name="Status">Determines whether or not the submitted address is valid for Bing Ads accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.</param>
+        /// <param name="Status">Determines whether or not the submitted address is valid for Microsoft Advertising accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.</param>
         /// <param name="SuggestedAddresses">One or more suggested addresses if the Status is either AddressValidWithSuggestions or AddressInvalidWithSuggestions.</param>
         public ValidateAddressResponse(string TrackingId, Microsoft.BingAds.V13.CustomerManagement.Address OriginalAddress, string Status, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Address> SuggestedAddresses)
         {
@@ -11282,7 +11282,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -11310,13 +11310,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long CustomerId;
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public bool OnlyParentAccounts;
@@ -11337,8 +11337,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="CustomerId">Reserved.</param>
-        /// <param name="OnlyParentAccounts">Reserved.</param>
+        /// <param name="CustomerId">Reserved for future use.</param>
+        /// <param name="OnlyParentAccounts">Reserved for future use.</param>
         public GetLinkedAccountsAndCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, bool OnlyParentAccounts)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11352,7 +11352,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -11368,13 +11368,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo;
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo;
@@ -11395,8 +11395,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="AccountsInfo">Reserved.</param>
-        /// <param name="CustomersInfo">Reserved.</param>
+        /// <param name="AccountsInfo">Reserved for future use.</param>
+        /// <param name="CustomersInfo">Reserved for future use.</param>
         public GetLinkedAccountsAndCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo)
         {
             this.TrackingId = TrackingId;
@@ -12210,7 +12210,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Sends an email invitation for someone to manage your Bing Ads accounts.
+        /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
@@ -12225,7 +12225,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Sends an email invitation for someone to manage your Bing Ads accounts.
+        /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
@@ -12270,7 +12270,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Determines whether or not the submitted address is valid for Bing Ads accounts.
+        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
@@ -12285,7 +12285,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Determines whether or not the submitted address is valid for Bing Ads accounts.
+        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
@@ -12300,7 +12300,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -12315,7 +12315,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.

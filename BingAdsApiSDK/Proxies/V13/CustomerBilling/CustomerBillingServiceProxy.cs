@@ -1379,7 +1379,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// The system generated account number that is used to identify the account in the Bing Ads web application.
+        /// The system generated account number that is used to identify the account in the Microsoft Advertising web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public string AccountNumber
@@ -1857,7 +1857,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     {
         
         /// <summary>
-        /// You need to approve or decline an order that Bing Ads created for your account.
+        /// You need to approve or decline an order that Microsoft Advertising created for your account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PendingUserReview = 1,
@@ -1869,7 +1869,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         Active = 2,
         
         /// <summary>
-        /// You have declined an order created by Bing Ads, or the order you created has been declined.
+        /// You have declined an order created by Microsoft Advertising, or the order you created has been declined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Declined = 3,
@@ -1881,7 +1881,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         Expired = 4,
         
         /// <summary>
-        /// You have canceled an order that you created or that was created by Bing Ads.
+        /// You have canceled an order that you created or that was created by Microsoft Advertising.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Canceled = 5,

@@ -3486,7 +3486,7 @@ namespace Microsoft.BingAds.V12.Reporting
     }
     
     /// <summary>
-    /// Defines a Bing Shopping campaign product search query performance report request.
+    /// Defines a Microsoft Shopping campaign product search query performance report request.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportrequest?view=bingads-12">ProductSearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportrequest?view=bingads-12 for details.
@@ -4803,13 +4803,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -5007,7 +5007,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AverageCpp = 34,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 35,
@@ -5091,7 +5091,7 @@ namespace Microsoft.BingAds.V12.Reporting
         ExactMatchImpressionSharePercent = 48,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 49,
@@ -6047,7 +6047,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The report will include data for only the specified ad group status values.
+        /// The report will include data for only the specified campaign status values.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V12.Reporting.CampaignStatusReportFilter> Status
@@ -6184,13 +6184,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -6214,7 +6214,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 5,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 6,
@@ -6454,7 +6454,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AverageCpp = 45,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 46,
@@ -6574,7 +6574,7 @@ namespace Microsoft.BingAds.V12.Reporting
         ExactMatchImpressionSharePercent = 65,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 66,
@@ -6604,7 +6604,7 @@ namespace Microsoft.BingAds.V12.Reporting
         FinalUrlSuffix = 70,
         
         /// <summary>
-        /// Reserved.
+        /// The campaign type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 71,
@@ -7099,13 +7099,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 2,
@@ -7123,7 +7123,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
@@ -7135,7 +7135,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Keyword = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 7,
@@ -7849,13 +7849,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -7879,7 +7879,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 5,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 6,
@@ -7891,7 +7891,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
@@ -8101,7 +8101,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AverageCpp = 42,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 43,
@@ -8197,7 +8197,7 @@ namespace Microsoft.BingAds.V12.Reporting
         ExactMatchImpressionSharePercent = 58,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 59,
@@ -8227,7 +8227,7 @@ namespace Microsoft.BingAds.V12.Reporting
         FinalUrlSuffix = 63,
         
         /// <summary>
-        /// Reserved.
+        /// The campaign type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 64,
@@ -8477,13 +8477,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -8501,7 +8501,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -8513,13 +8513,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
@@ -8645,7 +8645,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdStatus = 28,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -8813,7 +8813,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdLabels = 56,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 57,
@@ -8825,7 +8825,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 58,
         
         /// <summary>
-        /// Reserved.
+        /// The campaign type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 59,
@@ -9259,13 +9259,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -9283,7 +9283,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -9295,7 +9295,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -9307,13 +9307,13 @@ namespace Microsoft.BingAds.V12.Reporting
         Keyword = 8,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a keyword.
+        /// The Microsoft Advertising assigned identifier of a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 9,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 10,
@@ -9505,7 +9505,7 @@ namespace Microsoft.BingAds.V12.Reporting
         KeywordStatus = 41,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 42,
@@ -9601,19 +9601,19 @@ namespace Microsoft.BingAds.V12.Reporting
         KeywordLabels = 57,
         
         /// <summary>
-        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Bing Ads calculates will place your ad at the top of search results.
+        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Microsoft Advertising calculates will place your ad at the top of search results.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Mainline1Bid = 58,
         
         /// <summary>
-        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Bing Ads calculates for your ad to be placed on the first page in the search results.
+        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Microsoft Advertising calculates for your ad to be placed on the first page in the search results.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainlineBid = 59,
         
         /// <summary>
-        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Bing Ads calculates for your ad to be placed on the first page in the search results.
+        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Microsoft Advertising calculates for your ad to be placed on the first page in the search results.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FirstPageBid = 60,
@@ -10046,13 +10046,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -10070,7 +10070,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -10082,13 +10082,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 8,
@@ -10190,7 +10190,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 24,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
@@ -10298,7 +10298,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdStatus = 42,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 43,
@@ -10468,13 +10468,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -10486,7 +10486,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 3,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 4,
@@ -10697,13 +10697,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -10721,7 +10721,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -10733,7 +10733,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -10998,13 +10998,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -11022,7 +11022,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -11034,7 +11034,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -11082,7 +11082,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Spend = 14,
         
         /// <summary>
-        /// A value that you can collect using universal event tracking.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 15,
@@ -11299,13 +11299,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -11323,7 +11323,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -11335,7 +11335,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -11401,7 +11401,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Assists = 17,
         
         /// <summary>
-        /// A value that you can collect using universal event tracking.
+        /// The revenue optionally reported by the advertiser as a result of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 18,
@@ -11554,13 +11554,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -11578,7 +11578,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -11590,7 +11590,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -11722,7 +11722,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 28,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -11824,7 +11824,7 @@ namespace Microsoft.BingAds.V12.Reporting
         QueryIntentPostalCode = 45,
         
         /// <summary>
-        /// The Bing Ads identifier of the location where the user was physically located when they clicked the ad.
+        /// The Microsoft Advertising identifier of the location where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationId = 46,
@@ -12011,13 +12011,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -12035,7 +12035,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -12047,7 +12047,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -12143,7 +12143,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 22,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 23,
@@ -12511,13 +12511,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -12535,7 +12535,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -12547,13 +12547,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 8,
@@ -12643,7 +12643,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Keyword = 22,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group criterion.
+        /// The Microsoft Advertising assigned identifier of an ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 23,
@@ -12673,13 +12673,13 @@ namespace Microsoft.BingAds.V12.Reporting
         Language = 27,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a keyword.
+        /// The Microsoft Advertising assigned identifier of a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 28,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -12757,13 +12757,13 @@ namespace Microsoft.BingAds.V12.Reporting
         KeywordStatus = 41,
         
         /// <summary>
-        /// The type of campaign.
+        /// The campaign type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 42,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 43,
@@ -12996,13 +12996,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -13020,7 +13020,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -13032,7 +13032,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -13044,7 +13044,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Keyword = 8,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a keyword.
+        /// The Microsoft Advertising assigned identifier of a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 9,
@@ -13402,13 +13402,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -13426,7 +13426,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -13438,7 +13438,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -13450,7 +13450,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Keyword = 8,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a keyword.
+        /// The Microsoft Advertising assigned identifier of a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 9,
@@ -13480,7 +13480,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Revenue = 13,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a goal.
+        /// The Microsoft Advertising assigned identifier of a goal.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 14,
@@ -13680,13 +13680,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -13698,7 +13698,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 3,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 4,
@@ -13710,7 +13710,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 5,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 6,
@@ -13722,7 +13722,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Keyword = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a keyword.
+        /// The Microsoft Advertising assigned identifier of a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 8,
@@ -13746,7 +13746,7 @@ namespace Microsoft.BingAds.V12.Reporting
         BidMatchType = 11,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a negative keyword list.
+        /// The Microsoft Advertising assigned identifier of a negative keyword list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordListId = 12,
@@ -13758,7 +13758,7 @@ namespace Microsoft.BingAds.V12.Reporting
         NegativeKeywordList = 13,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a negative keyword.
+        /// The Microsoft Advertising assigned identifier of a negative keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordId = 14,
@@ -13929,7 +13929,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DateTime = 0,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
@@ -13941,7 +13941,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 2,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
@@ -13959,7 +13959,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 5,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 6,
@@ -13971,7 +13971,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
@@ -14037,7 +14037,7 @@ namespace Microsoft.BingAds.V12.Reporting
         EntityName = 18,
         
         /// <summary>
-        /// The Bing Ads system identifier of the entity that was updated.
+        /// The Microsoft Advertising system identifier of the entity that was updated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityId = 19,
@@ -14329,7 +14329,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 2,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 3,
@@ -14341,7 +14341,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
@@ -14353,7 +14353,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdTitle = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 7,
@@ -14431,7 +14431,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Spend = 19,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad extension.
+        /// The Microsoft Advertising assigned identifier of an ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionId = 20,
@@ -14443,13 +14443,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AdExtensionVersion = 21,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 22,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 23,
@@ -14467,7 +14467,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
@@ -14773,7 +14773,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 2,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 3,
@@ -14785,7 +14785,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
@@ -14797,7 +14797,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Keyword = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a keyword.
+        /// The Microsoft Advertising assigned identifier of a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 7,
@@ -14875,7 +14875,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Spend = 19,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad extension.
+        /// The Microsoft Advertising assigned identifier of an ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionId = 20,
@@ -14887,13 +14887,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AdExtensionVersion = 21,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 22,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 23,
@@ -14911,7 +14911,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
@@ -15118,13 +15118,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -15142,7 +15142,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -15154,13 +15154,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of the audience, for example the remarketing list ID.
+        /// The Microsoft Advertising assigned identifier of the audience, for example the remarketing list ID.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceId = 8,
@@ -15484,7 +15484,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
@@ -15502,7 +15502,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 3,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 4,
@@ -15514,7 +15514,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 5,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 6,
@@ -15526,7 +15526,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdTitle = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 8,
@@ -15544,7 +15544,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdExtensionTypeId = 10,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad extension.
+        /// The Microsoft Advertising assigned identifier of an ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionId = 11,
@@ -15634,7 +15634,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
@@ -16061,31 +16061,31 @@ namespace Microsoft.BingAds.V12.Reporting
         Language = 7,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 8,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 9,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a keyword.
+        /// The Microsoft Advertising assigned identifier of a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 10,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 11,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 12,
@@ -16235,7 +16235,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeviceType = 36,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 37,
@@ -16487,7 +16487,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 1,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 2,
@@ -16499,7 +16499,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 3,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 4,
@@ -16523,19 +16523,19 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupStatus = 7,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 8,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 9,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 10,
@@ -16595,91 +16595,91 @@ namespace Microsoft.BingAds.V12.Reporting
         Price = 19,
         
         /// <summary>
-        /// The value of the Custom_label_0 field in your Bing Merchant Center catalog.
+        /// The value of the Custom_label_0 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel0 = 20,
         
         /// <summary>
-        /// The value of the Custom_label_1 field in your Bing Merchant Center catalog.
+        /// The value of the Custom_label_1 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel1 = 21,
         
         /// <summary>
-        /// The value of the Custom_label_2 field in your Bing Merchant Center catalog.
+        /// The value of the Custom_label_2 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel2 = 22,
         
         /// <summary>
-        /// The value of the Custom_label_3 field in your Bing Merchant Center catalog.
+        /// The value of the Custom_label_3 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel3 = 23,
         
         /// <summary>
-        /// The value of the Custom_label_4 field in your Bing Merchant Center catalog.
+        /// The value of the Custom_label_4 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel4 = 24,
         
         /// <summary>
-        /// The first level value of the Product_type field in your Bing Merchant Center catalog.
+        /// The first level value of the Product_type field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType1 = 25,
         
         /// <summary>
-        /// The second level value of the Product_type field in your Bing Merchant Center catalog.
+        /// The second level value of the Product_type field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType2 = 26,
         
         /// <summary>
-        /// The third level value of the Product_type field in your Bing Merchant Center catalog.
+        /// The third level value of the Product_type field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType3 = 27,
         
         /// <summary>
-        /// The fourth level value of the Product_type field in your Bing Merchant Center catalog.
+        /// The fourth level value of the Product_type field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType4 = 28,
         
         /// <summary>
-        /// The fifth level value of the Product_type field in your Bing Merchant Center catalog.
+        /// The fifth level value of the Product_type field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType5 = 29,
         
         /// <summary>
-        /// The first level value of the Product_category field in your Bing Merchant Center catalog.
+        /// The first level value of the Product_category field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory1 = 30,
         
         /// <summary>
-        /// The second level value of the Product_category field in your Bing Merchant Center catalog.
+        /// The second level value of the Product_category field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory2 = 31,
         
         /// <summary>
-        /// The third level value of the Product_category field in your Bing Merchant Center catalog.
+        /// The third level value of the Product_category field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory3 = 32,
         
         /// <summary>
-        /// The fourth level value of the Product_category field in your Bing Merchant Center catalog.
+        /// The fourth level value of the Product_category field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory4 = 33,
         
         /// <summary>
-        /// The fifth level value of the Product_category field in your Bing Merchant Center catalog.
+        /// The fifth level value of the Product_category field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory5 = 34,
@@ -16841,13 +16841,13 @@ namespace Microsoft.BingAds.V12.Reporting
         LocalStoreCode = 60,
         
         /// <summary>
-        /// The unique identifier for the Bing Merchant Center store.
+        /// The unique identifier for the Microsoft Merchant Center store.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StoreId = 61,
         
         /// <summary>
-        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Bing Network.
+        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Microsoft Advertising Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 62,
@@ -17069,13 +17069,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -17093,7 +17093,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -17105,19 +17105,19 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
         /// <summary>
-        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute.
+        /// The forward slash ("/") delimited list of product conditions, reported as Operand = Attribute.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 8,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group criterion, or product group in the context of a Bing Shopping campaign.
+        /// The Microsoft Advertising assigned identifier of an ad group criterion, or product group in the context of a Microsoft Shopping campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 9,
@@ -17129,7 +17129,7 @@ namespace Microsoft.BingAds.V12.Reporting
         PartitionType = 10,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 11,
@@ -17243,7 +17243,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DestinationUrl = 29,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 30,
@@ -17387,7 +17387,7 @@ namespace Microsoft.BingAds.V12.Reporting
         LocalStoreCode = 53,
         
         /// <summary>
-        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Bing Network.
+        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Microsoft Advertising Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 54,
@@ -17609,13 +17609,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -17633,7 +17633,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -17645,25 +17645,25 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
         /// <summary>
-        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute.
+        /// The forward slash ("/") delimited list of product conditions, reported as Operand = Attribute.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 8,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group criterion, or product group in the context of a Bing Shopping campaign.
+        /// The Microsoft Advertising assigned identifier of an ad group criterion, or product group in the context of a Microsoft Shopping campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 9,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 10,
@@ -17777,7 +17777,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DestinationUrl = 28,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -17855,7 +17855,7 @@ namespace Microsoft.BingAds.V12.Reporting
         LocalStoreCode = 41,
         
         /// <summary>
-        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Bing Network.
+        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Microsoft Advertising Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 42,
@@ -18111,13 +18111,13 @@ namespace Microsoft.BingAds.V12.Reporting
         TimePeriod = 0,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 2,
@@ -18129,13 +18129,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 3,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
@@ -18147,7 +18147,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 7,
@@ -18189,7 +18189,7 @@ namespace Microsoft.BingAds.V12.Reporting
         SearchQuery = 13,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 14,
@@ -18225,13 +18225,13 @@ namespace Microsoft.BingAds.V12.Reporting
         ClickType = 19,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group criterion.
+        /// The Microsoft Advertising assigned identifier of an ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 20,
         
         /// <summary>
-        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute.
+        /// The forward slash ("/") delimited list of product conditions, reported as Operand = Attribute.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 21,
@@ -18321,7 +18321,7 @@ namespace Microsoft.BingAds.V12.Reporting
         RevenuePerAssist = 35,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 36,
@@ -18333,7 +18333,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 37,
         
         /// <summary>
-        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Bing Network.
+        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Microsoft Advertising Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 38,
@@ -18358,7 +18358,7 @@ namespace Microsoft.BingAds.V12.Reporting
     {
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 0,
@@ -18370,13 +18370,13 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
@@ -18388,7 +18388,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -18400,7 +18400,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -18412,7 +18412,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 8,
         
         /// <summary>
-        /// The forward slash ('/') delimited list of product conditions, reported as Operand = Attribute.
+        /// The forward slash ("/") delimited list of product conditions, reported as Operand = Attribute.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 9,
@@ -18424,7 +18424,7 @@ namespace Microsoft.BingAds.V12.Reporting
         PartitionType = 10,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group criterion.
+        /// The Microsoft Advertising assigned identifier of an ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 11,
@@ -18637,19 +18637,19 @@ namespace Microsoft.BingAds.V12.Reporting
         State = 10,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 11,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 12,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 13,
@@ -18871,13 +18871,13 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 0,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
@@ -18895,7 +18895,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignName = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -18907,7 +18907,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupName = 6,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
@@ -19015,7 +19015,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DeliveredMatchType = 24,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
@@ -19135,7 +19135,7 @@ namespace Microsoft.BingAds.V12.Reporting
         PostalCode = 44,
         
         /// <summary>
-        /// The Bing Ads identifier of the location where the user was physically located when they clicked the ad.
+        /// The Microsoft Advertising identifier of the location where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationId = 45,
@@ -19385,7 +19385,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TimePeriod = 0,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
@@ -19397,7 +19397,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 2,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
@@ -19409,7 +19409,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountStatus = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -19427,7 +19427,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignStatus = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
@@ -19445,7 +19445,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupStatus = 10,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 11,
@@ -19463,7 +19463,7 @@ namespace Microsoft.BingAds.V12.Reporting
         SearchQuery = 13,
         
         /// <summary>
-        /// The Dynamic Search Ad headline that was dynamically generated by Bing Ads.
+        /// The Dynamic Search Ad headline that was dynamically generated by Microsoft Advertising.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Headline = 14,
@@ -19493,7 +19493,7 @@ namespace Microsoft.BingAds.V12.Reporting
         DynamicAdTarget = 18,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of the dynamic ad target, also known in Campaign Management and Bulk API as the ad group criterion ID.
+        /// The Microsoft Advertising assigned identifier of the dynamic ad target, also known in Campaign Management and Bulk API as the ad group criterion ID.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTargetId = 19,
@@ -19511,7 +19511,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Language = 21,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 22,
@@ -19625,7 +19625,7 @@ namespace Microsoft.BingAds.V12.Reporting
         RevenuePerAssist = 40,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a customer.
+        /// The Microsoft Advertising assigned identifier of a customer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 41,
@@ -19841,7 +19841,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TimePeriod = 0,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
@@ -19853,7 +19853,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 2,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
@@ -19865,7 +19865,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountStatus = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -19883,7 +19883,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignStatus = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
@@ -19913,7 +19913,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Language = 12,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 13,
@@ -19955,7 +19955,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomParameters = 19,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of the dynamic ad target, also known in Campaign Management and Bulk API as the ad group criterion ID.
+        /// The Microsoft Advertising assigned identifier of the dynamic ad target, also known in Campaign Management and Bulk API as the ad group criterion ID.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTargetId = 20,
@@ -20276,7 +20276,7 @@ namespace Microsoft.BingAds.V12.Reporting
         TimePeriod = 0,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an account.
+        /// The Microsoft Advertising assigned identifier of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
@@ -20288,7 +20288,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountName = 2,
         
         /// <summary>
-        /// The Bing Ads assigned number of an account.
+        /// The Microsoft Advertising assigned number of an account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
@@ -20300,7 +20300,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AccountStatus = 4,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of a campaign.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
@@ -20318,7 +20318,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CampaignStatus = 7,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad group.
+        /// The Microsoft Advertising assigned identifier of an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
@@ -20336,7 +20336,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AdGroupStatus = 10,
         
         /// <summary>
-        /// The Bing Ads assigned identifier of an ad.
+        /// The Microsoft Advertising assigned identifier of an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 11,
@@ -20378,7 +20378,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Language = 17,
         
         /// <summary>
-        /// The current network setting of an ad group.
+        /// The combined search advertising marketplace made up of Bing, AOL, Yahoo, and partner sites.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 18,

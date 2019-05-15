@@ -61,5 +61,6 @@ namespace Microsoft.BingAds.Internal.OAuth
         public string RedirectUrl { get; set; }
         public string OAuthTokenUrl { get; set; }
         public string AuthorizationEndpointUrl { get; set; }
+        public string Scope { get; set; }
     }
 }

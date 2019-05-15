@@ -148,7 +148,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
             new SimpleBulkMapping<BulkAd<T>>(StringTable.CustomParameter,
                 c => c.Ad.UrlCustomParameters.ToBulkString(c.Ad.Id),
                 (v, c) => c.Ad.UrlCustomParameters = v.ParseCustomParameters()
-            ), 
+            ),
+            new SimpleBulkMapping<BulkAd<T>>(StringTable.FinalUrlSuffix,
+                c => c.Ad.FinalUrlSuffix.ToOptionalBulkString(c.Ad.Id),
+                (v, c) => c.Ad.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)

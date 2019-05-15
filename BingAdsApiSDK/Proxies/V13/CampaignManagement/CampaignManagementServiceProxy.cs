@@ -289,7 +289,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the campaign.
+        /// The unique Microsoft Advertising identifier of the campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -469,7 +469,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the Budget that this campaign shares with other campaigns in the account.
+        /// The unique Microsoft Advertising identifier of the Budget that this campaign shares with other campaigns in the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Nullable<long> BudgetId
@@ -751,7 +751,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Search = 1,
         
         /// <summary>
-        /// The campaign is a Bing Shopping campaign.
+        /// The campaign is a Microsoft Shopping campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Shopping = 2,
@@ -951,7 +951,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The target cost per acquisition (CPA) that you want used by Bing Ads to maximize conversions.
+        /// The target cost per acquisition (CPA) that you want used by Microsoft Advertising to maximize conversions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> TargetCpa
@@ -1285,7 +1285,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the campaign level settings to leverage your Bing Merchant Center store.
+    /// Defines the campaign level settings to leverage your Microsoft Merchant Center store.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/shoppingsetting?view=bingads-13">ShoppingSetting Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/shoppingsetting?view=bingads-13 for details.
@@ -1310,7 +1310,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<long> StoreIdField;
         
         /// <summary>
-        /// Determines whether local inventory ads are enabled for the Bing Merchant Center store.
+        /// Determines whether local inventory ads are enabled for the Microsoft Merchant Center store.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> LocalInventoryAdsEnabled
@@ -1330,7 +1330,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Helps determine which Bing Shopping campaign  serves ads, in the event that two or more campaigns use the product catalog feed from the same Bing Merchant Center store.
+        /// Helps determine which Microsoft Shopping campaign  serves ads, in the event that two or more campaigns use the product catalog feed from the same Microsoft Merchant Center store.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> Priority
@@ -1350,7 +1350,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The country code for the Bing Merchant Center store.
+        /// The country code for the Microsoft Merchant Center store.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SalesCountryCode
@@ -1370,7 +1370,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique identifier for the Bing Merchant Center store that contains a product catalog feed that you want to use for the campaign.
+        /// The unique identifier for the Microsoft Merchant Center store that contains a product catalog feed that you want to use for the campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> StoreId
@@ -1747,7 +1747,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
@@ -1789,7 +1789,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Industry = 6,
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IncomeRange = 7,
@@ -2857,7 +2857,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Ad rotation sets how often Bing Ads selects which ads to serve, if you have multiple ads within an ad group.
+        /// Ad rotation sets how often Microsoft Advertising selects which ads to serve, if you have multiple ads within an ad group.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AdRotation AdRotation
@@ -3549,13 +3549,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Bing Ads prioritizes the ad from the ad group that appears to have the best chance of performing well, based on auction characteristics or factors, such as keyword, search term, device or location.
+        /// Microsoft Advertising prioritizes the ad from the ad group that appears to have the best chance of performing well, based on auction characteristics or factors, such as keyword, search term, device or location.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OptimizeForClicks = 0,
         
         /// <summary>
-        /// Bing Ads provides more balance in rotation between your ads.
+        /// Microsoft Advertising provides more balance in rotation between your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RotateAdsEvenly = 1,
@@ -3884,7 +3884,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier for the ad.
+        /// The unique Microsoft Advertising identifier for the ad.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -4528,7 +4528,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TextPart2
@@ -5164,7 +5164,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The asset with a unique Bing Ads identifier that can be reused across multiple ads.
+        /// The asset with a unique Microsoft Advertising identifier that can be reused across multiple ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.Asset Asset
@@ -5395,7 +5395,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the base object of an asset with a unique Bing Ads identifier that can be reused across multiple ads.
+    /// Defines the base object of an asset with a unique Microsoft Advertising identifier that can be reused across multiple ads.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/asset?view=bingads-13">Asset Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/asset?view=bingads-13 for details.
@@ -5435,7 +5435,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier for the asset in a Bing Ads account.
+        /// The unique Microsoft Advertising identifier for the asset in a Microsoft Advertising account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -5550,7 +5550,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// A text asset with a unique Bing Ads identifier that can be reused across multiple ads.
+    /// A text asset with a unique Microsoft Advertising identifier that can be reused across multiple ads.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/textasset?view=bingads-13">TextAsset Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/textasset?view=bingads-13 for details.
@@ -6732,7 +6732,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the account.
+        /// The Microsoft Advertising identifier of the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long AccountId
@@ -7162,7 +7162,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the ad extension.
+        /// The unique Microsoft Advertising identifier of the ad extension.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -7644,7 +7644,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// You can either use your own phone number or use a Bing Ads forwarding phone number.
+        /// You can either use your own phone number or use a Microsoft Advertising forwarding phone number.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> RequireTollFreeTrackingNumber
@@ -11542,7 +11542,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the media.
+        /// The unique Microsoft Advertising identifier of the media.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -12391,7 +12391,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier for the ad group criterion.
+        /// The unique Microsoft Advertising identifier for the ad group criterion.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -12805,7 +12805,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an ad group level product partition with one condition that helps determine whether a product from the Bing Merchant Center store gets served as a product ad.
+    /// Defines an ad group level product partition with one condition that helps determine whether a product from the Microsoft Merchant Center store gets served as a product ad.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/productpartition?view=bingads-13">ProductPartition Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/productpartition?view=bingads-13 for details.
@@ -12826,7 +12826,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private Microsoft.BingAds.V13.CampaignManagement.ProductPartitionType PartitionTypeField;
         
         /// <summary>
-        /// A condition that helps determine whether a product from the Bing Merchant Center store gets served as an ad.
+        /// A condition that helps determine whether a product from the Microsoft Merchant Center store gets served as an ad.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.ProductCondition Condition
@@ -12887,7 +12887,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a campaign level product scope with list of conditions that help determine whether a product from the Bing Merchant Center store gets served as a product ad.
+    /// Defines a campaign level product scope with list of conditions that help determine whether a product from the Microsoft Merchant Center store gets served as a product ad.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/productscope?view=bingads-13">ProductScope Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/productscope?view=bingads-13 for details.
@@ -12903,7 +12903,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ProductCondition> ConditionsField;
         
         /// <summary>
-        /// A list of up to 7 product conditions that helps determine whether a product from the Bing Merchant Center store gets served as an ad.
+        /// A list of up to 7 product conditions that helps determine whether a product from the Microsoft Merchant Center store gets served as an ad.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ProductCondition> Conditions
@@ -13418,7 +13418,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier for the location where you want to show your ads.
+        /// The unique Microsoft Advertising identifier for the location where you want to show your ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> LocationId
@@ -13515,7 +13515,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AudienceType> AudienceTypeField;
         
         /// <summary>
-        /// The Bing Ads identifier of the Audience.
+        /// The Microsoft Advertising identifier of the Audience.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AudienceId
@@ -13616,7 +13616,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a condition that determines whether a product is selected from a customer's Bing Merchant Center catalog file.
+    /// Defines a condition that determines whether a product is selected from a customer's Microsoft Merchant Center catalog file.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/productcondition?view=bingads-13">ProductCondition Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/productcondition?view=bingads-13 for details.
@@ -14459,7 +14459,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a Bing Merchant Center store.
+    /// Defines a Microsoft Merchant Center store.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/bmcstore?view=bingads-13">BMCStore Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/bmcstore?view=bingads-13 for details.
@@ -14526,7 +14526,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique identifier for the  Bing Merchant Center store.
+        /// The unique identifier for the  Microsoft Merchant Center store.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Id
@@ -14586,7 +14586,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Defines the name of the store as defined in the Bing Merchant Center.
+        /// Defines the name of the store as defined in the Microsoft Merchant Center.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
@@ -14606,7 +14606,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The Bing Merchant Center store sub type.
+        /// The Microsoft Merchant Center store sub type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.BMCStoreSubType> SubType
@@ -14638,7 +14638,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the possible values for Bing Merchant Center store sub types.
+    /// Defines the possible values for Microsoft Merchant Center store sub types.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/bmcstoresubtype?view=bingads-13">BMCStoreSubType Value Set</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/bmcstoresubtype?view=bingads-13 for details.
@@ -14650,7 +14650,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// The Bing Merchant Center store supports Cooperative campaigns.
+        /// The Microsoft Merchant Center store supports Cooperative campaigns.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CoOp = 1,
@@ -14789,7 +14789,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string TextField;
         
         /// <summary>
-        /// The unique Bing Ads identifier of the negative keyword.
+        /// The unique Microsoft Advertising identifier of the negative keyword.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -15088,7 +15088,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the shared entity.
+        /// The unique Microsoft Advertising identifier of the shared entity.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -15531,7 +15531,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier for the campaign criterion.
+        /// The unique Microsoft Advertising identifier for the campaign criterion.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -15917,7 +15917,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the budget.
+        /// The unique Microsoft Advertising identifier of the budget.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -16059,7 +16059,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomerShare CustomerShare
@@ -16119,7 +16119,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the audience.
+        /// The Microsoft Advertising identifier of the audience.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -16139,7 +16139,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// When you create an audience, you can specify how far back in time Bing Ads should look for actions that match your audience definition.
+        /// When you create an audience, you can specify how far back in time Microsoft Advertising should look for actions that match your audience definition.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> MembershipDuration
@@ -16179,7 +16179,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the account or customer.
+        /// The Microsoft Advertising identifier of the account or customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ParentId
@@ -16291,7 +16291,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/customershare?view=bingads-13">CustomerShare Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/customershare?view=bingads-13 for details.
@@ -16326,7 +16326,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CustomerAccountShare> CustomerAccountShares
@@ -16346,7 +16346,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> OwnerCustomerId
@@ -16417,7 +16417,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the Universal Event Tracking (UET) tag that is used with the remarketing list.
+        /// The Microsoft Advertising identifier of the Universal Event Tracking (UET) tag that is used with the remarketing list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> TagId
@@ -16466,7 +16466,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a product audience that you can use to remarket products from your Bing Merchant Center store.
+    /// Defines a product audience that you can use to remarket products from your Microsoft Merchant Center store.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudience?view=bingads-13">ProductAudience Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/productaudience?view=bingads-13 for details.
@@ -16505,7 +16505,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the Universal Event Tracking (UET) tag that is used with the remarketing list.
+        /// The Microsoft Advertising identifier of the Universal Event Tracking (UET) tag that is used with the remarketing list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> TagId
@@ -16542,7 +16542,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private long SourceIdField;
         
         /// <summary>
-        /// The Bing Ads identifier of the remarketing list that Bing Ads used to generate this similar audience.
+        /// The Microsoft Advertising identifier of the remarketing list that Microsoft Advertising used to generate this similar audience.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long SourceId
@@ -16588,7 +16588,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/customeraccountshare?view=bingads-13">CustomerAccountShare Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/customeraccountshare?view=bingads-13 for details.
@@ -16626,7 +16626,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AccountId
@@ -16646,7 +16646,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CustomerAccountShareAssociation> Associations
@@ -16666,7 +16666,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CustomerId
@@ -16698,7 +16698,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/customeraccountshareassociation?view=bingads-13">CustomerAccountShareAssociation Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/customeraccountshareassociation?view=bingads-13 for details.
@@ -16733,7 +16733,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AssociationCount
@@ -16753,7 +16753,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string UsageType
@@ -17580,7 +17580,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a Universal Event Tracking (UET) tag that you can add to your website to allow Bing Ads to collect actions people take on your website.
+    /// Defines a Universal Event Tracking (UET) tag that you can add to your website to allow Microsoft Advertising to collect actions people take on your website.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/uettag?view=bingads-13">UetTag Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/uettag?view=bingads-13 for details.
@@ -17630,7 +17630,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomerShare CustomerShare
@@ -17670,7 +17670,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the UET tag.
+        /// The unique Microsoft Advertising identifier of the UET tag.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -17730,7 +17730,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The tracking script that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// The tracking script that you can add to your website to allow Microsoft Advertising to collect actions people take on your website.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingScript
@@ -17794,19 +17794,19 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Bing Ads hasn't received any user activity data from the UET tag on your website.
+        /// Microsoft Advertising hasn't received any user activity data from the UET tag on your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unverified = 0,
         
         /// <summary>
-        /// Your UET tag is working and sending user activity data to Bing Ads.
+        /// Your UET tag is working and sending user activity data to Microsoft Advertising.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
         /// <summary>
-        /// Bing Ads has not received any user activity data from the UET tag in the last 24 hours.
+        /// Microsoft Advertising has not received any user activity data from the UET tag in the last 24 hours.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 2,
@@ -17999,7 +17999,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier for the conversion goal.
+        /// The unique Microsoft Advertising identifier for the conversion goal.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -18099,7 +18099,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the UET tag that you added to your website to allow Bing Ads to collect actions people take on your website.
+        /// The unique Microsoft Advertising identifier of the UET tag that you added to your website to allow Microsoft Advertising to collect actions people take on your website.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> TagId
@@ -18769,7 +18769,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// The UetTagTrackingStatus is Unverified, and Bing Ads hasn't received any user activity data from the UET tag on your website.
+        /// The UetTagTrackingStatus is Unverified, and Microsoft Advertising hasn't received any user activity data from the UET tag on your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TagUnverified = 0,
@@ -18787,7 +18787,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         RecordingConversions = 2,
         
         /// <summary>
-        /// The UetTagTrackingStatus is Inactive, and Bing Ads has not received any user activity data from the UET tag in the last 24 hours.
+        /// The UetTagTrackingStatus is Inactive, and Microsoft Advertising has not received any user activity data from the UET tag in the last 24 hours.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TagInactive = 3,
@@ -18893,7 +18893,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an offline conversion that you send to Bing Ads.
+    /// Defines an offline conversion that you send to Microsoft Advertising.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/offlineconversion?view=bingads-13">OfflineConversion Data Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/offlineconversion?view=bingads-13 for details.
@@ -19323,7 +19323,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the campaign used as the base for the experiment campaign.
+        /// The Microsoft Advertising identifier of the campaign used as the base for the experiment campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> BaseCampaignId
@@ -19363,7 +19363,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The Bing Ads identifier of the campaign that is created as a copy of the base campaign.
+        /// The Microsoft Advertising identifier of the campaign that is created as a copy of the base campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ExperimentCampaignId
@@ -19423,7 +19423,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique Bing Ads identifier of the experiment.
+        /// The unique Microsoft Advertising identifier of the experiment.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -19756,7 +19756,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetConfigValueResponse> GetConfigValueAsync(Microsoft.BingAds.V13.CampaignManagement.GetConfigValueRequest request);
         
         /// <summary>
-        /// Gets the list of supported sales country codes for Bing Shopping campaigns.
+        /// Gets the list of supported sales country codes for Microsoft Shopping Campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13">GetBSCCountries Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13 for details.
@@ -19764,7 +19764,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of supported sales country codes for Bing Shopping campaigns.</returns>
+        /// <returns>The list of supported sales country codes for Microsoft Shopping Campaigns.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetBSCCountries", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etBSCCountriesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -19774,7 +19774,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetBSCCountriesResponse GetBSCCountries(Microsoft.BingAds.V13.CampaignManagement.GetBSCCountriesRequest request);
         
         /// <summary>
-        /// Gets the list of supported sales country codes for Bing Shopping campaigns.
+        /// Gets the list of supported sales country codes for Microsoft Shopping Campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13">GetBSCCountries Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13 for details.
@@ -19782,7 +19782,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of supported sales country codes for Bing Shopping campaigns.</returns>
+        /// <returns>The list of supported sales country codes for Microsoft Shopping Campaigns.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetBSCCountries", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etBSCCountriesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetBSCCountriesResponse> GetBSCCountriesAsync(Microsoft.BingAds.V13.CampaignManagement.GetBSCCountriesRequest request);
@@ -21196,7 +21196,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyProductPartitionActionsResponse> ApplyProductPartitionActionsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyProductPartitionActionsRequest request);
         
         /// <summary>
-        /// Gets the Bing Merchant Center stores for the specified customer.
+        /// Gets the Microsoft Merchant Center stores for the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13">GetBMCStoresByCustomerId Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13 for details.
@@ -21204,7 +21204,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of Bing Merchant Center stores for the specified customer.</returns>
+        /// <returns>The list of Microsoft Merchant Center stores for the specified customer.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetBMCStoresByCustomerId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etBMCStoresByCustomerIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -21214,7 +21214,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetBMCStoresByCustomerIdResponse GetBMCStoresByCustomerId(Microsoft.BingAds.V13.CampaignManagement.GetBMCStoresByCustomerIdRequest request);
         
         /// <summary>
-        /// Gets the Bing Merchant Center stores for the specified customer.
+        /// Gets the Microsoft Merchant Center stores for the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13">GetBMCStoresByCustomerId Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13 for details.
@@ -21222,7 +21222,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of Bing Merchant Center stores for the specified customer.</returns>
+        /// <returns>The list of Microsoft Merchant Center stores for the specified customer.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetBMCStoresByCustomerId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etBMCStoresByCustomerIdResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetBMCStoresByCustomerIdResponse> GetBMCStoresByCustomerIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetBMCStoresByCustomerIdRequest request);
@@ -22136,7 +22136,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetUetTagsByIdsRequest request);
         
         /// <summary>
-        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Microsoft Advertising to collect actions people take on your website.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13">AddUetTags Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13 for details.
@@ -22154,7 +22154,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.AddUetTagsResponse AddUetTags(Microsoft.BingAds.V13.CampaignManagement.AddUetTagsRequest request);
         
         /// <summary>
-        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Microsoft Advertising to collect actions people take on your website.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13">AddUetTags Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13 for details.
@@ -23747,7 +23747,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the list of supported sales country codes for Bing Shopping campaigns.
+    /// Gets the list of supported sales country codes for Microsoft Shopping Campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13">GetBSCCountries Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13 for details.
@@ -23809,7 +23809,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the list of supported sales country codes for Bing Shopping campaigns.
+    /// Gets the list of supported sales country codes for Microsoft Shopping Campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13">GetBSCCountries Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13 for details.
@@ -23825,7 +23825,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// The list of supported sales country codes for Bing Shopping campaigns.
+        /// The list of supported sales country codes for Microsoft Shopping Campaigns.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<string> CountryCodes;
@@ -23846,7 +23846,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13">GetBSCCountriesResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="CountryCodes">The list of supported sales country codes for Bing Shopping campaigns.</param>
+        /// <param name="CountryCodes">The list of supported sales country codes for Microsoft Shopping Campaigns.</param>
         public GetBSCCountriesResponse(string TrackingId, System.Collections.Generic.IList<string> CountryCodes)
         {
             this.TrackingId = TrackingId;
@@ -29583,7 +29583,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the Bing Merchant Center stores for the specified customer.
+    /// Gets the Microsoft Merchant Center stores for the specified customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13">GetBMCStoresByCustomerId Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13 for details.
@@ -29645,7 +29645,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the Bing Merchant Center stores for the specified customer.
+    /// Gets the Microsoft Merchant Center stores for the specified customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13">GetBMCStoresByCustomerId Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13 for details.
@@ -29661,7 +29661,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// The list of Bing Merchant Center stores for the specified customer.
+        /// The list of Microsoft Merchant Center stores for the specified customer.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BMCStore> BMCStores;
@@ -29682,7 +29682,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13">GetBMCStoresByCustomerIdResponse</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="BMCStores">The list of Bing Merchant Center stores for the specified customer.</param>
+        /// <param name="BMCStores">The list of Microsoft Merchant Center stores for the specified customer.</param>
         public GetBMCStoresByCustomerIdResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BMCStore> BMCStores)
         {
             this.TrackingId = TrackingId;
@@ -33261,7 +33261,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+    /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Microsoft Advertising to collect actions people take on your website.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13">AddUetTags Request Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13 for details.
@@ -33331,7 +33331,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+    /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Microsoft Advertising to collect actions people take on your website.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13">AddUetTags Response Object</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13 for details.
@@ -36011,7 +36011,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the list of supported sales country codes for Bing Shopping campaigns.
+        /// Gets the list of supported sales country codes for Microsoft Shopping Campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13">GetBSCCountries Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13 for details.
@@ -36019,14 +36019,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of supported sales country codes for Bing Shopping campaigns.</returns>
+        /// <returns>The list of supported sales country codes for Microsoft Shopping Campaigns.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetBSCCountriesResponse GetBSCCountries(Microsoft.BingAds.V13.CampaignManagement.GetBSCCountriesRequest request)
         {
             return base.Channel.GetBSCCountries(request);
         }
         
         /// <summary>
-        /// Gets the list of supported sales country codes for Bing Shopping campaigns.
+        /// Gets the list of supported sales country codes for Microsoft Shopping Campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13">GetBSCCountries Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbsccountries?view=bingads-13 for details.
@@ -36034,7 +36034,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of supported sales country codes for Bing Shopping campaigns.</returns>
+        /// <returns>The list of supported sales country codes for Microsoft Shopping Campaigns.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetBSCCountriesResponse> GetBSCCountriesAsync(Microsoft.BingAds.V13.CampaignManagement.GetBSCCountriesRequest request)
         {
             return base.Channel.GetBSCCountriesAsync(request);
@@ -37361,7 +37361,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the Bing Merchant Center stores for the specified customer.
+        /// Gets the Microsoft Merchant Center stores for the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13">GetBMCStoresByCustomerId Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13 for details.
@@ -37369,14 +37369,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of Bing Merchant Center stores for the specified customer.</returns>
+        /// <returns>The list of Microsoft Merchant Center stores for the specified customer.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetBMCStoresByCustomerIdResponse GetBMCStoresByCustomerId(Microsoft.BingAds.V13.CampaignManagement.GetBMCStoresByCustomerIdRequest request)
         {
             return base.Channel.GetBMCStoresByCustomerId(request);
         }
         
         /// <summary>
-        /// Gets the Bing Merchant Center stores for the specified customer.
+        /// Gets the Microsoft Merchant Center stores for the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13">GetBMCStoresByCustomerId Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13 for details.
@@ -37384,7 +37384,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of Bing Merchant Center stores for the specified customer.</returns>
+        /// <returns>The list of Microsoft Merchant Center stores for the specified customer.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetBMCStoresByCustomerIdResponse> GetBMCStoresByCustomerIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetBMCStoresByCustomerIdRequest request)
         {
             return base.Channel.GetBMCStoresByCustomerIdAsync(request);
@@ -38241,7 +38241,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Microsoft Advertising to collect actions people take on your website.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13">AddUetTags Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13 for details.
@@ -38256,7 +38256,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Bing Ads to collect actions people take on your website.
+        /// Adds new Universal Event Tracking (UET) tags that you can add to your website to allow Microsoft Advertising to collect actions people take on your website.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13">AddUetTags Service Operation</see> https://docs.microsoft.com/en-us/bingads/campaign-management-service/adduettags?view=bingads-13 for details.

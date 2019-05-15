@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 12.13
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,82 +47,28 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V12.Internal;
-using Microsoft.BingAds.V12.Internal.Bulk;
-using Microsoft.BingAds.V12.Internal.Bulk.Mappings;
-using Microsoft.BingAds.V12.Internal.Bulk.Entities;
-using Microsoft.BingAds.V12.CampaignManagement;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-// ReSharper disable once CheckNamespace
-namespace Microsoft.BingAds.V12.Bulk.Entities
+namespace Microsoft.BingAds.Internal.OAuth
 {
     /// <summary>
-    /// <para>
-    /// Represents a app ad extension. 
-    /// This class exposes the <see cref="BulkAppAdExtension.AppAdExtension"/> property that can be read and written 
-    /// as fields of the App Ad Extension record in a bulk file. 
-    /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">App Ad Extension</see>. </para>
+    /// Represents Bing Ads API environment (Production or Sandbox).
     /// </summary>
-    /// <seealso cref="BulkServiceManager"/>
-    /// <seealso cref="BulkOperation{TStatus}"/>
-    /// <seealso cref="BulkFileReader"/>
-    /// <seealso cref="BulkFileWriter"/>
-    public class BulkAppAdExtension : BulkAdExtensionBase<AppAdExtension>
+    public enum OAuthEndpointType
     {
         /// <summary>
-        /// The app ad extension.
+        /// Production for MS Identity V2
         /// </summary>
-        public AppAdExtension AppAdExtension
-        {
-            get { return AdExtension; }
-            set { AdExtension = value; }
-        }
-
-        private static readonly IBulkMapping<BulkAppAdExtension>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkAppAdExtension>(StringTable.AppPlatform,
-                c => c.AppAdExtension.AppPlatform,
-                (v, c) => c.AdExtension.AppPlatform = v
-            ), 
-
-            new SimpleBulkMapping<BulkAppAdExtension>(StringTable.AppStoreId,
-                c => c.AppAdExtension.AppStoreId,
-                (v, c) => c.AdExtension.AppStoreId = v
-            ), 
-
-            new SimpleBulkMapping<BulkAppAdExtension>(StringTable.DestinationUrl,
-                c => c.AppAdExtension.DestinationUrl,
-                (v, c) => c.AdExtension.DestinationUrl = v
-            ), 
-
-            new SimpleBulkMapping<BulkAppAdExtension>(StringTable.Text,
-                c => c.AppAdExtension.DisplayText,
-                (v, c) => c.AdExtension.DisplayText = v
-            ),
-
-            new SimpleBulkMapping<BulkAppAdExtension>(StringTable.FinalUrlSuffix,
-                c => c.AppAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.AdExtension.Id),
-                (v, c) => c.AppAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
-            ),
-        };
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            AppAdExtension = new AppAdExtension { Type = "AppAdExtension" };
-
-            base.ProcessMappingsFromRowValues(values);
-
-            values.ConvertToEntity(this, Mappings);
-        }
-
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            ValidatePropertyNotNull(AppAdExtension, "AppAdExtension");
-
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
-
-            this.ConvertToValues(values, Mappings);
-        }
+        ProductionMSIdentityV2,
+        /// <summary>
+        /// Production for Live Connect
+        /// </summary>
+        ProductionLiveConnect,
+        /// <summary>
+        /// Sandbox for Live Connect
+        /// </summary>
+        SandboxLiveConnect
     }
 }

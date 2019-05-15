@@ -83,8 +83,11 @@ namespace Microsoft.BingAds
         /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">
         /// Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        public OAuthDesktopMobileAuthCodeGrant(string clientId, ApiEnvironment environment = ApiEnvironment.Production)
-            : base(clientId, null, null, environment)
+        public OAuthDesktopMobileAuthCodeGrant(
+            string clientId, 
+            ApiEnvironment environment = ApiEnvironment.Production,
+            bool requireLiveConnect = false)
+            : base(clientId, null, null, environment, requireLiveConnect)
         {
         }
 
@@ -102,8 +105,12 @@ namespace Microsoft.BingAds
         /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">
         /// Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        public OAuthDesktopMobileAuthCodeGrant(string clientId, string refreshToken, ApiEnvironment? environment = ApiEnvironment.Production)
-            : base(clientId, null, null, refreshToken, environment)
+        public OAuthDesktopMobileAuthCodeGrant(
+            string clientId, 
+            string refreshToken, 
+            ApiEnvironment? environment = ApiEnvironment.Production,
+            bool requireLiveConnect = false)
+            : base(clientId, null, null, refreshToken, environment, requireLiveConnect)
         {
         }
 
@@ -120,13 +127,22 @@ namespace Microsoft.BingAds
         /// <remarks>
         /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        public OAuthDesktopMobileAuthCodeGrant(string clientId, OAuthTokens oauthTokens, ApiEnvironment? environment = ApiEnvironment.Production)
-            : base(clientId, null, null, oauthTokens, environment)
+        public OAuthDesktopMobileAuthCodeGrant(
+            string clientId, 
+            OAuthTokens oauthTokens, 
+            ApiEnvironment? environment = ApiEnvironment.Production,
+            bool requireLiveConnect = false)
+            : base(clientId, null, null, oauthTokens, environment, requireLiveConnect)
         {
         }
 
-        internal OAuthDesktopMobileAuthCodeGrant(string clientId, Uri redirectUri, IOAuthService oauthService, ApiEnvironment env)
-            : base(clientId, null, redirectUri, oauthService, env)
+        internal OAuthDesktopMobileAuthCodeGrant(
+            string clientId, 
+            Uri redirectUri, 
+            IOAuthService oauthService, 
+            ApiEnvironment env,
+            bool requireLiveConnect = false)
+            : base(clientId, null, redirectUri, oauthService, env, requireLiveConnect)
         {
         }
     }

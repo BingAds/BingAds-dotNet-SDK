@@ -66,8 +66,6 @@ namespace Microsoft.BingAds.Internal
     {
         private const string EnvironmentAppSetting = "BingAdsEnvironment";
 
-        private ApiEnvironment _environment;
-
         /// <summary>
         /// The client identifier corresponding to your registered application.         
         /// </summary>
@@ -77,14 +75,20 @@ namespace Microsoft.BingAds.Internal
         public string ClientId { get; }
 
         /// <summary>
+        /// Determines whether or not to require Live Connect instead of MS Identity in production.
+        /// </summary>
+        public bool RequireLiveConnect { get; }
+
+        /// <summary>
         /// Bing Ads API environment
         /// </summary>
-        public ApiEnvironment Environment => _environment;
+        public ApiEnvironment Environment { get; }
 
         /// <summary>
         /// The URI to which the user of the app will be redirected after receiving user consent.
         /// </summary>
         public abstract Uri RedirectionUri { get; }
+        
 
         /// <summary>
         /// Initializes a new instance of the OAuthAuthorization class with the specified <paramref name="clientId"/>.
@@ -96,7 +100,7 @@ namespace Microsoft.BingAds.Internal
         /// <remarks>
         /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        protected OAuthAuthorization(string clientId, ApiEnvironment? environment)
+        protected OAuthAuthorization(string clientId, ApiEnvironment? environment, bool requireLiveConnect)
         {
             if (clientId == null)
             {
@@ -107,12 +111,15 @@ namespace Microsoft.BingAds.Internal
 
             if (environment == null)
             {
-                _environment = ApiEnvironment.Production;
+                Environment = ApiEnvironment.Production;
             }
             else
             {
-                _environment = environment.Value;
+                Environment = environment.Value;
             }
+
+            RequireLiveConnect = requireLiveConnect;
+
         }
         
 

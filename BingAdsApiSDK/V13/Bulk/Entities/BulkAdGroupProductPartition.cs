@@ -57,8 +57,8 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a Ad Group Criterion that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkAdGroupProductPartition.AdGroupCriterion"/> property that can be read and written as fields of the Ad Group Criterion record in a bulk file. 
+    /// Represents a Ad Group Product Partition that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkAdGroupProductPartition.AdGroupCriterion"/> property that can be read and written as fields of the Ad Group Product Partition record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Product Partition</see> </para>
     /// </summary>
@@ -401,7 +401,29 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                         criterion.UrlCustomParameters = v.ParseCustomParameters();
                     }
                 }
-            ), 
+            ),
+            new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.FinalUrlSuffix,
+                c =>
+                {
+                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
+
+                    if (criterion != null)
+                    {
+                        return criterion.FinalUrlSuffix.ToOptionalBulkString(criterion.Id);
+                    }
+
+                    return null;
+                },
+                (v, c) =>
+                {
+                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
+
+                    if (criterion != null)
+                    {
+                        criterion.FinalUrlSuffix = v.GetValueOrEmptyString();
+                    }
+                }
+            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)

@@ -101,7 +101,12 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                     return string.Join(";", c.ImageAdExtension.ImageMediaIds);
                 },
                 (v, c) => c.ImageAdExtension.ImageMediaIds = v.Split(';').Select(long.Parse).ToList()
-            ), 
+            ),
+
+            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.FinalUrlSuffix,
+                c => c.ImageAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.AdExtension.Id),
+                (v, c) => c.ImageAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
         }; 
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

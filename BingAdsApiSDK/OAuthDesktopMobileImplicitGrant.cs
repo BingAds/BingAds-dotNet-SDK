@@ -76,11 +76,15 @@ namespace Microsoft.BingAds
         /// An opaque value used by the client to maintain state between the request and callback. 
         /// </summary>
         public string State { get; set; }
+        
+        private readonly Uri _redirectionUri;
+
+        private readonly IOAuthService _oauthService;
 
         /// <summary>
         /// The URI to which your client browser will be redirected after receiving user consent.
         /// </summary>
-        public override Uri RedirectionUri => new Uri(UriOAuthService.EndpointUrls[Environment].RedirectUrl);
+        public override Uri RedirectionUri => _redirectionUri;
 
         /// <summary>
         /// Initializes a new instance of the OAuthDesktopMobileImplicitGrant class with the specified ClientId.
@@ -93,10 +97,14 @@ namespace Microsoft.BingAds
         /// For more information about using a client identifier for authentication, see 
         /// <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>              
-        public OAuthDesktopMobileImplicitGrant(string clientId, ApiEnvironment? environment = ApiEnvironment.Production)
-            : base(clientId, environment)
-        {            
-            
+        public OAuthDesktopMobileImplicitGrant(
+            string clientId, 
+            ApiEnvironment? environment = ApiEnvironment.Production, 
+            bool requireLiveConnect = false)
+            : base(clientId, environment, requireLiveConnect)
+        {
+            _oauthService = new UriOAuthService(Environment);
+            _redirectionUri = _oauthService.RedirectionUri(requireLiveConnect);
         }
 
         /// <summary>
@@ -112,8 +120,12 @@ namespace Microsoft.BingAds
         /// /// <remarks>
         /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        public OAuthDesktopMobileImplicitGrant(string clientId, OAuthTokens oAuthTokens, ApiEnvironment? environment = ApiEnvironment.Production)
-            : base(clientId, environment)
+        public OAuthDesktopMobileImplicitGrant(
+            string clientId, 
+            OAuthTokens oAuthTokens, 
+            ApiEnvironment? environment = ApiEnvironment.Production,
+            bool requireLiveConnect = false)
+            : base(clientId, environment, requireLiveConnect)
         {
             OAuthTokens = oAuthTokens;
         }
@@ -129,8 +141,10 @@ namespace Microsoft.BingAds
                 ClientId = ClientId,
                 ResponseType = "token",
                 RedirectUri = RedirectionUri,
-                State = State
-            }, Environment);
+                State = State,
+            }, 
+            Environment,
+            RequireLiveConnect);
             
         }
 
