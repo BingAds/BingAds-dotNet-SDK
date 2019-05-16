@@ -627,7 +627,7 @@ namespace BingAdsExamplesLibrary.V12
 
             /// <summary>
             /// Each new subdivision will be assigned a temporary negative identifier, since it does not exist 
-            /// and does not yet have a Bing Ads system identifier. This identifier will be used as the ParentCriterionId 
+            /// and does not yet have a Microsoft Advertising system identifier. This identifier will be used as the ParentCriterionId 
             /// for any child node of the subdivision. 
             /// </summary>
             private long referenceId = -1;

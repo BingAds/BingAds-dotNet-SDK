@@ -11,7 +11,7 @@ namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
     /// How to download the comma separated value (CSV) file that contains geographical location information 
-    /// that can be used with Bing Ads location targeting.
+    /// that can be used with Microsoft Advertising location targeting.
     /// </summary>
     public class GeographicalLocations : ExampleBase
     {

@@ -5,7 +5,7 @@ using Microsoft.BingAds.V12.CampaignManagement;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// Provides a base class for extending and experimenting with Bing Ads examples. 
+    /// Provides a base class for extending and experimenting with Bing Ads API examples. 
     /// </summary>
     public abstract class ExampleBase : BingAdsExamplesLibrary.ExampleBase
     {     

@@ -489,7 +489,7 @@ namespace BingAdsExamplesLibrary.V12
 
         /// <summary>
         /// Helper class used to maintain a list of product partition actions for an ad group.
-        /// The list of partition actions can be passed to the Bing Ads ApplyProductPartitionActions service operation.
+        /// The list of partition actions can be passed to the ApplyProductPartitionActions service operation.
         /// </summary>
         private class PartitionActionHelper
         {
@@ -500,13 +500,13 @@ namespace BingAdsExamplesLibrary.V12
 
             /// <summary>
             /// Each new subdivision will be assigned a temporary negative identifier, since it does not exist 
-            /// and does not yet have a Bing Ads system identifier. This identifier will be used as the ParentCriterionId 
+            /// and does not yet have a Microsoft Advertising system identifier. This identifier will be used as the ParentCriterionId 
             /// for any child node of the subdivision. 
             /// </summary>
             private long referenceId = -1;
 
             /// <summary>
-            /// The list of partition actions that can be passed to the Bing Ads ApplyProductPartitionActions service operation.
+            /// The list of partition actions that can be passed to the ApplyProductPartitionActions service operation.
             /// </summary>
             private List<AdGroupCriterionAction> partitionActions = new List<AdGroupCriterionAction>();
 
@@ -520,7 +520,7 @@ namespace BingAdsExamplesLibrary.V12
             }
 
             /// <summary>
-            /// Returns the list of partition actions that can be passed to the Bing Ads ApplyProductPartitionActions service operation.
+            /// Returns the list of partition actions that can be passed to the ApplyProductPartitionActions service operation.
             /// </summary>
             public IList<AdGroupCriterionAction> PartitionActions
             {
