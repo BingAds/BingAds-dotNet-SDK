@@ -9,7 +9,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V12
 {
     /// <summary>
-    /// How to send Bing Ads your offline conversions using the Campaign Management service.
+    /// How to send Microsoft Advertising your offline conversions using the Campaign Management service.
     /// </summary>
     public class OfflineConversions : ExampleBase
     {
@@ -88,7 +88,7 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(conversionGoalErrors);
 
-                // Every time you create a new OfflineConversionGoal via either the Bing Ads web application or Campaign Management API, 
+                // Every time you create a new OfflineConversionGoal via either the Microsoft Advertising web application or Campaign Management API, 
                 // the MSCLKIDAutoTaggingEnabled value of the corresponding AccountProperty is set to 'true' automatically.
                 // We can confirm the setting now.
 

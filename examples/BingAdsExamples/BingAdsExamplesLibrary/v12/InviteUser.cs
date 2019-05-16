@@ -70,7 +70,7 @@ namespace BingAdsExamplesLibrary.V12
                 };
 
                 // Once you send a user invitation, there is no option to rescind the invitation using the API.
-                // You can delete a pending invitation in the Accounts & Billing -> Users tab of the Bing Ads web application. 
+                // You can delete a pending invitation in the Accounts & Billing -> Users tab of the Microsoft Advertising web application. 
 
                 OutputStatusMessage("-----\nSendUserInvitation:");
                 var userInvitationId = (await CustomerManagementExampleHelper.SendUserInvitationAsync(
@@ -83,7 +83,7 @@ namespace BingAdsExamplesLibrary.V12
                 // and then sent a second invitation with the correct user role. The recipient can accept 
                 // any of the invitations. The Bing Ads API does not support any operations to delete 
                 // pending user invitations. After you invite a user, the only way to cancel the invitation 
-                // is through the Bing Ads web application. You can find both pending and accepted invitations 
+                // is through the Microsoft Advertising web application. You can find both pending and accepted invitations 
                 // in the Users section of Accounts & Billing.
 
                 // Since a recipient can accept the invitation with credentials that differ from 
@@ -105,7 +105,7 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage("UserInvitations:");
                 CustomerManagementExampleHelper.OutputArrayOfUserInvitation(userInvitations);
 
-                // After the invitation has been accepted, you can call GetUsersInfo and GetUser to access the Bing Ads user details. 
+                // After the invitation has been accepted, you can call GetUsersInfo and GetUser to access the Microsoft Advertising user details. 
                 // Once again though, since a recipient can accept the invitation with credentials that differ from 
                 // the invitation email address, you cannot determine with certainty the mapping from UserInvitation 
                 // to accepted User. 
