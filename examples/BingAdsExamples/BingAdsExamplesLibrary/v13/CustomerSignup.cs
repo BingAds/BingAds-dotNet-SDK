@@ -108,7 +108,7 @@ namespace BingAdsExamplesLibrary.V13
                 // element in most of the Bing Ads API service operations.
                 OutputStatusMessage(string.Format("\tCustomerId: {0}", signupCustomerResponse.CustomerId));
 
-                // The read-only system-generated customer number that is used in the Bing Ads web application. 
+                // The read-only system-generated customer number that is used in the Microsoft Advertising web application. 
                 // The customer number is of the form, Cnnnnnnn, where nnnnnnn is a series of digits.
                 OutputStatusMessage(string.Format("\tCustomerNumber: {0}", signupCustomerResponse.CustomerNumber));
 
@@ -116,7 +116,7 @@ namespace BingAdsExamplesLibrary.V13
                 // elements in most of the Bing Ads API service operations.
                 OutputStatusMessage(string.Format("\tAccountId: {0}", signupCustomerResponse.AccountId));
 
-                // The read-only system generated account number that is used to identify the account in the Bing Ads web application. 
+                // The read-only system generated account number that is used to identify the account in the Microsoft Advertising web application. 
                 // The account number has the form xxxxxxxx, where xxxxxxxx is a series of any eight alphanumeric characters.
                 OutputStatusMessage(string.Format("\tAccountNumber: {0}", signupCustomerResponse.AccountNumber));
             }

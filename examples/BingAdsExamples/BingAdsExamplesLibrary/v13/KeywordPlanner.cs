@@ -83,7 +83,7 @@ namespace BingAdsExamplesLibrary.V13
                     
                     // The CategorySearchParameter corresponds to filling in 'Your product category' under
                     // 'Search for new keywords using a phrase, website, or category' in the 
-                    // Bing Ads web application's Keyword Planner tool.
+                    // Microsoft Advertising web application's Keyword Planner tool.
                     // One or more CategorySearchParameter, QuerySearchParameter, or UrlSearchParameter is required.
 
                     new CategorySearchParameter
@@ -94,7 +94,7 @@ namespace BingAdsExamplesLibrary.V13
 
                     // The QuerySearchParameter corresponds to filling in 'Product or service' under
                     // 'Search for new keywords using a phrase, website, or category' in the 
-                    // Bing Ads web application's Keyword Planner tool.
+                    // Microsoft Advertising web application's Keyword Planner tool.
                     // One or more CategorySearchParameter, QuerySearchParameter, or UrlSearchParameter is required.
                     // When calling GetKeywordIdeas, if ExpandIdeas = false the QuerySearchParameter is required. 
 
@@ -113,7 +113,7 @@ namespace BingAdsExamplesLibrary.V13
 
                     // The UrlSearchParameter corresponds to filling in 'Your landing page' under
                     // 'Search for new keywords using a phrase, website, or category' in the 
-                    // Bing Ads web application's Keyword Planner tool.
+                    // Microsoft Advertising web application's Keyword Planner tool.
                     // One or more CategorySearchParameter, QuerySearchParameter, or UrlSearchParameter is required.
 
                     new UrlSearchParameter
@@ -123,7 +123,7 @@ namespace BingAdsExamplesLibrary.V13
                     
                     // The LanguageSearchParameter, LocationSearchParameter, and NetworkSearchParameter
                     // correspond to the 'Keyword Planner' -> 'Search for new keywords using a phrase, website, or category' ->
-                    // 'Targeting' workflow in the Bing Ads web application.
+                    // 'Targeting' workflow in the Microsoft Advertising web application.
                     // Each of these search parameters are required.
 
                     new LanguageSearchParameter
@@ -162,7 +162,7 @@ namespace BingAdsExamplesLibrary.V13
                     // The CompetitionSearchParameter, ExcludeAccountKeywordsSearchParameter, IdeaTextSearchParameter, 
                     // ImpressionShareSearchParameter, SearchVolumeSearchParameter, and SuggestedBidSearchParameter  
                     // correspond to the 'Keyword Planner' -> 'Search for new keywords using a phrase, website, or category' -> 
-                    // 'Search options' workflow in the Bing Ads web application.
+                    // 'Search options' workflow in the Microsoft Advertising web application.
                     // Use these options to refine what keywords we suggest. You can limit the keywords by historical data, 
                     // hide keywords already in your account, and include or exclude specific keywords.
                     // Each of these search parameters are optional.
@@ -232,7 +232,7 @@ namespace BingAdsExamplesLibrary.V13
 
                     // Setting the device criterion is not available in the 
                     // 'Keyword Planner' -> 'Search for new keywords using a phrase, website, or category'
-                    // workflow in the Bing Ads web application.
+                    // workflow in the Microsoft Advertising web application.
                     // The DeviceSearchParameter is optional and by default the keyword ideas data
                     // are aggregated for all devices.
 

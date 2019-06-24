@@ -17,7 +17,7 @@ namespace BingAdsConsoleApp
         // Set any examples that you want to run. 
         private static readonly ExampleBase[] _examples =
         {
-            new BingAdsExamplesLibrary.V13.BulkAdExtensions(),
+            new BingAdsExamplesLibrary.V13.SearchUserAccounts(),
         };
 
         private static AuthorizationData _authorizationData;
