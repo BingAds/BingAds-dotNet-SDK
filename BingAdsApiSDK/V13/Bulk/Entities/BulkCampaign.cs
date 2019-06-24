@@ -398,19 +398,31 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting), true)) as DynamicSearchAdsSetting;
                     if (setting != null)
                     {
-                        DynamicSearchAdsSource? source = v.ParseOptional<DynamicSearchAdsSource>();
-                        if (source != null)
-                        {
-                            setting.Source = source.Value;
-                        }
-                        else
-                        {
-                            setting.Source = DynamicSearchAdsSource.SystemIndex;
-                        }
+                        setting.Source = v.ParseOptional<DynamicSearchAdsSource>();
                     }
                 }
             ),
-            
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.PageFeedIds,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    if (setting == null || setting.PageFeedIds == null || setting.PageFeedIds.Count == 0)
+                    {
+                        return null;
+                    }
+                    return string.Join(";", setting.PageFeedIds);
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting), true)) as DynamicSearchAdsSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        setting.PageFeedIds = v.Split(';').Select(long.Parse).ToList();
+                    }
+                }
+            ),
+
             new SimpleBulkMapping<BulkCampaign>(StringTable.ExperimentId,
                 c => c.Campaign.ExperimentId.ToBulkString(),
                 (v, c) => c.Campaign.ExperimentId = v.ParseOptional<long>()

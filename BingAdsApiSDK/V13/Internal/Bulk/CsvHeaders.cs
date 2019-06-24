@@ -132,7 +132,6 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             // location target
             StringTable.Target,
-            StringTable.PhysicalIntent,
             StringTable.BidAdjustment,
             StringTable.RadiusTargetId,
             StringTable.Name,
@@ -396,6 +395,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.DynamicAdTargetValue1,
             StringTable.DynamicAdTargetValue2,
             StringTable.DynamicAdTargetValue3,
+            StringTable.PageFeedIds,
 
             // Labels
             StringTable.ColorCode,
@@ -413,6 +413,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             
             //Final Url Suffix
             StringTable.FinalUrlSuffix,
+
+            // Feeds
+            StringTable.CustomAttributes,
+            StringTable.FeedName,
+            StringTable.PhysicalIntent,
         };
 
         /// <summary>

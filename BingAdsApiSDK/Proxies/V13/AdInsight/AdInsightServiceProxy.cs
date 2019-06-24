@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible bid opportunity types you can request when calling GetBidOpportunities.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/bidopportunitytype?view=bingads-13">BidOpportunityType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/bidopportunitytype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/bidopportunitytype?view=bingads-13">BidOpportunityType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/bidopportunitytype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidOpportunities">GetBidOpportunities</see> service operation.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -101,7 +101,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the suggested bid with estimated clicks and impressions opportunities.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/bidopportunity?view=bingads-13">BidOpportunity Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/bidopportunity?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/bidopportunity?view=bingads-13">BidOpportunity Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/bidopportunity?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidOpportunities">GetBidOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -323,7 +323,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// This is the base class from which opportunity objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/opportunity?view=bingads-13">Opportunity Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/opportunity?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/opportunity?view=bingads-13">Opportunity Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/opportunity?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -390,7 +390,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the suggested budget with estimated clicks and impressions opportunities.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/budgetopportunity?view=bingads-13">BudgetOpportunity Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/budgetopportunity?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/budgetopportunity?view=bingads-13">BudgetOpportunity Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/budgetopportunity?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBudgetOpportunities">GetBudgetOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -612,7 +612,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a suggested keyword and bid value.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordopportunity?view=bingads-13">KeywordOpportunity Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordopportunity?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordopportunity?view=bingads-13">KeywordOpportunity Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordopportunity?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordOpportunities">GetKeywordOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -904,7 +904,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the marketplace impact statistics of including broad match type keyword bids.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/broadmatchkeywordopportunity?view=bingads-13">BroadMatchKeywordOpportunity Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/broadmatchkeywordopportunity?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/broadmatchkeywordopportunity?view=bingads-13">BroadMatchKeywordOpportunity Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/broadmatchkeywordopportunity?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1102,7 +1102,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a budget amount and an estimate of weekly impressions, clicks, and cost for this budget amount.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/budgetpoint?view=bingads-13">BudgetPoint Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/budgetpoint?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/budgetpoint?view=bingads-13">BudgetPoint Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/budgetpoint?view=bingads-13 for details.
     /// <para>Used by <see cref="BudgetOpportunity"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1258,7 +1258,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible types of campaign budgets.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/budgetlimittype?view=bingads-13">BudgetLimitType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/budgetlimittype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/budgetlimittype?view=bingads-13">BudgetLimitType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/budgetlimittype?view=bingads-13 for details.
     /// <para>Used by <see cref="BudgetOpportunity"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1283,7 +1283,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible values of a campaign budget point.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/budgetpointtype?view=bingads-13">BudgetPointType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/budgetpointtype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/budgetpointtype?view=bingads-13">BudgetPointType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/budgetpointtype?view=bingads-13 for details.
     /// <para>Used by <see cref="BudgetPoint"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1320,7 +1320,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains search query statistics of including broad match type keyword bids.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/broadmatchsearchquerykpi?view=bingads-13">BroadMatchSearchQueryKPI Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/broadmatchsearchquerykpi?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/broadmatchsearchquerykpi?view=bingads-13">BroadMatchSearchQueryKPI Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/broadmatchsearchquerykpi?view=bingads-13 for details.
     /// <para>Used by <see cref="BroadMatchKeywordOpportunity"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1476,7 +1476,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/applicationfault?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/applicationfault?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1541,7 +1541,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/apifaultdetail?view=bingads-13">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/apifaultdetail?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/apifaultdetail?view=bingads-13">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/apifaultdetail?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1601,7 +1601,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adapifaultdetail?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adapifaultdetail?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1638,7 +1638,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adapierror?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adapierror?view=bingads-13 for details.
     /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1771,7 +1771,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/batcherror?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/batcherror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1927,7 +1927,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/operationerror?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/operationerror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2060,7 +2060,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible keyword opportunity types you can request when calling GetKeywordOpportunities.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordopportunitytype?view=bingads-13">KeywordOpportunityType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordopportunitytype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordopportunitytype?view=bingads-13">KeywordOpportunityType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordopportunitytype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordOpportunities">GetKeywordOpportunities</see> service operation.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2086,7 +2086,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible positions where you can target an ad to appear in the search results.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/targetadposition?view=bingads-13">TargetAdPosition Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/targetadposition?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/targetadposition?view=bingads-13">TargetAdPosition Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/targetadposition?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywordIds">GetEstimatedBidByKeywordIds</see> and <see cref="AdInsightServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2117,7 +2117,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the identifier of the keyword and the suggested bid value for the keyword and match type.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordidestimatedbid?view=bingads-13">KeywordIdEstimatedBid Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordidestimatedbid?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordidestimatedbid?view=bingads-13">KeywordIdEstimatedBid Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordidestimatedbid?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywordIds">GetEstimatedBidByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2204,7 +2204,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the keyword and the estimated bid value for each match type.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordestimatedbid?view=bingads-13">KeywordEstimatedBid Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordestimatedbid?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordestimatedbid?view=bingads-13">KeywordEstimatedBid Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordestimatedbid?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordIdEstimatedBid"/> data object.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operation.</para>
     /// </remarks>
@@ -2292,7 +2292,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains estimates of clicks, average cost per click (CPC), impressions, click-through rate (CTR), and total cost for the corresponding keyword or ad group given the suggested bid.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/estimatedbidandtraffic?view=bingads-13">EstimatedBidAndTraffic Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/estimatedbidandtraffic?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/estimatedbidandtraffic?view=bingads-13">EstimatedBidAndTraffic Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/estimatedbidandtraffic?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordEstimatedBid"/> data object.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operation.</para>
     /// </remarks>
@@ -2587,7 +2587,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines a selection of currency values.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/currencycode?view=bingads-13">CurrencyCode Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/currencycode?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/currencycode?view=bingads-13">CurrencyCode Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/currencycode?view=bingads-13 for details.
     /// <para>Used by <see cref="BidLandscapePoint"/>, <see cref="EstimatedBidAndTraffic"/> and <see cref="EstimatedPositionAndTraffic"/> data objects.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> and <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> service operations.</para>
     /// </remarks>
@@ -3153,7 +3153,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible keyword match type values.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/matchtype?view=bingads-13">MatchType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/matchtype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/matchtype?view=bingads-13">MatchType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/matchtype?view=bingads-13 for details.
     /// <para>Used by <see cref="EstimatedBidAndTraffic"/>, <see cref="EstimatedPositionAndTraffic"/>, <see cref="Keyword"/>, <see cref="KeywordAndMatchType"/>, <see cref="KeywordKPI"/> and <see cref="NegativeKeyword"/> data objects.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> and <see cref="AdInsightServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operations.</para>
     /// </remarks>
@@ -3191,7 +3191,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the identifier of a keyword and the estimated search results position for the keyword and match type.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordidestimatedposition?view=bingads-13">KeywordIdEstimatedPosition Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordidestimatedposition?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordidestimatedposition?view=bingads-13">KeywordIdEstimatedPosition Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordidestimatedposition?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywordIds">GetEstimatedPositionByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3278,7 +3278,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the keyword and the estimated position in the search results for each match type.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordestimatedposition?view=bingads-13">KeywordEstimatedPosition Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordestimatedposition?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordestimatedposition?view=bingads-13">KeywordEstimatedPosition Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordestimatedposition?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordIdEstimatedPosition"/> data object.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> service operation.</para>
     /// </remarks>
@@ -3366,7 +3366,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the estimated search results position and estimated keyword statistics such as clicks, average cost per click (CPC), impressions, click-through rate (CTR), and total cost for the specified keyword given the specified bid.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/estimatedpositionandtraffic?view=bingads-13">EstimatedPositionAndTraffic Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/estimatedpositionandtraffic?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/estimatedpositionandtraffic?view=bingads-13">EstimatedPositionAndTraffic Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/estimatedpositionandtraffic?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordEstimatedPosition"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3660,7 +3660,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a keyword and corresponding match types.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordandmatchtype?view=bingads-13">KeywordAndMatchType Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordandmatchtype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordandmatchtype?view=bingads-13">KeywordAndMatchType Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordandmatchtype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3747,7 +3747,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the requested bid landscape type for the corresponding ad group identifier.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupbidlandscapeinput?view=bingads-13">AdGroupBidLandscapeInput Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupbidlandscapeinput?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupbidlandscapeinput?view=bingads-13">AdGroupBidLandscapeInput Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupbidlandscapeinput?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidLandscapeByAdGroupIds">GetBidLandscapeByAdGroupIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3834,7 +3834,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible values that indicate whether all or a subset of an ad group's existing keywords are used to determine the bid landscape.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupbidlandscapetype?view=bingads-13">AdGroupBidLandscapeType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupbidlandscapetype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupbidlandscapetype?view=bingads-13">AdGroupBidLandscapeType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupbidlandscapetype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdGroupBidLandscape"/> and <see cref="AdGroupBidLandscapeInput"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3859,7 +3859,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a list of estimated clicks, cost, and impressions from 1 to 7 days for the ad group identifier given the suggested bid.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupbidlandscape?view=bingads-13">AdGroupBidLandscape Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupbidlandscape?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupbidlandscape?view=bingads-13">AdGroupBidLandscape Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupbidlandscape?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidLandscapeByAdGroupIds">GetBidLandscapeByAdGroupIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4015,7 +4015,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that you use to specify the start and end dates of a date range.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/daymonthandyear?view=bingads-13">DayMonthAndYear Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/daymonthandyear?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/daymonthandyear?view=bingads-13">DayMonthAndYear Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/daymonthandyear?view=bingads-13 for details.
     /// <para>Used by <see cref="AdGroupBidLandscape"/>, <see cref="DateRangeSearchParameter"/>, <see cref="HistoricalSearchCountPeriodic"/> and <see cref="KeywordBidLandscape"/> data objects.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalSearchCount">GetHistoricalSearchCount</see> service operation.</para>
     /// </remarks>
@@ -4126,7 +4126,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains estimates of clicks, cost, and impressions  given the suggested bid.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/bidlandscapepoint?view=bingads-13">BidLandscapePoint Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/bidlandscapepoint?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/bidlandscapepoint?view=bingads-13">BidLandscapePoint Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/bidlandscapepoint?view=bingads-13 for details.
     /// <para>Used by <see cref="AdGroupBidLandscape"/> and <see cref="KeywordBidLandscape"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4328,7 +4328,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a list of estimated clicks, cost, and impressions from 1 to 7 days for the keyword identifier given the suggested bid.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordbidlandscape?view=bingads-13">KeywordBidLandscape Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordbidlandscape?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordbidlandscape?view=bingads-13">KeywordBidLandscape Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordbidlandscape?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidLandscapeByKeywordIds">GetBidLandscapeByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4461,7 +4461,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible time periods that determine the pool of data that the service uses to get the performance statistics of a keyword.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/timeinterval?view=bingads-13">TimeInterval Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/timeinterval?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/timeinterval?view=bingads-13">TimeInterval Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/timeinterval?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operation.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4492,7 +4492,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible positions of an ad in the search results.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adposition?view=bingads-13">AdPosition Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adposition?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adposition?view=bingads-13">AdPosition Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adposition?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordKPI"/> data object.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operation.</para>
     /// </remarks>
@@ -4602,7 +4602,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the key performance index data for the specified keyword.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordhistoricalperformance?view=bingads-13">KeywordHistoricalPerformance Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordhistoricalperformance?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordhistoricalperformance?view=bingads-13">KeywordHistoricalPerformance Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordhistoricalperformance?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4689,7 +4689,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines a key performance index object for a keyword.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordkpi?view=bingads-13">KeywordKPI Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordkpi?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordkpi?view=bingads-13">KeywordKPI Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordkpi?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordHistoricalPerformance"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4937,7 +4937,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a list of search counts for each device and network where the keyword was included in a search query.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordsearchcount?view=bingads-13">KeywordSearchCount Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordsearchcount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordsearchcount?view=bingads-13">KeywordSearchCount Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordsearchcount?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalSearchCount">GetHistoricalSearchCount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5024,7 +5024,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a list of keyword historical search counts for the corresponding device attribute.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/searchcountsbyattributes?view=bingads-13">SearchCountsByAttributes Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/searchcountsbyattributes?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/searchcountsbyattributes?view=bingads-13">SearchCountsByAttributes Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/searchcountsbyattributes?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordSearchCount"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5111,7 +5111,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the number of times that the keyword was used in a search query during the specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/historicalsearchcountperiodic?view=bingads-13">HistoricalSearchCountPeriodic Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/historicalsearchcountperiodic?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/historicalsearchcountperiodic?view=bingads-13">HistoricalSearchCountPeriodic Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/historicalsearchcountperiodic?view=bingads-13 for details.
     /// <para>Used by <see cref="SearchCountsByAttributes"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5198,7 +5198,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the keyword and a list of keyword categories that the keyword might belong to.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordcategoryresult?view=bingads-13">KeywordCategoryResult Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordcategoryresult?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordcategoryresult?view=bingads-13">KeywordCategoryResult Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordcategoryresult?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordCategories">GetKeywordCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5285,7 +5285,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a keyword category and a confidence score.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordcategory?view=bingads-13">KeywordCategory Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordcategory?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordcategory?view=bingads-13">KeywordCategory Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordcategory?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordCategoryResult"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5372,7 +5372,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the keyword and percentage of users by age and gender (if known) who searched for the specified keyword.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keyworddemographicresult?view=bingads-13">KeywordDemographicResult Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keyworddemographicresult?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keyworddemographicresult?view=bingads-13">KeywordDemographicResult Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keyworddemographicresult?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordDemographics">GetKeywordDemographics</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5459,7 +5459,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the device, age and gender of the user who entered the search query, if known.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keyworddemographic?view=bingads-13">KeywordDemographic Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keyworddemographic?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keyworddemographic?view=bingads-13">KeywordDemographic Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keyworddemographic?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordDemographicResult"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5730,7 +5730,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the locations where users were located when they searched for the specified keyword.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordlocationresult?view=bingads-13">KeywordLocationResult Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordlocationresult?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordlocationresult?view=bingads-13">KeywordLocationResult Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordlocationresult?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordLocations">GetKeywordLocations</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5817,7 +5817,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains the location, network, device, and the percentage of time that a user entered a search query.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordlocation?view=bingads-13">KeywordLocation Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordlocation?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordlocation?view=bingads-13">KeywordLocation Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordlocation?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordLocationResult"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5927,7 +5927,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a suggested keyword and a confidence score.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordandconfidence?view=bingads-13">KeywordAndConfidence Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordandconfidence?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordandconfidence?view=bingads-13">KeywordAndConfidence Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordandconfidence?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordSuggestion"/> data object.</para>
     /// <para>Used by <see cref="AdInsightServiceClient.SuggestKeywordsForUrl">SuggestKeywordsForUrl</see> service operation.</para>
     /// </remarks>
@@ -6015,7 +6015,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a list of suggested keywords that may perform better than the specified keyword.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordsuggestion?view=bingads-13">KeywordSuggestion Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordsuggestion?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordsuggestion?view=bingads-13">KeywordSuggestion Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordsuggestion?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.SuggestKeywordsFromExistingKeywords">SuggestKeywordsFromExistingKeywords</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6102,7 +6102,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the entity types for retrieving auction insights.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/entitytype?view=bingads-13">EntityType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/entitytype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/entitytype?view=bingads-13">EntityType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/entitytype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetAuctionInsightData">GetAuctionInsightData</see> service operation.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6139,7 +6139,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// This is the base class from which keyword idea search parameter objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/searchparameter?view=bingads-13">SearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/searchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/searchparameter?view=bingads-13">SearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/searchparameter?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetAuctionInsightData">GetAuctionInsightData</see> and <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6195,7 +6195,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The query search parameter that you can use as a seed for new keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/querysearchparameter?view=bingads-13">QuerySearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/querysearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/querysearchparameter?view=bingads-13">QuerySearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/querysearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6232,7 +6232,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The URL search parameter that you can use as a seed for new keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/urlsearchparameter?view=bingads-13">UrlSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/urlsearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/urlsearchparameter?view=bingads-13">UrlSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/urlsearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6269,7 +6269,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The keyword category search parameter that you can use as a seed for new keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/categorysearchparameter?view=bingads-13">CategorySearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/categorysearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/categorysearchparameter?view=bingads-13">CategorySearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/categorysearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6306,7 +6306,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The search volume search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/searchvolumesearchparameter?view=bingads-13">SearchVolumeSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/searchvolumesearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/searchvolumesearchparameter?view=bingads-13">SearchVolumeSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/searchvolumesearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6366,7 +6366,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The suggested bid search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestedbidsearchparameter?view=bingads-13">SuggestedBidSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestedbidsearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestedbidsearchparameter?view=bingads-13">SuggestedBidSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestedbidsearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6426,7 +6426,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The idea text search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/ideatextsearchparameter?view=bingads-13">IdeaTextSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/ideatextsearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/ideatextsearchparameter?view=bingads-13">IdeaTextSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/ideatextsearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6486,7 +6486,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The exclude account keywords search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/excludeaccountkeywordssearchparameter?view=bingads-13">ExcludeAccountKeywordsSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/excludeaccountkeywordssearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/excludeaccountkeywordssearchparameter?view=bingads-13">ExcludeAccountKeywordsSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/excludeaccountkeywordssearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6523,7 +6523,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The impression share search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/impressionsharesearchparameter?view=bingads-13">ImpressionShareSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/impressionsharesearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/impressionsharesearchparameter?view=bingads-13">ImpressionShareSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/impressionsharesearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6583,7 +6583,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The location search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/locationsearchparameter?view=bingads-13">LocationSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/locationsearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/locationsearchparameter?view=bingads-13">LocationSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/locationsearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6620,7 +6620,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The network search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/networksearchparameter?view=bingads-13">NetworkSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/networksearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/networksearchparameter?view=bingads-13">NetworkSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/networksearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6657,7 +6657,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The device search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/devicesearchparameter?view=bingads-13">DeviceSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/devicesearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/devicesearchparameter?view=bingads-13">DeviceSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/devicesearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6694,7 +6694,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The language search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/languagesearchparameter?view=bingads-13">LanguageSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/languagesearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/languagesearchparameter?view=bingads-13">LanguageSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/languagesearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6731,7 +6731,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The competition search parameter filter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/competitionsearchparameter?view=bingads-13">CompetitionSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/competitionsearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/competitionsearchparameter?view=bingads-13">CompetitionSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/competitionsearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6768,7 +6768,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The date range search parameter that you can include when requesting keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/daterangesearchparameter?view=bingads-13">DateRangeSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/daterangesearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/daterangesearchparameter?view=bingads-13">DateRangeSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/daterangesearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6828,7 +6828,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an auction segment search parameter.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctionsegmentsearchparameter?view=bingads-13">AuctionSegmentSearchParameter Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctionsegmentsearchparameter?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctionsegmentsearchparameter?view=bingads-13">AuctionSegmentSearchParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctionsegmentsearchparameter?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6865,7 +6865,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines a keyword with match type.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keyword?view=bingads-13">Keyword Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keyword?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keyword?view=bingads-13">Keyword Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keyword?view=bingads-13 for details.
     /// <para>Used by <see cref="IdeaTextSearchParameter"/>, <see cref="KeywordEstimate"/> and <see cref="KeywordEstimator"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6975,7 +6975,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The location criterion that you can include when requesting keyword ideas or traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/locationcriterion?view=bingads-13">LocationCriterion Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/locationcriterion?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/locationcriterion?view=bingads-13">LocationCriterion Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/locationcriterion?view=bingads-13 for details.
     /// <para>Used by <see cref="LocationSearchParameter"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7013,7 +7013,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// This is the base class from which keyword planner criterion objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/criterion?view=bingads-13">Criterion Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/criterion?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/criterion?view=bingads-13">Criterion Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/criterion?view=bingads-13 for details.
     /// <para>Used by <see cref="CampaignEstimator"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7058,7 +7058,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The language criterion that you can include when requesting keyword ideas or traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/languagecriterion?view=bingads-13">LanguageCriterion Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/languagecriterion?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/languagecriterion?view=bingads-13">LanguageCriterion Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/languagecriterion?view=bingads-13 for details.
     /// <para>Used by <see cref="LanguageSearchParameter"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7096,7 +7096,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The network criterion that you can include when requesting keyword ideas or traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/networkcriterion?view=bingads-13">NetworkCriterion Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/networkcriterion?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/networkcriterion?view=bingads-13">NetworkCriterion Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/networkcriterion?view=bingads-13 for details.
     /// <para>Used by <see cref="NetworkSearchParameter"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7134,7 +7134,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// The device criterion that you can include when requesting keyword ideas or traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/devicecriterion?view=bingads-13">DeviceCriterion Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/devicecriterion?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/devicecriterion?view=bingads-13">DeviceCriterion Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/devicecriterion?view=bingads-13 for details.
     /// <para>Used by <see cref="DeviceSearchParameter"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7172,7 +7172,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible search networks on which an ad can display.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/networktype?view=bingads-13">NetworkType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/networktype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/networktype?view=bingads-13">NetworkType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/networktype?view=bingads-13 for details.
     /// <para>Used by <see cref="NetworkCriterion"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7203,7 +7203,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Competition levels are defined by the number of advertisers bidding on this keyword, relative to all other keywords across Microsoft Advertising.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/competitionlevel?view=bingads-13">CompetitionLevel Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/competitionlevel?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/competitionlevel?view=bingads-13">CompetitionLevel Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/competitionlevel?view=bingads-13 for details.
     /// <para>Used by <see cref="CompetitionSearchParameter"/> and <see cref="KeywordIdea"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7234,7 +7234,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the possible auction segment values.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctionsegment?view=bingads-13">AuctionSegment Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctionsegment?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctionsegment?view=bingads-13">AuctionSegment Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctionsegment?view=bingads-13 for details.
     /// <para>Used by <see cref="AuctionInsightResult"/> and <see cref="AuctionSegmentSearchParameter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7283,7 +7283,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the auction insight results from calling the GetAuctionInsightData operation.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightresult?view=bingads-13">AuctionInsightResult Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightresult?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctioninsightresult?view=bingads-13">AuctionInsightResult Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctioninsightresult?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetAuctionInsightData">GetAuctionInsightData</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7416,7 +7416,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an auction insight entry for a domain.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightentry?view=bingads-13">AuctionInsightEntry Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightentry?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctioninsightentry?view=bingads-13">AuctionInsightEntry Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctioninsightentry?view=bingads-13 for details.
     /// <para>Used by <see cref="AuctionInsightResult"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7526,7 +7526,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an auction insight key performance indicator.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightkpi?view=bingads-13">AuctionInsightKpi Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/auctioninsightkpi?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctioninsightkpi?view=bingads-13">AuctionInsightKpi Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctioninsightkpi?view=bingads-13 for details.
     /// <para>Used by <see cref="AuctionInsightEntry"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7728,7 +7728,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a domain category with website coverage.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/domaincategory?view=bingads-13">DomainCategory Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/domaincategory?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/domaincategory?view=bingads-13">DomainCategory Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/domaincategory?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetDomainCategories">GetDomainCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7918,7 +7918,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a keyword idea category.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordideacategory?view=bingads-13">KeywordIdeaCategory Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordideacategory?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordideacategory?view=bingads-13">KeywordIdeaCategory Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordideacategory?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeaCategories">GetKeywordIdeaCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8005,7 +8005,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Determines which properties of the KeywordIdea object you want returned when calling the GetKeywordIdeas operation.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordideaattribute?view=bingads-13">KeywordIdeaAttribute Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordideaattribute?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordideaattribute?view=bingads-13">KeywordIdeaAttribute Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordideaattribute?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8072,7 +8072,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains a suggested keyword with historical statistics, like monthly search volume, competition, suggested minimum bid, and ad impression share.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordidea?view=bingads-13">KeywordIdea Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordidea?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordidea?view=bingads-13">KeywordIdea Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordidea?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8320,7 +8320,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines the source or seed for the keyword idea.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/sourcetype?view=bingads-13">SourceType Value Set</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/sourcetype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/sourcetype?view=bingads-13">SourceType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/sourcetype?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordIdea"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8363,7 +8363,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Contains campaign filter criteria and a nested list of ad group and keyword level filter criteria for traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/campaignestimator?view=bingads-13">CampaignEstimator Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/campaignestimator?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/campaignestimator?view=bingads-13">CampaignEstimator Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/campaignestimator?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordTrafficEstimates">GetKeywordTrafficEstimates</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8519,7 +8519,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Contains a list of keyword estimators with your keyword level filter criteria for traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupestimator?view=bingads-13">AdGroupEstimator Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupestimator?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupestimator?view=bingads-13">AdGroupEstimator Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupestimator?view=bingads-13 for details.
     /// <para>Used by <see cref="CampaignEstimator"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8629,7 +8629,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines a negative keyword with match type.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/negativekeyword?view=bingads-13">NegativeKeyword Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/negativekeyword?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/negativekeyword?view=bingads-13">NegativeKeyword Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/negativekeyword?view=bingads-13 for details.
     /// <para>Used by <see cref="CampaignEstimator"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8739,7 +8739,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Contains a keyword estimators with your keyword level filter criteria for traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordestimator?view=bingads-13">KeywordEstimator Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordestimator?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordestimator?view=bingads-13">KeywordEstimator Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordestimator?view=bingads-13 for details.
     /// <para>Used by <see cref="AdGroupEstimator"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8826,7 +8826,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Contains a nested list of suggested keywords for the campaign's ad groups with minimum and maximum traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/campaignestimate?view=bingads-13">CampaignEstimate Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/campaignestimate?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/campaignestimate?view=bingads-13">CampaignEstimate Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/campaignestimate?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordTrafficEstimates">GetKeywordTrafficEstimates</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8913,7 +8913,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Contains a list of suggested keywords for the ad group with minimum and maximum traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupestimate?view=bingads-13">AdGroupEstimate Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/adgroupestimate?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupestimate?view=bingads-13">AdGroupEstimate Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adgroupestimate?view=bingads-13 for details.
     /// <para>Used by <see cref="CampaignEstimate"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9000,7 +9000,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// A suggested keyword with minimum and maximum traffic estimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordestimate?view=bingads-13">KeywordEstimate Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/keywordestimate?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordestimate?view=bingads-13">KeywordEstimate Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/keywordestimate?view=bingads-13 for details.
     /// <para>Used by <see cref="AdGroupEstimate"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9110,7 +9110,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Defines an object that contains traffic estimates based on the campaign, ad group, and keyword criteria you specified when calling GetKeywordTrafficEstimates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/trafficestimate?view=bingads-13">TrafficEstimate Data Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/trafficestimate?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/trafficestimate?view=bingads-13">TrafficEstimate Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/trafficestimate?view=bingads-13 for details.
     /// <para>Used by <see cref="KeywordEstimate"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9294,7 +9294,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the keyword bid opportunities of the specified ad group.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9312,7 +9312,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the keyword bid opportunities of the specified ad group.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9326,7 +9326,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the campaign budget opportunities of the specified campaign.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9344,7 +9344,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the campaign budget opportunities of the specified campaign.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9358,7 +9358,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets a list of keyword suggestions that are relevant to the specified ad group.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9376,7 +9376,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets a list of keyword suggestions that are relevant to the specified ad group.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9390,7 +9390,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last  7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9408,7 +9408,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last  7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9422,7 +9422,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9440,7 +9440,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9454,7 +9454,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9472,7 +9472,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9486,7 +9486,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9504,7 +9504,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9518,7 +9518,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9536,7 +9536,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9550,7 +9550,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to  7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9568,7 +9568,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to  7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9582,7 +9582,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the historical performance of the normalized search term.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9600,7 +9600,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the historical performance of the normalized search term.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9614,7 +9614,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the number of times the normalized term was used in a search during the specified time period.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9632,7 +9632,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the number of times the normalized term was used in a search during the specified time period.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9646,7 +9646,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the keyword categories to which the specified keywords belong.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9664,7 +9664,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the keyword categories to which the specified keywords belong.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9678,7 +9678,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the age and gender of users who have searched for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9696,7 +9696,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the age and gender of users who have searched for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9710,7 +9710,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the geographical locations of users who have searched for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9728,7 +9728,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the geographical locations of users who have searched for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9742,7 +9742,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Suggests the possible keywords for the content located at the specified URL.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9760,7 +9760,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Suggests the possible keywords for the content located at the specified URL.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9774,7 +9774,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Suggests keywords that could perform better than the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9792,7 +9792,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Suggests keywords that could perform better than the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9806,7 +9806,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9824,7 +9824,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9838,7 +9838,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of categories available for the website domain and language.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9856,7 +9856,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of categories available for the website domain and language.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9882,7 +9882,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of keyword idea categories.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9900,7 +9900,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of keyword idea categories.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9914,7 +9914,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of keyword ideas.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9932,7 +9932,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of keyword ideas.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9946,7 +9946,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9964,7 +9964,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -9979,7 +9979,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the keyword bid opportunities of the specified ad group.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidOpportunities">GetBidOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10031,7 +10031,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidOpportunitiesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunitiesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunitiesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
         /// </remarks>
         public GetBidOpportunitiesRequest()
         {
@@ -10041,7 +10041,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidOpportunitiesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunitiesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunitiesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group for which you want to determine keyword bid opportunities.</param>
         /// <param name="CampaignId">The identifier of the campaign that owns the ad group specified in the AdGroupId element.</param>
@@ -10065,7 +10065,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the keyword bid opportunities of the specified ad group.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidOpportunities">GetBidOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10087,7 +10087,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidOpportunitiesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunitiesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunitiesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
         /// </remarks>
         public GetBidOpportunitiesResponse()
         {
@@ -10097,7 +10097,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidOpportunitiesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunitiesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunitiesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Opportunities">An array of BidOpportunity objects that identifies the keywords whose clicks and impressions may increase if you were to apply the suggested match-type bid value.</param>
         public GetBidOpportunitiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.BidOpportunity> Opportunities)
@@ -10111,7 +10111,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the campaign budget opportunities of the specified campaign.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBudgetOpportunities">GetBudgetOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10151,7 +10151,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBudgetOpportunitiesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunitiesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunitiesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
         /// </remarks>
         public GetBudgetOpportunitiesRequest()
         {
@@ -10161,7 +10161,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBudgetOpportunitiesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunitiesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunitiesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign for which you want to discover possible campaign budget opportunities.</param>
         public GetBudgetOpportunitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Nullable<long> CampaignId)
@@ -10181,7 +10181,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the campaign budget opportunities of the specified campaign.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBudgetOpportunities">GetBudgetOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10203,7 +10203,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBudgetOpportunitiesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunitiesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunitiesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
         /// </remarks>
         public GetBudgetOpportunitiesResponse()
         {
@@ -10213,7 +10213,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBudgetOpportunitiesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunitiesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunitiesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Opportunities">An array of BudgetOpportunity data objects that identify the campaigns whose clicks and impressions may increase if you were to apply the suggested budget.</param>
         public GetBudgetOpportunitiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.BudgetOpportunity> Opportunities)
@@ -10227,7 +10227,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets a list of keyword suggestions that are relevant to the specified ad group.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordOpportunities">GetKeywordOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10279,7 +10279,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordOpportunitiesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunitiesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunitiesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordOpportunitiesRequest()
         {
@@ -10289,7 +10289,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordOpportunitiesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunitiesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunitiesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group to get keyword suggestions for.</param>
         /// <param name="CampaignId">The identifier of the campaign that owns the specified ad group.</param>
@@ -10313,7 +10313,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets a list of keyword suggestions that are relevant to the specified ad group.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordOpportunities">GetKeywordOpportunities</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10335,7 +10335,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordOpportunitiesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunitiesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunitiesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordOpportunitiesResponse()
         {
@@ -10345,7 +10345,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordOpportunitiesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunitiesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunitiesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Opportunities">A list of KeywordOpportunity data objects that identifies a suggested keyword and bid value.</param>
         public GetKeywordOpportunitiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordOpportunity> Opportunities)
@@ -10359,7 +10359,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last  7 days.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywordIds">GetEstimatedBidByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10405,7 +10405,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedBidByKeywordIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
         /// </remarks>
         public GetEstimatedBidByKeywordIdsRequest()
         {
@@ -10415,7 +10415,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedBidByKeywordIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordIds">An array of identifiers of the keywords for which you want to get the suggested bid values that could have resulted in your ad appearing in the targeted position in the search results.</param>
         /// <param name="TargetPositionForAds">The position in which you want your ads to appear in the search results.</param>
@@ -10437,7 +10437,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last  7 days.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywordIds">GetEstimatedBidByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10459,7 +10459,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedBidByKeywordIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
         /// </remarks>
         public GetEstimatedBidByKeywordIdsResponse()
         {
@@ -10469,7 +10469,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedBidByKeywordIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordEstimatedBids">An array of KeywordIdEstimatedBid data objects.</param>
         public GetEstimatedBidByKeywordIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordIdEstimatedBid> KeywordEstimatedBids)
@@ -10483,7 +10483,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywordIds">GetEstimatedPositionByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10529,7 +10529,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedPositionByKeywordIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
         /// </remarks>
         public GetEstimatedPositionByKeywordIdsRequest()
         {
@@ -10539,7 +10539,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedPositionByKeywordIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordIds">An array of identifiers of the keywords for which you want to get the estimated position in the search results, based on the specified bid value.</param>
         /// <param name="MaxBid">The maximum bid value to use to determine the estimated position in the search results.</param>
@@ -10561,7 +10561,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywordIds">GetEstimatedPositionByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10583,7 +10583,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedPositionByKeywordIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
         /// </remarks>
         public GetEstimatedPositionByKeywordIdsResponse()
         {
@@ -10593,7 +10593,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedPositionByKeywordIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordEstimatedPositions">A list of KeywordIdEstimatedPosition data objects.</param>
         public GetEstimatedPositionByKeywordIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordIdEstimatedPosition> KeywordEstimatedPositions)
@@ -10607,7 +10607,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10689,7 +10689,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedBidByKeywordsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywordsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywordsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
         /// </remarks>
         public GetEstimatedBidByKeywordsRequest()
         {
@@ -10699,7 +10699,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedBidByKeywordsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywordsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywordsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">A list of KeywordAndMatchType data objects for which you want to get suggested bid values.</param>
         /// <param name="TargetPositionForAds">The position where you want your ads to appear in the search results.</param>
@@ -10733,7 +10733,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedBidByKeywords">GetEstimatedBidByKeywords</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10761,7 +10761,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedBidByKeywordsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywordsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywordsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
         /// </remarks>
         public GetEstimatedBidByKeywordsResponse()
         {
@@ -10771,7 +10771,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedBidByKeywordsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywordsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywordsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordEstimatedBids">An array of KeywordEstimatedBid data objects.</param>
         /// <param name="AdGroupEstimatedBid">Contains estimates of clicks, average cost per click (CPC), impressions, click-through rate (CTR), and total cost for the specified ad group if you would use the suggested bid.</param>
@@ -10787,7 +10787,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10869,7 +10869,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedPositionByKeywordsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywordsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywordsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
         /// </remarks>
         public GetEstimatedPositionByKeywordsRequest()
         {
@@ -10879,7 +10879,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedPositionByKeywordsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywordsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywordsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">An array of keywords for which you want to get the estimated position in the search results, based on the specified bid value.</param>
         /// <param name="MaxBid">The maximum bid value to use to determine the estimated position in the search results.</param>
@@ -10913,7 +10913,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetEstimatedPositionByKeywords">GetEstimatedPositionByKeywords</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10935,7 +10935,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedPositionByKeywordsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywordsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywordsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
         /// </remarks>
         public GetEstimatedPositionByKeywordsResponse()
         {
@@ -10945,7 +10945,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetEstimatedPositionByKeywordsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywordsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywordsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordEstimatedPositions">An array of KeywordEstimatedPosition data objects.</param>
         public GetEstimatedPositionByKeywordsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordEstimatedPosition> KeywordEstimatedPositions)
@@ -10959,7 +10959,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidLandscapeByAdGroupIds">GetBidLandscapeByAdGroupIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10999,7 +10999,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidLandscapeByAdGroupIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIdsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIdsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
         /// </remarks>
         public GetBidLandscapeByAdGroupIdsRequest()
         {
@@ -11009,7 +11009,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidLandscapeByAdGroupIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIdsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIdsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AdGroupBidLandscapeInputs">An array of ad group identifiers with corresponding bid landscape type input.</param>
         public GetBidLandscapeByAdGroupIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.AdGroupBidLandscapeInput> AdGroupBidLandscapeInputs)
@@ -11029,7 +11029,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidLandscapeByAdGroupIds">GetBidLandscapeByAdGroupIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11051,7 +11051,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidLandscapeByAdGroupIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIdsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIdsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
         /// </remarks>
         public GetBidLandscapeByAdGroupIdsResponse()
         {
@@ -11061,7 +11061,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidLandscapeByAdGroupIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIdsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIdsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="BidLandscape">An array of AdGroupBidLandscape objects.</param>
         public GetBidLandscapeByAdGroupIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.AdGroupBidLandscape> BidLandscape)
@@ -11075,7 +11075,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to  7 days.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidLandscapeByKeywordIds">GetBidLandscapeByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11121,7 +11121,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidLandscapeByKeywordIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
         /// </remarks>
         public GetBidLandscapeByKeywordIdsRequest()
         {
@@ -11131,7 +11131,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidLandscapeByKeywordIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIdsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordIds">An array of identifiers of the keywords for which you want to get the list of suggested bid values with estimated performance statistics.</param>
         /// <param name="IncludeCurrentBid">When set to false, the suggested bid values might not include the keyword's current bid.</param>
@@ -11153,7 +11153,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to  7 days.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetBidLandscapeByKeywordIds">GetBidLandscapeByKeywordIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11175,7 +11175,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidLandscapeByKeywordIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
         /// </remarks>
         public GetBidLandscapeByKeywordIdsResponse()
         {
@@ -11185,7 +11185,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetBidLandscapeByKeywordIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIdsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="BidLandscape">An array of KeywordBidLandscape objects.</param>
         public GetBidLandscapeByKeywordIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordBidLandscape> BidLandscape)
@@ -11199,7 +11199,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the historical performance of the normalized search term.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11275,7 +11275,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetHistoricalKeywordPerformanceRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformanceRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformanceRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
         /// </remarks>
         public GetHistoricalKeywordPerformanceRequest()
         {
@@ -11285,7 +11285,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetHistoricalKeywordPerformanceRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformanceRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformanceRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">An array of keywords for which you want to get historical performance statistics.</param>
         /// <param name="TimeInterval">The time period that identifies the data to use to determine the key performance index of the specified keywords.</param>
@@ -11317,7 +11317,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the historical performance of the normalized search term.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalKeywordPerformance">GetHistoricalKeywordPerformance</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11339,7 +11339,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetHistoricalKeywordPerformanceResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformanceResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformanceResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
         /// </remarks>
         public GetHistoricalKeywordPerformanceResponse()
         {
@@ -11349,7 +11349,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetHistoricalKeywordPerformanceResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformanceResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformanceResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordHistoricalPerformances">An array of KeywordHistoricalPerformance data objects.</param>
         public GetHistoricalKeywordPerformanceResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordHistoricalPerformance> KeywordHistoricalPerformances)
@@ -11363,7 +11363,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the number of times the normalized term was used in a search during the specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalSearchCount">GetHistoricalSearchCount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11439,7 +11439,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetHistoricalSearchCountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCountRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCountRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
         /// </remarks>
         public GetHistoricalSearchCountRequest()
         {
@@ -11449,7 +11449,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetHistoricalSearchCountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCountRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCountRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">An array of keywords for which you want to determine the number of times that the keyword was used in a search query.</param>
         /// <param name="Language">The language in which the keywords are written.</param>
@@ -11481,7 +11481,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the number of times the normalized term was used in a search during the specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetHistoricalSearchCount">GetHistoricalSearchCount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11503,7 +11503,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetHistoricalSearchCountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCountResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCountResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
         /// </remarks>
         public GetHistoricalSearchCountResponse()
         {
@@ -11513,7 +11513,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetHistoricalSearchCountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCountResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCountResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordSearchCounts">An array of KeywordSearchCount data objects.</param>
         public GetHistoricalSearchCountResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordSearchCount> KeywordSearchCounts)
@@ -11527,7 +11527,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the keyword categories to which the specified keywords belong.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordCategories">GetKeywordCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11585,7 +11585,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordCategoriesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategoriesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategoriesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordCategoriesRequest()
         {
@@ -11595,7 +11595,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordCategoriesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategoriesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategoriesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">An array of keywords for which you want to determine the possible keyword categories that each keyword belongs to.</param>
         /// <param name="Language">The language in which the keywords are written.</param>
@@ -11621,7 +11621,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the keyword categories to which the specified keywords belong.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordCategories">GetKeywordCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11643,7 +11643,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordCategoriesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategoriesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategoriesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordCategoriesResponse()
         {
@@ -11653,7 +11653,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordCategoriesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategoriesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategoriesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Result">An array of KeywordCategoryResult data objects.</param>
         public GetKeywordCategoriesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordCategoryResult> Result)
@@ -11667,7 +11667,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the age and gender of users who have searched for the specified keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordDemographics">GetKeywordDemographics</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11725,7 +11725,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordDemographicsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographicsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographicsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordDemographicsRequest()
         {
@@ -11735,7 +11735,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordDemographicsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographicsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographicsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">An array of keywords for which you want to get demographics data.</param>
         /// <param name="Language">The language in which the keywords are written.</param>
@@ -11761,7 +11761,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the age and gender of users who have searched for the specified keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordDemographics">GetKeywordDemographics</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11783,7 +11783,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordDemographicsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographicsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographicsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordDemographicsResponse()
         {
@@ -11793,7 +11793,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordDemographicsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographicsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographicsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordDemographicResult">An array of KeywordDemographicResult data objects.</param>
         public GetKeywordDemographicsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordDemographicResult> KeywordDemographicResult)
@@ -11807,7 +11807,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the geographical locations of users who have searched for the specified keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordLocations">GetKeywordLocations</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11883,7 +11883,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordLocationsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocationsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocationsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordLocationsRequest()
         {
@@ -11893,7 +11893,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordLocationsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocationsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocationsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">An array of keywords for which you want to get geographical location information.</param>
         /// <param name="Language">The language in which the keywords are written.</param>
@@ -11925,7 +11925,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the geographical locations of users who have searched for the specified keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordLocations">GetKeywordLocations</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11947,7 +11947,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordLocationsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocationsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocationsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordLocationsResponse()
         {
@@ -11957,7 +11957,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordLocationsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocationsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocationsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordLocationResult">An array of KeywordLocationResult data objects.</param>
         public GetKeywordLocationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordLocationResult> KeywordLocationResult)
@@ -11971,7 +11971,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Suggests the possible keywords for the content located at the specified URL.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.SuggestKeywordsForUrl">SuggestKeywordsForUrl</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12035,7 +12035,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the SuggestKeywordsForUrlRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrlRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrlRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
         /// </remarks>
         public SuggestKeywordsForUrlRequest()
         {
@@ -12045,7 +12045,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the SuggestKeywordsForUrlRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrlRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrlRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Url">The URL of the webpage to scan for possible keywords.</param>
         /// <param name="Language">The language used by the website.</param>
@@ -12073,7 +12073,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Suggests the possible keywords for the content located at the specified URL.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.SuggestKeywordsForUrl">SuggestKeywordsForUrl</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12095,7 +12095,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the SuggestKeywordsForUrlResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrlResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrlResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
         /// </remarks>
         public SuggestKeywordsForUrlResponse()
         {
@@ -12105,7 +12105,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the SuggestKeywordsForUrlResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrlResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrlResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">An array of KeywordAndConfidence objects that contains the possible keywords found in the content of the specified URL.</param>
         public SuggestKeywordsForUrlResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordAndConfidence> Keywords)
@@ -12119,7 +12119,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Suggests keywords that could perform better than the specified keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.SuggestKeywordsFromExistingKeywords">SuggestKeywordsFromExistingKeywords</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12207,7 +12207,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the SuggestKeywordsFromExistingKeywordsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywordsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywordsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
         /// </remarks>
         public SuggestKeywordsFromExistingKeywordsRequest()
         {
@@ -12217,7 +12217,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the SuggestKeywordsFromExistingKeywordsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywordsRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywordsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Keywords">An array of keywords for which you want to get suggested keywords that could perform better.</param>
         /// <param name="Language">The language in which the keyword is written.</param>
@@ -12269,7 +12269,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Suggests keywords that could perform better than the specified keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.SuggestKeywordsFromExistingKeywords">SuggestKeywordsFromExistingKeywords</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12291,7 +12291,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the SuggestKeywordsFromExistingKeywordsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywordsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywordsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
         /// </remarks>
         public SuggestKeywordsFromExistingKeywordsResponse()
         {
@@ -12301,7 +12301,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the SuggestKeywordsFromExistingKeywordsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywordsResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywordsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordSuggestions">An array of KeywordSuggestion data objects.</param>
         public SuggestKeywordsFromExistingKeywordsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordSuggestion> KeywordSuggestions)
@@ -12315,7 +12315,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetAuctionInsightData">GetAuctionInsightData</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12367,7 +12367,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetAuctionInsightDataRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         public GetAuctionInsightDataRequest()
         {
@@ -12377,7 +12377,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetAuctionInsightDataRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         /// <param name="EntityType">The entity level that you want to request auction insight data.</param>
         /// <param name="EntityIds">The Microsoft Advertising identifiers for up to 200 campaigns, ad groups, or keywords.</param>
@@ -12401,7 +12401,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetAuctionInsightData">GetAuctionInsightData</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12423,7 +12423,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetAuctionInsightDataResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         public GetAuctionInsightDataResponse()
         {
@@ -12433,7 +12433,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetAuctionInsightDataResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightDataResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Result">Includes the auction insight entries for the requested entity, date range, and segment search parameters.</param>
         public GetAuctionInsightDataResponse(string TrackingId, Microsoft.BingAds.V13.AdInsight.AuctionInsightResult Result)
@@ -12447,7 +12447,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the list of categories available for the website domain and language.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetDomainCategories">GetDomainCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12499,7 +12499,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetDomainCategoriesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategoriesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategoriesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
         /// </remarks>
         public GetDomainCategoriesRequest()
         {
@@ -12509,7 +12509,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetDomainCategoriesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategoriesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategoriesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CategoryName">The category name filter.</param>
         /// <param name="DomainName">The website name corresponding to the pages you want your ads to target.</param>
@@ -12533,7 +12533,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the list of categories available for the website domain and language.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetDomainCategories">GetDomainCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12555,7 +12555,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetDomainCategoriesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategoriesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategoriesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
         /// </remarks>
         public GetDomainCategoriesResponse()
         {
@@ -12565,7 +12565,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetDomainCategoriesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategoriesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategoriesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Categories">The list of domain categories.</param>
         public GetDomainCategoriesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DomainCategory> Categories)
@@ -12645,7 +12645,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the list of keyword idea categories.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeaCategories">GetKeywordIdeaCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12679,7 +12679,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordIdeaCategoriesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategoriesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategoriesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordIdeaCategoriesRequest()
         {
@@ -12689,7 +12689,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordIdeaCategoriesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategoriesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategoriesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordIdeaCategoriesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName)
         {
@@ -12707,7 +12707,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the list of keyword idea categories.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeaCategories">GetKeywordIdeaCategories</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12729,7 +12729,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordIdeaCategoriesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategoriesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategoriesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordIdeaCategoriesResponse()
         {
@@ -12739,7 +12739,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordIdeaCategoriesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategoriesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategoriesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordIdeaCategories">The list of keyword idea categories.</param>
         public GetKeywordIdeaCategoriesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordIdeaCategory> KeywordIdeaCategories)
@@ -12753,7 +12753,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the list of keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12805,7 +12805,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordIdeasRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeasRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeasRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordIdeasRequest()
         {
@@ -12815,7 +12815,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordIdeasRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeasRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeasRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
         /// </remarks>
         /// <param name="ExpandIdeas">Determines whether you want new keyword ideas, or if you only want keyword attributes for the set of keywords that you specified in the SearchParameters list.</param>
         /// <param name="IdeaAttributes">The keyword idea attributes that you want included in the response e.g., Keyword, Competition, MonthlySearchCounts, and SuggestedBid.</param>
@@ -12839,7 +12839,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Gets the list of keyword ideas.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordIdeas">GetKeywordIdeas</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12861,7 +12861,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordIdeasResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeasResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeasResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordIdeasResponse()
         {
@@ -12871,7 +12871,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordIdeasResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeasResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeasResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
         /// </remarks>
         /// <param name="KeywordIdeas">The list of keyword ideas.</param>
         public GetKeywordIdeasResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.KeywordIdea> KeywordIdeas)
@@ -12885,7 +12885,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Request Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordTrafficEstimates">GetKeywordTrafficEstimates</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12925,7 +12925,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordTrafficEstimatesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimatesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimatesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordTrafficEstimatesRequest()
         {
@@ -12935,7 +12935,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordTrafficEstimatesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimatesRequest</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimatesRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CampaignEstimators">Defines your campaign, ad group, and keyword level criteria and filters for the requested keyword traffic estimates.</param>
         public GetKeywordTrafficEstimatesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.CampaignEstimator> CampaignEstimators)
@@ -12955,7 +12955,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Response Object</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
     /// <para>Used by <see cref="AdInsightServiceClient.GetKeywordTrafficEstimates">GetKeywordTrafficEstimates</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12977,7 +12977,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordTrafficEstimatesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimatesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimatesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
         /// </remarks>
         public GetKeywordTrafficEstimatesResponse()
         {
@@ -12987,7 +12987,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Constructor for the GetKeywordTrafficEstimatesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimatesResponse</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimatesResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CampaignEstimates">The list of campaign estimates.</param>
         public GetKeywordTrafficEstimatesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.CampaignEstimate> CampaignEstimates)
@@ -13035,7 +13035,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the keyword bid opportunities of the specified ad group.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13050,7 +13050,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the keyword bid opportunities of the specified ad group.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13">GetBidOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13065,7 +13065,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the campaign budget opportunities of the specified campaign.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13080,7 +13080,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the campaign budget opportunities of the specified campaign.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13">GetBudgetOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbudgetopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13095,7 +13095,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets a list of keyword suggestions that are relevant to the specified ad group.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13110,7 +13110,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets a list of keyword suggestions that are relevant to the specified ad group.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13">GetKeywordOpportunities Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordopportunities?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13125,7 +13125,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last  7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13140,7 +13140,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated bid value of one or more keywords - specified by keyword identifier - that could have resulted in an ad appearing in the targeted position in the search results in the last  7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13">GetEstimatedBidByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13155,7 +13155,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13170,7 +13170,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated position in the search results if the specified bid value had been used for the keywords in the last 7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13">GetEstimatedPositionByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13185,7 +13185,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13200,7 +13200,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated bid value of one or more keywords that could result in an ad appearing in the targeted position in the search results.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13">GetEstimatedBidByKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedbidbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13215,7 +13215,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13230,7 +13230,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the estimated position in the search results if the specified bid value would be used for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13">GetEstimatedPositionByKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getestimatedpositionbykeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13245,7 +13245,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13260,7 +13260,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13">GetBidLandscapeByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebyadgroupids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13275,7 +13275,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to  7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13290,7 +13290,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Given a list of existing keywords, this operation returns for each a list of suggested bids and estimated performance statistics from 1 to  7 days.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13">GetBidLandscapeByKeywordIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getbidlandscapebykeywordids?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13305,7 +13305,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the historical performance of the normalized search term.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13320,7 +13320,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the historical performance of the normalized search term.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13">GetHistoricalKeywordPerformance Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalkeywordperformance?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13335,7 +13335,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the number of times the normalized term was used in a search during the specified time period.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13350,7 +13350,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the number of times the normalized term was used in a search during the specified time period.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13">GetHistoricalSearchCount Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gethistoricalsearchcount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13365,7 +13365,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the keyword categories to which the specified keywords belong.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13380,7 +13380,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the keyword categories to which the specified keywords belong.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13">GetKeywordCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordcategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13395,7 +13395,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the age and gender of users who have searched for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13410,7 +13410,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the age and gender of users who have searched for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13">GetKeywordDemographics Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeyworddemographics?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13425,7 +13425,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the geographical locations of users who have searched for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13440,7 +13440,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the geographical locations of users who have searched for the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13">GetKeywordLocations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordlocations?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13455,7 +13455,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Suggests the possible keywords for the content located at the specified URL.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13470,7 +13470,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Suggests the possible keywords for the content located at the specified URL.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13">SuggestKeywordsForUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsforurl?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13485,7 +13485,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Suggests keywords that could perform better than the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13500,7 +13500,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Suggests keywords that could perform better than the specified keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13">SuggestKeywordsFromExistingKeywords Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestkeywordsfromexistingkeywords?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13515,7 +13515,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13530,7 +13530,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets auction insight data for an account, campaigns, ad groups, or keywords.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13">GetAuctionInsightData Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getauctioninsightdata?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13545,7 +13545,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of categories available for the website domain and language.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13560,7 +13560,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of categories available for the website domain and language.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getdomaincategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13">GetDomainCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getdomaincategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13585,7 +13585,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of keyword idea categories.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13600,7 +13600,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of keyword idea categories.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13">GetKeywordIdeaCategories Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideacategories?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13615,7 +13615,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of keyword ideas.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13630,7 +13630,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Gets the list of keyword ideas.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordideas?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13">GetKeywordIdeas Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordideas?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13645,7 +13645,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -13660,7 +13660,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// Provides traffic estimates for keywords e.g., average CPC, average position, clicks, CTR, impressions, and total cost.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Service Operation</see> https://docs.microsoft.com/en-us/bingads/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13">GetKeywordTrafficEstimates Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getkeywordtrafficestimates?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>

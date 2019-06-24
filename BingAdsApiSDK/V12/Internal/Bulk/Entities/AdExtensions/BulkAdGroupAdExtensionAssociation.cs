@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk.Entities.AdExtensions
     {
         /// <summary>
         /// The name of the ad group that the ad extension is associated.
-        /// Corresponds to the 'AdGroup' field in the bulk file. 
+        /// Corresponds to the 'Ad Group' field in the bulk file. 
         /// </summary>
         public string AdGroupName { get; private set; }
 

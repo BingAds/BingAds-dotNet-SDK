@@ -270,6 +270,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public const string Target = "Target";
 
+        public const string Feed = "Feed";
+        public const string FeedItem = "Feed Item";
+        public const string FeedName = "Feed Name";
+        public const string CustomAttributes = "Custom Attributes";
+
         public const string PhysicalIntent = "Physical Intent";
 
         public const string Bid = "Bid";
@@ -668,6 +673,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string DynamicAdTargetValue1 = "Dynamic Ad Target Value 1";
         public const string DynamicAdTargetValue2 = "Dynamic Ad Target Value 2";
         public const string DynamicAdTargetValue3 = "Dynamic Ad Target Value 3";
+        public const string PageFeedIds = "Page Feed Ids";
+
 
         // Target Criterions
         public const string AdGroupAgeCriterion = "Ad Group Age Criterion";

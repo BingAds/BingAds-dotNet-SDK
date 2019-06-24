@@ -85,6 +85,8 @@ using BulkAdGroupStructuredSnippetAdExtension = Microsoft.BingAds.V13.Bulk.Entit
 using BulkAppAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAppAdExtension;
 using BulkAppInstallAd = Microsoft.BingAds.V13.Bulk.Entities.BulkAppInstallAd;
 using BulkBudget = Microsoft.BingAds.V13.Bulk.Entities.BulkBudget;
+using BulkFeed = Microsoft.BingAds.V13.Bulk.Entities.Feeds.BulkFeed;
+using BulkFeedItem = Microsoft.BingAds.V13.Bulk.Entities.Feeds.BulkFeedItem;
 using BulkExperiment = Microsoft.BingAds.V13.Bulk.Entities.BulkExperiment;
 using BulkActionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkActionAdExtension;
 using BulkCallAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCallAdExtension;
@@ -237,6 +239,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.CampaignSitelinkAdExtension,  new EntityInfo(() => new BulkCampaignSitelinkAdExtension())},
                 {StringTable.AdGroupSitelinkAdExtension,   new EntityInfo(() => new BulkAdGroupSitelinkAdExtension())}, 
                 {StringTable.Budget,                        new EntityInfo(() => new BulkBudget())},
+                {StringTable.Feed,                        new EntityInfo(() => new BulkFeed())},
+                {StringTable.FeedItem,                        new EntityInfo(() => new BulkFeedItem())},
                 {StringTable.Experiment,                    new EntityInfo(() => new BulkExperiment())},
 
                 {StringTable.DynamicSearchAd,               new EntityInfo(() => new BulkDynamicSearchAd())},

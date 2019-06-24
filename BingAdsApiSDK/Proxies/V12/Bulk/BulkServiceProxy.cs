@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines the possible compression types for the file to download.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/compressiontype?view=bingads-12">CompressionType Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/compressiontype?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/compressiontype?view=bingads-12">CompressionType Value Set</see> https://docs.microsoft.com/en-us/advertising/bulk-service/compressiontype?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -94,7 +94,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines the scope or types of data to download.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/datascope?view=bingads-12">DataScope Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/datascope?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/datascope?view=bingads-12">DataScope Value Set</see> https://docs.microsoft.com/en-us/advertising/bulk-service/datascope?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -132,7 +132,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines the entities that may be downloaded and uploaded in bulk.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadentity?view=bingads-12">DownloadEntity Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadentity?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadentity?view=bingads-12">DownloadEntity Value Set</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadentity?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -793,13 +793,25 @@ namespace Microsoft.BingAds.V12.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeSimilarRemarketingListAssociations = 109,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Feeds = 110,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FeedItems = 111,
     }
     
     /// <summary>
     /// Defines the file formats for a download request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadfiletype?view=bingads-12">DownloadFileType Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadfiletype?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadfiletype?view=bingads-12">DownloadFileType Value Set</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadfiletype?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -824,7 +836,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// This data object is not supported in Bing Ads API Version 12, and will be removed in a future version.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/performancestatsdaterange?view=bingads-12">PerformanceStatsDateRange Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/performancestatsdaterange?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/performancestatsdaterange?view=bingads-12">PerformanceStatsDateRange Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/performancestatsdaterange?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> and <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -934,7 +946,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines a calendar date by month, day, and year.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/date?view=bingads-12">Date Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/date?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/date?view=bingads-12">Date Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/date?view=bingads-12 for details.
     /// <para>Used by <see cref="PerformanceStatsDateRange"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1041,7 +1053,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// This value set is not supported in Bing Ads API Version 12, and will be removed in a future version.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/reporttimeperiod?view=bingads-12">ReportTimePeriod Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/reporttimeperiod?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/reporttimeperiod?view=bingads-12">ReportTimePeriod Value Set</see> https://docs.microsoft.com/en-us/advertising/bulk-service/reporttimeperiod?view=bingads-12 for details.
     /// <para>Used by <see cref="PerformanceStatsDateRange"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1126,7 +1138,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/applicationfault?view=bingads-12">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/applicationfault?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/applicationfault?view=bingads-12">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/applicationfault?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1191,7 +1203,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/apifaultdetail?view=bingads-12">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/apifaultdetail?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/apifaultdetail?view=bingads-12">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/apifaultdetail?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1251,7 +1263,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/adapifaultdetail?view=bingads-12">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/adapifaultdetail?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/adapifaultdetail?view=bingads-12">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/adapifaultdetail?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1288,7 +1300,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/adapierror?view=bingads-12">AdApiError Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/adapierror?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/adapierror?view=bingads-12">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/adapierror?view=bingads-12 for details.
     /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1421,7 +1433,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/batcherror?view=bingads-12">BatchError Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/batcherror?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/batcherror?view=bingads-12">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/batcherror?view=bingads-12 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1647,7 +1659,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/operationerror?view=bingads-12">OperationError Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/operationerror?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/operationerror?view=bingads-12">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/operationerror?view=bingads-12 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// <para>Used by <see cref="BulkServiceClient.GetBulkDownloadStatus">GetBulkDownloadStatus</see> and <see cref="BulkServiceClient.GetBulkUploadStatus">GetBulkUploadStatus</see> service operations.</para>
     /// </remarks>
@@ -1781,7 +1793,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines an error object that identifies the entity with the batch of entities that failed editorial review.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/editorialerror?view=bingads-12">EditorialError Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/editorialerror?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/editorialerror?view=bingads-12">EditorialError Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/editorialerror?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1910,7 +1922,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines an object that identifies a campaign to download.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/campaignscope?view=bingads-12">CampaignScope Data Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/campaignscope?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/campaignscope?view=bingads-12">CampaignScope Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/campaignscope?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1997,7 +2009,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Defines elements to specify whether the bulk service should return upload errors with their corresponding data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/responsemode?view=bingads-12">ResponseMode Value Set</see> https://docs.microsoft.com/en-us/bingads/bulk-service/responsemode?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/responsemode?view=bingads-12">ResponseMode Value Set</see> https://docs.microsoft.com/en-us/advertising/bulk-service/responsemode?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadUrl">GetBulkUploadUrl</see> service operation.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2027,7 +2039,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Downloads settings and performance data for all of the account's campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2045,7 +2057,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Downloads settings and performance data for all of the account's campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2059,7 +2071,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Downloads settings and performance data for the specified campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2077,7 +2089,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Downloads settings and performance data for the specified campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2091,7 +2103,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Gets the status of a bulk download request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2109,7 +2121,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Gets the status of a bulk download request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2123,7 +2135,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Submits a request for a URL where a bulk upload file may be posted.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2141,7 +2153,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Submits a request for a URL where a bulk upload file may be posted.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2155,7 +2167,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Gets the status and completion progress of a bulk upload request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2173,7 +2185,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Gets the status and completion progress of a bulk upload request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -2188,7 +2200,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Downloads settings and performance data for all of the account's campaigns.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Request Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2270,7 +2282,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the DownloadCampaignsByAccountIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIdsRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIdsRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
         /// </remarks>
         public DownloadCampaignsByAccountIdsRequest()
         {
@@ -2280,7 +2292,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the DownloadCampaignsByAccountIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIdsRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIdsRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
         /// </remarks>
         /// <param name="AccountIds">The identifier of the account that contains the campaign data to download.</param>
         /// <param name="CompressionType">The compression type of the download file.</param>
@@ -2314,7 +2326,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Downloads settings and performance data for all of the account's campaigns.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Response Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByAccountIds">DownloadCampaignsByAccountIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2336,7 +2348,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the DownloadCampaignsByAccountIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIdsResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIdsResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
         /// </remarks>
         public DownloadCampaignsByAccountIdsResponse()
         {
@@ -2346,7 +2358,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the DownloadCampaignsByAccountIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIdsResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIdsResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
         /// </remarks>
         /// <param name="DownloadRequestId">The identifier of the download request.</param>
         public DownloadCampaignsByAccountIdsResponse(string TrackingId, string DownloadRequestId)
@@ -2360,7 +2372,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Downloads settings and performance data for the specified campaigns.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Request Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2442,7 +2454,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the DownloadCampaignsByCampaignIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIdsRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIdsRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
         /// </remarks>
         public DownloadCampaignsByCampaignIdsRequest()
         {
@@ -2452,7 +2464,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the DownloadCampaignsByCampaignIdsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIdsRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIdsRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
         /// </remarks>
         /// <param name="Campaigns">The campaigns to download.</param>
         /// <param name="CompressionType">The compression type of the download file.</param>
@@ -2486,7 +2498,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Downloads settings and performance data for the specified campaigns.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Response Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.DownloadCampaignsByCampaignIds">DownloadCampaignsByCampaignIds</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2508,7 +2520,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the DownloadCampaignsByCampaignIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIdsResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIdsResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
         /// </remarks>
         public DownloadCampaignsByCampaignIdsResponse()
         {
@@ -2518,7 +2530,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the DownloadCampaignsByCampaignIdsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIdsResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIdsResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
         /// </remarks>
         /// <param name="DownloadRequestId">The identifier of the download request.</param>
         public DownloadCampaignsByCampaignIdsResponse(string TrackingId, string DownloadRequestId)
@@ -2532,7 +2544,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Gets the status of a bulk download request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Request Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkDownloadStatus">GetBulkDownloadStatus</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2572,7 +2584,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkDownloadStatusRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatusRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatusRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
         /// </remarks>
         public GetBulkDownloadStatusRequest()
         {
@@ -2582,7 +2594,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkDownloadStatusRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatusRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatusRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <param name="RequestId">The identifier of the download request.</param>
         public GetBulkDownloadStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string RequestId)
@@ -2602,7 +2614,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Gets the status of a bulk download request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Response Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkDownloadStatus">GetBulkDownloadStatus</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2648,7 +2660,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkDownloadStatusResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatusResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatusResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
         /// </remarks>
         public GetBulkDownloadStatusResponse()
         {
@@ -2658,7 +2670,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkDownloadStatusResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatusResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatusResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <param name="Errors">An array of OperationError objects corresponding to errors encountered during the system processing of the bulk file after your download request was submitted.</param>
         /// <param name="ForwardCompatibilityMap">The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.</param>
@@ -2680,7 +2692,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Submits a request for a URL where a bulk upload file may be posted.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Request Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadUrl">GetBulkUploadUrl</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2726,7 +2738,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkUploadUrlRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         public GetBulkUploadUrlRequest()
         {
@@ -2736,7 +2748,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkUploadUrlRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         /// <param name="ResponseMode">Specify whether to return errors and their corresponding data, or only the errors in the results file.</param>
         /// <param name="AccountId">The account identifier corresponding to the data that will be uploaded.</param>
@@ -2758,7 +2770,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Submits a request for a URL where a bulk upload file may be posted.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Response Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadUrl">GetBulkUploadUrl</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2786,7 +2798,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkUploadUrlResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         public GetBulkUploadUrlResponse()
         {
@@ -2796,7 +2808,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkUploadUrlResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrlResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         /// <param name="RequestId">The identifier of the upload request.</param>
         /// <param name="UploadUrl">The URL where you may submit your bulk upload file via HTTP POST.</param>
@@ -2812,7 +2824,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Gets the status and completion progress of a bulk upload request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Request Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Request Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadStatus">GetBulkUploadStatus</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2852,7 +2864,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkUploadStatusRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatusRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatusRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
         /// </remarks>
         public GetBulkUploadStatusRequest()
         {
@@ -2862,7 +2874,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkUploadStatusRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatusRequest</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatusRequest</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <param name="RequestId">The identifier of the upload request.</param>
         public GetBulkUploadStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string RequestId)
@@ -2882,7 +2894,7 @@ namespace Microsoft.BingAds.V12.Bulk
     /// Gets the status and completion progress of a bulk upload request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Response Object</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Response Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
     /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadStatus">GetBulkUploadStatus</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2928,7 +2940,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkUploadStatusResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatusResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatusResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
         /// </remarks>
         public GetBulkUploadStatusResponse()
         {
@@ -2938,7 +2950,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Constructor for the GetBulkUploadStatusResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatusResponse</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatusResponse</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <param name="Errors">An array of OperationError objects corresponding to errors encountered during the system processing of the bulk file after your HTTP POST upload completed.</param>
         /// <param name="ForwardCompatibilityMap">The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.</param>
@@ -2994,7 +3006,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Downloads settings and performance data for all of the account's campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3009,7 +3021,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Downloads settings and performance data for all of the account's campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12">DownloadCampaignsByAccountIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbyaccountids?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3024,7 +3036,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Downloads settings and performance data for the specified campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3039,7 +3051,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Downloads settings and performance data for the specified campaigns.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12">DownloadCampaignsByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/downloadcampaignsbycampaignids?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3054,7 +3066,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Gets the status of a bulk download request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3069,7 +3081,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Gets the status of a bulk download request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12">GetBulkDownloadStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkdownloadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3084,7 +3096,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Submits a request for a URL where a bulk upload file may be posted.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3099,7 +3111,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Submits a request for a URL where a bulk upload file may be posted.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadurl?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12">GetBulkUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadurl?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3114,7 +3126,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Gets the status and completion progress of a bulk upload request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -3129,7 +3141,7 @@ namespace Microsoft.BingAds.V12.Bulk
         /// Gets the status and completion progress of a bulk upload request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/bingads/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12">GetBulkUploadStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/bulk-service/getbulkuploadstatus?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>

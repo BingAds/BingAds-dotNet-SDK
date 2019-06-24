@@ -97,6 +97,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.DynamicSearchAd.Text,
                 (v, c) => c.DynamicSearchAd.Text = v
             ),
+
+            new SimpleBulkMapping<BulkDynamicSearchAd>(StringTable.TextPart2,
+                c => c.DynamicSearchAd.TextPart2,
+                (v, c) => c.DynamicSearchAd.TextPart2 = v
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

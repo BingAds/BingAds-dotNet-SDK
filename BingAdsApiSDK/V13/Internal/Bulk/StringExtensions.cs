@@ -57,6 +57,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.BingAds.V13.CampaignManagement;
 using System.Runtime.Serialization.Json;
+using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
@@ -202,6 +203,18 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             }
 
             return string.Format("{0}/{1}/{2}", date.Month, date.Day, date.Year);
+        }
+
+        public static readonly string DateTimeOutPutFormat = @"yyyy/MM/dd HH:mm:ss";
+
+        public static string ToDateTimeBulkString(this DateTime? datetime, long? id)
+        {
+            if (datetime  == null)
+            {
+                return id > 0 ? DeleteValue : null;
+            }
+            return datetime?.ToString(DateTimeOutPutFormat);
+
         }
 
         public static string ToAdRotationBulkString(this AdRotation adRotation, long? id)
@@ -1066,6 +1079,42 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             }
 
             return textAssetLinks;
+        }
+
+        public static string ToFeedCustomAttributesBulkString(this IList<FeedCustomAttributeContract> feedCustomAttributes)
+        {
+            if (feedCustomAttributes == null || feedCustomAttributes.Count == 0)
+            {
+                return null;
+            }
+
+            MemoryStream ms = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<FeedCustomAttributeContract>));
+            ser.WriteObject(ms, feedCustomAttributes);
+            byte[] json = ms.ToArray();
+            ms.Close();
+            return Encoding.UTF8.GetString(json, 0, json.Length);
+           
+        }
+
+        public static List<FeedCustomAttributeContract> ParseFeedCustomAttributes(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            List<FeedCustomAttributeContract> feedCustomAttributeContracts = null;
+
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(s));
+            var serializer = new DataContractJsonSerializer(typeof(List<FeedCustomAttributeContract>));
+            feedCustomAttributeContracts = (List<FeedCustomAttributeContract>)serializer.ReadObject(ms);
+
+            if (feedCustomAttributeContracts.Count == 0)
+            {
+                return null;
+            }
+            return feedCustomAttributeContracts;
         }
 
         public static string ToUseSearcherTimeZoneBulkString(this bool? useSearcherTimeZone)

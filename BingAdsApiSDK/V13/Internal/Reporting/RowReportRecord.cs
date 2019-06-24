@@ -51,6 +51,7 @@ namespace Microsoft.BingAds.V13.Internal.Reporting
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using V13.Reporting;
 
     public class RowReportRecord : IReportRecord
@@ -72,12 +73,12 @@ namespace Microsoft.BingAds.V13.Internal.Reporting
                 if (value.EndsWith("%"))
                 {
                     value = value.Replace("%", "");
-                    double result = Double.Parse(value) / 100.0;
+                    double result = double.Parse(value, new CultureInfo("en-US")) / 100.0;
                     return result;
                 }
                 else
                 {
-                    double result = double.Parse(value);
+                    double result = double.Parse(value, new CultureInfo("en-US"));
                     return result;
                 }
             }

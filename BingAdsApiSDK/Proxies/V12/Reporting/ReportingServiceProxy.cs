@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the base object for all report requests.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequest?view=bingads-12">ReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reportrequest?view=bingads-12">ReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reportrequest?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -304,7 +304,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an account performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportrequest?view=bingads-12">AccountPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountperformancereportrequest?view=bingads-12">AccountPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -429,7 +429,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a campaign performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportrequest?view=bingads-12">CampaignPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/campaignperformancereportrequest?view=bingads-12">CampaignPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/campaignperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -554,7 +554,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an ad dynamic text performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportrequest?view=bingads-12">AdDynamicTextPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/addynamictextperformancereportrequest?view=bingads-12">AdDynamicTextPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/addynamictextperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -679,7 +679,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an ad group performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportrequest?view=bingads-12">AdGroupPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportrequest?view=bingads-12">AdGroupPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -804,7 +804,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an ad performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportrequest?view=bingads-12">AdPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adperformancereportrequest?view=bingads-12">AdPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -929,7 +929,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a keyword performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportrequest?view=bingads-12">KeywordPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportrequest?view=bingads-12">KeywordPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1100,7 +1100,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a destination URL performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportrequest?view=bingads-12">DestinationUrlPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/destinationurlperformancereportrequest?view=bingads-12">DestinationUrlPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/destinationurlperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1225,7 +1225,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a budget summary report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreportrequest?view=bingads-12">BudgetSummaryReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/budgetsummaryreportrequest?view=bingads-12">BudgetSummaryReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/budgetsummaryreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1305,7 +1305,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an age and gender demographic report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportrequest?view=bingads-12">AgeGenderDemographicReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderdemographicreportrequest?view=bingads-12">AgeGenderDemographicReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderdemographicreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1430,7 +1430,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an age and gender audience report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportrequest?view=bingads-12">AgeGenderAudienceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderaudiencereportrequest?view=bingads-12">AgeGenderAudienceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderaudiencereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1555,7 +1555,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a professional demographics audience report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-12">ProfessionalDemographicsAudienceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-12">ProfessionalDemographicsAudienceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1680,7 +1680,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a user location performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportrequest?view=bingads-12">UserLocationPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/userlocationperformancereportrequest?view=bingads-12">UserLocationPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/userlocationperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1805,7 +1805,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a publisher usage performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportrequest?view=bingads-12">PublisherUsagePerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/publisherusageperformancereportrequest?view=bingads-12">PublisherUsagePerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/publisherusageperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1930,7 +1930,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a search query performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportrequest?view=bingads-12">SearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportrequest?view=bingads-12">SearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2055,7 +2055,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a conversion performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportrequest?view=bingads-12">ConversionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/conversionperformancereportrequest?view=bingads-12">ConversionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/conversionperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2180,7 +2180,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a goals and funnels report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportrequest?view=bingads-12">GoalsAndFunnelsReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportrequest?view=bingads-12">GoalsAndFunnelsReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2305,7 +2305,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a negative keyword conflict report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportrequest?view=bingads-12">NegativeKeywordConflictReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/negativekeywordconflictreportrequest?view=bingads-12">NegativeKeywordConflictReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/negativekeywordconflictreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2386,7 +2386,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a change history report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportrequest?view=bingads-12">SearchCampaignChangeHistoryReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/searchcampaignchangehistoryreportrequest?view=bingads-12">SearchCampaignChangeHistoryReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/searchcampaignchangehistoryreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2489,7 +2489,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an ad extension by ad report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportrequest?view=bingads-12">AdExtensionByAdReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbyadreportrequest?view=bingads-12">AdExtensionByAdReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbyadreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2614,7 +2614,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an ad extension by keyword report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportrequest?view=bingads-12">AdExtensionByKeywordReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbykeywordreportrequest?view=bingads-12">AdExtensionByKeywordReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbykeywordreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2739,7 +2739,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an audience performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportrequest?view=bingads-12">AudiencePerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportrequest?view=bingads-12">AudiencePerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2864,7 +2864,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an ad extension detail report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportrequest?view=bingads-12">AdExtensionDetailReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensiondetailreportrequest?view=bingads-12">AdExtensionDetailReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensiondetailreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2989,7 +2989,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a share of voice (SOV) report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportrequest?view=bingads-12">ShareOfVoiceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/shareofvoicereportrequest?view=bingads-12">ShareOfVoiceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/shareofvoicereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3114,7 +3114,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a product dimension performance report request that aggregates the performance data by product category, custom label, title, and type for a specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportrequest?view=bingads-12">ProductDimensionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productdimensionperformancereportrequest?view=bingads-12">ProductDimensionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productdimensionperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3239,7 +3239,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a product partition performance report request that aggregates the performance data by product group and product partition type for a specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportrequest?view=bingads-12">ProductPartitionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionperformancereportrequest?view=bingads-12">ProductPartitionPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3364,7 +3364,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a product partition unit performance report request that aggregates the performance data by product partition unit for a specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportrequest?view=bingads-12">ProductPartitionUnitPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionunitperformancereportrequest?view=bingads-12">ProductPartitionUnitPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionunitperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3489,7 +3489,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a Microsoft Shopping campaign product search query performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportrequest?view=bingads-12">ProductSearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productsearchqueryperformancereportrequest?view=bingads-12">ProductSearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productsearchqueryperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3614,7 +3614,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a product match count report request that aggregates the performance data by product group for a specified time period.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productmatchcountreportrequest?view=bingads-12">ProductMatchCountReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productmatchcountreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productmatchcountreportrequest?view=bingads-12">ProductMatchCountReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productmatchcountreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3716,7 +3716,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a call detail report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportrequest?view=bingads-12">CallDetailReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/calldetailreportrequest?view=bingads-12">CallDetailReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/calldetailreportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3841,7 +3841,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a geographic performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportrequest?view=bingads-12">GeographicPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportrequest?view=bingads-12">GeographicPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3966,7 +3966,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a DSA search query performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportrequest?view=bingads-12">DSASearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsasearchqueryperformancereportrequest?view=bingads-12">DSASearchQueryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsasearchqueryperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4091,7 +4091,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a DSA auto target performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportrequest?view=bingads-12">DSAAutoTargetPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsaautotargetperformancereportrequest?view=bingads-12">DSAAutoTargetPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsaautotargetperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4216,7 +4216,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a DSA category performance report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportrequest?view=bingads-12">DSACategoryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportrequest?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportrequest?view=bingads-12">DSACategoryPerformanceReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportrequest?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4341,7 +4341,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the file formats that you can use for a report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportformat?view=bingads-12">ReportFormat Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportformat?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reportformat?view=bingads-12">ReportFormat Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reportformat?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4372,7 +4372,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the language values that you may specify for columns of a downloaded report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportlanguage?view=bingads-12">ReportLanguage Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportlanguage?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reportlanguage?view=bingads-12">ReportLanguage Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reportlanguage?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4397,7 +4397,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the account performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportfilter?view=bingads-12">AccountPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountperformancereportfilter?view=bingads-12">AccountPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4530,7 +4530,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the set of accounts to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountreportscope?view=bingads-12">AccountReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountreportscope?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountreportscope?view=bingads-12">AccountReportScope Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountreportscope?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4594,7 +4594,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the date range values of a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reporttime?view=bingads-12">ReportTime Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reporttime?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reporttime?view=bingads-12">ReportTime Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reporttime?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4727,7 +4727,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the aggregation values that you can use for a report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportaggregation?view=bingads-12">ReportAggregation Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportaggregation?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reportaggregation?view=bingads-12">ReportAggregation Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reportaggregation?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4782,13 +4782,19 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DayOfWeek = 7,
+        
+        /// <summary>
+        /// Each row of the report identifies the week when the transaction occurred.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WeeklyStartingMonday = 8,
     }
     
     /// <summary>
     /// Defines the attributes and performance statistics columns that you can include in the AccountPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportcolumn?view=bingads-12">AccountPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountperformancereportcolumn?view=bingads-12">AccountPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5119,7 +5125,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the account status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountstatusreportfilter?view=bingads-12">AccountStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountstatusreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountstatusreportfilter?view=bingads-12">AccountStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountstatusreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5151,7 +5157,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the ad distribution medium values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addistributionreportfilter?view=bingads-12">AdDistributionReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addistributionreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/addistributionreportfilter?view=bingads-12">AdDistributionReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/addistributionreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchCampaignChangeHistoryReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="UserLocationPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5177,7 +5183,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the device operating system values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/deviceosreportfilter?view=bingads-12">DeviceOSReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/deviceosreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/deviceosreportfilter?view=bingads-12">DeviceOSReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/deviceosreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/> and <see cref="GoalsAndFunnelsReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5221,7 +5227,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the device type values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/devicetypereportfilter?view=bingads-12">DeviceTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/devicetypereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/devicetypereportfilter?view=bingads-12">DeviceTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/devicetypereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5259,7 +5265,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a calendar date by month, day, and year.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/date?view=bingads-12">Date Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/date?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/date?view=bingads-12">Date Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/date?view=bingads-12 for details.
     /// <para>Used by <see cref="BudgetSummaryReportTime"/> and <see cref="ReportTime"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5366,7 +5372,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the predefined time and date range values for a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reporttimeperiod?view=bingads-12">ReportTimePeriod Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reporttimeperiod?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reporttimeperiod?view=bingads-12">ReportTimePeriod Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reporttimeperiod?view=bingads-12 for details.
     /// <para>Used by <see cref="BudgetSummaryReportTime"/> and <see cref="ReportTime"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5393,13 +5399,13 @@ namespace Microsoft.BingAds.V12.Reporting
         LastSevenDays = 2,
         
         /// <summary>
-        /// A cumulative report for the current calendar week.
+        /// A cumulative report for the current week that runs from Sunday through Saturday.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThisWeek = 3,
         
         /// <summary>
-        /// A cumulative report for the previous calendar week.
+        /// A cumulative report for the previous week that runs from Sunday through Saturday.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastWeek = 4,
@@ -5417,7 +5423,7 @@ namespace Microsoft.BingAds.V12.Reporting
         Last30Days = 6,
         
         /// <summary>
-        /// A cumulative report for the four calendar weeks prior to today.
+        /// A cumulative report for the previous four weeks that run from Sunday through Saturday.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastFourWeeks = 7,
@@ -5457,13 +5463,31 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastYear = 13,
+        
+        /// <summary>
+        /// A cumulative report for the current week that runs from Monday through Sunday.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ThisWeekStartingMonday = 14,
+        
+        /// <summary>
+        /// A cumulative report for the previous week that runs from Monday through Sunday.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LastWeekStartingMonday = 15,
+        
+        /// <summary>
+        /// A cumulative report for the previous four weeks that run from Monday through Sunday.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LastFourWeeksStartingMonday = 16,
     }
     
     /// <summary>
     /// Defines possible values for the time zone that you want the Reporting service to use for the selected date range.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reporttimezone?view=bingads-12">ReportTimeZone Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reporttimezone?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reporttimezone?view=bingads-12">ReportTimeZone Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reporttimezone?view=bingads-12 for details.
     /// <para>Used by <see cref="BudgetSummaryReportTime"/> and <see cref="ReportTime"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5926,7 +5950,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the campaign performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportfilter?view=bingads-12">CampaignPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/campaignperformancereportfilter?view=bingads-12">CampaignPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/campaignperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="CampaignPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6082,7 +6106,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the set of accounts and campaigns to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughcampaignreportscope?view=bingads-12">AccountThroughCampaignReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughcampaignreportscope?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountthroughcampaignreportscope?view=bingads-12">AccountThroughCampaignReportScope Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountthroughcampaignreportscope?view=bingads-12 for details.
     /// <para>Used by <see cref="BudgetSummaryReportRequest"/> and <see cref="CampaignPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6169,7 +6193,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the CampaignPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn?view=bingads-12">CampaignPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/campaignperformancereportcolumn?view=bingads-12">CampaignPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/campaignperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="CampaignPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6614,7 +6638,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the campaign status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignstatusreportfilter?view=bingads-12">CampaignStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignstatusreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/campaignstatusreportfilter?view=bingads-12">CampaignStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/campaignstatusreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6664,7 +6688,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a campaign to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/campaignreportscope?view=bingads-12">CampaignReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/campaignreportscope?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/campaignreportscope?view=bingads-12">CampaignReportScope Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/campaignreportscope?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> and <see cref="AccountThroughCampaignReportScope"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6749,7 +6773,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the ad dynamic text performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportfilter?view=bingads-12">AdDynamicTextPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/addynamictextperformancereportfilter?view=bingads-12">AdDynamicTextPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/addynamictextperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6974,7 +6998,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the set of accounts, campaigns, and ad groups to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughadgroupreportscope?view=bingads-12">AccountThroughAdGroupReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/accountthroughadgroupreportscope?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountthroughadgroupreportscope?view=bingads-12">AccountThroughAdGroupReportScope Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountthroughadgroupreportscope?view=bingads-12 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AgeGenderDemographicReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7084,7 +7108,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdDynamicTextPerformanceReportRequest Data Object.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportcolumn?view=bingads-12">AdDynamicTextPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/addynamictextperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/addynamictextperformancereportcolumn?view=bingads-12">AdDynamicTextPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/addynamictextperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7349,7 +7373,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the ad group status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupstatusreportfilter?view=bingads-12">AdGroupStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupstatusreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupstatusreportfilter?view=bingads-12">AdGroupStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupstatusreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AgeGenderDemographicReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7387,7 +7411,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the ad status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adstatusreportfilter?view=bingads-12">AdStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adstatusreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adstatusreportfilter?view=bingads-12">AdStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adstatusreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="SearchQueryPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7431,7 +7455,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the ad type values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adtypereportfilter?view=bingads-12">AdTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adtypereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adtypereportfilter?view=bingads-12">AdTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adtypereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="SearchQueryPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7493,7 +7517,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the keyword status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordstatusreportfilter?view=bingads-12">KeywordStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordstatusreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/keywordstatusreportfilter?view=bingads-12">KeywordStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/keywordstatusreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7525,7 +7549,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an ad group to include in the report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupreportscope?view=bingads-12">AdGroupReportScope Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupreportscope?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupreportscope?view=bingads-12">AdGroupReportScope Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupreportscope?view=bingads-12 for details.
     /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7632,7 +7656,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the ad group performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportfilter?view=bingads-12">AdGroupPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportfilter?view=bingads-12">AdGroupPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdGroupPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7834,7 +7858,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdGroupPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn?view=bingads-12">AdGroupPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportcolumn?view=bingads-12">AdGroupPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AdGroupPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8237,7 +8261,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the ad performance report request data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportfilter?view=bingads-12">AdPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adperformancereportfilter?view=bingads-12">AdPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8462,7 +8486,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn?view=bingads-12">AdPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adperformancereportcolumn?view=bingads-12">AdPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AdPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -8835,7 +8859,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the keyword performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportfilter?view=bingads-12">KeywordPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportfilter?view=bingads-12">KeywordPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9244,7 +9268,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the KeywordPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn?view=bingads-12">KeywordPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportcolumn?view=bingads-12">KeywordPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> and <see cref="KeywordPerformanceReportSort"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9629,7 +9653,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a keyword performance report column and corresponding sort order.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportsort?view=bingads-12">KeywordPerformanceReportSort Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportsort?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportsort?view=bingads-12">KeywordPerformanceReportSort Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportsort?view=bingads-12 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9714,7 +9738,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the bid match type values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/bidmatchtypereportfilter?view=bingads-12">BidMatchTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/bidmatchtypereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/bidmatchtypereportfilter?view=bingads-12">BidMatchTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/bidmatchtypereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9746,7 +9770,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the possible values that you can use to use to filter the report data by bid strategy type.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/bidstrategytypereportfilter?view=bingads-12">BidStrategyTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/bidstrategytypereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/bidstrategytypereportfilter?view=bingads-12">BidStrategyTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/bidstrategytypereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9772,7 +9796,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the delivered match type values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/deliveredmatchtypereportfilter?view=bingads-12">DeliveredMatchTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/deliveredmatchtypereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/deliveredmatchtypereportfilter?view=bingads-12">DeliveredMatchTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/deliveredmatchtypereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9804,7 +9828,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the ascending or descending sort order of values within the specified report column.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/sortorder?view=bingads-12">SortOrder Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/sortorder?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/sortorder?view=bingads-12">SortOrder Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/sortorder?view=bingads-12 for details.
     /// <para>Used by <see cref="KeywordPerformanceReportSort"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9829,7 +9853,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the destination URL performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportfilter?view=bingads-12">DestinationUrlPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/destinationurlperformancereportfilter?view=bingads-12">DestinationUrlPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/destinationurlperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="DestinationUrlPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10031,7 +10055,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the DestinationUrlPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportcolumn?view=bingads-12">DestinationUrlPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/destinationurlperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/destinationurlperformancereportcolumn?view=bingads-12">DestinationUrlPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/destinationurlperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="DestinationUrlPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10320,7 +10344,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the date range values of a budget summary report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreporttime?view=bingads-12">BudgetSummaryReportTime Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreporttime?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/budgetsummaryreporttime?view=bingads-12">BudgetSummaryReportTime Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/budgetsummaryreporttime?view=bingads-12 for details.
     /// <para>Used by <see cref="BudgetSummaryReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10453,7 +10477,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the BudgetSummaryReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreportcolumn?view=bingads-12">BudgetSummaryReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/budgetsummaryreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/budgetsummaryreportcolumn?view=bingads-12">BudgetSummaryReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/budgetsummaryreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="BudgetSummaryReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10526,7 +10550,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the age and gender demographic report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportfilter?view=bingads-12">AgeGenderDemographicReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderdemographicreportfilter?view=bingads-12">AgeGenderDemographicReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderdemographicreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AgeGenderDemographicReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10682,7 +10706,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AgeGenderDemographicReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportcolumn?view=bingads-12">AgeGenderDemographicReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderdemographicreportcolumn?view=bingads-12">AgeGenderDemographicReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderdemographicreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AgeGenderDemographicReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10827,7 +10851,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the age and gender audience report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportfilter?view=bingads-12">AgeGenderAudienceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderaudiencereportfilter?view=bingads-12">AgeGenderAudienceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderaudiencereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AgeGenderAudienceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10983,7 +11007,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AgeGenderAudienceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportcolumn?view=bingads-12">AgeGenderAudienceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderaudiencereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderaudiencereportcolumn?view=bingads-12">AgeGenderAudienceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderaudiencereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AgeGenderAudienceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11128,7 +11152,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the professional demographics audience report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-12">ProfessionalDemographicsAudienceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-12">ProfessionalDemographicsAudienceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="ProfessionalDemographicsAudienceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11284,7 +11308,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProfessionalDemographicsAudienceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportcolumn?view=bingads-12">ProfessionalDemographicsAudienceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/professionaldemographicsaudiencereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/professionaldemographicsaudiencereportcolumn?view=bingads-12">ProfessionalDemographicsAudienceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/professionaldemographicsaudiencereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="ProfessionalDemographicsAudienceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11429,7 +11453,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the user location performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportfilter?view=bingads-12">UserLocationPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/userlocationperformancereportfilter?view=bingads-12">UserLocationPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/userlocationperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="UserLocationPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11539,7 +11563,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the UserLocationPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportcolumn?view=bingads-12">UserLocationPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/userlocationperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/userlocationperformancereportcolumn?view=bingads-12">UserLocationPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/userlocationperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="UserLocationPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11840,7 +11864,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the publisher usage performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportfilter?view=bingads-12">PublisherUsagePerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/publisherusageperformancereportfilter?view=bingads-12">PublisherUsagePerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/publisherusageperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="PublisherUsagePerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11996,7 +12020,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the PublisherUsagePerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportcolumn?view=bingads-12">PublisherUsagePerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/publisherusageperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/publisherusageperformancereportcolumn?view=bingads-12">PublisherUsagePerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/publisherusageperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="PublisherUsagePerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12225,7 +12249,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the search query performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportfilter?view=bingads-12">SearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportfilter?view=bingads-12">SearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="SearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12496,7 +12520,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the SearchQueryPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportcolumn?view=bingads-12">SearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportcolumn?view=bingads-12">SearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="SearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12779,7 +12803,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the conversion performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportfilter?view=bingads-12">ConversionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/conversionperformancereportfilter?view=bingads-12">ConversionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/conversionperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12981,7 +13005,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ConversionPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportcolumn?view=bingads-12">ConversionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/conversionperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/conversionperformancereportcolumn?view=bingads-12">ConversionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/conversionperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -13162,7 +13186,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the goals and funnels report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportfilter?view=bingads-12">GoalsAndFunnelsReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportfilter?view=bingads-12">GoalsAndFunnelsReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="GoalsAndFunnelsReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -13387,7 +13411,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the GoalsAndFunnelsReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn?view=bingads-12">GoalsAndFunnelsReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportcolumn?view=bingads-12">GoalsAndFunnelsReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="GoalsAndFunnelsReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -13532,7 +13556,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the negative keyword conflict report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportfilter?view=bingads-12">NegativeKeywordConflictReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/negativekeywordconflictreportfilter?view=bingads-12">NegativeKeywordConflictReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/negativekeywordconflictreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="NegativeKeywordConflictReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -13665,7 +13689,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes columns that you can include in the NegativeKeywordConflictReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportcolumn?view=bingads-12">NegativeKeywordConflictReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/negativekeywordconflictreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/negativekeywordconflictreportcolumn?view=bingads-12">NegativeKeywordConflictReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/negativekeywordconflictreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="NegativeKeywordConflictReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -13804,7 +13828,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the campaign change history report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportfilter?view=bingads-12">SearchCampaignChangeHistoryReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/searchcampaignchangehistoryreportfilter?view=bingads-12">SearchCampaignChangeHistoryReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/searchcampaignchangehistoryreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="SearchCampaignChangeHistoryReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -13914,7 +13938,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attribute columns that you can include in the SearchCampaignChangeHistoryReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportcolumn?view=bingads-12">SearchCampaignChangeHistoryReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/searchcampaignchangehistoryreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/searchcampaignchangehistoryreportcolumn?view=bingads-12">SearchCampaignChangeHistoryReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/searchcampaignchangehistoryreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="SearchCampaignChangeHistoryReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14041,13 +14065,19 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityId = 19,
+        
+        /// <summary>
+        /// The Microsoft Advertising tool used to make changes.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Tool = 20,
     }
     
     /// <summary>
     /// Defines the types of changes to entities by which you can filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/changetypereportfilter?view=bingads-12">ChangeTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/changetypereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/changetypereportfilter?view=bingads-12">ChangeTypeReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/changetypereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="SearchCampaignChangeHistoryReportFilter"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14079,7 +14109,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the types of entities by which you can filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/changeentityreportfilter?view=bingads-12">ChangeEntityReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/changeentityreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/changeentityreportfilter?view=bingads-12">ChangeEntityReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/changeentityreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="SearchCampaignChangeHistoryReportFilter"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14123,7 +14153,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the ad extension by ad report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportfilter?view=bingads-12">AdExtensionByAdReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbyadreportfilter?view=bingads-12">AdExtensionByAdReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbyadreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdExtensionByAdReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -14302,7 +14332,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdExtensionByAdReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportcolumn?view=bingads-12">AdExtensionByAdReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbyadreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbyadreportcolumn?view=bingads-12">AdExtensionByAdReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbyadreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AdExtensionByAdReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14567,7 +14597,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the ad extension by keyword report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportfilter?view=bingads-12">AdExtensionByKeywordReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbykeywordreportfilter?view=bingads-12">AdExtensionByKeywordReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbykeywordreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdExtensionByKeywordReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -14746,7 +14776,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdExtensionByKeywordReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportcolumn?view=bingads-12">AdExtensionByKeywordReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensionbykeywordreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbykeywordreportcolumn?view=bingads-12">AdExtensionByKeywordReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensionbykeywordreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AdExtensionByKeywordReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14993,7 +15023,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the audience performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportfilter?view=bingads-12">AudiencePerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportfilter?view=bingads-12">AudiencePerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AudiencePerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -15103,7 +15133,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AudiencePerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportcolumn?view=bingads-12">AudiencePerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/audienceperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportcolumn?view=bingads-12">AudiencePerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AudiencePerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -15290,7 +15320,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the ad extension detail report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportfilter?view=bingads-12">AdExtensionDetailReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensiondetailreportfilter?view=bingads-12">AdExtensionDetailReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensiondetailreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -15469,7 +15499,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the AdExtensionDetailReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportcolumn?view=bingads-12">AdExtensionDetailReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adextensiondetailreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adextensiondetailreportcolumn?view=bingads-12">AdExtensionDetailReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adextensiondetailreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -15710,7 +15740,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the share of voice report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportfilter?view=bingads-12">ShareOfVoiceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/shareofvoicereportfilter?view=bingads-12">ShareOfVoiceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/shareofvoicereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="ShareOfVoiceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -16004,7 +16034,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ShareOfVoiceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportcolumn?view=bingads-12">ShareOfVoiceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/shareofvoicereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/shareofvoicereportcolumn?view=bingads-12">ShareOfVoiceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/shareofvoicereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="ShareOfVoiceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -16287,7 +16317,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the product dimension performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportfilter?view=bingads-12">ProductDimensionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productdimensionperformancereportfilter?view=bingads-12">ProductDimensionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productdimensionperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductDimensionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -16466,7 +16496,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductDimensionPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportcolumn?view=bingads-12">ProductDimensionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productdimensionperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productdimensionperformancereportcolumn?view=bingads-12">ProductDimensionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productdimensionperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductDimensionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -16875,7 +16905,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the product partition performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportfilter?view=bingads-12">ProductPartitionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionperformancereportfilter?view=bingads-12">ProductPartitionPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductPartitionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -17054,7 +17084,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductPartitionPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportcolumn?view=bingads-12">ProductPartitionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionperformancereportcolumn?view=bingads-12">ProductPartitionPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductPartitionPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -17415,7 +17445,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the product partition  performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportfilter?view=bingads-12">ProductPartitionUnitPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionunitperformancereportfilter?view=bingads-12">ProductPartitionUnitPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionunitperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductPartitionUnitPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -17594,7 +17624,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductPartitionUnitPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportcolumn?view=bingads-12">ProductPartitionUnitPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productpartitionunitperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionunitperformancereportcolumn?view=bingads-12">ProductPartitionUnitPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productpartitionunitperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductPartitionUnitPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -17871,7 +17901,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the Bing Shopping product search query performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportfilter?view=bingads-12">ProductSearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productsearchqueryperformancereportfilter?view=bingads-12">ProductSearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productsearchqueryperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductSearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18096,7 +18126,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductSearchQueryPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportcolumn?view=bingads-12">ProductSearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productsearchqueryperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productsearchqueryperformancereportcolumn?view=bingads-12">ProductSearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productsearchqueryperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductSearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -18349,7 +18379,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the ProductMatchCountReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/productmatchcountreportcolumn?view=bingads-12">ProductMatchCountReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/productmatchcountreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productmatchcountreportcolumn?view=bingads-12">ProductMatchCountReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productmatchcountreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="ProductMatchCountReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -18452,7 +18482,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the call detail report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportfilter?view=bingads-12">CallDetailReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/calldetailreportfilter?view=bingads-12">CallDetailReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/calldetailreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="CallDetailReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18562,7 +18592,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the CallDetailReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportcolumn?view=bingads-12">CallDetailReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/calldetailreportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/calldetailreportcolumn?view=bingads-12">CallDetailReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/calldetailreportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="CallDetailReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -18677,7 +18707,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the geographic performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportfilter?view=bingads-12">GeographicPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportfilter?view=bingads-12">GeographicPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="GeographicPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18856,7 +18886,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the GeographicPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn?view=bingads-12">GeographicPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportcolumn?view=bingads-12">GeographicPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="GeographicPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -19145,7 +19175,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the DSA search query performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportfilter?view=bingads-12">DSASearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsasearchqueryperformancereportfilter?view=bingads-12">DSASearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsasearchqueryperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="DSASearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19370,7 +19400,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the DSASearchQueryPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportcolumn?view=bingads-12">DSASearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsasearchqueryperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsasearchqueryperformancereportcolumn?view=bingads-12">DSASearchQueryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsasearchqueryperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="DSASearchQueryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -19647,7 +19677,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the DSA auto target performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportfilter?view=bingads-12">DSAAutoTargetPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsaautotargetperformancereportfilter?view=bingads-12">DSAAutoTargetPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsaautotargetperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="DSAAutoTargetPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19826,7 +19856,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the DSAAutoTargetPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportcolumn?view=bingads-12">DSAAutoTargetPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsaautotargetperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsaautotargetperformancereportcolumn?view=bingads-12">DSAAutoTargetPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsaautotargetperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="DSAAutoTargetPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -20073,7 +20103,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the dynamic ad target status values that you can use to filter the report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dynamicadtargetstatusreportfilter?view=bingads-12">DynamicAdTargetStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dynamicadtargetstatusreportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dynamicadtargetstatusreportfilter?view=bingads-12">DynamicAdTargetStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dynamicadtargetstatusreportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="DSAAutoTargetPerformanceReportFilter"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -20105,7 +20135,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the criteria to use to filter the DSA category performance report data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportfilter?view=bingads-12">DSACategoryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportfilter?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportfilter?view=bingads-12">DSACategoryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportfilter?view=bingads-12 for details.
     /// <para>Used by <see cref="DSACategoryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -20261,7 +20291,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the attributes and performance statistics columns that you can include in the DSACategoryPerformanceReportRequest.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportcolumn?view=bingads-12">DSACategoryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/dsacategoryperformancereportcolumn?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportcolumn?view=bingads-12">DSACategoryPerformanceReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportcolumn?view=bingads-12 for details.
     /// <para>Used by <see cref="DSACategoryPerformanceReportRequest"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -20496,7 +20526,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/applicationfault?view=bingads-12">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/applicationfault?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/applicationfault?view=bingads-12">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/applicationfault?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -20561,7 +20591,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/apifaultdetail?view=bingads-12">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/apifaultdetail?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/apifaultdetail?view=bingads-12">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/apifaultdetail?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -20621,7 +20651,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adapifaultdetail?view=bingads-12">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adapifaultdetail?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adapifaultdetail?view=bingads-12">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adapifaultdetail?view=bingads-12 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -20658,7 +20688,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/adapierror?view=bingads-12">AdApiError Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/adapierror?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adapierror?view=bingads-12">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adapierror?view=bingads-12 for details.
     /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -20791,7 +20821,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/batcherror?view=bingads-12">BatchError Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/batcherror?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/batcherror?view=bingads-12">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/batcherror?view=bingads-12 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -20947,7 +20977,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/operationerror?view=bingads-12">OperationError Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/operationerror?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/operationerror?view=bingads-12">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/operationerror?view=bingads-12 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21080,7 +21110,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the status of a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatus?view=bingads-12">ReportRequestStatus Data Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatus?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reportrequeststatus?view=bingads-12">ReportRequestStatus Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reportrequeststatus?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21167,7 +21197,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Defines the status of a report.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatustype?view=bingads-12">ReportRequestStatusType Value Set</see> https://docs.microsoft.com/en-us/bingads/reporting-service/reportrequeststatustype?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/reportrequeststatustype?view=bingads-12">ReportRequestStatusType Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/reportrequeststatustype?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportRequestStatus"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -21203,7 +21233,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Submits a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -21221,7 +21251,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Submits a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -21235,7 +21265,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Gets the status of a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -21253,7 +21283,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Gets the status of a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -21268,7 +21298,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Submits a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Request Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Request Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21308,7 +21338,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Constructor for the SubmitGenerateReportRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReportRequest</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReportRequest</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
         /// </remarks>
         public SubmitGenerateReportRequest()
         {
@@ -21318,7 +21348,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Constructor for the SubmitGenerateReportRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReportRequest</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReportRequest</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <param name="ReportRequest">The report request.</param>
         public SubmitGenerateReportRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V12.Reporting.ReportRequest ReportRequest)
@@ -21338,7 +21368,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Submits a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Response Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Response Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21360,7 +21390,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Constructor for the SubmitGenerateReportResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReportResponse</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReportResponse</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
         /// </remarks>
         public SubmitGenerateReportResponse()
         {
@@ -21370,7 +21400,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Constructor for the SubmitGenerateReportResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReportResponse</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReportResponse</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <param name="ReportRequestId">The identifier of the report request.</param>
         public SubmitGenerateReportResponse(string TrackingId, string ReportRequestId)
@@ -21384,7 +21414,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Gets the status of a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Request Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Request Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21424,7 +21454,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Constructor for the PollGenerateReportRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReportRequest</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReportRequest</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
         /// </remarks>
         public PollGenerateReportRequest()
         {
@@ -21434,7 +21464,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Constructor for the PollGenerateReportRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReportRequest</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReportRequest</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <param name="ReportRequestId">The identifier of the report request.</param>
         public PollGenerateReportRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ReportRequestId)
@@ -21454,7 +21484,7 @@ namespace Microsoft.BingAds.V12.Reporting
     /// Gets the status of a report request.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Response Object</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Response Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
     /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21476,7 +21506,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Constructor for the PollGenerateReportResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReportResponse</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReportResponse</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
         /// </remarks>
         public PollGenerateReportResponse()
         {
@@ -21486,7 +21516,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Constructor for the PollGenerateReportResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReportResponse</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReportResponse</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <param name="ReportRequestStatus">Contains the status of the report request and the download URL.</param>
         public PollGenerateReportResponse(string TrackingId, Microsoft.BingAds.V12.Reporting.ReportRequestStatus ReportRequestStatus)
@@ -21534,7 +21564,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Submits a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -21549,7 +21579,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Submits a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/submitgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12">SubmitGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/advertising/reporting-service/submitgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -21564,7 +21594,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Gets the status of a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
@@ -21579,7 +21609,7 @@ namespace Microsoft.BingAds.V12.Reporting
         /// Gets the status of a report request.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/bingads/reporting-service/pollgeneratereport?view=bingads-12 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12">PollGenerateReport Service Operation</see> https://docs.microsoft.com/en-us/advertising/reporting-service/pollgeneratereport?view=bingads-12 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>

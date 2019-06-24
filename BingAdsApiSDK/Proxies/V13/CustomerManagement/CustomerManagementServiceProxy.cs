@@ -69,7 +69,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines an account identification object that contains information that identifies an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accountinfo?view=bingads-13">AccountInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accountinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountinfo?view=bingads-13">AccountInfo Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see>, <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> and <see cref="CustomerManagementServiceClient.GetLinkedAccountsAndCustomersInfo">GetLinkedAccountsAndCustomersInfo</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -225,7 +225,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible status values of an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accountlifecyclestatus?view=bingads-13">AccountLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accountlifecyclestatus?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountlifecyclestatus?view=bingads-13">AccountLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountlifecyclestatus?view=bingads-13 for details.
     /// <para>Used by <see cref="AccountInfo"/>, <see cref="AccountInfoWithCustomerData"/> and <see cref="AdvertiserAccount"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -274,7 +274,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the base object from which all fault detail objects derive.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/applicationfault?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/applicationfault?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -339,7 +339,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/apifault?view=bingads-13">ApiFault Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/apifault?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/apifault?view=bingads-13">ApiFault Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/apifault?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -376,7 +376,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/adapifaultdetail?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/adapifaultdetail?view=bingads-13 for details.
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -413,7 +413,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/adapierror?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/adapierror?view=bingads-13 for details.
     /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -546,7 +546,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines an error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/operationerror?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/operationerror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFault"/> data object.</para>
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
     /// </remarks>
@@ -657,7 +657,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines an advertiser account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/advertiseraccount?view=bingads-13">AdvertiserAccount Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/advertiseraccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/advertiseraccount?view=bingads-13">AdvertiserAccount Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/advertiseraccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see>, <see cref="CustomerManagementServiceClient.AddPrepayAccount">AddPrepayAccount</see>, <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see>, <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see>, <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> and <see cref="CustomerManagementServiceClient.UpdatePrepayAccount">UpdatePrepayAccount</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1296,7 +1296,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a postal address.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/address?view=bingads-13">Address Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/address?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/address?view=bingads-13">Address Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/address?view=bingads-13 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/>, <see cref="ContactInfo"/> and <see cref="Customer"/> data objects.</para>
     /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
     /// </remarks>
@@ -1591,7 +1591,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a selection of currency values.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/currencycode?view=bingads-13">CurrencyCode Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/currencycode?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/currencycode?view=bingads-13">CurrencyCode Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/currencycode?view=bingads-13 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2156,7 +2156,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible financial status values of an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accountfinancialstatus?view=bingads-13">AccountFinancialStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accountfinancialstatus?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountfinancialstatus?view=bingads-13">AccountFinancialStatus Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountfinancialstatus?view=bingads-13 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2223,7 +2223,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a selection of language values.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/languagetype?view=bingads-13">LanguageType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/languagetype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/languagetype?view=bingads-13">LanguageType Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/languagetype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/> and <see cref="Customer"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2344,7 +2344,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines possible payment methods for a Microsoft Advertising account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/paymentmethodtype?view=bingads-13">PaymentMethodType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/paymentmethodtype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/paymentmethodtype?view=bingads-13">PaymentMethodType Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/paymentmethodtype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2411,7 +2411,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible time zones for the customer management service.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/timezonetype?view=bingads-13">TimeZoneType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/timezonetype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/timezonetype?view=bingads-13">TimeZoneType Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/timezonetype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2874,7 +2874,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a customer identification object that contains information that identifies a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customerinfo?view=bingads-13">CustomerInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customerinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/customerinfo?view=bingads-13">CustomerInfo Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/customerinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> and <see cref="CustomerManagementServiceClient.GetLinkedAccountsAndCustomersInfo">GetLinkedAccountsAndCustomersInfo</see> service operations.</para>
     /// </remarks>
@@ -2962,7 +2962,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines possible values for an account level setting that determines whether to append or replace the supported UTM tracking codes.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/autotagtype?view=bingads-13">AutoTagType Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/autotagtype?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/autotagtype?view=bingads-13">AutoTagType Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/autotagtype?view=bingads-13 for details.
     /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2993,7 +2993,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a customer object that contains one or more Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customer?view=bingads-13">Customer Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/customer?view=bingads-13">Customer Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/customer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccessibleCustomer">GetAccessibleCustomer</see>, <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> and <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3356,7 +3356,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible financial status values of a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customerfinancialstatus?view=bingads-13">CustomerFinancialStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customerfinancialstatus?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/customerfinancialstatus?view=bingads-13">CustomerFinancialStatus Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/customerfinancialstatus?view=bingads-13 for details.
     /// <para>Used by <see cref="Customer"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3405,7 +3405,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible industry segments in which a customer operates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/industry?view=bingads-13">Industry Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/industry?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/industry?view=bingads-13">Industry Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/industry?view=bingads-13 for details.
     /// <para>Used by <see cref="Customer"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3544,7 +3544,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// For internal use only.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/servicelevel?view=bingads-13">ServiceLevel Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/servicelevel?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/servicelevel?view=bingads-13">ServiceLevel Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/servicelevel?view=bingads-13 for details.
     /// <para>Used by <see cref="Customer"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3587,7 +3587,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible status values of a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customerlifecyclestatus?view=bingads-13">CustomerLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customerlifecyclestatus?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/customerlifecyclestatus?view=bingads-13">CustomerLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/customerlifecyclestatus?view=bingads-13 for details.
     /// <para>Used by <see cref="Customer"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3612,7 +3612,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/user?view=bingads-13">User Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/user?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/user?view=bingads-13">User Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/user?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCurrentUser">GetCurrentUser</see>, <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> and <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3998,7 +3998,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the contact information for a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/contactinfo?view=bingads-13">ContactInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/contactinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/contactinfo?view=bingads-13">ContactInfo Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/contactinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4292,7 +4292,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the name of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/personname?view=bingads-13">PersonName Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/personname?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/personname?view=bingads-13">PersonName Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/personname?view=bingads-13 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4402,7 +4402,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a selection of locale values.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/lcid?view=bingads-13">LCID Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/lcid?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/lcid?view=bingads-13">LCID Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/lcid?view=bingads-13 for details.
     /// <para>Used by <see cref="User"/> and <see cref="UserInvitation"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4727,7 +4727,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible secret questions that users can choose from to help them recall their password.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/secretquestion?view=bingads-13">SecretQuestion Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/secretquestion?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/secretquestion?view=bingads-13">SecretQuestion Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/secretquestion?view=bingads-13 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4800,7 +4800,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible status values of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/userlifecyclestatus?view=bingads-13">UserLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/userlifecyclestatus?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/userlifecyclestatus?view=bingads-13">UserLifeCycleStatus Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/userlifecyclestatus?view=bingads-13 for details.
     /// <para>Used by <see cref="User"/> data object.</para>
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
     /// </remarks>
@@ -4838,7 +4838,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible formats of the body of an email message.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/emailformat?view=bingads-13">EmailFormat Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/emailformat?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/emailformat?view=bingads-13">EmailFormat Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/emailformat?view=bingads-13 for details.
     /// <para>Used by <see cref="ContactInfo"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4863,7 +4863,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the role a user has for one customer or list of accounts within a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/customerrole?view=bingads-13">CustomerRole Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/customerrole?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/customerrole?view=bingads-13">CustomerRole Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/customerrole?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5019,7 +5019,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a user identification object that contains information that identifies a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/userinfo?view=bingads-13">UserInfo Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/userinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/userinfo?view=bingads-13">UserInfo Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/userinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5186,7 +5186,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines an object that contains information that identifies an account and the customer that manages or owns the account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/accountinfowithcustomerdata?view=bingads-13">AccountInfoWithCustomerData Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/accountinfowithcustomerdata?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountinfowithcustomerdata?view=bingads-13">AccountInfoWithCustomerData Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountinfowithcustomerdata?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5388,7 +5388,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a predicate for the list of entities requested using one of the search operations, for example SearchAccounts, SearchClientLinks, SearchCustomers, or SearchUserInvitations.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/predicate?view=bingads-13">Predicate Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/predicate?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/predicate?view=bingads-13">Predicate Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/predicate?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> and <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5498,7 +5498,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the condition of results for one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/predicateoperator?view=bingads-13">PredicateOperator Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/predicateoperator?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/predicateoperator?view=bingads-13">PredicateOperator Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/predicateoperator?view=bingads-13 for details.
     /// <para>Used by <see cref="Predicate"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5559,7 +5559,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a date range object.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/daterange?view=bingads-13">DateRange Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/daterange?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/daterange?view=bingads-13">DateRange Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/daterange?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5646,7 +5646,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines an order for the list of entities returned using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/orderby?view=bingads-13">OrderBy Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/orderby?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/orderby?view=bingads-13">OrderBy Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/orderby?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5733,7 +5733,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the field order of entities returned using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/orderbyfield?view=bingads-13">OrderByField Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/orderbyfield?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/orderbyfield?view=bingads-13">OrderByField Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/orderbyfield?view=bingads-13 for details.
     /// <para>Used by <see cref="OrderBy"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5770,7 +5770,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the ascending or descending sort order of results for one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/sortorder?view=bingads-13">SortOrder Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/sortorder?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/sortorder?view=bingads-13">SortOrder Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/sortorder?view=bingads-13 for details.
     /// <para>Used by <see cref="OrderBy"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5795,7 +5795,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a paging object that you can use to request objects in batches.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/paging?view=bingads-13">Paging Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/paging?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/paging?view=bingads-13">Paging Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/paging?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -5882,7 +5882,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a client link object.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/clientlink?view=bingads-13">ClientLink Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/clientlink?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/clientlink?view=bingads-13">ClientLink Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/clientlink?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6406,7 +6406,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines the possible status values of a ClientLink.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/clientlinkstatus?view=bingads-13">ClientLinkStatus Value Set</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/clientlinkstatus?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/clientlinkstatus?view=bingads-13">ClientLinkStatus Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/clientlinkstatus?view=bingads-13 for details.
     /// <para>Used by <see cref="ClientLink"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6503,7 +6503,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Defines a user invitation.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/userinvitation?view=bingads-13">UserInvitation Data Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/userinvitation?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/userinvitation?view=bingads-13">UserInvitation Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/userinvitation?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> and <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6756,7 +6756,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6774,7 +6774,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6788,7 +6788,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6806,7 +6806,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6820,7 +6820,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Creates a new account within an existing customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6838,7 +6838,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Creates a new account within an existing customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6852,7 +6852,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6870,7 +6870,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6884,7 +6884,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6902,7 +6902,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6916,7 +6916,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6934,7 +6934,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6948,7 +6948,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Creates a new customer and account that rolls up to your reseller payment method.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6966,7 +6966,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Creates a new customer and account that rolls up to your reseller payment method.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6980,7 +6980,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -6998,7 +6998,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7012,7 +7012,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7030,7 +7030,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7044,7 +7044,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7062,7 +7062,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7076,7 +7076,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7094,7 +7094,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7108,7 +7108,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7126,7 +7126,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7140,7 +7140,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the roles of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7158,7 +7158,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the roles of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7172,7 +7172,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7190,7 +7190,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7216,7 +7216,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7234,7 +7234,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7248,7 +7248,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7266,7 +7266,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7280,7 +7280,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of the pilot programs in which the specified customer participates.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7298,7 +7298,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of the pilot programs in which the specified customer participates.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7336,7 +7336,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of the accounts and customers that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7354,7 +7354,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of the accounts and customers that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7428,7 +7428,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for customers that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7446,7 +7446,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for customers that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7460,7 +7460,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Initiates the client link process to manage the account of another customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7478,7 +7478,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Initiates the client link process to manage the account of another customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7492,7 +7492,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the status of the specified client links.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7510,7 +7510,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the status of the specified client links.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7524,7 +7524,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7542,7 +7542,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7556,7 +7556,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for accounts that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7574,7 +7574,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for accounts that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7588,7 +7588,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7606,7 +7606,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7620,7 +7620,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for user invitations that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7638,7 +7638,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for user invitations that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7652,7 +7652,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7670,7 +7670,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7684,7 +7684,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Reserved for future use.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7702,7 +7702,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Reserved for future use.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -7717,7 +7717,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7757,7 +7757,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetAccountsInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
         public GetAccountsInfoRequest()
         {
@@ -7767,7 +7767,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetAccountsInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer who owns the accounts to get.</param>
         /// <param name="OnlyParentAccounts">Determines whether to return only the accounts that belong to the customer or to also return the accounts that the customer manages for other customers.</param>
@@ -7787,7 +7787,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7809,7 +7809,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetAccountsInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
         public GetAccountsInfoResponse()
         {
@@ -7819,7 +7819,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetAccountsInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountsInfo">An array of AccountInfo objects that identifies the list of accounts that the customer owns.</param>
         public GetAccountsInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo)
@@ -7833,7 +7833,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccounts Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7879,7 +7879,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the FindAccountsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccountsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
         /// </remarks>
         public FindAccountsRequest()
         {
@@ -7889,7 +7889,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the FindAccountsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccountsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer whose accounts you want to get.</param>
         /// <param name="AccountFilter">The criteria to use to filter the list of accounts.</param>
@@ -7911,7 +7911,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccounts Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7933,7 +7933,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the FindAccountsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccountsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
         /// </remarks>
         public FindAccountsResponse()
         {
@@ -7943,7 +7943,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the FindAccountsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccountsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountsInfo">A list of AccountInfo objects of the accounts that match the specified filter criteria.</param>
         public FindAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo)
@@ -7957,7 +7957,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Creates a new account within an existing customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccount Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7991,7 +7991,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the AddAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         public AddAccountRequest()
         {
@@ -8001,7 +8001,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the AddAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Account">The account that you want to add to the existing customer.</param>
         public AddAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account)
@@ -8019,7 +8019,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Creates a new account within an existing customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccount Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8053,7 +8053,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the AddAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccountResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         public AddAccountResponse()
         {
@@ -8063,7 +8063,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the AddAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccountResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountId">A system-generated account identifier corresponding to the new account specified in the request.</param>
         /// <param name="AccountNumber">A system-generated account number that is used to identify the account in the Microsoft Advertising web application.</param>
@@ -8081,7 +8081,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the details of the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8115,7 +8115,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
         /// </remarks>
         public UpdateAccountRequest()
         {
@@ -8125,7 +8125,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Account">An AdvertiserAccount object that contains the updated account information.</param>
         public UpdateAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account)
@@ -8143,7 +8143,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the details of the specified account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8165,7 +8165,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccountResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
         /// </remarks>
         public UpdateAccountResponse()
         {
@@ -8175,7 +8175,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccountResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="LastModifiedTime">The date and time that the account was last updated.</param>
         public UpdateAccountResponse(string TrackingId, System.DateTime LastModifiedTime)
@@ -8189,7 +8189,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets the details of a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8223,7 +8223,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomerRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
         /// </remarks>
         public GetCustomerRequest()
         {
@@ -8233,7 +8233,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomerRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer whose information you want to get.</param>
         public GetCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
@@ -8251,7 +8251,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets the details of a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8273,7 +8273,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomerResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
         /// </remarks>
         public GetCustomerResponse()
         {
@@ -8283,7 +8283,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomerResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Customer">A Customer object that contains information about the customer.</param>
         public GetCustomerResponse(string TrackingId, Microsoft.BingAds.V13.CustomerManagement.Customer Customer)
@@ -8297,7 +8297,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the details of the specified customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8331,7 +8331,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
         /// </remarks>
         public UpdateCustomerRequest()
         {
@@ -8341,7 +8341,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Customer">A customer object that contains the updated customer information.</param>
         public UpdateCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer)
@@ -8359,7 +8359,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the details of the specified customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8381,7 +8381,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
         /// </remarks>
         public UpdateCustomerResponse()
         {
@@ -8391,7 +8391,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <param name="LastModifiedTime">The date and time that the customer was last updated.</param>
         public UpdateCustomerResponse(string TrackingId, System.DateTime LastModifiedTime)
@@ -8405,7 +8405,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Creates a new customer and account that rolls up to your reseller payment method.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8451,7 +8451,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SignupCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         public SignupCustomerRequest()
         {
@@ -8461,7 +8461,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SignupCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Customer">A Customer that specifies the details of the customer that you are adding.</param>
         /// <param name="Account">An AdvertiserAccount that specifies the details of the customer's primary account.</param>
@@ -8483,7 +8483,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Creates a new customer and account that rolls up to your reseller payment method.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8529,7 +8529,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SignupCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         public SignupCustomerResponse()
         {
@@ -8539,7 +8539,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SignupCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">A system-generated customer identifier corresponding to the new customer specified in the request.</param>
         /// <param name="CustomerNumber">A system-generated customer number that is used in the Microsoft Advertising web application.</param>
@@ -8561,7 +8561,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets the details of an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccount Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8595,7 +8595,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         public GetAccountRequest()
         {
@@ -8605,7 +8605,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account to get.</param>
         public GetAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId)
@@ -8623,7 +8623,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets the details of an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccount Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8645,7 +8645,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         public GetAccountResponse()
         {
@@ -8655,7 +8655,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Account">An account object that contains information about the account, such as payment method, account type, and parent customer.</param>
         public GetAccountResponse(string TrackingId, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account)
@@ -8669,7 +8669,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8709,7 +8709,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         public GetCustomersInfoRequest()
         {
@@ -8719,7 +8719,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerNameFilter">A partial or full name of the customers that you want to get.</param>
         /// <param name="TopN">A nonzero positive integer that specifies the number of customers to return in the result.</param>
@@ -8739,7 +8739,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8761,7 +8761,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         public GetCustomersInfoResponse()
         {
@@ -8771,7 +8771,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomersInfo">An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.</param>
         public GetCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo)
@@ -8785,7 +8785,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Deletes an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteAccount">DeleteAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8825,7 +8825,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
         /// </remarks>
         public DeleteAccountRequest()
         {
@@ -8835,7 +8835,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteAccountRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account to delete.</param>
         /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
@@ -8855,7 +8855,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Deletes an account.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteAccount">DeleteAccount</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8871,7 +8871,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
         /// </remarks>
         public DeleteAccountResponse()
         {
@@ -8881,7 +8881,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteAccountResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
         /// </remarks>
         public DeleteAccountResponse(string TrackingId)
         {
@@ -8893,7 +8893,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Deletes a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteCustomer">DeleteCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8933,7 +8933,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
         /// </remarks>
         public DeleteCustomerRequest()
         {
@@ -8943,7 +8943,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteCustomerRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer to delete.</param>
         /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
@@ -8963,7 +8963,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Deletes a customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteCustomer">DeleteCustomer</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8979,7 +8979,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
         /// </remarks>
         public DeleteCustomerResponse()
         {
@@ -8989,7 +8989,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteCustomerResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
         /// </remarks>
         public DeleteCustomerResponse(string TrackingId)
         {
@@ -9001,7 +9001,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the details of the specified user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUser Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9035,7 +9035,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUserRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
         /// </remarks>
         public UpdateUserRequest()
         {
@@ -9045,7 +9045,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUserRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
         /// </remarks>
         /// <param name="User">The user object that contains the updated user information.</param>
         public UpdateUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.User User)
@@ -9063,7 +9063,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the details of the specified user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUser Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9085,7 +9085,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUserResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
         /// </remarks>
         public UpdateUserResponse()
         {
@@ -9095,7 +9095,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUserResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
         /// </remarks>
         /// <param name="LastModifiedTime">The date and time that the user was last updated.</param>
         public UpdateUserResponse(string TrackingId, System.DateTime LastModifiedTime)
@@ -9109,7 +9109,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the roles of the specified user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUserRoles">UpdateUserRoles</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9185,7 +9185,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateUserRolesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
         /// </remarks>
         public UpdateUserRolesRequest()
         {
@@ -9195,7 +9195,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateUserRolesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer to which the user belongs.</param>
         /// <param name="UserId">The identifier of the user whose role you want to update.</param>
@@ -9227,7 +9227,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the roles of the specified user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUserRoles">UpdateUserRoles</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9249,7 +9249,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateUserRolesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
         /// </remarks>
         public UpdateUserRolesResponse()
         {
@@ -9259,7 +9259,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateUserRolesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
         /// </remarks>
         /// <param name="LastModifiedTime">The date and time that the user roles were last updated.</param>
         public UpdateUserRolesResponse(string TrackingId, System.DateTime LastModifiedTime)
@@ -9273,7 +9273,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets the details of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUser Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUser Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9307,7 +9307,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUserRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
         /// </remarks>
         public GetUserRequest()
         {
@@ -9317,7 +9317,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUserRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
         /// </remarks>
         /// <param name="UserId">The identifier of the user to get.</param>
         public GetUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> UserId)
@@ -9335,7 +9335,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets the details of a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUser Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUser Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9363,7 +9363,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUserResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
         /// </remarks>
         public GetUserResponse()
         {
@@ -9373,7 +9373,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUserResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
         /// </remarks>
         /// <param name="User">A user object that contains information about the user.</param>
         /// <param name="CustomerRoles">The list of roles that a user has for each customer or list of accounts.</param>
@@ -9447,7 +9447,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Deletes a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUser Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteUser">DeleteUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9487,7 +9487,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUserRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
         /// </remarks>
         public DeleteUserRequest()
         {
@@ -9497,7 +9497,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteUserRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUserRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUserRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
         /// </remarks>
         /// <param name="UserId">The identifier of the user to delete.</param>
         /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
@@ -9517,7 +9517,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Deletes a user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUser Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteUser">DeleteUser</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9533,7 +9533,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUserResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
         /// </remarks>
         public DeleteUserResponse()
         {
@@ -9543,7 +9543,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the DeleteUserResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUserResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUserResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
         /// </remarks>
         public DeleteUserResponse(string TrackingId)
         {
@@ -9555,7 +9555,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9595,7 +9595,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetUsersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
         /// </remarks>
         public GetUsersInfoRequest()
         {
@@ -9605,7 +9605,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetUsersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer to which the users belong.</param>
         /// <param name="StatusFilter">The status value that the operation uses to filter the list of users that it returns.</param>
@@ -9625,7 +9625,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9647,7 +9647,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetUsersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
         /// </remarks>
         public GetUsersInfoResponse()
         {
@@ -9657,7 +9657,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetUsersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="UsersInfo">A list of UserInfo objects that identifies the list of users who meet the filter criteria.</param>
         public GetUsersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.UserInfo> UsersInfo)
@@ -9671,7 +9671,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of the pilot programs in which the specified customer participates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomerPilotFeatures">GetCustomerPilotFeatures</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9705,7 +9705,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomerPilotFeaturesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
         public GetCustomerPilotFeaturesRequest()
         {
@@ -9715,7 +9715,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomerPilotFeaturesRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">The identifier of the customer whose list of pilot programs you want to get.</param>
         public GetCustomerPilotFeaturesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
@@ -9733,7 +9733,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of the pilot programs in which the specified customer participates.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomerPilotFeatures">GetCustomerPilotFeatures</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9755,7 +9755,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomerPilotFeaturesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
         public GetCustomerPilotFeaturesResponse()
         {
@@ -9765,7 +9765,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetCustomerPilotFeaturesResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
         /// <param name="FeaturePilotFlags">A list of integers that identifies the pilot programs in which the customer participates.</param>
         public GetCustomerPilotFeaturesResponse(string TrackingId, System.Collections.Generic.IList<int> FeaturePilotFlags)
@@ -9903,7 +9903,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of the accounts and customers that match the specified filter criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9943,7 +9943,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the FindAccountsOrCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         public FindAccountsOrCustomersInfoRequest()
         {
@@ -9953,7 +9953,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the FindAccountsOrCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Filter">The criteria to use to filter the list of accounts and customers.</param>
         /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result.</param>
@@ -9973,7 +9973,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Gets a list of the accounts and customers that match the specified filter criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9995,7 +9995,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the FindAccountsOrCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         public FindAccountsOrCustomersInfoResponse()
         {
@@ -10005,7 +10005,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the FindAccountsOrCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountInfoWithCustomerData">A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.</param>
         public FindAccountsOrCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfoWithCustomerData> AccountInfoWithCustomerData)
@@ -10333,7 +10333,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Searches for customers that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10385,7 +10385,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchCustomersRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
         public SearchCustomersRequest()
         {
@@ -10395,7 +10395,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchCustomersRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="DateRange">Determines the minimum and maximum customer creation date range.</param>
@@ -10419,7 +10419,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Searches for customers that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10441,7 +10441,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchCustomersResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
         public SearchCustomersResponse()
         {
@@ -10451,7 +10451,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchCustomersResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Customers">A  list of customers that meet the specified criteria.</param>
         public SearchCustomersResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Customer> Customers)
@@ -10465,7 +10465,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Initiates the client link process to manage the account of another customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10499,7 +10499,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the AddClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
         /// </remarks>
         public AddClientLinksRequest()
         {
@@ -10509,7 +10509,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the AddClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <param name="ClientLinks">The list of client links to add.</param>
         public AddClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks)
@@ -10527,7 +10527,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Initiates the client link process to manage the account of another customer.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10555,7 +10555,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the AddClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
         /// </remarks>
         public AddClientLinksResponse()
         {
@@ -10565,7 +10565,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the AddClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <param name="OperationErrors">A list of one or more reasons why the service operation failed, and no client links were added.</param>
         /// <param name="PartialErrors">An array of OperationError lists that contain details for any client links that were not successfully added.</param>
@@ -10581,7 +10581,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the status of the specified client links.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10615,7 +10615,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
         /// </remarks>
         public UpdateClientLinksRequest()
         {
@@ -10625,7 +10625,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <param name="ClientLinks">The list of client links to update.</param>
         public UpdateClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks)
@@ -10643,7 +10643,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Updates the status of the specified client links.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10671,7 +10671,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
         /// </remarks>
         public UpdateClientLinksResponse()
         {
@@ -10681,7 +10681,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the UpdateClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <param name="OperationErrors">A list of one or more reasons why the service operation failed, and no client links were added.</param>
         /// <param name="PartialErrors">An array of OperationError lists that contain details for any client links that were not successfully added.</param>
@@ -10697,7 +10697,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10743,7 +10743,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
         /// </remarks>
         public SearchClientLinksRequest()
         {
@@ -10753,7 +10753,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchClientLinksRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results.</param>
@@ -10775,7 +10775,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10797,7 +10797,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
         /// </remarks>
         public SearchClientLinksResponse()
         {
@@ -10807,7 +10807,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchClientLinksResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <param name="ClientLinks">The list of client link invitations.</param>
         public SearchClientLinksResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks)
@@ -10821,7 +10821,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Searches for accounts that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10867,7 +10867,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchAccountsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
         public SearchAccountsRequest()
         {
@@ -10877,7 +10877,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchAccountsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
@@ -10899,7 +10899,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Searches for accounts that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10921,7 +10921,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchAccountsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
         public SearchAccountsResponse()
         {
@@ -10931,7 +10931,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchAccountsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Accounts">A list of accounts that meet the specified criteria.</param>
         public SearchAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount> Accounts)
@@ -10945,7 +10945,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10979,7 +10979,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SendUserInvitationRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
         /// </remarks>
         public SendUserInvitationRequest()
         {
@@ -10989,7 +10989,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SendUserInvitationRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
         /// </remarks>
         /// <param name="UserInvitation">The user invitation to send.</param>
         public SendUserInvitationRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation)
@@ -11007,7 +11007,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11029,7 +11029,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SendUserInvitationResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
         /// </remarks>
         public SendUserInvitationResponse()
         {
@@ -11039,7 +11039,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SendUserInvitationResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
         /// </remarks>
         /// <param name="UserInvitationId">A system-generated identifier for the user invitation that was sent.</param>
         public SendUserInvitationResponse(string TrackingId, long UserInvitationId)
@@ -11053,7 +11053,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Searches for user invitations that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11087,7 +11087,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchUserInvitationsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
         /// </remarks>
         public SearchUserInvitationsRequest()
         {
@@ -11097,7 +11097,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchUserInvitationsRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Predicates">Determines the request conditions.</param>
         public SearchUserInvitationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates)
@@ -11115,7 +11115,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Searches for user invitations that match a specified criteria.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11137,7 +11137,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchUserInvitationsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
         /// </remarks>
         public SearchUserInvitationsResponse()
         {
@@ -11147,7 +11147,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the SearchUserInvitationsResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
         /// </remarks>
         /// <param name="UserInvitations">A list of user invitations that meet the specified criteria.</param>
         public SearchUserInvitationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.UserInvitation> UserInvitations)
@@ -11161,7 +11161,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11195,7 +11195,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the ValidateAddressRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddressRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddressRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         public ValidateAddressRequest()
         {
@@ -11205,7 +11205,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the ValidateAddressRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddressRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddressRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         /// <param name="Address">The address to validate.</param>
         public ValidateAddressRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Address Address)
@@ -11223,7 +11223,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11257,7 +11257,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the ValidateAddressResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddressResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddressResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         public ValidateAddressResponse()
         {
@@ -11267,7 +11267,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the ValidateAddressResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddressResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddressResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         /// <param name="OriginalAddress">The address that was submitted for validation.</param>
         /// <param name="Status">Determines whether or not the submitted address is valid for Microsoft Advertising accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.</param>
@@ -11285,7 +11285,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Reserved for future use.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetLinkedAccountsAndCustomersInfo">GetLinkedAccountsAndCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11313,7 +11313,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Reserved for future use.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
-        public long CustomerId;
+        public System.Nullable<long> CustomerId;
         
         /// <summary>
         /// Reserved for future use.
@@ -11325,7 +11325,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetLinkedAccountsAndCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         public GetLinkedAccountsAndCustomersInfoRequest()
         {
@@ -11335,11 +11335,11 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetLinkedAccountsAndCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoRequest</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CustomerId">Reserved for future use.</param>
         /// <param name="OnlyParentAccounts">Reserved for future use.</param>
-        public GetLinkedAccountsAndCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, bool OnlyParentAccounts)
+        public GetLinkedAccountsAndCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> CustomerId, bool OnlyParentAccounts)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -11355,7 +11355,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// Reserved for future use.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
     /// <para>Used by <see cref="CustomerManagementServiceClient.GetLinkedAccountsAndCustomersInfo">GetLinkedAccountsAndCustomersInfo</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -11383,7 +11383,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetLinkedAccountsAndCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         public GetLinkedAccountsAndCustomersInfoResponse()
         {
@@ -11393,7 +11393,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Constructor for the GetLinkedAccountsAndCustomersInfoResponse response object.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoResponse</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountsInfo">Reserved for future use.</param>
         /// <param name="CustomersInfo">Reserved for future use.</param>
@@ -11443,7 +11443,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11458,7 +11458,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccountsinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11473,7 +11473,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11488,7 +11488,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11503,7 +11503,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Creates a new account within an existing customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11518,7 +11518,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Creates a new account within an existing customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11533,7 +11533,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11548,7 +11548,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11563,7 +11563,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11578,7 +11578,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11593,7 +11593,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11608,7 +11608,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updatecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11623,7 +11623,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Creates a new customer and account that rolls up to your reseller payment method.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11638,7 +11638,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Creates a new customer and account that rolls up to your reseller payment method.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/signupcustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11653,7 +11653,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11668,7 +11668,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11683,7 +11683,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11698,7 +11698,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11713,7 +11713,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11728,7 +11728,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes an account.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteaccount?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11743,7 +11743,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11758,7 +11758,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes a customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deletecustomer?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11773,7 +11773,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11788,7 +11788,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the details of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11803,7 +11803,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the roles of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11818,7 +11818,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the roles of the specified user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateuserroles?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11833,7 +11833,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11848,7 +11848,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets the details of a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11873,7 +11873,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11888,7 +11888,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Deletes a user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/deleteuser?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11903,7 +11903,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11918,7 +11918,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getusersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11933,7 +11933,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of the pilot programs in which the specified customer participates.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11948,7 +11948,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of the pilot programs in which the specified customer participates.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11983,7 +11983,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of the accounts and customers that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -11998,7 +11998,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Gets a list of the accounts and customers that match the specified filter criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12063,7 +12063,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for customers that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12078,7 +12078,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for customers that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchcustomers?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12093,7 +12093,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Initiates the client link process to manage the account of another customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12108,7 +12108,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Initiates the client link process to manage the account of another customer.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/addclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12123,7 +12123,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the status of the specified client links.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12138,7 +12138,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Updates the status of the specified client links.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/updateclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12153,7 +12153,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12168,7 +12168,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchclientlinks?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12183,7 +12183,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for accounts that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12198,7 +12198,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for accounts that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchaccounts?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12213,7 +12213,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12228,7 +12228,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Sends an email invitation for someone to manage your Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/senduserinvitation?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12243,7 +12243,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for user invitations that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12258,7 +12258,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Searches for user invitations that match a specified criteria.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/searchuserinvitations?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12273,7 +12273,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12288,7 +12288,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/validateaddress?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12303,7 +12303,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Reserved for future use.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
@@ -12318,7 +12318,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// Reserved for future use.
         /// </summary>
         /// <remarks>
-        /// See <see href="https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/bingads/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
