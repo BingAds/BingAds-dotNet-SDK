@@ -154,7 +154,7 @@ namespace BingAdsExamplesLibrary.V13
             return (await CustomerManagementService.CallAsync((s, r) => s.GetCustomersInfoAsync(r), request));
         }
         public async Task<GetLinkedAccountsAndCustomersInfoResponse> GetLinkedAccountsAndCustomersInfoAsync(
-            long customerId,
+            long? customerId,
             bool onlyParentAccounts)
         {
             var request = new GetLinkedAccountsAndCustomersInfoRequest

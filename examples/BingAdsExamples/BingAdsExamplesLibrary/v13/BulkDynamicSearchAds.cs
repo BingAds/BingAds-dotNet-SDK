@@ -8,7 +8,9 @@ using Microsoft.BingAds;
 using Microsoft.BingAds.V13.AdInsight;
 using Microsoft.BingAds.V13.Bulk;
 using Microsoft.BingAds.V13.Bulk.Entities;
+using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
 using Microsoft.BingAds.V13.CampaignManagement;
+using Newtonsoft.Json;
 
 namespace BingAdsExamplesLibrary.V13
 {
@@ -19,7 +21,6 @@ namespace BingAdsExamplesLibrary.V13
     {
         public const string DOMAIN_NAME = "contoso.com";
         public const string LANGUAGE = "EN";
-
         public override string Description
         {
             get { return "Dynamic Search Ads (DSA) Campaigns | Bulk V13"; }
@@ -45,15 +46,65 @@ namespace BingAdsExamplesLibrary.V13
                     authorizationData: authorizationData,
                     apiEnvironment: environment);
 
+
                 var uploadEntities = new List<BulkEntity>();
-                
+
+                // Setup a page feed that can be associated with one or more campaigns. 
+
+                var bulkPageFeed = new BulkFeed
+                {
+                    CustomAttributes = new[]
+                    {
+                        new FeedCustomAttributeContract
+                        {
+                            FeedAttributeType = "Url",
+                            Name = "Page Url"
+                        },
+                        new FeedCustomAttributeContract
+                        {
+                            FeedAttributeType = "StringList",
+                            Name = "Custom Label"
+                        }
+                    },
+                    Id = feedIdKey,
+                    Name = "My PageFeed " + DateTime.UtcNow,
+                    Status = Status.Active,
+                    SubType = "PageFeed"
+                };
+
+                uploadEntities.Add(bulkPageFeed);
+                                
+                var pageFeedItemCustomAttributes = new Dictionary<string, object>();
+                pageFeedItemCustomAttributes.Add(
+                    "Page Url",
+                    "https://" + DOMAIN_NAME + "/3001");
+                pageFeedItemCustomAttributes.Add(
+                    "Custom Label", new string[] {
+                        "Label_1_3001",
+                        "Label_1_3002"
+                    });
+
+                var serializerSettings = new JsonSerializerSettings();
+                serializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                var pageFeedItemCustomAttributesJson = JsonConvert.SerializeObject(
+                    pageFeedItemCustomAttributes, serializerSettings);
+
+                var bulkPageFeedItem = new BulkFeedItem
+                {
+                    FeedId = feedIdKey,
+                    CustomAttributes = pageFeedItemCustomAttributesJson,
+                    Status = Status.Active
+                };
+
+                uploadEntities.Add(bulkPageFeedItem);
+
                 // To get started with dynamic search ads, first you'll need to add a new Campaign 
                 // with its type set to DynamicSearchAds. When you create the campaign, you'll need to 
                 // include a DynamicSearchAdsSetting that specifies the target website domain and language.
+                // Page feeds can be associated at the campaign level via 'Source' and 'Page Feed Ids'.
 
                 var bulkCampaign = new BulkCampaign
                 {
-                    ClientId = "YourClientIdGoesHere",
                     Campaign = new Campaign
                     {
                         Id = campaignIdKey,
@@ -64,10 +115,15 @@ namespace BingAdsExamplesLibrary.V13
                         Name = "Women's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         Settings = new[] {
+                            // Set the target website domain and language.
+                            // Be sure to set the Source to AdvertiserSuppliedUrls or All, 
+                            // otherwise the PageFeedIds will be ignored. 
                             new DynamicSearchAdsSetting
                             {
-                                DomainName = "contoso.com",
-                                Language = "English"
+                                DomainName = DOMAIN_NAME,
+                                Language = LANGUAGE,
+                                Source = DynamicSearchAdsSource.All,
+                                PageFeedIds = new [] { feedIdKey }
                             }
                         },
                     },
@@ -97,10 +153,9 @@ namespace BingAdsExamplesLibrary.V13
 
                 uploadEntities.Add(bulkAdGroup);
 
-                // You can add one or more Webpage criteria to each ad group that helps determine 
-                // whether or not to serve dynamic search ads.
+                // Create an auto target based on the custom label feed items created above e.g., "Label_1_3001".
 
-                var adGroupWebpagePositivePageContent = new BulkAdGroupDynamicSearchAdTarget
+                var adGroupWebpagePositiveCustomLabel = new BulkAdGroupDynamicSearchAdTarget
                 {
                     BiddableAdGroupCriterion = new BiddableAdGroupCriterion
                     {
@@ -117,17 +172,17 @@ namespace BingAdsExamplesLibrary.V13
                                 {
                                     new WebpageCondition
                                     {
-                                        Argument = "flowers",
-                                        Operand = WebpageConditionOperand.PageContent,
-                                    }
+                                        Argument = "Label_1_3001",
+                                        Operand = WebpageConditionOperand.CustomLabel,
+                                    },
                                 },
-                                CriterionName = "Ad Group Webpage Positive Page Content Criterion"
+                                CriterionName = "Ad Group Webpage Positive Custom Label Criterion"
                             },
                         },
                     }
                 };
-                uploadEntities.Add(adGroupWebpagePositivePageContent);
-
+                uploadEntities.Add(adGroupWebpagePositiveCustomLabel);
+                
                 // To discover the categories that you can use for Webpage criterion (positive or negative), 
                 // use the GetDomainCategories operation with the Ad Insight service.
 
@@ -190,7 +245,7 @@ namespace BingAdsExamplesLibrary.V13
                                 {
                                     new WebpageCondition
                                     {
-                                        Argument = DOMAIN_NAME,
+                                        Argument = "https://" + DOMAIN_NAME + "/3001",
                                         Operand = WebpageConditionOperand.Url,
                                     }
                                 },
@@ -201,52 +256,23 @@ namespace BingAdsExamplesLibrary.V13
                     }
                 };
                 uploadEntities.Add(adGroupWebpageNegativeUrl);
-
-                // The negative Webpage criterion at the campaign level applies to all ad groups 
-                // within the campaign; however, if you define ad group level negative Webpage criterion, 
-                // the campaign criterion is ignored for that ad group.
-
-                var campaignWebpageNegative = new BulkCampaignNegativeDynamicSearchAdTarget
-                {
-                    NegativeCampaignCriterion = new NegativeCampaignCriterion
-                    {
-                        CampaignId = campaignIdKey,
-                        Criterion = new Webpage
-                        {
-                            Parameter = new WebpageParameter
-                            {
-                                Conditions = new[]
-                                {
-                                    new WebpageCondition
-                                    {
-                                        Argument = DOMAIN_NAME + "\\seattle",
-                                        Operand = WebpageConditionOperand.Url,
-                                    }
-                                },
-                                CriterionName = "Campaign Negative Webpage Url Criterion"
-                            }
-                        }
-                    }
-                };
-                uploadEntities.Add(campaignWebpageNegative);
-
-
-                // Finally you must add at least one DynamicSearchAd into the ad group. The ad title and display URL 
+                                
+                // Finally you must add at least one Dynamic Search Ad into the ad group. The ad title and display URL 
                 // are generated automatically based on the website domain and language that you want to target.
 
                 var bulkDynamicSearchAd = new BulkDynamicSearchAd
                 {
-                    ClientId = "here",
                     AdGroupId = adGroupIdKey,
                     DynamicSearchAd = new DynamicSearchAd
                     {
-                        Text = "Find New Customers & Increase Sales! Start Advertising on Contoso Today.",
+                        Text = "Find New Customers & Increase Sales!",
+                        TextPart2 = "Start Advertising on Contoso Today.",
                         Path1 = "seattle",
                         Path2 = "shoe sale",
                         // You cannot set FinalUrls for dynamic search ads. 
                         // The Final URL will be a dynamically selected landing page.
                         // The final URL is distinct from the path that customers will see and click on in your ad.
-                        FinalUrls = null,
+                        FinalUrls = null
                     },
                 };
 
@@ -254,21 +280,24 @@ namespace BingAdsExamplesLibrary.V13
                 
                 // Upload and write the output
 
-                OutputStatusMessage("-----\nAdding campaign, ad group, criterions, and ads...");
+                OutputStatusMessage("-----\nAdding page feed, campaign, ad group, criterions, and ads...");
 
                 var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
 
                 OutputStatusMessage("Upload results:");
+                
+                var feedResults = downloadEntities.OfType<BulkFeed>().ToList();
+                OutputBulkFeeds(feedResults);
+
+                var feedItemResults = downloadEntities.OfType<BulkFeedItem>().ToList();
+                OutputBulkFeedItems(feedItemResults);
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
 
                 var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
                 OutputBulkAdGroups(adGroupResults);
-
-                var campaignNegativeDynamicSearchAdTargetResults = downloadEntities.OfType<BulkCampaignNegativeDynamicSearchAdTarget>().ToList();
-                OutputBulkCampaignNegativeDynamicSearchAdTargets(campaignNegativeDynamicSearchAdTargetResults);
 
                 var adGroupDynamicSearchAdTargetResults = downloadEntities.OfType<BulkAdGroupDynamicSearchAdTarget>().ToList();
                 OutputBulkAdGroupDynamicSearchAdTargets(adGroupDynamicSearchAdTargetResults);
@@ -285,18 +314,27 @@ namespace BingAdsExamplesLibrary.V13
 
                 uploadEntities = new List<BulkEntity>();
 
+                foreach (var feedResult in feedResults)
+                {
+                    feedResult.Status = Status.Deleted;
+                    uploadEntities.Add(feedResult);
+                }
+
                 foreach (var campaignResult in campaignResults)
                 {
                     campaignResult.Campaign.Status = CampaignStatus.Deleted;
                     uploadEntities.Add(campaignResult);
                 }
 
-                OutputStatusMessage("-----\nDeleting DSA campaign, criterions, and ad...");
+                OutputStatusMessage("-----\nDeleting page feed, DSA campaign, and all contained entities...");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
 
                 OutputStatusMessage("Upload results:");
+
+                feedResults = downloadEntities.OfType<BulkFeed>().ToList();
+                OutputBulkFeeds(feedResults);
 
                 campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);

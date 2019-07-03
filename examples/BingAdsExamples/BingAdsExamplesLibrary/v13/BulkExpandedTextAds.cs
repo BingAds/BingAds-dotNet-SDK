@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using Microsoft.BingAds;
 using Microsoft.BingAds.V13.Bulk;
 using Microsoft.BingAds.V13.Bulk.Entities;
+using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
 using Microsoft.BingAds.V13.CampaignManagement;
+using Newtonsoft.Json;
 
 namespace BingAdsExamplesLibrary.V13
 {
@@ -41,8 +43,91 @@ namespace BingAdsExamplesLibrary.V13
 
                 var uploadEntities = new List<BulkEntity>();
 
-                // Add a search campaign.
+                // Setup an ad customizer feed that can be referenced later in the ad copy. 
                 
+                var bulkAdCustomizerFeed = new BulkFeed
+                {
+                    CustomAttributes = new[]
+                    {
+                        new FeedCustomAttributeContract
+                        {
+                            FeedAttributeType = "String",
+                            Name = "Product"
+                        },
+                        new FeedCustomAttributeContract
+                        {
+                            FeedAttributeType = "String",
+                            Name = "Materials_Lightweight"
+                        },
+                        new FeedCustomAttributeContract
+                        {
+                            FeedAttributeType = "String",
+                            Name = "Description_Lightweight"
+                        },
+                        new FeedCustomAttributeContract
+                        {
+                            FeedAttributeType = "Int64",
+                            Name = "Finishes"
+                        },
+                        new FeedCustomAttributeContract
+                        {
+                            FeedAttributeType = "Price",
+                            Name = "StartPrice"
+                        },
+                    },
+                    Id = feedIdKey,
+                    Name = "My AdCustomizerFeed " + DateTime.UtcNow,                    
+                    Status = Status.Active,
+                    SubType = "AdCustomizerFeed",
+                };
+
+                uploadEntities.Add(bulkAdCustomizerFeed);
+
+                var adCustomizerFeedItemCustomAttributes = new Dictionary<string, object>();
+                adCustomizerFeedItemCustomAttributes.Add("Product", "Contoso 900");
+                adCustomizerFeedItemCustomAttributes.Add("Materials_Lightweight", "titanium or acetate");
+                adCustomizerFeedItemCustomAttributes.Add("Description_Lightweight", "Stylish, lightweight shades");
+                adCustomizerFeedItemCustomAttributes.Add("Finishes", 8);
+                adCustomizerFeedItemCustomAttributes.Add("StartPrice", "$24.99");
+
+                var serializerSettings = new JsonSerializerSettings();
+                serializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                var adCustomizerFeedItemCustomAttributesJson = JsonConvert.SerializeObject(
+                    adCustomizerFeedItemCustomAttributes, serializerSettings);
+
+                var bulkAdCustomizerFeedItem = new BulkFeedItem
+                {
+                    FeedId = feedIdKey,
+                    CustomAttributes = adCustomizerFeedItemCustomAttributesJson,
+                    Id = null,
+                    AdGroupName = null,
+                    AudienceId = null,
+                    CampaignName = null,
+                    DayTimeRanges = new[]
+                    {
+                        new DayTime
+                        {
+                            Day = Day.Monday,
+                            StartHour = 9,
+                            StartMinute = Minute.Zero,
+                            EndHour = 21,
+                            EndMinute = Minute.Zero,
+                        },
+                    },
+                    EndDate = null,
+                    StartDate = DateTime.UtcNow,
+                    IntentOption = IntentOption.PeopleIn,
+                    Keyword = "lightweight sunglasses",
+                    LocationId = 190,
+                    MatchType = MatchType.Broad,
+                    DevicePreference = null,
+                    Status = Status.Active
+                };
+
+                uploadEntities.Add(bulkAdCustomizerFeedItem);
+
+                // Add a search campaign.
+
                 var bulkCampaign = new BulkCampaign
                 {
                     Campaign = new Campaign
@@ -52,7 +137,7 @@ namespace BingAdsExamplesLibrary.V13
                         CampaignType = CampaignType.Search,
                         Id = campaignIdKey,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Summer Sunglasses " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     },
                 };
@@ -66,7 +151,7 @@ namespace BingAdsExamplesLibrary.V13
                     AdGroup = new AdGroup
                     {
                         Id = adGroupIdKey,
-                        Name = "Women's Red Shoe Sale",
+                        Name = "Sunglasses Sale",
                         StartDate = null,
                         EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {
@@ -88,7 +173,7 @@ namespace BingAdsExamplesLibrary.V13
                         Bid = new Bid { Amount = 0.47 },
                         Param2 = "10% Off",
                         MatchType = MatchType.Phrase,
-                        Text = "Brand-A Shoes",
+                        Text = "Brand-A Sunglasses",
                     },                    
                 };
                 uploadEntities.Add(bulkKeyword);
@@ -98,15 +183,15 @@ namespace BingAdsExamplesLibrary.V13
                     AdGroupId = adGroupIdKey,
                     ExpandedTextAd = new ExpandedTextAd
                     {
-                        TitlePart1 = "Contoso",
-                        TitlePart2 = "Quick & Easy Setup",
-                        TitlePart3 = "Seemless Integration",
-                        Text = "Find New Customers & Increase Sales!",
-                        TextPart2 = "Start Advertising on Contoso Today.",
-                        Path1 = "seattle",
-                        Path2 = "shoe sale",
+                        TitlePart1 = "The latest {=Sunglasses.Product}s",
+                        TitlePart2 = "In {=Sunglasses.Materials_Lightweight}",
+                        TitlePart3 = null,
+                        Text = "{=Sunglasses.Description_Lightweight} in {=Sunglasses.Finishes} finishes.",
+                        TextPart2 = "Starting at only {=Sunglasses.StartPrice}!",
+                        Path1 = "deals",
+                        Path2 = null,
                         FinalUrls = new[] {
-                            "http://www.contoso.com/womenshoesale"
+                            "https://www.contoso.com"
                         },
                     },
                 };
@@ -114,12 +199,18 @@ namespace BingAdsExamplesLibrary.V13
 
                 // Upload and write the output
 
-                OutputStatusMessage("-----\nAdding campaign, ad group, keyword, and ad...");
+                OutputStatusMessage("-----\nAdding the ad customizer feed, campaign, ad group, keyword, and ad...");
 
                 var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 var downloadEntities = Reader.ReadEntities().ToList();
 
                 OutputStatusMessage("Upload results:");
+
+                var feedResults = downloadEntities.OfType<BulkFeed>().ToList();
+                OutputBulkFeeds(feedResults);
+
+                var feedItemResults = downloadEntities.OfType<BulkFeedItem>().ToList();
+                OutputBulkFeedItems(feedItemResults);
 
                 var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
                 OutputBulkCampaigns(campaignResults);
@@ -134,11 +225,17 @@ namespace BingAdsExamplesLibrary.V13
                 OutputBulkExpandedTextAds(expandedTextAdResults);
 
                 Reader.Dispose();
-                
-                // Delete the campaign and everything it contains e.g., ad groups and ads.
+
+                // Delete the feed and campaign and everything it contains e.g., ad groups and ads.
 
                 uploadEntities = new List<BulkEntity>();
-                
+
+                foreach (var feedResult in feedResults)
+                {
+                    feedResult.Status = Status.Deleted;
+                    uploadEntities.Add(feedResult);
+                }
+
                 foreach (var campaignResult in campaignResults)
                 {
                     campaignResult.Campaign.Status = CampaignStatus.Deleted;
@@ -147,7 +244,7 @@ namespace BingAdsExamplesLibrary.V13
                 
                 // Upload and write the output
 
-                OutputStatusMessage("-----\nDeleting the campaign and everything it contains e.g., ad groups and ads...");
+                OutputStatusMessage("-----\nDeleting the feed and campaign and everything it contains e.g., ad groups and ads...");
 
                 Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
                 downloadEntities = Reader.ReadEntities().ToList();
