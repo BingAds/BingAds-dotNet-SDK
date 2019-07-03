@@ -366,7 +366,7 @@ namespace BingAdsExamplesLibrary.V13
                     {
                         // Remove read-only elements that would otherwise cause the update operation to fail.
                         var updateExtension = SetReadOnlyAdExtensionElementsToNull(extension);
-                        
+
                         // If you set the Scheduling element null, any existing scheduling set for the ad extension will remain unchanged. 
                         // If you set this to any non-null Schedule object, you are effectively replacing existing scheduling 
                         // for the ad extension. In this example, we will remove any existing scheduling by setting this element  

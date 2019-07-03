@@ -236,7 +236,6 @@ namespace BingAdsExamplesLibrary.V12
 
                 var bulkDynamicSearchAd = new BulkDynamicSearchAd
                 {
-                    ClientId = "here",
                     AdGroupId = adGroupIdKey,
                     DynamicSearchAd = new DynamicSearchAd
                     {

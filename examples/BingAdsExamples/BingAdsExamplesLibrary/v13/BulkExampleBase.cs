@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.BingAds.V13.Bulk;
 using Microsoft.BingAds.V13.Bulk.Entities;
+using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
 using Microsoft.BingAds.V13.CampaignManagement;
 using System.Threading.Tasks;
 using Microsoft.BingAds.V13.Internal.Bulk.Entities;
@@ -80,6 +81,7 @@ namespace BingAdsExamplesLibrary.V13
         protected long budgetIdKey = -20;
         protected long remarketingListIdKey = -21;
         protected long labelIdKey = -22;
+        protected long feedIdKey = -23;
         protected long campaignIdKey = -111;
         protected long searchCampaignIdKey = -112;
         protected long shoppingCampaignIdKey = -113;
@@ -139,7 +141,7 @@ namespace BingAdsExamplesLibrary.V13
                 cancellationToken: tokenSource.Token);
 
             return new BulkFileReader(bulkFilePath, ResultFileType.Upload, FileType);
-        }
+         }
 
         /// <summary>
         /// Outputs the list of BulkAccount
@@ -732,6 +734,71 @@ namespace BingAdsExamplesLibrary.V13
 
                 // Output the Campaign Management Budget Object
                 CampaignManagementExampleHelper.OutputBudget(entity.Budget);
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Outputs the list of BulkFeed.
+        /// </summary>
+        protected void OutputBulkFeeds(IEnumerable<BulkFeed> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("BulkFeed:");
+                OutputStatusMessage(string.Format("AccountId: {0}", entity.AccountId));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage("CustomAttributes:");
+                foreach(var customAttribute in entity.CustomAttributes)
+                {
+                    OutputStatusMessage("FeedCustomAttributeContract:");
+                    OutputStatusMessage(string.Format("FeedAttributeType: {0}", customAttribute.FeedAttributeType));
+                    OutputStatusMessage(string.Format("IsPartOfKey: {0}", customAttribute.IsPartOfKey));
+                    OutputStatusMessage(string.Format("Name: {0}", customAttribute.Name));
+                }
+                OutputStatusMessage(string.Format("Id: {0}", entity.Id));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+                OutputStatusMessage(string.Format("Name: {0}", entity.Name));
+                OutputStatusMessage(string.Format("Status: {0}", entity.Status));
+                OutputStatusMessage(string.Format("SubType: {0}", entity.SubType));
+
+                if (entity.HasErrors)
+                {
+                    OutputBulkErrors(entity.Errors);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Outputs the list of BulkFeedItem.
+        /// </summary>
+        protected void OutputBulkFeedItems(IEnumerable<BulkFeedItem> bulkEntities)
+        {
+            foreach (var entity in bulkEntities)
+            {
+                OutputStatusMessage("BulkFeedItem:");
+                OutputStatusMessage(string.Format("AdGroupName: {0}", entity.AdGroupName));
+                OutputStatusMessage(string.Format("AudienceId: {0}", entity.AudienceId));
+                OutputStatusMessage(string.Format("CampaignName: {0}", entity.CampaignName));
+                OutputStatusMessage(string.Format("ClientId: {0}", entity.ClientId));
+                OutputStatusMessage(string.Format("CustomAttributes: {0}", entity.CustomAttributes));
+                OutputStatusMessage("DayTimeRanges:");
+                CampaignManagementExampleHelper.OutputArrayOfDayTime(entity.DayTimeRanges);
+                OutputStatusMessage(string.Format("DevicePreference: {0}", entity.DevicePreference));
+                OutputStatusMessage(string.Format("EndDate: {0}", entity.EndDate));
+                OutputStatusMessage(string.Format("FeedId: {0}", entity.FeedId));
+                OutputStatusMessage(string.Format("Id: {0}", entity.Id));
+                OutputStatusMessage(string.Format("IntentOption: {0}", entity.IntentOption));
+                OutputStatusMessage(string.Format("Keyword: {0}", entity.Keyword));
+                OutputStatusMessage(string.Format("LastModifiedTime: {0}", entity.LastModifiedTime));
+                OutputStatusMessage(string.Format("LocationId: {0}", entity.LocationId));
+                OutputStatusMessage(string.Format("MatchType: {0}", entity.MatchType));
+                OutputStatusMessage(string.Format("StartDate: {0}", entity.StartDate));
+                OutputStatusMessage(string.Format("Status: {0}", entity.Status));
 
                 if (entity.HasErrors)
                 {
