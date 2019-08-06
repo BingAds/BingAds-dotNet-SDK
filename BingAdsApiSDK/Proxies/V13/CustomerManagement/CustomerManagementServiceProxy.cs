@@ -66,7 +66,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     
     
     /// <summary>
-    /// Defines an account identification object that contains information that identifies an account.
+    /// Defines an object that contains an account's identifier, name, and number.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountinfo?view=bingads-13">AccountInfo Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountinfo?view=bingads-13 for details.
@@ -2871,7 +2871,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Defines a customer identification object that contains information that identifies a customer.
+    /// Defines an object that contains a customer's identifier and name.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/customerinfo?view=bingads-13">CustomerInfo Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/customerinfo?view=bingads-13 for details.
@@ -4860,7 +4860,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Defines the role a user has for one customer or list of accounts within a customer.
+    /// Defines account access rights for a person who acts on behalf of a specific customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/customerrole?view=bingads-13">CustomerRole Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/customerrole?view=bingads-13 for details.
@@ -4984,7 +4984,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Determines whether the user's access to the accounts is restricted by customer hierarchy i.e., customer level client linking.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string CustomerLinkPermission
@@ -5971,7 +5971,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Determines whether the link is to a client ad account or a client customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type
@@ -5991,7 +5991,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The identifier of the client account or customer to manage.
+        /// The identifier of the client ad account or client customer to manage.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<long> ClientEntityId
@@ -6011,7 +6011,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The number of the client account or customer to manage.
+        /// The number of the client ad account or client customer to manage.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public string ClientEntityNumber
@@ -6031,7 +6031,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The name of the client account or customer to manage.
+        /// The name of the client ad account or client customer to manage.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public string ClientEntityName
@@ -6051,7 +6051,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The identifier of the customer who manages or is requesting to manage the client account.
+        /// The identifier of the customer who manages or is requesting to manage the client ad account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public System.Nullable<long> ManagingCustomerId
@@ -6071,7 +6071,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The number of the customer who manages or is requesting to manage the client account.
+        /// The number of the customer who manages or is requesting to manage the client ad account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public string ManagingCustomerNumber
@@ -6091,7 +6091,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The name of the customer who manages or is requesting to manage the client account.
+        /// The name of the customer who manages or is requesting to manage the client ad account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public string ManagingCustomerName
@@ -6171,7 +6171,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The name of the parent customer of the user who  created the client link request.
+        /// The name of the parent customer of the user who created the client link request.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public string InviterName
@@ -6211,7 +6211,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Determines whether the owner of the client account or the managing customer is responsible for billing payments.
+        /// Determines whether the owner of the client ad account or the managing customer is responsible for billing payments.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public System.Nullable<bool> IsBillToClient
@@ -6271,7 +6271,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Determines whether or not to send email notification of the client link invitation to the primary user of the client account.
+        /// Determines whether or not to send email notification of the client link invitation to the primary user of the client ad account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public bool SuppressNotification
@@ -6371,7 +6371,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Determines whether the user's access to the accounts is restricted by customer hierarchy i.e., customer level client linking.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=20)]
         public string CustomerLinkPermission
@@ -6753,7 +6753,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     {
         
         /// <summary>
-        /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
+        /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
@@ -6761,7 +6761,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of AccountInfo objects that identifies the list of accounts that the customer owns.</returns>
+        /// <returns>The list of information about ad accounts that match the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountsInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccounts" +
             "InfoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccounts" +
@@ -6771,7 +6771,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoResponse GetAccountsInfo(Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoRequest request);
         
         /// <summary>
-        /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
+        /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
@@ -6779,7 +6779,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of AccountInfo objects that identifies the list of accounts that the customer owns.</returns>
+        /// <returns>The list of information about ad accounts that match the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountsInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccounts" +
             "InfoResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoResponse> GetAccountsInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoRequest request);
@@ -7009,7 +7009,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountResponse> GetAccountAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountRequest request);
         
         /// <summary>
-        /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
+        /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
@@ -7017,7 +7017,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.</returns>
+        /// <returns>The list of information about customers that match the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "sInfoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
@@ -7027,7 +7027,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoResponse GetCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoRequest request);
         
         /// <summary>
-        /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
+        /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
@@ -7035,7 +7035,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.</returns>
+        /// <returns>The list of information about customers that match the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "sInfoResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoResponse> GetCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoRequest request);
@@ -7277,7 +7277,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoResponse> GetUsersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoRequest request);
         
         /// <summary>
-        /// Gets a list of the pilot programs in which the specified customer participates.
+        /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
@@ -7285,7 +7285,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identifies the pilot programs in which the customer participates.</returns>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomerPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "PilotFeaturesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
@@ -7295,7 +7295,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesResponse GetCustomerPilotFeatures(Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesRequest request);
         
         /// <summary>
-        /// Gets a list of the pilot programs in which the specified customer participates.
+        /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
@@ -7303,10 +7303,42 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identifies the pilot programs in which the customer participates.</returns>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomerPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "PilotFeaturesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesResponse> GetCustomerPilotFeaturesAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesRequest request);
+        
+        /// <summary>
+        /// Gets a list of the pilot programs that are enabled for the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetAccountPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountP" +
+            "ilotFeaturesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountP" +
+            "ilotFeaturesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.ApiFault), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountP" +
+            "ilotFeaturesApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesResponse GetAccountPilotFeatures(Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesRequest request);
+        
+        /// <summary>
+        /// Gets a list of the pilot programs that are enabled for the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetAccountPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountP" +
+            "ilotFeaturesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesResponse> GetAccountPilotFeaturesAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="GetPilotFeaturesCountries", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetPilotFea" +
             "turesCountriesResponse")]
@@ -7425,7 +7457,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.MapAccountIdToExternalAccountIdsResponse> MapAccountIdToExternalAccountIdsAsync(Microsoft.BingAds.V13.CustomerManagement.MapAccountIdToExternalAccountIdsRequest request);
         
         /// <summary>
-        /// Searches for customers that match a specified criteria.
+        /// Searches for customers that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
@@ -7433,7 +7465,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of customers that meet the specified criteria.</returns>
+        /// <returns>A  list of customers that meet the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchCustomers", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchCusto" +
             "mersResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchCusto" +
@@ -7443,7 +7475,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.SearchCustomersResponse SearchCustomers(Microsoft.BingAds.V13.CustomerManagement.SearchCustomersRequest request);
         
         /// <summary>
-        /// Searches for customers that match a specified criteria.
+        /// Searches for customers that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
@@ -7451,7 +7483,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of customers that meet the specified criteria.</returns>
+        /// <returns>A  list of customers that meet the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchCustomers", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchCusto" +
             "mersResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchCustomersResponse> SearchCustomersAsync(Microsoft.BingAds.V13.CustomerManagement.SearchCustomersRequest request);
@@ -7553,7 +7585,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksResponse> SearchClientLinksAsync(Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksRequest request);
         
         /// <summary>
-        /// Searches for accounts that match a specified criteria.
+        /// Searches for accounts that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
@@ -7561,7 +7593,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the specified criteria.</returns>
+        /// <returns>A list of accounts that meet the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchAccou" +
             "ntsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchAccou" +
@@ -7571,7 +7603,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse SearchAccounts(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request);
         
         /// <summary>
-        /// Searches for accounts that match a specified criteria.
+        /// Searches for accounts that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
@@ -7579,7 +7611,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the specified criteria.</returns>
+        /// <returns>A list of accounts that meet the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchAccou" +
             "ntsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request);
@@ -7617,7 +7649,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationResponse> SendUserInvitationAsync(Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationRequest request);
         
         /// <summary>
-        /// Searches for user invitations that match a specified criteria.
+        /// Searches for user invitations that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
@@ -7635,7 +7667,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsResponse SearchUserInvitations(Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsRequest request);
         
         /// <summary>
-        /// Searches for user invitations that match a specified criteria.
+        /// Searches for user invitations that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
@@ -7681,7 +7713,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.ValidateAddressResponse> ValidateAddressAsync(Microsoft.BingAds.V13.CustomerManagement.ValidateAddressRequest request);
         
         /// <summary>
-        /// Reserved for future use.
+        /// Gets the customer and account hierarchy under a specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -7699,7 +7731,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse GetLinkedAccountsAndCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request);
         
         /// <summary>
-        /// Reserved for future use.
+        /// Gets the customer and account hierarchy under a specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -7714,7 +7746,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
+    /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
@@ -7742,13 +7774,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// The identifier of the customer who owns the accounts to get.
+        /// The identifier of the customer used to get the account information.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<long> CustomerId;
         
         /// <summary>
-        /// Determines whether to return only the accounts that belong to the customer or to also return the accounts that the customer manages for other customers.
+        /// Determines whether to return only the ad accounts that belong to the customer or to also return linked ad accounts under other customers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public bool OnlyParentAccounts;
@@ -7769,8 +7801,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer who owns the accounts to get.</param>
-        /// <param name="OnlyParentAccounts">Determines whether to return only the accounts that belong to the customer or to also return the accounts that the customer manages for other customers.</param>
+        /// <param name="CustomerId">The identifier of the customer used to get the account information.</param>
+        /// <param name="OnlyParentAccounts">Determines whether to return only the ad accounts that belong to the customer or to also return linked ad accounts under other customers.</param>
         public GetAccountsInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> CustomerId, bool OnlyParentAccounts)
         {
             this.ApplicationToken = ApplicationToken;
@@ -7784,7 +7816,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
+    /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
@@ -7800,7 +7832,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// An array of AccountInfo objects that identifies the list of accounts that the customer owns.
+        /// The list of information about ad accounts that match the request criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo;
@@ -7821,7 +7853,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="AccountsInfo">An array of AccountInfo objects that identifies the list of accounts that the customer owns.</param>
+        /// <param name="AccountsInfo">The list of information about ad accounts that match the request criteria.</param>
         public GetAccountsInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo)
         {
             this.TrackingId = TrackingId;
@@ -8666,7 +8698,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
+    /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
@@ -8736,7 +8768,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
+    /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
@@ -8752,7 +8784,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.
+        /// The list of information about customers that match the request criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo;
@@ -8773,7 +8805,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="CustomersInfo">An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.</param>
+        /// <param name="CustomersInfo">The list of information about customers that match the request criteria.</param>
         public GetCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo)
         {
             this.TrackingId = TrackingId;
@@ -9668,7 +9700,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Gets a list of the pilot programs in which the specified customer participates.
+    /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
@@ -9696,7 +9728,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// The identifier of the customer whose list of pilot programs you want to get.
+        /// The identifier of the customer used to get a list of pilot features.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long CustomerId;
@@ -9717,7 +9749,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer whose list of pilot programs you want to get.</param>
+        /// <param name="CustomerId">The identifier of the customer used to get a list of pilot features.</param>
         public GetCustomerPilotFeaturesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9730,7 +9762,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Gets a list of the pilot programs in which the specified customer participates.
+    /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
@@ -9746,7 +9778,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A list of integers that identifies the pilot programs in which the customer participates.
+        /// A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<int> FeaturePilotFlags;
@@ -9767,8 +9799,116 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="FeaturePilotFlags">A list of integers that identifies the pilot programs in which the customer participates.</param>
+        /// <param name="FeaturePilotFlags">A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</param>
         public GetCustomerPilotFeaturesResponse(string TrackingId, System.Collections.Generic.IList<int> FeaturePilotFlags)
+        {
+            this.TrackingId = TrackingId;
+            this.FeaturePilotFlags = FeaturePilotFlags;
+        }
+    }
+    
+    /// <summary>
+    /// Gets a list of the pilot programs that are enabled for the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountPilotFeatures">GetAccountPilotFeatures</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountPilotFeaturesRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
+    public partial class GetAccountPilotFeaturesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The identifier of the account used to get a list of pilot features.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
+        public long AccountId;
+        
+        /// <summary>
+        /// Constructor for the GetAccountPilotFeaturesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+        /// </remarks>
+        public GetAccountPilotFeaturesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetAccountPilotFeaturesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The identifier of the account used to get a list of pilot features.</param>
+        public GetAccountPilotFeaturesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountId = AccountId;
+        }
+    }
+    
+    /// <summary>
+    /// Gets a list of the pilot programs that are enabled for the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountPilotFeatures">GetAccountPilotFeatures</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountPilotFeaturesResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
+    public partial class GetAccountPilotFeaturesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
+        public System.Collections.Generic.IList<int> FeaturePilotFlags;
+        
+        /// <summary>
+        /// Constructor for the GetAccountPilotFeaturesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+        /// </remarks>
+        public GetAccountPilotFeaturesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetAccountPilotFeaturesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="FeaturePilotFlags">A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</param>
+        public GetAccountPilotFeaturesResponse(string TrackingId, System.Collections.Generic.IList<int> FeaturePilotFlags)
         {
             this.TrackingId = TrackingId;
             this.FeaturePilotFlags = FeaturePilotFlags;
@@ -10330,7 +10470,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Searches for customers that match a specified criteria.
+    /// Searches for customers that match the request criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
@@ -10416,7 +10556,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Searches for customers that match a specified criteria.
+    /// Searches for customers that match the request criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
@@ -10432,7 +10572,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A  list of customers that meet the specified criteria.
+        /// A  list of customers that meet the request criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Customer> Customers;
@@ -10453,7 +10593,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Customers">A  list of customers that meet the specified criteria.</param>
+        /// <param name="Customers">A  list of customers that meet the request criteria.</param>
         public SearchCustomersResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Customer> Customers)
         {
             this.TrackingId = TrackingId;
@@ -10818,7 +10958,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Searches for accounts that match a specified criteria.
+    /// Searches for accounts that match the request criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
@@ -10896,7 +11036,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Searches for accounts that match a specified criteria.
+    /// Searches for accounts that match the request criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
@@ -10912,7 +11052,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A list of accounts that meet the specified criteria.
+        /// A list of accounts that meet the request criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount> Accounts;
@@ -10933,7 +11073,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Accounts">A list of accounts that meet the specified criteria.</param>
+        /// <param name="Accounts">A list of accounts that meet the request criteria.</param>
         public SearchAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount> Accounts)
         {
             this.TrackingId = TrackingId;
@@ -11050,7 +11190,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Searches for user invitations that match a specified criteria.
+    /// Searches for user invitations that match the request criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
@@ -11112,7 +11252,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Searches for user invitations that match a specified criteria.
+    /// Searches for user invitations that match the request criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
@@ -11282,7 +11422,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Gets the customer and account hierarchy under a specified customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -11310,13 +11450,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The identifier of the customer whose hierarchy you want to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<long> CustomerId;
         
         /// <summary>
-        /// Reserved for future use.
+        /// Determines whether to return only the ad accounts that belong to the customer or to also return linked customers and linked ad accounts under other customers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public bool OnlyParentAccounts;
@@ -11337,8 +11477,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="CustomerId">Reserved for future use.</param>
-        /// <param name="OnlyParentAccounts">Reserved for future use.</param>
+        /// <param name="CustomerId">The identifier of the customer whose hierarchy you want to get.</param>
+        /// <param name="OnlyParentAccounts">Determines whether to return only the ad accounts that belong to the customer or to also return linked customers and linked ad accounts under other customers.</param>
         public GetLinkedAccountsAndCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> CustomerId, bool OnlyParentAccounts)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11352,7 +11492,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Gets the customer and account hierarchy under a specified customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -11368,13 +11508,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The list of information about ad accounts that match the request criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The list of information about customers that match the request criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo;
@@ -11395,8 +11535,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="AccountsInfo">Reserved for future use.</param>
-        /// <param name="CustomersInfo">Reserved for future use.</param>
+        /// <param name="AccountsInfo">The list of information about ad accounts that match the request criteria.</param>
+        /// <param name="CustomersInfo">The list of information about customers that match the request criteria.</param>
         public GetLinkedAccountsAndCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo)
         {
             this.TrackingId = TrackingId;
@@ -11440,7 +11580,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
+        /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
@@ -11448,14 +11588,14 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of AccountInfo objects that identifies the list of accounts that the customer owns.</returns>
+        /// <returns>The list of information about ad accounts that match the request criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoResponse GetAccountsInfo(Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoRequest request)
         {
             return base.Channel.GetAccountsInfo(request);
         }
         
         /// <summary>
-        /// Gets a list of objects that contains account identification information, for example the name and identifier of the account, for the specified customer.
+        /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
@@ -11463,7 +11603,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of AccountInfo objects that identifies the list of accounts that the customer owns.</returns>
+        /// <returns>The list of information about ad accounts that match the request criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoResponse> GetAccountsInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoRequest request)
         {
             return base.Channel.GetAccountsInfoAsync(request);
@@ -11680,7 +11820,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
+        /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
@@ -11688,14 +11828,14 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.</returns>
+        /// <returns>The list of information about customers that match the request criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoResponse GetCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoRequest request)
         {
             return base.Channel.GetCustomersInfo(request);
         }
         
         /// <summary>
-        /// Gets a list of objects that contain customer identification information, for example the name and identifier of the customer.
+        /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
@@ -11703,7 +11843,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.</returns>
+        /// <returns>The list of information about customers that match the request criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoResponse> GetCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoRequest request)
         {
             return base.Channel.GetCustomersInfoAsync(request);
@@ -11930,7 +12070,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Gets a list of the pilot programs in which the specified customer participates.
+        /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
@@ -11938,14 +12078,14 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identifies the pilot programs in which the customer participates.</returns>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesResponse GetCustomerPilotFeatures(Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesRequest request)
         {
             return base.Channel.GetCustomerPilotFeatures(request);
         }
         
         /// <summary>
-        /// Gets a list of the pilot programs in which the specified customer participates.
+        /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
@@ -11953,10 +12093,40 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identifies the pilot programs in which the customer participates.</returns>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesResponse> GetCustomerPilotFeaturesAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesRequest request)
         {
             return base.Channel.GetCustomerPilotFeaturesAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets a list of the pilot programs that are enabled for the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
+        public Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesResponse GetAccountPilotFeatures(Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesRequest request)
+        {
+            return base.Channel.GetAccountPilotFeatures(request);
+        }
+        
+        /// <summary>
+        /// Gets a list of the pilot programs that are enabled for the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesResponse> GetAccountPilotFeaturesAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesRequest request)
+        {
+            return base.Channel.GetAccountPilotFeaturesAsync(request);
         }
         
         public Microsoft.BingAds.V13.CustomerManagement.GetPilotFeaturesCountriesResponse GetPilotFeaturesCountries(Microsoft.BingAds.V13.CustomerManagement.GetPilotFeaturesCountriesRequest request)
@@ -12060,7 +12230,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Searches for customers that match a specified criteria.
+        /// Searches for customers that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
@@ -12068,14 +12238,14 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of customers that meet the specified criteria.</returns>
+        /// <returns>A  list of customers that meet the request criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.SearchCustomersResponse SearchCustomers(Microsoft.BingAds.V13.CustomerManagement.SearchCustomersRequest request)
         {
             return base.Channel.SearchCustomers(request);
         }
         
         /// <summary>
-        /// Searches for customers that match a specified criteria.
+        /// Searches for customers that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
@@ -12083,7 +12253,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of customers that meet the specified criteria.</returns>
+        /// <returns>A  list of customers that meet the request criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchCustomersResponse> SearchCustomersAsync(Microsoft.BingAds.V13.CustomerManagement.SearchCustomersRequest request)
         {
             return base.Channel.SearchCustomersAsync(request);
@@ -12180,7 +12350,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Searches for accounts that match a specified criteria.
+        /// Searches for accounts that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
@@ -12188,14 +12358,14 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the specified criteria.</returns>
+        /// <returns>A list of accounts that meet the request criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse SearchAccounts(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request)
         {
             return base.Channel.SearchAccounts(request);
         }
         
         /// <summary>
-        /// Searches for accounts that match a specified criteria.
+        /// Searches for accounts that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
@@ -12203,7 +12373,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the specified criteria.</returns>
+        /// <returns>A list of accounts that meet the request criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request)
         {
             return base.Channel.SearchAccountsAsync(request);
@@ -12240,7 +12410,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Searches for user invitations that match a specified criteria.
+        /// Searches for user invitations that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
@@ -12255,7 +12425,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Searches for user invitations that match a specified criteria.
+        /// Searches for user invitations that match the request criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
@@ -12300,7 +12470,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Gets the customer and account hierarchy under a specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
@@ -12315,7 +12485,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Gets the customer and account hierarchy under a specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.

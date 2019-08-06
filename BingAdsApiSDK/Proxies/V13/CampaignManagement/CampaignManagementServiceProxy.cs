@@ -1456,7 +1456,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The page feed identifiers for dynamic search ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> PageFeedIds
@@ -13575,7 +13575,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private Microsoft.BingAds.V13.CampaignManagement.ProfileType ProfileTypeField;
         
         /// <summary>
-        /// The identifier of the audience profile that you want to target.
+        /// The identifier of the company name, industry, or job function profile that you want to target.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long ProfileId
@@ -17979,7 +17979,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Determines whether or not to exclude data otherwise related to this conversion goal from a subset of performance report columns.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeFromBidding
@@ -19498,6 +19498,138 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.TrafficSplitPercentField = value;
                     this.RaisePropertyChanged("TrafficSplitPercent");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the profile data for a company.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/company?view=bingads-13">Company Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/company?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SearchCompanies">SearchCompanies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Company", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class Company : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LogoUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        private long ProfileIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The full https path for the company's logo image.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LogoUrl
+        {
+            get
+            {
+                return this.LogoUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LogoUrlField, value) != true))
+                {
+                    this.LogoUrlField = value;
+                    this.RaisePropertyChanged("LogoUrl");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The company name.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The company name profile identifier that you can use with ProfileCriterion.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long ProfileId
+        {
+            get
+            {
+                return this.ProfileIdField;
+            }
+            set
+            {
+                if ((this.ProfileIdField.Equals(value) != true))
+                {
+                    this.ProfileIdField = value;
+                    this.RaisePropertyChanged("ProfileId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The company name profile status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.StatusField, value) != true))
+                {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
                 }
             }
         }
@@ -22744,7 +22876,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetExperimentsByIdsResponse> GetExperimentsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetExperimentsByIdsRequest request);
         
         /// <summary>
-        /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
+        /// Gets a temporary URL that you can use to download industry or job function profile data.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13 for details.
@@ -22762,7 +22894,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetProfileDataFileUrlResponse GetProfileDataFileUrl(Microsoft.BingAds.V13.CampaignManagement.GetProfileDataFileUrlRequest request);
         
         /// <summary>
-        /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
+        /// Gets a temporary URL that you can use to download industry or job function profile data.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13 for details.
@@ -22774,6 +22906,38 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="GetProfileDataFileUrl", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etProfileDataFileUrlResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetProfileDataFileUrlResponse> GetProfileDataFileUrlAsync(Microsoft.BingAds.V13.CampaignManagement.GetProfileDataFileUrlRequest request);
+        
+        /// <summary>
+        /// Search for profile data by company name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompanies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of companies that match the requested company name filter.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="SearchCompanies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/S" +
+            "earchCompaniesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/S" +
+            "earchCompaniesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/S" +
+            "earchCompaniesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesResponse SearchCompanies(Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesRequest request);
+        
+        /// <summary>
+        /// Search for profile data by company name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompanies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of companies that match the requested company name filter.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="SearchCompanies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/S" +
+            "earchCompaniesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesResponse> SearchCompaniesAsync(Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesRequest request);
     }
     
     /// <summary>
@@ -35617,7 +35781,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
+    /// Gets a temporary URL that you can use to download industry or job function profile data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13">GetProfileDataFileUrl Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13 for details.
@@ -35657,7 +35821,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string LanguageLocale;
         
         /// <summary>
-        /// Determines whether you want company name, industry, or job function profile data.
+        /// Determines whether you want industry or job function profile data.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.ProfileType ProfileType;
@@ -35679,7 +35843,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13">GetProfileDataFileUrlRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13 for details.
         /// </remarks>
         /// <param name="LanguageLocale">The language and locale of the profile display names.</param>
-        /// <param name="ProfileType">Determines whether you want company name, industry, or job function profile data.</param>
+        /// <param name="ProfileType">Determines whether you want industry or job function profile data.</param>
         public GetProfileDataFileUrlRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string LanguageLocale, Microsoft.BingAds.V13.CampaignManagement.ProfileType ProfileType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -35695,7 +35859,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
+    /// Gets a temporary URL that you can use to download industry or job function profile data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13">GetProfileDataFileUrl Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13 for details.
@@ -35753,6 +35917,130 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.FileUrl = FileUrl;
             this.FileUrlExpiryTimeUtc = FileUrlExpiryTimeUtc;
             this.LastModifiedTimeUtc = LastModifiedTimeUtc;
+        }
+    }
+    
+    /// <summary>
+    /// Search for profile data by company name.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompanies Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SearchCompanies">SearchCompanies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SearchCompaniesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class SearchCompaniesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The company name filter string.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public string CompanyNameFilter;
+        
+        /// <summary>
+        /// The language and locale of the profile display names.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public string LanguageLocale;
+        
+        /// <summary>
+        /// Constructor for the SearchCompaniesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompaniesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+        /// </remarks>
+        public SearchCompaniesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the SearchCompaniesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompaniesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CompanyNameFilter">The company name filter string.</param>
+        /// <param name="LanguageLocale">The language and locale of the profile display names.</param>
+        public SearchCompaniesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string CompanyNameFilter, string LanguageLocale)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CompanyNameFilter = CompanyNameFilter;
+            this.LanguageLocale = LanguageLocale;
+        }
+    }
+    
+    /// <summary>
+    /// Search for profile data by company name.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompanies Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SearchCompanies">SearchCompanies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SearchCompaniesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class SearchCompaniesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The list of companies that match the requested company name filter.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Company> Companies;
+        
+        /// <summary>
+        /// Constructor for the SearchCompaniesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompaniesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+        /// </remarks>
+        public SearchCompaniesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the SearchCompaniesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompaniesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="Companies">The list of companies that match the requested company name filter.</param>
+        public SearchCompaniesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Company> Companies)
+        {
+            this.TrackingId = TrackingId;
+            this.Companies = Companies;
         }
     }
     
@@ -38811,7 +39099,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
+        /// Gets a temporary URL that you can use to download industry or job function profile data.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13 for details.
@@ -38826,7 +39114,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets a temporary URL that you can use to download company name, industry, or job function profile data.
+        /// Gets a temporary URL that you can use to download industry or job function profile data.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13">GetProfileDataFileUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getprofiledatafileurl?view=bingads-13 for details.
@@ -38838,6 +39126,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetProfileDataFileUrlResponse> GetProfileDataFileUrlAsync(Microsoft.BingAds.V13.CampaignManagement.GetProfileDataFileUrlRequest request)
         {
             return base.Channel.GetProfileDataFileUrlAsync(request);
+        }
+        
+        /// <summary>
+        /// Search for profile data by company name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompanies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of companies that match the requested company name filter.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesResponse SearchCompanies(Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesRequest request)
+        {
+            return base.Channel.SearchCompanies(request);
+        }
+        
+        /// <summary>
+        /// Search for profile data by company name.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13">SearchCompanies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/searchcompanies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of companies that match the requested company name filter.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesResponse> SearchCompaniesAsync(Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesRequest request)
+        {
+            return base.Channel.SearchCompaniesAsync(request);
         }
     }
 }

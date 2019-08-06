@@ -7162,7 +7162,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.GetUsersInfoResponse> GetUsersInfoAsync(Microsoft.BingAds.V12.CustomerManagement.GetUsersInfoRequest request);
         
         /// <summary>
-        /// Gets a list of the pilot programs in which the specified customer participates.
+        /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12 for details.
@@ -7170,7 +7170,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identifies the pilot programs in which the customer participates.</returns>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomerPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/GetCustomer" +
             "PilotFeaturesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V12.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/GetCustomer" +
@@ -7180,7 +7180,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         Microsoft.BingAds.V12.CustomerManagement.GetCustomerPilotFeaturesResponse GetCustomerPilotFeatures(Microsoft.BingAds.V12.CustomerManagement.GetCustomerPilotFeaturesRequest request);
         
         /// <summary>
-        /// Gets a list of the pilot programs in which the specified customer participates.
+        /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12 for details.
@@ -7188,7 +7188,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identifies the pilot programs in which the customer participates.</returns>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomerPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v12/ICustomerManagementService/GetCustomer" +
             "PilotFeaturesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.GetCustomerPilotFeaturesResponse> GetCustomerPilotFeaturesAsync(Microsoft.BingAds.V12.CustomerManagement.GetCustomerPilotFeaturesRequest request);
@@ -9537,7 +9537,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Gets a list of the pilot programs in which the specified customer participates.
+    /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12">GetCustomerPilotFeatures Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12 for details.
@@ -9565,7 +9565,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// The identifier of the customer whose list of pilot programs you want to get.
+        /// The identifier of the customer used to get a list of pilot features.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=0)]
         public long CustomerId;
@@ -9586,7 +9586,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12">GetCustomerPilotFeaturesRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer whose list of pilot programs you want to get.</param>
+        /// <param name="CustomerId">The identifier of the customer used to get a list of pilot features.</param>
         public GetCustomerPilotFeaturesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9599,7 +9599,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
     }
     
     /// <summary>
-    /// Gets a list of the pilot programs in which the specified customer participates.
+    /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12">GetCustomerPilotFeatures Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12 for details.
@@ -9615,7 +9615,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// A list of integers that identifies the pilot programs in which the customer participates.
+        /// A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v12", Order=0)]
         public System.Collections.Generic.IList<int> FeaturePilotFlags;
@@ -9636,7 +9636,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12">GetCustomerPilotFeaturesResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12 for details.
         /// </remarks>
-        /// <param name="FeaturePilotFlags">A list of integers that identifies the pilot programs in which the customer participates.</param>
+        /// <param name="FeaturePilotFlags">A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</param>
         public GetCustomerPilotFeaturesResponse(string TrackingId, System.Collections.Generic.IList<int> FeaturePilotFlags)
         {
             this.TrackingId = TrackingId;
@@ -11683,7 +11683,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         }
         
         /// <summary>
-        /// Gets a list of the pilot programs in which the specified customer participates.
+        /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12 for details.
@@ -11691,14 +11691,14 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identifies the pilot programs in which the customer participates.</returns>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
         public Microsoft.BingAds.V12.CustomerManagement.GetCustomerPilotFeaturesResponse GetCustomerPilotFeatures(Microsoft.BingAds.V12.CustomerManagement.GetCustomerPilotFeaturesRequest request)
         {
             return base.Channel.GetCustomerPilotFeatures(request);
         }
         
         /// <summary>
-        /// Gets a list of the pilot programs in which the specified customer participates.
+        /// Gets a list of the pilot programs that are enabled for all of the customer's accounts.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12">GetCustomerPilotFeatures Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-12 for details.
@@ -11706,7 +11706,7 @@ namespace Microsoft.BingAds.V12.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identifies the pilot programs in which the customer participates.</returns>
+        /// <returns>A list of integers that identifies the pilot features that are enabled for all of the customer's accounts.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V12.CustomerManagement.GetCustomerPilotFeaturesResponse> GetCustomerPilotFeaturesAsync(Microsoft.BingAds.V12.CustomerManagement.GetCustomerPilotFeaturesRequest request)
         {
             return base.Channel.GetCustomerPilotFeaturesAsync(request);

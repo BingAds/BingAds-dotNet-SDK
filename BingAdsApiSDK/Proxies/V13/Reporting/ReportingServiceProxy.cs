@@ -4951,6 +4951,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 53,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 54,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 55,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 56,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 57,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 58,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 59,
     }
     
     /// <summary>
@@ -6470,6 +6506,48 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 72,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an experiment campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BaseCampaignId = 73,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 74,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 75,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 76,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 77,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 78,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 79,
     }
     
     /// <summary>
@@ -7199,6 +7277,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdLabels = 41,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 42,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 43,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 44,
     }
     
     /// <summary>
@@ -8209,6 +8305,48 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 65,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an experiment campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BaseCampaignId = 66,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 67,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 68,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 69,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 70,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 71,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 72,
     }
     
     /// <summary>
@@ -8807,6 +8945,48 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 59,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an experiment campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BaseCampaignId = 60,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 61,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 62,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 63,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 64,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 65,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 66,
     }
     
     /// <summary>
@@ -9601,6 +9781,48 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 61,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an experiment campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BaseCampaignId = 62,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 63,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 64,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 65,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 66,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 67,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 68,
     }
     
     /// <summary>
@@ -10292,6 +10514,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 45,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 46,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 47,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 48,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 49,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 50,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 51,
     }
     
     /// <summary>
@@ -10614,7 +10872,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Clicks = 12,
         
         /// <summary>
-        /// A conversion is a click that results in a sale or another measure of success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 13,
@@ -10666,6 +10924,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 21,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an experiment campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BaseCampaignId = 22,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 23,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 24,
     }
     
     /// <summary>
@@ -10927,7 +11203,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Spend = 14,
         
         /// <summary>
-        /// A conversion is a click that results in a sale or another measure of success.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
@@ -10967,6 +11243,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 21,
+        
+        /// <summary>
+        /// The average position of the ad on a webpage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePosition = 22,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 23,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 24,
     }
     
     /// <summary>
@@ -11378,6 +11672,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentLocationId = 47,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 48,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 49,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 50,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 51,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 52,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 53,
     }
     
     /// <summary>
@@ -11763,6 +12093,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 35,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 36,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 37,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 38,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 39,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 40,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 41,
     }
     
     /// <summary>
@@ -12317,6 +12683,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 44,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 45,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 46,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 47,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 48,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 49,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 50,
     }
     
     /// <summary>
@@ -12700,6 +13102,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 27,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 28,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 29,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 30,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 31,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 32,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 33,
     }
     
     /// <summary>
@@ -14111,6 +14549,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart3 = 41,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 42,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 43,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 44,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 45,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 46,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 47,
     }
     
     /// <summary>
@@ -14537,6 +15011,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 38,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 39,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 40,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 41,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 42,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 43,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 44,
     }
     
     /// <summary>
@@ -14722,7 +15232,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AudienceName = 9,
         
         /// <summary>
-        /// The status of the association between the ad group and remarketing list, which indicates whether ads are eligible to display.
+        /// The status of the association between the audience and either an ad group or campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssociationStatus = 10,
@@ -14834,6 +15344,54 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceType = 28,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an experiment campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BaseCampaignId = 29,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 30,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 31,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 32,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 33,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 34,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 35,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of the association between the audience and either an ad group or campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssociationId = 36,
     }
     
     /// <summary>
@@ -15254,6 +15812,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 37,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 38,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 39,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 40,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 41,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 42,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 43,
     }
     
     /// <summary>
@@ -15855,6 +16449,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 48,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an experiment campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BaseCampaignId = 49,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 50,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 51,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 52,
     }
     
     /// <summary>
@@ -16445,10 +17063,52 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionSharePercent = 65,
         
         /// <summary>
-        /// Conversions resulting from the clicks on your ads that have received co-bids from your manufacturer partners.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversions = 66,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 67,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 68,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 69,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 70,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 71,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 72,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 73,
     }
     
     /// <summary>
@@ -16991,10 +17651,46 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionSharePercent = 57,
         
         /// <summary>
-        /// Conversions resulting from the clicks on your ads that have received co-bids from your manufacturer partners.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversions = 58,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 59,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 60,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 61,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 62,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 63,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 64,
     }
     
     /// <summary>
@@ -17453,10 +18149,46 @@ namespace Microsoft.BingAds.V13.Reporting
         AssistedClicks = 43,
         
         /// <summary>
-        /// Conversions resulting from the clicks on your ads that have received co-bids from your manufacturer partners.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversions = 44,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 45,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 46,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 47,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 48,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 49,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 50,
     }
     
     /// <summary>
@@ -17937,10 +18669,40 @@ namespace Microsoft.BingAds.V13.Reporting
         AssistedClicks = 39,
         
         /// <summary>
-        /// Conversions resulting from the clicks on your ads that have received co-bids from your manufacturer partners.
+        /// The number of conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversions = 40,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 41,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 42,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 43,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 44,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 45,
     }
     
     /// <summary>
@@ -18725,6 +19487,48 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationId = 45,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an experiment campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BaseCampaignId = 46,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 47,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 48,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 49,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 50,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 51,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 52,
     }
     
     /// <summary>
@@ -19227,6 +20031,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FeedUrl = 43,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 44,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 45,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 46,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 47,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 48,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 49,
     }
     
     /// <summary>
@@ -19653,6 +20493,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 38,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 39,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 40,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 41,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 42,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 43,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 44,
     }
     
     /// <summary>
@@ -20076,6 +20952,42 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 36,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 37,
+        
+        /// <summary>
+        /// The revenue optionally reported by the advertiser as a result of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 38,
+        
+        /// <summary>
+        /// The conversion rate as a percentage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 39,
+        
+        /// <summary>
+        /// The cost per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 40,
+        
+        /// <summary>
+        /// The return on ad spend (ROAS).
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 41,
+        
+        /// <summary>
+        /// The revenue per conversion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 42,
     }
     
     /// <summary>
@@ -20698,7 +21610,7 @@ namespace Microsoft.BingAds.V13.Reporting
         }
         
         /// <summary>
-        /// The URL from where the report can be downloaded.
+        /// The encoded URL from where the report can be downloaded.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ReportDownloadUrl

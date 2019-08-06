@@ -11447,6 +11447,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 21,
+        
+        /// <summary>
+        /// The average position of the ad on a webpage.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePosition = 22,
     }
     
     /// <summary>
@@ -15202,7 +15208,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AudienceName = 9,
         
         /// <summary>
-        /// The status of the association between the ad group and remarketing list, which indicates whether ads are eligible to display.
+        /// The status of the association between the audience and either an ad group or campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssociationStatus = 10,
@@ -15314,6 +15320,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceType = 28,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of the association between the audience and either an ad group or campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssociationId = 29,
     }
     
     /// <summary>
@@ -21142,7 +21154,7 @@ namespace Microsoft.BingAds.V12.Reporting
         }
         
         /// <summary>
-        /// The URL from where the report can be downloaded.
+        /// The encoded URL from where the report can be downloaded.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ReportDownloadUrl
