@@ -10,6 +10,12 @@ using BingAdsConsoleApp.Properties;
 using BingAdsExamplesLibrary;
 using System.IO;
 
+using Microsoft.BingAds.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Debug;
+using System.Diagnostics;
+
 namespace BingAdsConsoleApp
 {
     class Program
@@ -26,19 +32,44 @@ namespace BingAdsConsoleApp
         static void Main(string[] args)
         {
             try
-            {
-                Authentication authentication = AuthenticateWithOAuth();
-                
-                // This utiltiy operation sets the global authorization data instance 
-                // to the first account that the current authenticated user can access. 
-
-                SetAuthorizationDataAsync(authentication).Wait();
-                
-                // Run all of the examples that are included above.
-
-                foreach (var example in _examples)
+            {                
+                using (StreamWriter streamWriter = new StreamWriter(@"tracelog.txt"))
                 {
-                    example.RunAsync(_authorizationData).Wait();
+                    streamWriter.AutoFlush = true;
+
+                    // For console output instead of file output, use new TextWriterTraceListener(Console.Out).
+                    // If you only need debug output, you can remove the StreamWriter, TraceListener, and AddTraceSource.
+                    TraceListener traceListener = new TextWriterTraceListener(streamWriter.BaseStream);
+
+                    IServiceCollection serviceCollection = new ServiceCollection();
+                    serviceCollection.AddLogging(builder => builder
+                        .AddTraceSource(new SourceSwitch("ProgramSourceSwitch", "verbose"), traceListener)
+                        .AddDebug()
+                        .AddFilter(level => level >= LogLevel.Debug)
+                    );
+                    var iLoggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
+                    TraceBehavior.Instance.AddMessageInspector(
+                        new LogMessageInspector(
+                            iLoggerFactory.CreateLogger<Program>(),
+                            LogLevel.Information)
+                    );
+
+                    Authentication authentication = AuthenticateWithOAuth();
+
+                    // This utiltiy operation sets the global authorization data instance 
+                    // to the first account that the current authenticated user can access. 
+
+                    SetAuthorizationDataAsync(authentication).Wait();
+
+                    // Run all of the examples that are included above.
+
+                    foreach (var example in _examples)
+                    {
+                        example.RunAsync(_authorizationData).Wait();
+                    }
+
+                    streamWriter.Flush();
+                    traceListener.Flush();
                 }
             }
             // Catch authentication exceptions

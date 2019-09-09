@@ -348,7 +348,8 @@ namespace BingAdsExamplesLibrary.V13
                 var getAdExtensionsByIdsResponse = (await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
                     accountId: authorizationData.AccountId,
                     adExtensionIds: adExtensionIds,
-                    adExtensionType: adExtensionsTypeFilter));
+                    adExtensionType: adExtensionsTypeFilter,
+                    returnAdditionalFields: AdExtensionAdditionalField.DisplayText | AdExtensionAdditionalField.Images));
                 adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
                 BatchError[] getAdExtensionErrors = getAdExtensionsByIdsResponse?.PartialErrors.ToArray();
                 OutputStatusMessage("AdExtensions:");
@@ -389,7 +390,8 @@ namespace BingAdsExamplesLibrary.V13
                 getAdExtensionsByIdsResponse = await CampaignManagementExampleHelper.GetAdExtensionsByIdsAsync(
                     accountId: authorizationData.AccountId,
                     adExtensionIds: updateExtensionIds,
-                    adExtensionType: adExtensionsTypeFilter);
+                    adExtensionType: adExtensionsTypeFilter,
+                    returnAdditionalFields: AdExtensionAdditionalField.DisplayText | AdExtensionAdditionalField.Images);
                 adExtensions = getAdExtensionsByIdsResponse?.AdExtensions.ToArray();
                 getAdExtensionErrors = getAdExtensionsByIdsResponse?.PartialErrors.ToArray();
                 OutputStatusMessage("AdExtensions:");
