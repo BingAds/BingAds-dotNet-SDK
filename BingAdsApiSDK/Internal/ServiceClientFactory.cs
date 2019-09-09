@@ -47,6 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using Microsoft.BingAds.Logging;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -194,6 +195,7 @@ namespace Microsoft.BingAds.Internal
         {
             var factory = CreateChannelFactoryForStandardEndpoint<TClient>(env);
             factory.Endpoint.EndpointBehaviors.Add(new UserAgentBehavior());
+            factory.Endpoint.EndpointBehaviors.Add(TraceBehavior.Instance);
             return factory;
         }
 

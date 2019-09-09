@@ -1534,7 +1534,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the ad group level settings for feed-based cooperative bidding campaigns.
+    /// Defines the ad group level settings for feed-based Microsoft Shopping Campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/coopsetting?view=bingads-13">CoOpSetting Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/coopsetting?view=bingads-13 for details.
@@ -1556,7 +1556,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.BidOption> BidOptionField;
         
         /// <summary>
-        /// The percentage (greater than zero) that allows your cooperative bid to flex.
+        /// The default bid boost percentage that you'll see in the Microsoft Advertising web application for new product groups.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BidBoostValue
@@ -1576,7 +1576,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The flat amount of your cooperative bid.
+        /// The flat amount of your Sponsored Products bid.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BidMaxValue
@@ -5127,7 +5127,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/assetlink?view=bingads-13">AssetLink Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/assetlink?view=bingads-13 for details.
-    /// <para>Used by <see cref="ResponsiveAd"/> and <see cref="ResponsiveSearchAd"/> data objects.</para>
+    /// <para>Used by <see cref="ImageAdExtension"/>, <see cref="ResponsiveAd"/> and <see cref="ResponsiveSearchAd"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7687,6 +7687,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string DestinationUrlField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DisplayTextField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -7700,6 +7703,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<long> ImageMediaIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> ImagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrackingUrlTemplateField;
@@ -7763,6 +7769,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.DestinationUrlField = value;
                     this.RaisePropertyChanged("DestinationUrl");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string DisplayText
+        {
+            get
+            {
+                return this.DisplayTextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DisplayTextField, value) != true))
+                {
+                    this.DisplayTextField = value;
+                    this.RaisePropertyChanged("DisplayText");
                 }
             }
         }
@@ -7863,6 +7889,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.ImageMediaIdsField = value;
                     this.RaisePropertyChanged("ImageMediaIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Images
+        {
+            get
+            {
+                return this.ImagesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ImagesField, value) != true))
+                {
+                    this.ImagesField = value;
+                    this.RaisePropertyChanged("Images");
                 }
             }
         }
@@ -10931,6 +10977,32 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActionAdExtension = 512,
+    }
+    
+    /// <summary>
+    /// Defines a list of optional ad extension properties that you can request when calling GetAdExtensionsAssociations and GetAdExtensionsByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/adextensionadditionalfield?view=bingads-13">AdExtensionAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/adextensionadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see> and <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum AdExtensionAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the Images element be included within each returned ImageAdExtension object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Images = 1,
+        
+        /// <summary>
+        /// Request that the DisplayText element be included within each returned ImageAdExtension object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DisplayText = 2,
     }
     
     /// <summary>
@@ -16059,7 +16131,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Determines the list of customers and accounts that share the audience.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomerShare CustomerShare
@@ -16291,7 +16363,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines a shareable audience or UET tag that a customer owns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/customershare?view=bingads-13">CustomerShare Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/customershare?view=bingads-13 for details.
@@ -16326,7 +16398,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Determines the list of customers and accounts that share the audience or UET tag.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CustomerAccountShare> CustomerAccountShares
@@ -16346,7 +16418,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The customer who owns the share.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> OwnerCustomerId
@@ -16588,7 +16660,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines a customer or account that can use the shared audience or UET tag.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/customeraccountshare?view=bingads-13">CustomerAccountShare Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/customeraccountshare?view=bingads-13 for details.
@@ -16626,7 +16698,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The identifier of an advertiser account that can use the shared audience.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AccountId
@@ -16646,7 +16718,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Provides details about whether and how the shared audience or UET tag is being used.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CustomerAccountShareAssociation> Associations
@@ -16666,7 +16738,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The identifier of a customer that can use the shared audience or UET tag.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CustomerId
@@ -16698,7 +16770,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Contains the association count for the corresponding usage type.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/customeraccountshareassociation?view=bingads-13">CustomerAccountShareAssociation Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/customeraccountshareassociation?view=bingads-13 for details.
@@ -16733,7 +16805,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The association count for the corresponding usage type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AssociationCount
@@ -16753,7 +16825,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Indicates how the customer account share is used e.g., via audience association.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string UsageType
@@ -17630,7 +17702,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Determines the list of customers that share the UET tag.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomerShare CustomerShare
@@ -27455,6 +27527,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.AdExtensionsTypeFilter AdExtensionType;
         
         /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdExtensionsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -27473,7 +27551,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="AccountId">The identifier of the account that owns the ad extensions.</param>
         /// <param name="AdExtensionIds">A list of ad extension identifiers.</param>
         /// <param name="AdExtensionType">The types of ad extensions that the list of identifiers contains.</param>
-        public GetAdExtensionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdExtensionIds, Microsoft.BingAds.V13.CampaignManagement.AdExtensionsTypeFilter AdExtensionType)
+        /// <param name="ReturnAdditionalFields">Reserved for future use.</param>
+        public GetAdExtensionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> AdExtensionIds, Microsoft.BingAds.V13.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -27485,6 +27564,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.AccountId = AccountId;
             this.AdExtensionIds = AdExtensionIds;
             this.AdExtensionType = AdExtensionType;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -28121,6 +28201,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> EntityIds;
         
         /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=4)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdExtensionsAssociationsRequest request object.
         /// </summary>
         /// <remarks>
@@ -28140,7 +28226,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="AdExtensionType">Filters the returned associations by ad extension type.</param>
         /// <param name="AssociationType">Filters the returned associations by entity type.</param>
         /// <param name="EntityIds">The list of entity identifiers by which you may request the respective ad extension associations.</param>
-        public GetAdExtensionsAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V13.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, Microsoft.BingAds.V13.CampaignManagement.AssociationType AssociationType, System.Collections.Generic.IList<long> EntityIds)
+        /// <param name="ReturnAdditionalFields">Reserved for future use.</param>
+        public GetAdExtensionsAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V13.CampaignManagement.AdExtensionsTypeFilter AdExtensionType, Microsoft.BingAds.V13.CampaignManagement.AssociationType AssociationType, System.Collections.Generic.IList<long> EntityIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdExtensionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -28153,6 +28240,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.AdExtensionType = AdExtensionType;
             this.AssociationType = AssociationType;
             this.EntityIds = EntityIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

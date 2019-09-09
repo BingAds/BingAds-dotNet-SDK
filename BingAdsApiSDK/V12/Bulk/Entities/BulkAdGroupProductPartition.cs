@@ -93,72 +93,8 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
         private static readonly IBulkMapping<BulkAdGroupProductPartition>[] Mappings =
         {
             // NOTE: This mapping should be in front of other mapping which access AdGroupCriterion
-             new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.IsExcluded,
-                c =>
-                {
-                    if (c.AdGroupCriterion is BiddableAdGroupCriterion)
-                    {
-                        return "False";
-                    }
-
-                    return "True";
-                },
-                (v, c) =>
-                {
-                    v = v.GetValueOrEmptyString().ToLower();
-
-                    bool isExcluded;
-
-                    switch (v)
-                    {
-                        case "yes":
-                            isExcluded = true;
-                            break;
-                        case "true":
-                            isExcluded = true;
-                            break;
-                        case "no":
-                            isExcluded = false;
-                            break;
-                        case "false":
-                            isExcluded = false;
-                            break;
-                        default:
-                            throw new InvalidOperationException(
-                                string.Format("\"{0}\" can only be set to TRUE|FALSE in {1}",
-                                    StringTable.IsExcluded, typeof (BulkAdGroupProductPartition).Name));
-                    }
-
-                    if (isExcluded)
-                    {
-                        c.AdGroupCriterion = new NegativeAdGroupCriterion
-                        {
-                            Criterion = new ProductPartition
-                            {
-                                Condition = new ProductCondition(),
-                                Type = typeof (ProductPartition).Name,
-                            },
-                            Type = typeof (NegativeAdGroupCriterion).Name,
-                        };
-                    }
-                    else
-                    {
-                        c.AdGroupCriterion = new BiddableAdGroupCriterion
-                        {
-                            Criterion = new ProductPartition
-                            {
-                                Condition = new ProductCondition(),
-                                Type = typeof (ProductPartition).Name,
-                            },
-                            CriterionBid = new FixedBid
-                            {
-                                Type = typeof (FixedBid).Name,
-                            },
-                            Type = typeof (BiddableAdGroupCriterion).Name,
-                        };
-                    }
-                }
-            ),
+             
+            new ComplexBulkMapping<BulkAdGroupProductPartition>(BiddingToCsv, CsvToBidding),
 
             new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.Status,
                 c => c.AdGroupCriterion.Status.ToBulkString(),
@@ -261,36 +197,6 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                     return condition.Attribute;
                 },
                 (v, c) => ((ProductPartition) c.AdGroupCriterion.Criterion).Condition.Attribute = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.Bid,
-                c =>
-                {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
-                    {
-                        var fixedBid = criterion.CriterionBid as FixedBid;
-
-                        if (fixedBid == null)
-                        {
-                            return null;
-                        }
-
-                        return fixedBid.ToAdGroupCriterionFixedBidBulkString();
-                    }
-
-                    return null;
-                },
-                (v, c) =>
-                {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
-                    {
-                        criterion.CriterionBid = v.ParseAdGroupCriterionFixedBid();
-                    }
-                }
             ),
 
             new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.DestinationUrl,
@@ -431,6 +337,114 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 }
             ),
         };
+
+
+
+        private static void CsvToBidding(RowValues values, BulkAdGroupProductPartition entity)
+        {
+            //string exclude;
+            values.TryGetValue(StringTable.IsExcluded, out string exclude);
+
+            exclude = exclude.GetValueOrEmptyString().ToLower();
+            bool isExcluded;
+            switch (exclude)
+            {
+                case "yes":
+                    isExcluded = true;
+                    break;
+                case "true":
+                    isExcluded = true;
+                    break;
+                case "no":
+                    isExcluded = false;
+                    break;
+                case "false":
+                    isExcluded = false;
+                    break;
+                default:
+                    throw new InvalidOperationException(
+                        string.Format("\"{0}\" can only be set to TRUE|FALSE in {1}",
+                            StringTable.IsExcluded, typeof(BulkAdGroupProductPartition).Name));
+            }
+
+            if (isExcluded)
+            {
+                entity.AdGroupCriterion = new NegativeAdGroupCriterion
+                {
+                    Criterion = new ProductPartition
+                    {
+                        Condition = new ProductCondition(),
+                        Type = typeof(ProductPartition).Name,
+                    },
+                    Type = typeof(NegativeAdGroupCriterion).Name,
+                };
+            }
+            else
+            {
+                var biddableAdGroupCriterion = new BiddableAdGroupCriterion
+                {
+                    Criterion = new ProductPartition
+                    {
+                        Condition = new ProductCondition(),
+                        Type = typeof(ProductPartition).Name,
+                    },
+                    Type = typeof(BiddableAdGroupCriterion).Name,
+                };
+
+                values.TryGetValue(StringTable.Bid, out string bidStr);
+                values.TryGetValue(StringTable.BidAdjustment, out string bidAdjustmentStr);
+                double? bid = bidStr.ParseOptional<double>();
+                double? bidAdjustment = bidAdjustmentStr.ParseOptional<double>();
+
+                if (bid != null)
+                {
+                    biddableAdGroupCriterion.CriterionBid = new FixedBid
+                    {
+                        Amount = bid.Value,
+                        Type = typeof(FixedBid).Name,
+                    };
+                }
+                else if (bidAdjustment != null)
+                {
+                    biddableAdGroupCriterion.CriterionBid = new BidMultiplier
+                    {
+                        Multiplier = bidAdjustment.Value,
+                        Type = typeof(FixedBid).Name,
+                    };
+                }
+                else
+                {
+                    biddableAdGroupCriterion.CriterionBid = new FixedBid
+                    {
+                        Type = typeof(FixedBid).Name,
+                    };
+                }
+                entity.AdGroupCriterion = biddableAdGroupCriterion;
+            }
+        }
+
+        private static void BiddingToCsv(BulkAdGroupProductPartition entity, RowValues values)
+        {
+            var criterion = entity.AdGroupCriterion as BiddableAdGroupCriterion;
+            values[StringTable.IsExcluded] = criterion == null ? "True" : "False";
+
+            if (criterion == null) return;
+
+            var fixedBid = criterion.CriterionBid as FixedBid;
+
+            if (fixedBid != null)
+            {
+                values[StringTable.Bid] = fixedBid.ToAdGroupCriterionFixedBidBulkString();
+                return;
+            }
+
+            var multiplicativeBid = criterion.CriterionBid as BidMultiplier;
+
+            if (multiplicativeBid != null)
+            {
+                values[StringTable.BidAdjustment] = multiplicativeBid.Multiplier.ToBulkString();
+            }
+        }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {

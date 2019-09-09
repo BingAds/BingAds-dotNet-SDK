@@ -103,6 +103,7 @@ namespace Microsoft.BingAds.V13.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.ProductPartitionUnitPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.ProductSearchQueryPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.ProductMatchCountReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.ProductNegativeKeywordConflictReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CallDetailReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.GeographicPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.DSASearchQueryPerformanceReportRequest))]
@@ -3564,6 +3565,87 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
+    /// Defines a product negative keyword conflict report request.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productnegativekeywordconflictreportrequest?view=bingads-13">ProductNegativeKeywordConflictReportRequest Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productnegativekeywordconflictreportrequest?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductNegativeKeywordConflictReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class ProductNegativeKeywordConflictReportRequest : Microsoft.BingAds.V13.Reporting.ReportRequest
+    {
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProductNegativeKeywordConflictReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.Reporting.ProductNegativeKeywordConflictReportFilter FilterField;
+        
+        private Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        /// <summary>
+        /// The list of attributes and performance statistics to include in the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProductNegativeKeywordConflictReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The filter information to use to filter the report data.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.Reporting.ProductNegativeKeywordConflictReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The entity scope of the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a call detail report request.
     /// </summary>
     /// <remarks>
@@ -4994,7 +5076,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountstatusreportfilter?view=bingads-13">AccountStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -6454,7 +6536,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionSharePercent = 63,
         
         /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 64,
@@ -6555,7 +6637,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/campaignstatusreportfilter?view=bingads-13">CampaignStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/campaignstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -6909,7 +6991,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/accountthroughadgroupreportscope?view=bingads-13">AccountThroughAdGroupReportScope Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/accountthroughadgroupreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductNegativeKeywordConflictReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7302,7 +7384,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupstatusreportfilter?view=bingads-13">AdGroupStatusReportFilter Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -8253,7 +8335,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionSharePercent = 56,
         
         /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 57,
@@ -8987,6 +9069,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 66,
+        
+        /// <summary>
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 67,
     }
     
     /// <summary>
@@ -9777,7 +9865,7 @@ namespace Microsoft.BingAds.V13.Reporting
         FirstPageBid = 60,
         
         /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 61,
@@ -10510,7 +10598,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CustomerName = 44,
         
         /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 45,
@@ -10607,7 +10695,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CurrencyCode = 6,
         
         /// <summary>
-        /// The average amount of campaign budget spent during a calendar month.
+        /// The anticipated maximum monthly budget amount that was calculated on the date of the most recent budget change.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MonthlyBudget = 7,
@@ -15392,6 +15480,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssociationId = 36,
+        
+        /// <summary>
+        /// The level of the audience's association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssociationLevel = 37,
     }
     
     /// <summary>
@@ -18806,6 +18900,243 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MatchedProductsAtProductGroup = 14,
+    }
+    
+    /// <summary>
+    /// Defines the criteria to use to filter the product negative keyword conflict report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productnegativekeywordconflictreportfilter?view=bingads-13">ProductNegativeKeywordConflictReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productnegativekeywordconflictreportfilter?view=bingads-13 for details.
+    /// <para>Used by <see cref="ProductNegativeKeywordConflictReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductNegativeKeywordConflictReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class ProductNegativeKeywordConflictReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The report will only include data for accounts with the specified status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
+        {
+            get
+            {
+                return this.AccountStatusField;
+            }
+            set
+            {
+                if ((this.AccountStatusField.Equals(value) != true))
+                {
+                    this.AccountStatusField = value;
+                    this.RaisePropertyChanged("AccountStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will only include data for ad groups with the specified status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
+        {
+            get
+            {
+                return this.AdGroupStatusField;
+            }
+            set
+            {
+                if ((this.AdGroupStatusField.Equals(value) != true))
+                {
+                    this.AdGroupStatusField = value;
+                    this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will only include data for campaigns with the specified status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
+        {
+            get
+            {
+                return this.CampaignStatusField;
+            }
+            set
+            {
+                if ((this.CampaignStatusField.Equals(value) != true))
+                {
+                    this.CampaignStatusField = value;
+                    this.RaisePropertyChanged("CampaignStatus");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the attributes columns that you can include in the ProductNegativeKeywordConflictReportRequest.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productnegativekeywordconflictreportcolumn?view=bingads-13">ProductNegativeKeywordConflictReportColumn Value Set</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productnegativekeywordconflictreportcolumn?view=bingads-13 for details.
+    /// <para>Used by <see cref="ProductNegativeKeywordConflictReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductNegativeKeywordConflictReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum ProductNegativeKeywordConflictReportColumn : int
+    {
+        
+        /// <summary>
+        /// The account name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned number of an account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 1,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// The current account status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStatus = 3,
+        
+        /// <summary>
+        /// The campaign name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 4,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of a campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        /// <summary>
+        /// The current campaign status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStatus = 6,
+        
+        /// <summary>
+        /// The ad group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 7,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an ad group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 8,
+        
+        /// <summary>
+        /// The current ad group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupStatus = 9,
+        
+        /// <summary>
+        /// The report will include a column that contains the unique identifier provided by a merchant for each product offer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MerchantProductId = 10,
+        
+        /// <summary>
+        /// The product item name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Title = 11,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an ad group criterion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupCriterionId = 12,
+        
+        /// <summary>
+        /// The backward slash delimited list of product conditions, reported as Operand = Attribute.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductGroup = 13,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of a negative keyword.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NegativeKeywordId = 14,
+        
+        /// <summary>
+        /// The negative keyword text.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NegativeKeyword = 15,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of a negative keyword list.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NegativeKeywordListId = 16,
+        
+        /// <summary>
+        /// The entity level where the keyword and negative keyword conflict occurs.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConflictLevel = 17,
+        
+        /// <summary>
+        /// The type of match to compare the negative keyword and the user's search term.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NegativeKeywordMatchType = 18,
     }
     
     /// <summary>

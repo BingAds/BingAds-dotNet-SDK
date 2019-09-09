@@ -50,121 +50,50 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
+using System.ServiceModel.Dispatcher;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Microsoft.BingAds.Internal
+namespace Microsoft.BingAds.Logging
 {
-    internal class MessagePair
+    public class TraceBehavior : IEndpointBehavior
     {
-        public string Request
+        private List<IClientMessageInspector> MessageInspectors;
+        public static TraceBehavior Instance { get; } = new TraceBehavior();
+
+        private TraceBehavior()
         {
-            get;
-            set;
+            MessageInspectors = new List<IClientMessageInspector>();
         }
 
-        public string Reply
+        public void AddMessageInspector(IClientMessageInspector inspector)
         {
-            get;
-            set;
-        }
-    }
-    internal class SimpleMessageStore
-    {
-        private List<MessagePair> messageList = new List<MessagePair>(20);
-
-        static SimpleMessageStore()
-        {
-            Store = new SimpleMessageStore();
+            MessageInspectors.Add(inspector);
         }
 
-        public static SimpleMessageStore Store
+        #region IEndpointBehavior Members
+
+        public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
+        { }
+
+        public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
         {
-            get;
-            private set;
+            foreach (var inspector in MessageInspectors)
+            {
+                clientRuntime.ClientMessageInspectors.Add(inspector);
+            }
         }
+
+        public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
+        { }
+
+        public void Validate(ServiceEndpoint endpoint)
+        { }
+
+        #endregion
         
-        public string CheckTestResultForTestInitializeOrCleanup()
-        {
-            var message = new StringBuilder(1024);
-            try
-            {
-
-                var errorMessages = new StringBuilder(1024);
-                foreach (var msg in messageList)
-                {
-                    errorMessages.AppendLine("<WCFCall>");
-
-                    errorMessages.AppendLine("<Request>");
-                    errorMessages.AppendLine(msg.Request);
-                    errorMessages.AppendLine("</Request>");
-
-                    errorMessages.AppendLine("<Reply>");
-                    errorMessages.AppendLine(msg.Reply);
-                    errorMessages.AppendLine("</Reply>");
-
-                    errorMessages.AppendLine("</WCFCall>");
-                }
-
-                message.AppendLine();
-                message.AppendLine("===============================");
-                if (errorMessages.Length > 0)
-                {
-                    message.AppendLine("MT error messages for this test");
-                }
-                else
-                {
-                    message.AppendLine("No MT error messages were found for this test");
-                }
-                message.AppendLine("===============================");
-                message.AppendLine(errorMessages.ToString());
-            }
-            catch (Exception e)
-            {
-                message.AppendFormat("Exception after test ran {0}", e);
-            }
-            return message.ToString();
-        }
-
-        public void AfterReceiveReply(Message reply)
-        {
-            messageList.Last().Reply = reply.ToString();
-        }
-
-        public void AfterReceiveReply(string bulkFile, bool download = true)
-        {
-            System.IO.StreamReader file = new System.IO.StreamReader(bulkFile);
-            string line;
-            StringBuilder sb = new StringBuilder(1024);
-            while ((line = file.ReadLine()) != null)
-            {
-                sb.AppendLine(line);
-            }
-
-            file.Close();
-            MessagePair pair = new MessagePair()
-            {
-                Request = download ? "BulkDownloadResult" : "BulkUploadResult",
-                Reply = sb.ToString()
-            };
-            messageList.Add(pair);
-        }
-        
-
-        public void BeforeSendRequest(Message request)
-        {
-            if (!SkipBulkStatusRequest(request))
-            {
-                messageList.Add(new MessagePair()
-                {
-                    Request = request.ToString()
-                });
-            }
-        }
-
-        private bool SkipBulkStatusRequest(Message request)
-        {
-            return messageList.Count > 0 &&  messageList.Last().Request == request.ToString();
-        }
     }
 }

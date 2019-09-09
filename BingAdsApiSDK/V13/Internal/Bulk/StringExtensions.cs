@@ -626,6 +626,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 return null;
             }
 
+            if (s == DeleteValue)
+            {
+                return new CustomParameters { Parameters = new List<CustomParameter>() };
+            }
+
             return new CustomParameters
             {
                 Parameters = CustomParameterSplitter.Split(s).Select(token =>

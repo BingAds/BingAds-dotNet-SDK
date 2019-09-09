@@ -47,37 +47,34 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-namespace Microsoft.BingAds.Internal
+namespace Microsoft.BingAds.Logging
 {
-    class SimpleTraceBehavior : IEndpointBehavior
+    public class LogMessageInspector : IClientMessageInspector
     {
-        #region IEndpointBehavior Members
+        private ILogger _logger;
 
-        public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
-        { }
+        private LogLevel _logLevel;
 
-        public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
+        public LogMessageInspector(ILogger logger, LogLevel logLevel)
         {
-            clientRuntime.ClientMessageInspectors.Add(new SimpleMessageTracer());
+            _logger = logger;
+            _logLevel = logLevel;
         }
 
-        public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
-        { }
+        void IClientMessageInspector.AfterReceiveReply(ref Message reply, object correlationState)
+        {
+            _logger.Log(_logLevel, reply.ToString());
+        }
 
-        public void Validate(ServiceEndpoint endpoint)
-        { }
-
-        #endregion
-        
+        object IClientMessageInspector.BeforeSendRequest(ref Message request, IClientChannel channel)
+        {
+            _logger.Log(_logLevel, request.ToString());
+            return null;
+        }
     }
 }

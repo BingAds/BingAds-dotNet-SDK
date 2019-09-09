@@ -1458,7 +1458,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the ad group level settings for feed-based cooperative bidding campaigns.
+    /// Defines the ad group level settings for feed-based Microsoft Shopping Campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/coopsetting?view=bingads-12">CoOpSetting Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/coopsetting?view=bingads-12 for details.
@@ -1480,7 +1480,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V12.CampaignManagement.BidOption> BidOptionField;
         
         /// <summary>
-        /// The percentage (greater than zero) that allows your cooperative bid to flex.
+        /// The default bid boost percentage that you'll see in the Microsoft Advertising web application for new product groups.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BidBoostValue
@@ -1500,7 +1500,7 @@ namespace Microsoft.BingAds.V12.CampaignManagement
         }
         
         /// <summary>
-        /// The flat amount of your cooperative bid.
+        /// The flat amount of your Sponsored Products bid.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BidMaxValue

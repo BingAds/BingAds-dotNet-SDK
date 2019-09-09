@@ -6622,7 +6622,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AbsoluteTopImpressionSharePercent = 69,
         
         /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 70,
@@ -8245,7 +8245,7 @@ namespace Microsoft.BingAds.V12.Reporting
         AbsoluteTopImpressionSharePercent = 62,
         
         /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 63,
@@ -8853,6 +8853,12 @@ namespace Microsoft.BingAds.V12.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 59,
+        
+        /// <summary>
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinalUrlSuffix = 60,
     }
     
     /// <summary>
@@ -9643,7 +9649,7 @@ namespace Microsoft.BingAds.V12.Reporting
         FirstPageBid = 60,
         
         /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 61,
@@ -10334,7 +10340,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CustomerName = 44,
         
         /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 45,
@@ -10528,7 +10534,7 @@ namespace Microsoft.BingAds.V12.Reporting
         CurrencyCode = 6,
         
         /// <summary>
-        /// The average amount of campaign budget spent during a calendar month.
+        /// The anticipated maximum monthly budget amount that was calculated on the date of the most recent budget change.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MonthlyBudget = 7,
