@@ -140,7 +140,7 @@ namespace BingAdsExamplesLibrary.V13
                     },
                     new LocationSearchParameter
                     {
-                        // You must specify between 1 and 100 locations
+                        // You must include at least one location.
 
                         Locations = new List<LocationCriterion>
                         {
@@ -350,7 +350,7 @@ namespace BingAdsExamplesLibrary.V13
 
                         Criteria = new List<Criterion>
                         {
-                            // You must specify between 1 and 100 locations
+                            // You must include at least one location.
 
                             new LocationCriterion
                             {

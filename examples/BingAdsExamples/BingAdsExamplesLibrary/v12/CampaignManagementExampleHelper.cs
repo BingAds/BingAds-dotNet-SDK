@@ -1001,6 +1001,18 @@ namespace BingAdsExamplesLibrary.V12
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request));
         }
+        public async Task<SearchCompaniesResponse> SearchCompaniesAsync(
+            String companyNameFilter,
+            String languageLocale)
+        {
+            var request = new SearchCompaniesRequest
+            {
+                CompanyNameFilter = companyNameFilter,
+                LanguageLocale = languageLocale
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.SearchCompaniesAsync(r), request));
+        }
         public async Task<SetAccountPropertiesResponse> SetAccountPropertiesAsync(
             IList<AccountProperty> accountProperties)
         {
@@ -2608,6 +2620,31 @@ namespace BingAdsExamplesLibrary.V12
                 }
             }
         }
+        public void OutputCompany(Company dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputCompany * * *");
+                OutputStatusMessage(string.Format("LogoUrl: {0}", dataObject.LogoUrl));
+                OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
+                OutputStatusMessage(string.Format("ProfileId: {0}", dataObject.ProfileId));
+                OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
+                OutputStatusMessage("* * * End OutputCompany * * *");
+            }
+        }
+        public void OutputArrayOfCompany(IList<Company> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputCompany(dataObject);
+                    }
+                }
+            }
+        }
         public void OutputConversionGoal(ConversionGoal dataObject)
         {
             if (null != dataObject)
@@ -3062,6 +3099,7 @@ namespace BingAdsExamplesLibrary.V12
                 OutputStatusMessage(string.Format("Path1: {0}", dataObject.Path1));
                 OutputStatusMessage(string.Format("Path2: {0}", dataObject.Path2));
                 OutputStatusMessage(string.Format("Text: {0}", dataObject.Text));
+                OutputStatusMessage(string.Format("TextPart2: {0}", dataObject.TextPart2));
                 OutputStatusMessage("* * * End OutputDynamicSearchAd * * *");
             }
         }

@@ -109,6 +109,16 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CustomerManagementService.CallAsync((s, r) => s.GetAccountAsync(r), request));
         }
+        public async Task<GetAccountPilotFeaturesResponse> GetAccountPilotFeaturesAsync(
+            long accountId)
+        {
+            var request = new GetAccountPilotFeaturesRequest
+            {
+                AccountId = accountId
+            };
+
+            return (await CustomerManagementService.CallAsync((s, r) => s.GetAccountPilotFeaturesAsync(r), request));
+        }
         public async Task<GetAccountsInfoResponse> GetAccountsInfoAsync(
             long? customerId,
             bool onlyParentAccounts)

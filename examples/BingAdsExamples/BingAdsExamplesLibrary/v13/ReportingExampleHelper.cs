@@ -1631,6 +1631,57 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputProductNegativeKeywordConflictReportFilter(ProductNegativeKeywordConflictReportFilter dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputProductNegativeKeywordConflictReportFilter * * *");
+                OutputStatusMessage(string.Format("AccountStatus: {0}", dataObject.AccountStatus));
+                OutputStatusMessage(string.Format("AdGroupStatus: {0}", dataObject.AdGroupStatus));
+                OutputStatusMessage(string.Format("CampaignStatus: {0}", dataObject.CampaignStatus));
+                OutputStatusMessage("* * * End OutputProductNegativeKeywordConflictReportFilter * * *");
+            }
+        }
+        public void OutputArrayOfProductNegativeKeywordConflictReportFilter(IList<ProductNegativeKeywordConflictReportFilter> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputProductNegativeKeywordConflictReportFilter(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputProductNegativeKeywordConflictReportRequest(ProductNegativeKeywordConflictReportRequest dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputProductNegativeKeywordConflictReportRequest * * *");
+                OutputStatusMessage("Columns:");
+                OutputArrayOfProductNegativeKeywordConflictReportColumn(dataObject.Columns);
+                OutputStatusMessage("Filter:");
+                OutputProductNegativeKeywordConflictReportFilter(dataObject.Filter);
+                OutputStatusMessage("Scope:");
+                OutputAccountThroughAdGroupReportScope(dataObject.Scope);
+                OutputStatusMessage("* * * End OutputProductNegativeKeywordConflictReportRequest * * *");
+            }
+        }
+        public void OutputArrayOfProductNegativeKeywordConflictReportRequest(IList<ProductNegativeKeywordConflictReportRequest> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputProductNegativeKeywordConflictReportRequest(dataObject);
+                    }
+                }
+            }
+        }
         public void OutputProductPartitionPerformanceReportFilter(ProductPartitionPerformanceReportFilter dataObject)
         {
             if (null != dataObject)
@@ -2042,6 +2093,11 @@ namespace BingAdsExamplesLibrary.V13
                 if(null != productmatchcountreportrequest)
                 {
                     OutputProductMatchCountReportRequest((ProductMatchCountReportRequest)dataObject);
+                }
+                var productnegativekeywordconflictreportrequest = dataObject as ProductNegativeKeywordConflictReportRequest;
+                if(null != productnegativekeywordconflictreportrequest)
+                {
+                    OutputProductNegativeKeywordConflictReportRequest((ProductNegativeKeywordConflictReportRequest)dataObject);
                 }
                 var productpartitionperformancereportrequest = dataObject as ProductPartitionPerformanceReportRequest;
                 if(null != productpartitionperformancereportrequest)
@@ -3230,6 +3286,24 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var valueSet in valueSets)
                 {
                     OutputProductMatchCountReportColumn(valueSet);
+                }
+            }
+        }
+        public void OutputProductNegativeKeywordConflictReportColumn(ProductNegativeKeywordConflictReportColumn valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(ProductNegativeKeywordConflictReportColumn)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfProductNegativeKeywordConflictReportColumn(IList<ProductNegativeKeywordConflictReportColumn> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputProductNegativeKeywordConflictReportColumn(valueSet);
                 }
             }
         }
