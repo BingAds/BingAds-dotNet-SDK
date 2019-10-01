@@ -511,7 +511,6 @@ namespace BingAdsExamplesLibrary.V13
                     AccountPerformanceReportColumn.Impressions,
                     AccountPerformanceReportColumn.Ctr,
                     AccountPerformanceReportColumn.AverageCpc,
-                    AccountPerformanceReportColumn.ImpressionSharePercent,
                     AccountPerformanceReportColumn.Spend,
                 },
             };
