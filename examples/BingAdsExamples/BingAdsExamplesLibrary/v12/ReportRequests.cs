@@ -520,7 +520,6 @@ namespace BingAdsExamplesLibrary.V12
                     AccountPerformanceReportColumn.Impressions,
                     AccountPerformanceReportColumn.Ctr,
                     AccountPerformanceReportColumn.AverageCpc,
-                    AccountPerformanceReportColumn.ImpressionSharePercent,
                     AccountPerformanceReportColumn.Spend,
                 },
             };
