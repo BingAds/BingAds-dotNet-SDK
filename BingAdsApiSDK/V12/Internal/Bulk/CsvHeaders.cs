@@ -97,6 +97,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
             StringTable.BaseCampaignId,
             StringTable.ExperimentCampaignId,
             StringTable.ExperimentId,
+            StringTable.ExperimentType,
 
             // Ad Group
             StringTable.StartDate,

@@ -227,6 +227,7 @@ namespace Microsoft.BingAds.V12.Internal.Bulk
         public const string BaseCampaignId = "Base Campaign Id";
         public const string ExperimentCampaignId = "Experiment Campaign Id";
         public const string ExperimentId = "Experiment Id";
+        public const string ExperimentType = "Experiment Type";
 
         public const string AdGroup = "Ad Group";
         public const string Keyword = "Keyword";

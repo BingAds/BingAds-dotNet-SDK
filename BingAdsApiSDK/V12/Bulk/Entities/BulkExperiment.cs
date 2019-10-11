@@ -114,6 +114,10 @@ namespace Microsoft.BingAds.V12.Bulk.Entities
                 c => c.Experiment.ExperimentCampaignId.ToBulkString(),
                 (v, c) => c.Experiment.ExperimentCampaignId = v.ParseOptional<long>()
                 ),
+            new SimpleBulkMapping<BulkExperiment>(StringTable.ExperimentType,
+                c => c.Experiment.ExperimentType,
+                (v, c) => c.Experiment.ExperimentType = v
+                ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
