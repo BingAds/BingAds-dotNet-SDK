@@ -67,6 +67,8 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public abstract class OAuthWithAuthorizationCode : OAuthAuthorization
     {
+        private const int AccessTokenExpiryBufferInSec = 60;
+
         private readonly string _optionalClientSecret;
 
         private readonly Uri _redirectionUri;
@@ -93,6 +95,11 @@ namespace Microsoft.BingAds.Internal
         /// Occurs when a new refresh token is received.
         /// </summary>
         public event EventHandler<NewOAuthTokensReceivedEventArgs> NewOAuthTokensReceived;
+
+        /// <summary>
+        /// Information about when does AccessToken expire. 
+        /// </summary>
+        protected internal DateTime ExpiresOn { get; protected set; } = DateTime.UtcNow;
 
         /// <summary>
         /// Initializes a new instance of the OAuthWithAuthorizationCode class.
@@ -304,6 +311,8 @@ namespace Microsoft.BingAds.Internal
                 GrantParamName = "code",
                 GrantValue = code,
             }, RequireLiveConnect).ConfigureAwait(false);
+
+            ExpiresOn = DateTime.UtcNow.AddSeconds(OAuthTokens.AccessTokenExpiresInSeconds - AccessTokenExpiryBufferInSec);
 
             RaiseNewTokensReceivedEvent();
 

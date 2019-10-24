@@ -194,7 +194,7 @@ namespace Microsoft.BingAds
 
             var client = _serviceClientFactory.CreateServiceFromFactory(_channelFactory);
 
-            var needToRefreshToken = false;
+            var needToRefreshToken = RefreshOAuthTokensAutomatically && DateTime.UtcNow > AccessTokenExpiresOn;
 
             do
             {
@@ -366,6 +366,9 @@ namespace Microsoft.BingAds
                 field.SetValue(request, Convert.ChangeType(authorizationDataValue, targetType));
             }
         }
+
+        private DateTime AccessTokenExpiresOn 
+            => (_authorizationData.Authentication as OAuthWithAuthorizationCode)?.ExpiresOn ?? DateTime.MaxValue;
 
         private async Task RefreshAccessToken()
         {
