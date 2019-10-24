@@ -75,6 +75,8 @@ namespace Microsoft.BingAds
     public class ServiceClient<TService> : IDisposable
         where TService : class
     {
+        private readonly object syncRoot = new object();
+
         private readonly IServiceClientFactory _serviceClientFactory;
 
         private IChannelFactory<TService> _channelFactory;
@@ -198,11 +200,19 @@ namespace Microsoft.BingAds
 
             do
             {
-                if (needToRefreshToken)
+                if (needToRefreshToken) // double lock pattern to ensure multiple threads tries to refresh token exactly once
                 {
-                    await RefreshAccessToken().ConfigureAwait(false);
+                    lock (syncRoot)
+                    {
+                        if (needToRefreshToken)
+                        {
+                            RefreshAccessToken().Wait();
 
-                    _authorizationData.Authentication.SetAuthenticationFieldsOnApiRequestObject(request);
+                            _authorizationData.Authentication.SetAuthenticationFieldsOnApiRequestObject(request);
+
+                            needToRefreshToken = false;
+                        }
+                    }
                 }
 
                 try
