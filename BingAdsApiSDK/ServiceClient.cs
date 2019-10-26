@@ -75,8 +75,6 @@ namespace Microsoft.BingAds
     public class ServiceClient<TService> : IDisposable
         where TService : class
     {
-        private readonly object syncRoot = new object();
-
         private readonly IServiceClientFactory _serviceClientFactory;
 
         private IChannelFactory<TService> _channelFactory;

@@ -67,7 +67,7 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public abstract class OAuthWithAuthorizationCode : OAuthAuthorization
     {
-        private const int AccessTokenExpiryBufferInSec = 60;
+        private const int AccessTokenExpiryBufferInSec = 30;
 
         private readonly string _optionalClientSecret;
 
