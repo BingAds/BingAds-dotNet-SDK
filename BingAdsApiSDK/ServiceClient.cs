@@ -200,19 +200,11 @@ namespace Microsoft.BingAds
 
             do
             {
-                if (needToRefreshToken) // double lock pattern to ensure multiple threads tries to refresh token exactly once
+                if (needToRefreshToken)
                 {
-                    lock (syncRoot)
-                    {
-                        if (needToRefreshToken)
-                        {
-                            RefreshAccessToken().Wait();
+                    await RefreshAccessToken().ConfigureAwait(false);
 
-                            _authorizationData.Authentication.SetAuthenticationFieldsOnApiRequestObject(request);
-
-                            needToRefreshToken = false;
-                        }
-                    }
+                    _authorizationData.Authentication.SetAuthenticationFieldsOnApiRequestObject(request);
                 }
 
                 try
