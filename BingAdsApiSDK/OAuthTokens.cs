@@ -47,6 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using System.Collections.Generic;
 
 namespace Microsoft.BingAds
@@ -77,6 +78,7 @@ namespace Microsoft.BingAds
             _accessTokenExpiresInSeconds = accessTokenExpiresInSeconds;
             _refreshToken = refreshToken;
             _responseFragments = fragments;
+            AccessTokenExpiresOn = DateTime.UtcNow.AddSeconds(accessTokenExpiresInSeconds);
         }
 
         /// <summary>
@@ -88,6 +90,11 @@ namespace Microsoft.BingAds
         /// Expiration time for the corresponding access token in seconds.
         /// </summary>
         public int AccessTokenExpiresInSeconds => _accessTokenExpiresInSeconds;
+
+        /// <summary>
+        /// Expiration absolute time for the corresponding access token in seconds.
+        /// </summary>
+        public DateTime AccessTokenExpiresOn { get; private set; }
 
         /// <summary>
         /// OAuth refresh token that can be user to refresh an access token. 

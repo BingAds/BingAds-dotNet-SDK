@@ -368,7 +368,7 @@ namespace Microsoft.BingAds
         }
 
         private DateTime AccessTokenExpiresOn 
-            => (_authorizationData.Authentication as OAuthWithAuthorizationCode)?.ExpiresOn ?? DateTime.MaxValue;
+            => (_authorizationData.Authentication as OAuthWithAuthorizationCode)?.OAuthTokens?.AccessTokenExpiresOn ?? DateTime.MaxValue;
 
         private async Task RefreshAccessToken()
         {

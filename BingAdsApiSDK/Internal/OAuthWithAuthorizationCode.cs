@@ -95,11 +95,6 @@ namespace Microsoft.BingAds.Internal
         public event EventHandler<NewOAuthTokensReceivedEventArgs> NewOAuthTokensReceived;
 
         /// <summary>
-        /// Information about when does AccessToken expire. 
-        /// </summary>
-        protected internal DateTime ExpiresOn { get; protected set; } = DateTime.UtcNow;
-
-        /// <summary>
         /// Initializes a new instance of the OAuthWithAuthorizationCode class.
         /// </summary>
         /// <param name="clientId">
@@ -309,8 +304,6 @@ namespace Microsoft.BingAds.Internal
                 GrantParamName = "code",
                 GrantValue = code,
             }, RequireLiveConnect).ConfigureAwait(false);
-
-            ExpiresOn = DateTime.UtcNow.AddSeconds(OAuthTokens.AccessTokenExpiresInSeconds);
 
             RaiseNewTokensReceivedEvent();
 
