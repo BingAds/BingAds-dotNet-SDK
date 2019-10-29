@@ -67,8 +67,6 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public abstract class OAuthWithAuthorizationCode : OAuthAuthorization
     {
-        private const int AccessTokenExpiryBufferInSec = 30;
-
         private readonly string _optionalClientSecret;
 
         private readonly Uri _redirectionUri;
@@ -312,7 +310,7 @@ namespace Microsoft.BingAds.Internal
                 GrantValue = code,
             }, RequireLiveConnect).ConfigureAwait(false);
 
-            ExpiresOn = DateTime.UtcNow.AddSeconds(OAuthTokens.AccessTokenExpiresInSeconds - AccessTokenExpiryBufferInSec);
+            ExpiresOn = DateTime.UtcNow.AddSeconds(OAuthTokens.AccessTokenExpiresInSeconds);
 
             RaiseNewTokensReceivedEvent();
 
