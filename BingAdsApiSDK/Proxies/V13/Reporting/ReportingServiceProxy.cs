@@ -10122,6 +10122,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Broad = 4,
+        
+        /// <summary>
+        /// The report will contain ads that were delivered by using a close variant exact match comparison.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExactCloseVariant = 8,
+        
+        /// <summary>
+        /// The report will contain ads that were delivered by using a close variant phrase match comparison.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PhraseCloseVariant = 16,
     }
     
     /// <summary>

@@ -7058,6 +7058,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 8,
+        
+        /// <summary>
+        /// Used to get or set the property that determines whether you want to include view-through conversions for campaigns in the account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IncludeViewThroughConversions = 16,
+        
+        /// <summary>
+        /// Used to get or set the property that determines whether LinkedIn profile targeting expansion is enabled for the account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProfileExpansionEnabled = 32,
     }
     
     /// <summary>
@@ -17942,6 +17954,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a list of optional conversion goal properties that you can request when calling GetConversionGoalsByIds and GetConversionGoalsByTagIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/conversiongoaladditionalfield?view=bingads-13">ConversionGoalAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/conversiongoaladditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see> and <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoalAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum ConversionGoalAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the ViewThroughConversionWindowInMinutes element be included within each returned ConversionGoal object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionWindowInMinutes = 1,
+    }
+    
+    /// <summary>
     /// Defines the base object of a conversion goal.
     /// </summary>
     /// <remarks>
@@ -17997,6 +18029,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType> TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ViewThroughConversionWindowInMinutesField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -18226,6 +18261,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.TypeField = value;
                     this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The view-through conversion window is the length of time in minutes after a click that you want to track view-through conversions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<int> ViewThroughConversionWindowInMinutes
+        {
+            get
+            {
+                return this.ViewThroughConversionWindowInMinutesField;
+            }
+            set
+            {
+                if ((this.ViewThroughConversionWindowInMinutesField.Equals(value) != true))
+                {
+                    this.ViewThroughConversionWindowInMinutesField = value;
+                    this.RaisePropertyChanged("ViewThroughConversionWindowInMinutes");
                 }
             }
         }
@@ -33799,6 +33854,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned conversion goal.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetConversionGoalsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -33816,7 +33877,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="ConversionGoalIds">A maximum of 100 identifiers of the conversion goals that you want to get.</param>
         /// <param name="ConversionGoalTypes">One or more types of conversion goals to return.</param>
-        public GetConversionGoalsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ConversionGoalIds, Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned conversion goal.</param>
+        public GetConversionGoalsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ConversionGoalIds, Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -33827,6 +33889,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.ConversionGoalIds = ConversionGoalIds;
             this.ConversionGoalTypes = ConversionGoalTypes;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -33931,6 +33994,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned conversion goal.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetConversionGoalsByTagIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -33948,7 +34017,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="TagIds">A maximum of 100 tag identifiers that are used by the returned conversion goals.</param>
         /// <param name="ConversionGoalTypes">One or more types of conversion goals to return.</param>
-        public GetConversionGoalsByTagIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds, Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned conversion goal.</param>
+        public GetConversionGoalsByTagIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds, Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -33959,6 +34029,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.TagIds = TagIds;
             this.ConversionGoalTypes = ConversionGoalTypes;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

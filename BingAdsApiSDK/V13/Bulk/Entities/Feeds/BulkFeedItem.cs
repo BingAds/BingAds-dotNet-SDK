@@ -160,6 +160,19 @@ namespace Microsoft.BingAds.V13.Bulk.Entities.Feeds
         /// </summary>
         public long? DevicePreference { get; set; }
 
+        /// <summary>
+        /// The feed item's target ad group id.
+        /// Corresponds to the 'Target Ad Group Id' field in the bulk file. 
+        /// </summary>
+        public string AdGroupId { get; set; }
+
+        /// <summary>
+        /// The feed item's target campaign id.
+        /// Corresponds to the 'Target Campaign Id' field in the bulk file. 
+        /// </summary>
+        public string CampaignId { get; set; }
+
+
         private static readonly IBulkMapping<BulkFeedItem>[] Mappings =
         {
             new SimpleBulkMapping<BulkFeedItem>(StringTable.Id,
@@ -235,6 +248,16 @@ namespace Microsoft.BingAds.V13.Bulk.Entities.Feeds
             new SimpleBulkMapping<BulkFeedItem>(StringTable.DevicePreference,
                 c => c.DevicePreference.ToDevicePreferenceBulkString(),
                 (v, c) => c.DevicePreference = v.ParseDevicePreference()
+            ),
+
+            new SimpleBulkMapping<BulkFeedItem>(StringTable.TargetAdGroupId,
+                c => c.AdGroupId.ToOptionalBulkString(c.Id),
+                (v, c) => c.AdGroupId = v.GetValueOrEmptyString()
+            ),
+
+            new SimpleBulkMapping<BulkFeedItem>(StringTable.TargetCampaignId,
+                c => c.CampaignId.ToOptionalBulkString(c.Id),
+                (v, c) => c.CampaignId = v.GetValueOrEmptyString()
             ),
         };
 

@@ -275,6 +275,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string FeedItem = "Feed Item";
         public const string FeedName = "Feed Name";
         public const string CustomAttributes = "Custom Attributes";
+        public const string TargetAdGroupId = "Target Ad Group Id";
+        public const string TargetCampaignId = "Target Campaign Id";
 
         public const string PhysicalIntent = "Physical Intent";
 
@@ -299,6 +301,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string SyncTime = "Sync Time";
         public const string Name = "Name";
         public const string MSCLKIDAutoTaggingEnabled = "MSCLKID Auto Tagging Enabled";
+        public const string IncludeViewThroughConversions = "Include View Through Conversions";
+        public const string ProfileExpansionEnabled = "Profile Expansion Enabled";
 
         public const string LastModifiedTime = "Modified Time";
 

@@ -1213,7 +1213,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         }
 
 
-        public static bool? ParseMSCLKIDAutoTaggingEnabled(this string s)
+        public static bool? ParseOptionalBool(this string s)
         {
             if (string.IsNullOrEmpty(s))
             {
@@ -1222,7 +1222,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             if (!bool.TryParse(s, out var result))
             {
-                throw new ArgumentException(string.Format("Unknown values for MSCLKID Auto Tagging Enabled: {0}", s));
+                throw new ArgumentException(string.Format("Unknown values for bool: {0}", s));
             }
             return result;
         }

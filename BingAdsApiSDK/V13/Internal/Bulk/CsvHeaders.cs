@@ -411,6 +411,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             
             // Account
             StringTable.MSCLKIDAutoTaggingEnabled,
+            StringTable.IncludeViewThroughConversions,
+            StringTable.ProfileExpansionEnabled,
             
             //Final Url Suffix
             StringTable.FinalUrlSuffix,
@@ -419,7 +421,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.CustomAttributes,
             StringTable.FeedName,
             StringTable.PhysicalIntent,
-        };
+            StringTable.TargetAdGroupId,
+            StringTable.TargetCampaignId,
+    };
 
         /// <summary>
         /// maps column name into its positional index

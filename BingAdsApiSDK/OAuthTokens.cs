@@ -47,6 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
 using System.Collections.Generic;
 
 namespace Microsoft.BingAds
@@ -64,6 +65,7 @@ namespace Microsoft.BingAds
         private readonly int _accessTokenExpiresInSeconds;
         private readonly string _refreshToken;
         private readonly IDictionary<string, string> _responseFragments;
+        private readonly DateTime _accessTokenReceivedDateTime;
 
         /// <summary>
         /// Creates a new instance of this class.
@@ -77,7 +79,13 @@ namespace Microsoft.BingAds
             _accessTokenExpiresInSeconds = accessTokenExpiresInSeconds;
             _refreshToken = refreshToken;
             _responseFragments = fragments;
+            _accessTokenReceivedDateTime = DateTime.UtcNow;
         }
+
+        /// <summary>
+        /// Check if the Access Token has been expired.
+        /// </summary>
+        public bool AccessTokenExpired => AccessTokenExpiresInSeconds > 0 && DateTime.UtcNow > _accessTokenReceivedDateTime.AddSeconds(AccessTokenExpiresInSeconds);
 
         /// <summary>
         /// OAuth access token that will be used for authorization in the Bing Ads services.

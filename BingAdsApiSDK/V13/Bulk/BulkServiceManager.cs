@@ -381,7 +381,7 @@ namespace Microsoft.BingAds.V13.Bulk
 
         private async Task<BulkDownloadOperation> SubmitDownloadAsyncImpl(SubmitDownloadParameters parameters)
         {
-            if (parameters.CampaignIds == null)
+            if (parameters.CampaignIds == null || parameters.CampaignIds.Count <= 0)
             {
                 var request = new DownloadCampaignsByAccountIdsRequest
                 {

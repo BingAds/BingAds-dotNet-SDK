@@ -85,6 +85,9 @@ namespace Microsoft.BingAds
 
         private ApiEnvironment _environment;
 
+        private bool AccessTokenExpired
+            => (_authorizationData.Authentication as OAuthAuthorization)?.OAuthTokens?.AccessTokenExpired??false;
+
         /// <summary>
         /// Represents a user who intends to access the corresponding customer and account.
         /// </summary>
@@ -194,7 +197,7 @@ namespace Microsoft.BingAds
 
             var client = _serviceClientFactory.CreateServiceFromFactory(_channelFactory);
 
-            var needToRefreshToken = false;
+            var needToRefreshToken = RefreshOAuthTokensAutomatically && AccessTokenExpired;
 
             do
             {

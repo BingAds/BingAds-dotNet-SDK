@@ -91,19 +91,29 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// auto-tagging of the MSCLKID query string parameter is enabled or not.
         /// Corresponds to the 'MSCLKID Auto Tagging Enabled' field in the bulk file. 
         /// </summary>
-        public bool? MSCLKIDAutoTaggingEnabled { get; private set; }
+        public bool? MSCLKIDAutoTaggingEnabled { get; set; }
+
+        /// <summary>
+        /// Corresponds to the 'Include View Through Conversions' field in the bulk file. 
+        /// </summary>
+        public bool? IncludeViewThroughConversions { get; set; }
+
+        /// <summary>
+        /// Corresponds to the 'Profile Expansion Enabled' field in the bulk file. 
+        /// </summary>
+        public bool? ProfileExpansionEnabled { get; set; }
 
         /// <summary>
         /// The tracking template to use as default for all URLs in your account.
         /// Corresponds to the 'Tracking Template' field in the bulk file. 
         /// </summary>
-        public string TrackingUrlTemplate { get; private set; }
+        public string TrackingUrlTemplate { get; set; }
 
         /// <summary>
         /// The Final Url Suffix in the account.
         /// Corresponds to the 'Final Url Suffix' field in the bulk file. 
         /// </summary>
-        public string FinalUrlSuffix { get; private set; }
+        public string FinalUrlSuffix { get; set; }
 
         private static readonly IBulkMapping<BulkAccount>[] Mappings =
         {
@@ -124,7 +134,17 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkAccount>(StringTable.MSCLKIDAutoTaggingEnabled,
                 c => c.MSCLKIDAutoTaggingEnabled?.ToString(),
-                (v, c) => c.MSCLKIDAutoTaggingEnabled = v.ParseMSCLKIDAutoTaggingEnabled()
+                (v, c) => c.MSCLKIDAutoTaggingEnabled = v.ParseOptionalBool()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.ProfileExpansionEnabled,
+                c => c.ProfileExpansionEnabled?.ToString(),
+                (v, c) => c.ProfileExpansionEnabled = v.ParseOptionalBool()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.IncludeViewThroughConversions,
+                c => c.IncludeViewThroughConversions?.ToString(),
+                (v, c) => c.IncludeViewThroughConversions = v.ParseOptionalBool()
             ),
 
             new SimpleBulkMapping<BulkAccount>(StringTable.TrackingTemplate,
