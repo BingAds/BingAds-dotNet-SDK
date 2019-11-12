@@ -118,7 +118,7 @@ namespace BingAdsExamplesLibrary.V13
                         Path1 = "seattle",
                         Path2 = "shoe sale",
                         FinalUrls = new[] {
-                            "http://www.contoso.com/womenshoesale"
+                            "https://www.contoso.com/womenshoesale"
                         },
                     },
                 };

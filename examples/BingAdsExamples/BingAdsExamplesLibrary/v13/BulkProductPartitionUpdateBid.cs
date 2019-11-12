@@ -13,7 +13,7 @@ using Microsoft.BingAds.V13.CampaignManagement;
 namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
-    /// How to update product partitions for Bing Shopping Campaigns with the Bulk service.
+    /// How to update product partitions for Microsoft Shopping Campaigns with the Bulk service.
     /// </summary>
     public class BulkProductPartitionUpdateBid : BulkExampleBase
     {

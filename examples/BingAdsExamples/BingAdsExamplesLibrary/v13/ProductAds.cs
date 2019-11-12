@@ -9,13 +9,13 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
-    /// How to apply product conditions for Bing Shopping Campaigns.
+    /// How to apply product conditions for Microsoft Shopping Campaigns.
     /// </summary>
     public class ProductAds : ExampleBase
     {
         public override string Description
         {
-            get { return "Bing Shopping Campaigns | Campaign Management V13"; }
+            get { return "Microsoft Shopping Campaigns | Campaign Management V13"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -78,7 +78,7 @@ namespace BingAdsExamplesLibrary.V13
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
                 long campaignId = (long)campaignIds[0];
 
-                // Optionally, you can create a ProductScope criterion that will be associated with your Bing Shopping campaign. 
+                // Optionally, you can create a ProductScope criterion that will be associated with your Microsoft Shopping campaign. 
                 // You'll also be able to add more specific product conditions for each ad group.
 
                 var campaignCriterions = new BiddableCampaignCriterion[] {
@@ -222,7 +222,7 @@ namespace BingAdsExamplesLibrary.V13
                 // The direct children of any node must have the same Operand. 
                 // For this example we will use CategoryL1 nodes as children of the root. 
                 // For a list of valid CategoryL1 through CategoryL5 values, see the Bing Category Taxonomy:
-                // http://go.microsoft.com/fwlink?LinkId=507666
+                // https://go.microsoft.com/fwlink?LinkId=507666
 
                 var animalsSubdivision = helper.AddSubdivision(
                     parent: root,

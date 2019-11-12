@@ -1859,7 +1859,7 @@ namespace BingAdsExamplesLibrary.V13
                     Status = AdGroupStatus.Active,
                     // 'Tracking Template' column header in the Bulk file
                     TrackingUrlTemplate =
-                        "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}",
+                        "https://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}",
                     // 'Custom Parameter' column header in the Bulk file
                     UrlCustomParameters = new CustomParameters
                     {
@@ -3129,12 +3129,12 @@ namespace BingAdsExamplesLibrary.V13
                             // 'Final Url 1' column header in the Bulk file
                             FinalUrls = new[] {
                                 // Each Url is delimited by a semicolon (;) in the Bulk file
-                                "http://www.contoso.com/womenshoesale"
+                                "https://www.contoso.com/womenshoesale"
                             },
                             // 'Final Mobile Url 1' column header in the Bulk file
                             FinalMobileUrls = new[] {
                                 // Each Url is delimited by a semicolon (;) in the Bulk file
-                                "http://mobile.contoso.com/womenshoesale"
+                                "https://mobile.contoso.com/womenshoesale"
                             },
                             // 'Header 1' column header in the Bulk file
                             Header = "New Event",
@@ -3154,12 +3154,12 @@ namespace BingAdsExamplesLibrary.V13
                             // 'Final Url 2' column header in the Bulk file
                             FinalUrls = new[] {
                                 // Each Url is delimited by a semicolon (;) in the Bulk file
-                                "http://www.contoso.com/womenshoesale"
+                                "https://www.contoso.com/womenshoesale"
                             },
                             // 'Final Mobile Url 2' column header in the Bulk file
                             FinalMobileUrls = new[] {
                                 // Each Url is delimited by a semicolon (;) in the Bulk file
-                                "http://mobile.contoso.com/womenshoesale"
+                                "https://mobile.contoso.com/womenshoesale"
                             },
                             // 'Header 2' column header in the Bulk file
                             Header = "Next Event",
@@ -3179,12 +3179,12 @@ namespace BingAdsExamplesLibrary.V13
                             // 'Final Url 3' column header in the Bulk file
                             FinalUrls = new[] {
                                 // Each Url is delimited by a semicolon (;) in the Bulk file
-                                "http://www.contoso.com/womenshoesale"
+                                "https://www.contoso.com/womenshoesale"
                             },
                             // 'Final Mobile Url 3' column header in the Bulk file
                             FinalMobileUrls = new[] {
                                 // Each Url is delimited by a semicolon (;) in the Bulk file
-                                "http://mobile.contoso.com/womenshoesale"
+                                "https://mobile.contoso.com/womenshoesale"
                             },
                             // 'Header 3' column header in the Bulk file
                             Header = "Final Event",
@@ -3242,7 +3242,7 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Text' column header in the Bulk file
                     Text = "Review Text",
                     // 'Url' column header in the Bulk file
-                    Url = "http://review.contoso.com",
+                    Url = "https://review.contoso.com",
 
                     // 'Ad Schedule' column header in the Bulk file
                     Scheduling = new Schedule
@@ -3308,12 +3308,12 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Final Url' column header in the Bulk file
                     FinalUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://www.contoso.com/womenshoesale"
+                        "https://www.contoso.com/womenshoesale"
                     },
                     // 'Mobile Final Url' column header in the Bulk file
                     FinalMobileUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://mobile.contoso.com/womenshoesale"
+                        "https://mobile.contoso.com/womenshoesale"
                     },
                     // 'Tracking Template' column header in the Bulk file
                     TrackingUrlTemplate = null,
@@ -4555,12 +4555,12 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Mobile Final Url' column header in the Bulk file
                     FinalMobileUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://mobile.contoso.com/womenshoesale"
+                        "https://mobile.contoso.com/womenshoesale"
                     },
                     // 'Final Url' column header in the Bulk file
                     FinalUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://www.contoso.com/womenshoesale"
+                        "https://www.contoso.com/womenshoesale"
                     },
                     // 'Id' column header in the Bulk file
                     Id = null,
@@ -4733,12 +4733,12 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Mobile Final Url' column header in the Bulk file
                     FinalMobileUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://mobile.contoso.com/womenshoesale"
+                        "https://mobile.contoso.com/womenshoesale"
                     },
                     // 'Final Url' column header in the Bulk file
                     FinalUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://www.contoso.com/womenshoesale"
+                        "https://www.contoso.com/womenshoesale"
                     },
                     // 'Id' column header in the Bulk file
                     Id = null,
@@ -4830,12 +4830,12 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Mobile Final Url' column header in the Bulk file
                     FinalMobileUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://mobile.contoso.com/womenshoesale"
+                        "https://mobile.contoso.com/womenshoesale"
                     },
                                 // 'Final Url' column header in the Bulk file
                                 FinalUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://www.contoso.com/womenshoesale"
+                        "https://www.contoso.com/womenshoesale"
                     },
                     // 'Headline' column header in the Bulk file
                     Headline = "Short Headline Here",
@@ -4933,11 +4933,11 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Mobile Final Url' column header in the Bulk file
                     FinalMobileUrls = new[] {
                             // Each Url is delimited by a semicolon (;) in the Bulk file
-                            "http://mobile.contoso.com/womenshoesale"
+                            "https://mobile.contoso.com/womenshoesale"
                         },
                     // 'Final Url' column header in the Bulk file
                     FinalUrls = new[] {
-                            "http://www.contoso.com/womenshoesale"
+                            "https://www.contoso.com/womenshoesale"
                         },
                     // 'Headline' column header in the Bulk file
                     Headlines = new AssetLink[]
@@ -5031,12 +5031,12 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Mobile Final Url' column header in the Bulk file
                     FinalMobileUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://mobile.contoso.com/womenshoesale"
+                        "https://mobile.contoso.com/womenshoesale"
                     },
                     // 'Final Url' column header in the Bulk file
                     FinalUrls = new[] {
                         // Each Url is delimited by a semicolon (;) in the Bulk file
-                        "http://www.contoso.com/womenshoesale"
+                        "https://www.contoso.com/womenshoesale"
                     },
                     // 'Id' column header in the Bulk file
                     Id = null,

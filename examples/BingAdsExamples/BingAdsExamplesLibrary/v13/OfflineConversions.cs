@@ -80,7 +80,8 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("-----\nGetConversionGoalsByIds:");
                 var getConversionGoalsResponse = (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(
                         conversionGoalIds: goalIds,
-                        conversionGoalTypes: conversionGoalTypes));
+                        conversionGoalTypes: conversionGoalTypes,
+                        returnAdditionalFields: ConversionGoalAdditionalField.ViewThroughConversionWindowInMinutes));
                 var getConversionGoals = getConversionGoalsResponse.ConversionGoals;
                 conversionGoalErrors = getConversionGoalsResponse.PartialErrors.ToArray();
                 OutputStatusMessage("ConversionGoals:");

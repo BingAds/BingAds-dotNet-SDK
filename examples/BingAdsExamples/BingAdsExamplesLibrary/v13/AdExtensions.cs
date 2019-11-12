@@ -95,7 +95,7 @@ namespace BingAdsExamplesLibrary.V13
                         ActionType = ActionAdExtensionActionType.ActNow,
                         FinalUrls = new string[]
                         {
-                            "http://www.contoso.com/womenshoesale"
+                            "https://www.contoso.com/womenshoesale"
                         },
                         Language = "English",
                         Status = AdExtensionStatus.Active,
@@ -262,14 +262,14 @@ namespace BingAdsExamplesLibrary.V13
                         Source = "Review Source Name",
                         Text = "Review Text",
                         // The Url of the third-party review. This is not your business Url.
-                        Url = "http://review.contoso.com" 
+                        Url = "https://review.contoso.com" 
                     },
                     new SitelinkAdExtension {
                         Description1 = "Simple & Transparent.",
                         Description2 = "No Upfront Cost.",
                         DisplayText = "Women's Shoe Sale",
                         FinalUrls = new[] {
-                            "http://www.contoso.com/womenshoesale"
+                            "https://www.contoso.com/womenshoesale"
                         },
                     },
                     new StructuredSnippetAdExtension
