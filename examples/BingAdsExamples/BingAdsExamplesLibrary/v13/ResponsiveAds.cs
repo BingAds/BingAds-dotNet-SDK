@@ -124,7 +124,7 @@ namespace BingAdsExamplesLibrary.V13
                         BusinessName = "Contoso",
                         CallToAction = CallToAction.AddToCart,
                         FinalUrls = new[] {
-                            "http://www.contoso.com/womenshoesale"
+                            "https://www.contoso.com/womenshoesale"
                         },
                         Headline = "Fast & Easy Setup",
                         Images = new []

@@ -216,7 +216,8 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("-----\nGetConversionGoalsByIds:");
                 var getConversionGoalsResponse =  (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(
                         conversionGoalIds: conversionGoalIds,
-                        conversionGoalTypes: conversionGoalTypes));
+                        conversionGoalTypes: conversionGoalTypes,
+                        returnAdditionalFields: ConversionGoalAdditionalField.ViewThroughConversionWindowInMinutes));
                 var getConversionGoals = getConversionGoalsResponse.ConversionGoals;
                 conversionGoalErrors = getConversionGoalsResponse.PartialErrors.ToArray();
                 OutputStatusMessage("ConversionGoals:");
@@ -311,7 +312,8 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("-----\nGetConversionGoalsByIds:");
                 getConversionGoals = (await CampaignManagementExampleHelper.GetConversionGoalsByIdsAsync(
                         conversionGoalIds: conversionGoalIds, 
-                        conversionGoalTypes: conversionGoalTypes)).ConversionGoals;
+                        conversionGoalTypes: conversionGoalTypes,
+                        returnAdditionalFields: ConversionGoalAdditionalField.ViewThroughConversionWindowInMinutes)).ConversionGoals;
                 getConversionGoals = getConversionGoalsResponse.ConversionGoals;
                 conversionGoalErrors = getConversionGoalsResponse.PartialErrors.ToArray();
                 OutputStatusMessage("ConversionGoals:");

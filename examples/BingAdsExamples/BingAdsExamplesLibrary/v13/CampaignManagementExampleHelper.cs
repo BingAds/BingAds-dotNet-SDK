@@ -703,24 +703,28 @@ namespace BingAdsExamplesLibrary.V13
         }
         public async Task<GetConversionGoalsByIdsResponse> GetConversionGoalsByIdsAsync(
             IList<long> conversionGoalIds,
-            ConversionGoalType conversionGoalTypes)
+            ConversionGoalType conversionGoalTypes,
+            ConversionGoalAdditionalField? returnAdditionalFields)
         {
             var request = new GetConversionGoalsByIdsRequest
             {
                 ConversionGoalIds = conversionGoalIds,
-                ConversionGoalTypes = conversionGoalTypes
+                ConversionGoalTypes = conversionGoalTypes,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetConversionGoalsByIdsAsync(r), request));
         }
         public async Task<GetConversionGoalsByTagIdsResponse> GetConversionGoalsByTagIdsAsync(
             IList<long> tagIds,
-            ConversionGoalType conversionGoalTypes)
+            ConversionGoalType conversionGoalTypes,
+            ConversionGoalAdditionalField? returnAdditionalFields)
         {
             var request = new GetConversionGoalsByTagIdsRequest
             {
                 TagIds = tagIds,
-                ConversionGoalTypes = conversionGoalTypes
+                ConversionGoalTypes = conversionGoalTypes,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetConversionGoalsByTagIdsAsync(r), request));
@@ -2647,6 +2651,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("TagId: {0}", dataObject.TagId));
                 OutputStatusMessage(string.Format("TrackingStatus: {0}", dataObject.TrackingStatus));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
+                OutputStatusMessage(string.Format("ViewThroughConversionWindowInMinutes: {0}", dataObject.ViewThroughConversionWindowInMinutes));
                 var appinstallgoal = dataObject as AppInstallGoal;
                 if(null != appinstallgoal)
                 {
@@ -6434,6 +6439,24 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var valueSet in valueSets)
                 {
                     OutputConversionGoalType(valueSet);
+                }
+            }
+        }
+        public void OutputConversionGoalAdditionalField(ConversionGoalAdditionalField valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(ConversionGoalAdditionalField)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfConversionGoalAdditionalField(IList<ConversionGoalAdditionalField> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputConversionGoalAdditionalField(valueSet);
                 }
             }
         }
