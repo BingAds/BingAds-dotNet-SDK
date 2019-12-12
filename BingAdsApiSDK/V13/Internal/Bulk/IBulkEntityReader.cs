@@ -47,15 +47,22 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V13.Bulk;
+using Microsoft.BingAds.V13.Bulk.Entities;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
-    internal class BulkFileReaderFactory : IBulkFileReaderFactory
+    internal interface IBulkEntityReader : IDisposable
     {
-        public BulkFileReader CreateBulkFileReader(string bulkFilePath, ResultFileType bulkFileType, DownloadFileType bulkFileFormat)
-        {
-            return new BulkFileReader(bulkFilePath, bulkFileType, bulkFileFormat);
-        }
+        BulkEntity ReadNextEntity();
+
+        /// <summary>
+        /// Gets an enumerable list of bulk entities that were read from the file. 
+        /// </summary>
+        /// <returns><see cref="IEnumerable{T}"/> of type <see cref="BulkEntity"/>.</returns>
+        IEnumerable<BulkEntity> ReadEntities();
     }
 }

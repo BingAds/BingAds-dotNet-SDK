@@ -49,31 +49,19 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.V13.Bulk;
-using Microsoft.BingAds.V13.Bulk.Entities;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
-    internal class BulkFileReaderEnumerable : IEnumerable<BulkEntity>
+    /// <summary>
+    /// Reads a bulk object and also its related data (for example corresponding errors) from the stream
+    /// </summary>
+    internal class BulkCsvRowReader : BulkRecordReader
     {
-        private readonly BulkFileReader _bulkFileReader;
-
-        public BulkFileReaderEnumerable(BulkFileReader bulkFileReader)
+        public BulkCsvRowReader(IList<string> csvRows) : base(new BulkObjectReader(csvRows))
         {
-            _bulkFileReader = bulkFileReader;
-        }
-
-        public IEnumerator<BulkEntity> GetEnumerator()
-        {
-            return new BulkFileReaderIEnumerator(_bulkFileReader);
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return new BulkFileReaderIEnumerator(_bulkFileReader);
         }
     }
 }

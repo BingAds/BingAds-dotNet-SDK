@@ -73,7 +73,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
             rowWriter.WriteObjectRow(this, excludeReadonlyData);
         }
 
-        internal override void ReadRelatedDataFromStream(IBulkStreamReader reader)
+        internal override void ReadRelatedData(IBulkRecordReader reader)
         {
             // If this is a delete all row, just skip any error rows after this delete row
             if (IsDeleteRow)

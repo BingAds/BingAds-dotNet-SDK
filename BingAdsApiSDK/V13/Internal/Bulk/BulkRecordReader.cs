@@ -47,80 +47,114 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-
-
 using System;
-using System.Collections.Generic;
 using System.IO;
+using Microsoft.BingAds.Internal;
+using Microsoft.BingAds.V13.Bulk;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
     /// <summary>
-    /// Provides a method to read one row from bulk file and return the corresponding <see cref="BulkObject"/>
+    /// Reads a bulk object and also its related data (for example corresponding errors) from the stream
     /// </summary>
-    internal class BulkObjectReader : IBulkObjectReader
+    internal abstract class BulkRecordReader : IBulkRecordReader
     {
-        private ICsvReader _csvReader;
+        protected IBulkObjectReader _bulkObjectReader;
 
-        private readonly IBulkObjectFactory _bulkObjectFactory;        
+        protected BulkObject _nextObject;
 
-        public BulkObjectReader(string fileName, char delimiter)            
+        protected BulkRecordReader(IBulkObjectReader reader)
         {
-            _csvReader = new CsvReader(fileName, delimiter);
-
-            _bulkObjectFactory = new BulkObjectFactory();
-        }
-
-        public BulkObjectReader(Stream stream, char delimiter)
-        {
-            _csvReader = new CsvReader(stream, delimiter);
-
-            _bulkObjectFactory = new BulkObjectFactory();
-        }
-
-        public BulkObjectReader(IList<string> csvRows)
-        {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            foreach (var row in csvRows)
-            {
-                writer.WriteLine(row);
-            }
-            writer.Flush();
-            stream.Position = 0;
-
-            _csvReader = new CsvReader(stream, ',');
-            _bulkObjectFactory = new BulkObjectFactory();
+            _bulkObjectReader = reader;
         }
 
         /// <summary>
-        /// For unit tests
+        /// Returns the next object from the file
         /// </summary>
-        public BulkObjectReader(ICsvReader csvReader, IBulkObjectFactory bulkObjectFactory)
+        /// <returns>Next object</returns>
+        public BulkObject Read()
         {
-            _csvReader = csvReader;
+            BulkObject result;
 
-            _bulkObjectFactory = bulkObjectFactory;
+            TryRead(_ => true, out result);
+
+            return result;
         }
 
         /// <summary>
-        /// Reads the next csv row values, creates a new instance of the object and populates it with the row values
+        /// Reads the object only if it has a certain type
         /// </summary>
-        /// <returns>Next <see cref="BulkObject"/></returns>
-        public BulkObject ReadNextBulkObject()
+        /// <typeparam name="T">Type of the object</typeparam>
+        /// <param name="result">The next object from the file if the object has the same type as requested, null otherwise</param>
+        /// <returns>True is object has requested type, false otherwise</returns>
+        public bool TryRead<T>(out T result)
+            where T : BulkObject
         {
-            var rowValues = _csvReader.ReadNextRow();
+            return TryRead(_ => true, out result);
+        }
 
-            if (rowValues == null)
+        /// <summary>
+        /// Reads the object only if it matches a predicate
+        /// </summary>
+        /// <typeparam name="T">Type of the object</typeparam>
+        /// <param name="predicate">Predicate that needs to be matched</param>
+        /// <param name="result">The next object from the file if the object matches the predicate, null otherwise</param>
+        /// <returns>True is object matches the predicate, false otherwise</returns>
+        public bool TryRead<T>(Predicate<T> predicate, out T result)
+            where T : BulkObject
+        {
+            var peeked = Peek();
+
+            var instanceOfT = peeked as T;
+
+            if (instanceOfT != null && predicate(instanceOfT))
             {
-                return null;
+                _nextObject = null;
+
+                instanceOfT.ReadRelatedData(this);
+
+                result = instanceOfT;
+
+                return true;
             }
 
-            var bulkObject = _bulkObjectFactory.CreateBulkObject(rowValues);
+            result = null;
 
-            bulkObject.ReadFromRowValues(rowValues);
+            return false;
+        }
 
-            return bulkObject;
+        private bool _passedFirstRow;
+
+        private BulkObject Peek()
+        {
+            if (!_passedFirstRow)
+            {
+                var firstRowObject = _bulkObjectReader.ReadNextBulkObject();
+
+                var formatVersion = firstRowObject as FormatVersion;
+
+                if (formatVersion != null)
+                {
+                    if (formatVersion.Value != "6" && formatVersion.Value != "6.0")
+                    {
+                        throw new InvalidOperationException(ErrorMessages.FormatVersionIsNotSupported +
+                                                            formatVersion.Value);
+                    }
+                }
+                else
+                {
+                    _nextObject = firstRowObject;
+                }
+
+                _passedFirstRow = true;
+            }
+
+            if (_nextObject != null)
+            {
+                return _nextObject;
+            }
+
+            return _nextObject = _bulkObjectReader.ReadNextBulkObject();
         }
 
         /// <summary>
@@ -143,11 +177,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         {
             if (disposing)
             {
-                if (_csvReader != null)
+                if (_bulkObjectReader != null)
                 {
-                    _csvReader.Dispose();
+                    _bulkObjectReader.Dispose();
 
-                    _csvReader = null;
+                    _bulkObjectReader = null;
                 }
             }
         }

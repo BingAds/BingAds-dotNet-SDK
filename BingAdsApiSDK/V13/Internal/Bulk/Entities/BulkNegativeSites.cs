@@ -149,7 +149,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
         /// </summary>
         protected abstract void ReconstructApiObjects();
 
-        internal override void ReadRelatedDataFromStream(IBulkStreamReader reader)
+        internal override void ReadRelatedData(IBulkRecordReader reader)
         {
             var hasMoreRows = true;
 

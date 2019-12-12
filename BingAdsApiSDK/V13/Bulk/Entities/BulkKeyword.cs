@@ -101,7 +101,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// </summary>
         public BidSuggestionData BidSuggestions { get; private set; }        
 
-        internal override void ReadAdditionalData(IBulkStreamReader reader)
+        internal override void ReadAdditionalData(IBulkRecordReader reader)
         {
             BulkKeywordBidSuggestion nextBidSuggestion;
 

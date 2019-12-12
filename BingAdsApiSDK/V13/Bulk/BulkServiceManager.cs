@@ -55,6 +55,7 @@ using System.Net.Http.Headers;
 using System.ServiceModel;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.Internal.Utilities;
 using Microsoft.BingAds.V13.Bulk.Entities;
@@ -83,13 +84,13 @@ namespace Microsoft.BingAds.V13.Bulk
 
         internal IFileSystem FileSystem { get; set; }
 
-        internal IBulkFileReaderFactory BulkFileReaderFactory { get; set; }
-
         internal const string FormatVersion = "6.0";
 
         internal const int DefaultStatusPollIntervalInMilliseconds = 5000;
 
         internal const int DefaultHttpTimeoutInMillseconds = 100000;
+
+        public static int SyncThreshold { get; set; } = 1000;
 
         private ApiEnvironment? _apiEnvironment;
 
@@ -141,8 +142,6 @@ namespace Microsoft.BingAds.V13.Bulk
             ZipExtractor = new ZipExtractor();
 
             FileSystem = new FileSystem();
-
-            BulkFileReaderFactory = new BulkFileReaderFactory();
 
             StatusPollIntervalInMilliseconds = DefaultStatusPollIntervalInMilliseconds;
 
@@ -250,9 +249,139 @@ namespace Microsoft.BingAds.V13.Bulk
 
             ValidateUserData();
 
-            var fileUploadParameters = CreateFileUploadParameters(parameters);
+            if (NeedToTryUploadEntityRecordsSyncFirst(parameters))
+            {
+                return UploadEntityRecordsImpl(parameters, progress, cancellationToken);
+            }
+            else
+            {
+                var fileUploadParameters = CreateFileUploadParameters(parameters);
 
-            return UploadEntitiesAsyncImpl(progress, cancellationToken, fileUploadParameters);
+                return UploadEntitiesAsyncImpl(progress, cancellationToken, fileUploadParameters);
+            }
+        }
+
+        private async Task<IEnumerable<BulkEntity>> UploadEntityRecordsImpl(EntityUploadParameters parameters, IProgress<BulkOperationProgressInfo> progress, CancellationToken cancellationToken)
+        {
+            var request = new UploadEntityRecordsRequest()
+            {
+                EntityRecords = WriteUploadEntitiesAsPayload(parameters.Entities),
+                ResponseMode = ResponseMode.ErrorsAndResults
+            };
+
+            try
+            {
+                using (var bulkService = new ServiceClient<IBulkService>(_authorizationData, _apiEnvironment))
+                {
+                    var uploadEntityRecordsResponse = await bulkService.CallAsync((s, r) => s.UploadEntityRecordsAsync(r), request).ConfigureAwait(false);
+                    if (FallBacktoAsync(uploadEntityRecordsResponse))
+                    {
+                        using (var operation = new BulkUploadOperation(uploadEntityRecordsResponse.RequestId, _authorizationData, uploadEntityRecordsResponse.TrackingId, _apiEnvironment)
+                        {
+                            StatusPollIntervalInMilliseconds = StatusPollIntervalInMilliseconds,
+                            DownloadHttpTimeout = DownloadHttpTimeout
+                        })
+                        {
+                            await operation.TrackAsync(progress, cancellationToken).ConfigureAwait(false);
+                            var resultFile = await DownloadBulkFile(parameters.ResultFileDirectory, 
+                                parameters.ResultFileName, 
+                                parameters.OverwriteResultFile, 
+                                operation).ConfigureAwait(false);
+
+
+                            return new BulkEntityReaderEnumerable(BulkEntityReaderFactory.CreateBulkFileReader(resultFile, ResultFileType.Upload, DownloadFileType.Csv));
+                        }
+
+                    }
+                    return new BulkEntityReaderEnumerable(BulkEntityReaderFactory.CreateBulkRowsReader(uploadEntityRecordsResponse.EntityRecords));
+                }
+            }
+            catch (FaultException ex)
+            {
+                if (NeedToRetryWithBulkUpload(ex))
+                {
+                    var fileUploadParameters = CreateFileUploadParameters(parameters);
+
+                    return await UploadEntitiesAsyncImpl(progress, cancellationToken, fileUploadParameters);
+                }
+                throw;
+            }
+
+
+        }
+
+        private bool FallBacktoAsync(UploadEntityRecordsResponse uploadEntityRecordsResponse)
+        {
+            return uploadEntityRecordsResponse != null
+                && !string.IsNullOrEmpty(uploadEntityRecordsResponse.RequestId)
+                && uploadEntityRecordsResponse.RequestStatus == "InProgress";
+        }
+
+        private bool NeedToRetryWithBulkUpload(FaultException exception)
+        {
+         
+            var fault = exception.CreateMessageFault();
+
+
+            if (!fault.HasDetail)
+            {
+                return false;
+            }
+
+            var detail = fault.GetDetail<ApiFaultDetail>();
+            if (detail == null) return false;
+
+            return detail.OperationErrors.Any(e => "OperationNotSupported".Equals(e.ErrorCode)); // API return this error code when it does not support UploadEntityRecords.
+        }
+
+        private string[] WriteUploadEntitiesAsPayload(IEnumerable<BulkEntity> entities)
+        {
+            ICsvTextFormatter formatter = new CsvTextFormatter(DownloadFileType.Csv);
+            List<string> entitiesPayload = new List<string>();
+            WriteHeader(entitiesPayload, formatter);
+            WriteFormat(entitiesPayload, formatter);
+            foreach (var entity in entities)
+            {
+                using (var stream = new MemoryStream())
+                {
+                    stream.Position = 0;
+                    using (var writer = new BulkObjectWriter(stream, DownloadFileType.Csv))
+                    {
+                        entity.WriteToStream(writer, false);
+                        stream.Seek(0, SeekOrigin.Begin);
+                        using (var reader = new StreamReader(stream))
+                        {
+                            entitiesPayload.Add(reader.ReadToEnd());
+                        }
+                    }
+                }
+            }
+            return entitiesPayload.ToArray();
+        }
+
+        private void WriteFormat(List<string> entitiesPayload, ICsvTextFormatter formatter)
+        {
+            var versionRow = new RowValues();
+
+            versionRow[StringTable.Type] = StringTable.SemanticVersion;
+            versionRow[StringTable.Name] = FormatVersion;
+
+            entitiesPayload.Add(formatter.FormatCsvRow(versionRow.Columns));
+        }
+
+        private void WriteHeader(List<string> entitiesPayload, ICsvTextFormatter formatter)
+        {
+            entitiesPayload.Add(formatter.GetHeaders());
+        }
+
+        private bool NeedToTryUploadEntityRecordsSyncFirst(EntityUploadParameters parameters)
+        {
+            int count = 0;
+            foreach(var entity in parameters.Entities)
+            {
+                count++;
+            }
+            return count <= SyncThreshold;
         }
 
         /// <summary>
@@ -336,7 +465,7 @@ namespace Microsoft.BingAds.V13.Bulk
 
             var resultFileType = parameters.LastSyncTimeInUTC == null ? ResultFileType.FullDownload : ResultFileType.PartialDownload;
 
-            return new BulkFileReaderEnumerable(BulkFileReaderFactory.CreateBulkFileReader(resultFile, resultFileType, parameters.FileType));
+            return new BulkEntityReaderEnumerable(BulkEntityReaderFactory.CreateBulkFileReader(resultFile, resultFileType, parameters.FileType));
         }
 
         private async Task<string> DownloadFileAsyncImpl(DownloadParameters parameters, IProgress<BulkOperationProgressInfo> progress, CancellationToken cancellationToken)
@@ -353,7 +482,7 @@ namespace Microsoft.BingAds.V13.Bulk
         {
             var resultFile = await UploadFileAsyncImpl(fileUploadParameters, progress, cancellationToken).ConfigureAwait(false);
 
-            return new BulkFileReaderEnumerable(BulkFileReaderFactory.CreateBulkFileReader(resultFile, ResultFileType.Upload, DownloadFileType.Csv));
+            return new BulkEntityReaderEnumerable(BulkEntityReaderFactory.CreateBulkFileReader(resultFile, ResultFileType.Upload, DownloadFileType.Csv));
         }
         
         private async Task<string> UploadFileAsyncImpl(FileUploadParameters parameters, IProgress<BulkOperationProgressInfo> progress, CancellationToken cancellationToken)
@@ -603,5 +732,6 @@ namespace Microsoft.BingAds.V13.Bulk
 
             return fileUploadParameters;
         }
+
     }
 }

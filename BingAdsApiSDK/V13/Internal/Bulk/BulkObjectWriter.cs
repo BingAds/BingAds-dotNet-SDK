@@ -101,6 +101,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             values[StringTable.Type] = _bulkObjectFactory.GetBulkRowType(bulkObject);
 
             _streamWriter.WriteLine(_formatter.FormatCsvRow(values.Columns));
+            _streamWriter.Flush();
         }
 
         public void WriteObjectRow(BulkObject bulkObject)

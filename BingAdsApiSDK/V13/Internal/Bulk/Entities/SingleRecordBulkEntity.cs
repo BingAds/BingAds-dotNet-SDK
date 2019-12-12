@@ -137,7 +137,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
         /// Reads additional data for entity (if any) and errors
         /// </summary>
         /// <param name="reader">Reader object, allowing to read consecutive bulk rows</param>
-        internal sealed override void ReadRelatedDataFromStream(IBulkStreamReader reader)
+        internal sealed override void ReadRelatedData(IBulkRecordReader reader)
         {
             ReadAdditionalData(reader);
 
@@ -178,7 +178,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
         /// Reads additional data for entity if any.
         /// </summary>
         /// <param name="reader">Reader object, allowing to read consecutive bulk rows</param>
-        internal virtual void ReadAdditionalData(IBulkStreamReader reader) { }
+        internal virtual void ReadAdditionalData(IBulkRecordReader reader) { }
 
         internal virtual void WriteAdditionalData(IBulkObjectWriter writer) { }
 
@@ -189,7 +189,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
         /// <remarks>
         /// No checks are made for the error type. It's assumed that an entity row can only be followed by errors of the same type
         /// </remarks>
-        private void ReadErrors(IBulkStreamReader reader)
+        private void ReadErrors(IBulkRecordReader reader)
         {
             var errors = new List<BulkError>();
 

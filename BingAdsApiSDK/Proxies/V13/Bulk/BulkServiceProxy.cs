@@ -1329,7 +1329,7 @@ namespace Microsoft.BingAds.V13.Bulk
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/operationerror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
-    /// <para>Used by <see cref="BulkServiceClient.GetBulkDownloadStatus">GetBulkDownloadStatus</see> and <see cref="BulkServiceClient.GetBulkUploadStatus">GetBulkUploadStatus</see> service operations.</para>
+    /// <para>Used by <see cref="BulkServiceClient.GetBulkDownloadStatus">GetBulkDownloadStatus</see>, <see cref="BulkServiceClient.GetBulkUploadStatus">GetBulkUploadStatus</see> and <see cref="BulkServiceClient.UploadEntityRecords">UploadEntityRecords</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1678,7 +1678,7 @@ namespace Microsoft.BingAds.V13.Bulk
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/responsemode?view=bingads-13">ResponseMode Value Set</see> https://docs.microsoft.com/en-us/advertising/bulk-service/responsemode?view=bingads-13 for details.
-    /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadUrl">GetBulkUploadUrl</see> service operation.</para>
+    /// <para>Used by <see cref="BulkServiceClient.GetBulkUploadUrl">GetBulkUploadUrl</see> and <see cref="BulkServiceClient.UploadEntityRecords">UploadEntityRecords</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ResponseMode", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -1862,6 +1862,18 @@ namespace Microsoft.BingAds.V13.Bulk
         [System.ServiceModel.OperationContractAttribute(Action="GetBulkUploadStatus", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/IBulkService/GetBulkUploadSt" +
             "atusResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.Bulk.GetBulkUploadStatusResponse> GetBulkUploadStatusAsync(Microsoft.BingAds.V13.Bulk.GetBulkUploadStatusRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="UploadEntityRecords", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/IBulkService/UploadEntityRec" +
+            "ordsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.Bulk.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/IBulkService/UploadEntityRec" +
+            "ordsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.Bulk.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/IBulkService/UploadEntityRec" +
+            "ordsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.Bulk.UploadEntityRecordsResponse UploadEntityRecords(Microsoft.BingAds.V13.Bulk.UploadEntityRecordsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="UploadEntityRecords", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/IBulkService/UploadEntityRec" +
+            "ordsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.Bulk.UploadEntityRecordsResponse> UploadEntityRecordsAsync(Microsoft.BingAds.V13.Bulk.UploadEntityRecordsRequest request);
     }
     
     /// <summary>
@@ -2620,6 +2632,96 @@ namespace Microsoft.BingAds.V13.Bulk
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UploadEntityRecordsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UploadEntityRecordsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<string> EntityRecords;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public Microsoft.BingAds.V13.Bulk.ResponseMode ResponseMode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public long AccountId;
+        
+        public UploadEntityRecordsRequest()
+        {
+        }
+        
+        public UploadEntityRecordsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> EntityRecords, Microsoft.BingAds.V13.Bulk.ResponseMode ResponseMode, long AccountId)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.EntityRecords = EntityRecords;
+            this.ResponseMode = ResponseMode;
+            this.AccountId = AccountId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UploadEntityRecordsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UploadEntityRecordsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<string> EntityRecords;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Bulk.OperationError> Errors;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public string RequestId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public string RequestStatus;
+        
+        public UploadEntityRecordsResponse()
+        {
+        }
+        
+        public UploadEntityRecordsResponse(string TrackingId, System.Collections.Generic.IList<string> EntityRecords, System.Collections.Generic.IList<Microsoft.BingAds.V13.Bulk.OperationError> Errors, string RequestId, string RequestStatus)
+        {
+            this.TrackingId = TrackingId;
+            this.EntityRecords = EntityRecords;
+            this.Errors = Errors;
+            this.RequestId = RequestId;
+            this.RequestStatus = RequestStatus;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IBulkServiceChannel : Microsoft.BingAds.V13.Bulk.IBulkService, System.ServiceModel.IClientChannel
     {
@@ -2802,6 +2904,16 @@ namespace Microsoft.BingAds.V13.Bulk
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.Bulk.GetBulkUploadStatusResponse> GetBulkUploadStatusAsync(Microsoft.BingAds.V13.Bulk.GetBulkUploadStatusRequest request)
         {
             return base.Channel.GetBulkUploadStatusAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.Bulk.UploadEntityRecordsResponse UploadEntityRecords(Microsoft.BingAds.V13.Bulk.UploadEntityRecordsRequest request)
+        {
+            return base.Channel.UploadEntityRecords(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.Bulk.UploadEntityRecordsResponse> UploadEntityRecordsAsync(Microsoft.BingAds.V13.Bulk.UploadEntityRecordsRequest request)
+        {
+            return base.Channel.UploadEntityRecordsAsync(request);
         }
     }
 }

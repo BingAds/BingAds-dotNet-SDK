@@ -95,7 +95,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         /// MultilineBulkEntity: reads child entities.
         /// </example>
         /// <param name="reader"></param>
-        internal virtual void ReadRelatedDataFromStream(IBulkStreamReader reader) { }
+        internal virtual void ReadRelatedData(IBulkRecordReader reader) { }
 
         /// <summary>
         /// Writes object data to consecutive rows.        

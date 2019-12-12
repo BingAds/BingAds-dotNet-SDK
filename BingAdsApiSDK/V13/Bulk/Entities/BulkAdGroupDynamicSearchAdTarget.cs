@@ -230,6 +230,28 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     }
                 }
             ),
+            new SimpleBulkMapping<BulkAdGroupDynamicSearchAdTarget>(StringTable.FinalUrlSuffix,
+                c =>
+                {
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
+
+                    if (criterion != null)
+                    {
+                        return criterion.FinalUrlSuffix.ToOptionalBulkString(criterion.Id);
+                    }
+
+                    return null;
+                },
+                (v, c) =>
+                {
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
+
+                    if (criterion != null)
+                    {
+                        criterion.FinalUrlSuffix = v.GetValueOrEmptyString();
+                    }
+                }
+            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)

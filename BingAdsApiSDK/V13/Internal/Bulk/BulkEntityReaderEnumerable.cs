@@ -48,17 +48,32 @@
 //=====================================================================================================================================================
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.BingAds.V13.Bulk;
+using Microsoft.BingAds.V13.Bulk.Entities;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
-    internal interface IBulkStreamReader : IDisposable
-    {        
-        BulkObject Read();
+    internal class BulkEntityReaderEnumerable : IEnumerable<BulkEntity>
+    {
+        private readonly IBulkEntityReader _bulkEntityReader;
 
-        bool TryRead<T>(out T result)
-            where T: BulkObject;
+        public BulkEntityReaderEnumerable(IBulkEntityReader bulkEntityReader)
+        {
+            _bulkEntityReader = bulkEntityReader;
+        }
 
-        bool TryRead<T>(Predicate<T> predicate, out T result)
-            where T : BulkObject;
+        public IEnumerator<BulkEntity> GetEnumerator()
+        {
+            return new BulkEntityReaderIEnumerator(_bulkEntityReader);
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return new BulkEntityReaderIEnumerator(_bulkEntityReader);
+        }
     }
 }

@@ -47,12 +47,67 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.BingAds.V13.Bulk;
+using Microsoft.BingAds.V13.Bulk.Entities;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
-    internal interface IBulkFileReaderFactory
+    internal class BulkEntityReaderIEnumerator : IEnumerator<BulkEntity>
     {
-        BulkFileReader CreateBulkFileReader(string bulkFilePath, ResultFileType bulkFileType, DownloadFileType bulkFileFormat);
+        private IBulkEntityReader _bulkEntityReader;
+
+        private readonly IEnumerator<BulkEntity> _readEntities; 
+
+        public BulkEntityReaderIEnumerator(IBulkEntityReader bulkEntityReader)
+        {
+            _bulkEntityReader = bulkEntityReader;
+
+            _readEntities = _bulkEntityReader.ReadEntities().GetEnumerator();
+        }
+
+        public BulkEntity Current
+        {
+            get { return _readEntities.Current; }
+        }
+
+        object System.Collections.IEnumerator.Current
+        {
+            get { return _readEntities.Current; }
+        }
+
+        public bool MoveNext()
+        {
+            return _readEntities.MoveNext();
+        }
+
+        public void Reset()
+        {
+            _readEntities.Reset();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_bulkEntityReader != null)
+                {
+                    _bulkEntityReader.Dispose();
+
+                    _bulkEntityReader = null;
+                }
+            }
+        }
     }
 }
