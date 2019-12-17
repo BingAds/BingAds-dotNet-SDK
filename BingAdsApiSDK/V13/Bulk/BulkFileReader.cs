@@ -61,7 +61,7 @@ namespace Microsoft.BingAds.V13.Bulk
     /// Provides a method to read bulk entities from a bulk file and make them accessible as an enumerable list.
     /// For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Bulk File Schema</see>.
     /// </summary>
-    internal class BulkFileReader : BulkEntityReader
+    public class BulkFileReader : BulkEntityReader
     {
         private readonly bool _isForFullDownload;
 
@@ -94,7 +94,7 @@ namespace Microsoft.BingAds.V13.Bulk
             _isForFullDownload = resultFileType == ResultFileType.FullDownload;
         }
 
-        public BulkFileReader(BulkStreamReader bulkStreamReader, bool isForFullDownload) : base(bulkStreamReader)
+        public BulkFileReader(IBulkRecordReader bulkRecordReader, bool isForFullDownload) : base(bulkRecordReader)
         {
             this._isForFullDownload = isForFullDownload;
         }
